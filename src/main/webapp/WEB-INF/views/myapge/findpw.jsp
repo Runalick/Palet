@@ -9,8 +9,18 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-	<form>
-	<input type="text" name="email" id="email">
-	</form>
+	<input type="text" name="email" id="email"><button type="button" id="send">메일발송</button>
+	<input type="text" id="cord" disabled="disabled" style="display: none">
+	<script type="text/javascript">
+	$("#send").on("click",function(){
+		$.ajax({
+			url:"/mail/sendmail",
+			data:{"email":$("#eamil").val()}
+		}).done(resp){
+			console.log(resp);
+			$("#cord").val(resp);
+		}
+	})
+	</script>
 </body>
 </html>
