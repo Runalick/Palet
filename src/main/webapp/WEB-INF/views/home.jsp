@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-호
+하이
 </body>
 </html>
