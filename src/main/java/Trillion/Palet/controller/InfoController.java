@@ -29,7 +29,7 @@ public class InfoController {
 	public String userEmail(String userEmail,String title ,String contents) {
 		
 		iserv.userEmail(userEmail, title, contents);
-		return "/info/success";
+		return "redirect:email";
 	}
 	
 	@RequestMapping("faqdel")
