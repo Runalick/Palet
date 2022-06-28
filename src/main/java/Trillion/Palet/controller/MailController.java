@@ -49,6 +49,17 @@ public class MailController {
 		return "/mypage/findpw";
 	}
 	
+	@ResponseBody
+	@RequestMapping(value="joinMail",produces = "text/html;charset=utf8")
+	public String joinMail(String email) throws Exception{
+		
+		MailDTO dto = new MailDTO();
+		dto.setReceiver(email); // 메일주소 설정
+		mser.joinMail(dto); // 서비스에 들려서 내용 받기
+		String random = g.toJson(dto.getRandomString());
+		return random;
+	}
+	
 	@ExceptionHandler
 	public String exceptionHandler(Exception e) {
 		e.printStackTrace();

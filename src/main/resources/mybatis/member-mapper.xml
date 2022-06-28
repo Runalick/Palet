@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="Member">
 	<insert id="join">
-		insert into board_member values(#{id},#{pw},#{name},#{phone},#{email},#{zipcode},#{address1},#{address2}, sysdate) 
+		insert into member (email, pw, name) values(#{email},#{pw},#{name}) 
 	</insert>
 	
-	<select id="isIdExist" resultType="boolean">
-		select count(*) from board_member where id=#{id}	
+	<select id="isEmailExist" resultType="boolean">
+		select count(*) from member where email=#{email}	
 	</select>
 	
 	<select id="login" resultType="boolean">
-		select count(*) from board_member where id=#{id} and pw=#{pw}
+		select count(*) from member where email=#{email} and pw=#{pw}
 	</select>
-	
-	<delete id="deleteById">
-		delete from board_member where id = #{id}
-	</delete>
 
-	<select id="selectById" resultType="kh.spring.dto.Board_memberDTO">
-		select * from board_member where id=#{id}
-	</select>
-	
-	<update id="update">
-		update board_member set phone=#{phone}, email=#{email}, zipcode=#{zipcode}, address1=#{address1}, address2=#{address2} where id=#{id}
-	</update>
 </mapper>
