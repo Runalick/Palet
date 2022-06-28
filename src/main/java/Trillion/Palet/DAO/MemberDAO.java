@@ -18,8 +18,8 @@ public class MemberDAO {
 		return mybatis.insert("Member.join", dto);
 	}
 	
-	public boolean isIdExist(String id) {
-		return mybatis.selectOne("Member.isIdExist", id);
+	public boolean isEmailExist(String email) {
+		return mybatis.selectOne("Member.isEmailExist", email);
 	}
 	
 	public boolean login(String id, String pw) {	
