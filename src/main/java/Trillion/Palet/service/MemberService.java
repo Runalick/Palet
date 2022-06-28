@@ -44,4 +44,17 @@ public class MemberService {
 	public int memberout(MemberDTO dto) {
 		return dao.memberout(dto);
 	}
+	public int modipw(String id,String pw) {
+		pw= EncryptUtils.SHA512(pw);
+		return dao.modipw(id,pw);
+	}
+	public int modiname(String id,String name) {
+		return dao.modiname(id,name);
+	}
+	public int modiphone(String id,String phone) {
+		return dao.modiphone(id,phone);
+	}
+	public int modiaddress(String id,String postcode,String address1,String address2) {
+		return dao.modiaddress(id,postcode,address1,address2);
+	}
 }
