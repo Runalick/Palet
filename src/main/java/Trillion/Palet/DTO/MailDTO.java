@@ -5,12 +5,15 @@ public class MailDTO {
 	private String title;
 	private String content;
 	private String randomString;
-	public MailDTO(String receiver, String title, String content, String randomString) {
+    private String from; // 보내는 사람
+    
+	public MailDTO(String receiver, String title, String content, String randomString, String from) {
 		super();
 		this.receiver = receiver;
 		this.title = title;
 		this.content = content;
 		this.randomString = randomString;
+		this.from = from;
 	}
 	public MailDTO() {
 		super();
@@ -38,6 +41,12 @@ public class MailDTO {
 	}
 	public void setRandomString(String randomString) {
 		this.randomString = randomString;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
 	}
 	
 	

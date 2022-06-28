@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-조아
+ <a href="/mail/test">메일테스트</a>
 </body>
 </html>

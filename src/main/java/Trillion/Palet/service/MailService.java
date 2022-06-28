@@ -23,6 +23,7 @@ public class MailService {
 		dto.setContent("<h2>안녕하세요. 관리자입니다.</h2>"
 				+ "회원가입 인증 번호는 다음과 같습니다.<br>[ "
 				+dto.getRandomString()+ " ]입니다.<br>");
+		dto.setFrom("woohyoung26@gmail.com");
 		return dao.Sendmail(dto);
 	}
 }
