@@ -349,7 +349,7 @@ color: #FFFFFF;
             font-family: 'Spoqa Han Sans Neo';
                 font-style: normal;
             font-weight: 500;
-             font-size: 1.23rem;
+             font-size: 1.22rem;
             line-height: 1.5rem;
                         /* identical to box height */
 
@@ -729,7 +729,7 @@ color: #FFFFFF;
                     <div class="col-12 body1" style="text-align:center; margin-top: 0.25rem; color:#161C24;">
                         팔레트와 함께 다양한 색을 만들어 보세요.
                     </div>
-                    <div class="col-12 body1" style="text-align:center; margin-top: 3.75rem; color:#161C24;">
+                    <div class="col-12 body1" style="text-align:center; margin-bottom : 12.063rem; margin-top: 3.75rem; color:#161C24;">
                         <button class="btn5" >팔레트와 새로운 전시 기획하기</button>
                    </div>
                 </div>
