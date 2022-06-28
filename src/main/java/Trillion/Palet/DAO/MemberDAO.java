@@ -22,9 +22,9 @@ public class MemberDAO {
 		return mybatis.selectOne("Member.isEmailExist", email);
 	}
 	
-	public boolean login(String id, String pw) {	
+	public boolean login(String email, String pw) {	
 		Map<String, String> param = new HashMap<String, String>();
-		param.put("id", id);
+		param.put("email", email);
 		param.put("pw", pw);
 		return mybatis.selectOne("Member.login", param);
 	}
