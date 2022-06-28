@@ -628,54 +628,32 @@ color: #FFFFFF;
         <div class="row" id="mainphoto2" style="margin-top: 12.5rem;">
             <div class="container">
                 <div class="row" id="row1">
-                    <div class="col-12 d-block" id=word1>
-                        <!--모든 화면에서 보임 -->
-                    </div>
+                  
 
+                    <div class="col-12 h2_1 d-block d-sm-none" style="text-align: center; margin-top: 10rem;">곧 시작합니다</div>
+                    <div class="col-12 h1 d-block d-sm-none" style="text-align: center; margin-top: 2.5rem;">과천프로젝트 2022:</div><br>
+                    <div class="col-12 h1 d-block d-sm-none" style="text-align: center;  ">옥상정원_시간의 정원</div>
+                    
+                   
+                    <div class="col-12 h2_1 d-none d-sm-block" style="margin-top: 10rem;">곧 시작합니다</div>
+                    <div class="col-12 h1 d-none d-sm-block" style="margin-top: 2.5rem;">과천프로젝트 2022:</div><br>
+                    <div class="col-12 h1 d-none d-sm-block" >옥상정원_시간의 정원</div>
 
-                    <div class="col-12 d-block" id=word1>
-                    </div>
-                    <div class="col-12  d-block" id=word1>
-                    </div>
-                    <div class="col-12 d-block" id=word1>
-                    </div>
-                    <div class="col-12 d-block" id=word1>
-                        <!--xl에서 보임 -->
-                    </div>
-
-
-                    <!-- <div class="col-12" id=word1>
-                    </div> -->
-                    <div class="col-12 h2_1 d-block d-sm-none" style="text-align: center;">곧 시작합니다</div>
-                    <div class="col-12" id=word1></div>
-                    <div class="col-12 h1 d-block d-sm-none" style="text-align: center;">과천프로젝트 2022:</div><br>
-                    <div class="col-12 h1 d-block d-sm-none" style="text-align: center;">옥상정원_시간의 정원</div>
-
-                    <div class="col-12 h2_1 d-none d-sm-block">곧 시작합니다</div>
-                    <div class="col-12" id=word1></div>
-                    <div class="col-12 h1 d-none d-sm-block">과천프로젝트 2022:</div><br>
-                    <div class="col-12 h1 d-none d-sm-block">옥상정원_시간의 정원</div>
-
-                    <div class="col-12" id=word1></div>
+                    
 
                     <div class=col-12>
-                        <div class="col-12 body1 d-block d-sm-none" style="text-align: center;"> 2022-06-29~2023-06-25
+                        <div class="col-12 body1 d-block d-sm-none" style="text-align: center; margin-top: 2.5rem;"> 2022-06-29~2023-06-25
                         </div>
-                        <div class="col-12 body1 d-none d-sm-block"> 2022-06-29~2023-06-25</div>
+                        <div class="col-12 body1 d-none d-sm-block" style="margin-top: 2.5rem;"> 2022-06-29~2023-06-25</div>
                     </div>
-                    <div class="col-12" id=word1>
-                    </div>
+                    
 
-                    <div class="col-12" id=word1>
-                    </div>
-
-
-                    <div class="col-12  d-none d-sm-block">
+                    <div class="col-12  d-none d-sm-block" style = "margin-top: 5rem;">
                         <button class="btn1">자세히 보기</button>
                     </div>
 
 
-                    <div class="col-12 d-block d-sm-none" style="margin: auto; text-align: center;">
+                    <div class="col-12 d-block d-sm-none" style="margin-top: 5rem;  text-align: center;">
 
                         <button class="btn1" style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
                             보기</button>
@@ -683,8 +661,6 @@ color: #FFFFFF;
                     </div>
 
 
-
-                    <div class=col-12 id=word4></div>
                 </div>
             </div>
         </div>
