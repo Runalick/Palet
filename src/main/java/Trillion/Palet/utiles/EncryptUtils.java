@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EncryptUtils {
-	public String SHA512(String pw) {
+	public static String SHA512(String pw) {
 		try{
 			MessageDigest digest = MessageDigest.getInstance("SHA-512");
 			byte[] hash = digest.digest(pw.getBytes("UTF-8"));
