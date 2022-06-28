@@ -5,7 +5,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
  <mapper namespace="Info">
-  	<select id="selectAll" resultType="kh.spring.dto.FaqDTO">
+  	<select id="selectAll" resultType="Trillion.Palet.DTO.FaqDTO">
   		select * from faq
   	</select>
   	<delete id="faqDel">
