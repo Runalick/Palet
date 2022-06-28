@@ -41,6 +41,6 @@ public class MemberDAO {
     	return mybatis.update("Member.changemypage",dto);
     }
     public int memberout(MemberDTO dto) {
-    	return mybatis.memberout("Member.memberout",dto);
+    	return mybatis.delete("Member.memberout",dto);
     }
 }
