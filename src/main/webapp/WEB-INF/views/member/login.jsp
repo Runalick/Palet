@@ -5,18 +5,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <body>
-	<form action="/member/login" method="post">
-		<input type="text" name=email placeholder="이메일을 입력하세요"><br>
-		<input type="password" name=pw placeholder="비밀번호를 입력하세요"><br>
-		<input type="submit" value="login">
-		<input type="button" id="join" value="join">
-		<input type="button" id="kakao-login-btn" value="카카오로 로그인">
-	</form>
+<c:choose>
+	<c:when test="${loginEmail != null }">
+		<table border=1 align=center>
+			<tr>
+				<th>${loginEmail }님 안녕하세요.</th>
+			</tr>
+			<tr>
+				<td><input type="button" id="logout" value="로그아웃">
+			</tr>
+		</table>
+	</c:when>
+	<c:otherwise>
+		<form action="/member/login" method="post">
+			<input type="text" name=email placeholder="이메일을 입력하세요"><br>
+			<input type="password" name=pw placeholder="비밀번호를 입력하세요"><br>
+			<input type="submit" value="login">
+			<input type="button" id="join" value="join">
+			<input type="button" id="kakao-login-btn" value="카카오로 로그인">
+		</form>
+	</c:otherwise>
+</c:choose>
 </body>
 <script>	
 	$("#join").on("click", function(){
@@ -46,14 +60,13 @@
 	              let id = res.id;
 				  scope : 'profile_nickname, account_email';
 	              $.ajax({
-	            	    url:"/member/signup",
+	            	    url:"/member/kakaojoin",
 	            	    data:{email:res.kakao_account.email,
-	            	    	nickname:res.properties.nickname,
+	            	    	name:res.properties.nickname,
 	            	    	token:authObj.access_token},
 	            	    type:"POST"
 	            	}).done(function(resp){
 	            		location.reload();
-	            		
 	            	})
 	        	}
 	          })
@@ -67,5 +80,17 @@
 	        }
 	      });
 	    })
+	    
+	$("#logout").on("click", function(){
+		if (Kakao.Auth.getAccessToken()) {
+			Kakao.Auth.logout(function() {
+      			alert("로그아웃 되었습니다.");
+      			location.href="/member/logout";
+   		 	})
+		}
+		
+		location.href="/member/logout";
+	})
+	
 </script>
 </html>

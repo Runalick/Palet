@@ -35,7 +35,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("loginPage")
-	public String loginPage() throws Exception {
+	public String loginPage(Model model) throws Exception {
+		String email = (String)session.getAttribute("loginEmail");
+		model.addAttribute("loginEmail", email);
 		return "/member/login";
 	}
 	
@@ -43,6 +45,24 @@ public class MemberController {
 	public String signup(MemberDTO dto) throws Exception{
 		mServ.join(dto);
 		return "redirect:/";
+	}
+	
+	@ResponseBody 
+	@RequestMapping(value="kakaojoin", produces="test/html;charset=utf8")
+	public void kakaojoin(String email, String name, String token) throws Exception{
+		String pw = "trillion";
+		
+		if(mServ.isEmailExist(email)) {
+			session.setAttribute("loginEmail", email);
+		} else {
+			MemberDTO dto = new MemberDTO();
+			dto.setEmail(email);
+			dto.setPw(pw);
+			dto.setName(name);
+			session.setAttribute("loginEmail", email);
+			mServ.join(dto);
+		}
+		
 	}
 	
 	@RequestMapping("login")
