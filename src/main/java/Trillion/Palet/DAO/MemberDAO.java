@@ -28,5 +28,19 @@ public class MemberDAO {
 		param.put("pw", pw);
 		return mybatis.selectOne("Member.login", param);
 	}
-
+    public int changepw(MemberDTO dto) {
+    	return mybatis.update("Member.changepw",dto);
+    }
+    public MemberDTO getmember(String email) {
+    	return mybatis.selectOne("Member.getmember",email);
+    }
+    public int insert(MemberDTO dto) {
+    	return mybatis.insert("Member.insert", dto);
+    }
+    public int changemypage(MemberDTO dto) {
+    	return mybatis.update("Member.changemypage",dto);
+    }
+    public int memberout(MemberDTO dto) {
+    	return mybatis.memberout("Member.memberout",dto);
+    }
 }
