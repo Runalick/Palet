@@ -99,7 +99,6 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 					$("#emailCheckResult").css("color","blue");
 					$("#emailCheckResult").text("사용가능한 이메일입니다.");
 					$("#sendmail").removeAttr("disabled");
-					isEmailOk = true;
 					
 					$("#sendmail").on("click",function(){ // 메일 발송 버튼 클릭시
 						let email = $("#email").val();
@@ -142,15 +141,27 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 							$("#emailCheckResult").text("이메일 인증 완료");
 							$("#okbtn").css("display","none");
 							isEmailOk = true;
-						}
+							
+							
+							//모든 검증 통과 시 submit 버튼 활성화
+							if (isEmailOk && isPwOk
+									&& isPw2Ok
+									&& isNameOk) {
+								$("#join").removeAttr("disabled");
+							}
+						} else if(!($("#emailKey").val()==$("#emailKeyInput").val())){
+							$("#emailKeyInput").css("border", "1px solid red");
+							$("#emailCheckResult").css("color", "red");
+							$("#emailCheckResult").text("인증키가 일치하지 않습니다.");
+							isEmailOk = false;
+							
+							$("#join").attr("disabled","true");
+							return false;
+						}	
+						
 					})
 					
-					//모든 검증 통과 시 submit 버튼 활성화
-					if (isEmailOk && isPwOk
-							&& isPw2Ok
-							&& isNameOk) {
-						$("#join").removeAttr("disabled");
-					}
+					
 				}
 			})
 			
@@ -270,10 +281,6 @@ $("#name").on("keyup",function() { // 이름 검증
 		$("#name").css("border", "1px solid blue");
 		$("#nameCheckResult").text("");
 		isNameOk = true;
-		console.log(isEmailOk);
-		console.log(isPwOk);
-		console.log(isPw2Ok);
-		console.log(isNameOk);
 
 		//모든 검증 통과 시 submit 버튼 활성화
 		if (isEmailOk && isPwOk && isPw2Ok && isNameOk) {

@@ -19,7 +19,7 @@
     	update member set pw=#{pw} where email=#{email}
     </update>
     
-    <select id="getmember" resultType="MemberDTO">
+    <select id="getmember" resultType="Trillion.Palet.DTO.MemberDTO">
     	select * from member where email=#{email}
     </select>
     

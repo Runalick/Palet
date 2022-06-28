@@ -1,7 +1,6 @@
 package Trillion.Palet.DAO;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.MailDTO;
