@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -58,5 +59,31 @@ public class MemberController {
 		session.invalidate();
 		//session.removeAttribute(null);
 		return "redirect:/";
+	}
+	
+	@RequestMapping("changepw")
+	public String changepw(MemberDTO dto) throws Exception{
+		mServ.changepw(dto);
+	 return "redirect:/"; //임시로 메인으로 이동
+	}
+	
+	@RequestMapping("mypage")
+	public String myapge(Model model) throws Exception{
+		MemberDTO dto = mServ.getmember((String)session.getAttribute("loginID"));
+		model.addAttribute("dto",dto);
+		return "/mypage/mypage";
+	}
+	@RequestMapping("insert")
+	public String insert(MemberDTO dto) throws Exception{
+		mServ.insert(dto);
+		return "/mypage/mypage";
+	}
+	@RequestMapping("changemypage")
+	public int changemypage(MemberDTO dto) throws Exception{
+		return mServ.changemypage(dto);
+	}
+	@RequestMapping("memberout")
+	public int memberout(MemberDTO dto) throws Exception{
+		return mServ.memberout(dto);
 	}
 }

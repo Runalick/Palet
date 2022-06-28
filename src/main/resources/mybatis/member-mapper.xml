@@ -15,5 +15,53 @@
 	<select id="login" resultType="boolean">
 		select count(*) from member where email=#{email} and pw=#{pw}
 	</select>
-
+    <update id="changepw">
+    	update member set pw=#{pw} where email=#{email}
+    </update>
+    
+    <select id="getmember" resultType="MemberDTO">
+    	select * from member where email=#{email}
+    </select>
+    
+    <delete id="memberout">
+    	delete * from member where email=#{email}
+    </delete>
+    
+    <insert id="insert">
+    	insert into member (
+    	 <trim prefixOverrides=",">
+    	 	<if test="phone !=''">
+    	 		phone
+    	 	</if>
+    	 	<if test="postcode !=''">
+    	 		postcode, address1, address2
+    	 	</if>
+    	 </trim>
+    	 )values(
+    	 <trim prefixOverrides=",">
+    	 	<if test="phone !=''">
+    	 		#{phone}
+    	 	</if>
+    	 	<if test="postcode !=''">
+    	 		#{postcode},#{address1},#{address2}
+    	 	</if>
+    	 </trim>
+    	 )
+    </insert>
+    
+    <update id="changemypage">
+    	update member set
+    	<trim prefixOverrides=",">
+    		<if test="name !=''">
+    			name=#{name}
+    		</if>
+    		<if test="phone !=''">
+    			phone=#{phone}
+    		</if>
+    		<if test="postcode !=''">
+    			postcode=#{postcode},address1=#{address1},address2=#{address2} 
+    		</if>
+    	</trim>
+    	where email=#{email}
+    </update>
 </mapper>

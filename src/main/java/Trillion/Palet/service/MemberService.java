@@ -26,4 +26,22 @@ public class MemberService {
 		pw = EncryptUtils.SHA512(pw);
 		return dao.login(email, pw);
 	}
+	
+	public int changepw(MemberDTO dto) {
+		dto.setPw(EncryptUtils.SHA512(dto.getPw()));
+		return dao.changepw(dto);
+	}
+
+	public MemberDTO getmember(String email) {
+		return dao.getmember(email);
+	}
+	public int insert(MemberDTO dto) {
+		return dao.insert(dto);
+	}
+	public int changemypage(MemberDTO dto) {
+		return dao.changemypage(dto);
+	}
+	public int memberout(MemberDTO dto) {
+		return dao.memberout(dto);
+	}
 }
