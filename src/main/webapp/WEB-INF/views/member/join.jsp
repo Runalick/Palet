@@ -110,7 +110,7 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 							 $("#sendmail").attr("disabled","true");
 							 $("#emailresult").text("");
 							 $("#emailKeyInput").css("display","none");
-							 $("#okbtn").css("display","none")
+							 $("#okbtn").css("display","none");
 							 return false;
 						}
 						$("#sendmail").attr("disabled","true");
@@ -119,12 +119,12 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 						
 						$.ajax({
 							type:"post",
-							url:"/mail/sendmail",
+							url:"/mail/joinMail",
 							dataType:"json",
 							data:{email:$("#email").val()}
 						
 						}).done(function(resp){
-							
+							$("#okbtn").css("display","inline");
 							$("#emailKey").val(resp);
 							$("#emailresult").css("color","green");
 							$("#emailresult").text(" 발송완료");
@@ -140,6 +140,7 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 							$("#emailKeyInput").css("display", "none");
 							$("#emailCheckResult").css("color", "blue");
 							$("#emailCheckResult").text("이메일 인증 완료");
+							$("#okbtn").css("display","none");
 							isEmailOk = true;
 						}
 					})

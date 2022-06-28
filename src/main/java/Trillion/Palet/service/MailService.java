@@ -26,4 +26,14 @@ public class MailService {
 		smail.sendEmail(dto);
 		return dao.Sendmail(dto);
 	}
+	
+	public MailDTO joinMail(MailDTO dto) {
+		dto.setRandomString(smail.randomString());
+		dto.setTitle("[Palet]회원가입 인증 메일입니다.");
+		dto.setContent("<h2>안녕하세요. Palet입니다.</h2>"
+				+ "비밀번호찾기 인증 번호는 다음과 같습니다.<br>[ "
+				+dto.getRandomString()+ " ]입니다.<br>");
+		smail.sendEmail(dto);
+		return dao.Sendmail(dto);
+	}
 }
