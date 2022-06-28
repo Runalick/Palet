@@ -22,9 +22,9 @@ public class MemberService {
 		return dao.isEmailExist(email);
 	}
 	
-	public boolean login(String id, String pw) {
+	public boolean login(String email, String pw) {
 		pw = EncryptUtils.SHA512(pw);
-		return dao.login(id, pw);
+		return dao.login(email, pw);
 	}
 	
 	public int changepw(MemberDTO dto) {

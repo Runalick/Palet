@@ -29,23 +29,48 @@ public class MemberController {
 	}
 	
 	@ResponseBody 
-	@RequestMapping(value="emailDuplCheck", produces="test/html;charset=utf8") 
+	@RequestMapping("emailDuplCheck") 
 	public String emailDuplCheck(String email) throws Exception{
 		boolean result = mServ.isEmailExist(email);
 		return String.valueOf(result);
 	}
 	
-	@RequestMapping("signup")
+	@RequestMapping("loginPage")
+	public String loginPage(Model model) throws Exception {
+		String email = (String)session.getAttribute("loginEmail");
+		model.addAttribute("loginEmail", email);
+		return "/member/login";
+	}
+	
+	@RequestMapping(value="signup", produces="test/html;charset=utf8")
 	public String signup(MemberDTO dto) throws Exception{
 		mServ.join(dto);
 		return "redirect:/";
 	}
 	
+	@ResponseBody 
+	@RequestMapping(value="kakaojoin", produces="test/html;charset=utf8")
+	public void kakaojoin(String email, String name, String token) throws Exception{
+		String pw = "trillion";
+		
+		if(mServ.isEmailExist(email)) {
+			session.setAttribute("loginEmail", email);
+		} else {
+			MemberDTO dto = new MemberDTO();
+			dto.setEmail(email);
+			dto.setPw(pw);
+			dto.setName(name);
+			session.setAttribute("loginEmail", email);
+			mServ.join(dto);
+		}
+		
+	}
+	
 	@RequestMapping("login")
-	public String login(String id, String pw) throws Exception{
-		boolean result = mServ.login(id,pw);
+	public String login(String email, String pw) throws Exception{
+		boolean result = mServ.login(email,pw);
 		if(result) {
-			session.setAttribute("loginID", id);
+			session.setAttribute("loginEmail", email);
 		}
 		return "redirect:/";
 	}

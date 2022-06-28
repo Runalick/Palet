@@ -490,9 +490,9 @@ color: #FFFFFF;
                                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
                                 <li class="nav-item"> <a id="Help" class="nav-link" href="#"
                                         style="padding-left:0px; padding-right:0px;">Help</a> </li>
-                                <li class="nav-item"> <a id="Login" class="nav-link" href="#"
+                                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
                                         style="padding-left:0px; padding-right:0px;">Login</a> </li>
-                                <li class="nav-item"> <a id="Signup" class="nav-link" href="#"
+                                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
                                         style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
                             </ul>
                         </div>
