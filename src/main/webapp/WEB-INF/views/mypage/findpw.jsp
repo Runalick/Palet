@@ -10,16 +10,16 @@
 </head>
 <body>
 	<input type="text" name="email" id="email"><button type="button" id="send">메일발송</button>
-	<input type="text" id="cord" disabled="disabled" style="display: none">
+	<input type="text" id="cord" style="display: none">
 	<script type="text/javascript">
 	$("#send").on("click",function(){
 		$.ajax({
 			url:"/mail/sendmail",
-			data:{"email":$("#eamil").val()}
-		}).done(resp){
+			data:{email:$("#email").val()}
+		}).done(function(resp){
 			console.log(resp);
 			$("#cord").val(resp);
-		}
+		})
 	})
 	</script>
 </body>
