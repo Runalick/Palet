@@ -11,4 +11,9 @@ public class AdminController {
 	public String adminMain() {
 		return "/admin/adminMain";
 	}
+	
+	@RequestMapping("adminMembers")
+	public String adminMembers() {
+		return "/admin/adminMembers";
+	}
 }
