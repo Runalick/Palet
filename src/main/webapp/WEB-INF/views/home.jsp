@@ -198,6 +198,7 @@
         #mainphoto {
             margin: 0px;
             min-height: 600px;
+           	max-heieght:1920px;
 
             height: 0;
 
@@ -209,7 +210,7 @@
             background-size: 100% 100%;
 
         }
-
+ 
         #mainphoto2 {
             margin: 0px;
             min-height: 600px;
@@ -528,15 +529,15 @@ color: #FFFFFF;
                    
 
 
-                    <div class="col-12  d-none d-sm-block" style = "margin-top : 5rem;">
+                    <div class="col-12  d-none d-sm-block" style = "margin-bottom: 14.75rem; margin-top : 5rem; " >
                         <button class="btn1">자세히 보기</button>
                         <button class="btn2">예매 하기</button>
                     </div>
-                    <div class="col-12 d-block d-sm-none" style="margin: auto; text-align: center; margin-top : 5rem;">
+                    <div class="col-12 d-block d-sm-none" style="margin-bottom: 14.75rem; text-align: center; margin-top : 5rem;">
 
                         <button class="btn1" style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
                             보기</button><br>
-                        <button class="btn2" style="margin: auto; text-align: center;">예매 하기</button>
+                        <button class="btn2" style="  text-align: center;">예매 하기</button>
                     </div>
 
                 </div>
