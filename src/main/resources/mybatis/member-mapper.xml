@@ -18,7 +18,7 @@
     <update id="changepw">
     	update member set pw=#{pw} where email=#{email}
     </update>
-<<<<<<< HEAD
+
     <update id="modiname">
     	update member set name=#{name} where email=#{email}
     </update>
@@ -28,9 +28,9 @@
     <update id="modiaddress">
     	update member set postcode=#{postcode},address1=#{address1},address2=#{address2} where email=#{email}
     </update>
-=======
+
     
->>>>>>> 9cbee69e6fb121ae2278c663a480dee101fc9b42
+
     <select id="getmember" resultType="Trillion.Palet.DTO.MemberDTO">
     	select * from member where email=#{email}
     </select>

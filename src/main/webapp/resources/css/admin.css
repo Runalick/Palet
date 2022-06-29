@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+*{font-family: 'Spoqa Han Sans Neo';}
+
+.sidebar {
+    height: 100vh;
+    background: linear-gradient (rgba(0,0,0.7), rgba(0,0,0,0.9), url("#")); /* 이거 안먹힘 왜 그러는지 알아야 할듯 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 3px 5px 15px #999;
+}
+.top-navbar {
+    margin-left: auto;
+}
+
+.bottom-border {
+    border-bottom : 4px groove #000
+}
+
+.sidebar-link {
+    transition:all .4s;
+}
+
+.sidebar-link:hover{
+    background-color :#999;
+    border-radius : 5px;
+    color : white;
+}
+
+.current{
+    font-weight : bolder;
+    
+}
+
+.current:hover {
+    background-color :#999;
+    border-radius : 5px;
+    color : white;
+    
+}
+
+.searchInput {
+    background : transparent;
+    border : none;
+    border-radius : 3px;
+    border-bottom : 2px solid #999;
+    transition : all .4s;
+    width: 80%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.0;
+    
+}
+
+.searchInput:focus {
+    background: white;
+    border-bottom: 2px solid #ffcf31;
+}
+
+.searchBtn:hover {
+    background: #ffcf31;
+}
+
+.navbar-toggler {
+    margin-left: auto;
+}
+
+#dashMain{
+    margin-left: auto;
+}
+
+#graphMain{
+	margin-left: auto;
+}
+
+#myChart{
+	margin-left: auto;
+}
+.cardIcon {
+    width : 30px;
+    height: 30px;
+}
+
+.cardImage {
+    width : 30%;
+    height : 30%;
+}
