@@ -29,8 +29,6 @@
     	update member set postcode=#{postcode},address1=#{address1},address2=#{address2} where email=#{email}
     </update>
 
-    
-
     <select id="getmember" resultType="Trillion.Palet.DTO.MemberDTO">
     	select * from member where email=#{email}
     </select>
