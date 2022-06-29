@@ -22,8 +22,8 @@ public class FaqDAO {
 		return mybatis.delete("Info.faqDel",faq_seq);
 	}
 	
-	public int faqModi() {
-		return mybatis.update("Info.faqModi");
+	public int faqModi(FaqDTO dto) {
+		return mybatis.update("Info.faqModi",dto);
 	}
 
 	public int faqInsert(FaqDTO dto) {

@@ -11,7 +11,9 @@
   	<delete id="faqDel">
   		delete from faq where faq_seq=#{value}
   	</delete>
-  	<update id="faqModi"></update>
+  	<update id="faqModi">
+  		update faq set title=#{title}, contents=#{contents} where faq_seq=#{faq_seq}
+  	</update>
   	<insert id="faqInsert">
   		insert into faq values(faq_seq.nextval, #{title},#{contents})
   	</insert>
