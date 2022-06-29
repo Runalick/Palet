@@ -28,6 +28,21 @@ public class MemberController {
 		return "/member/join";
 	}
 	
+	@RequestMapping("agreement1")
+	public String agreement1() {
+		return "/member/agreement1";
+	}
+	
+	@RequestMapping("agreement2")
+	public String agreement2() {
+		return "/member/agreement2";
+	}
+	
+	@RequestMapping("agreement3")
+	public String agreement3() {
+		return "/member/agreement3";
+	}
+	
 	@ResponseBody 
 	@RequestMapping("emailDuplCheck") 
 	public String emailDuplCheck(String email) throws Exception{
