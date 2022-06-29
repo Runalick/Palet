@@ -43,4 +43,30 @@ public class MemberDAO {
     public int memberout(MemberDTO dto) {
     	return mybatis.delete("Member.memberout",dto);
     }
+    public int modipw(String id, String pw) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("id", id);
+		param.put("pw", pw);
+    	return mybatis.update("Member.changepw",param);
+    }
+    public int modiname(String id, String name) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("id", id);
+		param.put("name", name);
+    	return mybatis.update("Member.modiname",param);
+    }
+    public int modiphone(String id, String phone) {
+    	Map<String, String> param = new HashMap<String, String>();
+		param.put("id", id);
+		param.put("phone", phone);
+    	return mybatis.update("Member.modiphone",param);
+    }
+    public int modiaddress(String id,String postcode,String address1,String address2) {
+    	Map<String, String> param = new HashMap<String, String>();
+    	param.put("id", id);
+    	param.put("postcode", postcode);
+    	param.put("address1", address1);
+    	param.put("address2", address2);
+    	return mybatis.update("Member.modiaddress",param);
+    }
 }
