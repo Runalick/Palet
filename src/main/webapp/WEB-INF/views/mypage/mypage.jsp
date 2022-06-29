@@ -63,9 +63,11 @@
 		<div class=row>
 			<div class="col-12">
 				${dto.name }
+				<button type="button" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop1">수정</button>
 				<!-- Modal -->
 				<form action="/member/modiname" method="post">
-				<div class="modal fade" id="staticBackdrop"
+				<div class="modal fade" id="staticBackdrop1"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
@@ -90,9 +92,12 @@
 		</div>
 		<div class=row>
 			<div class="col-12">
-				${dto.phone } <!-- Modal -->
+				${dto.phone }
+				<button type="button" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop2">수정</button>
+				 <!-- Modal -->
 				<form action="/member/modiphone" method="post">
-				<div class="modal fade" id="staticBackdrop"
+				<div class="modal fade" id="staticBackdrop2"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
@@ -118,8 +123,10 @@
 		<div class=row>
 			<div class="col-12">
 				(${dto.postcode }) ${dto.address1 } ${dto.address2 } 
+				<button type="button" data-bs-toggle="modal"
+					data-bs-target="#staticBackdrop3">수정</button>
 				<form action="/member/modiaddress" method="post">
-				<div class="modal fade" id="staticBackdrop"
+				<div class="modal fade" id="staticBackdrop3"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
