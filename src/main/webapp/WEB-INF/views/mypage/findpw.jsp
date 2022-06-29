@@ -147,7 +147,24 @@
     	   }
        
        })
-    
+           	$("#btn2").on("click",function(){
+       		if($("#newpw").val()==$("#newpwck").val()){
+       		$.ajax({
+       			url:"/member/changepw",
+       			dataType:"json",
+       			data:{email:$("#email").val(),
+       				pw:$("#newpw").val()
+       				}
+       		}).done(function(resp){
+       			if(resp==1){
+       			alert("비밀번호가 변경되었습니다.");
+       			window.close();
+       			}else {
+       				alert("입력한 정보를 확인해주세요");
+       			}
+       		})
+       		}
+       	})
 	</script>
 </body>
 </html>

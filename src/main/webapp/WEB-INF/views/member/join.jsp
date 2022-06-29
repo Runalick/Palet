@@ -1,48 +1,114 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Join</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
+	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="/css/member/join.css">
 </head>
 <body>
-<form action="/member/signup" method="post">
-	<table>
-		<tr>
-			<td><input type="text" id=email name="email" placeholder="이메일을 입력해주세요.">
-			<td><button type="button" id="sendmail" disabled>인증메일 발송</button><span id="emailresult"></span>
-		</tr>
-		<tr>
-			<td><div id="emailCheckResult"></div>
-		</tr>
-		<tr>
-			<input type="text" id="emailKey" style="display: none;" value="no">
-			<td><input type="text" id="emailKeyInput" style="display: none;" placeholder="인증키 입력">
-			<button type="button" id="okbtn" style="display: none;">인증확인</button>
-		</tr>
-		<tr>
-			<td><input type="password" id=pw1 name="pw" placeholder="비밀번호를 입력해주세요">
-			<td><div id="pw1CheckResult"></div>
-		</tr>
-		<tr>
-			<td><input type="password" id=pw2 placeholder="비밀번호를 확인해주세요">
-			<td><div id="pw2CheckResult"></div>
-		</tr>
-		<tr>
-			<td><input type="text" id=name name="name" placeholder="성명을 입력해주세요">
-			<td><div id="nameCheckResult"></div>
-		</tr>
-		<tr>
-			<td colspan=2>
-				<input type="submit" value="JOIN" id=join disabled>
-			</td>
-		</tr>
-	
-	</table>
-</form>
+	<div class="container-fluid" id=navparent>
+		<div class="container">
+			<div class="row" id="container1">
+				<nav class="navbar navbar-expand-sm bg-light navbar-light">
+					<div class="container" id="navparent">
+						<a class="navbar-brand" href="#" id="container"
+							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+						<button class="navbar-toggler" type="button"
+							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+						<div class="collapse navbar-collapse justify-content-end"
+							id="collapsibleNavbar">
+							<ul class="navbar-nav">
+								<li class="nav-item"><a id="About" class="nav-link"
+									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
+								</li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+								</li>
+								<li class="nav-item"><a id="Shop" class="nav-link" href="#"
+									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+								<li class="nav-item"><a id="Help" class="nav-link" href="#"
+									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
+								<li class="nav-item"><a id="Login" class="nav-link"
+									href="/member/loginPage"
+									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+								<li class="nav-item"><a id="Signup" class="nav-link"
+									href="/member/join"
+									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+
+			</div>
+
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="container">
+				<div class="row" id="row1">
+					<form action="/member/signup" method="post">
+						<table>
+							<tr>
+								<td><input type="text" id=email name="email"
+									placeholder="이메일을 입력해주세요.">
+								<td><button type="button" id="sendmail" disabled>인증메일
+										발송</button>
+									<span id="emailresult"></span>
+							</tr>
+							<tr>
+								<td><div id="emailCheckResult"></div>
+							</tr>
+							<tr>
+								<input type="text" id="emailKey" style="display: none;" value="no">
+								<td><input type="text" id="emailKeyInput"
+									style="display: none;" placeholder="인증키 입력">
+									<button type="button" id="okbtn" style="display: none;">인증확인</button>
+							</tr>
+							<tr>
+								<td><input type="password" id=pw1 name="pw"
+									placeholder="비밀번호를 입력해주세요">
+								<td><div id="pw1CheckResult"></div>
+							</tr>
+							<tr>
+								<td><input type="password" id=pw2
+									placeholder="비밀번호를 확인해주세요">
+								<td><div id="pw2CheckResult"></div>
+							</tr>
+							<tr>
+								<td><input type="text" id=name name="name"
+									placeholder="성명을 입력해주세요">
+								<td><div id="nameCheckResult"></div>
+							</tr>
+							<tr>
+								<td colspan=2><input type="submit" value="JOIN" id=join
+									disabled></td>
+							</tr>
+
+						</table>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </body>
 <script>
 let isEmailOk = false;     // submit 버튼 활성화용 boolean 변수 선언
@@ -99,7 +165,6 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 					$("#emailCheckResult").css("color","blue");
 					$("#emailCheckResult").text("사용가능한 이메일입니다.");
 					$("#sendmail").removeAttr("disabled");
-					isEmailOk = true;
 					
 					$("#sendmail").on("click",function(){ // 메일 발송 버튼 클릭시
 						let email = $("#email").val();
@@ -142,15 +207,27 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 							$("#emailCheckResult").text("이메일 인증 완료");
 							$("#okbtn").css("display","none");
 							isEmailOk = true;
-						}
+							
+							
+							//모든 검증 통과 시 submit 버튼 활성화
+							if (isEmailOk && isPwOk
+									&& isPw2Ok
+									&& isNameOk) {
+								$("#join").removeAttr("disabled");
+							}
+						} else if(!($("#emailKey").val()==$("#emailKeyInput").val())){
+							$("#emailKeyInput").css("border", "1px solid red");
+							$("#emailCheckResult").css("color", "red");
+							$("#emailCheckResult").text("인증키가 일치하지 않습니다.");
+							isEmailOk = false;
+							
+							$("#join").attr("disabled","true");
+							return false;
+						}	
+						
 					})
 					
-					//모든 검증 통과 시 submit 버튼 활성화
-					if (isEmailOk && isPwOk
-							&& isPw2Ok
-							&& isNameOk) {
-						$("#join").removeAttr("disabled");
-					}
+					
 				}
 			})
 			
@@ -270,10 +347,6 @@ $("#name").on("keyup",function() { // 이름 검증
 		$("#name").css("border", "1px solid blue");
 		$("#nameCheckResult").text("");
 		isNameOk = true;
-		console.log(isEmailOk);
-		console.log(isPwOk);
-		console.log(isPw2Ok);
-		console.log(isNameOk);
 
 		//모든 검증 통과 시 submit 버튼 활성화
 		if (isEmailOk && isPwOk && isPw2Ok && isNameOk) {
