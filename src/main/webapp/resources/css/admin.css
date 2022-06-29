@@ -30,7 +30,7 @@
 
 .current{
     font-weight : bolder;
-    
+    font-style : italic;
 }
 
 .current:hover {
@@ -75,6 +75,10 @@
 	margin-left: auto;
 }
 
+#graphBody{
+	margin-left: auto;
+}
+
 #myChart{
 	margin-left: auto;
 }
@@ -87,3 +91,4 @@
     width : 30%;
     height : 30%;
 }
+
