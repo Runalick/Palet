@@ -68,4 +68,8 @@ public class InfoService {
 		return fdao.faqInsert(dto);
 		
 	}
+	
+	public int faqModi(FaqDTO dto) {
+		return fdao.faqModi(dto);
+	}
 }
