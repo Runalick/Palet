@@ -1,8 +1,10 @@
 @charset "UTF-8";
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
-
+		
+		/* div{
+			border:1px solid black;
+		} */
         @media (min-width: 375px) {
             .container {
                 max-width: 1280px;
@@ -48,7 +50,7 @@
         #navparent {
             position: fixed;
             font-size: 0;
-            padding-left: 2.5rem;
+           /*  padding-left: 2.5rem; */
             padding-right: 2.5rem;
             height: 5rem;
             background-color: white;
@@ -181,89 +183,80 @@
 
 
         }
-
-
-        #mainphoto {
-            margin: 0px;
-            min-height: 600px;
-
-            height: 0;
-
-            padding-bottom: calc(800/1920*100%);
-
-            background-image: url("/images/Mainphoto.png");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 100% 100%;
-
+        
+        a {
+        	cursor: pointer;
         }
-
-        #mainphoto2 {
-            margin: 0px;
-            min-height: 600px;
-
-            height: 0;
-
-            padding-bottom: calc(800/1920*100%);
-
-            background-image: url("/images/timegarden.png");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 100% 100%;
-
-        }
-
-    
-
-
-        .btn1 {
-
-            box-sizing: border-box;
-
-            padding: 1.125rem 1.5rem;
+		
+		input:focus {outline:none;}
+		
+		input[type=text], input[type=password] {
+			padding:  1.125rem 1.5rem;
             gap: 0.625rem;
 
-            margin-bottom: 1rem;
-            margin-right: 1.25rem;
-
-            width: 12.5rem;
-            height: 3.75rem;
-
-
-            border: 1px solid #FFFFFF;
-            border-radius: 1.25rem;
-            background-color: rgba(0, 0, 0, 0);
-
-
-            /* Button/Button1 */
+            /*width: 12.5rem;*/
+            width: 100%;
+            height: 3.125rem;
+            
+            /* Gray/900 */
+            
+            border: 2px solid #C4CDD5;
+            border-radius: 0.313rem;
+            /* Button/Button */
 
             font-family: 'Spoqa Han Sans Neo';
             font-style: normal;
             font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-            /* identical to box height */
+            font-size: 1.2rem;
+            line-height: 0.5rem;
+            
+            margin-bottom: 0.625rem;
+		}
+		
+		/*인증코드 보내기 버튼*/
+        .btn1 {
 
-            text-align: center;
+            /* padding:  1.12rem 1.5rem; */
+            gap: 0.625rem;
 
-            color: #FFFFFF;
+            /* width: 12.5rem; */
+			width: 100%;
+            height: 3.125rem;
+            
+            /* Gray/900 */
+            color:#FFFFFF;
+            background: #161C24;
+            border-radius: 0.313rem;
+            /* Button/Button */
 
-
-            /* Inside auto layout */
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.0rem;
+            line-height: 1.2rem;
+            cursor: pointer;
 
         }
-
+        
+        .btn1:disabled {
+        	color:#FFFFFF;
+            background: #C4CDD5;
+            cursor: default;
+        }
+		
+		/* join 버튼 */
         .btn2 {
 
             padding: 1.125rem 1.5rem;
             gap: 0.625rem;
 
 
-            width: 12.5rem;
+            /* width: 18.813rem; */
+            width: 25rem;
             height: 3.75rem;
 
 
-            background: #FFFFFF;
+            color: #FFFFFF;
             border-radius: 1.25rem;
             font-family: 'Spoqa Han Sans Neo';
             font-style: normal;
@@ -276,12 +269,17 @@
 
             /* Gray/900 */
 
-            color: #161C24;
-
-
-            /* Inside auto layout */
+            background: #161C24;
+            cursor: pointer;
 
         }
+        
+        .btn2:disabled {
+        	color:#FFFFFF;
+            background: #C4CDD5;
+            cursor: default;
+        }
+        
         .btn3 {
 
 
@@ -429,9 +427,9 @@ color: #FFFFFF;
             color: #919EAB;
         }
 
-
+        
         #row1>div {
-
+            
             padding-left: 0px;
             padding-right: 0px;
         }
