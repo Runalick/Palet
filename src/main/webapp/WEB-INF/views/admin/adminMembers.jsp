@@ -132,7 +132,15 @@
             		<div class="row pt-md-5 mt-md-3 mb-5">
                         <div class="col-xl-3 col-sm-6 p-2">
                             <div class="card">
-                            	Users list
+                            	<c:forEach var="i" items="${list}">
+                            		ID(email) : ${i.email } <br>
+                            		이름 : ${i.name } <br>
+                            		등급 : ${i.grade } <br>
+                            		<hr>
+                            		
+                            	</c:forEach>
+                            	
+                            	${navi}
             				</div>
             			</div>
             		</div>
