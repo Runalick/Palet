@@ -10,6 +10,30 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<style>
+        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+        @media (min-width: 375px) {
+            .container {
+                max-width: 1280px;
+                min-width: 390px;
+            }
+            html {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 1650px) {
+            .container {
+                max-width: 1280px;
+                min-width: 390px;
+            }
+            html {
+                font-size: 16px;
+            }
+        }
+</style>
 </head>
 <body>
 
@@ -29,11 +53,11 @@
 		<div class=row>
 			<div class="col-12">
 				<button type="button" data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop">변경하기</button>
+					data-bs-target="#staticBackdrop">비밀번호 변경하기</button>
 			</div>
 			<div class="col-12">
 				<!-- Modal -->
-				<form action="/member/modipw" method="post">
+				<form action="/member/modipw" method="post" accept-charset="utf-8">
 				<div class="modal fade" id="staticBackdrop"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -66,7 +90,7 @@
 				<button type="button" data-bs-toggle="modal"
 					data-bs-target="#staticBackdrop1">수정</button>
 				<!-- Modal -->
-				<form action="/member/modiname" method="post">
+				<form action="/member/modiname" method="post" accept-charset="utf-8">
 				<div class="modal fade" id="staticBackdrop1"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -96,19 +120,19 @@
 				<button type="button" data-bs-toggle="modal"
 					data-bs-target="#staticBackdrop2">수정</button>
 				 <!-- Modal -->
-				<form action="/member/modiphone" method="post">
+				<form action="/member/modiphone" method="post" accept-charset="utf-8">
 				<div class="modal fade" id="staticBackdrop2"
 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
 					aria-labelledby="staticBackdropLabel" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">이름변경</h5>
+								<h5 class="modal-title" id="staticBackdropLabel">핸드폰 번호 변경</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<input type="text" id="phone" name="phone" placeholder="바꿀전화번호를 작성해주세요"><br>
+								<input type="text" id="phone" name="phone" placeholder="바꿀전화번호를 작성해주세요" pattern="^[0-9]{10,11}$"><br>
 							</div>
 							<div class="modal-footer">
 								<button type="submit">확인</button>
@@ -120,39 +144,44 @@
 				</form>
 			</div>
 		</div>
-		<div class=row>
-			<div class="col-12">
-				(${dto.postcode }) ${dto.address1 } ${dto.address2 } 
-				<button type="button" data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop3">수정</button>
-				<form action="/member/modiaddress" method="post">
-				<div class="modal fade" id="staticBackdrop3"
-					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-					aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">이름변경</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-							   <input type="text" id="postcode" placeholder="우편번호" name="postcode" disabled="disabled">
-               				   <input type="button" onclick="execDaumPostcode()" value="찾기"><br>
-               				   <input type="text" class="longtext" id="jibunAddress" name="address1" disabled="disabled">
-               				   <input type="text" class="longtext" id="detailAddress" name="address2" placeholder="상세주소를 입력해주세요">
-							</div>
-							<div class="modal-footer">
-								<button type="submit">확인</button>
-								<button type="button" data-bs-dismiss="modal">닫기</button>
-							</div>
-						</div>
-					</div>
-				</div>
-				</form>
+		<div class="row">
+			<div class="col">
+				<button type="button" id="delbtn">회원탈퇴하기</button>
+			</div>
+		</div>
+<!-- 		<div class=row> -->
+<!-- 			<div class="col-12"> -->
+<%-- 				(${dto.postcode }) ${dto.address1 } ${dto.address2 }  --%>
+<!-- 				<button type="button" data-bs-toggle="modal" -->
+<!-- 					data-bs-target="#staticBackdrop3">수정</button> -->
+<!-- 				<form action="/member/modiaddress" method="post" accept-charset="utf-8"> -->
+<!-- 				<div class="modal fade" id="staticBackdrop3" -->
+<!-- 					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" -->
+<!-- 					aria-labelledby="staticBackdropLabel" aria-hidden="true"> -->
+<!-- 					<div class="modal-dialog modal-dialog-centered"> -->
+<!-- 						<div class="modal-content"> -->
+<!-- 							<div class="modal-header"> -->
+<!-- 								<h5 class="modal-title" id="staticBackdropLabel">이름변경</h5> -->
+<!-- 								<button type="button" class="btn-close" data-bs-dismiss="modal" -->
+<!-- 									aria-label="Close"></button> -->
+<!-- 							</div> -->
+<!-- 							<div class="modal-body"> -->
+<!-- 							   <input type="text" id="postcode" placeholder="우편번호" name="postcode" disabled="disabled"> -->
+<!--                				   <input type="button" onclick="execDaumPostcode()" value="찾기"><br> -->
+<!--                				   <input type="text" class="longtext" id="jibunAddress" name="address1" disabled="disabled"> -->
+<!--                				   <input type="text" class="longtext" id="detailAddress" name="address2" placeholder="상세주소를 입력해주세요"> -->
+<!-- 							</div> -->
+<!-- 							<div class="modal-footer"> -->
+<!-- 								<button type="submit">확인</button> -->
+<!-- 								<button type="button" data-bs-dismiss="modal">닫기</button> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				</form> -->
 
-			</div>
-		</div>
+<!-- 			</div> -->
+<!-- 		</div> -->
 	</div>
 <script type="text/javascript">
 
@@ -164,6 +193,13 @@ function execDaumPostcode() {
         }
     }).open();
 }//다음 주소찾기
+	$("#delbtn").on("click",function(){
+		let resurt = confirm("정말회원을 탈퇴하시겟습니까? 모든 정보가 삭제됩니다.");
+		if(resurt){
+			location.href="/member/delmember";
+		}
+		
+	})
 	let isPwOk = false;
     let isPwOk2 = false;
     // 비밀번호 확인

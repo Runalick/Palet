@@ -32,6 +32,7 @@ public class MemberDAO {
     	return mybatis.update("Member.changepw",dto);
     }
     public MemberDTO getmember(String email) {
+    	
     	return mybatis.selectOne("Member.getmember",email);
     }
     public int insert(MemberDTO dto) {
@@ -43,30 +44,33 @@ public class MemberDAO {
     public int memberout(MemberDTO dto) {
     	return mybatis.delete("Member.memberout",dto);
     }
-    public int modipw(String id, String pw) {
+    public int modipw(String email, String pw) {
 		Map<String, String> param = new HashMap<String, String>();
-		param.put("id", id);
+		param.put("email", email);
 		param.put("pw", pw);
     	return mybatis.update("Member.changepw",param);
     }
-    public int modiname(String id, String name) {
+    public int modiname(String email, String name) {
 		Map<String, String> param = new HashMap<String, String>();
-		param.put("id", id);
+		param.put("email", email);
 		param.put("name", name);
     	return mybatis.update("Member.modiname",param);
     }
-    public int modiphone(String id, String phone) {
+    public int modiphone(String email, String phone) {
     	Map<String, String> param = new HashMap<String, String>();
-		param.put("id", id);
+		param.put("email", email);
 		param.put("phone", phone);
     	return mybatis.update("Member.modiphone",param);
     }
-    public int modiaddress(String id,String postcode,String address1,String address2) {
+    public int modiaddress(String email,String postcode,String address1,String address2) {
     	Map<String, String> param = new HashMap<String, String>();
-    	param.put("id", id);
+    	param.put("email", email);
     	param.put("postcode", postcode);
     	param.put("address1", address1);
     	param.put("address2", address2);
     	return mybatis.update("Member.modiaddress",param);
+    }
+    public int delmember(String email) {
+    	return mybatis.delete(email);
     }
 }
