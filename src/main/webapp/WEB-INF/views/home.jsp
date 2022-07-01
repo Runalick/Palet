@@ -486,7 +486,7 @@ color: #FFFFFF;
                                         style="padding-left:0px; padding-right:0px;">About</a> </li>
                                 <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
                                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                                <li class="nav-item"> <a id="Shop" class="nav-link" href="#"
+                                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
                                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
                                 <li class="nav-item"> <a id="Help" class="nav-link" href="#"
                                         style="padding-left:0px; padding-right:0px;">Help</a> </li>

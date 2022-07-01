@@ -42,8 +42,8 @@ public class InfoController {
 	
 	
 	@RequestMapping("faqmodi")
-	public String faqmodi(int faq_seq,String title, String contents) {
-		
+	public String faqmodi(FaqDTO dto) {
+		iserv.faqModi(dto);
 		return "redirect:email";
 	}
 	

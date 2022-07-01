@@ -1,8 +1,11 @@
 package Trillion.Palet.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DAO.MemberDAO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.utiles.EncryptUtils;
@@ -12,6 +15,9 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO dao;
+	
+	@Autowired
+	private AdminDAO adao;
 	
 	public int join(MemberDTO dto) {
 		dto.setPw(EncryptUtils.SHA512(dto.getPw()));
@@ -59,5 +65,15 @@ public class MemberService {
 	}
 	public int delmember(String email) {
 		return dao.delmember(email);
+	}
+	
+	// Admin
+	
+	public List<MemberDTO> memberSelectByPage(int cpage){
+		return adao.memberSelectByPage(cpage);
+	}
+	
+	public String getMemberPageNavi(int cpage) {
+		return adao.getMemberPageNavi(cpage);
 	}
 }

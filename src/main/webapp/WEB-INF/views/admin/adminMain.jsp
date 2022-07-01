@@ -14,7 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
-<!-- <script src="/js/admin.js"></script> -->
+
 <link rel="stylesheet" href="/css/admin.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="#" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > PALET </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > PALET </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
@@ -44,7 +44,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-people text-black fa-lg mr-3"></i> Users
                                 </a>
                             </li>
@@ -208,16 +208,73 @@
                 </div>
             </div>
             <!-- card section close-->
-            <div class="row">
-            	<div class="col-xl-10 col-lg-9 ml-auto" id="graphMain">
-					<canvas class="my-4 w-100 ml-auto" id="myChart" width="900" height="380"></canvas>
-           		</div>
-           		<div class="col-xl-10 col-lg-9 ml-auto" id="graphMain">
-					<canvas class="my-4 w-100 ml-auto" id="myChart" width="900" height="380"></canvas>
-           		</div>
-           		
+            
+            <!--  graph section open -->
+            <div class="row" id="graphMain">
+            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="graphBody">
+            		<div class="col-xl-6 col-lg-5">
+		            	<div class="card shadow mb-4  ">
+			                <div class="card-header py-3">
+			                	<h6 class="m-0 font-weight-bold text-warning">Area Chart</h6>
+			                </div>
+			                <div class="card-body">
+			            		<div class="" >
+									<canvas class="my-4 w-100 ml-auto" id="myChart" ></canvas>
+			           			</div>
+			           			<hr>
+			           			<div class="card-footer text-secondary">
+	                            <i class="bi bi-arrow-repeat mr-3"></i>
+	                            <span>updated 3 minutes ago</span>
+	                            </div>
+			           			
+			           			
+			           		</div>
+			           	</div>
+			        </div>
 
-           		
+		           	<div class="col-xl-4 col-lg-5">
+                    	<div class="card shadow mb-4">
+                        	<div class="card-header py-3">
+                            	<h6 class="m-0 font-weight-bold text-warning">Donut Chart</h6>
+                            </div>
+                                <!-- Card Body -->
+                            <div class="card-body">
+                            	<div class="chart-pie pt-4">
+                            		<canvas id="myPieChart"></canvas>
+                            	</div>
+                            	<hr>
+                            	<div class="card-footer text-secondary">
+	                        		<i class="bi bi-arrow-repeat mr-3"></i>
+	                        		<span>update Now</span>
+	                        	</div>
+                            </div>
+                      	</div>
+                    </div>
+                    
+                    <div class="col-6">
+			           	<div class="card shadow mb-4 ">
+			                <div class="card-header py-3">
+			                	<h6 class="m-0 font-weight-bold text-warning">bar Chart</h6>
+			                </div>
+			                <div class="card-body">
+			            		<div class="" >
+									<canvas class="my-4 w-100 ml-auto" id="myBarChart" ></canvas>
+			           			</div>
+			           			<hr>
+			           			<div class="card-footer text-secondary">
+	                            	<i class="bi bi-arrow-repeat mr-3"></i>
+	                            	<span>update Now</span>
+	                            </div>
+			           		</div>
+			           	</div>	
+		           	</div>
+                    
+            	</div>
+            </div>
+            <!-- graph section close -->
+            
+            
+            
             </div>
     </section>
     
@@ -227,6 +284,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
 	<script src="/js/dashboard.js"></script>
+	<script src="/js/chart-bar-demo.js"></script>
+	<script src="/js/chart-pie-demo.js"></script>
 
 	
 </body>
