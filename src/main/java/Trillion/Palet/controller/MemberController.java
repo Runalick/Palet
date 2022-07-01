@@ -100,19 +100,19 @@ public class MemberController {
 	@RequestMapping("changepw")
 	public String changepw(MemberDTO dto) throws Exception{
 		mServ.changepw(dto);
-	 return "redirect:/"; //임시로 메인으로 이동
+	 return "redirect:mypage"; 
 	}
 	
 	@RequestMapping("mypage")
 	public String myapge(Model model) throws Exception{
-		MemberDTO dto = mServ.getmember((String)session.getAttribute("loginID"));
+		MemberDTO dto = mServ.getmember((String)session.getAttribute("loginEmail"));
 		model.addAttribute("dto",dto);
-		return "/mypage/mypage";
+		return "/mypage/mypage"; 
 	}
 	@RequestMapping("insert")
 	public String insert(MemberDTO dto) throws Exception{
 		mServ.insert(dto);
-		return "/mypage/mypage";
+		return "redirect:mypage"; 
 	}
 	@RequestMapping("changemypage")
 	public int changemypage(MemberDTO dto) throws Exception{
@@ -124,23 +124,35 @@ public class MemberController {
 	}
 	
 	@PostMapping("modipw")
-	public int modipw(String pw)throws Exception{
-		String id = (String)session.getAttribute("loginID");
-		return mServ.modipw(id,pw);
+	public String modipw(String pw)throws Exception{
+		String email = (String)session.getAttribute("loginEmail");
+		mServ.modipw(email,pw);
+		return "redirect:mypage";
 	}
-	@PostMapping("modiname")
-	public int modiname(String name)throws Exception{
-		String id = (String)session.getAttribute("loginID");
-		return mServ.modiname(id,name);
+	@PostMapping(value = "modiname", produces="test/html;charset=utf8")
+	public String modiname(String name)throws Exception{
+		String email = (String)session.getAttribute("loginEmail");
+		mServ.modiname(email,name);
+		return "redirect:mypage"; 
+				
 	}
 	@PostMapping("modiphone")
-	public int modiphone(String phone)throws Exception{
-		String id = (String)session.getAttribute("loginID");
-		return mServ.modiphone(id,phone);
+	public String modiphone(String phone)throws Exception{
+		String email = (String)session.getAttribute("loginEmail");
+		mServ.modiphone(email,phone);
+		return "redirect:mypage";
 	}
-	@PostMapping("modiaddress")
-	public int modiaddress(String postcode,String address1,String address2) throws Exception{
-		String id = (String)session.getAttribute("loginID");
-		return mServ.modiaddress(id,postcode,address1,address2);
+	@RequestMapping("delmember")
+	public String delmember()throws Exception{
+		String email = (String)session.getAttribute("loginEmail");
+		mServ.delmember(email);
+		return "redirect:/";
 	}
+	
+//	@PostMapping("modiaddress")
+//	public String modiaddress(String postcode,String address1,String address2) throws Exception{
+//		String id = (String)session.getAttribute("loginEmail");
+//		mServ.modiaddress(id,postcode,address1,address2);
+//		return "redirect:mypage";
+//	}
 }

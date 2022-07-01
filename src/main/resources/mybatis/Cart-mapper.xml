@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Cart">
+  	<select id="isGoodsExist" resultType="boolean">
+  		select count(*) from (select * from cart where g_num = #{value})
+  	</select>
+  	<insert id="insertCart">
+  		insert into cart values(cart_seq.nextval,#{email},#{g_num},#{cartstock},sysdate)
+  	</insert>
+  	<select id="selectList" resultType="Trillion.Palet.DTO.CartListDTO">
+  		select cart_seq,email,goods.g_num,cartstock,addDate,g_name,g_price,g_option,gp_sysname,
+  		round(g_price*0.05,1) point
+  		from cart left outer join goods on cart.g_num= goods.g_num 
+  		 left outer join goodspic on goods.g_num = goodspic.g_num
+  		where email = #{value}
+  	</select>
+  	<select id="total" resultType="Trillion.Palet.DTO.TotalCartDTO">
+  		select count(*) total_num, nvl(sum(g_price*cartstock),0) total_price  
+  		from cart left outer join goods on cart.g_num= goods.g_num 
+  		where email = #{value}
+  	</select>
+  	<delete id="delete">
+  		delete from cart where g_num = #{value}
+  	</delete>
+  	<update id="selectModiOne">
+  		update cart set cartstock = #{cartstock} where g_num = #{g_num}
+  	</update>
+  	<select id="purchaseList" resultType="Trillion.Palet.DTO.CartListDTO">
+  		select cart_seq,email,goods.g_num,cartstock,addDate,g_name,g_price,g_option,gp_sysname,
+  		round(g_price*0.05,1) point
+  		from cart left outer join goods on cart.g_num= goods.g_num 
+  		 left outer join goodspic on goods.g_num = goodspic.g_num
+  		where email = #{email} and cart.g_num=#{buy}
+  	</select>
+  </mapper>

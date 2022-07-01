@@ -1,8 +1,11 @@
 package Trillion.Palet.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DAO.MemberDAO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.utiles.EncryptUtils;
@@ -12,6 +15,9 @@ public class MemberService {
 	
 	@Autowired
 	private MemberDAO dao;
+	
+	@Autowired
+	private AdminDAO adao;
 	
 	public int join(MemberDTO dto) {
 		dto.setPw(EncryptUtils.SHA512(dto.getPw()));
@@ -44,17 +50,30 @@ public class MemberService {
 	public int memberout(MemberDTO dto) {
 		return dao.memberout(dto);
 	}
-	public int modipw(String id,String pw) {
+	public int modipw(String email,String pw) {
 		pw= EncryptUtils.SHA512(pw);
-		return dao.modipw(id,pw);
+		return dao.modipw(email,pw);
 	}
-	public int modiname(String id,String name) {
-		return dao.modiname(id,name);
+	public int modiname(String email,String name) {
+		return dao.modiname(email,name);
 	}
-	public int modiphone(String id,String phone) {
-		return dao.modiphone(id,phone);
+	public int modiphone(String email,String phone) {
+		return dao.modiphone(email,phone);
 	}
-	public int modiaddress(String id,String postcode,String address1,String address2) {
-		return dao.modiaddress(id,postcode,address1,address2);
+	public int modiaddress(String email,String postcode,String address1,String address2) {
+		return dao.modiaddress(email,postcode,address1,address2);
+	}
+	public int delmember(String email) {
+		return dao.delmember(email);
+	}
+	
+	// Admin
+	
+	public List<MemberDTO> memberSelectByPage(int cpage){
+		return adao.memberSelectByPage(cpage);
+	}
+	
+	public String getMemberPageNavi(int cpage) {
+		return adao.getMemberPageNavi(cpage);
 	}
 }
