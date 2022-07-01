@@ -44,7 +44,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminMembers" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-people text-black fa-lg mr-3"></i> Users
                                 </a>
                             </li>
