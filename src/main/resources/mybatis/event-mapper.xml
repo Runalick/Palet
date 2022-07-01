@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="Event"> 
+
+	<insert id="add">
+		insert into drawing values(draw_seq.nextval, #{d_title}, #{painter}, #{filename}, #{email}, 'N')
+		<selectKey order="AFTER" keyProperty="draw_seq" resultType="int">
+			select draw_seq.currval from dual
+		</selectKey>	
+	</insert>
+	
+	<insert id="picadd">
+		insert into drawing_pic values(drawpic_seq.nextval, #{sys_Name}, #{draw_seq})	
+	</insert>
+	
+	<select id="isIdExist" resultType="boolean">
+		select count(*) from drawing_pic where email = #{email}
+	</select>
+</mapper>  
