@@ -14,8 +14,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="/css/admin.css">
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/admin/admin.css">
 </head>
 <body>
     <div class="navbar navbar-expand-md navbar-light"> 
@@ -46,6 +46,11 @@
                             <li class="nav-item">
                                 <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-people text-black fa-lg mr-3"></i> Users
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
                             </li>
                             <li class="nav-item">

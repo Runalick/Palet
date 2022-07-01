@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+   <mapper namespace="Exhibition">
+  	<insert id="exhibitionInsert">
+  		insert into exhibition values(e_seq.nextval, #{e_name},#{start_date},#{end_date},default,#{e_price})
+  	</insert>
+  </mapper>
