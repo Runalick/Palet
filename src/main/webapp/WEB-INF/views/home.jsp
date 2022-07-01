@@ -496,6 +496,8 @@ color: #FFFFFF;
                                         style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
                                 <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
                                 		style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+                                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+                                		style="padding-left:0px; padding-right:0px;">mypage</a> </li>
                             </ul>
                         </div>
                     </div>
