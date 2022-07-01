@@ -22,7 +22,7 @@
     transition:all .4s;
 }
 
-.sidebar-link:hover{
+.sidebar-link:hover{ 
     background-color :#999;
     border-radius : 5px;
     color : white;
@@ -56,11 +56,11 @@
 
 .searchInput:focus {
     background: white;
-    border-bottom: 2px solid #ffcf31;
+    border-bottom: 2px solid #FFC107;
 }
 
 .searchBtn:hover {
-    background: #ffcf31;
+    background: #FFC107;
 }
 
 .navbar-toggler {
