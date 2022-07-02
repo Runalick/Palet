@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.MemberService;
 
 @Controller
@@ -16,6 +18,9 @@ public class AdminController {
 	
 	@Autowired
 	private MemberService mServ;
+	
+	@Autowired
+	private ExhibitionService eServ;
 	
 	@RequestMapping("adminMain")
 	public String adminMain() {
@@ -30,4 +35,18 @@ public class AdminController {
 		model.addAttribute("navi", pageNavi);
 		return "/admin/adminMembers";
 	}
+	
+	@RequestMapping("adminExhibitions")
+	public String adminExhibitions() {
+		return "/admin/adminExhibitions";
+	}
+	
+	@RequestMapping(value="exhibitionsInsert", produces="test/html;charset=utf8")
+	public String exhibitionsInsert(ExhibitionDTO edto) {
+		System.out.println(edto.getE_name() +" : "+ edto.getStart_date() +" : "+ edto.getEnd_date() + " : " +edto.getE_price());
+		eServ.exhibitionInsert(edto);
+		return "redirect:adminExhibitions";
+	}
+	
+	
 }

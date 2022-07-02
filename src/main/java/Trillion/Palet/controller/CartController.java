@@ -33,7 +33,7 @@ public class CartController {
 		if(isGoodsExist) {
 			return "true";
 		}else {
-			String email = "i2376@naver.com";
+			String email = (String)session.getAttribute("loginEmail");
 			cServ.insertCart(g_num,cartstock,email);
 
 			return "false"; 
@@ -43,7 +43,7 @@ public class CartController {
 	
 	@RequestMapping("cartlist")
 	public String cartList(Model model,HttpServletResponse response) throws Exception {
-		String email = "i2376@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 		List<CartListDTO> list = cServ.selectAll(email);
 		TotalCartDTO totalList = cServ.total(email);
 
@@ -72,7 +72,7 @@ public class CartController {
 	
 	@RequestMapping("purchase")
 	public String purchase(int[] buy,Model model) {
-		String email = "i2376@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 
 		String realpath = "/cart/cartList/";
 
