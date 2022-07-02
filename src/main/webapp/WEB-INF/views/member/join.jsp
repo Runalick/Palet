@@ -66,7 +66,7 @@
 					<div class="h2">Sign up</div>
 				</div>
 				<div class="row">
-					<form action="/member/signup" method="post"></form>
+					<form action="/member/signup" method="post">
 					<div class="col">
 						<div class="row"> 
 							<div class="col-12 p-0 body2">이메일 아이디</div>

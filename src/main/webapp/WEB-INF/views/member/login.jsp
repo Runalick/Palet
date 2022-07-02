@@ -16,7 +16,44 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- 카카오 공유하기 -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<style>
+.modal{
+	posision: absolute;
+	width: 100;
+	height: 100%;
+	background: rgba(0,0,0,0.6);
+	top: 0;
+	left: 0;
+	display: none;
+}
+
+.modal_content{
+  width:450px; height:250px;
+  background:#fff; border-radius:10px;
+  position:relative; top:50%; left:50%;
+  margin-top:-100px; 
+  margin-left:-200px;
+  text-align:center;
+  box-sizing:border-box; padding:20px 10px;
+  line-height:23px; 
+}
+
+#modal_header{
+	position:relative; 
+	top:0; 
+	left:0;
+}
+
+.link-icon { position: relative; display: inline-block; width: auto;    font-size: 14px; font-weight: 500; color: #333; margin-right: 10px; padding-top: 50px; }
+.link-icon.twitter { background-image: url(/images/icon-twitter.png); background-repeat: no-repeat; background-position-x:center;}
+.link-icon.facebook { background-image: url(/images/icon-facebook.png); background-repeat: no-repeat; background-position-x:center;} 
+.link-icon.kakao { background-image: url(/images/icon-kakao.png); background-repeat: no-repeat; background-position-x:center;}
+
+</style>
 </head>
 <body>
 <div class="container-fluid" id=navparent>
@@ -49,6 +86,9 @@
 								<li class="nav-item"><a id="Signup" class="nav-link"
 									href="/member/join"
 									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+								<li class="nav-item"><a id="Signup" class="nav-link"
+									href="/event/participation"
+									style="padding-left: 0px; padding-right: 0px;">Event</a></li>
 							</ul>
 						</div>
 					</div>
@@ -77,6 +117,23 @@
 			<input type="button" id="join" value="join">
 			<input type="button" id="kakao-login-btn" value="카카오로 로그인">
 		</form>
+		
+		<button id=modalbtn>공유하기</button>
+		
+		<div class="modal">
+			
+			<div class="modal_content" title="공유하기">
+				<div id="modal_header">
+					공유하기<button id="modal_back">X</button>
+				</div>
+				<hr>
+				<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
+				<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
+				<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오</a> <br>
+				<input type="text" id="text" value="http://localhost/member/loginPage" readonly/>
+				<input type="button" onclick="fn_copy()" value="Copy"/> 
+			</div>
+		</div>
 	</c:otherwise>
 </c:choose>
 </body>
@@ -140,5 +197,59 @@
 		location.href="/member/logout";
 	})
 	
+	//공유하기 모달창
+	$(function(){
+		$("#modalbtn").click(function(){
+			$(".modal").fadeIn();
+		});
+		
+		$("#modal_back").click(function(){
+			$(".modal").fadeOut();
+		});
+	})
+
+	// 복사 버튼
+	function fn_copy() {
+		var url = document.getElementById('text');
+		url.select(); // 복사할 text 블럭
+		document.execCommand('copy'); // 드레그된 text 클립보드에 복사
+	}
+	    
+	// 트위터 공유하기
+	function shareTwitter() {
+	    var sendText = "Palet"; // 전달할 텍스트
+	    var sendUrl = "http://localhost/member/loginPage"; // 전달할 URL
+	    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
+	}
+	
+	// 페이스북 공유하기
+	function shareFacebook() {
+	    var sendUrl = "http://localhost/member/loginPage"; // 전달할 URL
+	    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
+	}
+	
+	// 카카오톡 공유하기
+	function shareKakao() {
+ 
+  // 사용할 앱의 JavaScript 키 설정
+  //Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ 
+  // 카카오링크 버튼 생성
+  Kakao.Link.createDefaultButton({
+    container: '#btnKakao', // 카카오공유버튼ID
+    objectType: 'feed',
+    content: {
+      title: "Palet", // 보여질 제목
+      description: "Palet 전시회 예약하기", // 보여질 설명
+      imageUrl: "http://localhost/member/loginPage", // 콘텐츠 URL
+      link: {
+         mobileWebUrl: "http://localhost/member/loginPage",
+         webUrl: "http://localhost/member/loginPage"
+      }
+    }
+  });
+}
+
+
 </script>
 </html>
