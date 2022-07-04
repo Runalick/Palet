@@ -7,22 +7,71 @@
 <meta charset="UTF-8">
 <title>Find Password</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="/css/member/mypage.css">
 </head>
 <body>
-	<input type="text" name="email" id="email"><br>
-	<button type="button" id="send">메일발송</button>
+   <div class="container-fluid" style="min-width: 600px;">
+    <div class="row" style="padding-top: 100px;">
+	<div class="container">
+		<div class="row" id="row1">
+			<div class="h2">Find Password</div>
+		</div>
+	<div class="col-12 body2 h3">
+		<input type="text" name="email" id="email"><br>
+		<span style="display: none" id="isemialok">올바른 메일주소를 입력해주세요</span>
+	</div>
+	<div class="col-12 body2 h3" style="text-align: center;">
+	<button type="button" class="btn1" id="send" disabled="disabled">메일발송</button>
+	</div>
+	<div class="col-12">
 	<span id="isidmeailok" style="display: none">아이디 이메일 확인중</span><br>
 	<span id="mailok" style="display: none">메일 발송 완료</span><br>
+	</div>
+	<div class="col-12 body2 h3">
 	<input type="text" id="isok" placeholder="인증번호를 입력해주세요" style="display: none"><br>
 	<input type="text" id="cord" style="display: none" value="no">
 	<input type="text" id="okok" style="display: none" readonly="readonly" value="확인되었습니다."><br>
-       <span id="writepw" style="display: none">비밀번호를 입력해주세요</span><br>
-       <input type="password" id="newpw" style="display: none"><br>
-       <span id="pwck" style="display:none">비밀번호 확인중</span><br>
-       <input type="password" id="newpwck" style="display: none"><br>
-       <span id="pwck2" style="display:none">비밀번호 확인중</span><br>
-       <button id="btn2" style="display: none" disabled>비밀번호 적용</button>
-	<script type="text/javascript">
+    </div>
+    <div class="col-12 body2 h3">
+    <span id="writepw" style="display: none">비밀번호를 입력해주세요</span><br>
+    <input type="password" id="newpw" style="display: none"><br>
+    <span id="pwck" style="display:none">비밀번호 확인중</span><br>
+    <input type="password" id="newpwck" style="display: none"><br>
+    <span id="pwck2" style="display:none">비밀번호 확인중</span><br>
+    </div>
+    <div class="col-12 body2 h3" style="text-align: center;">
+    <button id="btn2" class="btn1" style="display: none" disabled>비밀번호 적용</button>
+	</div>
+	</div>
+	</div>
+	</div>
+	
+	
+	
+	<script>
+	$("#email").on("keyup",function(){
+		let email = $("#email").val();
+		let emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
+		let emailResult = emailRegex.test(email);
+		if(!emailResult){
+			$("#isemialok").css("display","inline");
+			$("#isemialok").css("color", "red");
+			$("send").attr("disabled","true");
+		}
+		if(emailResult){
+			$("#isemialok").css("display","inline");
+			$("#isemialok").text("사용할수 있는 이메일형식 입니다.");
+			$("#isemialok").css("color", "blue");
+			$("#send").removeAttr("disabled");
+		}
+		
+	})
+	
+	
+	
 	
 	$("#send").on("click",function(){
    		$("#send").text("메일 발송중");
@@ -33,7 +82,7 @@
 			data:{email:$("#email").val()}
 		}).done(function(resp){
 			$("#send").text("메일 재발송");
-			$("#btn").removeAttr("disabled");
+			$("#send").removeAttr("disabled");
 			$("#mailok").css("display","inline");
 			console.log(resp);
 			$("#cord").val(resp);
@@ -150,7 +199,7 @@
            	$("#btn2").on("click",function(){
        		if($("#newpw").val()==$("#newpwck").val()){
        		$.ajax({
-       			url:"/member/changepw",
+       			url:"/member/findpw",
        			dataType:"json",
        			data:{email:$("#email").val(),
        				pw:$("#newpw").val()
@@ -158,7 +207,7 @@
        		}).done(function(resp){
        			if(resp==1){
        			alert("비밀번호가 변경되었습니다.");
-       			window.close();
+       			location.href="/member/loginPage";
        			}else {
        				alert("입력한 정보를 확인해주세요");
        			}

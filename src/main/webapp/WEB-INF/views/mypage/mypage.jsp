@@ -9,51 +9,65 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'rel='stylesheet' type='text/css'>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<style>
-        @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-
-        @media (min-width: 375px) {
-            .container {
-                max-width: 1280px;
-                min-width: 390px;
-            }
-            html {
-                font-size: 12px;
-            }
-        }
-
-        @media (min-width: 1650px) {
-            .container {
-                max-width: 1280px;
-                min-width: 390px;
-            }
-            html {
-                font-size: 16px;
-            }
-        }
-</style>
+	<link rel="stylesheet" href="/css/member/mypage.css">
 </head>
 <body>
 
+<div class="container-fluid" id=navparent>
+        <div class="container">
+            <div class="row" id="container1">
+                <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                    <div class="container" id="navparent"> <a class="navbar-brand" href="#" id="container"
+                            style="padding :0px;"><img src="/images/Logo.svg" border=0></a> <button class="navbar-toggler"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"> <span
+                                class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"> <a id="About" class="nav-link" href="#"
+                                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
+                                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+                                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+                                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+                                <li class="nav-item"> <a id="Help" class="nav-link" href="#"
+                                        style="padding-left:0px; padding-right:0px;">Help</a> </li>
+                                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+                                        style="padding-left:0px; padding-right:0px;">Login</a> </li>
+                                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+                                        style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+                                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+                                		style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+                                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+                                		style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="min-width: 600px;">
+    <div class="row" style="padding-top: 100px;">
 	<div class="container">
-		<div class=row>
-			<div class="col">네비</div>
+		<div class="row" id="row1">
+			<div class="h2">My Page / My info.</div>
 		</div>
-	</div>
-
-	<div class="container">
+		<div class="col-12">
 		<div class=row>
-			<div class="col-12">My Page / My info.</div>
-		</div>
-		<div class=row>
-			<div class="col-12">${dto.email }</div>
+			<div class="col-12">
+			<div class="row">
+			<div class="col-12 body2 h3">
+			${dto.email }
+			</div>
+			</div>
 		</div>
 		<div class=row>
 			<div class="col-12">
-				<button type="button" data-bs-toggle="modal"
-					data-bs-target="#staticBackdrop">비밀번호 변경하기</button>
+				<button type="button" data-bs-toggle="modal" class="btn1"
+					data-bs-target="#staticBackdrop">비밀번호 변경</button>
 			</div>
 			<div class="col-12">
 				<!-- Modal -->
@@ -64,19 +78,19 @@
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="staticBackdropLabel">비밀번호 변경</h5>
+								<h5 class="modal-title" class="h2" id="staticBackdropLabel">비밀번호 변경</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<input type="password" id="newpw" name="pw" placeholder="비밀번호를 입력해주세요"><br>
+								<input type="password" id="newpw" maxlength="12" name="pw" placeholder="비밀번호를 입력해주세요"><br>
 								<span id="pwck" style="display:none">비밀번호 확인중</span><br>
-								<input type="password" id="newpwck" placeholder="비밀번호를 다시 입력해주세요">
+								<input type="password" id="newpwck" maxlength="12" placeholder="비밀번호를 다시 입력해주세요">
 								<span id="pwck2" style="display:none">비밀번호 확인중</span><br>
 							</div>
 							<div class="modal-footer">
-								<button type="submit" id="pwbtn">확인</button>
-								<button type="button" data-bs-dismiss="modal">닫기</button>
+								<button type="submit" class="btn2" id="pwbtn" disabled="disabled">확인</button>
+								<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
 							</div>
 						</div>
 					</div>
@@ -85,10 +99,13 @@
 			</div>
 		</div>
 		<div class=row>
-			<div class="col-12">
+			<div class="col-8 rp-0 body2 h3">
 				${dto.name }
-				<button type="button" data-bs-toggle="modal"
+				</div>
+				<div class="col-4">
+				<button type="button" data-bs-toggle="modal" class="btn1" style="width: 50%;"
 					data-bs-target="#staticBackdrop1">수정</button>
+				</div>
 				<!-- Modal -->
 				<form action="/member/modiname" method="post" accept-charset="utf-8">
 				<div class="modal fade" id="staticBackdrop1"
@@ -102,23 +119,26 @@
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<input type="text" id="name" name="name" placeholder="바꿀이름을 작성해주세요"><br>
+								<input type="text" id="name" maxlength="5" name="name" placeholder="이름을 작성해주세요"><br>
+								<span>이름은 최대 5글자까지 입니다.</span>
 							</div>
 							<div class="modal-footer">
-								<button type="submit">확인</button>
-								<button type="button" data-bs-dismiss="modal">닫기</button>
+								<button type="submit" class="btn2">확인</button>
+								<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				</form>
 			</div>
-		</div>
 		<div class=row>
-			<div class="col-12">
+			<div class="col-8 rp-0 body2 h3">
 				${dto.phone }
-				<button type="button" data-bs-toggle="modal"
+			</div>
+			<div class="col-4">
+				<button type="button" data-bs-toggle="modal" class="btn1" style="width: 50%;"
 					data-bs-target="#staticBackdrop2">수정</button>
+			</div>		
 				 <!-- Modal -->
 				<form action="/member/modiphone" method="post" accept-charset="utf-8">
 				<div class="modal fade" id="staticBackdrop2"
@@ -132,21 +152,21 @@
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<input type="text" id="phone" name="phone" placeholder="바꿀전화번호를 작성해주세요" pattern="^[0-9]{10,11}$"><br>
+								<input type="text" id="phone" maxlength="11" name="phone" placeholder="전화번호를 작성해주세요" pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"><br>
+								<span style="display: none;" id="phoneck">핸드폰번호를 숫자만입력해주세요</span>
 							</div>
 							<div class="modal-footer">
-								<button type="submit">확인</button>
-								<button type="button" data-bs-dismiss="modal">닫기</button>
+								<button type="submit" class="btn2" disabled="disabled" id="phoneokbtn">확인</button>
+								<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
 							</div>
 						</div>
 					</div>
 				</div>
 				</form>
 			</div>
-		</div>
 		<div class="row">
-			<div class="col">
-				<button type="button" id="delbtn">회원탈퇴하기</button>
+			<div class="col-12">
+				<button type="button" class="btn1" id="delbtn">회원탈퇴하기</button>
 			</div>
 		</div>
 <!-- 		<div class=row> -->
@@ -183,6 +203,22 @@
 <!-- 			</div> -->
 <!-- 		</div> -->
 	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+		<div class="row" id="footer" style="margin-top: 10px;">
+            <div class="container">
+                <div class="row" id="row1">
+                    <div class="col-12 h3 d-none d-sm-block" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
+
+	
 <script type="text/javascript">
 
 function execDaumPostcode() {
@@ -199,6 +235,25 @@ function execDaumPostcode() {
 			location.href="/member/delmember";
 		}
 		
+	})
+	$("#phone").on("keyup",function(){
+		let phone =$("#phone").val();
+		let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+		let phoneResult = phoneRegex.test(phone);
+		if(!phoneResult){
+			$("#phone").css("border", "1px solid red");
+     	    $("#phoneck").css("color", "red");
+    	    $("#phoneck").css("display","inline");
+    	    $("#phoneokbtn").attr("disabled","true");
+    	    $("#phoneck").text("올바른 핸드폰번호를 입력해주세요.");
+		}
+		if(phoneResult){
+			$("#phone").css("border", "1px solid blue");
+     	    $("#phoneck").css("color", "blue");
+    	    $("#phoneck").css("display","inline");
+    	    $("#phoneck").text("사용할수 있는 번호입니다.");
+    	    $("#phoneokbtn").removeAttr("disabled");
+		}
 	})
 	let isPwOk = false;
     let isPwOk2 = false;
@@ -246,9 +301,9 @@ function execDaumPostcode() {
         					"비밀번호가 같습니다.");
         	   }
                if(isPwOk2 && isPwOk && inok){
-    			   $("#btn2").removeAttr("disabled");
+    			   $("#pwbtn").removeAttr("disabled");
     		   }else if((!isPwOk2)||(!isPwOk)){
-    			   $("#btn2").attr("disabled","true");
+    			   $("#pwbtn").attr("disabled","true");
     		   }
     	   }
        
@@ -277,9 +332,9 @@ function execDaumPostcode() {
        },
     	   focusout : function(){
     		   if(isPwOk2 && isPwOk){
-    			   $("#btn2").removeAttr("disabled");
+    			   $("#pwbtn").removeAttr("disabled");
     		   }else if((!isPwOk2)||(!isPwOk)){
-    			   $("#btn2").attr("disabled","true");
+    			   $("#pwbtn").attr("disabled","true");
     		   }
     		   if($("#newpw").val()==$("#newpwck").val()){
         		   isPwOk2 = true;   
@@ -287,7 +342,6 @@ function execDaumPostcode() {
         		   isPwOk2 = false;
         	   }
     	   }
-       
        })
 
 </script>

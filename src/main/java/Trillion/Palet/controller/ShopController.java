@@ -12,4 +12,14 @@ public class ShopController {
 		
 		return "/shop/shopHome";
 	}
+	
+	@RequestMapping("emptycart")
+	public String emptycart() {
+		return "/cart/cart-empty";
+	}
+	
+	@RequestMapping("ordersuccess")
+	public String ordersuccess() {
+		return "/cart/shop-order-success";
+	}
 }

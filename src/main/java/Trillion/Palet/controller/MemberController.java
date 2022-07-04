@@ -149,6 +149,20 @@ public class MemberController {
 		return "redirect:/";
 	}
 	
+	@RequestMapping("findpw")
+	@ResponseBody
+	public String findpw(String email,String pw) throws Exception{
+		int result = mServ.modipw(email,pw);
+		if(result==0) {
+			return "0";
+		}
+		return "1";
+	}
+	@RequestMapping("tofindpw")
+	public String tofindpw() throws Exception{
+		return "/member/findpw";
+	}
+	
 //	@PostMapping("modiaddress")
 //	public String modiaddress(String postcode,String address1,String address2) throws Exception{
 //		String id = (String)session.getAttribute("loginEmail");

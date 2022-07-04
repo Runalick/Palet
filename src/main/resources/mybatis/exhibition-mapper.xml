@@ -6,6 +6,23 @@
   
    <mapper namespace="Exhibition">
   	<insert id="exhibitionInsert">
-  		insert into exhibition values(e_seq.nextval, #{e_name},#{start_date},#{end_date},default,#{e_price})
+  		insert into exhibition values(exhibition_seq.nextval, #{e_name},#{start_date},#{end_date},default,#{e_price},#{e_period})
   	</insert>
+    
+    <select id="exhibitionSelectByPage" resultType="Trillion.Palet.DTO.ExhibitionDTO">
+  		select * from (select row_number() over(order by e_num desc) line, exhibition.* from exhibition) where line between #{start} and #{end}
+  	</select>
+  	
+  	<select id="getExhibitionTotalCount" resultType="int">
+  		select count(*) from exhibition
+  	</select>
+  	
+  	<delete id="exhibitionCheckDelete">
+  		delete from exhibition where e_num = #{value}
+  	</delete>
+  	
+  	<update id="exhibitionCheckUpdate">
+  		update exhibition set e_period = #{e_period} where e_num = #{e_num}
+  	</update>
+  	
   </mapper>

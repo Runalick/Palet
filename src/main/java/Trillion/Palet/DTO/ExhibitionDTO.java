@@ -7,12 +7,14 @@ public class ExhibitionDTO {
 	private String end_date;
 	private int sales_count;
 	private int e_price;
+	private String e_period;
 	
 	public ExhibitionDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ExhibitionDTO(int e_num, String e_name, String start_date, String end_date, int sales_count, int e_price) {
+	public ExhibitionDTO(int e_num, String e_name, String start_date, String end_date, int sales_count, int e_price,
+			String e_period) {
 		super();
 		this.e_num = e_num;
 		this.e_name = e_name;
@@ -20,6 +22,7 @@ public class ExhibitionDTO {
 		this.end_date = end_date;
 		this.sales_count = sales_count;
 		this.e_price = e_price;
+		this.e_period = e_period;
 	}
 
 	public int getE_num() {
@@ -69,6 +72,16 @@ public class ExhibitionDTO {
 	public void setE_price(int e_price) {
 		this.e_price = e_price;
 	}
+
+	public String getE_period() {
+		return e_period;
+	}
+
+	public void setE_period(String e_period) {
+		this.e_period = e_period;
+	}
 	
+	
+
 	
 }
