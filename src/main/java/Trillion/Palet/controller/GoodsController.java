@@ -4,18 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/shop/")
-public class ShopController {
+@RequestMapping("/goods/")
+public class GoodsController {
 
-	@RequestMapping("toShop")
-	public String toShop() {
-		
-		return "/shop/shopHome";
-	}
-	
 	@RequestMapping("goDetail")
 	public String goDetail() {
 		
-		return "/shop/detailview";
+		return "/goods/detailview";
 	}
 }
