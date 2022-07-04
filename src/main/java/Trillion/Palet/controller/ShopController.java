@@ -13,6 +13,11 @@ public class ShopController {
 		return "/shop/shopHome";
 	}
 	
+	@RequestMapping("goDetail")
+	public String goDetail() {
+		
+		return "/shop/detailview";
+	}	
 	@RequestMapping("emptycart")
 	public String emptycart() {
 		return "/cart/cart-empty";

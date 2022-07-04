@@ -162,5 +162,16 @@
             </div>
         </div>
     </div>
+    
+    
+    <!-- 물건 상세페이지로 가는 임시 버튼 나중에지우세요~   -->
+    <div>
+    <button id="detailview" style="height:300px">상세페이지</button>
+    </div>
+    <script>
+    	$("#detailview").on("click",function(){
+    		location.href="/shop/goDetail";
+    	})
+    </script>
 </body>
 </html>
