@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Admin Page</title>
+<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -59,12 +59,12 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-people text-black fa-lg mr-3"></i> Users
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
                             </li>                            
@@ -103,7 +103,7 @@
                     <div class="col-xl-10 col-lg-9 top-navbar bg-dark fixed-top py-2">
                         <div class="row">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white">Users Analytics</h4>
+                                <h4 class="text-align text-uppercase mb-0 text-white">Exhibitions</h4>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
@@ -148,15 +148,41 @@
     <section>
         <div class="container-fluid">
             <div class="row">    
-            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
+            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain">  <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row pt-md-5 mt-md-3 mb-5">
-                        <div class="col-xl-3 col-sm-6 p-2">
-                            <div class="card">
+                        <div class="col-xl-9 col-sm-6 p-2">
+                            <div class="row w-100 m-0">
+								<div class="col-12" id="exhibitionBtns">
+									<button id="exhibitionAdded">전시 등록</button>
+									<button id="exhibitionList">전시회 목록</button>
+								</div>
+							</div>
+							<hr>
+                            <div class="cc">
+                            	<input type="checkbox" id="checkAll">checkAll
+                            	<input type="button" value="삭제" onclick="checkboxDelete()">
+								<select name="e_period" id="e_period">
+									<option value='F'>예정전시 </option>
+									<option value='N'>현재전시 </option>
+									<option value='P'>지난전시 </option>
+								</select>
+                            	<input type="button" value="카테고리수정" onclick="checkboxUpdate()">
+                            	<br>
+                            	전시번호 : 전시명 : 기간 : 가격 : 전시 현황
+                            	<hr>
                             	<c:forEach var="i" items="${list}">
-                            		ID(email) : ${i.email } <br>
-                            		이름 : ${i.name } <br>
-                            		등급 : ${i.grade } <br>
-                            		<hr>
+                            		<input type="checkbox" name="checkbox" value="${i.e_num}">
+                            		${i.e_num } 
+                            		${i.e_name } 
+                            		${i.start_date } ~ ${i.end_date } 
+                            		${i.e_price } 
+                            		 
+                            		<c:choose> 
+                            			<c:when test="${i.e_period eq 'N'}"> 현재전시</c:when> 
+                            			<c:when test="${i.e_period eq 'F'}"> 예정전시</c:when>
+                            			<c:when test="${i.e_period eq 'P'}"> 지난전시</c:when>
+                            		</c:choose>
+                            		<br>
                             		
                             	</c:forEach>
                             	
@@ -168,6 +194,77 @@
             </div>
         </div>
     </section>
-                  	      
+    
+    <script>
+	
+    $("#checkAll").change(function (){
+    	let checked = $(this).prop('checked');
+    	$('input[name="checkbox"]').prop('checked', checked);
+    });
+    
+    $('input[name="checkbox"]').change(function () {
+
+    	let selectAll = ($('input[name="checkbox"]').length == $('input[name="checkbox"]:checked').length);
+
+    	$("#checkAll").prop('checked', selectAll);
+
+    });	
+    
+    function checkboxDelete(){
+    	let checkboxArr = [];
+    	$('input[name="checkbox"]:checked').each(function() {
+    		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+    		console.log(checkboxArr)
+    	})
+    	
+    	$.ajax({
+    		type : "POST",
+    		url : "/admin/exhibitionCheckDelete",
+    		data : {
+    			checkboxArr : checkboxArr
+    		},
+    		success : function (result){
+    			console.log(result);
+    			alert("delete ok!");
+    			location.reload();
+    		}
+    	});
+    }
+    
+    function checkboxUpdate(){
+    	let checkboxArr2 = [];
+    	let e_period = $("#e_period").val();
+    	$('input[name="checkbox"]:checked').each(function() {
+    		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+    		console.log(checkboxArr2)
+    	})
+    	
+    	$.ajax({
+    		type : "POST",
+    		url : "/admin/exhibitionCheckUpdate",
+    		data : {
+    			checkboxArr2 : checkboxArr2,
+    			e_period : e_period
+    		},
+    		success : function (result){
+    			console.log(result);
+    			alert("update ok!");
+    			location.reload();
+    		}
+    	});
+    }
+    
+    
+    
+ 	$("#exhibitionAdded").on("click", ()=>{
+ 		location.href = "/admin/adminExhibitions";
+ 	})
+ 	
+ 	$("#exhibitionList").on("click", ()=>{
+ 		location.href = "/admin/adminExhibitionList?cpage=1";
+ 	})
+ 	
+    
+    </script>
 </body>
 </html>

@@ -67,13 +67,4 @@ public class MemberService {
 		return dao.delmember(email);
 	}
 	
-	// Admin
-	
-	public List<MemberDTO> memberSelectByPage(int cpage){
-		return adao.memberSelectByPage(cpage);
-	}
-	
-	public String getMemberPageNavi(int cpage) {
-		return adao.getMemberPageNavi(cpage);
-	}
 }

@@ -15,4 +15,12 @@ public class ExhibitionService {
 	public int exhibitionInsert (ExhibitionDTO edto) {
 		return edao.exhibitionInsert(edto);
 	}
+	
+	public int exhibitionCheckDelelte (int e_num) {
+		return edao.exhibitionCheckDelete(e_num);
+	}
+	
+	public int exhibitionCheckUpdate (String e_num, String e_period) {
+		return edao.exhibitionCheckUpdate(e_num, e_period);
+	}
 }
