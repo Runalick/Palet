@@ -17,5 +17,14 @@ public class ShopController {
 	public String goDetail() {
 		
 		return "/shop/detailview";
+	}	
+	@RequestMapping("emptycart")
+	public String emptycart() {
+		return "/cart/cart-empty";
+	}
+	
+	@RequestMapping("ordersuccess")
+	public String ordersuccess() {
+		return "/cart/shop-order-success";
 	}
 }
