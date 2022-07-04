@@ -24,21 +24,30 @@
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"/>  
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"  -->
 <!-- integrity="sha512-L4qpL1ZotXZLLe8Oo0ZyHrj/SweV7CieswUODAAPN/tnqN3PA1P+4qPu5vIryNor6HQ5o22NujIcAZIfyVXwbQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+<style>
+    @media (max-width : 768px){
+		.sidebar {
+			position : static;
+			height : auto;
+		}
+		
+		.top-navbar {
+			position : static;
+		}
+	}
 
-
-
+</style>
 
 </head>
 <body>
 	<div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#sidebar">
+        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -74,13 +83,12 @@
                             </li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Sales
+                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-graph-up-arrow text-black fa-lg mr-3"></i> Analytics
-                                    
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -101,7 +109,7 @@
                         </ul>
                         
                     </div>
-                    <!-- sidebar end -->
+                    <!-- side bar end -->
                     
                     <!-- main navi 9 grid open -->
                     
@@ -139,10 +147,8 @@
                                     </li>
                                 </ul>
                             </div>
-                        </div>
-                        
+                        </div>                     
                     </div>
-
 
                 </div>
             </div>
@@ -153,27 +159,48 @@
     <section>
         <div class="container-fluid">
             <div class="row">    
-            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> 
+            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row pt-md-5 mt-md-3 mb-5">
                         <div class="col-xl-3 col-sm-6 p-2">
+                            <div class="row w-100 m-0">
+								<div class="col-12" id="exhibitionBtns">
+									<button id="exhibitionAdded">전시 등록</button>
+									<button id="exhibitionList">전시회 목록</button>
+								</div>
+							</div>
+                            
                             <div class="card">
+                            	
                             	<form action="/admin/exhibitionsInsert" method="post">
 									<tabel>
 										<tr>
 											<th colspan="2" style="text-align:center"><b>[[ Exhibition Page ]]</b></th>
 										</tr><br>
 										<tr>
+											<select name="e_period">
+												<option value='F'>예정전시 </option>
+												<option value='N'>현재전시 </option>
+												<option value='P'>지난전시 </option>
+											</select>
+										</tr>
+										
+										<tr>
 											<td> Exhibition Name</td>
-											<td><input type="text" name="e_name" placeholder="input Exhibition Name"></td>
+											<td><input type="text" name="e_name" id="e_name" placeholder="input Exhibition Name"></td>
 										</tr><br>
+										
 										<tr>
 											<td>Exhibition Start Date</td>
-											<td><input type="text" name="start_date" id="start_date"></td>
+											<td><input type="text" name="start_date" id="start_date">
+											<input type="hidden" id="start_date_value"></td>
 										</tr><br>
+										
 										<tr>
 											<td>Exhibition End Date</td>
-											<td><input type="text" name="end_date" id="end_date"></td>
+											<td><input type="text" name="end_date" id="end_date">
+											<input type="hidden" id="end_date_value"></td>
 										</tr><br>
+										
 										<tr>
 											<td>Exhibition Price</td>
 											<td><input type="text" name="e_price" id="e_price" 
@@ -183,8 +210,7 @@
 										<tr>
 											<td colspan="2" align="right"><a href="/admin/adminExhibitions">
 											<input type="button" id="return" value="초기화"></a> 
-											<input type="submit" id="upload" value="등록"></td>
-							
+											<input type="submit" id="upload" value="등록" disabled></td>
 										</tr>
 									</tabel>
 								</form>
@@ -198,9 +224,16 @@
 <!-- DatePicker Script -->  
  
 <script>
+let isE_name = false;
+let isE_price = false;
+let isStart_date = false;
+let isEnd_date = false;
+let start_date;
+let end_date;
 
- 	$(function (){           
-		$.datepicker.setDefaults($.datepicker.regional['ko']);             
+	$(function (){           
+		$.datepicker.setDefaults($.datepicker.regional['ko']); 
+			         
 			$("#start_date").datepicker({                 
 				changeMonth: true,                  
 				changeYear: true,
@@ -217,6 +250,12 @@
 				maxDate: 60, // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
 				onClose: function( selectedDate ) {	//시작일(startDate) datepicker가 닫힐때, 종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
 					$("#end_date").datepicker( "option", "minDate", selectedDate );
+					
+					let date =  $.datepicker.formatDate("yymmdd", $(this).datepicker('getDate'));
+					$('input[name="start_date"]').attr('value', date);
+					
+					$("#start_date_value").val(date);
+					start_date = this.date;
 				}
 			});
 		
@@ -236,9 +275,113 @@
 			    maxDate: 365, // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
 			    onClose: function( selectedDate ) { // 종료일(endDate) datepicker가 닫힐때, 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
 					$("#start_date").datepicker( "option", "maxDate", selectedDate );
+					let date =  $.datepicker.formatDate("yymmdd", $(this).datepicker('getDate'));
+					$("#end_date_value").val(date);
+					end_date = this.date;
 				}
 			});
- 		});
+ 		});	
+	
+	
+	
+
+
+	
+	$("#e_name").on("keyup",function(){
+		let e_name = $("#e_name").val();
+		console.log(e_name);
+		if(e_name == ""){
+			isE_name = false;
+			
+		}else {
+			isE_name = true;
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date){
+			$("#upload").removeAttr("disabled");
+		}
+	})
+	
+// 	console.log($("#start_date").val());
+// 	console.log($("#end_date").val());
+// 	if(start_date == $("#start_date_value").val()) {
+// 		alert("!!");
+// 	}
+	
+// 	console.log($("#start_date_value").val());
+// 	console.log($("#end_date_value").val());
+	$("#start_date").on("focusout", function(){
+		let start_date_value = $("#start_date_value").val();
+		console.log(start_date_value);
+		if (start_date_value == null){
+			isStart_date = false;
+		}else {
+			isStart_date = true;
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date){
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#end_date").on("focusout", function(){
+		let end_date_value = $("#end_date_value").val();
+		console.log(end_date_value);
+		if (end_date_value == null ){
+			isEnd_date = false;
+		}else {
+			isEnd_date = true;
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date){
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+
+	$("#e_price").on("keyup",function(){
+		let e_price = $("#e_price").val();
+		console.log(e_price);
+		if(e_price == ""){
+			isE_price = false;
+			
+		}else {
+			isE_price = true;
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date){
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+
+	$("#return").on("click", ()=>{
+		location.reload();
+	})
+	
+	$("#upload").on("click", ()=>{
+		
+		alert("Exhibition Added Success");
+	})
+	
+	
+
+
+
+
+ 	
+ 	
+ 	$("#exhibitionAdded").on("click", ()=>{
+ 		location.href = "/admin/adminExhibitions";
+ 	})
+ 	
+ 	$("#exhibitionList").on("click", ()=>{
+ 		location.href = "/admin/adminExhibitionList?cpage=1";
+ 	})
+ 	
+ 	
 </script>
 
 </body>

@@ -16,14 +16,31 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/admin/admin.css">
+
+<style>
+    @media (max-width : 768px){
+		.sidebar {
+			position : static;
+			height : auto;
+		}
+		
+		.top-navbar {
+			position : static;
+		}
+	}
+
+</style>
 </head>
 <body>
-    <div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-toggle="collapse" data-target="#sidebar">
+<!-- <div class="container "> -->
+    <nav class="navbar navbar-expand-md  navbar-light"> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+        		aria-controls="sidebar" aria-expanded="false"
+							aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="sidebar">
+        <div class="collapse navbar-collapse justify-content-end" id="sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <!-- sidebar 3grid open -->
@@ -39,7 +56,7 @@
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 current"> <!-- 선택된 효과 -->
+                                <a href="/admin/adminMain" class="nav-link text-black p-3 mb-2 current"> <!-- 선택된 효과 -->
                                     <i class="bi bi-palette text-black "></i> Dashboard
                                 </a>
                             </li>
@@ -55,7 +72,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Sales
+                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -85,8 +102,8 @@
 
                     <!-- main navi 9 grid open -->
                     
-                    <div class="col-xl-10 col-lg-9 top-navbar bg-dark fixed-top py-2">
-                        <div class="row">
+                    <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
+                        <div class="row align-items-center">
                             <div class="col-md-4">
                                 <h4 class="text-align text-uppercase mb-0 text-white">Dashboard</h4>
                             </div>
@@ -112,7 +129,7 @@
                                             <i class="bi bi-bell"></i>
                                         </a>
                                     </li>
-                                    <li class="nav-item icon-parent m-auto">
+                                    <li class="nav-item icon-parent ml-md-auto">
                                         <a href="#" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
@@ -127,7 +144,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
+    
+
     <!-- navibar close -->
 
     <!-- card section open-->
@@ -282,14 +301,14 @@
             
             </div>
     </section>
+<!-- </div>     -->
     
     
-    
-	<script src="/js/bootstrap.bundle.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
+<!-- 	<script src="/js/bootstrap.bundle.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" ></script>
 	<script src="/js/dashboard.js"></script>
-	<script src="/js/chart-bar-demo.js"></script>
+<!-- 	<script src="/js/chart-bar-demo.js"></script> -->
 	<script src="/js/chart-pie-demo.js"></script>
 
 	
