@@ -116,6 +116,7 @@
 			<input type="submit" value="login">
 			<input type="button" id="join" value="join">
 			<input type="button" id="kakao-login-btn" value="카카오로 로그인">
+			<input type="button" id="findpw" value="비밀번호찾기">
 		</form>
 		
 		<button id=modalbtn>공유하기</button>
@@ -141,7 +142,9 @@
 	$("#join").on("click", function(){
 		location.href="/member/join";
 	})
-	
+	$("#findpw").on("click",function(){
+		location.href="/member/tofindpw/"
+	})
 	// SDK를 초기화. 사용할 앱의 JavaScript 키
       	Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 	    console.log(Kakao.isInitialized());
