@@ -1,4 +1,4 @@
-ㅋ<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -485,7 +485,7 @@ color: #FFFFFF;
                             <ul class="navbar-nav">
                                 <li class="nav-item"> <a id="About" class="nav-link" href="#"
                                         style="padding-left:0px; padding-right:0px;">About</a> </li>
-                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
+                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
                                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
                                 <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
                                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
@@ -752,7 +752,7 @@ color: #FFFFFF;
         </div>
 
 
-    </div>
+    </div>2
 
 </body>
 
