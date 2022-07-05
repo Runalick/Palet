@@ -162,14 +162,16 @@
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <h5>Members</h5>
-                                            <h3>37</h3>
+                                            <h7 style="text-align:right">BestSeller</h7>
+                                            <h5 style="text-align:right">${GoodsBestSeller.g_name}</h5>
+                                            <h3 style="text-align:right">${GoodsBestSeller.sales_count}</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer text-secondary">
+                                    <a href="/admin/adminMain">
                                     <i class="bi bi-arrow-repeat mr-3"></i>
-                                    <span>Update Now</span>
+                                    <span>Update Now</span></a>
                                 </div>
                             </div>
                         </div>
@@ -180,14 +182,16 @@
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <h5>Vistor</h5>
-                                            <h3>324</h3>
+                                            <h7 style="text-align:right">BestExhibition</h7>
+                                            <h5 style="text-align:right">${ExhibitionBestSeller.e_name}</h5>
+                                            <h3 style="text-align:right">${ExhibitionBestSeller.sales_count}</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer text-secondary">
+                                    <a href="/admin/adminMain">
                                     <i class="bi bi-arrow-repeat mr-3"></i>
-                                    <span>Update Now</span>
+                                    <span>Update Now</span></a>
                                 </div>
                             </div>
                         </div>
@@ -198,14 +202,16 @@
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <h5>Best Seller</h5>
-                                            <h3>00전시</h3>
+                                            <h7 style="text-align:right">Total</h7>
+                                            <h5 style="text-align:right">Members</h5>
+                                            <h3 style="text-align:right">${totalMembers}</h3>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card-footer text-secondary">
+                                    <a href="/admin/adminMain">
                                     <i class="bi bi-arrow-repeat mr-3"></i>
-                                    <span>Update Now</span>
+                                    <span>Update Now</span></a>
                                 </div>
                             </div>
                         </div>

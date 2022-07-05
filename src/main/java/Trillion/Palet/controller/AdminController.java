@@ -41,7 +41,13 @@ public class AdminController {
 	private HttpSession session;
 	
 	@RequestMapping("adminMain")
-	public String adminMain() {
+	public String adminMain(Model model) {
+		ExhibitionDTO edto = eServ.exhibitionBestSeller();
+		GoodsDTO gdto = gServ.goodsBestSeller();
+		int members = aServ.getMemberTotalCount();
+		model.addAttribute("totalMembers", members);
+		model.addAttribute("ExhibitionBestSeller", edto);
+		model.addAttribute("GoodsBestSeller", gdto);
 		return "/admin/adminMain";
 	}
 	
@@ -115,9 +121,17 @@ public class AdminController {
 	
 	@RequestMapping(value="goodsInsert", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
 	public String goodsInsert(GoodsDTO gdto, MultipartFile[] file) {
-		System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
 		String realPath = session.getServletContext().getRealPath("GoodsPic");
 		gServ.goodsInsert(gdto, realPath, file);
 		return "redirect:adminGoods";
+	}
+	
+	@RequestMapping("adminGoodsList")
+	public String adminGoodsList(Model model, int cpage) {
+		List<GoodsDTO> gdto = aServ.goodsSelectByPage(cpage);
+		String pageNavi = aServ.getGoodsPageNavi(cpage);
+		model.addAttribute("list", gdto);
+		model.addAttribute("navi", pageNavi);
+		return "/admin/adminGoodsList";
 	}
 }

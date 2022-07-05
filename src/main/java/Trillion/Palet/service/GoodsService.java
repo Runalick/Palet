@@ -54,4 +54,8 @@ public class GoodsService {
 		}		
 	}
 	
+	public GoodsDTO goodsBestSeller(){
+		return dao.goodsBestSeller();
+	}
+	
 }

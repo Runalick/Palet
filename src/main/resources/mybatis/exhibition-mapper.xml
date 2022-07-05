@@ -29,4 +29,8 @@
   		select * from exhibition
   	</select>
   	
+  	<select id="exhibitionBestSeller" resultType="Trillion.Palet.DTO.ExhibitionDTO">
+  		select * from (select * from exhibition order by sales_count desc) where rownum=1
+  	</select>
+  	
   </mapper>
