@@ -75,6 +75,8 @@
     	where email=#{email}
     </update>
     
+    
+    
     <!-- Admin -->
     <select id="memberSelectAll" resultType="Trillion.Palet.DTO.MemberDTO">>
     	select * from member order by grade
@@ -88,5 +90,7 @@
   		select count(*) from member
   	</select>
     
+    
+    <!-- Admin Fin -->
     
 </mapper>

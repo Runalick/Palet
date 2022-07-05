@@ -34,4 +34,8 @@ public class ExhibitionDAO {
 	public List<ExhibitionDTO> exhibitionSelectAll(){
 		return mybatis.selectList("Exhibition.exhibitionSelectAll");
 	}
+	
+	public ExhibitionDTO exhibitionBestSeller() {
+		return mybatis.selectOne("Exhibition.exhibitionBestSeller");
+	}
 }

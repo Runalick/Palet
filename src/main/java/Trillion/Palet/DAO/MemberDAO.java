@@ -73,4 +73,6 @@ public class MemberDAO {
     public int delmember(String email) {
     	return mybatis.delete(email);
     }
+    
+
 }
