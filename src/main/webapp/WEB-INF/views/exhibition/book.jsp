@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<title>예매하기</title>
+<title>현재 전시</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -198,31 +198,26 @@
 	/* Inside auto layout */
 }
 
-.btn1_1{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-
-text-decoration :none;
-width: 23.5rem;
+.btn1_1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 23.5rem;
 	height: 3.75rem;
-
-font-family: 'Spoqa Han Sans Neo';
+	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 1.25rem;
 	line-height: 1.5rem;
 	/* identical to box height */
 	text-align: center;
-	
 	color: #FFFFFF;
-/* Gray/900 */
-
-background: #161C24;
-border-radius: 20px;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 20px;
 }
 
 .btn2 {
@@ -369,15 +364,102 @@ align-items: center; */
 	float: left;
 }
 
-.curimage{
-width:23.5rem;
-height: 32.5rem;
+.curimage {
+	width: 23.5rem;
+	height: 32.5rem;
 }
 
-.exlink{
-text-decoration :none;
-color: #919EAB;
+.exlink {
+	text-decoration: none;
+	color: #919EAB;
 }
+
+a {
+	text-decoration: none;
+	padding: 0px;
+}
+
+.leftbutton {
+	width: 3.75rem;
+	height: 3.75rem;
+	padding: 0px;
+	margin-top: 0px;
+}
+
+.bookbutton {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	position: absolute;
+	width: 8.2rem;
+	height: 3.75rem;
+	color: #FFFFFF;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	/* Button/Button */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+}
+
+.rec1 {
+	box-sizing: border-box;
+	width: 49.25rem;
+	height: 22.25rem;
+	background: #FFFFFF;
+	/* Gray/300 */
+	border: 1px solid #DFE3E8;
+	border-radius: 1.25rem;
+}
+
+.input1{
+box-sizing: border-box;
+
+
+padding: 0.625rem 0.75rem;
+gap: 0.625rem;
+
+
+width: 17.5rem;
+height: 3rem;
+
+/* bs-white */
+
+background: #FFFFFF;
+border: 1px solid #CFD4D9;
+box-shadow: 0px 0px 0px #CBDAFC;
+border-radius: 5px;}
+
+
+input::placeholder {
+ width: 16rem;
+height: 1.75rem;
+text-align:center;
+
+/* Body/Body2 */
+
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 400;
+font-size: 1rem;
+line-height:1.75rem;
+/* identical to box height, or 175% */
+
+
+/* Gray/600 */
+
+color: #637381;
+
+
+/* Inside auto layout */
+
+}
+
+
 
 
 </style>
@@ -387,7 +469,7 @@ color: #919EAB;
 <body>
 	<div class="container-fluid">
 		<div class="container">
-			<div class="row" id="container1">
+			<div class="row">
 				<nav class="navbar navbar-expand-sm bg-light navbar-light">
 					<div class="container" id="navparent">
 						<a class="navbar-brand" href="#" id="container"
@@ -428,49 +510,77 @@ color: #919EAB;
 				</nav>
 
 			</div>
-			<div class="row" id="container1">
-				<div class="col-4 h2" style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
-				<ul class="col-4 ul2 h3 offset-4"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 4.938rem; margin-left: 3.1rem;">현재 전시</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink" href="/Exhibition/toPreExhibition">과거
-						전시</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">예정
-						전시</li>
 
-				</ul>
-			</div>
-			<div class="row" id="container1">
-				<div class="col-12" style="margin-top: 5.313rem;">
-					<img class = "curimage" src="/images/anywaylove.png" >
+
+			<div class="row">
+
+
+				<div class="col-1">
+					<img class=leftbutton src="/images/leftbutton.png"
+						style="margin-left: 0px;">
 				</div>
-				<div class="col-12 h3" style="margin-top: 2.5rem;">
-				Romantic Days 어쨌든, 사랑
+				<div class="col-11">
+					<div class="col h2" style="text-align: left;">Order / Payment</div>
 				</div>
-				<div class="col-12 caption" style="margin-top: 2.5rem;">
-				2022.03.16 ~ 2022.10.30
+
+				<div class="col-12" style="margin-top: 2.5rem; text-align: left;">
+
+
+					<div class="col h3" style="padding: 0px;">예매자 정보</div>
+
+
+
 				</div>
-				<div class="col-12 caption" style="margin-top: 2.5rem;">
-				<a href="/Exhibition/toBook" class = "exlink">
-				<button class = "btn1_1" style="background: #161C24;">
-				예매하기</button></a>
-				</div>
-				
+
+
 
 			</div>
+			<div class="row" style="margin-top:1.25rem; padding-left:2.5rem;">
+				<div class="col-8 rec1 " style="padding:1.75rem;" >
+					<div class = "row body2" id = "row1" style = "margin:0px;">
+						<div class = col-12>
+							이름
+						</div>
+						<div class = col-12 style ="margin-top:0.5rem;">
+							<input type =text class = input1 placeholder="예매자 이름을 입력해 주세요.">
+						</div>
+						<div class = col-12 style ="margin-top:1.5rem;">
+							전화 번호
+						</div>
+						<div class = col-12 style ="margin-top:0.5rem;">
+							<input type =text class = input1 placeholder="전화번호를 입력해 주세요.">
+						</div>
+						<div class = col-12 style ="margin-top:1.5rem;">
+							이메일
+						</div>
+						<div class = col-12 style ="margin-top:0.5rem;">
+							<input type =text class = input1 placeholder="email@naver.com">
+						</div>
+					</div>
+				</div>
+				<div class="col-4"></div>
 
+
+			</div>
 		</div>
-	
-        <div class="row" id="footer" style = "margin-top:12.5rem;">
-            <div class="container">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
-                </div>
-            </div>
-        </div>
+
+
+
+		<div class="row" id="footer" style="margin-top: 12.5rem;">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2"
+						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
+
+				</div>
+			</div>
+		</div>
 
 	</div>
 

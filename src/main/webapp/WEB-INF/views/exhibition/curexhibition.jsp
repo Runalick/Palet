@@ -438,8 +438,8 @@ padding:0px;
 					<li style="width: 4.938rem; margin-left: 3.1rem;">현재 전시</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink" href="/Exhibition/toPreExhibition">과거
 						전시</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">예정
-						전시</li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class ="exlink" href = "/Exhibition/toUpcommingExhibition">예정
+						전시</a></li>
 
 				</ul>
 			</div>
@@ -456,6 +456,10 @@ padding:0px;
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
 				<a href="/Exhibition/toBook">
 				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a>
+				</div>
+				<div class="col-12 caption" style="margin-top: 2.5rem;">
+				<a href="/Exhibition/toCurdetail">
+				<button class = "btn1_1" style="background: #919EAB;">자세히 보기</button></a>
 				</div>
 				
 

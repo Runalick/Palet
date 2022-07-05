@@ -386,38 +386,24 @@ a {
 	margin-top: 0px;
 }
 
-.bookbutton{
-
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-
-position: absolute;
-width: 8.2rem;
-height: 3.75rem;
-
-color: #FFFFFF;
-/* Gray/900 */
-
-background: #161C24;
-border-radius: 1.25rem;
-
-
-
-
-
-/* Button/Button */
-
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 500;
-font-size: 1.25rem;
-line-height: 1.5rem;
-/* identical to box height */
-
-text-align: center;
-
-
-
+.bookbutton {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	position: absolute;
+	width: 8.2rem;
+	height: 3.75rem;
+	color: #FFFFFF;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	/* Button/Button */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
 }
 </style>
 
@@ -467,50 +453,69 @@ text-align: center;
 				</nav>
 
 			</div>
-			
+
 		</div>
-			<div class="row" style="height: 20rem; border-bottom: 1px solid #DFE3E8;">
-				<div class="container "
-					style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
-					<div class="row gx-0" id="row1">
+		<div class="row"
+			style="height: 20rem; border-bottom: 1px solid #DFE3E8;">
+			<div class="container "
+				style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+				<div class="row gx-0" id="row1">
 
 
-						<div class="col-1">
-							<img class=leftbutton src="/images/leftbutton.png"
-								style="margin-left: 0px;">
+					<div class="col-1">
+						<img class=leftbutton src="/images/leftbutton.png"
+							style="margin-left: 0px;">
+					</div>
+					<div class="col-2">
+						<img src="/images/anywayloveS.png"
+							style="width: 10.625rem; height: 14.125rem;">
+					</div>
+
+					<div class="col-9">
+						<div class="row" id="row1">
+							<div class="col h3">Romantic Days 어쨌든, 사랑</div>
 						</div>
-						<div class="col-2">
-							<img src="/images/anywayloveS.png"
-								style="width: 10.625rem; height: 14.125rem;">
+						<div class="row" id="row1" style="margin-top: 1rem;">
+							<div class="col body1" style="color: #161C24;">2022.03.16 ~
+								2022.10.30</div>
 						</div>
-
-						<div class="col-9">
-							<div class="row" id="row1">
-								<div class="col h3">Romantic Days 어쨌든, 사랑</div>
-							</div>
-							<div class="row" id="row1" style="margin-top: 1rem;">
-								<div class="col body1" style="color: #161C24;">2022.03.16
-									~ 2022.10.30</div>
-							</div>
-							<div class="row" id="row1" style="margin-top: 5.781rem;">
-								<div class="col h2" style="text-align: left;">
-									9,000 원 <img src="/images/minusbutton.png" type = "button"
-										style="margin-left: 1.5rem;"><span class=body1
-										style="color: #161C24; margin-left: 1rem;">1</span> <img type = "button"
-										src="/images/plusbutton.png" style="margin-left: 1rem;">
-										<button class =bookbutton style="margin-left: 29.25rem;">예매하기</button>
-								</div>
-
+						<div class="row" id="row1" style="margin-top: 5.781rem;">
+							<div class="col h2" style="text-align: left;">
+								9,000 원 <img src="/images/minusbutton.png" type="button"
+									style="margin-left: 1.5rem;"><span class=body1
+									style="color: #161C24; margin-left: 1rem;">1</span> <img
+									type="button" src="/images/plusbutton.png"
+									style="margin-left: 1rem;">
+								<button class=bookbutton style="margin-left: 29.25rem;">예매하기</button>
 							</div>
 
 						</div>
-
-
 
 					</div>
 
+
+
 				</div>
+
 			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<ul class="col-4 ul2 h3 offset"
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
+					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink">전시굿즈</a></li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">SNS후기</li>
+
+				</ul>
+			</div>
+			<div class = "row">
+			
+			<img src = "https://cdn.daelimmuseum.org/Program/Contents/202204/20220421182756105001.png" style = "margin-left:2.5rem; margin-right:2.5rem; padding:0px; width:75rem;">
+			</div>
+
+		</div>
 
 
 

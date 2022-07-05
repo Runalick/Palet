@@ -49,6 +49,14 @@ public class ExhibitionController {
 		return "/exhibition/curdetail";
 	}
 	
+	@RequestMapping("toUpcommingExhibition")
+	public String toUpcommingExhibition() {
+	
+		
+		
+		return "/exhibition/upcommingexhibition";
+	}
+	
 	
 	
 

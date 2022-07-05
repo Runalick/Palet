@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<title>현재 전시</title>
+<title>예정 전시</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -373,6 +373,11 @@ align-items: center; */
 	text-decoration: none;
 	color: #919EAB;
 }
+
+a {
+	text-decoration: none;
+	padding: 0px;
+}
 </style>
 
 
@@ -427,27 +432,26 @@ align-items: center; */
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
 						class="exlink" href="/Exhibition/toCurExhibition">현재 전시</a></li>
-					</li>
-					<li style="width: 4.938rem; margin-left: 3.1rem;">과거 전시</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
+						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
+					<li style="width: 4.938rem;  margin-left: 3.1rem;"><a
+						class="exlink" href="/Exhibition/toUpcommingExhibition" style = "color : #161C24;">예정 전시</a></li>
 
 				</ul>
 			</div>
 			<div class="row" id="container1">
-				<c:forEach var="list" items="${list }">
-					<div class="col-4">
-						<div class="col-12" style="margin-top: 5.313rem;">
-							<img class="curimage" src="${list.pe_img} ">
-						</div>
-						<div class="col-12 h3" style="margin-top: 2.5rem;">${list.pe_name}</div>
-						<div class="col-12 caption" style="margin-top: 2.5rem;">
-							${list.pe_date}</div>
-					</div>
-				
-				</c:forEach>
-			</div>
+				<div class="col-12" style="margin-top: 5.313rem;">
+					<img class="curimage"
+						src="/images/timegardenS.png">
+				</div>
+				<div class="col-12 h3" style="margin-top: 2.5rem;">과천프로젝트
+					2022: 옥상정원_시간의 정원</div>
+				<div class="col-12 caption" style="margin-top: 2.5rem;">
+					2022-06-29~2023-06-25</div>
 
+
+
+			</div>
 
 		</div>
 
