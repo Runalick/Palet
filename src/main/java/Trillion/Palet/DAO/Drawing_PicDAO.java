@@ -19,4 +19,6 @@ public class Drawing_PicDAO {
 	public boolean isEmailExist(String email) {
 		return mybatis.selectOne("Event.isEmailExist", email);
 	}
+	
+	  
 }

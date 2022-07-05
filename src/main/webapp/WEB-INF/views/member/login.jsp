@@ -20,6 +20,7 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <!-- 카카오 공유하기 -->
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<link rel="stylesheet" href="/css/member/login.css">
 <style>
 .modal{
 	posision: absolute;
@@ -110,31 +111,35 @@
 		</table>
 	</c:when>
 	<c:otherwise>
-		<form action="/member/login" method="post">
-			<input type="text" name=email placeholder="이메일을 입력하세요"><br>
-			<input type="password" name=pw placeholder="비밀번호를 입력하세요"><br>
-			<input type="submit" value="login">
-			<input type="button" id="join" value="join">
-			<input type="button" id="kakao-login-btn" value="카카오로 로그인">
-			<input type="button" id="findpw" value="비밀번호찾기">
-		</form>
+	<div class="container-fluid">
+		<div class="row" style="padding-top: 150px;">
+			<div class="container" style="max-width: 600px;">
+				<div class="row">
+				<form action="/member/login" method="post">
+				<input type="text" name=email placeholder="이메일을 입력하세요"><br>
+				<input type="password" name=pw placeholder="비밀번호를 입력하세요"><br>
+				<input type="submit" value="login">
+				<input type="button" id="join" value="join">
+				<input type="button" id="kakao-login-btn" value="카카오로 로그인">
+				<input type="button" id="findpw" value="비밀번호찾기">
+			</form>
 		
-		<button id=modalbtn>공유하기</button>
+			<button id=modalbtn>공유하기</button>
 		
-		<div class="modal">
-			
-			<div class="modal_content" title="공유하기">
-				<div id="modal_header">
-					공유하기<button id="modal_back">X</button>
+			<div class="modal">
+				
+				<div class="modal_content" title="공유하기">
+					<div id="modal_header">
+						공유하기<button id="modal_back">X</button>
+					</div>
+					<hr>
+					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
+					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
+					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오</a> <br>
+					<input type="text" id="text" value="http://localhost/member/loginPage" readonly/>
+					<input type="button" onclick="fn_copy()" value="Copy"/> 
 				</div>
-				<hr>
-				<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
-				<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
-				<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오</a> <br>
-				<input type="text" id="text" value="http://localhost/member/loginPage" readonly/>
-				<input type="button" onclick="fn_copy()" value="Copy"/> 
 			</div>
-		</div>
 	</c:otherwise>
 </c:choose>
 </body>
