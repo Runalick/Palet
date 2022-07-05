@@ -388,7 +388,7 @@ a {
 			<div class="row" id="container1">
 				<nav class="navbar navbar-expand-sm bg-light navbar-light">
 					<div class="container" id="navparent">
-						<a class="navbar-brand" href="#" id="container"
+						<a class="navbar-brand" href="/" id="container"
 							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 						<button class="navbar-toggler" type="button"
 							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
