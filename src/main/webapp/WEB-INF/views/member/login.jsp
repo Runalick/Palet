@@ -114,15 +114,28 @@
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 150px;">
 			<div class="container" style="max-width: 600px;">
+				<div class="row" id="row1">
+					<div class="h2">Login</div>
+				</div>
 				<div class="row">
-				<form action="/member/login" method="post">
-				<input type="text" name=email placeholder="이메일을 입력하세요"><br>
-				<input type="password" name=pw placeholder="비밀번호를 입력하세요"><br>
-				<input type="submit" value="login">
-				<input type="button" id="join" value="join">
-				<input type="button" id="kakao-login-btn" value="카카오로 로그인">
-				<input type="button" id="findpw" value="비밀번호찾기">
-			</form>
+					<form action="/member/login" method="post">
+						<div class="col">
+							<div class="row"> 
+								<div class="col-12"><input type="text" name=email placeholder="이메일을 입력하세요"></div>
+								<div class="col-12"><input type="password" name=pw placeholder="비밀번호를 입력하세요"></div>
+							</div>
+							<div class="row">
+								<input type="submit" value="login">
+								<input type="button" id="join" value="join">
+								<input type="button" id="kakao-login-btn" value="카카오로 로그인">
+								<input type="button" id="findpw" value="비밀번호찾기">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 		
 			<button id=modalbtn>공유하기</button>
 		

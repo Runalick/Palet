@@ -6,7 +6,7 @@
 <mapper namespace="Event"> 
 
 	<insert id="add">
-		insert into drawing values(draw_seq.nextval, #{d_title}, #{painter}, ${file}, #{file_name}, ${file_size}, #{email}, 'N')
+		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N')
 		<selectKey order="AFTER" keyProperty="draw_seq" resultType="int">
 			select draw_seq.currval from dual
 		</selectKey>	
@@ -24,5 +24,5 @@
 		select * from drawing
 	</select>
 	
+</mapper>
 	
-</mapper>  

@@ -159,7 +159,7 @@ function saveImage() {
         processData : false,	// data 파라미터 강제 string 변환 방지!!
         contentType : false,	// application/x-www-form-urlencoded; 방지!!
         success : function (data) {
-            if(data == "true"){
+            if(data === "true"){
 				alert(painter.value + "님의 작품이 등록되었습니다. 관리자의 승인 후 등록됩니다.");
 			} else {
 				alert("본 이벤트는 1계정당 1번만 참여가 가능합니다.");

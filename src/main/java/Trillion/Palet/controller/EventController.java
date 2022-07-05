@@ -1,20 +1,14 @@
 package Trillion.Palet.controller;
 
-import java.sql.Blob;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,27 +28,13 @@ public class EventController {
 	
 	@RequestMapping("participation")
 	public String participation(Model model) {
-		String realpath = "/event/event/"; 
-		model.addAttribute("realpath",realpath);
-		List<DrawingDTO> list = eServ.selectImage();
-		model.addAttribute("list", list);
-		/*
-		 * Iterator<Map<String,Object>> resultMap =
-		 * 
-		 * byte[] arr = (byte[]) resultMap.get("base64"); String base64ToString = new
-		 * String(arr);
-		 * 
-		 * model.addAttribute("imgSrc",base64ToString);
-		 */
-	    
-	    
-	  
-	    
+		//String realpath = "/event/event/"; 
+		//model.addAttribute("realpath",realpath);
+		//List<DrawingDTO> list = eServ.selectImage();
+		//model.addAttribute("list", list);
 		
 		return "/event/event";
 	}
-	
-	
 	
 	@RequestMapping("paint")
 	public String paint() {
@@ -66,16 +46,22 @@ public class EventController {
 	public String send(DrawingDTO dto, MultipartFile file) throws Exception{
 		//String email = (String)session.getAttribute("loginEmail");
 		String email="123";
-
 		dto.setEmail(email);
+
+		byte[] bytes = file.getBytes();
+		dto.setD_file(bytes);
 		
+//		ImgDTO img = new ImgDTO();
+//		img.setBlob(bytes);
+//		eServ.testsave(img);
+
 		// 게시물을 등록한 적이 있을 때
 		/*
 		 * if(eServ.isEmailExist(email)) { return "false"; }
 		 */
 		
-		String realPath = session.getServletContext().getRealPath("uplaod");
-		eServ.add(dto, realPath, file);
+		//String realPath = session.getServletContext().getRealPath("uplaod");
+		eServ.add(dto);
 		return "true";
 	}
 	
