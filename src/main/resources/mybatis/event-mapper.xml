@@ -23,6 +23,8 @@
 	<select id="selectImage" resultType="Trillion.Palet.DTO.DrawingDTO">
 		select * from drawing
 	</select>
+	<insert id="testsave">
+		insert into lob_test (seq,blob) values(lob_test_seq.nextval, #{blob})
+	</insert>
+</mapper>
 	
-	
-</mapper>  

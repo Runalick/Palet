@@ -1,24 +1,20 @@
 package Trillion.Palet.controller;
 
-import java.sql.Blob;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.dao.support.DaoSupport;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DTO.DrawingDTO;
+import Trillion.Palet.DTO.ImgDTO;
 import Trillion.Palet.service.EventService;
 
 
@@ -75,6 +71,11 @@ public class EventController {
 		System.out.println(fileName);
 		System.out.println(file);
 		System.out.println(bytes);
+		
+		ImgDTO img = new ImgDTO();
+		img.setBlob(bytes);
+		
+		eServ.testsave(img);
 		
 		// 게시물을 등록한 적이 있을 때
 		/*

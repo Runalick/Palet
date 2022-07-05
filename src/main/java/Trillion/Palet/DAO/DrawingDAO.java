@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.DrawingDTO;
+import Trillion.Palet.DTO.ImgDTO;
 
 @Repository
 public class DrawingDAO {
@@ -37,5 +38,8 @@ public class DrawingDAO {
 
 	public List<DrawingDTO> selectImage() {
 		return mybatis.selectList("Event.selectImage");
+	}
+	public int testsave(ImgDTO dto) {
+		return mybatis.insert("Event.testsave",dto);
 	}
 }
