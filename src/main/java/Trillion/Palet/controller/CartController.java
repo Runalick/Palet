@@ -43,7 +43,8 @@ public class CartController {
 	
 	@RequestMapping("cartlist")
 	public String cartList(Model model,HttpServletResponse response) throws Exception {
-		String email = (String)session.getAttribute("loginEmail");
+//		String email = (String)session.getAttribute("loginEmail");
+		String email = "test@naver.com";
 		List<CartListDTO> list = cServ.selectAll(email);
 		TotalCartDTO totalList = cServ.total(email);
 
