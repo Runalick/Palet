@@ -21,8 +21,6 @@ public class QRController {
 	}
 	@RequestMapping(value="qrtest")
 	public String qrtest(String email,String name) throws Exception{
-		System.out.println(email);
-		System.out.println(name);
 		return "";
 	}
 }

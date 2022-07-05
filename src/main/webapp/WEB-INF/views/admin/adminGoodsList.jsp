@@ -157,58 +157,17 @@
 							</div>
                             
                             <div class="cc">
+                            	<div> 굿즈명 가격 판매량 재고량 </div>
+                            	<c:forEach var="i" items="${list }">
+                            		<div>
+                            		${i.g_name } : 
+                            		${i.g_price } : 
+                            		${i.sales_count } : 
+                            		${i.g_stock }
+                            		</div>
+                            	</c:forEach>
                             	
-                            	<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">
-									<div>
-										
-									<div colspan="2" style="text-align:center"><b>[[ Goods Page ]]</b></div>
-									
-									<select id="e_num" name="e_num"> 
-										<c:forEach var="i" items="${list}">	
-										<option value='${i.e_num}'>${i.e_name} </option>
-										</c:forEach>
-									</select>									
-									
-										
-																
-										
-										<div>
-											Goods Name
-											<input type="text" name="g_name" id="g_name" placeholder="input Goods Name">
-											<input type="hidden" name="g_num" value="0">
-										</div>
-										
-										<div>
-											Goods Price
-											<input type="text" name="g_price" id="g_price" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
-										</div><br>
-										
-										<div>
-											Goods Option
-											
-											<textarea name="g_option" id="g_option"></textarea>
-											
-										</div><br>
-										
-										<div>
-											goods stock
-											<input type="text" name="g_stock" id="g_stock" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></td>
-										</div><br>
-										
-										<div colspan="2">
-								        	Upload to image 
-								        	<input type="file" name="file">
-										 	
-	        							</div>							
-										<div colspan="2" align="right">
-											<a href="/admin/adminGoods">
-												<input type="button" id="return" value="초기화"></a> 
-												<input type="submit" id="upload" value="등록">
-										</div>
-									</div>
-								</form>
+                            	<div>${navi }</div>
             				</div>
             			</div>
             		</div>
@@ -219,16 +178,18 @@
     
     
     
+    
+    
 <script>
 	$("#goodsAdded").on("click", ()=>{
- 		location.href = "/admin/adminGoods";
- 	})
- 	
- 	$("#goodsList").on("click", ()=>{
- 		location.href = "/admin/adminGoodsList?cpage=1";
- 	})
+		location.href = "/admin/adminGoods";
+	})
+	
+	$("#goodsList").on("click", ()=>{
+		location.href = "/admin/adminGoodsList?cpage=1";
+	})
 
-</script>    
-    
+</script>
+
 </body>
 </html>

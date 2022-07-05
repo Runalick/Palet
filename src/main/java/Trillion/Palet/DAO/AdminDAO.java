@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.ExhibitionDTO;
+import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
 
 @Repository
@@ -30,7 +31,7 @@ public class AdminDAO {
 		return mybatis.selectList("Member.memberSelectByPage", param);
 	}
 	
-	private int getMemberTotalCount() {
+	public int getMemberTotalCount() {
 		return mybatis.selectOne("Member.getMemberTotalCount");
 	}
 	
@@ -155,4 +156,65 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
+	public List<GoodsDTO> goodsSelectByPage (int cpage) {
+		String start = String.valueOf(cpage * 10 - 9);
+		String end = String.valueOf(cpage * 10);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		return mybatis.selectList("Goods.goodsSelectByPage", param);
+	}
+	
+	private int getGoodsTotalCount() {
+		return mybatis.selectOne("Goods.getGoodsTotalCount");
+	}
+	
+	public String getGoodsPageNavi(int currentPage) {
+		int recordTotalCount = this.getGoodsTotalCount(); 
+		int recordCountPerPage = 10; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = (int)Math.ceil(recordTotalCount/(double)recordCountPerPage); // 0; 
+		
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminGoodsList?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
+	}
 }
