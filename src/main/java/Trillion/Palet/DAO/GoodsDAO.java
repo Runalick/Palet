@@ -21,4 +21,8 @@ public class GoodsDAO {
 	public int goodsInsert(GoodsDTO gdto) {
 		return mybatis.insert("Goods.goodsInsert", gdto);
 	}
+	
+	public GoodsDTO goodsBestSeller(){
+		return mybatis.selectOne("Goods.goodsBestSeller");
+	}
 }

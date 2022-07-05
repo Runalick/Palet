@@ -9,9 +9,24 @@
   		select * from goods
   	</select>
   	
+  	<!-- Admin  -->
+  	
   	<insert id="goodsInsert">
   		insert into goods values(goods_seq.nextval, #{e_num}, #{g_name}, #{g_price}, #{g_option}, default, #{g_stock})
   	</insert>
   	
+  	<select id="goodsBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">
+  		select * from (select * from goods order by sales_count desc) where rownum=1
+  	</select>
+  	
+  	<select id="goodsSelectByPage" resultType="Trillion.Palet.DTO.GoodsDTO">
+  		select * from (select row_number() over(order by g_num desc) line, goods.* from goods) where line between #{start} and #{end}
+  	</select>
+  	
+  	<select id="getGoodsTotalCount" resultType="int">
+  		select count(*) from goods
+  	</select>
+  	
+  	<!-- Admin Fin  -->
 
   </mapper>

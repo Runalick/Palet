@@ -121,8 +121,6 @@
 <!--
 -->
 #goodsparent {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
 	position: absolute;
 	left: 0rem;
 	top: 5rem;
@@ -185,7 +183,7 @@
 }
 
 #container2 {
-	padding-left: 2.5rem;
+	padding-left: 5rem;
 	flex-direction: row;
 }
 
@@ -380,7 +378,8 @@ select::-ms-expand {
 	background: #FFFFFF;
 	/* Gray/300 */
 	border: 0.06rem solid #DFE3E8;
-	border-radius: 20px;
+	border-radius: 1.25rem;
+	margin-bottom:0.5rem;
 }
 
 #totaldiv {
@@ -434,8 +433,11 @@ select::-ms-expand {
 }
 
 .price {
-	width: 12.5rem;
+	width: 6.25rem;
 	text-align: right;
+	float:right;
+	margin-right:1.75rem;
+	margin-bottom:0px;
 }
 
 .cntbtn {
@@ -463,12 +465,18 @@ select::-ms-expand {
 	display: inline-block;
 	height: 1.75rem;
 	width: 1.875rem;
-	margin-left: 6.675rem; } .body2 {
+	float:right;
+	margin-right:1.75rem;
+	margin-top:0.575rem;
+} 
+	
+.body2 {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 400;
 	font-size: 1rem;;
 	line-height: 1.75rem;
+	
 }
 
 .chooseoption {
@@ -477,6 +485,11 @@ select::-ms-expand {
 	order: 0;
 	flex-grow: 1;
 }
+/* footer */
+#footer{
+            background: #F4F6F8;
+            height: 13.25rem;
+        }
 </style>
 </head>
 <body>
@@ -531,12 +544,11 @@ select::-ms-expand {
 			</div>
 		</div>
 	</header>
-	<main>
 		<div class="container-fluid" id="goodsparent">
 			<div class="container" id="goodscontainer">
 				<div class=" payment-area">
 					<div class="row" id="margin2">
-						<div class="col-12 margin1">
+						<div class="col-12 margin1" >
 
 							<!-- 데이터 들어올 곳 -->
 
@@ -549,7 +561,6 @@ select::-ms-expand {
 							<div id="select-wrap">
 								<div id="select">상품옵션을 선택하세요</div>
 								<ul class="select-ul">
-									<li>상품옵션을 선택하세요</li>
 									<li>로맨틱데이즈</li>
 									<li>판타스틱데이즈</li>
 									<li>러블리데이즈</li>
@@ -559,23 +570,83 @@ select::-ms-expand {
 
 
 							<!-- 옵션 선택 -->
-							<div class="col-12 choose">
-								<span class="h4 name">로맨틱데이즈</span> 
-								<span class="h4 price">7,900원</span><br>
-								<span><button class="cntbtn">
-										<img src="/images/minus.png">
-								</button></span> <span class="count body2">1</span> 
-								<span><button class="cntbtn">
-										<img src="/images/plus.png">
-								</button></span> 
-								<span class="delete body2">삭제</span>
-							</div>
+<!-- 							<div class="col-12 choose"> -->
+<!-- 								<span class="h4 name">로맨틱데이즈</span>  -->
+<!-- 								<span class="h4 price">7,900원</span><br> -->
+<!-- 								<span><button class="cntbtn minus"> -->
+<!-- 										<img src="/images/minus.png"> -->
+<!-- 								</button></span>  -->
+<!-- 								<span class="count body2">1</span>  -->
+<!-- 								<span><button class="cntbtn plus"> -->
+<!-- 										<img src="/images/plus.png"> -->
+<!-- 								</button></span>  -->
+<!-- 								<span class="delete body2" style="cursor:pointer">삭제</span> -->
+<!-- 							</div> -->
+					
+<script>
+$(".select-ul li").on("click", function () {
+    let text = $(this).text();
+    $("#select").text(text);
+   
+    
+    let choosediv=$("<div>");
+    choosediv.attr("class","col-12 choose");
+    //상품명
+    let namespan = $("<span class='h4 name'>");
+    namespan.text(text);
+    //상품가격
+    let price = $("#price").text();
+    let pricespan=$("<span class='h4 price'>");
+    pricespan.text(price);
+    
+    
+    //-버튼
+    let minusbtnspan = $("<span>");
+    let minusbtn=$("<button class='cntbtn minus'>");
+    minusbtn.append("<img src='/images/minus.png'>");
+	//수량
+    let cnt = $("<span class='count body2'>");
+    cnt.append(1);
+    
+    //+버튼
+    let plusbtnspan = $("<span>");
+    let plusbtn=$("<button class='cntbtn plus'>");
+    plusbtn.append("<img src='/images/plus.png'>");
+    
+    //삭제
+    let delete1 = $("<span class='delete body2'>");
+    delete1.css("cursor","pointer");
+    delete1.text("삭제");
+    
+    
+    
+    minusbtnspan.append(minusbtn);
+    plusbtnspan.append(plusbtn);
+    
+    choosediv.append(namespan);
+    choosediv.append(pricespan);
+    choosediv.append("<br>");
+    
+    choosediv.append(minusbtnspan);
+    choosediv.append(cnt);
+    choosediv.append(plusbtnspan);
+    choosediv.append(delete1);
+    
+    $("#select-wrap").after(choosediv);
+    $(".select-ul").toggle();
+    
+    
+    //최종결제금액
+    $("#totaldiv").css("display","block");
+    setTotalPrice();
+})
+
+</script>
 
 
-
-							<div class="col-12 " id="totaldiv">
+							<div class="col-12 " id="totaldiv" style="display:none">
 								<div class="h3" id="tatal">총 결제 금액</div>
-								<div class="h3" id="totalmoney">7,900원</div>
+								<div class="h3" id="totalmoney">0원</div>
 							</div>
 							
 							
@@ -617,9 +688,30 @@ select::-ms-expand {
 
 
 			</div>
+	
+		<!-- 푸터단 -->
+
+	<div class="row" id="footer" style="margin-top: 12.5rem;">
+		<div class="container">
+			<div class="row" id="row1" style="margin-left:22.5rem;">
+				<div class="col-12 h3 d-none d-sm-block"
+					style="color: #637381; margin-top: 3.75rem; padding:0px;">(주)팔레트</div>
+				<div class="col-12 body2 d-none d-sm-block" style="color: #637381; margin-top:0.5rem; margin-bottom:3.75rem; padding:0px;">사업자
+					등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345
+				<br>
+				3호선 경복궁역 지하
+					1층 | contact@palet.com
+					</div>
+			</div>
 		</div>
-	</main>
+	</div>	
+	
+	</div>
 	<script>
+	$(document).ready(function(){
+	});
+	
+	
 	//선택박스 화살표 방향 이미지
 	let click = false;
 	$("#select").on("click",function(){
@@ -637,12 +729,8 @@ select::-ms-expand {
 	})
 	
 	/* 셀렉트 박스 옵션 선택 */
-$(".select-ul li").on("click", function () {
-    let text = $(this).text();
-    $("#select").text(text);
-    $(".select-ul").toggle();
-})
 
+	
 // /* 셀렉트 박스 이외 선택시 보이지 않게 하기 */
 $("body").on("click", function(e){
 	if($(".select-ul").css("display") == "block"){
@@ -652,6 +740,124 @@ $("body").on("click", function(e){
     }
 
 })
+//옵션 선택 삭제/ 옵션 선택 없을 때 totaldiv 삭제 
+$(document).on("click", ".delete", function(){
+	$(this).parent().remove();
+	console.log($(".choose").length);
+	
+	
+	
+	if($(".choose").length<1){
+		$("#totaldiv").css("display","none");
+	}
+	 setTotalPrice();
+});	
+	
+
+
+	//수량
+	$(document).on("click", ".plus", function(){
+
+			let result = $($(this).parent().siblings()[4]).text();
+			number = parseInt(result) + 1;
+			console.log(number);
+			$($(this).parent().siblings()[4]).text(number);
+			
+			//가격변화
+			let price = $("#price").text() ;
+			price = price.replace(",","");
+			
+			let currentprice = $($(this).parent().siblings()[1]).text();
+			currentprice=currentprice.replace(",","");
+			totalprice =  parseInt(currentprice) +  parseInt(price);
+			$($(this).parent().siblings()[1]).text(totalprice.toLocaleString()+"원");
+	
+			
+			
+			setTotalPrice()
+	
+	
+	
+	});
+	$(document).on("click", ".minus", function(){
+
+			let result = $($(this).parent().siblings()[3]).text();
+			number = parseInt(result) - 1;
+			if (number == 0) {
+				return false;
+			}
+			console.log(number);
+			$($(this).parent().siblings()[3]).text(number);
+			
+			//가격변화
+			let price = $("#price").text() ;
+			price = price.replace(",","");
+			
+			let currentprice = $($(this).parent().siblings()[1]).text();
+			currentprice=currentprice.replace(",","");
+			totalprice =  parseInt(currentprice) -  parseInt(price);
+			$($(this).parent().siblings()[1]).text(totalprice.toLocaleString()+"원");
+
+			setTotalPrice()
+	
+	
+	
+	});
+	
+	
+	
+	function setTotalPrice(){
+		
+		let realtotalprice =0; //총 결제금액
+		
+		
+		
+		$(".choose").each(
+				function (index, element){
+			
+					
+					
+					console.log("총금액"+realtotalprice )
+					total = $(element).find(".price").text();
+					total=total.replace(",","");
+					console.log("total:"+total);
+					
+					realtotalprice  += parseInt(total) ;	
+					console.log("total이랑 더한 값"+realtotalprice );
+					
+					$("#totalmoney").text(realtotalprice +"원");
+					
+					
+// 		let totalsum=$("#totalmoney").text();
+		
+// 		total = $(this).text();
+// 		total=total.replace(",","");
+// 		console.log(parseInt(total) );
+		
+// 		totalprice =  parseInt(total)  ;
+// 		console.log("총가격"+totalprice);
+		
+		
+	})
+		
+	}
+	
+	
+
+	
+	
+	//총 가격
+// 	$(document).on(function() {
+		
+// 			$(".price").each(function (index, item){
+		
+// 			total = $(this).text();
+// 			total=total.replace(",","");
+// 			console.log("총가격"+total);
+// 		})
+		
+// 		});
+	
 	</script>
 </body>
 

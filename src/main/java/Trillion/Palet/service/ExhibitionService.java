@@ -30,4 +30,8 @@ public class ExhibitionService {
 	public List<ExhibitionDTO> exhibitionSelectAll(){
 		return edao.exhibitionSelectAll();
 	}
+	
+	public ExhibitionDTO exhibitionBestSeller() {
+		return edao.exhibitionBestSeller();
+	}
 }
