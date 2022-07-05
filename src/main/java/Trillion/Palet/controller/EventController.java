@@ -69,20 +69,13 @@ public class EventController {
 
 		dto.setEmail(email);
 		
-		String fileName = file.getOriginalFilename();
-		byte[] bytes = file.getBytes();
-		
-		System.out.println(fileName);
-		System.out.println(file);
-		System.out.println(bytes);
-		
 		// 게시물을 등록한 적이 있을 때
 		/*
 		 * if(eServ.isEmailExist(email)) { return "false"; }
 		 */
 		
-		//String realPath = session.getServletContext().getRealPath("uplaod");
-		//eServ.add(dto, fileName, file);
+		String realPath = session.getServletContext().getRealPath("uplaod");
+		eServ.add(dto, realPath, file);
 		return "true";
 	}
 	
