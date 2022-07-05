@@ -82,7 +82,7 @@
                                 </a>
                             </li>                            
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
@@ -172,7 +172,7 @@
                             <div class="card">
                             	
                             	<form action="/admin/exhibitionsInsert" method="post">
-									<tabel>
+									<table>
 										<tr>
 											<th colspan="2" style="text-align:center"><b>[[ Exhibition Page ]]</b></th>
 										</tr><br>
@@ -182,7 +182,7 @@
 												<option value='N'>현재전시 </option>
 												<option value='P'>지난전시 </option>
 											</select>
-										</tr>
+										</tr><br>
 										
 										<tr>
 											<td> Exhibition Name</td>
@@ -212,7 +212,7 @@
 											<input type="button" id="return" value="초기화"></a> 
 											<input type="submit" id="upload" value="등록" disabled></td>
 										</tr>
-									</tabel>
+									</table>
 								</form>
             				</div>
             			</div>
