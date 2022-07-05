@@ -71,7 +71,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>

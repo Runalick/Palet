@@ -17,4 +17,8 @@ public class GoodsDAO {
 	public List<GoodsDTO> selectAll(){
 		return mybatis.selectList("Goods.selectAll");
 	}
+	
+	public int goodsInsert(GoodsDTO gdto) {
+		return mybatis.insert("Goods.goodsInsert", gdto);
+	}
 }

@@ -1,6 +1,7 @@
 package Trillion.Palet.DAO;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -28,5 +29,9 @@ public class ExhibitionDAO {
 		param.put("e_num", e_num);
 		param.put("e_period", e_period);
 		return mybatis.update("Exhibition.exhibitionCheckUpdate", param);	
+	}
+	
+	public List<ExhibitionDTO> exhibitionSelectAll(){
+		return mybatis.selectList("Exhibition.exhibitionSelectAll");
 	}
 }
