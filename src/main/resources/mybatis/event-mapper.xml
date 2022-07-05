@@ -6,7 +6,7 @@
 <mapper namespace="Event"> 
 
 	<insert id="add">
-		insert into drawing values(draw_seq.nextval, #{d_title}, #{painter}, #{filename}, #{email}, 'N')
+		insert into drawing values(draw_seq.nextval, #{d_title}, #{painter}, ${file}, #{file_name}, ${file_size}, #{email}, 'N')
 		<selectKey order="AFTER" keyProperty="draw_seq" resultType="int">
 			select draw_seq.currval from dual
 		</selectKey>	
@@ -16,7 +16,13 @@
 		insert into drawing_pic values(drawpic_seq.nextval, #{sys_Name}, #{draw_seq})	
 	</insert>
 	
-	<select id="isIdExist" resultType="boolean">
+	<select id="isEmailExist" resultType="boolean">
 		select count(*) from drawing_pic where email = #{email}
 	</select>
+	
+	<select id="selectImage" resultType="Trillion.Palet.DTO.DrawingDTO">
+		select * from drawing
+	</select>
+	
+	
 </mapper>  

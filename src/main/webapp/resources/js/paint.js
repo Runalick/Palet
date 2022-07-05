@@ -136,7 +136,7 @@ function saveImage() {
 		return false;	
 	}
 	
-	const imgDataUrl = canvas.toDataURL("image/png");
+	const imgDataUrl = canvas.toDataURL("image/png", 1.0);
 	 
 	var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
     var array = [];
@@ -144,6 +144,7 @@ function saveImage() {
         array.push(blobBin.charCodeAt(i));
     }
     var file = new Blob([new Uint8Array(array)], {type: 'image/png'});	// Blob 생성
+   	//var fileName = 'canvas_img_' + new Date().getMilliseconds() + '.png';
     var formdata = new FormData();	// formData 생성
     formdata.append("file", file);	// file data 추가
     formdata.append("d_title", title.value)	
