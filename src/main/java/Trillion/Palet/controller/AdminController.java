@@ -2,6 +2,8 @@ package Trillion.Palet.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,11 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DTO.ExhibitionDTO;
+import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.service.AdminService;
 import Trillion.Palet.service.ExhibitionService;
+import Trillion.Palet.service.GoodsService;
 import Trillion.Palet.service.MemberService;
 
 @Controller
@@ -28,6 +33,12 @@ public class AdminController {
 	
 	@Autowired
 	private AdminService aServ;
+	
+	@Autowired
+	private GoodsService gServ;
+	
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping("adminMain")
 	public String adminMain() {
@@ -95,5 +106,18 @@ public class AdminController {
 		return result;
 	}
 	
+	@RequestMapping("adminGoods")
+	public String adminGoods(Model model) {
+		List<ExhibitionDTO> edto = eServ.exhibitionSelectAll();
+		model.addAttribute("list", edto);
+		return "/admin/adminGoods";
+	}
 	
+	@RequestMapping(value="goodsInsert", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public String goodsInsert(GoodsDTO gdto, MultipartFile[] file) {
+		System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
+		String realPath = session.getServletContext().getRealPath("GoodsPic");
+		gServ.goodsInsert(gdto, realPath, file);
+		return "redirect:adminGoods";
+	}
 }

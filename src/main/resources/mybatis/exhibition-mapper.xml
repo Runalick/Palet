@@ -25,4 +25,8 @@
   		update exhibition set e_period = #{e_period} where e_num = #{e_num}
   	</update>
   	
+  	<select id="exhibitionSelectAll" resultType="Trillion.Palet.DTO.ExhibitionDTO">
+  		select * from exhibition
+  	</select>
+  	
   </mapper>
