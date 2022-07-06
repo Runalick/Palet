@@ -19,7 +19,8 @@
 </head>
 
 <body>
-    <div id="qrcode"></div>
+
+   <div id="qrcode"></div>
     <script type="text/javascript">
         var qrcode = new QRCode(document.getElementById("qrcode"), {
             text: "${url}",

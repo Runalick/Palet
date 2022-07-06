@@ -217,6 +217,8 @@
                 </div>
             </div>
         </div>
+        
+        <a href="/qr/needqr">qrtest</a>
 
 	
 <script type="text/javascript">
