@@ -218,7 +218,8 @@
             </div>
         </div>
         
-        <a href="/qr/needqr">qrtest</a>
+<!--         <a href="/qr/needqr">qrtest</a> -->
+			<a href="/qr/ticketqr">ticketqrtest</a>
 
 	
 <script type="text/javascript">
