@@ -15,7 +15,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
@@ -434,19 +435,19 @@ align-items: center; */
 
 				</ul>
 			</div>
-			<div class="row" id="container1">
-				<c:forEach var="list" items="${list }">
+			<div class="row" id="container2">
+			<%-- <c:forEach var="list" items="${list }">
 					<div class="col-4">
 						<div class="col-12" style="margin-top: 5.313rem;">
-							<img class="curimage" src="${list.pe_img} ">
+						<a><img class="curimage" src="${list.pe_img} "></a>	
 						</div>
 						<div class="col-12 h3" style="margin-top: 2.5rem;">${list.pe_name}</div>
 						<div class="col-12 caption" style="margin-top: 2.5rem;">
 							${list.pe_date}</div>
 					</div>
 				
-				</c:forEach>
-			</div>
+				</c:forEach> 
+			</div> --%>
 
 
 		</div>
@@ -471,7 +472,58 @@ align-items: center; */
 
 
 </body>
+
+<script>
+AOS.init();
+
+window.onload = function(){
+	$.ajax({
+		url:"/Exhibition/contents",
+		data:{limit : 2},
+		async: false,
+		dataType:"json", // == JSON.parse(resp);
+		success: function (resp) {
+			for(let i = 0 ; i < resp.length; i++) {
+		    	  $("#container2").append("<div class='col-4'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>"); 
+		    	
+		    	  console.log("resp.length : " + resp.length);
+			}
+		},
+		});	
+	
+	let limit = 23;
+	
+	  $(document).scroll(function() {
+	    let maxHeight = $(document).height();
+	    let currentScroll = $(window).scrollTop() + $(window).height();
+	   
+	    if (maxHeight <= currentScroll) {
+	    	console.log("origin limit : " + limit);
+	    	$.ajax({
+				url:"/Exhibition/contents",
+				data:{limit : limit},
+				async: false,
+				dataType:"json", // == JSON.parse(resp);
+				success: function (resp) {
+					for(let i = 0 ; i < resp.length; i++) {
+						  $("#container2").append("<div class='col-4'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>");
+				    	  console.log("resp.length : " + resp.length);
+					}
+					limit = limit + resp.length;
+			    	console.log("change limit : " + limit);	
+				},
+				});
+	    	} 
+	      }) 
+}
+
+
+
+
+</script>
+
 </html>
+
 
 <%-- <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>

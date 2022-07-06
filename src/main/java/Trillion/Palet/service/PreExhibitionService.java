@@ -20,4 +20,18 @@ public class PreExhibitionService {
 		return daoPe.selectAll();
 
 	}
+	
+	
+	public List<PreExhibitionDTO> chooseAll(int limit) {
+
+		return daoPe.chooseAll(limit);
+
+	}
+	
+	public PreExhibitionDTO preDetail(String pe_img) {
+
+		return daoPe.preDetail(pe_img);
+
+	}
 }
+

@@ -21,5 +21,22 @@ public class PreExhibitionDAO {
 		return mybatis.selectList("PreExhibition.selectAll");
 
 	}
+	
+	
+	
+	
+	public List<PreExhibitionDTO> chooseAll(int limit) {
+
+		return mybatis.selectList("PreExhibition.chooseAll",limit);
+
+	}
+	
+	
+
+	public PreExhibitionDTO preDetail(String pe_img) {
+
+		return mybatis.selectOne("PreExhibition.preDetail",pe_img);
+
+	}
 
 }
