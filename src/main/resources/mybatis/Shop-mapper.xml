@@ -4,7 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Shop">
-  	<insert id="insert">
-  		insert into payment values (#{imp_uid}, #{pg}, #{method}, #{g_name}, #{price}, #{apply_num}, sysdate)
-  	</insert>
+
+  	<select id="selectBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">
+  		select goods.g_name, g_price, goods.g_num, gp_sysname from goods 
+		left outer join goodspic on goods.g_num = goodspic.g_num
+		where goods.e_num = #{e_num}
+		<trim prefix="order by">
+			<if test="option == 'sell'">sales_count</if>
+			<if test="option == 'lowPrice'">g_price</if>
+			<if test="option == 'highPrice'">g_price desc</if>
+		</trim>
+  	</select>  	
+  	
   </mapper>

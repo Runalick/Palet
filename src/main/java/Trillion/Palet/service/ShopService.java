@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.ShopDAO;
 import Trillion.Palet.DTO.GoodsDTO;
-import Trillion.Palet.DTO.ShopDTO;
 
 @Service
 public class ShopService {
@@ -18,7 +17,6 @@ public class ShopService {
 	public List<GoodsDTO> selectBestSeller(int e_num, String option) {
 		return dao.selectBestSeller(e_num, option);
 	}
-	
 	
 	
 }

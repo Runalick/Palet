@@ -59,9 +59,6 @@ public class ShopController {
 		List<GoodsDTO> list = sServ.selectBestSeller(e_num, option);
 		return list;
 	}
-	
 
-	
-	
 	
 }
