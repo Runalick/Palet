@@ -8,13 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.service.GoodsService;
+import Trillion.Palet.service.ShopService;
 
 @Controller
 @RequestMapping("/shop/")
 public class ShopController {
+
 
 	@Autowired
 	private GoodsService gServ;
@@ -44,13 +47,21 @@ public class ShopController {
 		return "/shop/detailview";
 	}
 	
-	@RequestMapping("emptycart")
-	public String emptycart() {
-		return "/cart/cart-empty";
+
+
+	
+	@Autowired
+	private ShopService sServ;
+	
+	@ResponseBody
+	@RequestMapping("selectBestSeller")
+	public List<GoodsDTO> selectBestSeller(int e_num, String option) {
+		List<GoodsDTO> list = sServ.selectBestSeller(e_num, option);
+		return list;
 	}
 	
-	@RequestMapping("ordersuccess")
-	public String ordersuccess() {
-		return "/cart/shop-order-success";
-	}
+
+	
+	
+	
 }
