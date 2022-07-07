@@ -24,30 +24,6 @@ public class ShopController {
 		List<GoodsDTO> list = sServ.selectBestSeller(e_num, option);
 		return list;
 	}
-	
-	@ResponseBody
-	@RequestMapping("selectLowPrice")
-	public List<ShopDTO> selectLowPrice(int e_numSelectVal) {
-		List<ShopDTO> list = sServ.selectLowPrice(e_numSelectVal);
-		
-		return list;
-	}
-	
-	@ResponseBody
-	@RequestMapping("selectHighPrice")
-	public List<ShopDTO> selectHighPrice(int e_numSelectVal) {
-		List<ShopDTO> list = sServ.selectHighPrice(e_numSelectVal);
-		
-		return list;
-	}
-	
-	@ResponseBody
-	@RequestMapping("goodsPic")
-	public String goodsPic(int g_num) {
-		
-		return sServ.goodsPic(g_num);
-	}
-	
-	
+
 	
 }

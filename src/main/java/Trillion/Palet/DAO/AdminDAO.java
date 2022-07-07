@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.SalesDTO;
 
 @Repository
 public class AdminDAO {
@@ -216,5 +217,9 @@ public class AdminDAO {
 			sb.append(link+(endNavi+1)+"'>> </a>");
 		}
 		return sb.toString();
+	}
+	
+	public List<SalesDTO> getWeekSales(){
+		return mybatis.selectList("Admin.getWeekSales");
 	}
 }

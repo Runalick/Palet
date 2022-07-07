@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.service.PayService;
 
 @Controller
 @RequestMapping("/pay/")
