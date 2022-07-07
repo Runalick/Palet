@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.TicketDTO;
 import Trillion.Palet.service.QrcordService;
 import Trillion.Palet.service.TicketService;
@@ -28,11 +29,7 @@ public class QRController {
 	public String needqr(Model model) throws Exception{
 		String email= (String)session.getAttribute("loginEmail");
 		model.addAttribute("url", "http://14.39.252.82/qr/qrtest?email="+email);
-		return "/test/qrcode";
-	}
-	@RequestMapping(value="qrtest")
-	public String qrtest(String email,String name) throws Exception{
-		return "";
+		return "/qr/qrcode";
 	}
 	
 	@RequestMapping("ticketqr")
@@ -46,6 +43,14 @@ public class QRController {
 		String use = dto.getUseable();
 		model.addAttribute("url","http://14.39.252.82/qr/ticketqr?serial="+serial+"&ename="+ename
 				+"&price="+price+"&use="+use);
-		return "/test/qrcode";
+		return "/qr/qrcode";
+	}
+	@RequestMapping("now")
+	public String now(Model model,int e_num) throws Exception{
+		ExhibitionDTO edto = qser.getNowExhibition(e_num);
+		String e_name = edto.getE_name();
+		int price = edto.getE_price();
+		String url = "http://14.39.252.82/qr/nowexhibition?";
+		return "/qr/now";
 	}
 }
