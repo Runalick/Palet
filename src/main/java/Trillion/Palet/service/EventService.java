@@ -1,7 +1,7 @@
 package Trillion.Palet.service;
 
-import java.sql.Blob;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,10 +46,10 @@ public class EventService {
 		return pdao.isEmailExist(email);
 	}
 
-	public List<DrawingDTO> selectImage() {
+	public List<Map<String, Object>> selectImage() {
 		return dao.selectImage();
 	}
-	public int testsave(ImgDTO img) {
-		return dao.testsave(img);
+	public int testsave(String imgDataUrl, String d_title, String painter) {
+		return dao.testsave(imgDataUrl, d_title, painter);
 	}
 }

@@ -101,34 +101,44 @@
 	</div>
 <c:choose>
 	<c:when test="${loginEmail != null }">
-		<table border=1 align=center>
-			<tr>
-				<th>${loginEmail }님 안녕하세요.</th>
-			</tr>
-			<tr>
-				<td><input type="button" id="logout" value="로그아웃">
-			</tr>
-		</table>
+	<div class="container-fluid">
+		<div class="row" style="padding-top: 150px;">
+			<div class="container" style="max-width: 400px;">
+				<div class="row" id="row1">
+					<div class="col-12">${loginEmail }님 안녕하세요.</div>
+					<div class="col-12"><input type="button" id="logout" value="로그아웃"></div>
+				</div>
+			</div>
+		</div>
+	</div>
 	</c:when>
+			
+	
 	<c:otherwise>
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 150px;">
-			<div class="container" style="max-width: 600px;">
+			<div class="container" style="max-width: 400px;">
 				<div class="row" id="row1">
-					<div class="h2">Login</div>
+					<div class="h2" style="padding-bottom: 30px;">Login</div>
 				</div>
 				<div class="row">
 					<form action="/member/login" method="post">
 						<div class="col">
 							<div class="row"> 
-								<div class="col-12"><input type="text" name=email placeholder="이메일을 입력하세요"></div>
-								<div class="col-12"><input type="password" name=pw placeholder="비밀번호를 입력하세요"></div>
+								<div class="col-12 p-0 body2">이메일 아이디</div>
+								<div class="col-12 p-0"><input type="text" name=email placeholder="이메일 아이디를 입력하세요"></div>
+								<div class="col-7 p-0 body2">비밀번호</div>
+								<div class="col-5 p-0 body2" style="text-align:right;"><a id="findpw">비밀번호를 잊으셨나요?</a></div> 
+								<div class="col-12 p-0"><input type="password" name=pw placeholder="비밀번호를 입력하세요"></div>
 							</div>
 							<div class="row">
-								<input type="submit" value="login">
-								<input type="button" id="join" value="join">
-								<input type="button" id="kakao-login-btn" value="카카오로 로그인">
-								<input type="button" id="findpw" value="비밀번호찾기">
+								<div class="col-12 p-0"><input type="submit" class="btn2" value="로그인"></div>
+								<div class="col-12 p-0"><input type="button" class="btn2" id="join" value="아직 회원이 아니신가요? 가입하기"></div>
+							</div>
+							<div class="row" style="padding-top: 20px;">
+								<div class="col-12 p-0 body2" align=center>소셜 계정으로 로그인</div>
+								<div class="col-12 p-0" align=center>
+								<button id="kakao-login-btn" class="p-0"><img src="/images/kakao_login.png"></button>
 							</div>
 						</div>
 					</form>

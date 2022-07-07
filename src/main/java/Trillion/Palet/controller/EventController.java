@@ -1,6 +1,9 @@
 package Trillion.Palet.controller;
 
+import java.sql.Blob;
+import java.util.Base64;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DTO.DrawingDTO;
 import Trillion.Palet.service.EventService;
+import Trillion.Palet.utiles.FileUtils;
 
 
 @Controller
@@ -33,36 +37,61 @@ public class EventController {
 		//List<DrawingDTO> list = eServ.selectImage();
 		//model.addAttribute("list", list);
 		
+		List<Map<String, Object>> imgByte = eServ.selectImage();
+		
+		for(int i=0; i<imgByte.size();i++) {
+			
+			String base64Url = String.valueOf(imgByte.get(i).get("d_file"));
+			System.out.println(base64Url);
+			model.addAttribute("base64Url", base64Url);
+			
+		}
+		
+		/*
+		 * byte imageArray [] = null; 
+		 * final String BASE_64_PREFIX = "data:image/png;base64,";
+		 * 
+		 * String base64Url = String.valueOf(imgByte.get(0)); 
+		 * if(base64Url.startsWith(BASE_64_PREFIX)){ imageArray =
+		 * Base64.getDecoder().decode(base64Url.substring(BASE_64_PREFIX.length()));
+		 * 
+		 * System.out.println("[imageArray] : " + new String(imageArray));
+		 * 
+		 * }
+		 */
+		
+		
+		
 		return "/event/event";
 	}
+	
 	
 	@RequestMapping("paint")
 	public String paint() {
 		return "/event/paint";
 	}
 	
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("send") public String send(DrawingDTO dto, MultipartFile
+	 * file) throws Exception{ //String email =
+	 * (String)session.getAttribute("loginEmail"); String email="123";
+	 * dto.setEmail(email);
+	 * 
+	 * byte[] bytes = file.getBytes(); dto.setD_file(bytes);
+	 * 
+	 * eServ.add(dto); return "true"; }
+	 */
+	
 	@ResponseBody
 	@RequestMapping("send")
-	public String send(DrawingDTO dto, MultipartFile file) throws Exception{
-		//String email = (String)session.getAttribute("loginEmail");
-		String email="123";
-		dto.setEmail(email);
-
-		byte[] bytes = file.getBytes();
-		dto.setD_file(bytes);
+	public void send(String imgDataUrl, String d_title, String painter ) throws Exception{
+		System.out.println(imgDataUrl);
+		System.out.println(d_title);
+		System.out.println(painter);
 		
-//		ImgDTO img = new ImgDTO();
-//		img.setBlob(bytes);
-//		eServ.testsave(img);
-
-		// 게시물을 등록한 적이 있을 때
-		/*
-		 * if(eServ.isEmailExist(email)) { return "false"; }
-		 */
-		
-		//String realPath = session.getServletContext().getRealPath("uplaod");
-		eServ.add(dto);
-		return "true";
+		eServ.testsave(imgDataUrl, d_title, painter);
 	}
 	
 	@ExceptionHandler

@@ -1,6 +1,8 @@
 package Trillion.Palet.DAO;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,10 +27,14 @@ public class DrawingDAO {
 		return (int) dto.getDraw_seq();
 	}
 
-	public List<DrawingDTO> selectImage() {
-		return mybatis.selectList("Event.selectImage");
+	public List<Map<String, Object>> selectImage() {
+		return  mybatis.selectList("Event.selectImage");
 	}
-	public int testsave(ImgDTO dto) {
-		return mybatis.insert("Event.testsave",dto);
+	public int testsave(String imgDataUrl, String d_title, String painter) {
+		Map<String, Object> param = new HashMap<>();
+			param.put("imgDataUrl", imgDataUrl);
+			param.put("d_title", d_title);
+			param.put("painter", painter);
+		return mybatis.insert("Event.testsave",param);
 	}
 }

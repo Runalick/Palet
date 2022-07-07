@@ -20,7 +20,7 @@
 	<c:forEach var="i" items="${list}">
 		<tr>
 			<td>${i.draw_seq }
-			<td>${realpath }${i.imgSrc }
+			<td>${i.d_file }
 		</tr>
 	</c:forEach>
 		
