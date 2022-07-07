@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.ShopDAO;
 import Trillion.Palet.DTO.GoodsDTO;
-import Trillion.Palet.DTO.ShopDTO;
 
 @Service
 public class ShopService {

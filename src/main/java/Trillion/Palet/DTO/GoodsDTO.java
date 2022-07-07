@@ -7,12 +7,15 @@ public class GoodsDTO {
 	private int g_price;
 	private String g_option;
 	private int sales_count;
+
+
 	private int g_stock;
 	
+
 	private int gp_seq;
 	private String gp_oriname;
 	private String gp_sysname;
-	
+	//goodspic 테이블
 	public GoodsDTO() {
 		super();
 	}
