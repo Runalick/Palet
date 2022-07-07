@@ -27,7 +27,7 @@ public class GoodsService {
 	}
 	
 	public void goodsInsert(GoodsDTO gdto, String realPath, MultipartFile[] file) {
-		System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
+	//	System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
 		if(gdto.getG_option() == null ) {
 			gdto.setG_option("null");
 		}
