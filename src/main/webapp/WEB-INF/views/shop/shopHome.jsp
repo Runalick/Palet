@@ -166,11 +166,14 @@
     
     <!-- 물건 상세페이지로 가는 임시 버튼 나중에지우세요~   -->
     <div>
-    <button id="detailview" style="height:300px">상세페이지</button>
+    <button class="detailview" value="10001" style="height:300px">굿즈1</button>
+    <button class="detailview" value="10002" style="height:300px">굿즈2</button>
+    <button class="detailview" value="10003" style="height:300px">굿즈3</button>
     </div>
     <script>
-    	$("#detailview").on("click",function(){
-    		location.href="/shop/goDetail";
+    	$(".detailview").on("click",function(){
+    		console.log($(".detailview").val());
+    		location.href="/shop/goDetail?g_num="+$(".detailview").val();
     	})
     </script>
 </body>
