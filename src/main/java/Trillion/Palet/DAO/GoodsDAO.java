@@ -25,4 +25,12 @@ public class GoodsDAO {
 	public GoodsDTO goodsBestSeller(){
 		return mybatis.selectOne("Goods.goodsBestSeller");
 	}
+
+	public GoodsDTO selectdetail(int g_num) {
+		return mybatis.selectOne("Goods.selectdetail",g_num);
+	}
+
+	public List<GoodsDTO> getoption(String g_name) {
+		return mybatis.selectList("Goods.getoption",g_name);
+	}
 }

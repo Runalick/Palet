@@ -8,6 +8,9 @@
   	<select id="isGoodsExist" resultType="boolean">
   		select count(*) from (select * from cart where g_num = #{value})
   	</select>
+  		<select id="isGoodsStocksame" resultType="boolean">
+  		select count(*) from (select * from cart where g_num = #{g_num} and cartstock = #{cartstock})
+  	</select>
   	<insert id="insertCart">
   		insert into cart values(cart_seq.nextval,#{email},#{g_num},#{cartstock},sysdate)
   	</insert>

@@ -53,19 +53,19 @@
     <div class="row" style="padding-top: 100px;">
 	<div class="container">
 		<div class="row" id="row1">
-			<div class="h2">My Page / My info.</div>
+			<div class="h2" style="text-align: left; margin-left: 100px; margin-bottom: 20px;">My Page / My info.</div>
 		</div>
 		<div class="col-12">
 		<div class=row>
 			<div class="col-12">
 			<div class="row">
-			<div class="col-12 body2 h3">
+			<div class="col-12 h3" style="height: 150%; padding-bottom: 10px;">
 			${dto.email }
 			</div>
 			</div>
 		</div>
 		<div class=row>
-			<div class="col-12">
+			<div class="col-12" style="margin-bottom: 5px;">
 				<button type="button" data-bs-toggle="modal" class="btn1"
 					data-bs-target="#staticBackdrop">비밀번호 변경</button>
 			</div>
@@ -99,13 +99,14 @@
 			</div>
 		</div>
 		<div class=row>
-			<div class="col-8 rp-0 body2 h3">
+			<div class="col-2 rp-0 h3" style="min-width: 150px; font-size: 150%; padding-top: 10px;">
 				${dto.name }
+				
 				</div>
-				<div class="col-4">
-				<button type="button" data-bs-toggle="modal" class="btn1" style="width: 50%;"
+				<div class="col-3" style="margin-bottom: 5px;">
+				<button type="button" data-bs-toggle="modal" class="btn1" style="width: 50%; min-width: 50px;"
 					data-bs-target="#staticBackdrop1">수정</button>
-				</div>
+					</div>
 				<!-- Modal -->
 				<form action="/member/modiname" method="post" accept-charset="utf-8">
 				<div class="modal fade" id="staticBackdrop1"
@@ -132,11 +133,11 @@
 				</form>
 			</div>
 		<div class=row>
-			<div class="col-8 rp-0 body2 h3">
+			<div class="col-2 rp-0 h3" style="min-width: 150px; font-size: 150%; padding-top: 10px;">
 				${dto.phone }
 			</div>
-			<div class="col-4">
-				<button type="button" data-bs-toggle="modal" class="btn1" style="width: 50%;"
+			<div class="col-3" style="margin-bottom: 5px;">
+				<button type="button" data-bs-toggle="modal" class="btn1" style="width: 50%; min-width: 50px;"
 					data-bs-target="#staticBackdrop2">수정</button>
 			</div>		
 				 <!-- Modal -->

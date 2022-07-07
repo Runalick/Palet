@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="Admin">
+  	<select id="getWeekSales" resultType="Trillion.Palet.DTO.SalesDTO">
+  		select sum(price)as salessum, to_char(pay_time, 'YY/MM/DD')as salesdate from payment 
+  		where to_char(pay_time, 'YY/MM/DD') >= to_char(sysdate-6, 'YY/MM/DD') 
+  		group by to_char(pay_time, 'YY/MM/DD') order by to_char(pay_time, 'YY/MM/DD') desc
+  	</select>
+  </mapper>

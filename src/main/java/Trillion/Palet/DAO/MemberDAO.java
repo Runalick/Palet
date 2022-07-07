@@ -32,7 +32,6 @@ public class MemberDAO {
     	return mybatis.update("Member.changepw",dto);
     }
     public MemberDTO getmember(String email) {
-    	System.out.println(email);
     	return mybatis.selectOne("Member.getmember",email);
     }
     public int insert(MemberDTO dto) {

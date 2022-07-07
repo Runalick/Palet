@@ -198,6 +198,7 @@
         #mainphoto {
             margin: 0px;
             min-height: 600px;
+           	max-heieght:1920px;
 
             height: 0;
 
@@ -209,7 +210,7 @@
             background-size: 100% 100%;
 
         }
-
+ 
         #mainphoto2 {
             margin: 0px;
             min-height: 600px;
@@ -476,7 +477,7 @@ color: #FFFFFF;
         <div class="container">
             <div class="row" id="container1">
                 <nav class="navbar navbar-expand-sm bg-light navbar-light">
-                    <div class="container" id="navparent"> <a class="navbar-brand" href="#" id="container"
+                    <div class="container" id="navparent"> <a class="navbar-brand" href="/" id="container"
                             style="padding :0px;"><img src="/images/Logo.svg" border=0></a> <button class="navbar-toggler"
                             type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"> <span
                                 class="navbar-toggler-icon"></span> </button>
@@ -484,7 +485,7 @@ color: #FFFFFF;
                             <ul class="navbar-nav">
                                 <li class="nav-item"> <a id="About" class="nav-link" href="#"
                                         style="padding-left:0px; padding-right:0px;">About</a> </li>
-                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
+                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
                                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
                                 <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
                                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
@@ -532,15 +533,15 @@ color: #FFFFFF;
                    
 
 
-                    <div class="col-12  d-none d-sm-block" style = "margin-top : 5rem;">
+                    <div class="col-12  d-none d-sm-block" style = "margin-bottom: 14.75rem; margin-top : 5rem; " >
                         <button class="btn1">자세히 보기</button>
                         <button class="btn2">예매 하기</button>
                     </div>
-                    <div class="col-12 d-block d-sm-none" style="margin: auto; text-align: center; margin-top : 5rem;">
+                    <div class="col-12 d-block d-sm-none" style="margin-bottom: 14.75rem; text-align: center; margin-top : 5rem;">
 
                         <button class="btn1" style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
                             보기</button><br>
-                        <button class="btn2" style="margin: auto; text-align: center;">예매 하기</button>
+                        <button class="btn2" style="  text-align: center;">예매 하기</button>
                     </div>
 
                 </div>
@@ -751,7 +752,7 @@ color: #FFFFFF;
         </div>
 
 
-    </div>
+    </div>2
 
 </body>
 

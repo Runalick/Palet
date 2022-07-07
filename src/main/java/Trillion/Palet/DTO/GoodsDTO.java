@@ -7,13 +7,21 @@ public class GoodsDTO {
 	private int g_price;
 	private String g_option;
 	private int sales_count;
+
+
 	private int g_stock;
 	
-	public GoodsDTO() {
-		// TODO Auto-generated constructor stub
-	}
 
-	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int g_stock) {
+	private int gp_seq;
+	private String gp_oriname;
+	private String gp_sysname;
+	//goodspic 테이블
+	public GoodsDTO() {
+		super();
+	}
+	
+	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int g_stock,
+			int gp_seq, String gp_oriname, String gp_sysname) {
 		super();
 		this.g_num = g_num;
 		this.e_num = e_num;
@@ -22,7 +30,21 @@ public class GoodsDTO {
 		this.g_option = g_option;
 		this.sales_count = sales_count;
 		this.g_stock = g_stock;
+		this.gp_seq = gp_seq;
+		this.gp_oriname = gp_oriname;
+		this.gp_sysname = gp_sysname;
 	}
+	
+	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int g_stock) {
+		this.g_num = g_num;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.g_option = g_option;
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+	}
+	
 
 	public int getG_num() {
 		return g_num;
@@ -79,7 +101,30 @@ public class GoodsDTO {
 	public void setG_stock(int g_stock) {
 		this.g_stock = g_stock;
 	}
-	
+
+	public int getGp_seq() {
+		return gp_seq;
+	}
+
+	public void setGp_seq(int gp_seq) {
+		this.gp_seq = gp_seq;
+	}
+
+	public String getGp_oriname() {
+		return gp_oriname;
+	}
+
+	public void setGp_oriname(String gp_oriname) {
+		this.gp_oriname = gp_oriname;
+	}
+
+	public String getGp_sysname() {
+		return gp_sysname;
+	}
+
+	public void setGp_sysname(String gp_sysname) {
+		this.gp_sysname = gp_sysname;
+	}
 	
 	
 }
