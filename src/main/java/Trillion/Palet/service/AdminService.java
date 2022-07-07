@@ -9,6 +9,7 @@ import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.SalesDTO;
 
 @Service
 public class AdminService {
@@ -42,6 +43,10 @@ public class AdminService {
 	
 	public int getMemberTotalCount() {
 		return adao.getMemberTotalCount();
+	}
+	
+	public List<SalesDTO> getWeekSales(){
+		return adao.getWeekSales();
 	}
 }
 

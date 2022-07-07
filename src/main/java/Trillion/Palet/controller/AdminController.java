@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.service.AdminService;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.GoodsService;
@@ -44,7 +45,9 @@ public class AdminController {
 	public String adminMain(Model model) {
 		ExhibitionDTO edto = eServ.exhibitionBestSeller();
 		GoodsDTO gdto = gServ.goodsBestSeller();
+		List<SalesDTO> sdto = aServ.getWeekSales();
 		int members = aServ.getMemberTotalCount();
+		model.addAttribute("weekSales", sdto);
 		model.addAttribute("totalMembers", members);
 		model.addAttribute("ExhibitionBestSeller", edto);
 		model.addAttribute("GoodsBestSeller", gdto);

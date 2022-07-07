@@ -19,17 +19,5 @@ public class ShopService {
 		return dao.selectBestSeller(e_num, option);
 	}
 	
-	public List<ShopDTO> selectLowPrice(int e_numSelectVal) {
-		return dao.selectLowPrice(e_numSelectVal);
-	}
-	
-	public List<ShopDTO> selectHighPrice(int e_numSelectVal) {
-		return dao.selectHighPrice(e_numSelectVal);
-	}
-	
-	public String goodsPic(int g_num) {
-		return dao.goodsPic(g_num);
-	}
-	
 	
 }
