@@ -151,17 +151,17 @@
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-                		<div class="col-12 h3_1 " style="text-align:left"> <img src="/images/minus.png"> Member List </div>
-                		<div class="col-12 body2 colortext_gray600" >  : 가입된 회원들의 정보를 확인할 수 있는 페이지 입니다. </div>
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Member List </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 가입된 회원들의 정보를 확인할 수 있는 페이지 입니다. </div>
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
 
 			            		<div class="row pt-md-5 mt-md-3 mb-5">
-			            			<div class="col-5 h3">ID.</div>
-			            			<div class="col-3 h3">Name.</div>
-			            			<div class="col-2 h3">Grade.</div>
-			            			<div class="col-2 h3">Points.</div>
+			            			<div class="col-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID.</div>
+			            			<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
+			            			<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
+			            			<div class="col-2 h3 ">Points.</div>
 			            			<div class="col-12 px-3">
 			            				<div class="card2"></div>
 			            			</div>
@@ -170,10 +170,10 @@
 			                            	<hr>
 			                            	<c:forEach var="i" items="${list}">
 			                            	<div class="row">
-			                            		<div class="col-5 body2" style="text-align:center">${i.email } </div> 
-			                            		<div class="col-3 body2" >${i.name } </div>
-			                            		<div class="col-2 body2" >${i.grade } </div>
-			                            		<div class="col-2 body2" >${i.point } </div>
+			                            		<div class="col-5 px-5 body2" >${i.email } </div> 
+			                            		<div class="col-3 px-5 body2" >${i.name } </div>
+			                            		<div class="col-2 px-5 body2" >${i.grade } </div>
+			                            		<div class="col-2 px-5 body2" >${i.point } </div>
 			                            	</div>
 			                            	<hr>
 			                            	</c:forEach>

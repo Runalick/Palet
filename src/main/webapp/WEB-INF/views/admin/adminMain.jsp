@@ -151,8 +151,8 @@
             <div class="row">
                 <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain">
                 	<div class="row" style="margin-top: 5rem">
-                		<div class="col-12 h3_1 " style="text-align:left"> <img src="/images/minus.png"> Site Condition </div>
-                		<div class="col-12 body2 colortext_gray600" >  : 주요 현황을 확인 할 수 있는 카드섹션 입니다. </div>
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Site Condition </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 주요 현황을 확인 할 수 있는 카드섹션 입니다. </div>
                 	</div>                	
                 	<div class="row" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
@@ -256,8 +256,8 @@
             <div class="row">
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="graphMain">
             		<div class="row" style="margin-top: 2rem">
-	                	<div class="col-12 h3_1" style="text-align:left"> <img src="/images/minus.png"> Graph Area </div>
-	                	<div class="col-12 body2 colortext_gray600" >  : 주요 현황을 확인 할 수 있는 그래프 입니다. </div>
+	                	<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Graph Area </div>
+	                	<div class="col-12 body2 colortext_gray600 px-5" >  : 주요 현황을 확인 할 수 있는 그래프 입니다. </div>
 	            	</div>
 	            	
 	            	<div class="row" id="roundboxParent">
