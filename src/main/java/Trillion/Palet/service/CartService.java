@@ -42,4 +42,8 @@ public class CartService {
 	public List<CartListDTO> purchase(int[] buy,String email) {
 		return cdao.purchase(buy,email);
 	}
+
+	public boolean isGoodsStocksame(int g_num, int cartstock) {
+		return cdao.isGoodsStocksame(g_num,cartstock);
+	}
 }

@@ -7,17 +7,20 @@ public class GoodsDTO {
 	private int g_price;
 	private String g_option;
 	private int sales_count;
-	private int e_stock;
+
+
+	private int g_stock;
 	
+
 	private int gp_seq;
 	private String gp_oriname;
 	private String gp_sysname;
-	
+	//goodspic 테이블
 	public GoodsDTO() {
 		super();
 	}
-
-	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int e_stock,
+	
+	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int g_stock,
 			int gp_seq, String gp_oriname, String gp_sysname) {
 		super();
 		this.g_num = g_num;
@@ -26,11 +29,22 @@ public class GoodsDTO {
 		this.g_price = g_price;
 		this.g_option = g_option;
 		this.sales_count = sales_count;
-		this.e_stock = e_stock;
+		this.g_stock = g_stock;
 		this.gp_seq = gp_seq;
 		this.gp_oriname = gp_oriname;
 		this.gp_sysname = gp_sysname;
 	}
+	
+	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int g_stock) {
+		this.g_num = g_num;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.g_option = g_option;
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+	}
+	
 
 	public int getG_num() {
 		return g_num;
@@ -80,12 +94,12 @@ public class GoodsDTO {
 		this.sales_count = sales_count;
 	}
 
-	public int getE_stock() {
-		return e_stock;
+	public int getG_stock() {
+		return g_stock;
 	}
 
-	public void setE_stock(int e_stock) {
-		this.e_stock = e_stock;
+	public void setG_stock(int g_stock) {
+		this.g_stock = g_stock;
 	}
 
 	public int getGp_seq() {

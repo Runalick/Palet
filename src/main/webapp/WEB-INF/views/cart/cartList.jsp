@@ -151,7 +151,8 @@ ${i.g_option }<br>
 		})
 
 		$(".check").on("click", function() {
-			console.log($(this).val());
+			
+			
 			if ($("input[class=check]:checked").length == $(".check").length) {
 				$(".checkall").prop("checked", true);
 			} else {

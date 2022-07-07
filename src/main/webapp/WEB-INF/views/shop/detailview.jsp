@@ -183,7 +183,7 @@
 }
 
 #container2 {
-	padding-left: 5rem;
+	padding-left: 4rem;
 	flex-direction: row;
 }
 
@@ -209,10 +209,18 @@
 	font-size: 1rem;
 	line-height: 1.875rem;
 	color: #161C24;
-	margin-bottom: 2.5rem;
+	margin-bottom: 0.125rem;
 	width: 23.5rem;
 }
-
+#point{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 0.875rem;
+line-height: 1.125rem;
+color: #637381;
+margin-bottom: 2.5rem;
+}
 .payment-area {
 	float: right;
 	width: 30.5rem;
@@ -234,32 +242,14 @@ select::-ms-expand {
 	width: 23.5rem;
 	height: 3rem;
 	line-height: 2.35rem;
-	/* 	/* Select Base */ */
 	box-sizing: border-box;
-	/* 	/* Auto layout */ */
-	/* 	display: flex; */
-	/* 	flex-direction: row; */
-	/* 	align-items: center; */
-	/* 	padding: 0.625rem 0.75rem; */
-	/* 	gap: 0.625rem; */
-	/* 	/* bs-white */ */
-	/* 	background: #FFFFFF; */
+
 	border: 0.063rem solid #CFD4D9;
 	box-shadow: 0px 0px 0px #CBDAFC;
 	border-radius: 0.313rem;
 	margin-bottom: 3.75rem;
 	color: #637381;
-	/* 	 -o-appearance: none; */
-	/*   -webkit-appearance: none; */
-	/*   -moz-appearance: none; */
-	/*   appearance: none; */
-	/*     background:url('/images/uparrow.png')  no-repeat 97% 50%/15px auto;  */
-	/*   background-size: 0.796rem; */
-	/*   padding: 0.3rem 1.875rem 0.3rem 0.6rem; 
-/*   border-radius: 0.25rem; */
-	/*   outline: 0 none; */
-	background: #FFFFFF url('/images/uparrow.png') no-repeat 97% 50%/15px
-		auto;
+	background: #FFFFFF url('/images/uparrow.png') no-repeat 97% 50%/15px auto;
 	background-size: 0.796rem;
 	padding: 0.3rem 1.875rem 0.3rem 0.6rem;
 	border: 0.06rem solid #b8b8b8;
@@ -277,7 +267,7 @@ select::-ms-expand {
 	border: 1px solid #b8b8b8;
 	display: none;
 	position: absolute;
-	top: 12.4rem;
+	top: 13.65rem;
 	background: #FFFFFF;
 	border-top: none;
 	padding: 0px;
@@ -553,17 +543,17 @@ select::-ms-expand {
 							<!-- 데이터 들어올 곳 -->
 
 
-							<div class="col-12" id="title">[어쨌든, 사랑] 컨페티 폭죽카드</div>
-							<div class="col-12" id="price">7,900원</div>
-
+							<div class="col-12" id="title">${dto.g_name }</div>
+							<div class="col-12" id="price">${dto.g_price }원</div>
+							<div class="col-12" id="point">${Math.round(dto.g_price*0.05) }p (5%) 적립</div>
 
 							<!-- 옵션 리스트 -->
 							<div id="select-wrap">
 								<div id="select">상품옵션을 선택하세요</div>
 								<ul class="select-ul">
-									<li>로맨틱데이즈</li>
-									<li>판타스틱데이즈</li>
-									<li>러블리데이즈</li>
+									<c:forEach var="i" items="${optionlist}">
+									<li class="li" value="${i.g_num }">${i.g_option}</li>
+									</c:forEach>
 								</ul>
 							</div>
 
@@ -571,6 +561,7 @@ select::-ms-expand {
 
 							<!-- 옵션 선택 -->
 <!-- 							<div class="col-12 choose"> -->
+<!-- 								<input type="hidden" class='hidden_g_num" value="g_num"> -->
 <!-- 								<span class="h4 name">로맨틱데이즈</span>  -->
 <!-- 								<span class="h4 price">7,900원</span><br> -->
 <!-- 								<span><button class="cntbtn minus"> -->
@@ -584,7 +575,23 @@ select::-ms-expand {
 <!-- 							</div> -->
 					
 <script>
-$(".select-ul li").on("click", function () {
+
+$(".li").on("click", function () {
+	result="false";
+	let value= $(this).val();
+		$(".choose").each(
+				function (index, element){
+					if ($(element).find(".hidden_g_num").val()==value ) {
+						alert("이미 담긴 상품입니다.")
+						result=true;
+					}
+				})
+	
+		if(result==true){
+			return false
+		}
+	
+				
     let text = $(this).text();
     $("#select").text(text);
    
@@ -618,7 +625,9 @@ $(".select-ul li").on("click", function () {
     delete1.css("cursor","pointer");
     delete1.text("삭제");
     
-    
+    //hidden
+    let hidden = $("<input type='hidden' class='hidden_g_num'>");
+    hidden.attr("value",$(this).val());
     
     minusbtnspan.append(minusbtn);
     plusbtnspan.append(plusbtn);
@@ -631,6 +640,7 @@ $(".select-ul li").on("click", function () {
     choosediv.append(cnt);
     choosediv.append(plusbtnspan);
     choosediv.append(delete1);
+    choosediv.append(hidden);
     
     $("#select-wrap").after(choosediv);
     $(".select-ul").toggle();
@@ -708,6 +718,54 @@ $(".select-ul li").on("click", function () {
 	
 	</div>
 	<script>
+	//구매버튼
+	$("#purchasebtn").on("click",function(){
+		if(${loginEmail ==null}){
+			alert("로그인이 필요한 서비스입니다.");
+			return false;
+		}
+	})
+	//장바구니버튼
+	$("#cartbtn").on("click",function(){
+		
+		if(${loginEmail ==null}){
+			alert("로그인이 필요한 서비스입니다.");
+			return false;
+		}
+		
+		
+		var data = [];
+		var g_numArray =[];
+		var cartstockArray=[];
+		$(".choose").each(function(index,item){
+			g_num=$(item).find($(".hidden_g_num"));
+			console.log(g_num.val());
+			cartstock = $(item).find($(".count"));
+			console.log(cartstock.text());
+			g_numArray.push(g_num.val());
+			cartstockArray.push(cartstock.text());
+		})
+		
+		
+		console.log(data);
+		
+		$.ajax({
+			url:"/cart/isGoodsExist",
+			data:{g_num:g_numArray,cartstock:cartstockArray},
+			dataType:"json",
+			 traditional: true,
+		}).done(function(resp){
+			console.log(resp);
+			if(resp==false){
+				if(confirm("장바구니에 담았습니다. 장바구니로 가시겠습니까?")){
+					location.href="/cart/cartlist"; 
+				}
+				
+			}
+		})
+	})
+	
+	
 	$(document).ready(function(){
 	});
 	
@@ -828,14 +886,7 @@ $(document).on("click", ".delete", function(){
 					$("#totalmoney").text(realtotalprice +"원");
 					
 					
-// 		let totalsum=$("#totalmoney").text();
-		
-// 		total = $(this).text();
-// 		total=total.replace(",","");
-// 		console.log(parseInt(total) );
-		
-// 		totalprice =  parseInt(total)  ;
-// 		console.log("총가격"+totalprice);
+
 		
 		
 	})
@@ -846,17 +897,7 @@ $(document).on("click", ".delete", function(){
 
 	
 	
-	//총 가격
-// 	$(document).on(function() {
-		
-// 			$(".price").each(function (index, item){
-		
-// 			total = $(this).text();
-// 			total=total.replace(",","");
-// 			console.log("총가격"+total);
-// 		})
-		
-// 		});
+
 	
 	</script>
 </body>

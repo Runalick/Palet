@@ -64,4 +64,11 @@ public class CartDAO {
 		return list;
 		
 	}
+
+	public boolean isGoodsStocksame(int g_num, int cartstock) {
+		Map<Object,Object> param = new HashMap<>();
+		param.put("g_num",  g_num);
+		param.put("cartstock", cartstock);
+		return mybatis.selectOne("Cart.isGoodsStocksame",param);
+	}
 }

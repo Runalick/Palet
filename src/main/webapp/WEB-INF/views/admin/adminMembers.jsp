@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Page</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -34,22 +36,23 @@
 </head>
 <body>
 	<div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="false">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
+       			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="sidebar">
+        <div class="collapse navbar-collapse justify-content-end" id="sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <!-- sidebar 3grid open -->
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > PALET </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="#" class="text-black ">ADMIN Accounts</a>
+                            <a href="/member/mypage" class="text-black ">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -60,7 +63,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 current">
-                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Users
+                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Members
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -100,10 +103,10 @@
                     
                     <!-- main navi 9 grid open -->
                     
-                    <div class="col-xl-10 col-lg-9 top-navbar bg-dark fixed-top py-2">
-                        <div class="row">
+                    <div class="col-xl-10 col-lg-9 top-navbar color_gray900 fixed-top py-2">
+                        <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white">Users Analytics</h4>
+                                <h4 class="text-align text-uppercase mb-0 text-white h3">Members Analytics</h4>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
@@ -135,39 +138,80 @@
                                 </ul>
                             </div>
                         </div>
-                        
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
     <!-- navibar close -->
-    <!-- main contents -->
+    
+    <!-- main contents open-->
     <section>
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
-            		<div class="row pt-md-5 mt-md-3 mb-5">
-                        <div class="col-xl-3 col-sm-6 p-2">
-                            <div class="card">
-                            	<c:forEach var="i" items="${list}">
-                            		ID(email) : ${i.email } <br>
-                            		이름 : ${i.name } <br>
-                            		등급 : ${i.grade } <br>
-                            		<hr>
-                            		
-                            	</c:forEach>
-                            	
-                            	${navi}
-            				</div>
+            		<div class="row" style="margin-top: 5rem">
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Member List </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 가입된 회원들의 정보를 확인할 수 있는 페이지 입니다. </div>
+                	</div>   
+            		<div class="row" style="margin-top: 1rem" id="roundboxParent">
+                		<div class="col-12" id="roundbox">
+
+			            		<div class="row pt-md-5 mt-md-3 mb-5">
+			            			<div class="col-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID.</div>
+			            			<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
+			            			<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
+			            			<div class="col-2 h3 ">Points.</div>
+			            			<div class="col-12 px-3">
+			            				<div class="card2"></div>
+			            			</div>
+			                        <div class="col-12 p-3">
+			                            <div class="">
+			                            	<hr>
+			                            	<c:forEach var="i" items="${list}">
+			                            	<div class="row">
+			                            		<div class="col-5 px-5 body2" >${i.email } </div> 
+			                            		<div class="col-3 px-5 body2" >${i.name } </div>
+			                            		<div class="col-2 px-5 body2" >${i.grade } </div>
+			                            		<div class="col-2 px-5 body2" >${i.point } </div>
+			                            	</div>
+			                            	<hr>
+			                            	</c:forEach>
+			                            </div>	
+			                        </div>    
+			                        <div class="col-12 p-3" style="text-align:center">
+			                        	    	${navi}
+			                        </div>
+			            				
+			            			
+			            		</div>
+
             			</div>
             		</div>
             	</div>
             </div>
         </div>
     </section>
+    
+    <!-- main contents close-->
+    
+    <!-- footer open -->
+    <section>
+		<div class="container-fluid">
+			<div class="row ml-auto" id="footerbox" style="margin-top: 8rem;">
+	            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="footMain1">
+	                <div class="row ml-auto">
+	                    <div class="col-12 h3 d-none d-sm-block" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+	
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	</section>
+	
+	<!-- footer close -->
                   	      
 </body>
 </html>

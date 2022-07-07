@@ -245,6 +245,22 @@ color:#fff;
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+    
+    
+    <!-- 물건 상세페이지로 가는 임시 버튼 나중에지우세요~   -->
+    <div>
+    <button class="detailview" value="10001" style="height:300px">굿즈1</button>
+    <button class="detailview" value="10002" style="height:300px">굿즈2</button>
+    <button class="detailview" value="10003" style="height:300px">굿즈3</button>
+    </div>
+    <script>
+    	$(".detailview").on("click",function(){
+    		console.log($(".detailview").val());
+    		location.href="/shop/goDetail?g_num="+$(".detailview").val();
+    	})
+    </script>
+=======
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 100px;">
 			<div class="container">
@@ -291,6 +307,7 @@ color:#fff;
 	
 	
    
+>>>>>>> 7859c4e3a494447af6c55c35fee12ab2bb2e1aae
 </body>
 <script>
 

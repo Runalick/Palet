@@ -57,5 +57,14 @@ public class GoodsService {
 	public GoodsDTO goodsBestSeller(){
 		return dao.goodsBestSeller();
 	}
+
+	public GoodsDTO goodsdetail(int g_num) {
+		return dao.selectdetail(g_num);
+	}
+
+	//같은 이름 다른 옵션 가져오기
+	public List<GoodsDTO> getoption(String g_name) {
+		return dao.getoption(g_name);
+	}
 	
 }
