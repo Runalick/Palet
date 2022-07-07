@@ -1,6 +1,6 @@
 package Trillion.Palet.DTO;
 
-public class GoodsDTO {
+public class ShopDTO {
 	private int g_num;
 	private int e_num;
 	private String g_name;
@@ -9,16 +9,9 @@ public class GoodsDTO {
 	private int sales_count;
 	private int e_stock;
 	
-	private int gp_seq;
-	private String gp_oriname;
-	private String gp_sysname;
-	
-	public GoodsDTO() {
-		super();
-	}
+	public ShopDTO() {}
 
-	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int e_stock,
-			int gp_seq, String gp_oriname, String gp_sysname) {
+	public ShopDTO(int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count, int e_stock) {
 		super();
 		this.g_num = g_num;
 		this.e_num = e_num;
@@ -27,9 +20,6 @@ public class GoodsDTO {
 		this.g_option = g_option;
 		this.sales_count = sales_count;
 		this.e_stock = e_stock;
-		this.gp_seq = gp_seq;
-		this.gp_oriname = gp_oriname;
-		this.gp_sysname = gp_sysname;
 	}
 
 	public int getG_num() {
@@ -87,30 +77,7 @@ public class GoodsDTO {
 	public void setE_stock(int e_stock) {
 		this.e_stock = e_stock;
 	}
-
-	public int getGp_seq() {
-		return gp_seq;
-	}
-
-	public void setGp_seq(int gp_seq) {
-		this.gp_seq = gp_seq;
-	}
-
-	public String getGp_oriname() {
-		return gp_oriname;
-	}
-
-	public void setGp_oriname(String gp_oriname) {
-		this.gp_oriname = gp_oriname;
-	}
-
-	public String getGp_sysname() {
-		return gp_sysname;
-	}
-
-	public void setGp_sysname(String gp_sysname) {
-		this.gp_sysname = gp_sysname;
-	}
+	
 	
 	
 }
