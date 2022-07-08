@@ -29,15 +29,15 @@
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-/* @media ( min-width : 375px) { */
-/* 	.container { */
-/* 		max-width: 1280px; */
-/* 		min-width: 390px; */
-/* 	} */
-/* 	html { */
-/* 		font-size: 12px; */
-/* 	} */
-/* } */
+ @media ( min-width : 375px) { 
+ 	.container { 
+ 		max-width: 1280px; 
+ 		min-width: 390px; 
+ 	} 
+ 	html { 
+ 		font-size: 12px; 
+ 	} 
+ } 
 
 @media ( min-width : 1650px) {
 	.container {
@@ -416,7 +416,7 @@ right:1.5rem;
 	<!-- 네비단 -->
 	<div class="container-fluid" id=navparent>
 		<div class="container">
-			<div class="row" id="container1">
+			<div class="row" id="container1" >
 				<nav class="navbar navbar-expand-sm bg-light navbar-light">
 					<div class="container" id="navparent">
 						<a class="navbar-brand" href="#" id="container"
@@ -461,7 +461,7 @@ right:1.5rem;
 	<!-- 본문단 -->
 	<div class="container-fluid" id="mainparent">
 		<div class="container">
-			<div class="row" style="padding-top: 7.5rem; text-align: center;">
+			<div class="row" style="padding-top: 7.5rem; text-align: center;width:80rem;margin:auto;">
 				<div class="col-12 h2" id="cart">Cart( ${totalList.total_num } )</div>
 
 
