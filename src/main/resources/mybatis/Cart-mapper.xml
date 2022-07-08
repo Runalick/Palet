@@ -39,4 +39,10 @@
   		 left outer join goodspic on goods.g_num = goodspic.g_num
   		where email = #{email} and cart.g_num=#{buy}
   	</select>
+  	<select id="selectOne" resultType="Trillion.Palet.DTO.CartListDTO">
+  		select * from cart where cart_seq=#{value}
+  	</select>
+  	<insert id="insertSelect_Cart">
+  		insert into select_cart values(#{cart_seq},#{email},#{g_num},#{cartstock})
+  	</insert>
   </mapper>
