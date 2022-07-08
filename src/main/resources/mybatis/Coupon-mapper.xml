@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="coupon">
+  	<update id="userupdate">
+  		update coupon set email=#{email} where serial = #{serial}
+  	</update>
+  	<select id="isusecoupon" resultType="Trillion.Palet.DTO.CouponDTO">
+  		select * from coupon where serial = #{value}
+  	</select>
+  	<select id="selectall" resultType="Trillion.Palet.DTO.CouponDTO">
+  		select * from coupon where email = #{email} 
+  	</select>
+  	<insert id="make">
+  		insert into coupon (key,serial,dc,category) values(key_seq.nextval,#{serial},#{dc},#{category})
+  	</insert>
+  	
+  </mapper>

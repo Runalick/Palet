@@ -5,7 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Page</title>
  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -47,22 +48,23 @@
 </head>
 <body>
 	<div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
+       			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+       		<span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="sidebar">
+        <div class="collapse navbar-collapse justify-content-end" id="sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <!-- sidebar 3grid open -->
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > PALET </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="#" class="text-black ">ADMIN Accounts</a>
+                            <a href="#" class="text-black body1 py-2">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -73,7 +75,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Users
+                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Members
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -114,14 +116,14 @@
                     <!-- main navi 9 grid open -->
                     
                     <div class="col-xl-10 col-lg-9 top-navbar bg-dark fixed-top py-2">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white">Exhibitions</h4>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Exhibitions</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
                                     <div class="searchBox">
-                                        <input type="text" class="searchInput" placeholder="Search..">
+                                        <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
@@ -149,7 +151,6 @@
                             </div>
                         </div>                     
                     </div>
-
                 </div>
             </div>
         </div>
@@ -160,59 +161,79 @@
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
-            		<div class="row pt-md-5 mt-md-3 mb-5">
-                        <div class="col-xl-3 col-sm-6 p-2">
-                            <div class="row w-100 m-0">
-								<div class="col-12" id="exhibitionBtns">
-									<button id="exhibitionAdded">전시 등록</button>
-									<button id="exhibitionList">전시회 목록</button>
-								</div>
+            		<div class="row" style="margin-top: 3.45rem">
+						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Exhibitions </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 전시 정보를 등록 할 수 있는 페이지 입니다. </div>
+                	</div>
+                	<div class="row pt-3 px-5">
+						<div class="col-12 mr-auto" id="exhibitionBtns">
+							<button class="btn0 color_gray900 colortext_gray100" id="exhibitionAdded">전시 등록</button>
+							<button class="btn0 " id="exhibitionList">전시회 목록</button>
+						</div>
+                	</div>            		
+            		<div class="row" style="margin-top: 1rem" id="roundboxParent">
+                		<div class="col " style="align-item :center"" id="roundbox">
+            				<div class="row pt-2 m-3 mb-4">
+								<div class="h3_2">Input Exhibition</div>
 							</div>
-                            
-                            <div class="card">
-                            	
+							<div class="row">
                             	<form action="/admin/exhibitionsInsert" method="post">
-									<table>
-										<tr>
-											<th colspan="2" style="text-align:center"><b>[[ Exhibition Page ]]</b></th>
-										</tr><br>
-										<tr>
-											<select name="e_period">
+								<div class="col">
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 이름</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="e_name" id="e_name" placeholder="Input Exhibition Name" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 시작일</div>
+									</div>
+									<div class="row" style="text-align:center;">
+										<div class="col-12 p-0">
+											<input type="text" name="start_date" id="start_date" placeholder="Input Start Day">
+											<input type="hidden" id="start_date_value">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 마감일</div>
+									</div>
+									<div class="row" style="text-align:center;">
+										<div class="col-12 p-0">
+											<input type="text" name="end_date" id="end_date" placeholder="Input End Day">
+											<input type="hidden" id="end_date_value">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 가격</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0">
+											<input type="text" name="e_price" id="e_price" 
+											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Just Number">
+										</div>
+									</div>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 카테고리</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0">
+											<select name="e_period" id="e_period" class="select1">
 												<option value='F'>예정전시 </option>
 												<option value='N'>현재전시 </option>
 												<option value='P'>지난전시 </option>
 											</select>
-										</tr><br>
-										
-										<tr>
-											<td> Exhibition Name</td>
-											<td><input type="text" name="e_name" id="e_name" placeholder="input Exhibition Name"></td>
-										</tr><br>
-										
-										<tr>
-											<td>Exhibition Start Date</td>
-											<td><input type="text" name="start_date" id="start_date">
-											<input type="hidden" id="start_date_value"></td>
-										</tr><br>
-										
-										<tr>
-											<td>Exhibition End Date</td>
-											<td><input type="text" name="end_date" id="end_date">
-											<input type="hidden" id="end_date_value"></td>
-										</tr><br>
-										
-										<tr>
-											<td>Exhibition Price</td>
-											<td><input type="text" name="e_price" id="e_price" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></td>
-										</tr><br>
-										
-										<tr>
-											<td colspan="2" align="right"><a href="/admin/adminExhibitions">
-											<input type="button" id="return" value="초기화"></a> 
-											<input type="submit" id="upload" value="등록" disabled></td>
-										</tr>
-									</table>
+										</div>
+									</div>
+									<div class="row pt-4 pb-4" style="text-align:center">
+										<div class="col p-0">
+											<a href="/admin/adminExhibitions">
+											<input class="btn1" type="button" id="return" value="초기화"></a> 
+											<input class="btn2" type="submit" id="upload" value="등록" disabled>
+										</div>
+									</div>
+								</div>
 								</form>
             				</div>
             			</div>
@@ -221,6 +242,30 @@
             </div>
         </div>
     </section>
+    
+    <!-- main contents close-->
+    
+    <!-- footer open -->
+    <section>
+		<div class="container-fluid">
+			<div class="row ml-auto" id="footerbox" style="margin-top: 8rem;">
+	            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="footMain1">
+	                <div class="row ml-auto">
+	                    <div class="col-12 h3 d-none d-sm-block" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+	
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	</section>
+	
+	<!-- footer close -->
+    
+    
+    
+    
 <!-- DatePicker Script -->  
  
 <script>
@@ -263,7 +308,7 @@ let end_date;
 				changeMonth: true,
 			    changeYear: true,
 				showOn : "both",
-				buttonImage : "/images/calendar2.png",
+				buttonImage : "/images/calendar1.png",
 				buttonImageOnly : true,
 			    nextText: '다음 달',
 			    prevText: '이전 달',

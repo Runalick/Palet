@@ -34,14 +34,17 @@ public class CartController {
 			System.out.println(g_num[0]);
 			System.out.println(cartstock[0]);
 			String email = (String)session.getAttribute("loginEmail");
+			System.out.println(email);
 			for(int i=0; i<g_num.length;i++) {
-			boolean isGoodsExist = cServ.isGoodsExist(g_num[i]);
-			boolean isGoodsStocksame=cServ.isGoodsStocksame(g_num[i],cartstock[i]);
+			boolean isGoodsExist = cServ.isGoodsExist(g_num[i],email);
+			boolean isGoodsStocksame=cServ.isGoodsStocksame(g_num[i],cartstock[i],email);
+			//옵션,수량 같을 때 멈춤
 			if(isGoodsExist && isGoodsStocksame) {
 				continue;
-			}else if(isGoodsExist || isGoodsStocksame){
-				cServ.selectModiOne(g_num[i],cartstock[i]);
-			}else {
+				
+			}else if(isGoodsExist || isGoodsStocksame){ //옵션은 있는데 수량이 다를 때 변경
+				cServ.selectModiOne(g_num[i],cartstock[i],email);
+			}else {//둘 다 없을 때 insert
 				cServ.insertCart(g_num[i],cartstock[i],email);
 			}
 			}
@@ -51,14 +54,13 @@ public class CartController {
 	
 	@RequestMapping("cartlist")
 	public String cartList(Model model,HttpServletResponse response) throws Exception {
-//		String email = (String)session.getAttribute("loginEmail");
-		String email = "i2376@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
+		
+		//장바구니 list
 		List<CartListDTO> list = cServ.selectAll(email);
-		for(CartListDTO dto : list) {
-			System.out.println(dto.getG_name());
-		}
+		//총 수량, 가격
 		TotalCartDTO totalList = cServ.total(email);
-
+		//옵션
 		String realpath = "/cart/cartList/";
 		
 		
@@ -76,10 +78,12 @@ public class CartController {
 		return"redirect:cartlist";
 	}
 	
+	@ResponseBody
 	@RequestMapping("cartModi")
 	public String cartModi(int g_num,int cartstock) {
-		cServ.selectModiOne(g_num,cartstock);
-		return "redirect:cartlist";
+		String email = (String)session.getAttribute("loginEmail");
+		cServ.selectModiOne(g_num,cartstock,email);
+		return "success";
 	}
 	
 	@RequestMapping("purchase")
@@ -93,5 +97,23 @@ public class CartController {
 		model.addAttribute("purchaselist", purchaselist);
 		return "cart/purchase";
 	}
+	
+	@RequestMapping("choosedel")
+	public String choosedel(int[] g_num) {
+		for(int i=0; i<g_num.length;i++) {
+			cServ.delete(g_num[i]);	
+		}
+		
+		return "redirect:cartlist";
+	}
+	
+	@RequestMapping("order")
+	public String order(int[] cart_seq) {
+		for(int i=0; i<cart_seq.length;i++) {
+			System.out.println(cart_seq[i]);
+		}
+		return "/cart/order";
+	}
+	
 }
 

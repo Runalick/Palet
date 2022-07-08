@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("jsColor");
 const range = document.getElementById("jsRange");
 const mode = document.getElementById("jsMode");
+const brush = document.getElementById("jsBrush");
 const reset = document.getElementById("jsReset");
 const saveBtn = document.getElementById("jsSave");
 const check = document.querySelector("#check");
@@ -11,11 +12,11 @@ const shapeCColor = document.querySelector(".custom__color");
 const widthForm = document.querySelector(".controls__width");
 const heightForm = document.querySelector(".controls__height");
 const submit = document.querySelector("#jsSubmit");
-const title = document.getElementById("title");
-const painter = document.getElementById("painter");
+let title = document.getElementById("title");
+let painter = document.getElementById("painter");
 
 const INITIAL_COLOR = "#2c2c2c";
-const CANVAS_SIZE = 700;
+const CANVAS_SIZE = 600;
 
 //canvas.width = document.getElementsByClassName("canvas")[0].offsetWidth;
 //canvas.height = document.getElementsByClassName("canvas")[0].offsetHeight;
@@ -85,14 +86,12 @@ function handleResetClick() {
 }
 
 function handleModeClick(){
-    if(filling === true){
-        filling = false;
-        mode.innerText = "Fill";
-    } else {
-        filling = true;
-        mode.innerText = "Paint";
-        
-    }
+    
+    filling = true;
+}
+
+function handleBrushClick(){
+	filling = false;
 }
 
 function handleCanvasClick(){
@@ -137,8 +136,9 @@ function saveImage() {
 	}
 	
 	const imgDataUrl = canvas.toDataURL("image/png", 1.0);
+	console.log(imgDataUrl);
 	 
-	var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
+	/*var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
     var array = [];
     for (var i = 0; i < blobBin.length; i++) {
         array.push(blobBin.charCodeAt(i));
@@ -148,18 +148,19 @@ function saveImage() {
     var formdata = new FormData();	// formData 생성
     formdata.append("file", file);	// file data 추가
     formdata.append("d_title", title.value)	
-	formdata.append("painter", painter.value)
+	formdata.append("painter", painter.value)*/
+	
+	d_title = title.value;
+	painter = painter.value;
     
     
     $.ajax({
         type : 'post',
         url : '/event/send',
-        data : formdata,
-        dataType: 'json',
-        processData : false,	// data 파라미터 강제 string 변환 방지!!
-        contentType : false,	// application/x-www-form-urlencoded; 방지!!
+        data : {"d_file": imgDataUrl, "d_title":d_title, "painter":painter},
+        
         success : function (data) {
-            if(data == "true"){
+            if(data === "true"){
 				alert(painter.value + "님의 작품이 등록되었습니다. 관리자의 승인 후 등록됩니다.");
 			} else {
 				alert("본 이벤트는 1계정당 1번만 참여가 가능합니다.");
@@ -192,6 +193,10 @@ if(range){
 
 if(mode){
     mode.addEventListener("click",handleModeClick )
+}
+
+if(brush){
+    brush.addEventListener("click",handleBrushClick )
 }
 
 if (reset) {

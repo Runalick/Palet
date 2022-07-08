@@ -245,7 +245,7 @@ color:#fff;
             </div>
         </div>
     </div>
-<<<<<<< HEAD
+
     
     
     <!-- 물건 상세페이지로 가는 임시 버튼 나중에지우세요~   -->
@@ -260,7 +260,7 @@ color:#fff;
     		location.href="/shop/goDetail?g_num="+$(".detailview").val();
     	})
     </script>
-=======
+
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 100px;">
 			<div class="container">
@@ -307,7 +307,7 @@ color:#fff;
 	
 	
    
->>>>>>> 7859c4e3a494447af6c55c35fee12ab2bb2e1aae
+
 </body>
 <script>
 

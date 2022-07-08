@@ -1,23 +1,23 @@
 package Trillion.Palet.DTO;
 
+
 public class DrawingDTO {
 	private int draw_seq;
 	private String d_title;
 	private String painter;
-	private String filename;
+	private String d_file;
 	private String email;
 	private String admmin_ok;
 	
 	public DrawingDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public DrawingDTO(int draw_seq, String d_title, String painter, String filename, String email, String admmin_ok) {
+	public DrawingDTO(int draw_seq, String d_title, String painter, String d_file, String email, String admmin_ok) {
 		super();
 		this.draw_seq = draw_seq;
 		this.d_title = d_title;
 		this.painter = painter;
-		this.filename = filename;
+		this.d_file = d_file;
 		this.email = email;
 		this.admmin_ok = admmin_ok;
 	}
@@ -46,12 +46,12 @@ public class DrawingDTO {
 		this.painter = painter;
 	}
 
-	public String getFilename() {
-		return filename;
+	public String getD_file() {
+		return d_file;
 	}
 
-	public void setFilename(String filename) {
-		this.filename = filename;
+	public void setD_file(String d_file) {
+		this.d_file = d_file;
 	}
 
 	public String getEmail() {

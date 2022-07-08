@@ -16,8 +16,10 @@ public class CartService {
 	@Autowired
 	private CartDAO cdao;
 	
-	public boolean isGoodsExist(int g_num) {
-		return cdao.isGoodsExist(g_num);
+	public boolean isGoodsExist(int g_num,String email) {
+		System.out.println(g_num);
+		System.out.println(email);
+		return cdao.isGoodsExist(g_num,email);
 	}
 
 	public int insertCart(int g_num, int cartstock, String email ) {
@@ -35,15 +37,15 @@ public class CartService {
 	public int delete(int g_num) {
 		return cdao.delete(g_num);
 	}
-	public int selectModiOne(int g_num,int cartstock) {
-		return cdao.selectModiOne(g_num,cartstock);
+	public int selectModiOne(int g_num,int cartstock,String email) {
+		return cdao.selectModiOne(g_num,cartstock,email);
 	}
 
 	public List<CartListDTO> purchase(int[] buy,String email) {
 		return cdao.purchase(buy,email);
 	}
 
-	public boolean isGoodsStocksame(int g_num, int cartstock) {
-		return cdao.isGoodsStocksame(g_num,cartstock);
+	public boolean isGoodsStocksame(int g_num, int cartstock,String email) {
+		return cdao.isGoodsStocksame(g_num,cartstock,email);
 	}
 }

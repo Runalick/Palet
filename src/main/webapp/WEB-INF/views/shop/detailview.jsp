@@ -233,10 +233,7 @@ margin-bottom: 2.5rem;
 	width: 45.353rem;
 	padding: 0rem;
 }
-/* IE */
-select::-ms-expand {
-	display: none;
-}
+
 
 #select {
 	width: 23.5rem;
@@ -519,9 +516,13 @@ select::-ms-expand {
 									<li class="nav-item"><a id="Admin" class="nav-link"
 										href="/admin/adminMain"
 										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+									<c:choose>
+									<c:when test="${loginEmail !=null }">
 									<li class="nav-item"><a id="Mypage" class="nav-link"
 										href="/cart/cartlist"
-										style="padding-left: 0px; padding-right: 0px;">cart()</a></li>
+										style="padding-left: 0px; padding-right: 0px;">cart(${totalDto.total_num })</a></li>
+									</c:when>
+									</c:choose>	
 									<li class="nav-item"><a id="Mypage" class="nav-link"
 										href="/member/mypage"
 										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
@@ -724,6 +725,10 @@ $(".li").on("click", function () {
 			alert("로그인이 필요한 서비스입니다.");
 			return false;
 		}
+		if($(".choose").length==0){
+			alert("옵션을 선택하세요")
+			return false;
+		}
 	})
 	//장바구니버튼
 	$("#cartbtn").on("click",function(){
@@ -732,7 +737,10 @@ $(".li").on("click", function () {
 			alert("로그인이 필요한 서비스입니다.");
 			return false;
 		}
-		
+		if($(".choose").length==0){
+			alert("옵션을 선택하세요")
+			return false;
+		}
 		
 		var data = [];
 		var g_numArray =[];

@@ -52,6 +52,10 @@
     <div class="container-fluid" style="min-width: 600px;">
     <div class="row" style="padding-top: 100px;">
 	<div class="container">
+		<div class="col-12">
+			<a href="/coupon/couponlist">쿠폰리스트보기</a><br>
+			<a href="/coupon/toregistration">쿠폰등록하기</a>
+		</div>
 		<div class="row" id="row1">
 			<div class="h2" style="text-align: left; margin-left: 100px; margin-bottom: 20px;">My Page / My info.</div>
 		</div>
