@@ -9,6 +9,8 @@
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <title>현재 전시</title>
+
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -427,6 +429,8 @@ a {
 	height: 3rem;
 }
 
+
+
 input::placeholder {
 	width: 16rem;
 	height: 1.75rem;
@@ -530,15 +534,15 @@ input::placeholder {
 					<div class="row body2" id="row1" style="margin: 0px;">
 						<div class=col-12>이름</div>
 						<div class=col-12 style="margin-top: 0.5rem;">
-							<input type=text class=input1 placeholder="예매자 이름을 입력해 주세요.">
+							<input type=text class=input1 id = username placeholder="예매자 이름을 입력해 주세요.">
 						</div>
 						<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 						<div class=col-12 style="margin-top: 0.5rem;">
-							<input type=text class=input1 placeholder="전화번호를 입력해 주세요.">
+							<input type=text class=input1 id = phone  placeholder="전화번호를 입력해 주세요.">
 						</div>
 						<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 						<div class=col-12 style="margin-top: 0.5rem;">
-							<input type=text class=input1 placeholder="email@naver.com">
+							<input type=text class=input1 id = "email" style = "text-align:center; "value = "${loginEmail}"  readonly>
 						</div>
 					</div>
 				</div>
@@ -592,8 +596,8 @@ input::placeholder {
 							Romantic Days 어쨌든, 사랑
 
 							<div class=h3
-								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;">9,000원</div>
-							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;">1매</div>
+								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;" id = totalprice>9000</div>
+							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;" id = count>1</div>
 
 						</div>
 
@@ -652,16 +656,17 @@ function iamport(){
     //가맹점 식별코드
     IMP.init('imp48062056');
 IMP.request_pay({
-    pg : 'kcp',
-    pay_method : 'card',
-    merchant_uid : 'merchant_' + new Date().getTime(),
-    name : '예매' , //결제창에서 보여질 이름
-    amount : 100, //실제 결제되는 가격
-    buyer_email : 'iamport@siot.do',
-    buyer_name : '조양기',
-    buyer_tel : '010-1234-5678',
-    buyer_addr : '서울 강남구 도곡동',
-    buyer_postcode : '123-456'
+	   pg : 'kcp',
+	    pay_method : 'card',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '예매' , //결제창에서 보여질 이름
+	    amount : 100, //실제 결제되는 가격
+	    buyer_email : 'iamport@siot.do',
+	    buyer_name : '조양기',
+	    buyer_tel : '010-1234-5678',
+	    buyer_addr : '서울 강남구 도곡동',
+	    buyer_postcode : '123-456'
+
 }, function(rsp) {
 	console.log(rsp);
     if ( rsp.success ) {
@@ -669,12 +674,20 @@ IMP.request_pay({
         $.ajax({
             url:"/pay/insert",
             data:{
-                imp_uid : rsp.imp_uid,
-                pg : "kcp",
-                method : "card",
-                g_name : "예매",
-                price : rsp.paid_amount,
-                apply_num : rsp.apply_num},
+            	
+                et_email : "first0627@hanmail.net",
+                et_title : "Romantic Days, 어쩃든 사랑",
+                et_place : "지하철 3호선 경복궁역 지하 1층",
+               	et_date : "2022.03.16 ~ 2022.10.30",
+               	et_booknumber : rsp.merchant_uid,
+     			et_state : "Y",
+                et_username : $("#username").val(),
+                et_phone : $("#phone").val(),
+                et_paymethod : "card",
+                et_cost : $("#totalprice").text(),
+                et_count : $("#count").text(),
+                et_point : 10},
+               
             type:"post",
             dataType:"json"
         }).done(function(resp){

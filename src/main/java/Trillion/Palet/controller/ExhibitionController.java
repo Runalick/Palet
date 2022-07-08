@@ -2,6 +2,8 @@ package Trillion.Palet.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,10 @@ public class ExhibitionController {
 	
 	@Autowired
 	private PreExhibitionService ServPe;
+	
+
+	@Autowired
+	private HttpSession session;
 	
 	@RequestMapping("toCurExhibition")
 	public String toCurExhibition() {
@@ -56,9 +62,10 @@ public class ExhibitionController {
 	
 	
 	@RequestMapping("toBook")
-	public String toBook() {
-	
-		
+	public String toBook(Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		System.out.println(email);
+		model.addAttribute("loginEmail", email);
 		
 		return "/exhibition/book";
 	}
