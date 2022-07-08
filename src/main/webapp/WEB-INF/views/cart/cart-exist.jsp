@@ -552,7 +552,7 @@ right:1.5rem;
 							<div class="body1 title">${i.g_name} -${i.g_option }</div>
 							<div class="H3 price" id="${i.g_num }"> </div>
 							<script>
-							price = ${i.g_price * i.cartstock} ;
+							price = ${i.g_price} ;
 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 							$("#${i.g_num}").text(price+"원");
 							</script>
