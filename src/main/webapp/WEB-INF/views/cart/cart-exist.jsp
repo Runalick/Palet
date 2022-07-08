@@ -546,6 +546,7 @@ right:1.5rem;
 					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
 						<div class="col-3 p-0 productimg" style="background-color:pink;">
 							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_num }" style="margin-top:0.375rem;">
+							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
 						<div class="col-9 productInfo" style="width:38rem">
 							<div class="body1 title">${i.g_name} -${i.g_option }</div>
@@ -587,7 +588,15 @@ right:1.5rem;
 <script>
 //결제버튼
 $("#paybtn").on("click",function(){
-	location.href="/cart/order";
+	
+	var cart_seq=[];
+	$("input:checkbox[class=checkbox2]:checked").each(function(e,item){
+
+					console.log($(this).siblings().val());
+					cart_seq.push($(this).siblings().val());
+			})
+	console.log(cart_seq);
+	location.href="/cart/order?cart_seq="+cart_seq;
 })
 
 
@@ -787,6 +796,7 @@ function setTotalInfo() {
 	})
 	//체크박스 개별 이벤트
 	$(".checkbox2").on("click", function() {
+		
 		
 		if($(this).prop("checked")){
 		$(this).attr("del",true);
