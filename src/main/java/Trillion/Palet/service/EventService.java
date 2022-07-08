@@ -1,7 +1,7 @@
 package Trillion.Palet.service;
 
-import java.sql.Blob;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +22,7 @@ public class EventService {
 	private Drawing_PicDAO pdao;
 
 	@Transactional
-	public void add(DrawingDTO dto, String fileName, Blob blob) throws Exception {
+	public void add(DrawingDTO dto) throws Exception {
 
 		/*
 		 * String oriName = file.getOriginalFilename(); System.out.println(oriName);
@@ -38,19 +38,23 @@ public class EventService {
 		 * pdao.insert(new Drawing_PicDTO(0,sysName,draw_seq)); }
 		 */
 		
-		int draw_seq = dao.add(dto, fileName, blob);
-		System.out.println(draw_seq);
+		
+		int draw_seq = dao.add(dto);
 	}
 
 	public boolean isEmailExist(String email) {
 		return pdao.isEmailExist(email);
 	}
 
-	public List<DrawingDTO> selectImage() {
-	
+	public List<Object> selectImage() {
 		return dao.selectImage();
 	}
-	public int testsave(ImgDTO img) {
-		return dao.testsave(img);
+	
+	public List<Object> selectAll() {
+		return dao.selectImage();
+	}
+	
+	public int testsave(DrawingDTO dto) {
+		return dao.testsave(dto);
 	}
 }
