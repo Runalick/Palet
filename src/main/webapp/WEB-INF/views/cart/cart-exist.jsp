@@ -522,7 +522,7 @@ right:1.5rem;
 							<span class="H3" id="span3" >총 결제 금액</span>
 							<span class="H3 finalTotalPrice" id="span6"></span>
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-							<span class="Caption" id="span8" style="color: #919EAB;">940p</span>
+							<span class="Caption totalPoint" id="span8" style="color: #919EAB;"></span>
 						</div>
 					</div>
 					
@@ -545,12 +545,18 @@ right:1.5rem;
 				<c:forEach var="i" items="${list }">
 					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
 						<div class="col-3 p-0 productimg" style="background-color:pink;">
-							<input type="checkbox" class="checkbox2" checked="checked" id="check1" style="margin-top:0.375rem;">
+							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_num }" style="margin-top:0.375rem;">
 						</div>
 						<div class="col-9 productInfo" style="width:38rem">
-							<div class="body1 title">${i.g_name}</div>
-							<div class="H3 price">${i.g_price }</div>
+							<div class="body1 title">${i.g_name} -${i.g_option }</div>
+							<div class="H3 price" id="${i.g_num }"> </div>
+							<script>
+							price = ${i.g_price * i.cartstock} ;
+							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+							$("#${i.g_num}").text(price+"원");
+							</script>
 							<input class="hidden-price" type="hidden" value="${i.g_price }">
+							<input class="hidden-point" type="hidden" value="${i.point}">
 							<span>
 							<button class="cntbtn minus"> 
  										<img src="/images/minus.png"> 
@@ -579,6 +585,12 @@ right:1.5rem;
 				</div>
 
 <script>
+//결제버튼
+$("#paybtn").on("click",function(){
+	location.href="/cart/order";
+})
+
+
 $(document).ready(function() {
 	setTotalInfo();
 });
@@ -591,7 +603,7 @@ function setTotalInfo() {
 
 			let totalPrice = 0; // 총 가격
 			let totalCount = 0; // 총 갯수
-			let totalPoint = 0; // 총 마일리지
+			let totalPoint = 0; // 총 포인트
 			let deliveryPrice = 3000; // 배송비
 			let finalTotalPrice = 0; // 최종 가격(총 가격 + 배송비)
 
@@ -600,15 +612,17 @@ function setTotalInfo() {
 
 						if ($(element).find(".checkbox2").is(":checked") === true) {
 							// 총 갯수
-							let cnt =$(element).find(".hidden-cnt").val();
+							let cnt =$(element).find(".cnt").text();
+							
 							totalCount += parseInt(cnt);
 							// 총 가격
 							
-							let price = $(element).find(".hidden-price").val();
-							totalPrice += parseInt(price)*cnt;
-							// 총 마일리지
-// 							totalPoint += parseInt($(element).find(
-// 									".individual_point").val());
+							let price = $(element).find(".price").text();
+							price = price.replace(",","");
+							totalPrice += parseInt(price)*parseInt(cnt);
+							// 총 포인트
+							totalPoint += parseInt($(element).find(
+									".hidden-point").val()*cnt);
 
 							finalTotalPrice = totalPrice + deliveryPrice;
 						}
@@ -617,8 +631,8 @@ function setTotalInfo() {
 						$(".totalprice").text(totalPrice.toLocaleString());
 						// 총 갯수
 // 						$(".totalCount").text(totalCount);
-						// 총 마일리지
-// 						$(".totalPoint").text(totalPoint.toLocaleString());
+						// 총 포인트
+						$(".totalPoint").text(totalPoint.toLocaleString()+"p");
 						// 배송비
 						$(".deliveryprice").text("+"+deliveryPrice+"원");
 						// 최종 가격(총 가격 + 배송비)
@@ -666,6 +680,81 @@ function setTotalInfo() {
 	</div>
 	
 	<script>
+	//쇼핑하러 가기
+	$(".btn1").on("click",function(){
+		location.href="/shop/toShop";
+	})
+	//수량
+	
+	$(document).on("click", ".plus", function(){
+
+			let result = $($(this).parent().siblings()[6]).text();
+			console.log("d"+result);
+			number = parseInt(result) + 1;
+			
+			$($(this).parent().siblings()[6]).text(number);
+			
+			//가격변화
+			
+// 			let price= $($(this).parent().siblings()[3]).val();
+// 			console.log(price);
+// 			price2 = price.replace(",","");
+			
+// 			let currentprice = $($(this).parent().siblings()[1]).text();
+// 			currentprice=currentprice.replace(",","");
+// 			totalprice =  parseInt(currentprice) +  parseInt(price2);
+// 			$($(this).parent().siblings()[1]).text(totalprice.toLocaleString()+"원");
+	
+			setTotalInfo();
+			
+			g_num=$($(this).parent().siblings()[8]).children().val();
+			$.ajax({
+				url:"/cart/cartModi",
+				dataType:"json",
+				data:{g_num:g_num,cartstock:number}
+			}).done(function(resp){
+				console.log(resp)
+			})
+	
+	
+	});
+	$(document).on("click", ".minus", function(){
+
+			let result = $($(this).parent().siblings()[5]).text();
+			number = parseInt(result) - 1;
+			if (number == 0) {
+				return false;
+			}
+			console.log(number);
+			$($(this).parent().siblings()[5]).text(number);
+			
+			//가격변화
+// 			let price = $($(this).parent().siblings()[3]).val() ;
+// 			console.log("price"+price)
+// 			price2 = price.replace(",","");
+			
+// 			let currentprice = $($(this).parent().siblings()[1]).text();
+// 			currentprice=currentprice.replace(",","");
+			
+// 			console.log(price2 + " : " + currentprice);
+// 			totalprice =  parseInt(currentprice) -  parseInt(price2);
+// 			$($(this).parent().siblings()[1]).text(totalprice.toLocaleString()+"원");
+
+			setTotalInfo();
+	
+			g_num=$($(this).parent().siblings()[8]).children().val();
+			$.ajax({
+				url:"/cart/cartModi",
+				dataType:"json",
+				data:{g_num:g_num,cartstock:number}
+			}).done(function(resp){
+				console.log(resp)
+			})
+	
+	});
+	
+	
+	
 // 	//전체선택 누를 때 이벤트
 	$("#allcheck").on("click",function(){
 		
@@ -721,9 +810,14 @@ function setTotalInfo() {
 })
 	//선택 삭제
 	$("#choosedel").on("click",function(){
+		var del=[];
 	$("input:checkbox[class=checkbox2]:checked").each(function(e,item){
-		console.log(item);
+		
+		
+		del.push($(this).val());
+		console.log(del);
 		$(item).parent().parent().remove();
+		location.href="/cart/choosedel?g_num="+del;
 	})
 });
 	</script>

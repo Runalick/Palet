@@ -112,8 +112,8 @@ public class CartListDTO {
 		return point;
 	}
 
-	public void setPoint(int point) {
-		this.point = point;
+	public void setPoint() {
+		this.point = (int) Math.round(this.getG_price()*0.05);
 	}
 	
 	

@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.TotalCartDTO;
+import Trillion.Palet.service.CartService;
 import Trillion.Palet.service.GoodsService;
 import Trillion.Palet.service.ShopService;
 
@@ -25,6 +27,9 @@ public class ShopController {
 	@Autowired
 	private HttpSession session; 
 	
+	@Autowired
+	private CartService cServ;
+	
 	@RequestMapping("toShop")
 	public String toShop() {
 		
@@ -36,9 +41,12 @@ public class ShopController {
 		String email = (String)session.getAttribute("loginEmail");
 		GoodsDTO dto = gServ.goodsdetail(g_num);
 		List<GoodsDTO> list = gServ.getoption(dto.getG_name());
-		
 		for(GoodsDTO ddto : list) {
 			System.out.println(ddto.getG_option());
+		}
+		if(email !=null) {
+			TotalCartDTO totalDto=cServ.total(email);
+		 model.addAttribute("totalDto",totalDto);
 		}
 		
 		model.addAttribute("loginEmail",email);

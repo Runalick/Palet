@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Page</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -46,11 +48,11 @@
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > PALET </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="#" class="text-black ">ADMIN Accounts</a>
+                            <a href="#" class="text-black body1 py-2">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -61,7 +63,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Users
+                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Members
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -104,12 +106,12 @@
                     <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white">Goods</h4>
+                                <div class="text-align text-uppercase mb-0 text-white">Goods</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
                                     <div class="searchBox">
-                                        <input type="text" class="searchInput" placeholder="Search..">
+                                        <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
@@ -147,75 +149,109 @@
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
-            		<div class="row pt-md-5 mt-md-3 mb-5">
-                        <div class="col-xl-3 col-sm-6 p-2">
-                            <div class="row w-100 m-0">
-								<div class="col-12" id="exhibitionBtns">
-									<button id="goodsAdded">굿즈 등록</button>
-									<button id="goodsList">굿즈 재고 현황</button>
-								</div>
+            		<div class="row" style="margin-top: 5rem">
+						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Goods </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 상품을 등록 할 수 있는 페이지 입니다. </div>
+                	</div>
+                	<div class="row pt-3 px-5">
+						<div class="col-12 mr-auto" id="goodsBtns">
+							<button class="btn0 color_gray900 colortext_gray100" id="goodsAdded">상품 등록</button>
+							<button class="btn0 " id="goodsList">재고 현황</button>
+						</div>
+                	</div>
+                	<div class="row" style="margin-top: 1rem" id="roundboxParent">
+                		<div class="col " style="align-item :center"" id="roundbox">
+                			<div class="row pt-2 m-3 mb-4">
+								<div class="h3_2">Input Goods</div>
 							</div>
-                            
-                            <div class="cc">
-                            	
-                            	<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">
-									<div>
-										
-									<div colspan="2" style="text-align:center"><b>[[ Goods Page ]]</b></div>
-									
-									<select id="e_num" name="e_num"> 
-										<c:forEach var="i" items="${list}">	
-										<option value='${i.e_num}'>${i.e_name} </option>
-										</c:forEach>
-									</select>									
-									
-										
-																
-										
-										<div>
-											Goods Name
-											<input type="text" name="g_name" id="g_name" placeholder="input Goods Name">
+							<div class="row">
+							<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">		
+								<div class="col">
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">상품 이름</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="g_name" id="g_name" placeholder="Input Goods Name" >
 											<input type="hidden" name="g_num" value="0">
 										</div>
-										
-										<div>
-											Goods Price
+									</div>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">상품 가격</div>
+									</div>
+									<div class="row" style="text-align:center;">
+										<div class="col-12 p-0">
 											<input type="text" name="g_price" id="g_price" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
-										</div><br>
-										
-										<div>
-											Goods Option
-											
-											<textarea name="g_option" id="g_option"></textarea>
-											
-										</div><br>
-										
-										<div>
-											goods stock
-											<input type="text" name="g_stock" id="g_stock" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></td>
-										</div><br>
-										
-										<div colspan="2">
-								        	Upload to image 
-								        	<input type="file" name="file">
-										 	
-	        							</div>							
-										<div colspan="2" align="right">
-											<a href="/admin/adminGoods">
-												<input type="button" id="return" value="초기화"></a> 
-												<input type="submit" id="upload" value="등록">
+											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"
+											placeholder="Input Goods Price">
 										</div>
 									</div>
-								</form>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">상품 옵션</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0">
+											<input type="text" name="g_option" id="g_option" placeholder="Input Goods Options" >
+										</div>
+									</div>                		
+                					<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 카테고리</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0">
+											<select id="e_num" name="e_num" class="select1"> 
+												<c:forEach var="i" items="${list}">	
+												<option value='${i.e_num}'>${i.e_name} </option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col p-0 body2 marg_left0">상품 사진</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0 filebox">
+											<input class="upload_view marg_left1" value="첨부파일" placeholder="Input Goods Images">
+											<label class="btn1_0 marg_left1" for="file"> 업로드 </label>
+											<input id="file" type="file" name="file" style="display:none">
+										</div>
+									</div>  
+									<div class="row pt-4 pb-4" style="text-align:center">
+										<div class="col p-0">
+											<a href="/admin/adminGoods">
+												<input class="btn1" type="button" id="return" value="초기화"></a> 
+												<input class="btn2" type="submit" id="upload" value="등록">
+										</div>
+									</div>
+                				</div>
+							</form>
             				</div>
             			</div>
             		</div>
             	</div>
             </div>
         </div>
-    </section>
+    </section>							
+							
+    <!-- main contents close-->
+    
+    <!-- footer open -->
+    <section>
+		<div class="container-fluid">
+			<div class="row ml-auto" id="footerbox" style="margin-top: 8rem;">
+	            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="footMain1">
+	                <div class="row ml-auto">
+	                    <div class="col-12 h3 d-none d-sm-block" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+	
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	</section>
+	
+	<!-- footer close -->
     
     
     
@@ -227,7 +263,13 @@
  	$("#goodsList").on("click", ()=>{
  		location.href = "/admin/adminGoodsList?cpage=1";
  	})
-
+	
+ 	
+ 	$("#file").on('change',function(){
+  		let fileName = $("#file").val();
+ 	 	$(".upload_view").val(fileName);
+	});
+	
 </script>    
     
 </body>
