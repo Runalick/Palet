@@ -725,6 +725,10 @@ $(".li").on("click", function () {
 			alert("로그인이 필요한 서비스입니다.");
 			return false;
 		}
+		if($(".choose").length==0){
+			alert("옵션을 선택하세요")
+			return false;
+		}
 	})
 	//장바구니버튼
 	$("#cartbtn").on("click",function(){
@@ -733,7 +737,10 @@ $(".li").on("click", function () {
 			alert("로그인이 필요한 서비스입니다.");
 			return false;
 		}
-		
+		if($(".choose").length==0){
+			alert("옵션을 선택하세요")
+			return false;
+		}
 		
 		var data = [];
 		var g_numArray =[];
