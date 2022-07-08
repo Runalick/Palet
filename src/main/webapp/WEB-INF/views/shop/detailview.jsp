@@ -233,10 +233,7 @@ margin-bottom: 2.5rem;
 	width: 45.353rem;
 	padding: 0rem;
 }
-/* IE */
-select::-ms-expand {
-	display: none;
-}
+
 
 #select {
 	width: 23.5rem;

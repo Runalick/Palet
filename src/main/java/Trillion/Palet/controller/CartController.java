@@ -105,5 +105,10 @@ public class CartController {
 		return "redirect:cartlist";
 	}
 	
+	@RequestMapping("order")
+	public String order() {
+		return "/cart/order";
+	}
+	
 }
 
