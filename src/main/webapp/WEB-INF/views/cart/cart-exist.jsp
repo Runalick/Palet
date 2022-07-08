@@ -585,6 +585,12 @@ right:1.5rem;
 				</div>
 
 <script>
+//결제버튼
+$("#paybtn").on("click",function(){
+	location.href="/cart/order";
+})
+
+
 $(document).ready(function() {
 	setTotalInfo();
 });
