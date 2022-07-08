@@ -5,7 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Page</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -34,22 +36,23 @@
 </head>
 <body>
 	<div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler ml-auto mb-2 bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" aria-expanded="false">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
+       			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+       		<span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="sidebar">
+        <div class="collapse navbar-collapse justify-content-end" id="sidebar">
             <div class="container-fluid">
                 <div class="row">
                     <!-- sidebar 3grid open -->
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > PALET </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="#" class="text-black ">ADMIN Accounts</a>
+                            <a href="#" class="text-black body1 py-2">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -60,7 +63,7 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Users
+                                    <i class="bi bi-people text-black fa-lg mr-3"></i> Members
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -94,21 +97,20 @@
                                 </a>
                             </li>
                         </ul>
-                        
                     </div>
-                    <!-- sidebar end -->
+                    <!-- sidebar close -->
                     
                     <!-- main navi 9 grid open -->
                     
                     <div class="col-xl-10 col-lg-9 top-navbar bg-dark fixed-top py-2">
-                        <div class="row">
+                        <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white">Exhibitions</h4>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Exhibitions</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
                                     <div class="searchBox">
-                                        <input type="text" class="searchInput" placeholder="Search..">
+                                        <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
@@ -135,58 +137,71 @@
                                 </ul>
                             </div>
                         </div>
-                        
                     </div>
-
-
                 </div>
             </div>
         </div>
     </div>
     <!-- navibar close -->
+    
     <!-- main contents -->
     <section>
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain">  <!-- 추후CSS작업 시 바뀔이름 -->
-            		<div class="row pt-md-5 mt-md-3 mb-5">
-                        <div class="col-xl-9 col-sm-6 p-2">
-                            <div class="row w-100 m-0">
-								<div class="col-12" id="exhibitionBtns">
-									<button id="exhibitionAdded">전시 등록</button>
-									<button id="exhibitionList">전시회 목록</button>
-								</div>
-							</div>
-							<hr>
-                            <div class="cc">
-                            	<input type="checkbox" id="checkAll">checkAll
-                            	<input type="button" value="삭제" onclick="checkboxDelete()">
-								<select name="e_period" id="e_period">
-									<option value='F'>예정전시 </option>
-									<option value='N'>현재전시 </option>
-									<option value='P'>지난전시 </option>
-								</select>
-                            	<input type="button" value="카테고리수정" onclick="checkboxUpdate()">
-                            	<br>
-                            	전시번호 : 전시명 : 기간 : 가격 : 전시 현황
-                            	<hr>
-                            	<c:forEach var="i" items="${list}">
-                            		<input type="checkbox" name="checkbox" value="${i.e_num}">
-                            		${i.e_num } 
-                            		${i.e_name } 
-                            		${i.start_date } ~ ${i.end_date } 
-                            		${i.e_price } 
-                            		 
-                            		<c:choose> 
-                            			<c:when test="${i.e_period eq 'N'}"> 현재전시</c:when> 
-                            			<c:when test="${i.e_period eq 'F'}"> 예정전시</c:when>
-                            			<c:when test="${i.e_period eq 'P'}"> 지난전시</c:when>
-                            		</c:choose>
-                            		<br>
-                            		
-                            	</c:forEach>
-                            	
-                            	${navi}
+            		<div class="row" style="margin-top: 5rem">
+						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Exhibitions List </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 전시 관련 정보를 확인 할 수 있는 페이지 입니다. </div>
+                	</div>
+                	<div class="row pt-3 px-5">
+						<div class="col-12 mr-auto" id="exhibitionBtns">
+							<button class="btn0 " id="exhibitionAdded">전시 등록</button>
+							<button class="btn0 color_gray900 colortext_gray100" id="exhibitionList">전시회 목록</button>
+						</div>
+                	</div>
+                	<div class="row" style="margin-top: 1rem" id="roundboxParent">
+                		<div class="col-12" id="roundbox">  
+ 							<div class="row pt-4 p-4" style="text-align:right">
+ 								<div id="checkbtns">
+ 									<select class="body2 select0 color_gray100" name="e_period" id="e_period">
+										<option value='F'>예정전시 </option>
+										<option value='N'>현재전시 </option>
+										<option value='P'>지난전시 </option>
+									</select>
+                            		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate()">전시 수정</button>
+                            		<button class="btn0_1 color_red2" onclick="checkboxDelete()">삭제</button>
+ 								</div>
+ 							</div>
+            				<div class="row pt-3 m-3 mb-4">
+            					
+            					<div class="col-4 h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll"> Exhibition Name.</div>
+			            		<div class="col-4 h3 " style="border-right : 0.125rem solid #DFE3E8">Period.</div>
+			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Price.</div>
+			            		<div class="col-2 h3 ">Condition.</div>
+			            		<div class="col-12 px-3">
+			            			<div class="card2"></div>
+			            		</div>
+                        		<div class="col-12 pt-2 px-3">
+                            		<div class="">
+										<hr>
+                            			<c:forEach var="i" items="${list}">
+                            			<div class="row">
+	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.e_num}"> ${i.e_name } </div> 
+	                            			<div class="col-4 px-4 body2">${i.start_date } <b> ~ </b> ${i.end_date } </div> 
+	                            			<div class="col-2 px-4 body2">${i.e_price } </div> 
+		                            		<c:choose> 
+		                            			<c:when test="${i.e_period eq 'N'}"> <div class="col-2 px-5 body2">현재전시(N)</div></c:when> 
+		                            			<c:when test="${i.e_period eq 'F'}"> <div class="col-2 px-5 body2">예정전시(F)</div></c:when>
+		                            			<c:when test="${i.e_period eq 'P'}"> <div class="col-2 px-5 body2">지난전시(P)</div></c:when>
+		                            		</c:choose>
+		                            	</div>
+		                            	<hr>
+	                            		</c:forEach>
+                            		</div>
+                            	</div>	
+			                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
+			                    	${navi}
+			                    </div>
             				</div>
             			</div>
             		</div>
@@ -194,6 +209,26 @@
             </div>
         </div>
     </section>
+    
+    <!-- main contents close-->
+    
+    <!-- footer open -->
+    <section>
+		<div class="container-fluid">
+			<div class="row ml-auto" id="footerbox" style="margin-top: 8rem;">
+	            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="footMain1">
+	                <div class="row ml-auto">
+	                    <div class="col-12 h3 d-none d-sm-block" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+	                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+	
+	                </div>
+	            </div>
+	        </div>
+		</div>
+	</section>
+	
+	<!-- footer close -->
     
     <script>
 	

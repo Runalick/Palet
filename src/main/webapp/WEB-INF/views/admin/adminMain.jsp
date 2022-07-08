@@ -99,19 +99,19 @@
                         </ul>
                         
                     </div>
-                    <!-- sidebar end -->
+                    <!-- sidebar close -->
 
                     <!-- main navi 9 grid open -->
                     
                     <div class="col-xl-10 col-lg-9 color_gray900 fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white h3">Dashboard</h4>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Dashboard</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
                                     <div class="searchBox">
-                                        <input type="text" class="searchInput" placeholder="Search..">
+                                        <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
@@ -332,8 +332,9 @@
     	</div>
     </section>
     <!-- Graph section close-->
-
-	<section>
+    
+    <!-- footer open -->
+    <section>
 		<div class="container-fluid">
 			<div class="row ml-auto" id="footerbox" style="margin-top: 8rem;">
 	            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="footMain1">
@@ -347,6 +348,8 @@
 	        </div>
 		</div>
 	</section>
+	
+	<!-- footer close -->
 
 
 

@@ -52,7 +52,7 @@
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="/member/mypage" class="text-black ">ADMIN</a>
+                            <a href="/member/mypage" class="text-black body1 py-2">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -99,19 +99,19 @@
                         </ul>
                         
                     </div>
-                    <!-- sidebar end -->
+                    <!-- sidebar close -->
                     
                     <!-- main navi 9 grid open -->
                     
                     <div class="col-xl-10 col-lg-9 top-navbar color_gray900 fixed-top py-2">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <h4 class="text-align text-uppercase mb-0 text-white h3">Members Analytics</h4>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Members Analytics</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
                                     <div class="searchBox">
-                                        <input type="text" class="searchInput" placeholder="Search..">
+                                        <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
@@ -152,40 +152,36 @@
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
                 		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Member List </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 가입된 회원들의 정보를 확인할 수 있는 페이지 입니다. </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 가입된 회원들의 정보를 확인 할 수 있는 페이지 입니다. </div>
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
-
-			            		<div class="row pt-md-5 mt-md-3 mb-5">
-			            			<div class="col-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID.</div>
-			            			<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
-			            			<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
-			            			<div class="col-2 h3 ">Points.</div>
-			            			<div class="col-12 px-3">
-			            				<div class="card2"></div>
-			            			</div>
-			                        <div class="col-12 p-3">
-			                            <div class="">
-			                            	<hr>
-			                            	<c:forEach var="i" items="${list}">
-			                            	<div class="row">
-			                            		<div class="col-5 px-5 body2" >${i.email } </div> 
-			                            		<div class="col-3 px-5 body2" >${i.name } </div>
-			                            		<div class="col-2 px-5 body2" >${i.grade } </div>
-			                            		<div class="col-2 px-5 body2" >${i.point } </div>
-			                            	</div>
-			                            	<hr>
-			                            	</c:forEach>
-			                            </div>	
-			                        </div>    
-			                        <div class="col-12 p-3" style="text-align:center">
-			                        	    	${navi}
-			                        </div>
-			            				
-			            			
-			            		</div>
-
+			            	<div class="row pt-4 m-3 mb-4">
+			            		<div class="col-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID(E-mail).</div>
+			            		<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
+			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
+			           			<div class="col-2 h3 ">Points.</div>
+			           			<div class="col-12 px-3">
+			           				<div class="card2"></div>
+			           			</div>
+			                    <div class="col-12 p-3">
+			                    	<div class="">
+			                        <hr>
+			                        <c:forEach var="i" items="${list}">
+			                        <div class="row">
+			                        	<div class="col-5 px-5 body2" >${i.email } </div> 
+			                        	<div class="col-3 px-5 body2" >${i.name } </div>
+			                        	<div class="col-2 px-5 body2" >${i.grade } </div>
+		                            	<div class="col-2 px-5 body2" >${i.point } </div>
+		                            </div>
+		                            <hr>			                            	
+		                            </c:forEach>
+			                        </div>	
+			                    </div>    
+			                    <div class="col-12 p-3" style="text-align:center">
+			                       	${navi}
+			                    </div>
+			            	</div>
             			</div>
             		</div>
             	</div>
