@@ -106,7 +106,7 @@
                     <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <div class="text-align text-uppercase mb-0 text-white">Goods</div>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Goods</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">

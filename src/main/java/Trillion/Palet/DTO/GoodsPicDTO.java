@@ -6,6 +6,7 @@ public class GoodsPicDTO {
 	private int e_num;
 	private String gp_oriname;
 	private String gp_sysname;
+	
 	public GoodsPicDTO() {
 		super();
 	}
