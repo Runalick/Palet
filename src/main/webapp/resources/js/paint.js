@@ -12,8 +12,8 @@ const shapeCColor = document.querySelector(".custom__color");
 const widthForm = document.querySelector(".controls__width");
 const heightForm = document.querySelector(".controls__height");
 const submit = document.querySelector("#jsSubmit");
-const title = document.getElementById("title");
-const painter = document.getElementById("painter");
+let title = document.getElementById("title");
+let painter = document.getElementById("painter");
 
 const INITIAL_COLOR = "#2c2c2c";
 const CANVAS_SIZE = 600;
@@ -157,7 +157,7 @@ function saveImage() {
     $.ajax({
         type : 'post',
         url : '/event/send',
-        data : {"imgDataUrl": imgDataUrl, "d_title":d_title, "painter":painter},
+        data : {"d_file": imgDataUrl, "d_title":d_title, "painter":painter},
         
         success : function (data) {
             if(data === "true"){

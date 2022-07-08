@@ -21,19 +21,28 @@
 	</select>
 	
 	<insert id="testsave">
-		insert into testclob values(#{imgDataUrl},#{d_title},#{painter})
+		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N')
 	</insert>
 	
 	
-	
-	
-	
-	<resultMap id="listMap" type="java.util.HashMap">
-      <result property="d_file" column="d_file" javaType="[B" jdbcType="BLOB"/>
+	<resultMap type="HashMap" id="imgMap">
+	  <result property="d_file" column="d_file" jdbcType="CLOB" javaType="java.lang.String" />
 	</resultMap>
-	
-	<select id="selectImage" resultMap="listMap" parameterType="java.util.HashMap">
+
+	<select id="selectImage" parameterType="HashMap" resultType="HashMap" resultMap="imgMap">
 	   select d_file from drawing
+	</select>
+	
+	<resultMap type="HashMap" id="selectMap">
+	  <result property="draw_seq" column="draw_seq"/>
+	  <result property="d_title" column="d_title"/>
+	  <result property="painter" column="painter"/>
+	  <result property="d_file" column="d_file" jdbcType="CLOB" javaType="java.lang.String" />
+	  <result property="email" column="email"/>
+	</resultMap>
+
+	<select id="selectAll" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
+	   select * from drawing
 	</select>
 	
 	

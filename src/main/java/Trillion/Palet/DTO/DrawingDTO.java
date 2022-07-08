@@ -5,15 +5,14 @@ public class DrawingDTO {
 	private int draw_seq;
 	private String d_title;
 	private String painter;
-	private byte[] d_file;
+	private String d_file;
 	private String email;
 	private String admmin_ok;
 	
 	public DrawingDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
-	public DrawingDTO(int draw_seq, String d_title, String painter, byte[] d_file, String email, String admmin_ok) {
+	public DrawingDTO(int draw_seq, String d_title, String painter, String d_file, String email, String admmin_ok) {
 		super();
 		this.draw_seq = draw_seq;
 		this.d_title = d_title;
@@ -47,11 +46,11 @@ public class DrawingDTO {
 		this.painter = painter;
 	}
 
-	public byte[] getD_file() {
+	public String getD_file() {
 		return d_file;
 	}
 
-	public void setD_file(byte[] d_file) {
+	public void setD_file(String d_file) {
 		this.d_file = d_file;
 	}
 
@@ -70,10 +69,6 @@ public class DrawingDTO {
 	public void setAdmmin_ok(String admmin_ok) {
 		this.admmin_ok = admmin_ok;
 	}
-	
-	
-	
-
 
 	
 }

@@ -13,14 +13,16 @@
 	<button id="paint">Paint</button>
 	<br>
 	<table border=1>
-		<tr>
-			<th>seq
-			<th>pic
-		</tr>
 	<c:forEach var="i" items="${list}">
 		<tr>
-			<td>${i.draw_seq }
-			<td>${i.d_file }
+			<td colspan=3><img src="${i.d_file }" style="width:100px; height:100px;">
+		</tr>
+		<tr>
+			<td><button id="ok">ok</button>
+			<td id="1">${i.draw_seq }
+			<td>${i.d_title }
+			<td>${i.painter }
+			
 		</tr>
 	</c:forEach>
 		
@@ -31,6 +33,10 @@
 
 	$("#paint").on("click", function(){
 		location.href="/event/paint";
+	})
+	
+	$("#ok").on("click", function(){
+		console.log($("#id").val());
 	})
 	
 	</script>

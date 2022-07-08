@@ -27,14 +27,15 @@ public class DrawingDAO {
 		return (int) dto.getDraw_seq();
 	}
 
-	public List<Map<String, Object>> selectImage() {
+	public List<Object> selectImage() {
 		return  mybatis.selectList("Event.selectImage");
 	}
-	public int testsave(String imgDataUrl, String d_title, String painter) {
-		Map<String, Object> param = new HashMap<>();
-			param.put("imgDataUrl", imgDataUrl);
-			param.put("d_title", d_title);
-			param.put("painter", painter);
-		return mybatis.insert("Event.testsave",param);
+	
+	public List<Map<String, String>> selectAll() {
+		return  mybatis.selectList("Event.selectImage");
+	}
+	
+	public int testsave(DrawingDTO dto) {
+		return mybatis.insert("Event.testsave",dto);
 	}
 }

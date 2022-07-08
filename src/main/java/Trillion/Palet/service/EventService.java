@@ -46,10 +46,15 @@ public class EventService {
 		return pdao.isEmailExist(email);
 	}
 
-	public List<Map<String, Object>> selectImage() {
+	public List<Object> selectImage() {
 		return dao.selectImage();
 	}
-	public int testsave(String imgDataUrl, String d_title, String painter) {
-		return dao.testsave(imgDataUrl, d_title, painter);
+	
+	public List<Object> selectAll() {
+		return dao.selectImage();
+	}
+	
+	public int testsave(DrawingDTO dto) {
+		return dao.testsave(dto);
 	}
 }
