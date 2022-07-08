@@ -24,6 +24,27 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="/css/member/mypage.css">
 </head>
+<style>
+.btnbtn{
+justify-content: center;
+align-items: center;
+padding: 1.125rem 1.5rem;
+gap: 0.625rem;
+width: 23.5rem;
+height: 3.75rem;
+color:white;
+background: #161C24;
+border-radius: 1.25rem;
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 500;
+font-size: 1.25rem;
+line-height: 1.5rem;
+text-align: center;
+color: #FFFFFF;
+margin-bottom:1.875rem;
+}
+</style>
 <body>
 	<!-- 네비단 -->
 	<div class="container-fluid" id=navparent>
@@ -72,18 +93,17 @@
 	</div>
 	<!-- 본문단 -->
 	<div class="container-fluid" style="min-width: 600px;">
-		<div class="row" style="padding-top: 100px; text-align: center;" >
-			<div class="col-12 h3">주문이 완료되었습니다.</div>
-			<div class="col-12 body2" >
-				주문이 성공적으로 접수되었습니다.
-			</div>
-			<div class="col-12 body2">
+		<div class="row" style="padding-top: 18.5rem; text-align: center;" >
+			<div class="col-12 h2">주문이 완료되었습니다.</div>
+			<div class="col-12 body2" style="color:#637381; padding-top:1rem;" >
+				주문이 성공적으로 접수되었습니다.<br>
+			
 				주문 처리는 영업일 기준 2~5일 정도 소요됩니다.
 			</div>
-			<div class="col-12" style="padding-top: 10px;">
-				<button class="btn2" style="width: 150px;">쇼핑계속하기</button>
+			<div class="col-12" style="padding-top: 2.5rem;">
+				<button class="btnbtn" >쇼핑계속하기</button>
 			</div>
-			<div class="col-12 h3">
+			<div class="col-12 h3" style="margin-bottom:19.938rem">
 				구매 내역 확인
 			</div>
 		</div>
