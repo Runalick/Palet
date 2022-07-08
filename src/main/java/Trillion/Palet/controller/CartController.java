@@ -108,7 +108,10 @@ public class CartController {
 	}
 	
 	@RequestMapping("order")
-	public String order() {
+	public String order(int[] cart_seq) {
+		for(int i=0; i<cart_seq.length;i++) {
+			System.out.println(cart_seq[i]);
+		}
 		return "/cart/order";
 	}
 	
