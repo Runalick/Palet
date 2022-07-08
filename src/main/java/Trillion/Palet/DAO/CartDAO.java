@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.CartListDTO;
+import Trillion.Palet.DTO.Select_CartDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
 
 
@@ -78,5 +79,15 @@ public class CartDAO {
 		param.put("cartstock", cartstock);
 		param.put("email", email);
 		return mybatis.selectOne("Cart.isGoodsStocksame",param);
+	}
+
+	
+
+	public CartListDTO selectOne(int cart_seq) {
+		return mybatis.selectOne("Cart.selectOne",cart_seq);
+	}
+
+	public int insertSelect_Cart(CartListDTO dto) {
+		return mybatis.insert("Cart.insertSelect_Cart",dto);
 	}
 }
