@@ -20,8 +20,14 @@ public class CartDAO {
 	@Autowired
 	private SqlSession mybatis;
 	
-	public boolean isGoodsExist(int g_num) {
-		return mybatis.selectOne("Cart.isGoodsExist",g_num);
+	public boolean isGoodsExist(int g_num,String email) {
+		Map<Object,Object> param = new HashMap<>();
+		param.put("g_num",  g_num);
+		param.put("email", email);
+		System.out.println("---");
+		System.out.println(g_num);
+		System.out.println(email);
+		return mybatis.selectOne("Cart.isGoodsExist",param);
 	}
 
 	public int insertCart(int g_num,int cartstock,String email) {
@@ -45,11 +51,12 @@ public class CartDAO {
 		return mybatis.delete("Cart.delete",g_num);
 	}
 
-	public int selectModiOne(int g_num,int cartstock) {
+	public int selectModiOne(int g_num,int cartstock,String email) {
 	
 		Map<Object,Object>param = new HashMap<>();
 		param.put("g_num", g_num);
 		param.put("cartstock", cartstock);
+		param.put("email", email);
 		return mybatis.update("Cart.selectModiOne",param);
 	}
 
@@ -65,10 +72,11 @@ public class CartDAO {
 		
 	}
 
-	public boolean isGoodsStocksame(int g_num, int cartstock) {
+	public boolean isGoodsStocksame(int g_num, int cartstock,String email) {
 		Map<Object,Object> param = new HashMap<>();
 		param.put("g_num",  g_num);
 		param.put("cartstock", cartstock);
+		param.put("email", email);
 		return mybatis.selectOne("Cart.isGoodsStocksame",param);
 	}
 }
