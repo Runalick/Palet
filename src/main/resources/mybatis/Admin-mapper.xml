@@ -6,7 +6,7 @@
   
   <mapper namespace="Admin">
   	<select id="getWeekSales" resultType="Trillion.Palet.DTO.SalesDTO">
-  		select sum(price)as salessum, to_char(pay_time, 'YY/MM/DD')as salesdate from payment 
+  		select sum(totalprice)as salessum, to_char(pay_time, 'YY/MM/DD')as salesdate from payment 
   		where to_char(pay_time, 'YY/MM/DD') >= to_char(sysdate-6, 'YY/MM/DD') 
   		group by to_char(pay_time, 'YY/MM/DD') order by to_char(pay_time, 'YY/MM/DD') desc
   	</select>

@@ -45,6 +45,15 @@ public class GoodsDTO {
 		this.g_stock = g_stock;
 	}
 	
+	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, int sales_count, int g_stock) {
+		this.g_num = g_num;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+	}
+	
 
 	public int getG_num() {
 		return g_num;

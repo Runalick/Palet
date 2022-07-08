@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.ExhibitionDTO;
+import Trillion.Palet.DTO.ExhibitionPicDTO;
 
 @Repository
 public class ExhibitionDAO {
@@ -38,4 +39,9 @@ public class ExhibitionDAO {
 	public ExhibitionDTO exhibitionBestSeller() {
 		return mybatis.selectOne("Exhibition.exhibitionBestSeller");
 	}
+	
+	public int exhibitionPicinsert(ExhibitionPicDTO dto) {
+		return mybatis.insert("File.exhibitionPicInsert", dto);
+	}
+	
 }

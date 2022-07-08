@@ -7,6 +7,9 @@
    <mapper namespace="Exhibition">
   	<insert id="exhibitionInsert">
   		insert into exhibition values(exhibition_seq.nextval, #{e_name},#{start_date},#{end_date},default,#{e_price},#{e_period})
+  		<selectKey order="AFTER" keyProperty="e_num" resultType="int">
+			select exhibition_seq.currval from dual
+		</selectKey>
   	</insert>
     
     <select id="exhibitionSelectByPage" resultType="Trillion.Palet.DTO.ExhibitionDTO">
