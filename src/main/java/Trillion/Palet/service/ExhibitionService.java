@@ -1,13 +1,16 @@
 package Trillion.Palet.service;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DAO.ExhibitionDAO;
 import Trillion.Palet.DTO.ExhibitionDTO;
-import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.ExhibitionPicDTO;
 
 @Service
 public class ExhibitionService {
@@ -15,8 +18,27 @@ public class ExhibitionService {
 	@Autowired
 	private ExhibitionDAO edao;
 	
-	public int exhibitionInsert (ExhibitionDTO edto) {
-		return edao.exhibitionInsert(edto);
+	
+	public void exhibitionInsert (ExhibitionDTO edto, String realPath, MultipartFile[] file) {
+		edao.exhibitionInsert(edto);
+		int e_num = edto.getE_num();
+		if(file != null) {
+			File realPathFile = new File(realPath);
+			if(!realPathFile.exists())realPathFile.mkdir();
+			
+			for(MultipartFile mf : file) {
+				String ep_oriname = mf.getOriginalFilename();
+				String ep_sysname = UUID.randomUUID()+"_"+ep_oriname;
+				try {
+					mf.transferTo(new File(realPath+"/"+ep_sysname));
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				edao.exhibitionPicinsert(new ExhibitionPicDTO(0, e_num, ep_oriname, ep_sysname));
+			}
+		}
+		
+		
 	}
 	
 	public int exhibitionCheckDelelte (int e_num) {

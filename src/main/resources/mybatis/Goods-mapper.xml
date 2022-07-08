@@ -11,8 +11,18 @@
   	
   	<!-- Admin  -->
   	
-  	<insert id="goodsInsert">
+  	<insert id="goodsInsert1">
   		insert into goods values(goods_seq.nextval, #{e_num}, #{g_name}, #{g_price}, #{g_option}, default, #{g_stock})
+  		<selectKey order="AFTER" keyProperty="g_num" resultType="int">
+			select goods_seq.currval from dual
+		</selectKey>
+  	</insert>
+  	
+  	<insert id="goodsInsert2">
+  		insert into goods(g_num, e_num, g_name, g_price, sales_count, g_stock) values(goods_seq.nextval, #{e_num}, #{g_name}, #{g_price}, default, #{g_stock})
+  		<selectKey order="AFTER" keyProperty="g_num" resultType="int">
+			select goods_seq.currval from dual
+		</selectKey>
   	</insert>
   	
   	<select id="goodsBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">

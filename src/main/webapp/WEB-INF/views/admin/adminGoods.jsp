@@ -106,7 +106,7 @@
                     <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <div class="text-align text-uppercase mb-0 text-white">Goods</div>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Goods</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
@@ -168,6 +168,18 @@
 							<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">		
 								<div class="col">
 									<div class="row">
+										<div class="col p-0 body2 marg_left0">전시 카테고리</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0">
+											<select id="e_num" name="e_num" class="select1"> 
+												<c:forEach var="i" items="${list}">	
+												<option value='${i.e_num}'>${i.e_name} </option>
+												</c:forEach>
+											</select>
+										</div>
+									</div>
+									<div class="row">
 										<div class="col p-0 body2 marg_left0">상품 이름</div>
 									</div>
 									<div class="row" style="text-align:center">
@@ -193,30 +205,24 @@
 										<div class="col-12 p-0">
 											<input type="text" name="g_option" id="g_option" placeholder="Input Goods Options" >
 										</div>
-									</div>                		
-                					<div class="row">
-										<div class="col p-0 body2 marg_left0">전시 카테고리</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<select id="e_num" name="e_num" class="select1"> 
-												<c:forEach var="i" items="${list}">	
-												<option value='${i.e_num}'>${i.e_name} </option>
-												</c:forEach>
-											</select>
-										</div>
 									</div>
 									<div class="row">
 										<div class="col p-0 body2 marg_left0">상품 사진</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 filebox">
-											<input class="upload_view marg_left1" value="첨부파일" placeholder="Input Goods Images">
+											<input class="upload_view marg_left1" value="" placeholder="Input Goods Images">
 											<label class="btn1_0 marg_left1" for="file"> 업로드 </label>
-											<input id="file" type="file" name="file" style="display:none">
+											<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
 										</div>
 									</div>  
-									<div class="row pt-4 pb-4" style="text-align:center">
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0">
+											<img src="" id="img_section" value="N">
+											<input class="btn1_0 mrg_left1" type="button" id="cancel_Btn" onclick="img_cancel()" style="display: none" value="첨부 취소">
+										</div>
+									</div>
+									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
@@ -269,6 +275,37 @@
   		let fileName = $("#file").val();
  	 	$(".upload_view").val(fileName);
 	});
+	
+ 	const reader = new FileReader();
+ 	reader.onload = (readerEvent) =>{
+ 		document.querySelector("#img_section").setAttribute("src",readerEvent.target.result);
+ 		console.log(readerEvent.target.result);
+ 	}
+     document.querySelector("#file").addEventListener("change",(changeEvent) => {
+       const imgFile = changeEvent.target.files[0];
+       reader.readAsDataURL(imgFile);
+     })
+     
+    function isFileImg(obj){
+			  pathPoint = obj.value.lastIndexOf('.');
+			  filePoint = obj.value.substring(pathPoint+1,obj.length);
+			  fileType=filePoint.toLowerCase();
+			  if(fileType!='jpg'&&fileType!='png'&&fileType!='jpeg'){				
+				 alert("이미지 파일만 등록이 가능합니다.");
+// 				 parentObj = obj.parentNode;
+// 				 node = parentObj.replaceChild(obj.cloneNode(true),obj);
+					$("#file").val("");
+					$(".upload_view").val("");
+			  }
+			  $("#cancel_Btn").css("display","inline-block");
+	}
+     
+    function img_cancel(){
+    	$("#img_section").attr("src","");
+    	$("#file").val("");
+    	$(".upload_view").val("");
+    	$("#cancel_Btn").css("display","none");
+    }
 	
 </script>    
     

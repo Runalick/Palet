@@ -68,10 +68,11 @@ public class AdminController {
 		return "/admin/adminExhibitions";
 	}
 	
-	@RequestMapping(value="exhibitionsInsert", produces="test/html;charset=utf8")
-	public String exhibitionsInsert(ExhibitionDTO edto) {
+	@RequestMapping(value="exhibitionsInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
+	public String exhibitionsInsert(ExhibitionDTO edto, MultipartFile[] file) {
 		System.out.println(edto.getE_name() +" : "+ edto.getStart_date() +" : "+ edto.getEnd_date() + " : " +edto.getE_price() + " : " + edto.getE_period());
-		eServ.exhibitionInsert(edto);
+		String realPath = session.getServletContext().getRealPath("ExhibitionPic");
+		eServ.exhibitionInsert(edto, realPath, file);
 		return "redirect:adminExhibitions";
 	}
 	

@@ -8,5 +8,9 @@
   	<insert id="goodsPicInsert">
   		insert into goodspic values(gp_seq.nextval, #{g_num}, #{e_num}, #{gp_oriname}, #{gp_sysname})
   	</insert>
-  
+  	
+  	<insert id="exhibitionPicInsert">
+  		insert into exhibitionpic values(ep_seq.nextval, #{e_num}, #{ep_oriname}, #{ep_sysname})
+  	</insert>
+  	
   </mapper>
