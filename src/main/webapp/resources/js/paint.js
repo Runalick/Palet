@@ -160,8 +160,8 @@ function saveImage() {
         data : {"d_file": imgDataUrl, "d_title":d_title, "painter":painter},
         
         success : function (data) {
-            if(data === "true"){
-				alert(painter.value + "님의 작품이 등록되었습니다. 관리자의 승인 후 등록됩니다.");
+            if(data == "true"){
+				alert(painter.value + "님 이벤트 참여가 완료되었습니다. 관리자의 승인 후 등록됩니다.");
 			} else {
 				alert("본 이벤트는 1계정당 1번만 참여가 가능합니다.");
 			}

@@ -1,5 +1,6 @@
 package Trillion.Palet.controller;
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.google.gson.Gson;
 
 import Trillion.Palet.DTO.DrawingDTO;
 import Trillion.Palet.service.EventService;
@@ -25,33 +28,22 @@ public class EventController {
 	@Autowired
 	private HttpSession session;
 	
-	@RequestMapping("participation")
-	public String participation(Model model) {
-		//String realpath = "/event/event/"; 
-		//model.addAttribute("realpath",realpath);
-		//List<DrawingDTO> list = eServ.selectImage();
-		//model.addAttribute("list", list);
-		
-		List<Object> filelist = eServ.selectAll();
-		System.out.println(filelist.get(0));
-		model.addAttribute("list", filelist);
-		
-		/*
-		 * byte imageArray [] = null; 
-		 * final String BASE_64_PREFIX = "data:image/png;base64,";
-		 * 
-		 * String base64Url = String.valueOf(imgByte.get(0)); 
-		 * if(base64Url.startsWith(BASE_64_PREFIX)){ imageArray =
-		 * Base64.getDecoder().decode(base64Url.substring(BASE_64_PREFIX.length()));
-		 * 
-		 * System.out.println("[imageArray] : " + new String(imageArray));
-		 * 
-		 * }
-		 */
-		
-		
+	@RequestMapping("eventPage")
+	public String eventPage() {
 		
 		return "/event/event";
+	}
+	
+	@RequestMapping("participation")
+	public String participation(Model model) {
+		String loginEmail = (String) session.getAttribute("loginEmail");
+		model.addAttribute("loginEmail", loginEmail);
+		
+		if(loginEmail.equals("admin@palet.com")) {
+			List<Object> all = eServ.selectAll();
+			model.addAttribute("all", all);				
+		} 
+		return "/event/participation";
 	}
 	
 	
@@ -74,12 +66,27 @@ public class EventController {
 	 */
 	
 	@ResponseBody
-	@RequestMapping("send")
-	public void send(DrawingDTO dto) throws Exception{
+	@RequestMapping(value="send", produces="test/html;charset=utf8")
+	public String send(DrawingDTO dto) throws Exception {
+		////String email = (String) session.getAttribute("loginEmail");
 		String email="123";
 		dto.setEmail(email);
-		
-		eServ.testsave(dto);
+		eServ.add(dto);
+		return "true";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="confirmation", produces="test/html;charset=utf8")
+	public String confirmation(int draw_seq){
+		eServ.confirmation(draw_seq);
+		return "승인되었습니다.";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="deleteDraw", produces="test/html;charset=utf8")
+	public String deleteDraw(int draw_seq){
+		eServ.deleteDraw(draw_seq);
+		return "삭제되었습니다.";
 	}
 	
 	@ExceptionHandler
