@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.GoodsPicDTO;
 
 @Repository
 public class GoodsDAO {
@@ -18,8 +19,12 @@ public class GoodsDAO {
 		return mybatis.selectList("Goods.selectAll");
 	}
 	
-	public int goodsInsert(GoodsDTO gdto) {
-		return mybatis.insert("Goods.goodsInsert", gdto);
+	public int goodsInsert2(GoodsDTO gdto) {
+		return mybatis.insert("Goods.goodsInsert2", gdto);
+	}
+	
+	public int goodsInsert1(GoodsDTO gdto) {
+		return mybatis.insert("Goods.goodsInsert1", gdto);
 	}
 	
 	public GoodsDTO goodsBestSeller(){
@@ -32,5 +37,9 @@ public class GoodsDAO {
 
 	public List<GoodsDTO> getoption(String g_name) {
 		return mybatis.selectList("Goods.getoption",g_name);
+	}
+	
+	public int goodsPicInsert(GoodsPicDTO dto) {
+		return mybatis.insert("File.goodsPicInsert", dto);
 	}
 }

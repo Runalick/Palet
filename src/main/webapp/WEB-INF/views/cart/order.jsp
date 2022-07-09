@@ -27,6 +27,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <!-- 우편번호 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<!-- iamport.payment.js -->
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 </head>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -667,13 +669,13 @@ text-align:center;
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
 							<span class="H4 deliveryprice" id="span5">3,000원</span>
 							<span class="H3" id="span3" >총 결제 금액</span>
-							<span class="H3 finalTotalPrice" id="span6">18,800</span>
+							<span class="H3 finalTotalPrice" id="span6" class="totalprice">18,800</span>
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
 							<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span>
 						</div>
 					</div>
 					
-					<button id="paybtn">결제하기</button>
+					<button id="paybtn" onclick="iamport()">결제하기</button>
 					
 					<div class="warpper" style="margin-top:6.75rem; position:relative">
 					<div class="H4" style="color:#637381; text-align:left;margin-bottom:0.5rem;">약관을 확인하였으며 결제에 동의합니다.</div>
@@ -697,18 +699,18 @@ text-align:center;
 				<div class="row" id="delivery-area" style="height:34.875rem; width:49.25rem;">
 					<div class="col-4 " style="text-align:left; width:18.75rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text" class="body2input" placeholder="수령인 이름을 입력해 주세요.">
+						<input type="text" class="body2input buyer_name" placeholder="수령인 이름을 입력해 주세요.">
 					</div>
 					<div class="col-8 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input" placeholder="전화번호를 입력해 주세요.">
+						<input type="text" class="body2input buyer_tel" placeholder="전화번호를 입력해 주세요.">
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-					<input type="text" class="body2 inputcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" > 
+					<input type="text" class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" > 
 					
-					<input type="text" class="body2 inputaddress" placeholder="주소: 우편번호를 먼저 검색해 주세요." id="sample4_roadAddress">
-					<input type="text" class="body2 inputaddress" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress">
-					<div class="body2" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
+					<input type="text" class="body2 inputaddress buyer_addr" placeholder="주소: 우편번호를 먼저 검색해 주세요." id="sample4_roadAddress">
+					<input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress">
+					<div class="body2 delivery_text" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
 					<input type="text" class="body2 inputaddress" style="background: #FFFFFF;" placeholder="수령인 이름을 입력해 주세요.">
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
 				
@@ -869,9 +871,57 @@ text-align:center;
         }).open();
     }
 	
+	
 
 
+	</script>
+	<script>
+	function iamport(){
+        //가맹점 식별코드
+        IMP.init('imp48062056');
+	IMP.request_pay({
+	    pg : 'kcp',
+	    pay_method : 'card',
+	    merchant_uid : 'merchant_' + new Date().getTime(),
+	    name : '예매' , //결제창에서 보여질 이름
+	    amount : '100', //실제 결제되는 가격
+	    buyer_email : "iampost@siot.do",
+	    buyer_name : $(".buyer_name").val(),
+	    buyer_tel : $(".buyer_tel").val(),
+	    buyer_addr : $(".buyer_addr").val(),
+	    buyer_postcode : $(".buyer_postcode").val()
+	}, function(rsp) {
+		console.log(rsp);
+	    if ( rsp.success ) {
+            $.ajax({
+                url:"/pay/insert",
+                data:{
+                	merchant_uid : rsp.merchant_uid,
+                	name : rsp.buyer_name,
+                	email : rsp.buyer_email,
+                	phone : rsp.buyer_tel,
+                	address1 : rsp.buyer_addr,
+                	address2 : $(".buyer_address2").val(),
+                	zipcode : rsp.buyer_postcode,
+                	g_name : rsp.name,
+                	card_name : rsp.card_name,
+                	card_number : rsp.card_number,
+                	card_quota : rsp.card_quota,
+                    totalprice : rsp.paid_amount,
+                    delivery_text : $(".delivery_text").val()
+                    },
+                type:"post",
+                dataType:"json"
+            }).done(function(resp){
+               console.log(resp)
+            });
 
+	    } else {
+	    	 var msg = '결제에 실패하였습니다.';
+	         msg += '에러내용 : ' + rsp.error_msg;
+	    }
+	});
+    }
 	</script>
 </body>
 </html>

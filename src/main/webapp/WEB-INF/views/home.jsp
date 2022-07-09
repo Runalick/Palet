@@ -483,7 +483,7 @@ color: #FFFFFF;
                                 class="navbar-toggler-icon"></span> </button>
                         <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                             <ul class="navbar-nav">
-                                <li class="nav-item"> <a id="About" class="nav-link" href="#"
+                                <li class="nav-item"> <a id="About" class="nav-link" href="about"
                                         style="padding-left:0px; padding-right:0px;">About</a> </li>
                                 <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
                                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>

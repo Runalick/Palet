@@ -68,5 +68,9 @@ public class ShopController {
 		return list;
 	}
 
+	@RequestMapping("success")
+	public String success() {
+		return"/cart/shop-order-success";
+	}
 	
 }

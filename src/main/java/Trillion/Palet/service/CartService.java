@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.CartDAO;
 import Trillion.Palet.DTO.CartListDTO;
+import Trillion.Palet.DTO.Select_CartDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
 
 
@@ -47,5 +48,10 @@ public class CartService {
 
 	public boolean isGoodsStocksame(int g_num, int cartstock,String email) {
 		return cdao.isGoodsStocksame(g_num,cartstock,email);
+	}
+
+	public int insertSelect_Cart(int cart_seq) {
+		CartListDTO dto = cdao.selectOne(cart_seq);
+		return cdao.insertSelect_Cart(dto);
 	}
 }
