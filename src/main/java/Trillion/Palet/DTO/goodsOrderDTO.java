@@ -8,7 +8,7 @@ public class goodsOrderDTO {
 	
 	private String g_name;
 	private int g_price;
-	private int sales_count;
+	private int totalPrice;
 	private int g_stock;
 	
 	public goodsOrderDTO() {
@@ -16,7 +16,7 @@ public class goodsOrderDTO {
 	}
 
 	public goodsOrderDTO(int cart_seq, String email, int g_num, int cartstock, String g_name, int g_price,
-			int sales_count, int g_stock) {
+			int totalPrice, int g_stock) {
 		super();
 		this.cart_seq = cart_seq;
 		this.email = email;
@@ -24,7 +24,7 @@ public class goodsOrderDTO {
 		this.cartstock = cartstock;
 		this.g_name = g_name;
 		this.g_price = g_price;
-		this.sales_count = sales_count;
+		this.totalPrice = totalPrice;
 		this.g_stock = g_stock;
 	}
 
@@ -76,12 +76,12 @@ public class goodsOrderDTO {
 		this.g_price = g_price;
 	}
 
-	public int getSales_count() {
-		return sales_count;
+	public int getTotalPrice() {
+		return totalPrice;
 	}
 
-	public void setSales_count(int sales_count) {
-		this.sales_count = sales_count;
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	public int getG_stock() {
@@ -91,6 +91,7 @@ public class goodsOrderDTO {
 	public void setG_stock(int g_stock) {
 		this.g_stock = g_stock;
 	}
+
 	
 	
 }

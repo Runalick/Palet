@@ -728,46 +728,30 @@ text-align:center;
 					<div class="row H3" style="margin-bottom:1.25rem; padding-left:2.5rem; margin-top:3.75rem;">상품 정보</div>
 				
 <!-- 				여기서부터 상품 반복 -->
-					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
+					<div class="row select_list">
 						
-						<div class="col-3 p-0 productimg" style="background-color:pink;"></div>
-						<div class="col-9 productInfo" style="width:38rem">
-							<div class="body1 title">[어쨌든, 사랑] 컨페티 폭죽카드 - 로맨틱데이즈</div>
-							<div class="H3 price" id="${i.g_num }">7,900 원 </div>
-<!-- 							<script> -->
-<%-- 							price = ${i.g_price * i.cartstock} ; --%>
-<!-- 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); -->
-<!--  							$("#${i.g_num}").text(price+"원"); -->
-<!-- 							</script> -->
-							<div class="body1 cnt" style="color: #919EAB;">1개</div>
-							
-								
-							<input class="hidden-cnt" type="hidden" value="${i.cartstock }">
-							<input class="hidden-g_num" type="hidden" value="${i.g_num }">
-						
-						</div>
 					</div>
 <!-- 			여기까지 하나 -->
 
-					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
+<!-- 					<div class="row list" style="padding:0px; margin-bottom:1.25rem"> -->
 						
-						<div class="col-3 p-0 productimg" style="background-color:pink;"></div>
-						<div class="col-9 productInfo" style="width:38rem">
-							<div class="body1 title">[어쨌든, 사랑] 컨페티 폭죽카드 - 로맨틱데이즈</div>
-							<div class="H3 price" id="${i.g_num }">7,900 원 </div>
-<!-- 							<script> -->
-<%-- 							price = ${i.g_price * i.cartstock} ; --%>
-<!-- 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); -->
-<!--  							$("#${i.g_num}").text(price+"원"); -->
-<!-- 							</script> -->
-							<div class="body1 cnt" style="color: #919EAB;">1개</div>
+<!-- 						<div class="col-3 p-0 productimg" style="background-color:pink;"></div> -->
+<!-- 						<div class="col-9 productInfo" style="width:38rem"> -->
+<!-- 							<div class="body1 title">[어쨌든, 사랑] 컨페티 폭죽카드 - 로맨틱데이즈</div> -->
+<%-- 							<div class="H3 price" id="${i.g_num }">7,900 원 </div> --%>
+<!-- <!-- 							<script> --> 
+<%-- <%-- 							price = ${i.g_price * i.cartstock} ; --%> 
+<!-- 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); --> 
+<!--  							$("#${i.g_num}").text(price+"원"); --> 
+<!-- <!-- 							</script> --> 
+<!-- 							<div class="body1 cnt" style="color: #919EAB;">1개</div> -->
 							
 								
-							<input class="hidden-cnt" type="hidden" value="${i.cartstock }">
-							<input class="hidden-g_num" type="hidden" value="${i.g_num }">
+<%-- 							<input class="hidden-cnt" type="hidden" value="${i.cartstock }"> --%>
+<%-- 							<input class="hidden-g_num" type="hidden" value="${i.g_num }"> --%>
 						
-						</div>
-					</div>
+<!-- 						</div> -->
+<!-- 					</div> -->
 			
 					
 					
@@ -837,7 +821,7 @@ text-align:center;
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='"+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem'><div class='col-3 p-0 productimg' style='background-color:pink;'></div><div class='col-9 productInfo' style='width:38rem'><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"</div><div class='body1 cnt' style='color: #919EAB;'>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            	}
 	            })
 	    }
