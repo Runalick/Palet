@@ -271,6 +271,10 @@ position:relative;
 border-radius: 20px 0px 0px 20px;
 }
 
+.con{
+	width:100%;
+	height:100%;
+}
 .productInfo>div{
 text-align:left;
 margin-left:1.25rem;
@@ -821,7 +825,7 @@ text-align:center;
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem'><div class='col-3 p-0 productimg' style='background-color:pink;'></div><div class='col-9 productInfo' style='width:38rem'><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"</div><div class='body1 cnt' style='color: #919EAB;'>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:38rem'><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"원</div><div class='body1 cnt' style='color: #919EAB;'>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            	}
 	            })
 	    }
