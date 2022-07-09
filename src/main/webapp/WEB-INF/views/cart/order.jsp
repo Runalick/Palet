@@ -830,7 +830,30 @@ text-align:center;
 			</div>
 		</div>
 	</div>
-	
+	<script>
+	    window.onload = function(){
+	    		$.ajax({
+	            	url:"/cart/select_cart",
+	            }).done(function(resp){
+	            	console.log(resp);
+	            	for(i=0; i < resp.length; i++){
+	            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='"+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
+	            	}
+	            })
+	    }
+	</script>
+	<script>
+		window.addEventListener('beforeunload', (event) => {
+			  // 표준에 따라 기본 동작 방지
+			  event.preventDefault();
+			  // Chrome에서는 returnValue 설정이 필요함
+			  event.returnValue = '1';
+			  $.ajax({
+		            url: "/cart/beforeunload"
+// 		            async: false
+		        });
+			});
+	</script>
 	<script>
 	
 	//선택박스누를 시 옵션 열기
@@ -870,9 +893,6 @@ text-align:center;
             }
         }).open();
     }
-	
-	
-
 
 	</script>
 	<script>

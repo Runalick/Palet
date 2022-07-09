@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.CartDAO;
 import Trillion.Palet.DTO.CartListDTO;
-import Trillion.Palet.DTO.Select_CartDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
+import Trillion.Palet.DTO.goodsOrderDTO;
 
 
 @Service
@@ -53,5 +53,13 @@ public class CartService {
 	public int insertSelect_Cart(int cart_seq) {
 		CartListDTO dto = cdao.selectOne(cart_seq);
 		return cdao.insertSelect_Cart(dto);
+	}
+	
+	public int beforeunload(String email) {
+		return cdao.beforeunload(email);
+	}
+	
+	public List<goodsOrderDTO> select_cart(String email){
+		return cdao.select_cart(email);
 	}
 }

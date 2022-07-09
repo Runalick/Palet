@@ -45,4 +45,7 @@
   	<insert id="insertSelect_Cart">
   		insert into select_cart values(#{cart_seq},#{email},#{g_num},#{cartstock})
   	</insert>
+  	<delete id="beforeunload">
+  		delete from select_cart where email = #{value}
+  	</delete>
   </mapper>
