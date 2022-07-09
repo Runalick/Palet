@@ -675,8 +675,8 @@ IMP.request_pay({
             url:"/pay/insert",
             data:{
             	
-                et_email : "first0627@hanmail.net",
-                et_title : "Romantic Days, 어쩃든 사랑",
+                et_email : $("#email").val(),
+                et_title : "Romantic Days 어쩃든 사랑",
                 et_place : "지하철 3호선 경복궁역 지하 1층",
                	et_date : "2022.03.16 ~ 2022.10.30",
                	et_booknumber : rsp.merchant_uid,

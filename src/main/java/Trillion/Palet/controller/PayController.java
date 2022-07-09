@@ -1,5 +1,6 @@
 package Trillion.Palet.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.ExticketDTO;
-import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.PayService;
 
 @Controller
@@ -18,6 +18,7 @@ public class PayController {
 	@Autowired
 	private PayService pServ;
 	
+
 //	@ResponseBody
 //	@RequestMapping("insert")
 //	public List<PayDTO> insert(PayDTO dto) {
@@ -28,7 +29,8 @@ public class PayController {
 	
 	@ResponseBody
 	@RequestMapping("insert")
-	public String insert(ExticketDTO dto) {
+	public List<ExticketDTO> insert(ExticketDTO dto) {
+	    int result = pServ.insert(dto);
 		
 		System.out.println(	dto.getEt_email());
 		System.out.println(	dto.getEt_title());
@@ -44,10 +46,10 @@ public class PayController {
 		System.out.println(	dto.getEt_point());
 		System.out.println(	dto.getEt_buydate());
 	
+		 List<ExticketDTO> list = new ArrayList<ExticketDTO>();
 		
 		
-		
-		return "list";
+		return list;
 		
 		
 	}
