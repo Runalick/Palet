@@ -550,7 +550,7 @@ input::placeholder {
 					style="padding: 1.75rem; width: 23.5rem; height: 5rem; margin-left: 2.25rem;">
 					<div class="row h3" id="row1" style="margin: 0px;">
 						<div class=col-6 style="text-align: left;">총 결제 금액</div>
-						<div class=col-6 style="text-align: right;">18,800원</div>
+						<div class=col-6 style="text-align: right;">${price }</div>
 
 					</div>
 					<div class="row" id="row1 "
@@ -596,8 +596,8 @@ input::placeholder {
 							Romantic Days 어쨌든, 사랑
 
 							<div class=h3
-								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;" id = totalprice>9000</div>
-							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;" id = count>1</div>
+								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;" id = totalprice>${price}</div>
+							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;" id = count>${count}매</div>
 
 						</div>
 

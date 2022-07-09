@@ -62,10 +62,15 @@ public class ExhibitionController {
 	
 	
 	@RequestMapping("toBook")
-	public String toBook(Model model) {
+	public String toBook(Model model,String count, String price) {
 		String email = (String)session.getAttribute("loginEmail");
+		
 		System.out.println(email);
+		System.out.println(price);
+		System.out.println(count);
 		model.addAttribute("loginEmail", email);
+		model.addAttribute("count", count);
+		model.addAttribute("price", price);
 		
 		return "/exhibition/book";
 	}

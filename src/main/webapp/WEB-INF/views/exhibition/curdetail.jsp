@@ -479,18 +479,21 @@ a {
 							<div class="col body1" style="color: #161C24;">2022.03.16 ~
 								2022.10.30</div>
 						</div>
+						<form action="/Exhibition/toBook" method = "post">
+							<input type=hidden name = count id = count1>
+								<input type=hidden name = price id = price1>
+					
 						<div class="row" id="row1" style="margin-top: 5.781rem;">
 							<div class="col h2" style="text-align: left;">
-								9,000 원 <img src="/images/minusbutton.png" type="button"
-									style="margin-left: 1.5rem;"><span class=body1
-									style="color: #161C24; margin-left: 1rem;">1</span> <img
-									type="button" src="/images/plusbutton.png"
-									style="margin-left: 1rem;">
-								<button class=bookbutton style="margin-left: 29.25rem;">예매하기</button>
+								<span id = price name = "price" >9,000원</span> 
+								<img src="/images/minusbutton.png" type="button" style="margin-left: 1.5rem;" id = minusbutton>
+								<span id = count class=body1 style="color: #161C24; margin-left: 1rem;">1</span> 
+								<img type="button" id = plusbutton src="/images/plusbutton.png"	style="margin-left: 1rem;">
+							    <button class=bookbutton style="margin-left: 29.25rem;">예매하기</button>
 							</div>
 
 						</div>
-
+                </form>
 					</div>
 
 
@@ -544,5 +547,51 @@ a {
 $(".bookbutton").on("click", function() {
 	location.href = "/Exhibition/toBook";
 })
+
+
+
+		$("#minusbutton").on("click", function() {
+
+			let result = $(this).next().text();
+			number = parseInt(result) - 1;
+			if (number < 0) {
+				return false;
+			}
+			$(this).next().text(number);
+			$("#count1").val(number);
+			
+			
+			
+			
+			let price =	$("#price").text();
+			let price1 = price.replace(",","");
+			let price2 = price1.replace("원","");
+		    finalprice = parseInt(price2);
+			finalprice = finalprice -9000;
+			
+			$("#price").text(finalprice.toLocaleString()+"원");
+			$("#price1").val(finalprice.toLocaleString()+"원");
+		})
+		
+		$("#plusbutton").on("click", function() {
+
+			let result = $($(this).siblings()[2]).text();
+			number = parseInt(result) + 1;
+			console.log(number);
+			$($(this).siblings()[2]).text(number);
+			$("#count1").val(number);
+		
+			
+			let price =	$("#price").text();
+			let price1 = price.replace(",","");
+			let price2 = price1.replace("원","");
+		    finalprice = parseInt(price2);
+			finalprice = finalprice +9000;
+			$("#price").text(finalprice.toLocaleString()+"원");
+			$("#price1").val(finalprice.toLocaleString()+"원");
+		
+		})
+
+
 </script>
 </html>
