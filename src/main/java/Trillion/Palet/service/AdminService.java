@@ -25,8 +25,8 @@ public class AdminService {
 		return adao.getMemberPageNavi(cpage);
 	}
 	
-	public List<ExhibitionDTO> exhibitionSelectByPage(int cpage){
-		return adao.exhibitionSelectByPage(cpage);
+	public List<ExhibitionDTO> exhibitionSelectByPage(int cpage, String value){
+		return adao.exhibitionSelectByPage(cpage, value);
 	}
 	
 	public String getExhibitionPageNavi(int cpage) {
@@ -35,6 +35,10 @@ public class AdminService {
 	
 	public List<GoodsDTO> goodsSelectByPage(int cpage){
 		return adao.goodsSelectByPage(cpage);
+	}
+	
+	public List<GoodsDTO> goodsJoinSelectByPage(int cpage, String value){
+		return adao.goodsJoinSelectByPage(cpage, value);
 	}
 	
 	public String getGoodsPageNavi(int cpage) {
@@ -47,6 +51,14 @@ public class AdminService {
 	
 	public List<SalesDTO> getWeekSales(){
 		return adao.getWeekSales();
+	}
+	
+	public int goodsCheckDelelte (int g_num) {
+		return adao.goodsCheckDelete(g_num);
+	}
+	
+	public int goodsCheckUpdate (String g_num, String e_num) {
+		return adao.goodsCheckUpdate(g_num, e_num);
 	}
 }
 
