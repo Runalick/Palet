@@ -271,6 +271,10 @@ position:relative;
 border-radius: 20px 0px 0px 20px;
 }
 
+.con{
+	width:100%;
+	height:100%;
+}
 .productInfo>div{
 text-align:left;
 margin-left:1.25rem;
@@ -728,46 +732,30 @@ text-align:center;
 					<div class="row H3" style="margin-bottom:1.25rem; padding-left:2.5rem; margin-top:3.75rem;">상품 정보</div>
 				
 <!-- 				여기서부터 상품 반복 -->
-					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
+					<div class="row select_list">
 						
-						<div class="col-3 p-0 productimg" style="background-color:pink;"></div>
-						<div class="col-9 productInfo" style="width:38rem">
-							<div class="body1 title">[어쨌든, 사랑] 컨페티 폭죽카드 - 로맨틱데이즈</div>
-							<div class="H3 price" id="${i.g_num }">7,900 원 </div>
-<!-- 							<script> -->
-<%-- 							price = ${i.g_price * i.cartstock} ; --%>
-<!-- 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); -->
-<!--  							$("#${i.g_num}").text(price+"원"); -->
-<!-- 							</script> -->
-							<div class="body1 cnt" style="color: #919EAB;">1개</div>
-							
-								
-							<input class="hidden-cnt" type="hidden" value="${i.cartstock }">
-							<input class="hidden-g_num" type="hidden" value="${i.g_num }">
-						
-						</div>
 					</div>
 <!-- 			여기까지 하나 -->
 
-					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
+<!-- 					<div class="row list" style="padding:0px; margin-bottom:1.25rem"> -->
 						
-						<div class="col-3 p-0 productimg" style="background-color:pink;"></div>
-						<div class="col-9 productInfo" style="width:38rem">
-							<div class="body1 title">[어쨌든, 사랑] 컨페티 폭죽카드 - 로맨틱데이즈</div>
-							<div class="H3 price" id="${i.g_num }">7,900 원 </div>
-<!-- 							<script> -->
-<%-- 							price = ${i.g_price * i.cartstock} ; --%>
-<!-- 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); -->
-<!--  							$("#${i.g_num}").text(price+"원"); -->
-<!-- 							</script> -->
-							<div class="body1 cnt" style="color: #919EAB;">1개</div>
+<!-- 						<div class="col-3 p-0 productimg" style="background-color:pink;"></div> -->
+<!-- 						<div class="col-9 productInfo" style="width:38rem"> -->
+<!-- 							<div class="body1 title">[어쨌든, 사랑] 컨페티 폭죽카드 - 로맨틱데이즈</div> -->
+<%-- 							<div class="H3 price" id="${i.g_num }">7,900 원 </div> --%>
+<!-- <!-- 							<script> --> 
+<%-- <%-- 							price = ${i.g_price * i.cartstock} ; --%> 
+<!-- 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ","); --> 
+<!--  							$("#${i.g_num}").text(price+"원"); --> 
+<!-- <!-- 							</script> --> 
+<!-- 							<div class="body1 cnt" style="color: #919EAB;">1개</div> -->
 							
 								
-							<input class="hidden-cnt" type="hidden" value="${i.cartstock }">
-							<input class="hidden-g_num" type="hidden" value="${i.g_num }">
+<%-- 							<input class="hidden-cnt" type="hidden" value="${i.cartstock }"> --%>
+<%-- 							<input class="hidden-g_num" type="hidden" value="${i.g_num }"> --%>
 						
-						</div>
-					</div>
+<!-- 						</div> -->
+<!-- 					</div> -->
 			
 					
 					
@@ -830,7 +818,30 @@ text-align:center;
 			</div>
 		</div>
 	</div>
-	
+	<script>
+	    window.onload = function(){
+	    		$.ajax({
+	            	url:"/cart/select_cart",
+	            }).done(function(resp){
+	            	console.log(resp);
+	            	for(i=0; i < resp.length; i++){
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:38rem'><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"원</div><div class='body1 cnt' style='color: #919EAB;'>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            	}
+	            })
+	    }
+	</script>
+	<script>
+		window.addEventListener('beforeunload', (event) => {
+			  // 표준에 따라 기본 동작 방지
+			  event.preventDefault();
+			  // Chrome에서는 returnValue 설정이 필요함
+			  event.returnValue = '1';
+			  $.ajax({
+		            url: "/cart/beforeunload"
+// 		            async: false
+		        });
+			});
+	</script>
 	<script>
 	
 	//선택박스누를 시 옵션 열기
@@ -870,9 +881,6 @@ text-align:center;
             }
         }).open();
     }
-	
-	
-
 
 	</script>
 	<script>

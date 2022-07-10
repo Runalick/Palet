@@ -688,6 +688,7 @@ function setTotalInfo() {
 		</div>
 	</div>
 	
+	
 	<script>
 	//쇼핑하러 가기
 	$(".btn1").on("click",function(){
