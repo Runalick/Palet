@@ -28,47 +28,57 @@
 </head>
 <body>
 
-	<div class="container-fluid" id=navparent>
-		<div class="container">
-			<div class="row" id="container1">
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
-					<div class="container" id="navparent">
-						<a class="navbar-brand" href="#" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-						<button class="navbar-toggler" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse justify-content-end"
-							id="collapsibleNavbar">
-							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-								</li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
-						</div>
-					</div>
-				</nav>
+<div class="container-fluid" id=navparent>
+        <div class="container">
+            <div class="row" id="container1">
+                <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                    <div class="container" id="navparent"> <a class="navbar-brand" href="#" id="container"
+                            style="padding :0px;"><img src="/images/Logo.svg" border=0></a> <button class="navbar-toggler"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"> <span
+                                class="navbar-toggler-icon"></span> </button>
+                        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                            <ul class="navbar-nav">
+                                <li class="nav-item"> <a id="About" class="nav-link" href="#"
+                                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
+                                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+                                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+                                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+                                <li class="nav-item"> <a id="Help" class="nav-link" href="#"
+                                        style="padding-left:0px; padding-right:0px;">Help</a> </li>
+                                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+                                        style="padding-left:0px; padding-right:0px;">Login</a> </li>
+                                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+                                        style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+                                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+                                		style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+                                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+                                		style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="min-width: 600px;">
+    <div class="row" style="padding-top: 100px;">
+	<div class="container">
+		<div class="col-12">
+			<a href="/coupon/couponlist">쿠폰리스트보기</a><br>
+			<a href="/coupon/toregistration">쿠폰등록하기</a>
+			<a href="/mypage/outline">outline 보기</a>
+		</div>
+		<div class="row" id="row1">
+			<div class="h2" style="text-align: left; margin-left: 100px; margin-bottom: 20px;">My Page / My info.</div>
+		</div>
+		<div class="col-12">
+		<div class=row>
+			<div class="col-12">
+			<div class="row">
+			<div class="col-12 h3" style="height: 150%; padding-bottom: 10px;">
+			${dto.email }
+			</div>
 			</div>
 		</div>
 	</div>
