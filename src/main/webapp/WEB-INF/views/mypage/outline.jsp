@@ -272,9 +272,7 @@ background:#212B36;
 color:white;
 padding: 0.125rem 1rem;
 }
-.navi-ul li ul li{
-padding:0.3rem 1rem;
-}
+
 .navi-ul li ul li a{
 color:#919EAB;
 }
@@ -291,6 +289,10 @@ border:0px;
 background:url('/images/downarrow.png') no-repeat 97% 50%/15px auto ;
 background-size: 01.596rem;
 text-align:left;
+}
+.body3 a{
+display:block;
+padding: 0.3rem 1rem;
 }
 </style>
 </head>
