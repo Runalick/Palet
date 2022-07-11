@@ -1,22 +1,22 @@
-const canvas = document.getElementById("jsCanvas");
-const ctx = canvas.getContext("2d");
-const colors = document.getElementsByClassName("jsColor");
-const range = document.getElementById("jsRange");
-const mode = document.getElementById("jsMode");
-const brush = document.getElementById("jsBrush");
-const reset = document.getElementById("jsReset");
-const saveBtn = document.getElementById("jsSave");
-const check = document.querySelector("#check");
-const customColor = document.querySelector("#jsColorCustom");
-const shapeCColor = document.querySelector(".custom__color");
-const widthForm = document.querySelector(".controls__width");
-const heightForm = document.querySelector(".controls__height");
-const submit = document.querySelector("#jsSubmit");
+let canvas = document.getElementById("jsCanvas");
+let ctx = canvas.getContext("2d");
+let colors = document.getElementsByClassName("jsColor");
+let range = document.getElementById("jsRange");
+let mode = document.getElementById("jsMode");
+let brush = document.getElementById("jsBrush");
+let reset = document.getElementById("jsReset");
+let saveBtn = document.getElementById("jsSave");
+let check = document.querySelector("#check");
+let customColor = document.querySelector("#jsColorCustom");
+let shapeCColor = document.querySelector(".custom__color");
+let widthForm = document.querySelector(".controls__width");
+let heightForm = document.querySelector(".controls__height");
+let submit = document.querySelector("#jsSubmit");
 let title = document.getElementById("title");
 let painter = document.getElementById("painter");
 
-const INITIAL_COLOR = "#2c2c2c";
-const CANVAS_SIZE = 600;
+let INITIAL_COLOR = "#2c2c2c";
+let CANVAS_SIZE = 600;
 
 //canvas.width = document.getElementsByClassName("canvas")[0].offsetWidth;
 //canvas.height = document.getElementsByClassName("canvas")[0].offsetHeight;
@@ -54,8 +54,8 @@ function startPainting(){
 }
 
 function onMouseMove(event){
-    const x = event.offsetX;
-    const y = event.offsetY;
+    let x = event.offsetX;
+    let y = event.offsetY;
     if(!painting){
         ctx.beginPath();
         ctx.moveTo(x,y);
@@ -67,7 +67,7 @@ function onMouseMove(event){
 
 // 색상 변경
 function hadleColorClick(event){
-    const color = event.target.style.backgroundColor;
+    let color = event.target.style.backgroundColor;
     check.style.backgroundColor = color;
     ctx.strokeStyle = color;
     ctx.fillStyle = color;
@@ -76,7 +76,7 @@ function hadleColorClick(event){
 
 // 선 굵기 
 function handleRangeChange(event){
-    const size = event.target.value;
+    let size = event.target.value;
     ctx.lineWidth = size;
 }
 
@@ -106,15 +106,15 @@ function handleCM(event){
 }
 
 function handleSaveClick(){
-    const image = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
+    let image = canvas.toDataURL("image/png");
+    let link = document.createElement("a");
     link.href = image;
     link.download = "Palet Export";
     link.click();
 }
 
 function handleCColorChange(event) {
-    const color = event.target.value;
+    let color = event.target.value;
     check.style.backgroundColor = color;
     ctx.strokeStyle = color;
     ctx.fillStyle = ctx.strokeStyle;
@@ -135,7 +135,7 @@ function saveImage() {
 		return false;	
 	}
 	
-	const imgDataUrl = canvas.toDataURL("image/png", 1.0);
+	let imgDataUrl = canvas.toDataURL("image/png", 1.0);
 	console.log(imgDataUrl);
 	 
 	/*var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
@@ -160,8 +160,9 @@ function saveImage() {
         data : {"d_file": imgDataUrl, "d_title":d_title, "painter":painter},
         
         success : function (data) {
-            if(data === "true"){
-				alert(painter.value + "님의 작품이 등록되었습니다. 관리자의 승인 후 등록됩니다.");
+            if(data == "true"){
+				alert("이벤트 참여가 완료되었습니다. 관리자의 승인 후 등록됩니다.");
+				location.href="/event/participation";
 			} else {
 				alert("본 이벤트는 1계정당 1번만 참여가 가능합니다.");
 			}
@@ -226,6 +227,7 @@ if (heightForm) {
 if (submit) {
     submit.addEventListener("click", saveImage);
 }
+
 
 
 
