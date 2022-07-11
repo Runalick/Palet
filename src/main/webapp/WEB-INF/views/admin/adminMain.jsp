@@ -10,14 +10,15 @@
 <title>Admin Page</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="/css/admin/admin.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
+ <link rel="stylesheet" href="/css/admin/admin.css">
 
 <style>
     @media (max-width : 768px){
@@ -35,9 +36,8 @@
 </head>
 <body>
 <!-- <div class="container "> -->
-    <nav class="navbar navbar-expand-md  navbar-light"> 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
-        		aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-md navbar-light"> 
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sidebar">        		
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -46,7 +46,7 @@
                 <div class="row">
                     <!-- sidebar 3grid open -->                 
                     <!-- sidebar class name for css, fixed-->
-                    <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-12 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
                         <a href="/" class="navbar-brand text-center d-block mx-auto py-3 mb-4 bottom-border" > <img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
@@ -68,27 +68,27 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Exhibitions
+                                    <i class="bi bi-easel text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
+                                    <i class="bi bi-gift text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-graph-up-arrow text-black fa-lg mr-3"></i> Analytics
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-bar-chart-line text-black fa-lg mr-3"></i> Totals
+                                    <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-wrench text-black fa-lg mr-3"></i> Settings
+                                    <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -138,6 +138,7 @@
                                 </ul>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
             </div>
