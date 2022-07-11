@@ -102,14 +102,14 @@
 					</c:forEach>
 					
 					<!-- 테스트용 -->
-					<div class="col-12">
-						<input type="text" placeholder="발급숫자" name="number" id="number"><br>
-						<input type="text" placeholder="할인금액" name="dc" id="dc"><br>
-						<input type="text" placeholder="종류" naem="category" id="category">
-					</div>
-					<div class="col-12">
-							<button type="button" id="make">테스트용 쿠폰 만들기</button>
-						</div>
+<!-- 					<div class="col-12"> -->
+<!-- 						<input type="text" placeholder="발급숫자" name="number" id="number"><br> -->
+<!-- 						<input type="text" placeholder="할인금액" name="dc" id="dc"><br> -->
+<!-- 						<input type="text" placeholder="종류" naem="category" id="category"> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-12"> -->
+<!-- 							<button type="button" id="make">테스트용 쿠폰 만들기</button> -->
+<!-- 						</div> -->
 										
 				
 				</div>
@@ -133,16 +133,16 @@
 		</div>
 	</div>
 	<script type="text/javascript">
-		$("#make").on("click",function(){
-			$.ajax({
-				url:"/coupon/make",
-				data:{number:$("#number").val(),
-					dc:$("#dc").val(),
-					category:$("#category").val()}
-			}).done(function(resp){
-				console.log(resp);
-			})
-		})
+// 		$("#make").on("click",function(){
+// 			$.ajax({
+// 				url:"/coupon/make",
+// 				data:{number:$("#number").val(),
+// 					dc:$("#dc").val(),
+// 					category:$("#category").val()}
+// 			}).done(function(resp){
+// 				console.log(resp);
+// 			})
+// 		})
 	
 	</script>
 </body>
