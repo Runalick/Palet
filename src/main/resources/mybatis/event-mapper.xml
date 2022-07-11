@@ -56,6 +56,7 @@
 	   select * from drawing where admin_ok='Y'
 	</select>
 	
+	
 	<select id="findEmail" resultType="int">
 		select count(*) from drawing where email=#{email}
 	</select> 
