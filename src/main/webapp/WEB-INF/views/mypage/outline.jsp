@@ -61,12 +61,12 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
-	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
 	z-index: 5;
 }
+
 
 .navbar {
 	height: 5rem;
@@ -275,10 +275,12 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+line-height:2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
 font-weight:700;
+line-height:2rem;
 }
 .small-navi{
 margin:1.25rem 0rem ;
