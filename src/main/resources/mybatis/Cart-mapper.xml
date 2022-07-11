@@ -45,4 +45,14 @@
   	<insert id="insertSelect_Cart">
   		insert into select_cart values(#{cart_seq},#{email},#{g_num},#{cartstock})
   	</insert>
+  	<delete id="beforeunload">
+  		delete from select_cart where email = #{value}
+  	</delete>
+  	<select id="select_cart" resultType="Trillion.Palet.DTO.goodsOrderDTO">
+		select select_cart.cart_seq, select_cart.email, select_cart.g_num, select_cart.cartstock, g_name, g_price, g_stock, gp_sysname, (g_price * select_cart.cartstock) totalprice 
+		from select_cart left outer join cart on select_cart.cart_seq = cart.cart_seq 
+		left outer join goods on cart.g_num = goods.g_num 
+		left outer join goodspic on goods.g_num = goodspic.g_num
+		where select_cart.email = #{value}
+  	</select>
   </mapper>

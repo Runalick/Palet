@@ -1,7 +1,6 @@
 package Trillion.Palet.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CartListDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
+import Trillion.Palet.DTO.goodsOrderDTO;
 import Trillion.Palet.service.CartService;
 
 
@@ -113,6 +112,21 @@ public class CartController {
 			cServ.insertSelect_Cart(cart_seq[i]);
 		}
 		return "/cart/order";
+	}
+	
+	@ResponseBody
+	@RequestMapping("beforeunload")
+	public int beforeunload() {
+		String email = (String)session.getAttribute("loginEmail");
+		return cServ.beforeunload(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("select_cart")
+	public List<goodsOrderDTO> select_cart(){
+		String email = (String)session.getAttribute("loginEmail");
+		List<goodsOrderDTO> list = cServ.select_cart(email);
+		return list;
 	}
 	
 }
