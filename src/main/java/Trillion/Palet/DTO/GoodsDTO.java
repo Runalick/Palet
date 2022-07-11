@@ -11,6 +11,7 @@ public class GoodsDTO {
 
 	private int g_stock;
 	
+	private String e_name;
 
 	private int gp_seq;
 	private String gp_oriname;
@@ -54,6 +55,15 @@ public class GoodsDTO {
 		this.g_stock = g_stock;
 	}
 	
+	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, int sales_count, int g_stock, String e_name) {
+		this.g_num = g_num;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+		this.e_name = e_name;
+	}
 
 	public int getG_num() {
 		return g_num;
@@ -135,5 +145,11 @@ public class GoodsDTO {
 		this.gp_sysname = gp_sysname;
 	}
 	
+	public String getE_name() {
+		return e_name;
+	}
 	
+	public void setE_name(String e_name) {
+		this.e_name = e_name;
+	}
 }

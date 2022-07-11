@@ -161,11 +161,25 @@
                 	</div>
                 	<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">  
+                	    	<div class="row pt-4 p-4" style="text-align:right">
+ 								<div id="checkbtns">
+ 									<!-- 추후 join을 통해 받아오는 값으로 꾸려질 예정 (전시이름) 일괄수정 -->
+ 									<select class="body2 select0 color_gray100" name="e_num" id="e_num">
+										<c:forEach var="i" items="${exhibition}">	
+										<option value='${i.e_num}'>${i.e_name} </option>
+										</c:forEach>
+									</select>
+                            		<button class="btn0_1_1 color_yellow2" onclick="checkboxUpdate()">카테고리 수정</button>
+                            		<button class="btn0_1 color_red2" onclick="checkboxDelete()">삭제</button>
+ 								</div>
+ 							</div>
+                	    	
                 	    	<div class="row pt-3 m-3 mb-4">	
-            					<div class="col-4 h3 " style="border-right : 0.125rem solid #DFE3E8"> Goods Name.</div>
-			            		<div class="col-4 h3 " style="border-right : 0.125rem solid #DFE3E8">Price.</div>
-			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Sales.</div>
-			            		<div class="col-2 h3 ">Stock.</div>
+            					<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">Goods Name  <a href="/admin/adminGoodsList?value=g_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">E_Name <a href="/admin/adminGoodsList?value=e_num&cpage=1"><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminGoodsList?value=g_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Sales  <a href="/admin/adminGoodsList?value=sales_count&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 h3 ">Stock  <a href="/admin/adminGoodsList?value=g_stock&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
 			            		</div>        		
@@ -174,8 +188,9 @@
 										<hr>
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
-	                            			<div class="col-5 px-5 body2">${i.g_name } </div>
-				                        	<div class="col-3 px-1 body2" >${i.g_price } </div>
+	                            			<div class="col-3 px-5 body2"> <input type="checkbox" name="checkbox" value="${i.g_num}">  ${i.g_name } </div>
+	                            			<div class="col-3 px-5 body2">${i.e_name }</div>
+				                        	<div class="col-2 px-5 body2" >${i.g_price } </div>
 				                        	<div class="col-2 px-5 body2" >${i.sales_count } </div>
 			                            	<div class="col-2 px-5 body2" >${i.g_stock } </div>
 			                            </div>
@@ -225,7 +240,82 @@
 	$("#goodsList").on("click", ()=>{
 		location.href = "/admin/adminGoodsList?cpage=1";
 	})
+	    $("#checkAll").change(function (){
+    	let checked = $(this).prop('checked');
+    	$('input[name="checkbox"]').prop('checked', checked);
+    });
+    
+	
+    $('input[name="checkbox"]').change(function () {
 
+    	let selectAll = ($('input[name="checkbox"]').length == $('input[name="checkbox"]:checked').length);
+
+    	$("#checkAll").prop('checked', selectAll);
+
+    });	
+    
+    function sortList(sortValue){
+    	let order = sortValue;
+    	console.log(order);
+    	$.ajax({
+    		type: "POST",
+    		url : "/admin/adminGoodsList2",
+    		data : {value : sortValue,
+    				cpage : 1	
+    		},
+    		success : function (resp){
+    			console.log(resp);
+    			alert("sort!");
+    			location.reload();
+    		}
+    	})
+    }
+  
+    
+    function checkboxDelete(){
+    	let checkboxArr = [];
+    	$('input[name="checkbox"]:checked').each(function() {
+    		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+    		console.log(checkboxArr)
+    	})
+    	
+    	$.ajax({
+    		type : "POST",
+    		url : "/admin/goodsCheckDelete",
+    		data : {
+    			checkboxArr : checkboxArr
+    		},
+    		success : function (result){
+    			console.log(result);
+    			alert("delete ok!");
+    			location.reload();
+    		}
+    	});
+    }
+    
+    function checkboxUpdate(){
+    	let checkboxArr2 = [];
+    	let e_num = $("#e_num").val();
+    	$('input[name="checkbox"]:checked').each(function() {
+    		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+    		console.log(checkboxArr2)
+    	})
+    	
+    	$.ajax({
+    		type : "POST",
+    		url : "/admin/goodsCheckUpdate",
+    		data : {
+    			checkboxArr2 : checkboxArr2,
+    			e_num : e_num
+    		},
+    		success : function (result){
+    			console.log(result);
+    			alert("update ok!");
+    			location.reload();
+    		}
+    	});
+    }
+    
 </script>
 
 </body>
