@@ -30,7 +30,7 @@ public class PayController {
 	@ResponseBody
 	@RequestMapping("insert")
 	public List<ExticketDTO> insert(ExticketDTO dto) {
-	    int result = pServ.insert(dto);
+	
 		
 		System.out.println(	dto.getEt_email());
 		System.out.println(	dto.getEt_title());
@@ -45,6 +45,7 @@ public class PayController {
 		System.out.println(	dto.getEt_count());
 		System.out.println(	dto.getEt_point());
 		System.out.println(	dto.getEt_buydate());
+	    int result = pServ.insert(dto);
 	
 		 List<ExticketDTO> list = new ArrayList<ExticketDTO>();
 		
