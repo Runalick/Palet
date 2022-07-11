@@ -19,7 +19,15 @@
 	crossorigin="anonymous"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-<!-- 지도api -->
+<!-- qr cdn -->
+<meta name="description"
+	content="Demo for jQuery.qrcode (https://larsjung.de/jquery-qrcode/).">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link
+	href="//fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&amp;display=swap"
+	rel="stylesheet">
+<script src="/js/qrmaker.js"></script>
 
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -325,12 +333,13 @@ li div {
 }
 
 .qr {
-	width: 4.375rem;
-	height: 4.375rem;
+	width: 100px;
+	height: 100px;
 	background: white;
 	position: absolute;
 	bottom: 1.5rem;
 	right:2rem;
+
 }
 
 .body6 {
@@ -493,7 +502,7 @@ li div {
 									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.et_title }</div>
 										<div class="body3" style="color: white" >예매번호 : ${i.et_booknumber }</div>
 									<div class="body3" style="color: white;">${i.et_date }</div>
-									<div class="qr"></div>
+									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
 
 								</div>
 
@@ -676,6 +685,15 @@ li div {
 								click = false;
 							}
 						});
+		
+        var qrcode = new QRCode(document.getElementById("qr"), {
+            text: "${url}",
+            width: 90,
+            height: 90,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
 	</script>
 </body>
 </html>

@@ -46,7 +46,7 @@
                 <div class="row">
                     <!-- sidebar 3grid open -->
                     <!-- sidebar class name for css, fixed-->
-                    <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-12 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
                         <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > <img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
@@ -68,27 +68,27 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Exhibitions
+                                    <i class="bi bi-easel text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 current">
-                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
+                                    <i class="bi bi-gift text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-graph-up-arrow text-black fa-lg mr-3"></i> Analytics
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-bar-chart-line text-black fa-lg mr-3"></i> Totals
+                                    <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-wrench text-black fa-lg mr-3"></i> Settings
+                                    <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -175,11 +175,11 @@
  							</div>
                 	    	
                 	    	<div class="row pt-3 m-3 mb-4">	
-            					<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">Goods Name  <a href="/admin/adminGoodsList?value=g_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">E_Name <a href="/admin/adminGoodsList?value=e_num&cpage=1"><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminGoodsList?value=g_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Sales  <a href="/admin/adminGoodsList?value=sales_count&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-2 h3 ">Stock  <a href="/admin/adminGoodsList?value=g_stock&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+            					<div class="col-5 col-lg-4 col-xl-3 h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">Goods Name  <a href="/admin/adminGoodsList?value=g_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-4 col-xl-3 h3 " style="border-right : 0.125rem solid #DFE3E8">E_Name <a href="/admin/adminGoodsList?value=e_num&cpage=1"><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminGoodsList?value=g_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Sales  <a href="/admin/adminGoodsList?value=sales_count&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-3 col-lg-2 h3 ">Stock  <a href="/admin/adminGoodsList?value=g_stock&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
 			            		</div>        		
@@ -188,11 +188,11 @@
 										<hr>
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
-	                            			<div class="col-3 px-5 body2"> <input type="checkbox" name="checkbox" value="${i.g_num}">  ${i.g_name } </div>
-	                            			<div class="col-3 px-5 body2">${i.e_name }</div>
-				                        	<div class="col-2 px-5 body2" >${i.g_price } </div>
-				                        	<div class="col-2 px-5 body2" >${i.sales_count } </div>
-			                            	<div class="col-2 px-5 body2" >${i.g_stock } </div>
+	                            			<div class="col-5 col-lg-4 col-xl-3 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.g_num}">  ${i.g_name } </div>
+	                            			<div class="col-4 col-xl-3 px-4 body2">${i.e_name }</div>
+				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.g_price } </div>
+				                        	<div class="col-2 d-none d-lg-block px-4 body2" >${i.sales_count } </div>
+			                            	<div class="col-3 col-lg-2 px-4 body2" >${i.g_stock } </div>
 			                            </div>
 		                            	<hr>
 	                            		</c:forEach>
