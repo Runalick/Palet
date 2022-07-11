@@ -55,6 +55,7 @@
 		<div class="col-12">
 			<a href="/coupon/couponlist">쿠폰리스트보기</a><br>
 			<a href="/coupon/toregistration">쿠폰등록하기</a>
+			<a href="/mypage/outline">outline 보기</a>
 		</div>
 		<div class="row" id="row1">
 			<div class="h2" style="text-align: left; margin-left: 100px; margin-bottom: 20px;">My Page / My info.</div>
