@@ -454,12 +454,12 @@ padding:0px;
 				2022.03.16 ~ 2022.10.30
 				</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
-				<a href="/Exhibition/toBook">
-				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a>
+			<!-- 	<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
 				</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
 				<a href="/Exhibition/toCurdetail">
-				<button class = "btn1_1" style="background: #919EAB;">자세히 보기</button></a>
+				<button class = "btn1_1" style="background: #ffffff; color:#161C24;">자세히 보기</button></a>
 				</div>
 				
 
@@ -483,4 +483,7 @@ padding:0px;
 
 
 </body>
+
+
+
 </html>
