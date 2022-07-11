@@ -57,6 +57,14 @@ public class EventService {
 		return dao.deleteDraw(draw_seq);
 		
 	}
+
+	public List<Object> selectConfirm() {
+		return dao.selectConfirm();
+	}
+
+	public int findEmail(String email) {
+		return dao.findEmail(email);
+	}
 	
 	
 	

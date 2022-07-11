@@ -39,6 +39,14 @@ public class DrawingDAO {
 	public int deleteDraw(int draw_seq) {
 		return mybatis.delete("Event.deleteDraw", draw_seq);
 	}
+
+	public List<Object> selectConfirm() {
+		return mybatis.selectList("Event.selectConfirm");
+	}
+
+	public int findEmail(String email) {
+		return mybatis.selectOne("Event.findEmail", email);
+	}
 	 
 
 }

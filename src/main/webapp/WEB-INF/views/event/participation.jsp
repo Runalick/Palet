@@ -65,11 +65,16 @@
             padding: 0px;
             height: 1.875rem;
         }
-
+		
+		/*오른쪽 여백 없애기*/
+		.container, .container-fluid, .container-lg, .container-md, 
+		.container-sm, .container-xl, .container-xxl{
+			overflow-x: hidden;
+		}
         #navparent {
             position: fixed;
             font-size: 0;
-            padding-left: 2.5rem;
+            /* padding-left: 2.5rem; */
             padding-right: 2.5rem;
             height: 5rem;
             background-color: white;
@@ -83,7 +88,7 @@
 
         }
         
-        .row{
+        .navrow{
         	height: 100%;
         }
         
@@ -91,6 +96,13 @@
             padding-left: 2.5rem;
             padding-right: 2.5rem;
         }
+        
+        #row1>div {
+
+            padding-left: 10px;
+            padding-right: 0px;
+        }
+        
 
 
         .nav-item {
@@ -132,11 +144,11 @@
         } 
  
  	.btn1 {
-             padding: 1.125rem 1.5rem;
+            padding: 1.0rem 1.4rem;
             gap: 0.625rem;
+			margin-left: 5px;
 
-
-            width: 12.5rem;
+            width: 10.5rem;
             height: 3.75rem;
 
 
@@ -160,6 +172,59 @@
 
         }  
         
+        .btn1_1 {
+            /* padding: 1.0rem 1.4rem; */
+            gap: 0.625rem;
+			margin-left: 5px;
+
+            width: 7.5rem;
+            height: 3.75rem;
+
+
+            background: #FFFFFF;
+            border-radius: 1.25rem;
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            /* identical to box height */
+
+            text-align: center;
+
+            /* Gray/900 */
+
+            color: #161C24;
+
+
+            /* Inside auto layout */
+
+        }  
+        
+       .btn3 {
+            gap: 0.625rem;
+            width: 6rem;
+            height: 2.75rem;
+            background: #FFFFFF;
+            border-radius: 1rem;
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            margin-top: 5px;
+            /* identical to box height */
+
+            text-align: center;
+
+            /* Gray/900 */
+
+            color: #161C24;
+
+
+            /* Inside auto layout */
+			}
+        
         .h2 {
 
             /* width: 10.375rem;
@@ -177,6 +242,37 @@
             /* Gray/900 */
 
             color: #161C24;
+
+        }
+        
+        .h3 {
+
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.25rem;
+            line-height: 1.5rem;
+            /* identical to box height */
+
+
+            /* Gray/900 */
+
+            color: #161C24;
+        }
+        
+        .body2 {
+
+
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: 1.75rem;
+            /* identical to box height, or 175% */
+
+            margin-bottom: 0px;
+            color: #000000;
+
 
         }
         
@@ -199,6 +295,12 @@
     button {
     	font-size: initial;
     }           
+    
+    #footer{
+            background: #F4F6F8;
+            height: 13.25rem;
+    }
+        
 	/* div {
 		border: 1px solid black;
 	} */
@@ -207,20 +309,26 @@
 <body>
 <div class="container-fluid" id="navparent">
 	<div class="container">
-		<div class="row" style="align-items: center;">
-			<div class="col-6">
+		<div class="row navrow" style="align-items: center;">
+			<div class="col-3">
 				<a class="navbar-brand" href="/" id="container" style="padding :0px;">
                 	<img src="/images/Logo.svg" border=0>
                 </a>
 			</div>
-			<div class="col-6">
-				<button id="paint" class="btn1" style="float:right;">이벤트 참여하기</button>
+			<div class="col-9 d-none d-sm-block">
+				<button id="back" class="btn1" style="float:right;">돌아가기</button>
+				<button id="paint" class="btn1" style="float:right;">참여하기</button>
+			</div>
+			<div class="col-9 d-block d-sm-none">
+				<button id="sback" class="btn1_1" style="float:right;">돌아가기</button>
+				<button id="spaint" class="btn1_1" style="float:right;">참여하기</button>
 			</div>
 		</div>
 	</div>
 </div>
 
 <div class="container-fluid"">
+	<div class="row">
 	<div class="container">
 		<div class="row" style="padding-top: 120px;" align=center>
 			<div class="col h2">
@@ -236,17 +344,11 @@
 		</div>
 	<c:choose>
 		<c:when test="${loginEmail == 'admin@palet.com'}">
-			<div class="row">
+			<div class="row" style="padding-top: 50px; padding-bottom: 50px;">
 			<c:forEach var="i" items="${all}">
-				<div class="col-3">
-					<div class="row" align=center>
-						<div class="col">
-							<c:if test="${i.admin_ok == 'N'}">
-								<button class="ok">승인</button>
-							</c:if>
-							<button class="delete">삭제</button>
-							<input type="hidden" name="draw_seq" value=${i.draw_seq }>
-						</div>
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="row" align=center style="padding-top: 50px;">
+						
 						<div class="col-12 p-0" style="align-items: center;">
 							<img src="${i.d_file }" style="width:200px; height:200px;">
 						</div>
@@ -263,8 +365,13 @@
 							참여자 : ${i.email }
 						</div>
 						<div class="col">
-							${i.admin_ok }
+							<c:if test="${i.admin_ok == 'N'}">
+								<button class="ok btn3">승인</button>
+							</c:if>
+							<button class="delete btn3">삭제</button>
+							<input type="hidden" name="draw_seq" value=${i.draw_seq }>
 						</div>
+						
 					</div>
 				</div>
 			</c:forEach>
@@ -272,10 +379,10 @@
 		</c:when>
 		
 		<c:otherwise>
-			<div class="row">
-			<c:forEach var="i" items="${all}">
-				<div class="col-3">
-					<div class="row" align=center>
+			<div class="row" style="padding-top: 50px; padding-bottom: 50px;">
+			<c:forEach var="i" items="${okconfirm}">
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="row" align=center style="padding-top: 50px;">
 						<div class="col-12 p-0" style="align-items: center;">
 							<img src="${i.d_file }" style="width:200px; height:200px;">
 						</div>
@@ -285,9 +392,7 @@
 						<div class="col-12">
 							그린이 : ${i.painter }
 						</div>
-						<div class="col">
-							${i.admin_ok }
-						</div>
+						
 					</div>
 				</div>
 			</c:forEach>
@@ -295,6 +400,16 @@
 		</c:otherwise>
 	</c:choose>
 	</div>
+	<div class="row" id="footer" style=margin-top: 50px;">
+        <div class="container" style="width: 80%;">
+        	<div class="row" id="row1">
+        		<div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                <div class="col-12 body2" style = "color: #637381; padding-right: 60px;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                <div class="col-12 body2" style = "color: #637381; ">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+			</div>
+        </div>
+    </div>
+	
 </div>
 
 	
@@ -305,6 +420,18 @@
 
 	$("#paint").on("click", function(){
 		location.href="/event/paint";
+	})
+	
+	$("#back").on("click", function(){
+		location.href="/event/eventPage";
+	})
+	
+	$("#spaint").on("click", function(){
+		location.href="/event/paint";
+	})
+	
+	$("#sback").on("click", function(){
+		location.href="/event/eventPage";
 	})
 	
 	$(".ok").on("click", function(){
@@ -322,12 +449,14 @@
 		console.log($(this).siblings("input").val())
 		$.ajax({
 			url:"/event/deleteDraw",
-			data: {draw_seq:$(this).siblings("input").eq(1).val()}
+			data: {draw_seq:$(this).siblings("input").val()}
 		}).done(function(resp){
 			alert(resp);
 			location.reload();
 		})
 	})
+	
+	
 	
 	</script>
 

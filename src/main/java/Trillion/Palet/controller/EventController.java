@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.google.gson.Gson;
-
 import Trillion.Palet.DTO.DrawingDTO;
 import Trillion.Palet.service.EventService;
 
@@ -37,12 +35,17 @@ public class EventController {
 	@RequestMapping("participation")
 	public String participation(Model model) {
 		String loginEmail = (String) session.getAttribute("loginEmail");
+		//String loginEmail = "admin@palet.com";
 		model.addAttribute("loginEmail", loginEmail);
 		
+		System.out.println(loginEmail);
 		if(loginEmail.equals("admin@palet.com")) {
 			List<Object> all = eServ.selectAll();
 			model.addAttribute("all", all);				
-		} 
+		} else {
+			List<Object> okconfirm = eServ.selectConfirm();
+			model.addAttribute("okconfirm", okconfirm);	
+		}
 		return "/event/participation";
 	}
 	
@@ -68,11 +71,19 @@ public class EventController {
 	@ResponseBody
 	@RequestMapping(value="send", produces="test/html;charset=utf8")
 	public String send(DrawingDTO dto) throws Exception {
-		////String email = (String) session.getAttribute("loginEmail");
-		String email="123";
-		dto.setEmail(email);
-		eServ.add(dto);
+		String email = (String) session.getAttribute("loginEmail");
+		System.out.println(email);
+		int result = eServ.findEmail(email);
+		System.out.println(result);
+		
+		if(result>0) { 
+			return "false"; 
+		}
+		 
+		dto.setEmail(email); 
+		eServ.add(dto); 
 		return "true";
+		
 	}
 	
 	@ResponseBody
