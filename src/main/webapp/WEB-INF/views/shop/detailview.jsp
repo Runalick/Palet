@@ -132,9 +132,7 @@
 	/* Gray/300 */
 }
 
-#goodscontainer {
-	width: 80rem;
-}
+
 
 #goodscontainer::after {
 	display: block;
@@ -161,12 +159,7 @@
 	width: 1rem;
 }
 
-#imgdiv {
-	width: 34.375rem;
-	margin-left: 2.688rem;
-	margin-right: 1.5rem;
-	margin-bottom: 6.25rem;
-}
+
 
 #img {
 	height: 36.375rem;
@@ -182,45 +175,8 @@
 	margin-right: 0px;
 }
 
-#container2 {
-	padding-left: 4rem;
-	flex-direction: row;
-}
 
-#title {
-	/* Headline/H3 */
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 1.25rem;
-	line-height: 1.5rem;
-	/* identical to box height */
-	/* Gray/900 */
-	color: #161C24;
-	height: 1.5rem;
-	margin-bottom: 1rem;
-	width: 23.5rem;
-}
 
-#price {
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 1rem;
-	line-height: 1.875rem;
-	color: #161C24;
-	margin-bottom: 0.125rem;
-	width: 23.5rem;
-}
-#point{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 700;
-font-size: 0.875rem;
-line-height: 1.125rem;
-color: #637381;
-margin-bottom: 2.5rem;
-}
 .payment-area {
 	float: right;
 	width: 30.5rem;
@@ -228,11 +184,7 @@ margin-bottom: 2.5rem;
 	top: 5rem;
 }
 
-.product-area {
-	float: left;
-	width: 45.353rem;
-	padding: 0rem;
-}
+
 
 
 #select {
@@ -240,7 +192,7 @@ margin-bottom: 2.5rem;
 	height: 3rem;
 	line-height: 2.35rem;
 	box-sizing: border-box;
-
+	
 	border: 0.063rem solid #CFD4D9;
 	box-shadow: 0px 0px 0px #CBDAFC;
 	border-radius: 0.313rem;
@@ -264,11 +216,10 @@ margin-bottom: 2.5rem;
 	border: 1px solid #b8b8b8;
 	display: none;
 	position: absolute;
-	top: 13.65rem;
+	top:3rem;
 	background: #FFFFFF;
 	border-top: none;
 	padding: 0px;
-	right: 0.8rem;
 }
 
 .select-ul li {
@@ -281,23 +232,20 @@ margin-bottom: 2.5rem;
 }
 
 #purchasebtn {
-	/* Button */
 	width: 23.5rem;
-	/* Auto layout */
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	padding: 1.125rem 1.5rem;
 	gap: 0.625rem;
-	/* Gray/900 */
 	background: #161C24;
 	border-radius: 1.25rem;
 	margin-bottom: 0.5rem;
+	border:0px;
 }
 
 #purchasespan {
-	width: 4.625rem;
 	height: 1.5rem;
 	/* Button/Button */
 	font-family: 'Spoqa Han Sans Neo';
@@ -327,9 +275,13 @@ margin-bottom: 2.5rem;
 	border-radius: 1.25rem;
 	border: 0px;
 }
-
+#cartbtn:hover, #backbtn:hover, .cntbtn:hover{
+background:#F4F6F8;
+}
+#purchasebtn:hover{
+background:#454F5B;
+}
 #cartspan {
-	width: 7.188rem;
 	height: 1.5rem;
 	/* Button/Button */
 	font-family: 'Spoqa Han Sans Neo';
@@ -353,9 +305,7 @@ margin-bottom: 2.5rem;
 	padding: 0px;
 }
 
-#margin2 {
-	margin-left: 6.26rem;
-}
+
 
 .choose {
 	padding: 1.75rem;
@@ -472,6 +422,143 @@ margin-bottom: 2.5rem;
 	order: 0;
 	flex-grow: 1;
 }
+#imgdiv {
+	margin-bottom: 6.25rem;
+	text-align:center;
+}
+@media ( min-width : 870px) {
+	#goodscontainer {
+	width: 80rem;
+}
+.product-area {
+	float: left;
+	width: 45.353rem;
+	padding: 0rem;
+}
+#imgdiv {
+	width: 34.375rem;
+	margin-left: 2.688rem;
+	margin-right: 1.5rem;
+}
+#container2{
+padding-left:4rem;
+}
+#margin2 {
+	margin-left: 6.26rem;
+}
+
+#title {
+	/* Headline/H3 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	/* Gray/900 */
+	color: #161C24;
+	height: 1.5rem;
+	margin-bottom: 1rem;
+	width: 23.5rem;
+}
+
+#price {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.875rem;
+	color: #161C24;
+	margin-bottom: 0.125rem;
+	width: 23.5rem;
+}
+#point{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 0.875rem;
+line-height: 1.125rem;
+color: #637381;
+margin-bottom: 2.5rem;
+}
+}
+
+@media ( max-width : 871px) {
+		#goodscontainer {
+	width: 100%;
+}
+#btndiv{
+padding-left:3rem;
+}
+
+.payment-area2{
+width:36.375rem;
+margin:auto;
+margin-bottom:5rem;
+}
+#select, .select-ul, #purchasebtn, #cartbtn, .select-ul li, .choose, #totaldiv{
+width:100%;
+}
+
+#title{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 36px;
+line-height: 43px;
+margin-bottom:2.7rem;
+}
+#price{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 25px;
+line-height: 35px;
+margin-bottom:0.5rem;
+}
+#point{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 15px;
+line-height: 18px;
+color:#637381;
+margin-bottom:2.7rem;
+}
+.h4, .body2{
+font-size:1.3rem;
+}
+.delete{
+width:2.875rem;
+}
+.h3{
+font-size:1.65rem;
+}
+#totalmoney{
+width:22.5rem;
+}
+.select-ul li, #select{
+font-size:1.3rem;
+}
+#select{
+height:3.5rem;
+line-height:2.65rem;
+}
+#purchasespan, #cartspan{
+font-size:1.8rem;
+
+}
+#purchasebtn, #cartbtn{
+ height:4.5rem; 
+}
+#productdetail{
+width:36.375rem;
+}
+}
+
+
+
+
 /* footer */
 #footer{
             background: #F4F6F8;
@@ -537,23 +624,39 @@ margin-bottom: 2.5rem;
 	</header>
 		<div class="container-fluid" id="goodsparent">
 			<div class="container" id="goodscontainer">
-				<div class=" payment-area">
+			
+			
+				<div class=" payment-area" >
 					<div class="row" id="margin2">
-						<div class="col-12 margin1" >
+						<div class="col-12 margin1 payment-area2" >
 
 							<!-- 데이터 들어올 곳 -->
 
 
 							<div class="col-12" id="title">${dto.g_name }</div>
-							<div class="col-12" id="price">${dto.g_price }원</div>
+							<div class="col-12" id="price">${dto.g_price }</div>
+							<script>
+							price=$("#price").text();
+							$("#price").text(price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+							console.log(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+							</script>
+							
 							<div class="col-12" id="point">${Math.round(dto.g_price*0.05) }p (5%) 적립</div>
 
 							<!-- 옵션 리스트 -->
-							<div id="select-wrap">
+							<div id="select-wrap" style="position:relative;">
 								<div id="select">상품옵션을 선택하세요</div>
 								<ul class="select-ul">
 									<c:forEach var="i" items="${optionlist}">
-									<li class="li" value="${i.g_num }">${i.g_option}</li>
+									
+									<c:choose>
+										<c:when test="${i.g_option ==null}">
+										<li class="li" value="${i.g_num }">${dto.g_name}</li>
+										</c:when>
+										<c:otherwise>
+											<li class="li" value="${i.g_num }">${i.g_option}</li>
+										</c:otherwise>
+									</c:choose>
 									</c:forEach>
 								</ul>
 							</div>
@@ -573,6 +676,7 @@ margin-bottom: 2.5rem;
 <!-- 										<img src="/images/plus.png"> -->
 <!-- 								</button></span>  -->
 <!-- 								<span class="delete body2" style="cursor:pointer">삭제</span> -->
+<!-- 									<input type="hidden" class="hidden-totalprice" value=""> -->
 <!-- 							</div> -->
 					
 <script>
@@ -642,6 +746,8 @@ $(".li").on("click", function () {
     choosediv.append(plusbtnspan);
     choosediv.append(delete1);
     choosediv.append(hidden);
+    price = price.replace(",","");
+    choosediv.append("<input type='hidden' class='hidden-totalprice' value="+price+">");
     
     $("#select-wrap").after(choosediv);
     $(".select-ul").toggle();
@@ -668,24 +774,53 @@ $(".li").on("click", function () {
 								<span id="cartspan">장바구니 담기</span>
 							</button>
 						</div>
+
 					</div>
 				</div>
+
 
 
 				<div class="product-area">
 					<div class="row " id="container2">
 					
 					<!-- 뒤로 가기 버튼 -->
-						<div class="col-1 margin1" id="btndiv">
+						<div class="margin1" id="btndiv">
 							<button id="backbtn">
 								<img src="/images/Vector.png">
 							</button>
 						</div>
 						
 					<!-- 상품 이미지 -->	
-						<div class="col-3 margin1" id="imgdiv">
+						<div class=" margin1" id="imgdiv">
 							<img src="/images/image 21.png" id="img">
 						</div>
+						
+						
+							<div class="row" id="small" style="display:none; padding-left:3rem;">
+								<div class="col-12">	
+<%-- 									<div class="col-12" id="sm-title">${dto.g_name }</div> --%>
+<%-- 									<div class="col-12" id="sm-price">${dto.g_price }원</div> --%>
+<%-- 									<div class="col-12" id="sm-point">${Math.round(dto.g_price*0.05) }p (5%) 적립</div> --%>
+									
+									
+									
+								</div>
+							</div>
+							
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
 						
 					<!-- 상품 상세 설명 -->
 						<div class="row" id="productdetail">
@@ -719,6 +854,28 @@ $(".li").on("click", function () {
 	
 	</div>
 	<script>
+	$( window ).resize(function() {   //창크기 변화 감지
+		open_chatroom();
+	});
+	$(document).ready(function(){
+		open_chatroom();
+	});
+	
+	function open_chatroom(){ 
+		var windowWidth = $( window ).width();
+		if(windowWidth < 850) {      //창 가로 크기가 850 미만일 경우  
+			$("#small").css({"display":"block"});
+			$(".payment-area").css({"display":"none"});
+			$("#small").append($("#margin2"));
+		} else {      //창 가로 크기가 850 보다 클 경우  
+			$("#small").css({"display":"none"});
+			$(".payment-area").css({"display":"block"});
+			$(".payment-area").append($("#margin2"));
+		}
+		}
+	
+	
+	
 	//구매버튼
 	$("#purchasebtn").on("click",function(){
 		if(${loginEmail ==null}){
@@ -774,8 +931,7 @@ $(".li").on("click", function () {
 	})
 	
 	
-	$(document).ready(function(){
-	});
+	
 	
 	
 	//선택박스 화살표 방향 이미지
@@ -826,19 +982,16 @@ $(document).on("click", ".delete", function(){
 
 			let result = $($(this).parent().siblings()[4]).text();
 			number = parseInt(result) + 1;
-			console.log(number);
 			$($(this).parent().siblings()[4]).text(number);
 			
 			//가격변화
 			let price = $("#price").text() ;
 			price = price.replace(",","");
 			
-			let currentprice = $($(this).parent().siblings()[1]).text();
-			currentprice=currentprice.replace(",","");
-			totalprice =  parseInt(currentprice) +  parseInt(price);
-			$($(this).parent().siblings()[1]).text(totalprice.toLocaleString()+"원");
-	
-			
+			let currentprice = $($(this).parent().siblings()[4]).text();
+			totalprice =  parseInt(currentprice) *  parseInt(price);
+			$($(this).parent().siblings()[7]).val(totalprice);
+			console.log($(this).parent().siblings()[7]);
 			
 			setTotalPrice()
 	
@@ -859,11 +1012,12 @@ $(document).on("click", ".delete", function(){
 			let price = $("#price").text() ;
 			price = price.replace(",","");
 			
-			let currentprice = $($(this).parent().siblings()[1]).text();
-			currentprice=currentprice.replace(",","");
-			totalprice =  parseInt(currentprice) -  parseInt(price);
-			$($(this).parent().siblings()[1]).text(totalprice.toLocaleString()+"원");
-
+			let currentprice = $($(this).parent().siblings()[3]).text();
+			totalprice =  parseInt(currentprice) *  parseInt(price);
+			$($(this).parent().siblings()[7]).val(totalprice);
+			console.log($(this).parent().siblings()[7]);
+			
+			
 			setTotalPrice()
 	
 	
@@ -884,14 +1038,14 @@ $(document).on("click", ".delete", function(){
 					
 					
 					console.log("총금액"+realtotalprice )
-					total = $(element).find(".price").text();
-					total=total.replace(",","");
+					total = $(element).find(".hidden-totalprice").val();
 					console.log("total:"+total);
 					
 					realtotalprice  += parseInt(total) ;	
 					console.log("total이랑 더한 값"+realtotalprice );
 					
-					$("#totalmoney").text(realtotalprice +"원");
+					price=realtotalprice.toLocaleString();
+					$("#totalmoney").text(price +"원");
 					
 					
 
