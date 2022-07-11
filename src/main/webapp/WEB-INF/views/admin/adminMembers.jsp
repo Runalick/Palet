@@ -36,8 +36,7 @@
 </head>
 <body>
 	<div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
-       			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler"  data-bs-toggle="collapse" data-bs-target="#sidebar" >
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -46,7 +45,7 @@
                 <div class="row">
                     <!-- sidebar 3grid open -->
                     <!-- sidebar class name for css, fixed-->
-                    <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-12 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
                         <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
@@ -66,29 +65,29 @@
                                     <i class="bi bi-people text-black fa-lg mr-3"></i> Members
                                 </a>
                             </li>
-                            <li class="nav-item">
+                             <li class="nav-item">
                                 <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Exhibitions
+                                    <i class="bi bi-easel text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
-                            </li>                            
+                            </li>
                             <li class="nav-item">
                                 <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
+                                    <i class="bi bi-gift text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-graph-up-arrow text-black fa-lg mr-3"></i> Analytics
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-bar-chart-line text-black fa-lg mr-3"></i> Totals
+                                    <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-wrench text-black fa-lg mr-3"></i> Settings
+                                    <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -96,6 +95,7 @@
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> Documentation
                                 </a>
                             </li>
+                        
                         </ul>
                         
                     </div>
@@ -103,7 +103,7 @@
                     
                     <!-- main navi 9 grid open -->
                     
-                    <div class="col-xl-10 col-lg-9 top-navbar color_gray900 fixed-top py-2">
+                    <div class="col-xl-10 col-lg-9 top-navbar color_gray900 fixed-top py-2 ms-auto">
                         <div class="row align-items-center">
                             <div class="col-md-4">
                                 <div class="text-align text-uppercase mb-0 text-white h3">Members Analytics</div>
@@ -157,10 +157,10 @@
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
 			            	<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID(E-mail).</div>
-			            		<div class="col-3 h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
-			            		<div class="col-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
-			           			<div class="col-2 h3 ">Points.</div>
+			            		<div class="col-6 col-lg-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID(E-mail).</div>
+			            		<div class="col-3 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
+			            		<div class="col-3 col-lg-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
+			           			<div class="col-3 col-lg-2 h3 ">Points.</div>
 			           			<div class="col-12 px-3">
 			           				<div class="card2"></div>
 			           			</div>
@@ -169,10 +169,10 @@
 			                        <hr>
 			                        <c:forEach var="i" items="${list}">
 			                        <div class="row">
-			                        	<div class="col-5 px-5 body2" >${i.email } </div> 
-			                        	<div class="col-3 px-5 body2" >${i.name } </div>
-			                        	<div class="col-2 px-5 body2" >${i.grade } </div>
-		                            	<div class="col-2 px-5 body2" >${i.point } </div>
+			                        	<div class="col-6 col-lg-5 px-4 body2 ellipsis" >${i.email } </div> 
+			                        	<div class="col-3 d-none d-lg-block px-5 body2" >${i.name } </div>
+			                        	<div class="col-3 col-lg-2 body2" style="text-align : center" >${i.grade } </div>
+		                            	<div class="col-3 col-lg-2 body2" style="text-align : center" >${i.point } </div>
 		                            </div>
 		                            <hr>			                            	
 		                            </c:forEach>

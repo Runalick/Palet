@@ -33,7 +33,7 @@
     	select * from member where email=#{email}
     </select>
     
-    <delete id="memberout">
+    <delete id="delmember">
     	delete * from member where email=#{email}
     </delete>
     
