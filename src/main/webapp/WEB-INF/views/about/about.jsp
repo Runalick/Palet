@@ -495,12 +495,14 @@ $(".askbtn").on("click",function(){
 			data:{userEmail:$("#email").val(),title:$("#title").val(),contents:$("#contents").val()},
 			dataType:"json"
 		}).done(function(resp){
-			console.log("성공");
+			console.log("dd");
 // 			??? 이메일은 보내지는데 콘솔에 성공이 안뜸
 		})
 	}
 		
 	}
+	
+	
 	
 })
 </script>
