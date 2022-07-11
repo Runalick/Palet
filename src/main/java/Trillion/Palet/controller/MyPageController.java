@@ -31,10 +31,13 @@ public class MyPageController {
 	public String myTicket(Model model) {
 		String email = "first0627@hanmail.net";
 //		String email = "i2376@naver.com";
+		String url = "http://14.39.252.82/Exhibition/toCurdetail";
+		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
 		List<ExticketDTO> list =mServ.myTicket(email);
 		model.addAttribute("list",list);
 		model.addAttribute("cnt",cnt);
+		model.addAttribute("url",url);
 		return "/mypage/myTicket";
 	}
 }

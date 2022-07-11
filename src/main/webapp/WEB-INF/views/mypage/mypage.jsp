@@ -434,87 +434,6 @@ color: #FFFFFF;
 </head>
 <body>
 
-<div class="container-fluid" id=navparent>
-        <div class="container">
-            <div class="row" id="container1">
-                <nav class="navbar navbar-expand-sm bg-light navbar-light">
-                    <div class="container" id="navparent"> <a class="navbar-brand" href="#" id="container"
-                            style="padding :0px;"><img src="/images/Logo.svg" border=0></a> <button class="navbar-toggler"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"> <span
-                                class="navbar-toggler-icon"></span> </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"> <a id="About" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">About</a> </li>
-                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-                                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
-                                <li class="nav-item"> <a id="Help" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">Help</a> </li>
-                                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
-                                        style="padding-left:0px; padding-right:0px;">Login</a> </li>
-                                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
-                                        style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
-                                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
-                                		style="padding-left:0px; padding-right:0px;">Admin</a> </li>
-                                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
-                                		style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid" style="min-width: 600px;">
-    <div class="row" style="padding-top: 100px;">
-	<div class="container">
-		<div class="col-12">
-			<a href="/coupon/couponlist">쿠폰리스트보기</a><br>
-			<a href="/coupon/toregistration">쿠폰등록하기</a>
-			<a href="/mypage/outline">outline 보기</a>
-			<a href="/mypage/main">main보기</a>
-		</div>
-		<div class="row" id="row1">
-			<div class="h2" style="text-align: left; margin-left: 100px; margin-bottom: 20px;">My Page / My info.</div>
-		</div>
-		<div class="col-12">
-		<div class=row>
-			<div class="col-12">
-			<div class="row">
-			<div class="col-12 h3" style="height: 150%; padding-bottom: 10px;">
-			${dto.email }
-			</div>
-			</div>
-		</div>
-		<div class=row>
-			<div class="col-12" style="margin-bottom: 5px;">
-				<button type="button" data-bs-toggle="modal" class="btn1"
-					data-bs-target="#staticBackdrop">비밀번호 변경</button>
-			</div>
-			<div class="col-12">
-				<!-- Modal -->
-				<form action="/member/modipw" method="post" accept-charset="utf-8">
-				<div class="modal fade" id="staticBackdrop"
-					data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-					aria-labelledby="staticBackdropLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" class="h2" id="staticBackdropLabel">비밀번호 변경</h5>
-								<button type="button" class="btn-close" data-bs-dismiss="modal"
-									aria-label="Close"></button>
-							</div>
-							<div class="modal-body">
-								<input type="password" id="newpw" maxlength="12" name="pw" placeholder="비밀번호를 입력해주세요"><br>
-								<span id="pwck" style="display:none">비밀번호 확인중</span><br>
-								<input type="password" id="newpwck" maxlength="12" placeholder="비밀번호를 다시 입력해주세요">
-								<span id="pwck2" style="display:none">비밀번호 확인중</span><br>
-							</div>
-							<div class="modal-footer">
-								<button type="submit" class="btn2" id="pwbtn" disabled="disabled">확인</button>
-								<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
 	<header>
 		<div class="container-fluid" id=navparent>
 			<div class="container">
@@ -795,7 +714,7 @@ color: #FFFFFF;
 
 			</div>
 		</div>
-
+<a href="/mypage/main">main보기</a>
 
 
 		<!-- 푸터단 -->
