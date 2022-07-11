@@ -388,6 +388,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">나의 회원등급</a></li>
 							<li class="body3"><a href="#">나의 쿠폰</a></li>
+							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
@@ -454,17 +455,23 @@ padding: 0.3rem 1rem;
 		}
 		}
 	
+	//쿠폰 등록
+	   $("#registration").on("click",function(){
+      window.open("/coupon/toregistration", "",
+      "top=100,left=200,width=550,height=500");
+      })
+	
 	//선택박스 화살표 방향 이미지
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
 			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
+			$(".navi-menu").toggle();
 			
 			click = true;
 		}else{
 			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
+			$(".navi-menu").toggle();
 			click = false;
 		}
 	});

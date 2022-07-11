@@ -217,6 +217,10 @@ line-height: 3.75rem;
 	font-size: 1.25rem;
 	line-height: 1.875rem;
 	}
+	.content{
+  
+    margin-left:1.75rem;
+}
 }
 
 @media ( max-width : 991px) {
@@ -239,14 +243,14 @@ line-height: 3.75rem;
 	.body4{
 	font-size:1.875rem;
 	}
+	.content{
+	 margin-left:0px;
+	}
 }
 
 /* 네비 */
 
-.content{
-  
-    margin-left:1.75rem;
-}
+
 .mypage-wrap{
 margin:4.625rem auto 9.375rem;
 }
@@ -295,6 +299,61 @@ text-align:left;
 .body3 a{
 display:block;
 padding: 0.3rem 1rem;
+}
+.info{
+font-size:1.625rem;
+padding-bottom:1.3rem;
+ border-bottom:1px solid black;
+  margin-top:1rem;
+  margin-bottom:0.25rem;
+}
+.body5{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 1.875rem;
+}
+.content-row .body4, .content-row .body5{
+margin-bottom:0.8rem;
+}
+.ticket-row .body4{
+font-weight:500;
+font-size:1.675rem;
+}
+.total{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.625rem;
+	line-height: 1.875rem;
+	
+}
+.total-price{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 1.875rem;
+}
+.btn{
+display:inline-block;
+width: 180px;
+height: 50px;
+background: #161C24;
+border-radius: 1.25rem;
+color:white;
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.625rem;
+	line-height: 1.875rem;
+margin-right:1rem;
+border:0px;
+}
+.btn:hover{
+background:#454F5B;
+color:white;
 }
 </style>
 </head>
@@ -364,7 +423,7 @@ padding: 0.3rem 1rem;
 			
 			
 				<div class="navi" >
-				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
+				<a href="#" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">
@@ -372,7 +431,7 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
+							<li class="body3"><a href="#">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -401,8 +460,52 @@ padding: 0.3rem 1rem;
 				
 				
 				
-				<div class="content" style="border:1px solid black">
+				<div class="content">
+				<div class="row content-row" style="min-width:730px;">
+					<div class="col-12 info"  >
+					<strong>주문정보</strong>
+					</div>
 				
+				
+					<div class="col-3 body4" style="margin-top:1.25rem;">주문번호</div>
+					<div class="col-9 body4" style="margin-top:1.25rem;">324123423</div>
+					<div class="col-3 body4">주문일자</div>
+					<div class="col-9 body4">2022-02-25</div>
+					<div class="col-3 body4">주문자</div>
+					<div class="col-9 body4">홍길동</div>
+					<div class="col-3 body4">주문처리상태</div>
+					<div class="col-9 body4">구매완료</div>
+					<div class="col-3 body4" style="margin-bottom:2rem;">결제수단</div>
+					<div class="col-9 body4" style="margin-bottom:2rem;">카카오페이(간편결제)</div>
+				
+				<div class="col-12 info"><strong>예매자 정보</strong></div>
+				<div class="col-3 body5" style="margin-top:1.25rem;">이름</div>
+					<div class="col-9 body5" style="margin-top:1.25rem;">홍길동</div>
+					<div class="col-3 body5">전화번호</div>
+					<div class="col-9 body5">01012341234</div>
+					<div class="col-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
+					<div class="col-9 body5" style="margin-bottom:3rem;">we@naver.com</div>
+				
+				<div class="col-2" style="height:12.5rem;margin-bottom:5.5rem;  ">
+				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
+				</div>
+					<div class="col-9" style="margin-bottom:5.5rem;">
+						<div class="row ticket-row" >
+							<div class="col-12 body4" style="padding-top:1rem;">굿즈모아선물의집</div>
+							<div class="col-12 body4">rew12312예매번호</div>
+							<div class="col-12 body4">9,000원</div>
+						</div>
+					</div>
+				
+				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
+				<div class="col-8 total-price" style="margin-bottom:10rem">9,000원</div>
+				
+				
+				
+				<button class="btn">구매 취소</button>
+				<button class="btn">티켓 확인하기</button>
+				
+				</div>
 				</div>
 
 			
@@ -425,16 +528,19 @@ padding: 0.3rem 1rem;
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer">
-            <div class="container">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
-
-                </div>
-            </div>
-        </div>
+		<div class="row" id="footer" style="margin-top: 12.5rem;">
+			<div class="container">
+				<div class="row" id="row1" style="margin-left: 22.5rem;">
+					<div class="col-12 H3 d-none d-sm-block"
+						style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
+					<div class="col-12 body2 d-none d-sm-block"
+						style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
+						사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 :
+						2022-서울강남-012345 <br> 3호선 경복궁역 지하 1층 | contact@palet.com
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 	
@@ -452,7 +558,7 @@ padding: 0.3rem 1rem;
 		}
 		}
 	
-	//쿠폰등록
+	//쿠폰 등록
 	   $("#registration").on("click",function(){
       window.open("/coupon/toregistration", "",
       "top=100,left=200,width=550,height=500");
@@ -463,12 +569,12 @@ padding: 0.3rem 1rem;
 	$("#select").on("click",function(){
 		if(click==false){
 			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
+			$(".navi-menu").toggle();
 			
 			click = true;
 		}else{
 			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
+			$(".navi-menu").toggle();
 			click = false;
 		}
 	});

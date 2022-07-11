@@ -40,4 +40,9 @@ public class MyPageController {
 		model.addAttribute("url",url);
 		return "/mypage/myTicket";
 	}
+	@RequestMapping("myTicketDetailview")
+	public String myTicketDetailview() {
+		return "/mypage/myTicketDetailview";
+	}
+	
 }
