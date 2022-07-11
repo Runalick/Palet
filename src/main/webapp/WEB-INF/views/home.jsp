@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,11 +11,70 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <link rel="stylesheet" href="/css/home.css">
 
 </head>
 
 <body>
+<c:choose>
+	<c:when test="${loginEmail =='admin@palet.com'}">
+		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+	        <div class="container-fluid">
+	          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
+	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+	          </button>
+	          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	            <ul class="navbar-nav">
+	                <li class="nav-item"> <a id="About" class="nav-link" href="about"
+	                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+	                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+	                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+	                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/event/eventPage"
+                        style="padding-left:0px; padding-right:0px;">Class</a> </li> 
+	                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+	                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+	                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+	                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+	                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+	                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+	            </ul>
+	          </div>
+	        </div>
+	      </nav>
+	</c:when>
+	
+	<c:when test="${loginEmail != null}">
+		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"> <a id="About" class="nav-link" href="about"
+                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/event/eventPage"
+                        style="padding-left:0px; padding-right:0px;">Class</a> </li> 
+                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+                        style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
+            </ul>
+          </div>
+        </div>
+      </nav>
+	</c:when>
+	
+	<c:otherwise>
     <nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
@@ -27,20 +87,20 @@
                         style="padding-left:0px; padding-right:0px;">About</a> </li>
                 <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/event/eventPage"
+                        style="padding-left:0px; padding-right:0px;">Class</a> </li>        
+                <li class="nav-item"> <a id="Class" class="nav-link" href="/shop/toShop"
                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
                 <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
                         style="padding-left:0px; padding-right:0px;">Login</a> </li>
                 <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
                         style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
-                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
-                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
-                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
-                        style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
             </ul>
           </div>
         </div>
       </nav>
+     </c:otherwise>
+</c:choose>    
 
     <div class="container-fluid" >
         <div class="row" id="mainphoto">
@@ -280,12 +340,29 @@
                 </div>
             </div>
         </div>
-
-
     </div>
+<script>
+
+//카카오 초기화 및 토큰 받아오기
+Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
+//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
+
+function logout() {
+	if (Kakao.Auth.getAccessToken()) {
+		Kakao.Auth.logout(function() {
+  			alert("로그아웃 되었습니다.");
+  			location.href="/member/logout";
+		 })
+		 return true;
+	}
+	
+	location.href="/member/logout";
+	return true;
+}
+</script>    
 
 </body>
-
 </html>
 
 
