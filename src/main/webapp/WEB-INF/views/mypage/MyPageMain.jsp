@@ -364,7 +364,7 @@ padding: 0.3rem 1rem;
 			
 			
 				<div class="navi" >
-				<a href="#" style=" font-size:1.625rem;" class="main" >
+				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">
@@ -372,7 +372,7 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>

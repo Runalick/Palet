@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="MyPage">
+	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
+		select * from exticket where et_email=#{value}
+	</select>
+	<select id="myTicketcnt" resultType="int">
+		select count(*) from exticket where et_email=#{value}
+	</select>
+</mapper>
