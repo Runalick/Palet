@@ -364,7 +364,7 @@ padding: 0.3rem 1rem;
 			
 			
 				<div class="navi" >
-				<a href="#" style=" font-size:1.625rem;" class="main" >
+				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">
@@ -372,7 +372,7 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -424,19 +424,16 @@ padding: 0.3rem 1rem;
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer" style="margin-top: 12.5rem;">
-			<div class="container">
-				<div class="row" id="row1" style="margin-left: 22.5rem;">
-					<div class="col-12 H3 d-none d-sm-block"
-						style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
-					<div class="col-12 body2 d-none d-sm-block"
-						style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
-						사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 :
-						2022-서울강남-012345 <br> 3호선 경복궁역 지하 1층 | contact@palet.com
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="row" id="footer">
+            <div class="container">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 
 	</div>
 	
