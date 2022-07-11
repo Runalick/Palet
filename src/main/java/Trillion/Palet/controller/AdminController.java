@@ -77,11 +77,26 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminExhibitionList")
-	public String adminExhibitionList(Model model, int cpage) {
-		List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage);
-		String pageNavi = aServ.getExhibitionPageNavi(cpage);
-		model.addAttribute("list", edto);
-		model.addAttribute("navi", pageNavi);
+	public String adminExhibitionList(Model model, int cpage, String value) {
+		String orderByWord;
+		
+		if (value != null) {
+			orderByWord = value;
+			List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
+			String pageNavi = aServ.getExhibitionPageNavi(cpage);
+			model.addAttribute("list", edto);
+			model.addAttribute("navi", pageNavi);
+			
+			
+		}else {
+			orderByWord = "line";
+			List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
+			String pageNavi = aServ.getExhibitionPageNavi(cpage);
+			model.addAttribute("list", edto);
+			model.addAttribute("navi", pageNavi);
+						
+		}
+		
 		return "/admin/adminExhibitionList";
 	}
 	
@@ -131,11 +146,63 @@ public class AdminController {
 	}
 	
 	@RequestMapping("adminGoodsList")
-	public String adminGoodsList(Model model, int cpage) {
-		List<GoodsDTO> gdto = aServ.goodsSelectByPage(cpage);
-		String pageNavi = aServ.getGoodsPageNavi(cpage);
-		model.addAttribute("list", gdto);
-		model.addAttribute("navi", pageNavi);
+	public String adminGoodsList(Model model, int cpage, String value) {
+		String orderByWord;
+		List<ExhibitionDTO> edto = eServ.exhibitionSelectAll();
+//		List<GoodsDTO> gdto = aServ.goodsSelectByPage(cpage);
+		System.out.println(value);
+		if (value != null) {
+			orderByWord = value;
+			List<GoodsDTO> gdto = aServ.goodsJoinSelectByPage(cpage, orderByWord);
+			String pageNavi = aServ.getGoodsPageNavi(cpage);
+			model.addAttribute("exhibition", edto);
+			model.addAttribute("list", gdto);
+			model.addAttribute("navi", pageNavi);
+			
+			
+		}else {
+			orderByWord = "line";
+			List<GoodsDTO> gdto = aServ.goodsJoinSelectByPage(cpage, orderByWord);
+			String pageNavi = aServ.getGoodsPageNavi(cpage);
+			model.addAttribute("exhibition", edto);
+			model.addAttribute("list", gdto);
+			model.addAttribute("navi", pageNavi);
+						
+		}
+		
 		return "/admin/adminGoodsList";
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="goodsCheckDelete", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public int goodsCheckDelete(@RequestParam(value="checkboxArr[]") List<String> checkboxArr) throws Exception {
+		int result = 0;
+		String checkNum = "";
+		
+		for (String str : checkboxArr) {
+			checkNum = str;
+			System.out.println(str);
+			int g_num = Integer.parseInt(checkNum);
+			aServ.goodsCheckDelelte(g_num);
+		}
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="goodsCheckUpdate", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public int goodsCheckUpdate(@RequestParam(value="checkboxArr2[]") List<String> checkboxArr2, String e_num) throws Exception {
+		System.out.println(e_num);
+		int result = 0;
+		String checkNum = "";
+		
+		for (String str : checkboxArr2) {
+			checkNum = str;
+			System.out.println(str);
+			
+			aServ.goodsCheckUpdate(checkNum, e_num);
+		}
+		return result;
+	}
+	
 }

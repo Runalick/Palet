@@ -492,10 +492,15 @@ $(".askbtn").on("click",function(){
 		
 		$.ajax({
 			url:"/info/askEmail",
-			data:{userEmail:$("#email").val(),title:$("#title").val(),contents:$("#contents").val()},
-			dataType:"json"
+			data:{userEmail:$("#email").val(),title:$("#title").val(),contents:$("#contents").val()}
 		}).done(function(resp){
+
 			console.log("dd");
+
+			console.log(resp);
+			console.log("성공");
+		
+
 // 			??? 이메일은 보내지는데 콘솔에 성공이 안뜸
 		})
 	}

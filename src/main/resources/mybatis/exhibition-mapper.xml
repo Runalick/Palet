@@ -14,6 +14,16 @@
     
     <select id="exhibitionSelectByPage" resultType="Trillion.Palet.DTO.ExhibitionDTO">
   		select * from (select row_number() over(order by e_num desc) line, exhibition.* from exhibition) where line between #{start} and #{end}
+  		<trim prefix="order by">
+  			<if test="order == 'line'">line</if>
+  			<if test="order == 'e_num'">e_num</if>
+	  		<if test="order == 'e_name'">e_name</if>
+	  		<if test="order == 'start_date'">start_date</if>
+	  		<if test="order == 'end_date'">end_date desc</if>
+	  		<if test="order == 'e_price'">e_price</if>
+  			<if test="order == 'e_period'">e_period</if>
+  			<if test="order == 'sales_count'">sales_count</if>
+  		</trim>
   	</select>
   	
   	<select id="getExhibitionTotalCount" resultType="int">

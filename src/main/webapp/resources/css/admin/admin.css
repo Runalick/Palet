@@ -548,6 +548,40 @@
 		  	cursor: pointer;
 		}
 		
+		
+		.btn0_1_1 {
+/*             padding: 1.125rem 1.5rem; */
+            gap: 0.625rem;
+
+
+            /* width: 18.813rem; */
+            width: 8.625rem;
+            height: 2.0rem;
+
+
+            color: #161C24;
+            border-radius: 1.25rem;
+            border : 0.080rem solid #F4F6F8;
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 1.1rem;
+            line-height: 0.5rem;
+            /* identical to box height */
+
+            text-align: center;
+
+            /* Gray/900 */
+
+            background: #F4F6F8;
+            cursor: pointer;
+		}
+		.btn0_1_1:hover {
+			background: #161C24;
+			color: #F4F6F8;
+		  	cursor: pointer;
+		}
+		
 		.btn1_0 {
             box-sizing: border-box;
             
