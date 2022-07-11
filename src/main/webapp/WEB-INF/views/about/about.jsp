@@ -495,13 +495,12 @@ $(".askbtn").on("click",function(){
 			data:{userEmail:$("#email").val(),title:$("#title").val(),contents:$("#contents").val()}
 		}).done(function(resp){
 
-			console.log("dd");
 
-			console.log(resp);
-			console.log("성공");
-		
+			$("#email").val("");
+			$("#title").val("");
+			$("#contents").val("");
+			alert("문의가 접수되었습니다");
 
-// 			??? 이메일은 보내지는데 콘솔에 성공이 안뜸
 		})
 	}
 		

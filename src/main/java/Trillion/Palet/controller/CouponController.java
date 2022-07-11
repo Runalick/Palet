@@ -27,6 +27,9 @@ public class CouponController {
 	public String Registration(String serial) throws Exception{
 		String email = (String) session.getAttribute("loginEmail");
 		CouponDTO dto = cser.isusecoupon(serial);
+		if(dto==null) {
+			return "false";
+		}
 		//쿠폰 사용여부 확인
 		if(dto.getEmail()==null&&(dto.getUse()=="N"||dto.getUse()==null)) {
 			cser.userupdate(serial,email);

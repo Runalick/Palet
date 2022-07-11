@@ -2,14 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
   
 <mapper namespace="Event"> 
 
 	<insert id="add">
-		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N')
-		<selectKey order="AFTER" keyProperty="draw_seq" resultType="int">
-			select draw_seq.currval from dual
-		</selectKey>	
+		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N')	
 	</insert>
 	
 	<insert id="picadd">
@@ -20,11 +18,6 @@
 		select count(*) from drawing_pic where email = #{email}
 	</select>
 	
-	<insert id="testsave">
-		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N')
-	</insert>
-	
-	
 	<resultMap type="HashMap" id="imgMap">
 	  <result property="d_file" column="d_file" jdbcType="CLOB" javaType="java.lang.String" />
 	</resultMap>
@@ -33,17 +26,39 @@
 	   select d_file from drawing
 	</select>
 	
-	<resultMap type="HashMap" id="selectMap">
+	 
+    <resultMap type="HashMap" id="selectMap">
 	  <result property="draw_seq" column="draw_seq"/>
 	  <result property="d_title" column="d_title"/>
 	  <result property="painter" column="painter"/>
 	  <result property="d_file" column="d_file" jdbcType="CLOB" javaType="java.lang.String" />
 	  <result property="email" column="email"/>
+	  <result property="admin_ok" column="admin_ok"/>
 	</resultMap>
 
 	<select id="selectAll" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-	   select * from drawing
+	   select * from drawing order by admin_ok ASC
 	</select>
+	
+	<select id="selectTitle" resultType="String">
+		select d_title from drawing
+	</select> 
+	
+	<update id="updateConfirm">
+		update drawing set admin_ok='Y' where draw_seq=#{draw_seq}
+	</update>
+	
+	<delete id="deleteDraw">
+		delete drawing where draw_seq=#{draw_seq}
+	</delete>
+	
+	<select id="selectConfirm" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
+	   select * from drawing where admin_ok='Y'
+	</select>
+	
+	<select id="findEmail" resultType="int">
+		select count(*) from drawing where email=#{email}
+	</select> 
 	
 	
 </mapper>

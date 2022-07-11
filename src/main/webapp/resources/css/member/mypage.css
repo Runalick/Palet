@@ -159,8 +159,8 @@
             font-family: 'Spoqa Han Sans Neo';
             font-style: normal;
             font-weight: 400;
-            font-size: 3.25rem;
-            line-height: 3.875rem;
+            font-size: 1.25rem;
+            line-height: 1.875rem;
             /* identical to box height, or 150% */
 
 
@@ -213,17 +213,15 @@
             margin-bottom: 0.625rem;
 		}
 		
-		/*모달전 버튼들*/
+		/*인증코드 보내기 버튼*/
         .btn1 {
 
             /* padding:  1.12rem 1.5rem; */
             gap: 0.625rem;
 
             /* width: 12.5rem; */
-			width: 1000%;
+			width: 100%;
             height: 3.125rem;
-            
-            max-width:12.5rem;
             
             /* Gray/900 */
             color:#FFFFFF;
@@ -246,7 +244,7 @@
             cursor: default;
         }
 		
-		/* 모달창안 버튼 */
+		/* join 버튼 */
         .btn2 {
 
             padding: 1.125rem 1.5rem;
@@ -254,8 +252,8 @@
 
 
             /* width: 18.813rem; */
-            width: 10rem;
-            height: 2.75rem;
+            width: 25rem;
+            height: 3.75rem;
 
 
             color: #FFFFFF;
@@ -264,7 +262,7 @@
             font-style: normal;
             font-weight: 500;
             font-size: 1.25rem;
-            line-height: 0.5rem;
+            line-height: 1.5rem;
             /* identical to box height */
 
             text-align: center;
