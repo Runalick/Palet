@@ -169,7 +169,7 @@ input[type=number]{
 	background: #FFFFFF;
 	border-radius: 20px;
 	margin: 5px;
-	
+	cursor: pointer;
 }
 
 .btn2{
@@ -200,7 +200,7 @@ input[type=number]{
 	padding: 1.125rem 1.54rem;
 	gap: 0.625rem;
 	
-	width: 7rem;
+	width: 14rem;
 	height: 3.125rem;
 	
 	/* Gray/900 */
@@ -208,7 +208,10 @@ input[type=number]{
 	background: #161C24;
 	border-radius: 20px;	
 	margin: 5px;
+	cursor: pointer;
 }
+
+
 
 .drawing{
 	display: flex;

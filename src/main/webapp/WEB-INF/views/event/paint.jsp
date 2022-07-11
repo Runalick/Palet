@@ -90,14 +90,22 @@
 			<button id="jsSave" class="btn1">Save</button>
 		</div>
 		<div>
-			<button id="jsSubmit" class="btn2">Submit</button> 
+			<button id="jsSubmit" class="btn1">Submit</button> 
 		</div>
     </div>  
+    <div>
+    	<div><button class="btn2" id="back">출품작 보러가기</button></div>
+    </div>
 	</div>
       
-
+	<script>
+		$("#back").on("click", function(){
+			location.href = "/event/participation";
+		})
+	</script>
   
-  <script src="/js/paint.js"> </script>
+  <script src="/js/paint.js"> 
+  </script>
 	
 </body>
 </html>

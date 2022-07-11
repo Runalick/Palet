@@ -88,7 +88,7 @@
 									href="/member/join"
 									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
 								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/event/participation"
+									href="/event/eventPage"
 									style="padding-left: 0px; padding-right: 0px;">Event</a></li>
 							</ul>
 						</div>

@@ -1,16 +1,13 @@
 package Trillion.Palet.service;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import Trillion.Palet.DAO.DrawingDAO;
-import Trillion.Palet.DAO.Drawing_PicDAO;
 import Trillion.Palet.DTO.DrawingDTO;
-import Trillion.Palet.DTO.ImgDTO;
 
 @Service
 public class EventService {
@@ -18,11 +15,8 @@ public class EventService {
 	@Autowired
 	private DrawingDAO dao;
 
-	@Autowired
-	private Drawing_PicDAO pdao;
-
 	@Transactional
-	public void add(DrawingDTO dto) throws Exception {
+	public int add(DrawingDTO dto) throws Exception {
 
 		/*
 		 * String oriName = file.getOriginalFilename(); System.out.println(oriName);
@@ -36,25 +30,42 @@ public class EventService {
 		 * 
 		 * file.transferTo(new File(realPath+"/"+sysName)); if(oriName != "") {
 		 * pdao.insert(new Drawing_PicDTO(0,sysName,draw_seq)); }
-		 */
-		
-		
-		int draw_seq = dao.add(dto);
-	}
-
-	public boolean isEmailExist(String email) {
-		return pdao.isEmailExist(email);
+		 */		
+		return dao.add(dto);
 	}
 
 	public List<Object> selectImage() {
 		return dao.selectImage();
 	}
 	
-	public List<Object> selectAll() {
-		return dao.selectImage();
+	
+	public List<Object> selectAll() { 
+		return dao.selectAll(); 
 	}
 	
-	public int testsave(DrawingDTO dto) {
-		return dao.testsave(dto);
+	
+	public List<Object> selectTitle() {
+		return dao.selectTitle();
 	}
+
+	public int confirmation(int draw_seq) {
+		return dao.updateConfirm(draw_seq);
+		
+	}
+
+	public int deleteDraw(int draw_seq) {
+		return dao.deleteDraw(draw_seq);
+		
+	}
+
+	public List<Object> selectConfirm() {
+		return dao.selectConfirm();
+	}
+
+	public int findEmail(String email) {
+		return dao.findEmail(email);
+	}
+	
+	
+	
 }
