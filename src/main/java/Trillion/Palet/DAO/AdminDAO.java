@@ -90,12 +90,13 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
-	public List<ExhibitionDTO> exhibitionSelectByPage (int cpage) {
+	public List<ExhibitionDTO> exhibitionSelectByPage (int cpage, String order) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);
 		Map<String, String> param = new HashMap<>();
 		param.put("start", start);
 		param.put("end", end);
+		param.put("order", order);
 		return mybatis.selectList("Exhibition.exhibitionSelectByPage", param);
 	}
 	
@@ -166,6 +167,16 @@ public class AdminDAO {
 		return mybatis.selectList("Goods.goodsSelectByPage", param);
 	}
 	
+	public List<GoodsDTO> goodsJoinSelectByPage(int cpage, String order){
+		String start = String.valueOf(cpage * 10 - 9);
+		String end = String.valueOf(cpage * 10);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		param.put("order", order);
+		return mybatis.selectList("Goods.goodsJoinSelectByPage", param);
+	}
+	
 	private int getGoodsTotalCount() {
 		return mybatis.selectOne("Goods.getGoodsTotalCount");
 	}
@@ -222,4 +233,16 @@ public class AdminDAO {
 	public List<SalesDTO> getWeekSales(){
 		return mybatis.selectList("Admin.getWeekSales");
 	}
+	
+	public int goodsCheckDelete(int g_num) {
+		return mybatis.delete("Goods.goodsCheckDelete", g_num);
+	}
+	
+	public int goodsCheckUpdate(String g_num, String e_num) {
+		Map<String, String> param = new HashMap<>();
+		param.put("g_num", g_num);
+		param.put("e_num", e_num);
+		return mybatis.update("Goods.goodsCheckUpdate", param);	
+	}
+	
 }
