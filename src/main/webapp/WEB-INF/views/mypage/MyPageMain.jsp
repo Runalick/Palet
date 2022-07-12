@@ -61,6 +61,7 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
+	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
@@ -300,7 +301,7 @@ padding: 0.3rem 1rem;
 </head>
 <body>
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid" >
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -355,7 +356,7 @@ padding: 0.3rem 1rem;
 		</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
-		<div class="container" >
+		<div class="container" style="padding-left:2.5rem;">
 			<div class="row mypage-wrap"  >
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
@@ -402,7 +403,7 @@ padding: 0.3rem 1rem;
 				
 				
 				<div class="content" style="border:1px solid black">
-				
+				메인화면입니다. 
 				</div>
 
 			

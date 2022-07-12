@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" 
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,60 +8,110 @@
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Palet</title>
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
-	rel='stylesheet' type='text/css'>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <link rel="stylesheet" href="/css/home.css">
 
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-md bg-light navbar-light"
-		id="navparent">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><img src="/images/Logo.svg"
-				border=0></a>
-			<button class="navbar-toggler collapsed" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-end"
-				id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item"><a id="About" class="nav-link"
-						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-					</li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/Exhibition/toCurExhibition"
-						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/program/toProgram"
-						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-					<li class="nav-item"><a id="Shop" class="nav-link"
-						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
-					</li>
-					<li class="nav-item"><a id="Login" class="nav-link"
-						href="/member/loginPage"
-						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-					<li class="nav-item"><a id="Signup" class="nav-link"
-						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
-							up</a></li>
-					<li class="nav-item"><a id="Admin" class="nav-link"
-						href="/admin/adminMain"
-						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-					<li class="nav-item"><a id="Mypage" class="nav-link"
-						href="/member/mypage"
-						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+
+<c:choose>
+	<c:when test="${loginEmail =='admin@palet.com'}">
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+	        <div class="container" style="padding: 0.625rem;">
+	          <a class="navbar-brand" href="/"><img src="/images/Logo.svg" border=0 class="logoimg"></a>
+	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+	            <span class="navbar-toggler-icon"></span>
+	          </button>
+	          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+	            <ul class="navbar-nav">
+	                <li class="nav-item"> <a id="About" class="nav-link" href="about"
+	                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+	                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+	                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+	                <li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
+                        style="padding-left:0px; padding-right:0px;">Class</a> </li> 
+	                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+	                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+	                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+	                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+	                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+	                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+	            </ul>
+	          </div>
+	        </div>
+	      </nav>
+	</div>
+	</c:when>
+	
+	<c:when test="${loginEmail != null}">
+	<div class="container-fluid">
+		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+        <div class="container" style="padding: 10px;">
+          <a class="navbar-brand" href="/"><img src="/images/Logo.svg" border=0 class="logoimg"></a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"> <a id="About" class="nav-link" href="about"
+                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+                <li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
+                        style="padding-left:0px; padding-right:0px;">Class</a> </li> 
+                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+	                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+                        style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+	</c:when>
+	
+	<c:otherwise>
+	<div class="container-fluid">
+    	<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+        <div class="container" style="padding: 10px;">
+        	<a class="navbar-brand" href="/"><img src="/images/Logo.svg" border=0 class="logoimg"></a>
+          	<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            	<span class="navbar-toggler-icon"></span>
+          	</button>
+          	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            	<ul class="navbar-nav">
+                	<li class="nav-item"> <a id="About" class="nav-link" href="about"
+                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+                	<li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+                	<li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
+                        style="padding-left:0px; padding-right:0px;">Class</a> </li>        
+                	<li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+                	<li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+                        style="padding-left:0px; padding-right:0px;">Login</a> </li>
+                	<li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+                        style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+            	</ul>
+          	</div>
+        </div>
+    	</nav>
+     </div>
+     </c:otherwise>
+</c:choose>    
+
 
 	<div class="container-fluid">
 		<div class="row" id="mainphoto">
@@ -68,98 +119,97 @@
 				<div class="row" id="row1">
 
 
-
 					<!-- <div class="col-12" id=word1>
                     </div> -->
-					<div class="col-12 h1 d-block d-sm-none"
-						style="text-align: center; margin-top: 12.5rem;">Romantic
-						Days</div>
-					<br>
-					<div class="col-12 h1 d-block d-sm-none"
-						style="text-align: center;">어쨋든 사랑</div>
-					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 12.5rem;">Romantic Days</div>
-					<br>
-					<div class="col-12 h1 d-none d-sm-block">어쨋든 사랑</div>
-					<div class=col-12>
-						<div class="col-12 body1 d-block d-sm-none"
-							style="text-align: center; margin-top: 2.5rem;">2022.03.16
-							~ 2022.10.30</div>
-						<div class="col-12 body1 d-none d-sm-block"
-							style="margin-top: 2.5rem;">2022.03.16 ~ 2022.10.30</div>
-					</div>
+
+                    <div class="col-12 h1 d-block d-sm-none" style="text-align: center; margin-top : 12.5rem;">Romantic Days</div><br>
+                    <div class="col-12 h1 d-block d-sm-none" style="text-align: center;">어쨋든 사랑</div>
+                    <div class="col-12 h1 d-none d-sm-block" style = "margin-top : 12.5rem;">Romantic Days</div><br>
+                    <div class="col-12 h1 d-none d-sm-block">어쨋든 사랑</div>
+                    <div class=col-12>
+                        <div class="col-12 body1 d-block d-sm-none" style="text-align: center; margin-top : 2.5rem;"> 2022.03.16 ~ 2022.10.30
+                        </div>
+                        <div class="col-12 body1 d-none d-sm-block" style = "margin-top : 2.5rem;"> 2022.03.16 ~ 2022.10.30</div>
+                    </div>
+                   
+
+
+                    <div class="col-12  d-none d-sm-block" style = "margin-bottom: 14.75rem; margin-top : 5rem; " >
+                        <button class="btn1">자세히 보기</button>
+                        <button class="btn2">예매 하기</button>
+                    </div>
+                    <div class="col-12 d-block d-sm-none" style="margin-bottom: 14.75rem; text-align: center; margin-top : 5rem;">
+
+                        <button class="btn1" style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
+                            보기</button><br>
+                        <button class="btn2" style="  text-align: center;">예매 하기</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row hcon" style="background: #F4F6F8; margin: 0px;">
+
+            <div class="container">
+                <div class="row hcon" id="row1">
+                    <div class="col-md-1  d-none d-sm-block h4">
+                        운영시간
+                    </div>
+                    <div class="col-md-4 d-none d-sm-block body2">
+                        화요일–일요일(월요일 휴관), 10:00–18:00
+                    </div>
+                    <div class="col-md-1 d-none d-sm-block h4">
+                        전시장소
+                    </div>
+                    <div class="col-md-6 d-none d-sm-block body2">
+                        지하철3호선 경복궁역 지하 1층
+                    </div>
+                    <div class="col-md-1  d-block d-sm-none h4" style="text-align: center; ">
+                        운영시간
+                    </div>
+                    <div class="col-md-4 d-block d-sm-none body2" style="text-align: center;">
+                        화요일–일요일(월요일 휴관), 10:00–18:00
+                    </div>
+                    <div class="col-md-1 d-block d-sm-none h4" style="text-align: center;">
+                        전시장소
+                    </div>
+                    <div class="col-md-6 d-block d-sm-none body2" style="text-align: center;">
+                        지하철3호선 경복궁역 지하 1층
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
 
 
 
-					<div class="col-12  d-none d-sm-block"
-						style="margin-bottom: 14.75rem; margin-top: 5rem;">
-						<button class="btn1">자세히 보기</button>
-						<button class="btn2">예매 하기</button>
-					</div>
-					<div class="col-12 d-block d-sm-none"
-						style="margin-bottom: 14.75rem; text-align: center; margin-top: 5rem;">
-
-						<button class="btn1"
-							style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
-							보기</button>
-						<br>
-						<button class="btn2" style="text-align: center;">예매 하기</button>
-					</div>
-
-				</div>
-			</div>
-		</div>
-		<div class="row hcon" style="background: #F4F6F8; margin: 0px;">
-
-			<div class="container">
-				<div class="row hcon" id="row1">
-					<div class="col-md-1  d-none d-sm-block h4">운영시간</div>
-					<div class="col-md-4 d-none d-sm-block body2">화요일–일요일(월요일
-						휴관), 10:00–18:00</div>
-					<div class="col-md-1 d-none d-sm-block h4">전시장소</div>
-					<div class="col-md-6 d-none d-sm-block body2">지하철3호선 경복궁역 지하
-						1층</div>
-					<div class="col-md-1  d-block d-sm-none h4"
-						style="text-align: center;">운영시간</div>
-					<div class="col-md-4 d-block d-sm-none body2"
-						style="text-align: center;">화요일–일요일(월요일 휴관), 10:00–18:00</div>
-					<div class="col-md-1 d-block d-sm-none h4"
-						style="text-align: center;">전시장소</div>
-					<div class="col-md-6 d-block d-sm-none body2"
-						style="text-align: center;">지하철3호선 경복궁역 지하 1층</div>
-				</div>
-
-			</div>
-			<div class="row" style="margin-top: 10rem;">
-				<div class="col-12 h2">베스트 셀러</div>
-			</div>
-		</div>
-
-
-
-		<div class="container">
-			<div class="row " style="margin-top: 3.75rem;" id="row1">
-				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/image 21.png" class="w-100 p-3"
-						style="padding-left: 0px;">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-1.png" class="w-100 p-3">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-2.png" class="w-100 p-3">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-3.png" class="w-100 p-3">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-4.png" class="w-100 p-3">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods.png" class="w-100 p-3">
-				</div>
-			</div>
-
+        <div class="container">
+        	<div class="row" style="margin-top: 10rem;">
+                <div class="col-12 h2">
+                    베스트 셀러
+                </div>
+            </div>
+            <div class="row " style="margin-top: 3.75rem;" id="row1">
+                <div class="col-xl-4 col-sm-6 " style="text-align: center; ">
+                    <img src="/images/image 21.png" class="w-100 p-3" style="padding-left: 0px;">
+                </div>
+                <div class="col-xl-4 col-sm-6" style="text-align: center;">
+                    <img src="/images/BestGoods-1.png" class="w-100 p-3">
+                </div>
+                <div class="col-xl-4 col-sm-6" style="text-align: center;">
+                    <img src="/images/BestGoods-2.png" class="w-100 p-3">
+                </div>
+                <div class="col-xl-4 col-sm-6" style="text-align: center;">
+                    <img src="/images/BestGoods-3.png" class="w-100 p-3">
+                </div>
+                <div class="col-xl-4 col-sm-6" style="text-align: center;">
+                    <img src="/images/BestGoods-4.png" class="w-100 p-3">
+                </div>
+                <div class="col-xl-4 col-sm-6" style="text-align: center;">
+                    <img src="/images/BestGoods.png" class="w-100 p-3">
+                </div>
+            </div>
 
 		</div>
 
@@ -173,13 +223,6 @@
 
 			</div>
 		</div>
-
-
-
-
-
-
-
 
 
 		<div class="row" id="mainphoto2" style="margin-top: 12.5rem;">
@@ -317,15 +360,33 @@
 					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
 						1층 | contact@palet.com</div>
 
-				</div>
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
 
+//카카오 초기화 및 토큰 받아오기
+Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
+//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
 
-	</div>
+function logout() {
+	if (Kakao.Auth.getAccessToken()) {
+		Kakao.Auth.logout(function() {
+  			alert("로그아웃 되었습니다.");
+  			location.href="/member/logout";
+		 })
+		 return true;
+	}
+	
+	location.href="/member/logout";
+	return true;
+}
+</script>    
+
 
 </body>
-
 </html>
 
 

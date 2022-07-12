@@ -19,6 +19,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
 	integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
 	crossorigin="anonymous"></script>
+	<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -29,15 +32,15 @@
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
- @media ( min-width : 375px) { 
- 	.container { 
- 		max-width: 1280px; 
- 		min-width: 390px; 
- 	} 
- 	html { 
- 		font-size: 12px; 
- 	} 
- } 
+  @media ( min-width : 375px) {  
+  	.container {  
+  		max-width: 1280px;  
+  		min-width: 390px;  
+  	}  
+  	html {  
+  		font-size: 12px;  
+  	}  
+  }  
 
 @media ( min-width : 1650px) {
 	.container {
@@ -163,6 +166,11 @@
 	font-size: 1.25rem;
 	line-height: 1.875rem;
 }
+     .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+         margin-right:0px;
+         margin-left:0px;
+         
+      }
 .H3{
 font-family: 'Spoqa Han Sans Neo';
 font-style: normal;
@@ -256,7 +264,7 @@ top:1.25rem;
 }
 .list{
 box-sizing: border-box;
-width: 49.25rem;
+max-width: 49.25rem;
 height: 10rem;
 background: #FFFFFF;
 /* Gray/300 */
@@ -302,11 +310,7 @@ right:4.25rem;
 }
 /* 결제부분 */
 
-#payment-area{
-width:23.5rem;
-height:20.688rem;
-float:right;
-}
+
 #total-area{
 box-sizing: border-box;
 height: 12.625rem;
@@ -325,7 +329,6 @@ justify-content: center;
 align-items: center;
 padding: 1.125rem 1.5rem;
 gap: 0.625rem;
-position: absolute;
 width: 23.5rem;
 height: 3.75;
 background: #161C24;
@@ -412,11 +415,15 @@ right:1.5rem;
 }
 
 
-@media ( min-width : 870px) {
-
+@media ( min-width : 990px) {
+#payment-area{
+width:23.5rem;
+height:20.688rem;
+float:right;
+}
 }
 
-@media ( max-width : 871px) {
+@media ( max-width : 990px) {
 .small-payment-area{
 margin-left:1.6rem;
 margin-top:2.675rem;
@@ -426,26 +433,18 @@ height:14.025rem;
 }
 #payment-area{
 padding:0rem;
-width:33rem;
-height:23.688rem;
+max-width:50rem;
+height:26.688rem;
 }
+
 .body1, .H3, #paybtn{
-font-size:1.875rem;
+/* font-size:1.875rem; */
 }
-.body2, .H4{
+.H4{
 font-size:1.5rem;
 }
-.hug{
-width:6.25rem;
-}
-.list{
-width:55.25rem;
-height:12rem;
-}
-input.checkbox, .checkbox2{
-width:1.4rem;
-height:1.4rem;
-}
+
+
 #span1{
 width:7.73rem;
 margin-right:3rem;
@@ -458,6 +457,7 @@ margin-bottom:1rem;
 #span2{
 margin-right:4.788rem;
 width:5.03rem;
+text-align:left;
 }
 #span5{
 width:10.175rem;
@@ -476,25 +476,29 @@ text-align:left;
 width:9.875rem;
 margin-right:1.325rem;
 }
-#payment-area{
-width:33rem;
-height:24.088rem;
-padding:0rem;
-}
+
 #paybtn{
-width:33rem;
+width:100%;
 height:4.5rem;
 margin-top:2.25rem;
+}
+#paybtn:hover{
+background:#454F5B;
+}
+.cntbtn:hover{
+background:#F4F6F8;
 }
 .Caption{
 font-size:1.325rem;
 }
 }
-
+.container{
+margin:auto;
+}
 </style>
 <body>
 	<!-- 네비단 -->
-	<div class="container-fluid" id=navparent>
+	<div class="container-fluid" >
 		<div class="container">
 			<div class="row" id="container1" >
 				<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -539,9 +543,9 @@ font-size:1.325rem;
 		</div>
 	</div>
 	<!-- 본문단 -->
-	<div class="container-fluid" id="mainparent">
-		<div class="container">
-			<div class="row" style="padding-top: 7.5rem; text-align: center;width:80rem;margin:auto;">
+	<div class="container-fluid" id="mainparent" style="padding:0px">
+		<div class="container" style="padding:0px">
+			<div class="row" style="padding-top: 2.5rem; text-align: center;width:100%;margin:auto;">
 				<div class="col-12 h2" id="cart">Cart( ${totalList.total_num } )</div>
 
 
@@ -583,7 +587,7 @@ font-size:1.325rem;
 				</div>
 				</c:otherwise>	
 			</c:choose>	
-			<div class="container" style="min-width:80rem; min-height:40rem;">	
+			<div class="container" style=" min-height:40rem;">	
 <!-- 			결제 부분 -->
 			<div class="main-container"></div>
 			<c:choose>
@@ -595,19 +599,30 @@ font-size:1.325rem;
 				
 					<div class="row" id="total-area">
 						<div class="col-12" style="padding:1.75rem;">
+							<div class="col-12">
 							<span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 							<span class="H4 totalprice" id="span4"></span>
+							</div>
+							
+							<div class="col-12">
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
 							<span class="H4 deliveryprice" id="span5"></span>
+							</div>
+							<div class="col-12">
 							<span class="H3" id="span3" >총 결제 금액</span>
 							<span class="H3 finalTotalPrice" id="span6"></span>
+							</div>
+							<div class="col-12">
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
 							<span class="Caption totalPoint" id="span8" style="color: #919EAB;"></span>
+							</div>
 						</div>
 					</div>
-					
+					<div class="row">
+					<div class="col-12">
 					<button id="paybtn">선택상품 주문하기</button>
-					
+					</div>
+					</div>
 					
 				</div>
 			
@@ -628,7 +643,7 @@ font-size:1.325rem;
 							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_num }" style="margin-top:0.375rem;">
 							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
-						<div class="col-9 productInfo" style="width:38rem">
+						<div class="col-9 productInfo" style="width:10rem">
 							<div class="body1 title">${i.g_name} -${i.g_option }</div>
 							<div class="H3 price" id="${i.g_num }"> </div>
 							<script>
@@ -659,7 +674,7 @@ font-size:1.325rem;
 					</div>
 				</c:forEach>
 
-				<div class="row small-payment-area" style="padding:0px; margin-bottom:1.25rem">	</div>
+				<div class="row small-payment-area" style="padding:0px;margin-left:1.4rem; margin-bottom:1.25rem">	</div>
 					
 					
 					
@@ -675,7 +690,7 @@ $(document).ready(function(){
 
 function open_chatroom(){ 
 	var windowWidth = $( window ).width();
-	if(windowWidth < 850) {      //창 가로 크기가 850 미만일 경우  
+	if(windowWidth < 990) {      //창 가로 크기가 850 미만일 경우  
 		$("#payment-area").css({"display":"block"});
 		
 		$(".small-payment-area").append($("#payment-area"));
@@ -777,7 +792,7 @@ function setTotalInfo() {
 	<!-- 푸터단 -->
 
 	<div class="row" id="footer">
-            <div class="container">
+            <div class="container" style="padding-left:2.5rem;">
                 <div class="row" id="row1">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
@@ -786,7 +801,6 @@ function setTotalInfo() {
                 </div>
             </div>
         </div>
-	
 	
 	<script>
 	//쇼핑하러 가기
