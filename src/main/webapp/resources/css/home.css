@@ -134,6 +134,12 @@
             width: 4.438rem;
             height: 1.5rem;
         }
+        
+        .logoimg {
+        	padding-left: 0.938rem;
+        	padding-top: 0.625rem;
+        	padding-bottom: 0.625rem;
+        }
 
 		/*네비바 적용 css - 맨 상단부터 여기까지 복붙하세요*/
 
