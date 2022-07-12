@@ -495,7 +495,7 @@ color:white;
                         	<div class="row">
                         		
                         		<div class="col-12" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
-                        	<div class="col-12">${defaultAddress.name }</div>
+                        	<div class="col-12">${defaultAddress.receiver }</div>
                         	</div>
                       
                         
@@ -503,14 +503,14 @@ color:white;
                         <div class="col-5 body3">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
                         <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
                         <div class="col-2 col-md-3 body3" style="text-align:center">
-                        <button class="btnbtn sm-btn body3" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
                         <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
                         </div>
                      </div>
 							
 					<c:forEach var="i" items="${list }">
                      <div class="row list" >
-                        <div class="col-2 body3">${i.name }</div>
+                        <div class="col-2 body3">${i.receiver }</div>
                         <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
                         <div class="col-3 col-md-2 body3">${i.phone }</div>
                         <div class="col-2 col-md-3 body3" style="text-align:center">
@@ -595,6 +595,14 @@ color:white;
 	})
 	//배송지 등록
 	$("#insert").on("click",function(){
+	
+		if ($(".modi").length === 5) {
+			alert("배송지는 최대 5개까지 등록 가능합니다.");
+			return false;
+		}
+		
+
+		
 		window.open("/delivery/insert","", "top=100,left=200,width=620,height=530");
 	})
 	//쿠폰
