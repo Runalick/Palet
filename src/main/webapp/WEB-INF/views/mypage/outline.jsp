@@ -372,7 +372,7 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -380,7 +380,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
