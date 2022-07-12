@@ -24,7 +24,7 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
+		\
 	}
 	html {
 		font-size: 12px;
@@ -34,7 +34,6 @@
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -75,7 +74,7 @@
 }
 
 .nav-item {
-	padding-left: 20px;
+
 	padding-right: 20px;
 }
 
@@ -200,19 +199,16 @@
 	/* Inside auto layout */
 }
 
-.btn1_1{
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-
-
-width: 23.5rem;
+.btn1_1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 23.5rem;
 	height: 3.75rem;
-
-font-family: 'Spoqa Han Sans Neo';
+	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 1.25rem;
@@ -220,10 +216,9 @@ font-family: 'Spoqa Han Sans Neo';
 	/* identical to box height */
 	text-align: center;
 	color: #FFFFFF;
-/* Gray/900 */
-
-background: #161C24;
-border-radius: 20px;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 20px;
 }
 
 .btn2 {
@@ -370,21 +365,27 @@ align-items: center; */
 	float: left;
 }
 
-.curimage{
-width:23.5rem;
-height: 32.5rem;
+.curimage {
+	width: 23.5rem;
+	height: 32.5rem;
 }
 
-.exlink{
-text-decoration :none;
-color: #919EAB;
+.exlink {
+	text-decoration: none;
+	color: #919EAB;
 }
 
-a{
-text-decoration :none;
-padding:0px;
+a {
+	text-decoration: none;
+	padding: 0px;
 }
 
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 </style>
 
 
@@ -393,42 +394,46 @@ padding:0px;
 	<div class="container-fluid">
 		<div class="container">
 			<div class="row" id="container1">
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
+				<nav class="navbar navbar-expand-md bg-light navbar-light">
 					<div class="container" id="navparent">
 						<a class="navbar-brand" href="/" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-						<button class="navbar-toggler" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-							<span class="navbar-toggler-icon"></span>
-						</button>
+							style="padding: 0px;"><img src="/images/Logo.svg"  border=0></a>
+
+						<div style="height: 5rem;">
+							<button class="navbar-toggler" type="button"
+								data-bs-toggle="collapse" style="margin-top: 15px;" data-bs-target="#collapsibleNavbar">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+						</div>
+
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-					<li class="nav-item"><a id="About" class="nav-link"
-						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-					</li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/Exhibition/toCurExhibition"
-						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/program/toProgram"
-						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-					<li class="nav-item"><a id="Shop" class="nav-link"
-						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
-					</li>
-					<li class="nav-item"><a id="Login" class="nav-link"
-						href="/member/loginPage"
-						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-					<li class="nav-item"><a id="Signup" class="nav-link"
-						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
-							up</a></li>
-					<li class="nav-item"><a id="Admin" class="nav-link"
-						href="/admin/adminMain"
-						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-					<li class="nav-item"><a id="Mypage" class="nav-link"
-						href="/member/mypage"
-						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-				</ul>
+								<li class="nav-item"><a id="About" class="nav-link"
+									href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+								</li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/Exhibition/toCurExhibition"
+									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/program/toProgram"
+									style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+								<li class="nav-item"><a id="Shop" class="nav-link"
+									href="/shop/toShop"
+									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+								<li class="nav-item"><a id="Login" class="nav-link"
+									href="/member/loginPage"
+									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+								<li class="nav-item"><a id="Signup" class="nav-link"
+									href="/member/join"
+									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+								<li class="nav-item"><a id="Admin" class="nav-link"
+									href="/admin/adminMain"
+									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+								<li class="nav-item"><a id="Mypage" class="nav-link"
+									href="/member/mypage"
+									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+							</ul>
 						</div>
 					</div>
 				</nav>
@@ -439,47 +444,52 @@ padding:0px;
 				<ul class="col-4 ul2 h3 offset-4"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; margin-left: 3.1rem;">현재 전시</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink" href="/Exhibition/toPreExhibition">과거
-						전시</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class ="exlink" href = "/Exhibition/toUpcommingExhibition">예정
-						전시</a></li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
+						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
+						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
 
 				</ul>
 			</div>
 			<div class="row" id="container1">
 				<div class="col-12" style="margin-top: 5.313rem;">
-				<a href="/Exhibition/toCurdetail"><img class = "curimage" src="/images/anywaylove.png" ></a>	
+					<a href="/Exhibition/toCurdetail"><img class="curimage"
+						src="/images/anywaylove.png"></a>
 				</div>
-				<div class="col-12 h3" style="margin-top: 2.5rem;">
-				Romantic Days 어쨌든, 사랑
-				</div>
+				<div class="col-12 h3" style="margin-top: 2.5rem;">Romantic
+					Days 어쨌든, 사랑</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
-				2022.03.16 ~ 2022.10.30
-				</div>
+					2022.03.16 ~ 2022.10.30</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
-			<!-- 	<a href="/Exhibition/toBook">
+					<!-- 	<a href="/Exhibition/toBook">
 				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
 				</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
-				<a href="/Exhibition/toCurdetail">
-				<button class = "btn1_1" style="background: #ffffff; color:#161C24;">자세히 보기</button></a>
+					<a href="/Exhibition/toCurdetail">
+						<button class="btn1_1"
+							style="background: #ffffff; color: #161C24;">자세히 보기</button>
+					</a>
 				</div>
-				
+
 
 			</div>
 
 		</div>
-	
-        <div class="row" id="footer" style = "margin-top:12.5rem;">
-            <div class="container">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
-                </div>
-            </div>
-        </div>
+		<div class="row" id="footer" style="margin-top: 12.5rem;">
+			<div class="container">
+				<div class="row" id="row1">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2"
+						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
+
+				</div>
+			</div>
+		</div>
 
 	</div>
 

@@ -36,6 +36,7 @@
 	padding: 0px;
 }
 
+<<<<<<< HEAD
 .navbar-brand {
 	margin: 0px;
 	padding: 0px;
@@ -46,6 +47,55 @@
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 }
+=======
+        .navbar-brand {
+            margin: 0px;
+            padding: 0px;
+            height: 1.875rem;
+        }
+        
+     
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+        .nav-item{
+margin:auto;
+        	padding-right: 20px;
+        }
+        
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+		
+
+        .row>div {
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+        }
+>>>>>>> 91ff26f2efadfeb5137163bb17450b774e94ad9d
 
 
 .navbar {
@@ -186,7 +236,7 @@
         #mainphoto {
             margin: 0px;
             min-height: 600px;
-           	max-heieght:1920px;
+           	max-height:1920px;
 
             height: 0;
 
@@ -370,9 +420,8 @@ color: #FFFFFF;
 
         .h2 {
 
-            /* width: 10.375rem;
-            height: 2.688rem; */
-
+            width: 10.375rem;
+            height: 2.688rem; 
 
 
             font-family: 'Spoqa Han Sans Neo';
@@ -458,3 +507,13 @@ color: #FFFFFF;
             background: #F4F6F8;
             height: 13.25rem;
         }
+.exlink {
+	text-decoration: none;
+	color: #919EAB;
+}
+        
+        
+  .container, .container-fluid,  .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}  

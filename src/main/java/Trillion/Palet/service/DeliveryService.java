@@ -41,6 +41,10 @@ public class DeliveryService {
 		return dao.updateAddress(dto);
 	}
 
+	public int ModiDefaultAddress(DeliveryDTO dto) {
+		return dao.ModiDefaultAddress(dto);
+	}
+
 	
 
 	

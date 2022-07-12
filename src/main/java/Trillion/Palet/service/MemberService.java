@@ -66,5 +66,10 @@ public class MemberService {
 	public int delmember(String email) {
 		return dao.delmember(email);
 	}
+
+	//배송지부분
+	public String getName(String email) {
+		return dao.getName(email);
+	}
 	
 }

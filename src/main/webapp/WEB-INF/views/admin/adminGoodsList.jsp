@@ -240,7 +240,7 @@
 	$("#goodsList").on("click", ()=>{
 		location.href = "/admin/adminGoodsList?cpage=1";
 	})
-	    $("#checkAll").change(function (){
+	$("#checkAll").change(function (){
     	let checked = $(this).prop('checked');
     	$('input[name="checkbox"]').prop('checked', checked);
     });

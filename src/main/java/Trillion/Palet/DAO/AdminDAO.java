@@ -19,6 +19,8 @@ public class AdminDAO {
 	@Autowired
 	private SqlSession mybatis;
 	
+	// Member Category
+	
 	public List<MemberDTO> memberSelectAll(){
 		return mybatis.selectList("Member.memberSelectAll");
 	}
@@ -90,6 +92,29 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
+	public int adminMemberModi(MemberDTO dto) {
+//		Map<String, String> param = new HashMap<>();
+//		String s_point = String.valueOf(point);
+//		param.put("name", name);
+//		param.put("grade", grade);
+//		param.put("point", s_point);
+//		param.put("email", email);
+		return mybatis.update("Admin.adminMemberModi", dto);
+	}
+	
+	public int adminMemberBan(String email) {
+		return mybatis.delete("Admin.adminMemberBan", email);
+	}
+	
+	public int memberCheckUpdate(String email, String grade) {
+		Map<String, String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("grade", grade);
+		return mybatis.update("Admin.adminMemberUpdate", param);
+	}
+	
+	// Exhibition Category
+	
 	public List<ExhibitionDTO> exhibitionSelectByPage (int cpage, String order) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);
@@ -157,6 +182,8 @@ public class AdminDAO {
 		}
 		return sb.toString();
 	}
+	
+	// Goods Category
 	
 	public List<GoodsDTO> goodsSelectByPage (int cpage) {
 		String start = String.valueOf(cpage * 10 - 9);
@@ -230,10 +257,6 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
-	public List<SalesDTO> getWeekSales(){
-		return mybatis.selectList("Admin.getWeekSales");
-	}
-	
 	public int goodsCheckDelete(int g_num) {
 		return mybatis.delete("Goods.goodsCheckDelete", g_num);
 	}
@@ -243,6 +266,12 @@ public class AdminDAO {
 		param.put("g_num", g_num);
 		param.put("e_num", e_num);
 		return mybatis.update("Goods.goodsCheckUpdate", param);	
+	}
+	
+	// etc..
+	
+	public List<SalesDTO> getWeekSales(){
+		return mybatis.selectList("Admin.getWeekSales");
 	}
 	
 }

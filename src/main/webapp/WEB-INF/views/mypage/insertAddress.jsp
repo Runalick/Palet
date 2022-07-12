@@ -111,7 +111,7 @@ background:#919EAB;
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
 					<input type="text"  class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value=${modi.postcode } > 
 					
-					<input type="text"  class="body2 inputaddress buyer_addr"  placeholder="주소: 우편번호를 먼저 검색해 주세요." id="sample4_roadAddress" disabled value=${modi.address1 }>
+					<input type="text"  class="body2 inputaddress buyer_addr"   id="sample4_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요." value="${modi.address1}" disabled>
 					<input type="text"  class="body2 inputaddress buyer_address2"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" value=${modi.address2 }>
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">
 					<input type="checkbox" class="check">기본 배송지로 등록
@@ -126,7 +126,7 @@ background:#919EAB;
 					<input type="hidden"  class="modi" value="false">
 					</c:when>
 					<c:otherwise>
-					<button class="btnbtn modibtn">수정</button>
+					<button class="btnbtn modibtn" value="${modi.deliveryaddress_seq}">수정</button>
 					<input type="hidden"  class="modi" value="true">
 					</c:otherwise>
 					</c:choose>
@@ -136,9 +136,10 @@ background:#919EAB;
 				</div>
 
 <script>
+
 $(".modibtn").on("click",function(){
 	console.log($(".modi").val())
-	deliveryaddress_seq=${modi.deliveryaddress_seq};
+	deliveryaddress_seq=$(this).val();
 	$.ajax({
 		url:"/delivery/insertModiNewAddress",
 		data:{
@@ -153,6 +154,7 @@ $(".modibtn").on("click",function(){
 		}
 		}).done(function(resp){
 			alert("수정되었습니다.");
+			opener.parent.location.reload();
 			window.close();
 			})
 })
@@ -170,19 +172,29 @@ $(".insert").on("click",function(){
 			modi:$(".modi").val()	}
 		}).done(function(resp){
 			alert("등록되었습니다.");
+			opener.parent.location.reload();
 			window.close();
 			})
 		});
 
 $(document).ready(function(){
-	if($(".check").prop("check")){
+
+		if($(".check").prop("checked")){
+			$(".check").val("Y");
+		}else{
+			$(".check").val("N");
+		}
+		
+	
+});
+$(".check").on("click",function(){
+	if($(".check").prop("checked")){
 		$(".check").val("Y");
 	}else{
 		$(".check").val("N");
 	}
-	console.log($(".check").prop("check"));
-});
-
+	
+})
 $(".close").on("click",function(){
 	window.close();
 })

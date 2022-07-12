@@ -17,6 +17,8 @@ public class AdminService {
 	@Autowired
 	private AdminDAO adao;
 	
+	// Member Category
+	
 	public List<MemberDTO> memberSelectByPage(int cpage){
 		return adao.memberSelectByPage(cpage);
 	}
@@ -25,6 +27,28 @@ public class AdminService {
 		return adao.getMemberPageNavi(cpage);
 	}
 	
+	public int getMemberTotalCount() {
+		return adao.getMemberTotalCount();
+	}
+	
+	public void adminMemberModi(MemberDTO dto) {
+		adao.adminMemberModi(dto);
+	}
+	
+	public void adminMemberBan(String email) {
+		adao.adminMemberBan(email);
+	}
+	
+	public int memberCheckDelete(String email) {
+		return adao.adminMemberBan(email);
+	}
+	
+	public int memberCheckUpdate (String email, String grade) {
+		return adao.memberCheckUpdate(email, grade);
+	}
+	
+	// Exhibition Category
+	
 	public List<ExhibitionDTO> exhibitionSelectByPage(int cpage, String value){
 		return adao.exhibitionSelectByPage(cpage, value);
 	}
@@ -32,6 +56,8 @@ public class AdminService {
 	public String getExhibitionPageNavi(int cpage) {
 		return adao.getExhibitionPageNavi(cpage);
 	}
+	
+	// Goods Category
 	
 	public List<GoodsDTO> goodsSelectByPage(int cpage){
 		return adao.goodsSelectByPage(cpage);
@@ -45,14 +71,6 @@ public class AdminService {
 		return adao.getGoodsPageNavi(cpage);
 	}
 	
-	public int getMemberTotalCount() {
-		return adao.getMemberTotalCount();
-	}
-	
-	public List<SalesDTO> getWeekSales(){
-		return adao.getWeekSales();
-	}
-	
 	public int goodsCheckDelelte (int g_num) {
 		return adao.goodsCheckDelete(g_num);
 	}
@@ -60,5 +78,14 @@ public class AdminService {
 	public int goodsCheckUpdate (String g_num, String e_num) {
 		return adao.goodsCheckUpdate(g_num, e_num);
 	}
+	
+	
+	// etc..
+	
+	public List<SalesDTO> getWeekSales(){
+		return adao.getWeekSales();
+	}
+	
+
 }
 
