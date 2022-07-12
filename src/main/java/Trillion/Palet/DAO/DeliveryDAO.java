@@ -62,6 +62,13 @@ public class DeliveryDAO {
 			return mybatis.update("Delivery.updateAddress",dto);
 		}
 
+		public int ModiDefaultAddress(DeliveryDTO dto) {
+			String email = dto.getEmail();
+			System.out.println(email);
+			mybatis.update("Delivery.updateDefaultAddress",email);
+			return mybatis.update("Delivery.updateAddress",dto);
+		}
+
 	
 		
 }

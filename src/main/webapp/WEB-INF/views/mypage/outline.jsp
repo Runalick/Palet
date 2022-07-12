@@ -300,7 +300,7 @@ padding: 0.3rem 1rem;
 </head>
 <body>
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid" >
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-sm bg-light navbar-light">

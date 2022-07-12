@@ -2,6 +2,8 @@ package Trillion.Palet.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.service.DeliveryService;
+import Trillion.Palet.service.MemberService;
 
 
 
@@ -19,6 +22,10 @@ public class DeliveryController {
 
 	@Autowired
 	private DeliveryService dServ;
+	@Autowired
+	private HttpSession session;
+	@Autowired
+	private MemberService mServ;
 	
 	@RequestMapping("delivery")
 	public String delivery(Model model,String choose) {
@@ -56,7 +63,7 @@ public class DeliveryController {
 	}
 	@RequestMapping("modi")
 	public String modi(int deliveryaddress_seq,Model model) {
-		String email = "i2376@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 		DeliveryDTO dto = dServ.selectAddress(deliveryaddress_seq, email);
 		model.addAttribute("modi",dto);
 		return  "/mypage/insertAddress";
@@ -65,14 +72,12 @@ public class DeliveryController {
 	@RequestMapping("insertModiNewAddress")
 	public String insertModiNewAddress(DeliveryDTO dto,String modi) {
 //		System.out.println(dto.getName());
-		dto.setEmail("i2376@naver.com");
-		dto.setName("hi");
-		System.out.println(modi);
-		System.out.println("ddd");
+		String email = (String)session.getAttribute("loginEmail");
+		dto.setEmail(email);
+		String name = mServ.getName(email);
+		dto.setName(name);
 		
-		if(dto.getDefaultaddress()==null) {
-			dto.setDefaultaddress("N");
-		}
+	
 		
 		
 		if(modi.equals("false")) {
@@ -82,17 +87,14 @@ public class DeliveryController {
 				dServ.insertNewAddress(dto);
 			}
 		}else if(modi.equals("true")) {
-			System.out.println(dto.getName());
-			System.out.println(dto.getDefaultaddress());
-			System.out.println(dto.getReceiver());
-			System.out.println(dto.getPostcode());
-			System.out.println(dto.getAddress1());
-			System.out.println(dto.getAddress2());
-			System.out.println(dto.getPhone());
-			System.out.println(dto.getEmail());
+			if(dto.getDefaultaddress().equals("Y")) {
+				dServ.ModiDefaultAddress(dto);
+			}else {
+				int result = dServ.updateAddress(dto);
+			}
 			
-			int result = dServ.updateAddress(dto);
-			System.out.println(result);
+			
+			
 		}
 		return "success";
 	}
