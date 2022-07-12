@@ -29,7 +29,7 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
+	
 	}
 	html {
 		font-size: 12px;
@@ -39,7 +39,7 @@
 @media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
+	
 	}
 	html {
 		font-size: 16px;
@@ -464,6 +464,8 @@ input::placeholder {
 .d-sm-none {
 	text-align: center;
 }
+
+
 </style>
 
 
@@ -483,31 +485,31 @@ input::placeholder {
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-					<li class="nav-item"><a id="About" class="nav-link"
-						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-					</li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/Exhibition/toCurExhibition"
-						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/program/toProgram"
-						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-					<li class="nav-item"><a id="Shop" class="nav-link"
-						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
-					</li>
-					<li class="nav-item"><a id="Login" class="nav-link"
-						href="/member/loginPage"
-						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-					<li class="nav-item"><a id="Signup" class="nav-link"
-						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
-							up</a></li>
-					<li class="nav-item"><a id="Admin" class="nav-link"
-						href="/admin/adminMain"
-						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-					<li class="nav-item"><a id="Mypage" class="nav-link"
-						href="/member/mypage"
-						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-				</ul>
+								<li class="nav-item"><a id="About" class="nav-link"
+									href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+								</li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/Exhibition/toCurExhibition"
+									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/program/toProgram"
+									style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+								<li class="nav-item"><a id="Shop" class="nav-link"
+									href="/shop/toShop"
+									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+								<li class="nav-item"><a id="Login" class="nav-link"
+									href="/member/loginPage"
+									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+								<li class="nav-item"><a id="Signup" class="nav-link"
+									href="/member/join"
+									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+								<li class="nav-item"><a id="Admin" class="nav-link"
+									href="/admin/adminMain"
+									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+								<li class="nav-item"><a id="Mypage" class="nav-link"
+									href="/member/mypage"
+									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+							</ul>
 						</div>
 					</div>
 				</nav>
