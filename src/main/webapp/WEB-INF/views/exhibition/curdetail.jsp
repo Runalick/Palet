@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -389,7 +390,6 @@ a {
 .bookbutton {
 	padding: 1.125rem 1.5rem;
 	gap: 0.625rem;
-	position: absolute;
 	width: 8.2rem;
 	height: 3.75rem;
 	color: #FFFFFF;
@@ -404,6 +404,11 @@ a {
 	line-height: 1.5rem;
 	/* identical to box height */
 	text-align: center;
+	padding: 1.125rem 1.5rem;
+}
+
+#po {
+	position: relative;
 }
 </style>
 
@@ -424,30 +429,31 @@ a {
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+					<li class="nav-item"><a id="About" class="nav-link"
+						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+					</li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/Exhibition/toCurExhibition"
+						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/program/toProgram"
+						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+					<li class="nav-item"><a id="Shop" class="nav-link"
+						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
+					</li>
+					<li class="nav-item"><a id="Login" class="nav-link"
+						href="/member/loginPage"
+						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+					<li class="nav-item"><a id="Signup" class="nav-link"
+						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
+							up</a></li>
+					<li class="nav-item"><a id="Admin" class="nav-link"
+						href="/admin/adminMain"
+						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+					<li class="nav-item"><a id="Mypage" class="nav-link"
+						href="/member/mypage"
+						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+				</ul>
 						</div>
 					</div>
 				</nav>
@@ -455,64 +461,153 @@ a {
 			</div>
 
 		</div>
-		<div class="row"
-			style="height: 20rem; border-bottom: 1px solid #DFE3E8;">
-			<div class="container "
-				style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
-				<div class="row gx-0" id="row1">
 
+		<div class="container d-none d-sm-block"
+			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			<div class="row">
+				<div class="col-lg-1 col-xs-6">
+					<img type=button class=leftbutton src="/images/leftbutton.png"
+						style="margin-left: 0px;">
+				</div>
 
-					<div class="col-1">
-						<img class=leftbutton src="/images/leftbutton.png"
-							style="margin-left: 0px;">
-					</div>
-					<div class="col-2">
-						<img src="/images/anywayloveS.png"
-							style="width: 10.625rem; height: 14.125rem;">
-					</div>
+				<div class="col-lg-2 col-xs-6">
 
-					<div class="col-9">
-						<div class="row" id="row1">
-							<div class="col h3">Romantic Days 어쨌든, 사랑</div>
-						</div>
-						<div class="row" id="row1" style="margin-top: 1rem;">
-							<div class="col body1" style="color: #161C24;">2022.03.16 ~
-								2022.10.30</div>
-						</div>
-						<div class="row" id="row1" style="margin-top: 5.781rem;">
-							<div class="col h2" style="text-align: left;">
-								9,000 원 <img src="/images/minusbutton.png" type="button"
-									style="margin-left: 1.5rem;"><span class=body1
-									style="color: #161C24; margin-left: 1rem;">1</span> <img
-									type="button" src="/images/plusbutton.png"
-									style="margin-left: 1rem;">
-								<button class=bookbutton style="margin-left: 29.25rem;">예매하기</button>
-							</div>
-
-						</div>
-
-					</div>
-
-
+					<img src="/images/anywayloveS.png"
+						style="width: 10.625rem; height: 14.125rem;">
 
 				</div>
+
+
+				<div class="col-lg-9 col-xs-12">
+
+					<div class="col h3">Romantic Days 어쨌든, 사랑</div>
+
+
+					<div class="col body1" style="color: #161C24;">2022.03.16 ~
+						2022.10.30</div>
+
+					<form action="/Exhibition/toBook" method="post">
+
+
+
+						<div class="col h2" id=po
+							style="text-align: left; margin-top: 5.781rem;">
+							<span class="h2 price">9,000원</span> <img
+								src="/images/minusbutton.png" type="button"
+								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
+								class="minusbutton"> <span class="body1 count"
+								style="color: #161C24; margin-left: 1rem;">1</span> <img
+								type="button" class=plusbutton src="/images/plusbutton.png"
+								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
+							<button class=bookbutton style="position: absolute; right: 0px;">예매하기</button>
+							<input type=hidden name=count class=count1> <input
+								type=hidden name=price class=price1>
+
+						</div>
+
+					</form>
+				</div>
+
+
+
+
+			</div>
+		</div>
+<div class="row d-none d-sm-block" style="border-top: 1px solid #DFE3E8;">
+	</div>
+
+
+
+		<div class="container d-block d-sm-none"
+			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			<div class="row">
+				<!-- <div class="col-6">
+					<img type=button class=leftbutton src="/images/leftbutton.png"
+						style="margin-left: 0px;">
+				</div> -->
+
+				<div class="col-12" style="text-align: center;">
+
+					<img src="/images/anywayloveS.png"
+						style="width: 10.625rem; height: 14.125rem;">
+
+				</div>
+
+
+				<div class="col-12">
+
+					<div class="col h3" style="text-align: center; margin-top: 3rem;">Romantic
+						Days 어쨌든, 사랑</div>
+
+
+					<div class="col body1" style="color: #161C24; text-align: center;">2022.03.16
+						~ 2022.10.30</div>
+
+
+					<form action="/Exhibition/toBook" method="post">
+
+
+						<div class="col h2"
+							style="text-align: center; margin-top: 5.781rem;">
+
+							<span class="h2 price">9,000원</span> <img
+								src="/images/minusbutton.png" type="button"
+								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
+								class=minusbutton> <span class="body1 count"
+								style="color: #161C24; margin-left: 1rem;">1</span> <img
+								type="button" class=plusbutton src="/images/plusbutton.png"
+								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
+
+							<button class=bookbutton
+								style="text-align: center; margin-top: 3rem;">예매하기</button>
+
+
+							<input type=hidden name=count class=count1> <input
+								type=hidden name=price class=price1>
+
+
+						</div>
+
+					</form>
+				</div>
+
+
+
 
 			</div>
 		</div>
 
+<div class="row d-block d-sm-none" style="border-top: 1px solid #DFE3E8;">
+	</div>
+
+
 		<div class="container">
 			<div class="row">
-				<ul class="col-4 ul2 h3 offset"
+				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink">전시굿즈</a></li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
+						class="exlink">전시굿즈</a></li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">SNS후기</li>
 
 				</ul>
+				<ul class="col-12 ul2 h3 offset d-block d-sm-none"
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
+					<li
+						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
+					<li
+						style="width: 4.938rem; text-align: center; color: #919EAB; margin-left: 2.6rem;; margin-right: 2.6rem;"><a
+						class="exlink">전시굿즈</a></li>
+					<li
+						style="width: 4.938rem; color: #919EAB; text-align: center; margin-left: 2.6rem;; margin-right: 2.6rem;">SNS후기</li>
+
+				</ul>
 			</div>
-			<div class = "row">
-			
-			<img src = "https://cdn.daelimmuseum.org/Program/Contents/202204/20220421182756105001.png" style = "margin-left:2.5rem; margin-right:2.5rem; padding:0px; width:75rem;">
+			<div class="row" id=row1>
+
+				<img
+					src="https://cdn.daelimmuseum.org/Program/Contents/202204/20220421182756105001.png"
+					style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
 			</div>
 
 		</div>
@@ -541,8 +636,63 @@ a {
 
 </body>
 <script>
-$(".bookbutton").on("click", function() {
-	location.href = "/Exhibition/toBook";
-})
+	$(".bookbutton").on("click", function() {
+		
+		
+
+		$(this).next().val($($(this).siblings()[2]).text());
+		$(this).next().next().val($($(this).siblings()[0]).text());
+
+		location.href = "/Exhibition/toBook";
+	})
+
+	$(".leftbutton").on("click", function() {
+
+		location.href = "/Exhibition/toCurExhibition";
+	})
+
+	$(".minusbutton").on("click", function() {
+
+		let result = $(this).next().text();
+		number = parseInt(result) - 1;
+		if (number == 0) {
+			return false;
+		}
+		$(".count").text(number);
+
+		let price = $($(this).siblings()[0]).text();
+		console.log(price);
+		let price1 = price.replace(",", "");
+		console.log(price1);
+		let price2 = price1.replace("원", "");
+		console.log(price2);
+		finalprice = parseInt(price2);
+		finalprice = finalprice - 9000;
+
+		$(".price").text(finalprice.toLocaleString() + "원");
+
+	})
+
+	$(".plusbutton").on("click", function() {
+
+		let result = $($(this).siblings()[2]).text();
+		number = parseInt(result) + 1;
+		if (number > 30) {
+			alert('30매 이상의 단체 예약은 manager@palet.com 으로 연락주세요');
+			return false;
+		}
+		console.log(number);
+		$(".count").text(number);
+
+		let price = $($(this).siblings()[0]).text();
+		let price1 = price.replace(",", "");
+		let price2 = price1.replace("원", "");
+
+		finalprice = parseInt(price2);
+		finalprice = finalprice + 9000;
+		$(".price").text(finalprice.toLocaleString() + "원");
+
+	})
 </script>
 </html>
+

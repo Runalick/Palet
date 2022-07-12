@@ -429,31 +429,31 @@ a {
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-					<li class="nav-item"><a id="About" class="nav-link"
-						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-					</li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/Exhibition/toCurExhibition"
-						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/program/toProgram"
-						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-					<li class="nav-item"><a id="Shop" class="nav-link"
-						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
-					</li>
-					<li class="nav-item"><a id="Login" class="nav-link"
-						href="/member/loginPage"
-						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-					<li class="nav-item"><a id="Signup" class="nav-link"
-						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
-							up</a></li>
-					<li class="nav-item"><a id="Admin" class="nav-link"
-						href="/admin/adminMain"
-						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-					<li class="nav-item"><a id="Mypage" class="nav-link"
-						href="/member/mypage"
-						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-				</ul>
+								<li class="nav-item"><a id="About" class="nav-link"
+									href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+								</li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/Exhibition/toCurExhibition"
+									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/program/toProgram"
+									style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+								<li class="nav-item"><a id="Shop" class="nav-link"
+									href="/shop/toShop"
+									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+								<li class="nav-item"><a id="Login" class="nav-link"
+									href="/member/loginPage"
+									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+								<li class="nav-item"><a id="Signup" class="nav-link"
+									href="/member/join"
+									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+								<li class="nav-item"><a id="Admin" class="nav-link"
+									href="/admin/adminMain"
+									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+								<li class="nav-item"><a id="Mypage" class="nav-link"
+									href="/member/mypage"
+									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+							</ul>
 						</div>
 					</div>
 				</nav>
@@ -461,7 +461,6 @@ a {
 			</div>
 
 		</div>
-
 
 		<div class="container d-none d-sm-block"
 			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
@@ -473,7 +472,7 @@ a {
 
 				<div class="col-lg-2 col-xs-6">
 
-					<img src="${dto.pe_img}"
+					<img src="/images/kidclass.png"
 						style="width: 10.625rem; height: 14.125rem;">
 
 				</div>
@@ -481,17 +480,30 @@ a {
 
 				<div class="col-lg-9 col-xs-12">
 
-					<div class="col h3">${dto.pe_name }</div>
+					<div class="col h3">키즈워크룸 : 애니메이터 프로젝트</div>
 
 
-					<div class="col body1" style="color: #161C24;">${dto.pe_date }</div>
+					<div class="col body1" style="color: #161C24;">2022-04-01 ~
+						2022-10-30</div>
 
 					<form action="/Exhibition/toBook" method="post">
 
 
 
 						<div class="col h2" id=po
-							style="text-align: left; margin-top: 5.781rem;"></div>
+							style="text-align: left; margin-top: 5.781rem;">
+							<span class="h2 price">19,000원</span> <img
+								src="/images/minusbutton.png" type="button"
+								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
+								class="minusbutton"> <span class="body1 count"
+								style="color: #161C24; margin-left: 1rem;">1</span> <img
+								type="button" class=plusbutton src="/images/plusbutton.png"
+								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
+							<button class=bookbutton style="position: absolute; right: 0px;">신청하기</button>
+							<input type=hidden name=count class=count1> <input
+								type=hidden name=price class=price1>
+
+						</div>
 
 					</form>
 				</div>
@@ -506,7 +518,6 @@ a {
 
 
 
-
 		<div class="container d-block d-sm-none"
 			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
 			<div class="row">
@@ -517,7 +528,7 @@ a {
 
 				<div class="col-12" style="text-align: center;">
 
-					<img src="${dto.pe_img}"
+					<img src="/images/kidclass.png"
 						style="width: 10.625rem; height: 14.125rem;">
 
 				</div>
@@ -525,17 +536,37 @@ a {
 
 				<div class="col-12">
 
-					<div class="col h3" style="text-align: center; margin-top: 3rem;">${dto.pe_name }</div>
+					<div class="col h3" style="text-align: center; margin-top: 3rem;">키즈워크룸
+						: 애니메이터 프로젝트</div>
 
 
-					<div class="col body1" style="color: #161C24; text-align: center;">${dto.pe_date }</div>
+					<div class="col body1" style="color: #161C24; text-align: center;">2022-04-01
+						~ 2022-10-30</div>
 
 
 					<form action="/Exhibition/toBook" method="post">
 
 
 						<div class="col h2"
-							style="text-align: center; margin-top: 5.781rem;"></div>
+							style="text-align: center; margin-top: 5.781rem;">
+
+							<span class="h2 price">19,000원</span> <img
+								src="/images/minusbutton.png" type="button"
+								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
+								class=minusbutton> <span class="body1 count"
+								style="color: #161C24; margin-left: 1rem;">1</span> <img
+								type="button" class=plusbutton src="/images/plusbutton.png"
+								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
+
+							<button class=bookbutton
+								style="text-align: center; margin-top: 3rem;">신청하기</button>
+
+
+							<input type=hidden name=count class=count1> <input
+								type=hidden name=price class=price1>
+
+
+						</div>
 
 					</form>
 				</div>
@@ -546,89 +577,93 @@ a {
 			</div>
 		</div>
 
-
 		<div class="row d-block d-sm-none"
 			style="border-top: 1px solid #DFE3E8;"></div>
-
-
 
 
 		<div class="container">
 			<div class="row">
 				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
+					<li style="width: 7.188rem; margin-left: 3.1rem;">프로그램 소개</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink">전시굿즈</a></li>
+						class="exlink">연계 전시</a></li>
 
 
 				</ul>
 				<ul class="col-12 ul2 h3 offset d-block d-sm-none"
 					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li
-						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
+						style="width: 7.188rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">프로그램
+						소개</li>
 					<li
 						style="width: 4.938rem; text-align: center; color: #919EAB; margin-left: 2.6rem;; margin-right: 2.6rem;"><a
-						class="exlink">전시굿즈</a></li>
+						class="exlink">연계전시</a></li>
+
 
 				</ul>
 			</div>
-			<div class="row mt-3" id=row1>
+			<div class="row" id=row1>
 
-				<img src="${dto.pe_img }"
-					style="padding: 0px; margin:auto;  text-align: center; width: 25.5rem; height: 32.5rem;">
+				<img src="/images/eventbanner.png"
+					style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
 			</div>
 
-			<div class="row mt-5" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_contents }</div>
+			<div class="row" id=row1>
+				<div class="col-12 h3 mt-5"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">교육 정보</div>
+				<div class="col-6 mt-3">
+					<img src="/images/class0.png"
+						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
+
+				</div>
+				<div class="col-6 mt-3">
+					<img src="/images/class1.png"
+						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
+				</div>
+				<div class="col-6 h4 mt-5"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 1.
+					동기유발: 전시관람</div>
+
+				<div class="col-6 h4 mt-5"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 2.
+					문제발견: 미션! 멈춰 있는 그림을 움직여라</div>
+				<div class="col-6 body2 mt-2"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">전시장에 있는
+					미디어 작품 속 그림이 움직이는 원리 알아보기</div>
+				<div class="col-6 body2 mt-2"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">전시 작품처럼,
+					주어진 재료로 그림을 움직일 수 있는 다양한 방법 탐색하기</div>
 
 
 
 
 
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">기간</div>
 
 
+				<div class="col-6 mt-5">
+					<img src="/images/class2.png"
+						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
+				</div>
+				<div class="col-6 mt-5">
+					<img src="/images/class3.png"
+						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
+				</div>
+				
+				<div class="col-6 h4 mt-5"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 3. 제작하기: 스토리 구상 & 무빙 프로젝터 제작</div>
 
+				<div class="col-6 h4 mt-5"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 4. 소개하기: 애니메이터 상영회</div>
+				<div class="col-6 body2 mt-2"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">스토리를 구상(디지털 손그림)하고, 스크린에 상이 맺히는 광학적 원리를 활용하여 무빙 프로젝터 제작하기</div>
+				<div class="col-6 body2 mt-2"
+					style="padding-left: 2.5rem; padding-right: 2.5rem;">무빙 프로젝터를 통해 우리들의 애니메이션 작품 상영하기</div>
 
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_date }</div>
-
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">관람료</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_price}</div>
-
-
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">작가</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_writer }</div>
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">작품수</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_artcount}</div>
-
-
+				
+				
+				
+			</div>
 
 		</div>
 
@@ -647,9 +682,6 @@ a {
 						1층 | contact@palet.com</div>
 
 				</div>
-
-
-
 			</div>
 		</div>
 
@@ -688,7 +720,7 @@ a {
 		let price2 = price1.replace("원", "");
 		console.log(price2);
 		finalprice = parseInt(price2);
-		finalprice = finalprice - 9000;
+		finalprice = finalprice - 19000;
 
 		$(".price").text(finalprice.toLocaleString() + "원");
 
@@ -710,7 +742,7 @@ a {
 		let price2 = price1.replace("원", "");
 
 		finalprice = parseInt(price2);
-		finalprice = finalprice + 9000;
+		finalprice = finalprice + 19000;
 		$(".price").text(finalprice.toLocaleString() + "원");
 
 	})

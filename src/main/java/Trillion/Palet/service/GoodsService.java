@@ -24,6 +24,7 @@ public class GoodsService {
 	}
 	
 	public void goodsInsert(GoodsDTO gdto, String realPath, MultipartFile[] file) {
+
 		int seq;
 		String option = gdto.getG_option();
 		System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
@@ -36,6 +37,7 @@ public class GoodsService {
 		} 
 		System.out.println("afterG_num : "+gdto.getG_num());
 		System.out.println("selectKey : "+seq);
+
 		int e_num = gdto.getE_num();
 		int g_num = gdto.getG_num();
 		
