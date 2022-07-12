@@ -300,6 +300,12 @@
             background: #F4F6F8;
             height: 13.25rem;
     }
+    
+    .ellipsis {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;  /* 말줄임 적용 */
+	}
         
 	/* div {
 		border: 1px solid black;
@@ -352,16 +358,16 @@
 						<div class="col-12 p-0" style="align-items: center;">
 							<img src="${i.d_file }" style="width:200px; height:200px;">
 						</div>
-						<div class="col-12">
+						<div class="col-12 ellipsis">
 							글번호 : ${i.draw_seq }
 						</div>
-						<div class="col-12">
+						<div class="col-12 ellipsis">
 							제목 : ${i.d_title }
 						</div>
-						<div class="col-12">
+						<div class="col-12 ellipsis">
 							그린이 : ${i.painter }
 						</div>
-						<div class="col-12">
+						<div class="col-12 ellipsis">
 							참여자 : ${i.email }
 						</div>
 						<div class="col">
@@ -386,10 +392,10 @@
 						<div class="col-12 p-0" style="align-items: center;">
 							<img src="${i.d_file }" style="width:200px; height:200px;">
 						</div>
-						<div class="col-12">
+						<div class="col-12 ellipsis">
 							제목 : ${i.d_title }
 						</div>
-						<div class="col-12">
+						<div class="col-12 ellipsis">
 							그린이 : ${i.painter }
 						</div>
 						

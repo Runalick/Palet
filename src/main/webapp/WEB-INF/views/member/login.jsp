@@ -49,6 +49,44 @@
 	left:0;
 }
 
+#modal_back{
+	float: right;
+	margin-right:15px;
+	padding-left: 10px;
+	padding-right: 10px;	
+}
+
+a{
+	text-decoration: none;
+}
+
+.body2_1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 2rem;
+	line-height: 1.75rem;
+	margin-bottom: 0px;
+	color: black;
+}
+
+#copybtn{
+	gap: 0.625rem;
+    width: 8.813rem;
+    height: 2.75rem;
+	background: white;
+    border-radius: 1.25rem;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.22rem;
+    line-height: 2rem;
+    text-align: center;
+	color: black;
+}
+
+
+
 .link-icon { position: relative; display: inline-block; width: auto;    font-size: 14px; font-weight: 500; color: #333; margin-right: 10px; padding-top: 50px; }
 .link-icon.twitter { background-image: url(/images/icon-twitter.png); background-repeat: no-repeat; background-position-x:center;}
 .link-icon.facebook { background-image: url(/images/icon-facebook.png); background-repeat: no-repeat; background-position-x:center;} 
@@ -61,6 +99,7 @@
 	<c:when test="${loginEmail =='admin@palet.com'}">
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+	        
 	        <div class="container" style="padding: 10px;">
 	          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
 	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,7 +187,7 @@
      </c:otherwise>
 </c:choose>
     
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${loginEmail != null }">
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 150px;">
@@ -163,10 +202,10 @@
 	</c:when>
 			
 	
-	<c:otherwise>
+	<c:otherwise> --%>
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 150px;">
-			<div class="container" style="max-width: 400px;">
+			<div class="container" style="max-width: 500px;">
 				<div class="row" id="row1">
 					<div class="h2" style="padding-bottom: 30px;">Login</div>
 				</div>
@@ -184,16 +223,32 @@
 								<div class="col-12 p-0"><input type="submit" class="btn2" id="login" value="로그인"></div>
 								<div class="col-12 p-0"><input type="button" class="btn2" id="join" value="아직 회원이 아니신가요? 가입하기"></div>
 							</div>
-							<div class="row" style="padding-top: 20px;">
+							<div class="row" style="padding-top: 20px; margin-bottom: 50px;">
 								<div class="col-12 p-0 body2" align=center>소셜 계정으로 로그인</div>
 								<div class="col-12 p-0" align=center>
 								<button id="kakao-login-btn" class="p-0"><img src="/images/kakao_login.png"></button>
 							</div>
 						</div>
 					<!-- <form> -->
+					</div>
 				</div>
 			</div>
 		</div>
+		
+		<div class="row" id="footer">
+			<div class="container">
+				<div class="row" id="row1">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
+	
 	</div>
 		
 			<button id=modalbtn>공유하기</button>
@@ -202,18 +257,19 @@
 				
 				<div class="modal_content" title="공유하기">
 					<div id="modal_header">
-						공유하기<button id="modal_back">X</button>
+						<div class="body2_1" style="float: left; margin-left: 20px;">공유하기</div><button id="modal_back">X</button>
 					</div>
+					<br>
 					<hr>
 					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
 					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
 					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오</a> <br>
-					<input type="text" id="text" value="http://localhost/member/loginPage" readonly/>
-					<input type="button" onclick="fn_copy()" value="Copy"/> 
+					<input type="text" id="text" value="http://localhost/member/loginPage" readonly style="margin-top: 10px;"/>
+					<input type="button" id="copybtn" onclick="fn_copy()" value="Copy"/> 
 				</div>
 			</div>
-	</c:otherwise>
-</c:choose>
+<%-- 	</c:otherwise>
+</c:choose> --%>
 </body>
 <script>	
 	$("#login").on("click", function(){
@@ -223,7 +279,7 @@
     	    type:"POST"
 		}).done(function(resp){
 			console.log(resp);
-			if(resp == 'true'){
+			if(resp == true){
 				location.href="/";
 			} else {
 				alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
@@ -247,6 +303,7 @@
     		typeof(Storage) !== 'undefined' && sessionStorage.setItem('AccessKEY', JSON.stringify(token)); 
 		};
 		
+		
 	    $("#kakao-login-btn").on("click", function(){
 	    	console.log("click");
 	    //1. 로그인 시도
@@ -267,7 +324,7 @@
 	            	    	token:authObj.access_token},
 	            	    type:"POST"
 	            	}).done(function(resp){
-	            		location.reload();
+	            		location.href="/";
 	            	})
 	        	}
 	          })
@@ -278,6 +335,7 @@
 	        },
 	        fail: function(err) {
 	          alert(JSON.stringify(err));
+	          location.reload();
 	        }
 	      });
 	    })
@@ -306,6 +364,7 @@
 
 	// 복사 버튼
 	function fn_copy() {
+	    alert("URL 주소가 복사되었습니다.");
 		var url = document.getElementById('text');
 		url.select(); // 복사할 text 블럭
 		document.execCommand('copy'); // 드레그된 text 클립보드에 복사
