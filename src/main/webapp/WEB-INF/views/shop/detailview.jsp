@@ -13,6 +13,9 @@
 	rel="stylesheet"
 	integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
 	crossorigin="anonymous">
+	<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
@@ -568,7 +571,7 @@ width:36.375rem;
 </head>
 <body>
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid" >
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -837,22 +840,17 @@ $(".li").on("click", function () {
 	
 		<!-- 푸터단 -->
 
-	<div class="row" id="footer" style="margin-top: 12.5rem;">
-		<div class="container">
-			<div class="row" id="row1" style="margin-left:22.5rem;">
-				<div class="col-12 h3 d-none d-sm-block"
-					style="color: #637381; margin-top: 3.75rem; padding:0px;">(주)팔레트</div>
-				<div class="col-12 body2 d-none d-sm-block" style="color: #637381; margin-top:0.5rem; margin-bottom:3.75rem; padding:0px;">사업자
-					등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345
-				<br>
-				3호선 경복궁역 지하
-					1층 | contact@palet.com
-					</div>
-			</div>
-		</div>
-	</div>	
+	<div class="row" id="footer">
+            <div class="container" style="padding-left:2.5rem;">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 	
-	</div>
 	<script>
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
