@@ -50,7 +50,7 @@ public class QRController {
 		ExhibitionDTO edto = qser.getNowExhibition(e_num);
 		String e_name = edto.getE_name();
 		int price = edto.getE_price();
-		String url = "http://14.39.252.82/qr/nowexhibition?";
+		String url = "http://14.39.252.82/Exhibition/toCurdetail";
 		return "/qr/now";
 	}
 }

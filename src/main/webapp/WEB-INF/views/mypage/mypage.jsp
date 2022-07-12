@@ -433,6 +433,7 @@ color: #FFFFFF;
 </style>
 </head>
 <body>
+
 	<header>
 		<div class="container-fluid" id=navparent>
 			<div class="container">
@@ -595,7 +596,7 @@ color: #FFFFFF;
 									<b>${dto.name }</b></div>
 								<div class="col-3" style="margin-bottom: 5px;">
 									<button type="button" data-bs-toggle="modal" class="btn2"
-										style="width: 50%; min-width: 50px;"
+										style="width: 50%; min-width: 100px;"
 										data-bs-target="#staticBackdrop1">수정</button>
 								</div>
 								<!-- Modal -->
@@ -632,7 +633,7 @@ color: #FFFFFF;
 									<b>${dto.phone }</b></div>
 								<div class="col-3" style="margin-bottom: 5px;">
 									<button type="button" data-bs-toggle="modal" class="btn2"
-										style="width: 50%; min-width: 50px;"
+										style="width: 50%; min-width: 100px;"
 										data-bs-target="#staticBackdrop2">수정</button>
 								</div>
 								<!-- Modal -->
@@ -713,24 +714,21 @@ color: #FFFFFF;
 
 			</div>
 		</div>
-
+<a href="/mypage/main">main보기</a>
 
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer" style="margin-top: 12.5rem;">
-			<div class="container">
-				<div class="row" id="row1" style="margin-left: 22.5rem;">
-					<div class="col-12 H3 d-none d-sm-block"
-						style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
-					<div class="col-12 body2 d-none d-sm-block"
-						style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
-						사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 :
-						2022-서울강남-012345 <br> 3호선 경복궁역 지하 1층 | contact@palet.com
-					</div>
-				</div>
-			</div>
-		</div>
+<div class="row" id="footer">
+            <div class="container">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 
 	</div>
 	

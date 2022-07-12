@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <title>현재 전시</title>
 <link
@@ -402,30 +404,31 @@ padding:0px;
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+					<li class="nav-item"><a id="About" class="nav-link"
+						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+					</li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/Exhibition/toCurExhibition"
+						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/program/toProgram"
+						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+					<li class="nav-item"><a id="Shop" class="nav-link"
+						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
+					</li>
+					<li class="nav-item"><a id="Login" class="nav-link"
+						href="/member/loginPage"
+						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+					<li class="nav-item"><a id="Signup" class="nav-link"
+						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
+							up</a></li>
+					<li class="nav-item"><a id="Admin" class="nav-link"
+						href="/admin/adminMain"
+						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+					<li class="nav-item"><a id="Mypage" class="nav-link"
+						href="/member/mypage"
+						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+				</ul>
 						</div>
 					</div>
 				</nav>
@@ -454,12 +457,12 @@ padding:0px;
 				2022.03.16 ~ 2022.10.30
 				</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
-				<a href="/Exhibition/toBook">
-				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a>
+			<!-- 	<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
 				</div>
 				<div class="col-12 caption" style="margin-top: 2.5rem;">
 				<a href="/Exhibition/toCurdetail">
-				<button class = "btn1_1" style="background: #919EAB;">자세히 보기</button></a>
+				<button class = "btn1_1" style="background: #ffffff; color:#161C24;">자세히 보기</button></a>
 				</div>
 				
 
@@ -483,4 +486,7 @@ padding:0px;
 
 
 </body>
+
+
+
 </html>

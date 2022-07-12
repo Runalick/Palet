@@ -61,12 +61,12 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
-	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
 	z-index: 5;
 }
+
 
 .navbar {
 	height: 5rem;
@@ -275,10 +275,12 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+line-height:2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
 font-weight:700;
+line-height:2rem;
 }
 .small-navi{
 margin:1.25rem 0rem ;
@@ -370,7 +372,7 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -378,7 +380,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
@@ -386,6 +388,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">나의 회원등급</a></li>
 							<li class="body3"><a href="#">나의 쿠폰</a></li>
+							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
@@ -452,17 +455,23 @@ padding: 0.3rem 1rem;
 		}
 		}
 	
+	//쿠폰 등록
+	   $("#registration").on("click",function(){
+      window.open("/coupon/toregistration", "",
+      "top=100,left=200,width=550,height=500");
+      })
+	
 	//선택박스 화살표 방향 이미지
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
 			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
+			$(".navi-menu").toggle();
 			
 			click = true;
 		}else{
 			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
+			$(".navi-menu").toggle();
 			click = false;
 		}
 	});

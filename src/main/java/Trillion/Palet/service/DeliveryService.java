@@ -25,8 +25,8 @@ public class DeliveryService {
 	public int insertNewAddress(DeliveryDTO dto) {
 		return dao.insertNewAddress(dto);		
 	}
-	public List<DeliveryDTO> chooseAddress(String email) {
-		return dao.chooseAddress(email);
+	public List<DeliveryDTO> selectAllAddress(String email) {
+		return dao.selectAllAddress(email);
 	}
 
 	public DeliveryDTO selectAddress(int deliveryaddress_seq, String email) {
@@ -40,6 +40,8 @@ public class DeliveryService {
 	public int updateAddress(DeliveryDTO dto) {
 		return dao.updateAddress(dto);
 	}
+
+	
 	
 	
 }

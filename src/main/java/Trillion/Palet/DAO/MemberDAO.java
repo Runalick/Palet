@@ -70,7 +70,7 @@ public class MemberDAO {
     	return mybatis.update("Member.modiaddress",param);
     }
     public int delmember(String email) {
-    	return mybatis.delete(email);
+    	return mybatis.delete("Member.delmember",email);
     }
     
 

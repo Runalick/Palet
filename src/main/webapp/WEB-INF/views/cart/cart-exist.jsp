@@ -309,7 +309,6 @@ float:right;
 }
 #total-area{
 box-sizing: border-box;
-width: 23.5rem;
 height: 12.625rem;
 background: #F9FAFB;
 border: 1px solid #DFE3E8;
@@ -411,6 +410,87 @@ top:6rem;
 right:1.5rem;
 
 }
+
+
+@media ( min-width : 870px) {
+
+}
+
+@media ( max-width : 871px) {
+.small-payment-area{
+margin-left:1.6rem;
+margin-top:2.675rem;
+}
+#total-area{
+height:14.025rem;
+}
+#payment-area{
+padding:0rem;
+width:33rem;
+height:23.688rem;
+}
+.body1, .H3, #paybtn{
+font-size:1.875rem;
+}
+.body2, .H4{
+font-size:1.5rem;
+}
+.hug{
+width:6.25rem;
+}
+.list{
+width:55.25rem;
+height:12rem;
+}
+input.checkbox, .checkbox2{
+width:1.4rem;
+height:1.4rem;
+}
+#span1{
+width:7.73rem;
+margin-right:3rem;
+margin-bottom:1rem;
+}
+#span4{
+width:9.375rem;
+margin-bottom:1rem;
+}
+#span2{
+margin-right:4.788rem;
+width:5.03rem;
+}
+#span5{
+width:10.175rem;
+}
+#span3{
+text-align:left;
+width:10.375rem;
+margin-right:0.725rem;
+}
+#span6{
+width:9.375rem;
+text-align:right;
+}
+#span7{
+text-align:left;
+width:9.875rem;
+margin-right:1.325rem;
+}
+#payment-area{
+width:33rem;
+height:24.088rem;
+padding:0rem;
+}
+#paybtn{
+width:33rem;
+height:4.5rem;
+margin-top:2.25rem;
+}
+.Caption{
+font-size:1.325rem;
+}
+}
+
 </style>
 <body>
 	<!-- 네비단 -->
@@ -503,9 +583,9 @@ right:1.5rem;
 				</div>
 				</c:otherwise>	
 			</c:choose>	
-			<div class=container style="min-width:80rem; min-height:40rem;">	
+			<div class="container" style="min-width:80rem; min-height:40rem;">	
 <!-- 			결제 부분 -->
-
+			<div class="main-container"></div>
 			<c:choose>
 			<c:when test="${totalList.total_num ==0}">
 				
@@ -579,13 +659,35 @@ right:1.5rem;
 					</div>
 				</c:forEach>
 
-
+				<div class="row small-payment-area" style="padding:0px; margin-bottom:1.25rem">	</div>
 					
 					
 					
 				</div>
 
 <script>
+$( window ).resize(function() {   //창크기 변화 감지
+	open_chatroom();
+});
+$(document).ready(function(){
+	open_chatroom();
+});
+
+function open_chatroom(){ 
+	var windowWidth = $( window ).width();
+	if(windowWidth < 850) {      //창 가로 크기가 850 미만일 경우  
+		$("#payment-area").css({"display":"block"});
+		
+		$(".small-payment-area").append($("#payment-area"));
+	} else {      //창 가로 크기가 850 보다 클 경우  
+		$(".main-container").append($("#payment-area"));
+	}
+	}
+
+
+
+
+
 //결제버튼
 $("#paybtn").on("click",function(){
 	
@@ -675,18 +777,15 @@ function setTotalInfo() {
 	<!-- 푸터단 -->
 
 	<div class="row" id="footer">
-		<div class="container">
-			<div class="row" id="row1" style="margin-left: 22.5rem;">
-				<div class="col-12 h3 d-none d-sm-block"
-					style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
-				<div class="col-12 body2 d-none d-sm-block"
-					style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
-					사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345
-					<br> 3호선 경복궁역 지하 1층 | contact@palet.com
-				</div>
-			</div>
-		</div>
-	</div>
+            <div class="container">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 	
 	
 	<script>

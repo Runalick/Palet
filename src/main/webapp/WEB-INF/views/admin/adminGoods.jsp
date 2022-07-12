@@ -46,7 +46,7 @@
                 <div class="row">
                     <!-- sidebar 3grid open -->
                     <!-- sidebar class name for css, fixed-->
-                    <div class="col-xl-2 col-lg-3 sidebar ml-auto fixed-top">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-12 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
                         <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
@@ -68,27 +68,27 @@
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Exhibitions
+                                    <i class="bi bi-easel text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 current">
-                                    <i class="bi bi-basket text-black fa-lg mr-3"></i> Goods
+                                    <i class="bi bi-gift text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-graph-up-arrow text-black fa-lg mr-3"></i> Analytics
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-bar-chart-line text-black fa-lg mr-3"></i> Totals
+                                    <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-wrench text-black fa-lg mr-3"></i> Settings
+                                    <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -168,7 +168,11 @@
 							<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">		
 								<div class="col">
 									<div class="row">
-										<div class="col p-0 body2 marg_left0">전시 카테고리</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 카테고리</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 카테고리</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">전시 카테고리</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">전시 카테고리</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">전시 카테고리</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
@@ -180,7 +184,11 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col p-0 body2 marg_left0">상품 이름</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 이름</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 이름</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 이름</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 이름</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 이름</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
@@ -189,7 +197,11 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col p-0 body2 marg_left0">상품 가격</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 가격</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 가격</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 가격</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 가격</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 가격</div>
 									</div>
 									<div class="row" style="text-align:center;">
 										<div class="col-12 p-0">
@@ -199,7 +211,11 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col p-0 body2 marg_left0">상품 옵션</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 옵션</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 옵션</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 옵션</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 옵션</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 옵션</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
@@ -207,13 +223,19 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col p-0 body2 marg_left0">상품 사진</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 사진</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 사진</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 사진</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 사진</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 사진</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 filebox">
-											<input class="upload_view marg_left1" value="" placeholder="Input Goods Images">
-											<label class="btn1_0 marg_left1" for="file"> 업로드 </label>
-											<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
+											<input class="upload_view" value="" placeholder="Input Goods Images">
+											<span>
+												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>
+												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
+											</span>
 										</div>
 									</div>  
 									<div class="row" style="text-align:center">
@@ -226,7 +248,7 @@
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
-												<input class="btn2" type="submit" id="upload" value="등록">
+												<input class="btn2_1" type="submit" id="upload" value="등록">
 										</div>
 									</div>
                 				</div>

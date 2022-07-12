@@ -494,14 +494,19 @@ $(".askbtn").on("click",function(){
 			url:"/info/askEmail",
 			data:{userEmail:$("#email").val(),title:$("#title").val(),contents:$("#contents").val()}
 		}).done(function(resp){
+
+
 			$("#email").val("");
 			$("#title").val("");
 			$("#contents").val("");
 			alert("문의가 접수되었습니다");
+
 		})
 	}
 		
 	}
+	
+	
 	
 })
 </script>

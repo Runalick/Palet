@@ -61,12 +61,12 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
-	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
 	z-index: 5;
 }
+
 
 .navbar {
 	height: 5rem;
@@ -217,6 +217,22 @@ line-height: 3.75rem;
 	font-size: 1.25rem;
 	line-height: 1.875rem;
 	}
+	.main-info{
+		font-size: 1.625rem;
+	}
+	.main-area .body4{
+font-weight:550;
+font-size:1.1rem;
+}
+.sm-btn{
+width: 6.375rem;
+height: 0.675rem;
+margin-right:0.25rem;
+}
+#insert{
+	width:13.375rem;
+	height:2.7rem;
+}
 }
 
 @media ( max-width : 991px) {
@@ -234,13 +250,35 @@ line-height: 3.75rem;
 	padding:0rem;
 	}
 	.body3{
-	font-size:1.625rem;
+	font-size:1.425rem;
 	}
-	.body4{
+	.body4, .main-info{
 	font-size:1.875rem;
 	}
+	.main-area .body4{
+	font-family: 'Spoqa Han Sans Neo';
+	font-weight:550;
+	font-size:1.625rem;
 }
+	.sm-btn{
+	margin-top:0.3rem;
+	width:10.375rem;
+	height:2.875rem;
+	}
+	#insert{
+	width:16.375rem;
+	height:3.3rem;
+}
+	
+}
+.main-info{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 600;
 
+	line-height: 1.875rem;
+	margin-bottom:1rem;
+}
 /* 네비 */
 
 .content{
@@ -275,10 +313,12 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+line-height:2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
 font-weight:700;
+line-height:2rem;
 }
 .small-navi{
 margin:1.25rem 0rem ;
@@ -294,6 +334,39 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
+
+.main-area{
+margin-top:1rem; 
+padding-bottom:1rem; 
+border-bottom:1px solid #C4CDD5;
+}
+.list{
+padding:1.2rem 0px; 
+border-bottom:1px solid #C4CDD5;
+}
+.list .body3{
+line-height:2rem;
+}
+.btnbtn{
+font-family: 'Spoqa Han Sans Neo';
+line-height:0px;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 1.125rem 1.5rem;
+gap: 0.625rem;
+border:0px;
+
+color:white;
+/* Gray/900 */
+background: #161C24;
+border-radius: 1rem;
+}
+.btnbtn:hover{
+background: #454F5B;
+color:white;
+}
+
 </style>
 </head>
 <body>
@@ -370,7 +443,7 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -378,7 +451,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
@@ -386,6 +459,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">나의 회원등급</a></li>
 							<li class="body3"><a href="#">나의 쿠폰</a></li>
+							   <li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
@@ -398,7 +472,33 @@ padding: 0.3rem 1rem;
 				
 				
 				
-				<div class="content" style="border:1px solid black">
+				<div class="content" style="margin-top:1rem;">
+					<div class="row">
+						<div class="col-12 main-info">배송지 목록</div>
+						<div class="col-8 body4">배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
+						<div class="col-4 body4">
+						<button class="btnbtn body3" id="insert">배송지 등록</button>
+						</div>
+						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
+							<div class="row main-area" >
+								<div class="col-2  body4" >배송지</div>
+								<div class="col-5 body4">주소</div>
+								<div class="col-3 col-md-2 body4">연락처</div>
+								<div class="col-2 col-md-3 body4" style="text-align:center">수정·삭제</div>
+								
+							
+							</div>
+							<div class="row list" >
+									<div class="col-2 body3">우리집</div>
+								<div class="col-5 body3">경기도 수원시 영통구 덕영대로 1400 (망포동, 영통아이파크캐슬2단지)</div>
+								<div class="col-3 col-md-2 body3">01030822342</div>
+								<div class="col-2 col-md-3 body3" style="text-align:center">
+								<button class="btnbtn sm-btn body3" style="line-height:0px;">수정</button>
+								<button class="btnbtn sm-btn body3" style="line-height:0px;">삭제</button>
+								</div>
+							</div>
+						</div>
+					</div>
 				
 				</div>
 
@@ -451,6 +551,15 @@ padding: 0.3rem 1rem;
 			$(".navi-menu").css({"display":"block"});
 		}
 		}
+	//배송지 등록
+	$("#insert").on("click",function(){
+		window.open("/delivery/insert","", "top=100,left=200,width=620,height=530");
+	})
+	//쿠폰
+	   $("#registration").on("click",function(){
+      window.open("/coupon/toregistration", "",
+      "top=100,left=200,width=550,height=500");
+      })
 	
 	//선택박스 화살표 방향 이미지
 	let click = true;

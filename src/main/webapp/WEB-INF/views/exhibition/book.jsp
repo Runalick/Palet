@@ -1,4 +1,5 @@
 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -7,8 +8,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <title>현재 전시</title>
+
+<script type="text/javascript"
+	src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -202,7 +208,7 @@
 .btn1_1 {
 	padding: 1.125rem 1.5rem;
 	gap: 0.625rem;
-	width: 23.5rem;
+	width: 13.5rem;
 	height: 3.75rem;
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -336,6 +342,10 @@ align-items: center; */
 	padding-right: 0px;
 }
 
+#row2>div {
+	padding: 1rem;
+}
+
 .hcon {
 	margin-top: 0.938rem;
 	height: 3.75rem;
@@ -405,12 +415,10 @@ a {
 
 .rec1 {
 	box-sizing: border-box;
-	width: 49.25rem;
-	height: 22.25rem;
 	background: #FFFFFF;
-	/* Gray/300 */
 	border: 1px solid #DFE3E8;
 	border-radius: 1.25rem;
+	border: 1px solid #DFE3E8
 }
 
 .input1 {
@@ -452,6 +460,10 @@ input::placeholder {
 .info>li {
 	margin-top: 0.6rem;
 }
+
+.d-sm-none {
+	text-align: center;
+}
 </style>
 
 
@@ -471,30 +483,31 @@ input::placeholder {
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+					<li class="nav-item"><a id="About" class="nav-link"
+						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+					</li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/Exhibition/toCurExhibition"
+						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/program/toProgram"
+						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+					<li class="nav-item"><a id="Shop" class="nav-link"
+						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
+					</li>
+					<li class="nav-item"><a id="Login" class="nav-link"
+						href="/member/loginPage"
+						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+					<li class="nav-item"><a id="Signup" class="nav-link"
+						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
+							up</a></li>
+					<li class="nav-item"><a id="Admin" class="nav-link"
+						href="/admin/adminMain"
+						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+					<li class="nav-item"><a id="Mypage" class="nav-link"
+						href="/member/mypage"
+						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+				</ul>
 						</div>
 					</div>
 				</nav>
@@ -502,7 +515,7 @@ input::placeholder {
 			</div>
 
 
-			<div class="row">
+			<div class="row mt-4">
 
 
 				<div class="col-1">
@@ -525,75 +538,157 @@ input::placeholder {
 
 
 			</div>
-			<div class="row" style="margin-top: 1.25rem; padding-left: 2.5rem;">
-				<div class="col-8 rec1 " style="padding: 1.75rem;">
-					<div class="row body2" id="row1" style="margin: 0px;">
-						<div class=col-12>이름</div>
-						<div class=col-12 style="margin-top: 0.5rem;">
-							<input type=text class=input1 placeholder="예매자 이름을 입력해 주세요.">
+
+		</div>
+		<div class="container mt-3">
+			<div class=row>
+				<div class="col-12">
+					<div class=row>
+						<div class="col-lg-7 col-12 d-none d-sm-block"
+							style="padding-left: 1.564rem;">
+							<div class="row rec1">
+								<div class="col-12 mt-3">이름</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 username"
+										placeholder="예매자 이름을 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 phone"
+										placeholder="전화번호를 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+									<input type=text class="input1 email"
+										style="text-align: center;" value="${loginEmail}" readonly>
+								</div>
+
+							</div>
+
 						</div>
-						<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
-						<div class=col-12 style="margin-top: 0.5rem;">
-							<input type=text class=input1 placeholder="전화번호를 입력해 주세요.">
+
+
+						<div class="col-lg-7 col-12 d-block d-sm-none"
+							style="padding-left: 1.564rem; text-align: center;">
+							<div class="row rec1">
+								<div class="col-12 mt-3">이름</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 username"
+										placeholder="예매자 이름을 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 phone"
+										placeholder="전화번호를 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+									<input type=text class="input1 email"
+										style="text-align: center;" value="${loginEmail}" readonly>
+								</div>
+
+							</div>
+
 						</div>
-						<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-						<div class=col-12 style="margin-top: 0.5rem;">
-							<input type=text class=input1 placeholder="email@naver.com">
+						<div class="col-lg-1 col-12" style="height: 2rem;"></div>
+						<div class="col-lg-4 col-12" style="padding-left: 1.564rem;">
+							<div class="row  rec1 h-70" id=row2>
+								<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
+								<div class="col-6 h3" style="text-align: center;">${price }</div>
+								<div class="col-6 caption" style="text-align: center;">적립예정
+									포인트</div>
+								<div class="col-6 caption" style="text-align: center;" id=point></div>
+
+							</div>
+							<div class=row id=row1>
+								<div class="col-12"
+									style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
+									<button class="btn1_1" id=pay onclick="iamport()"
+										style="width: 100%;">결제하기</button>
+								</div>
+
+
+
+
+								<div class="col-12 h4 d-none d-sm-block"
+									style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불
+									규정을 확인하였으며 결제에 동의합니다.</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									이용약관 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									결제 대행 서비스 이용약관<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									취소 환불 규정<a class=policy>보기</a>
+								</div>
+
+
+
+
+								<div class="col-12 h4 d-block d-sm-none"
+									style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불
+									규정을 확인하였으며 결제에 동의합니다.</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									이용약관 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									결제 대행 서비스 이용약관<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									취소 환불 규정<a class=policy>보기</a>
+								</div>
+
+							</div>
+
 						</div>
+
 					</div>
 				</div>
-				<div class="col-4 rec1"
-					style="padding: 1.75rem; width: 23.5rem; height: 5rem; margin-left: 2.25rem;">
-					<div class="row h3" id="row1" style="margin: 0px;">
-						<div class=col-6 style="text-align: left;">총 결제 금액</div>
-						<div class=col-6 style="text-align: right;">18,800원</div>
-
-					</div>
-					<div class="row" id="row1 "
-						style="margin-left: -4.2rem; margin-top: 2.6rem;">
-
-						<div class="col-12 ">
-							<button class="btn1_1" id=pay onclick="iamport()" >결제하기</button>
-						</div>
-						<div class="col-12 h4"
-							style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불 규정을
-							확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption" style="margin-top: 0.4rem;">
-							이용약관 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption" style="margin-top: 0.4rem;">
-							개인정보 수집 및 이용 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption" style="margin-top: 0.4rem;">
-							결제 대행 서비스 이용약관<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption" style="margin-top: 0.4rem;">
-							취소 환불 규정<a class=policy>보기</a>
-						</div>
-					</div>
-				</div>
-
 			</div>
+		</div>
+
+		<div class=container style="margin-top: 3.75rem;">
 			<div class=row>
 
-				<div class="col-12 h3" style="margin-top: 3.75rem;">전시 정보</div>
+				<div class="col-12 h3 d-none d-sm-block">전시 정보</div>
+				<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">전시
+					정보</div>
 			</div>
-			<div class=row style="margin-top: 1.25rem; padding-left: 2.5rem;">
+			<div class=row
+				style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
 
-				<div class="col-8 rec1"
-					style="padding-left: 0rem; padding-right: 20px; height: 10rem;">
+				<div class="col-lg-7 col-12 rec1"
+					style="padding-left: 0rem; height: 12rem; width: 42rem;">
 					<div class=row id=row1>
-						<div class=col-3>
+						<div class="col-lg-3 col-5">
 							<img src="/images/anywayloveSM.png"
-								style="width: 10rem; height: 10rem;">
+								style="width: 10rem; height: 12rem;">
 						</div>
-						<div class="col-9 body1"
-							style="color: #161C24; margin-top: 1.875rem;">
+						<div class="col-lg-1 col-1"></div>
+						<div class="col-lg-8 body1 col-6"
+							style="color: #161C24; margin-top: 2.325rem;">
 							Romantic Days 어쨌든, 사랑
 
 							<div class=h3
-								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;">9,000원</div>
-							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;">1매</div>
+								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
+								id=totalprice>${price}</div>
+							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
+								id=count>${count}매</div>
 
 						</div>
 
@@ -601,9 +696,12 @@ input::placeholder {
 
 					</div>
 				</div>
+				<div class="col-lg-5 col-12" style="height: 2rem;"></div>
 			</div>
 
-			<div class=row style="margin-top: 1.25rem; padding-left: 2.5rem;">
+
+
+			<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
 
 				<div class="col-8" style="padding-left: 0rem; height: 10rem;">
 					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
@@ -627,74 +725,108 @@ input::placeholder {
 
 
 
-			<div class="row" id="footer"
-				style="margin-top: 12.5rem; padding: 0px;">
-				<div class="container">
-					<div class="row">
-						<div class="col-12 h3"
-							style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-						<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-							123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-						<br>
-						<div class="col-12 body2"
-							style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
-							1층 | contact@palet.com</div>
+		</div>
 
-					</div>
+		<div class="row w-100" id="footer"
+			style="margin-top: 12.5rem; padding: 0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2"
+						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
+
 				</div>
 			</div>
-
 		</div>
+
 	</div>
 </body>
 <script>
-function iamport(){
-    //가맹점 식별코드
-    IMP.init('imp48062056');
-IMP.request_pay({
-    pg : 'kcp',
-    pay_method : 'card',
-    merchant_uid : 'merchant_' + new Date().getTime(),
-    name : '예매' , //결제창에서 보여질 이름
-    amount : 100, //실제 결제되는 가격
-    buyer_email : 'iamport@siot.do',
-    buyer_name : '조양기',
-    buyer_tel : '010-1234-5678',
-    buyer_addr : '서울 강남구 도곡동',
-    buyer_postcode : '123-456'
-}, function(rsp) {
-	console.log(rsp);
-    if ( rsp.success ) {
-    	
-        $.ajax({
-            url:"/pay/insert",
-            data:{
-                imp_uid : rsp.imp_uid,
-                pg : "kcp",
-                method : "card",
-                g_name : "예매",
-                price : rsp.paid_amount,
-                apply_num : rsp.apply_num},
-            type:"post",
-            dataType:"json"
-        }).done(function(resp){
-            alert(resp);
-        });
-        var msg = '결제가 완료되었습니다.';
-        msg += '고유ID : ' + rsp.imp_uid;
-        msg += '상점 거래ID : ' + rsp.merchant_uid;
-        msg += '결제 금액 : ' + rsp.paid_amount;
-        msg += '카드 승인번호 : ' + rsp.apply_num;
-    } else {
-    	 var msg = '결제에 실패하였습니다.';
-         msg += '에러내용 : ' + rsp.error_msg;
-    }
-    alert(msg);
-});
-}
+	$(".leftbutton").on("click", function() {
 
+		location.href = "/Exhibition/toCurExhibition";
+	})
+
+	window.onload = function() {
+		let point = '${price}';
+		let point1 = point.replace(",", "");
+		let point2 = point1.replace("원", "");
+		finalpoint = parseInt(point2) * 0.01;
+
+		$("#point").text(finalpoint + "p");
+
+	}
+
+	function iamport() {
+		//가맹점 식별코드
+		IMP.init('imp48062056');
+		IMP.request_pay({
+			pg : 'kcp',
+			pay_method : 'card',
+			merchant_uid : 'merchant_' + new Date().getTime(),
+			name : '예매', //결제창에서 보여질 이름
+			amount : 100, //실제 결제되는 가격
+			buyer_email : 'iamport@siot.do',
+			buyer_name : '조양기',
+			buyer_tel : '010-1234-5678',
+			buyer_addr : '서울 강남구 도곡동',
+			buyer_postcode : '123-456'
+
+		}, function(rsp) {
+			console.log(rsp);
+			if (rsp.success) {
+				let price = $("#totalprice").text();
+				let price1 = price.replace(",", "");
+				let price2 = price1.replace("원", "");
+
+				let count = $("#count").text();
+				let count1 = count.replace("매", "");
+
+				let point = $("#point").text();
+				let point1 = point.replace("p", "");
+				let point2 = parseInt(point1);
+				$.ajax({
+					url : "/pay/insert",
+					data : {
+
+						et_email : $(".email").val(),
+						et_title : "Romantic Days 어쩃든 사랑",
+						et_place : "지하철 3호선 경복궁역 지하 1층",
+						et_date : "2022.03.16 ~ 2022.10.30",
+						et_booknumber : rsp.merchant_uid,
+						et_state : "Y", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
+						et_username : $(".username").val(),
+						et_phone : $(".phone").val(),
+						et_paymethod : "card",
+						et_cost : price2,
+						et_count : count1,
+						et_point : point2
+					},
+
+					type : "post",
+					dataType : "json"
+				}).done(function(resp) {
+					alert(resp);
+				});
+				var msg = '결제가 완료되었습니다.';
+				msg += '고유ID : ' + rsp.imp_uid;
+				msg += '상점 거래ID : ' + rsp.merchant_uid;
+				msg += '결제 금액 : ' + rsp.paid_amount;
+				msg += '카드 승인번호 : ' + rsp.apply_num;
+			} else {
+				var msg = '결제에 실패하였습니다.';
+				msg += '에러내용 : ' + rsp.error_msg;
+			}
+			alert(msg);
+		});
+	}
 </script>
 </html>
+
 
 
 

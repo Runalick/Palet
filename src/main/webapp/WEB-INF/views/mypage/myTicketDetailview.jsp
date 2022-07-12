@@ -17,6 +17,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 	crossorigin="anonymous"></script>
+<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
+	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
 
 <style>
@@ -59,12 +61,12 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
-	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
 	z-index: 5;
 }
+
 
 .navbar {
 	height: 5rem;
@@ -215,6 +217,10 @@ line-height: 3.75rem;
 	font-size: 1.25rem;
 	line-height: 1.875rem;
 	}
+	.content{
+  
+    margin-left:1.75rem;
+}
 }
 
 @media ( max-width : 991px) {
@@ -237,14 +243,14 @@ line-height: 3.75rem;
 	.body4{
 	font-size:1.875rem;
 	}
+	.content{
+	 margin-left:0px;
+	}
 }
 
 /* 네비 */
 
-.content{
-  
-    margin-left:1.75rem;
-}
+
 .mypage-wrap{
 margin:4.625rem auto 9.375rem;
 }
@@ -273,10 +279,12 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+line-height:2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
 font-weight:700;
+line-height:2rem;
 }
 .small-navi{
 margin:1.25rem 0rem ;
@@ -292,140 +300,61 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
-<!-- 버튼 -->
-        .btn1 {
-
-            /* padding:  1.12rem 1.5rem; */
-            gap: 0.625rem;
-
-            /* width: 12.5rem; */
-			width: 100%;
-            height: 3.125rem;
-            
-            /* Gray/900 */
-            color:#FFFFFF;
-            background: #161C24;
-            border-radius: 0.313rem;
-            /* Button/Button */
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.0rem;
-            line-height: 1.2rem;
-            cursor: pointer;
-
-        }
-        
-        .btn1:disabled {
-        	color:#FFFFFF;
-            background: #C4CDD5;
-            cursor: default;
-        }
-		
-		/* join 버튼 */
-        .btn2 {
-
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-
-            /* width: 18.813rem; */
-            width: 10rem;
-            height: 1rem;
-
-
-            color: #FFFFFF;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 0.5rem;
-            /* identical to box height */
-
-            text-align: center;
-
-            /* Gray/900 */
-
-            background: #161C24;
-            cursor: pointer;
-
-        }
-        
-        .btn2:disabled {
-        	color:#FFFFFF;
-            background: #C4CDD5;
-            cursor: default;
-        }
-        
-        .btn3 {
-
-
-
-/* display: block; */
-/* flex-direction: row;
-justify-content: center;
-align-items: center; */
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-
-
-width: 11.625rem;
-height: 3.75rem;
-
-
-
-
+.info{
+font-size:1.625rem;
+padding-bottom:1.3rem;
+ border-bottom:1px solid black;
+  margin-top:1rem;
+  margin-bottom:0.25rem;
+}
+.body5{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.6rem;
+	line-height: 1.875rem;
+}
+.content-row .body4, .content-row .body5{
+margin-bottom:0.8rem;
+}
+.ticket-row .body4{
+font-weight:500;
+font-size:1.675rem;
+}
+.total{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.625rem;
+	line-height: 1.875rem;
+	
+}
+.total-price{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 1.875rem;
+}
+.btn{
+display:inline-block;
+width: 180px;
+height: 50px;
 background: #161C24;
 border-radius: 1.25rem;
-
-
-
-
+color:white;
 font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 500;
-font-size: 1.2rem;
-line-height: 1.5rem;
-
-
-text-align: center;
-
-color: #FFFFFF;
-
-
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.625rem;
+	line-height: 1.875rem;
+margin-right:1rem;
+border:0px;
 }
-
-        .btn5 {
-
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-
-            width: 18.813rem;
-            height: 3.75rem;
-
-
-            /* Gray/900 */
-
-            background: #161C24;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-                font-style: normal;
-            font-weight: 500;
-             font-size: 1.23rem;
-            line-height: 1.5rem;
-                        /* identical to box height */
-
-            text-align: center;
-
-                color: #FFFFFF;
-
-
-
-
-        }
+.btn:hover{
+background:#454F5B;
+color:white;
+}
 </style>
 </head>
 <body>
@@ -502,7 +431,7 @@ color: #FFFFFF;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -510,95 +439,111 @@ color: #FFFFFF;
 						<ul>
 							<li class="body3"><a href="#">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Info</div>
 						<ul>
 							<li class="body3"><a href="#">나의 회원등급</a></li>
+							<li class="body3"><a href="#">나의 쿠폰</a></li>
 							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
-							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
+							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
 					</ul>
 				</div>
 				</div>
 				
+				
+				
+				
+				
+				
 				<div class="content">
-				<div class="row" id="row1">
-					<div class="col-12">
-						<div class="h2"
-							style="text-align: center; margin-left: auto; margin-bottom: 20px;"> <b>Coupon List</b></div>
+				<div class="row content-row" style="min-width:730px;">
+					<div class="col-12 info"  >
+					<strong>주문정보</strong>
 					</div>
-					</div>
-					<div class="row">
-								<div class="col-3 body4">
-									번호
-								</div>
-								<div class="col-3 body4">
-									할인금
-								</div>
-								<div class="col-3 body4">
-									종류
-								</div>
-								<div class="col-3 body4">
-									사용여부
-								</div>
-					</div>
-					<c:forEach items="${list }" var="i">
-						<div class="row">
-						<div class="col-3">
-							${i.serial }
-						</div>
-						<div class="col-3">
-							${i.dc }
-						</div>
-						<div class="col-3">
-							${i.category }
-						</div>
-						<div class="col-3">
-							<c:if test="${(i.use == null)||(i.use=='N') }">
-								미사용 쿠폰입니다.
-							</c:if>
-							<c:if test="${i.use=='Y' }">
-								사용한 쿠폰입니다.
-							</c:if>							
-							
-						</div>
-						</div>
-					</c:forEach>
-					
-					<!-- 테스트용 -->
-<!-- 					<div class="col-12"> -->
-<!-- 						<input type="text" placeholder="발급숫자" name="number" id="number"><br> -->
-<!-- 						<input type="text" placeholder="할인금액" name="dc" id="dc"><br> -->
-<!-- 						<input type="text" placeholder="종류" naem="category" id="category"> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-12"> -->
-<!-- 							<button type="button" id="make">테스트용 쿠폰 만들기</button> -->
-<!-- 						</div> -->
-
+				
+				
+					<div class="col-3 body4" style="margin-top:1.25rem;">주문번호</div>
+					<div class="col-9 body4" style="margin-top:1.25rem;">324123423</div>
+					<div class="col-3 body4">주문일자</div>
+					<div class="col-9 body4">2022-02-25</div>
+					<div class="col-3 body4">주문자</div>
+					<div class="col-9 body4">홍길동</div>
+					<div class="col-3 body4">주문처리상태</div>
+					<div class="col-9 body4">구매완료</div>
+					<div class="col-3 body4" style="margin-bottom:2rem;">결제수단</div>
+					<div class="col-9 body4" style="margin-bottom:2rem;">카카오페이(간편결제)</div>
+				
+				<div class="col-12 info"><strong>예매자 정보</strong></div>
+				<div class="col-3 body5" style="margin-top:1.25rem;">이름</div>
+					<div class="col-9 body5" style="margin-top:1.25rem;">홍길동</div>
+					<div class="col-3 body5">전화번호</div>
+					<div class="col-9 body5">01012341234</div>
+					<div class="col-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
+					<div class="col-9 body5" style="margin-bottom:3rem;">we@naver.com</div>
+				
+				<div class="col-2" style="height:12.5rem;margin-bottom:5.5rem;  ">
+				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
+					<div class="col-9" style="margin-bottom:5.5rem;">
+						<div class="row ticket-row" >
+							<div class="col-12 body4" style="padding-top:1rem;">굿즈모아선물의집</div>
+							<div class="col-12 body4">rew12312예매번호</div>
+							<div class="col-12 body4">9,000원</div>
+						</div>
+					</div>
+				
+				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
+				<div class="col-8 total-price" style="margin-bottom:10rem">9,000원</div>
+				
+				
+				
+				<button class="btn">구매 취소</button>
+				<button class="btn">티켓 확인하기</button>
+				
+				</div>
+				</div>
+
+			
+
+			
+
+
+
+
+
 			</div>
 		</div>
 
 
+
+
+
+
+
+
 		<!-- 푸터단 -->
 
-<div class="row" id="footer">
-            <div class="container">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
-
-                </div>
-            </div>
-        </div>
+		<div class="row" id="footer" style="margin-top: 12.5rem;">
+			<div class="container">
+				<div class="row" id="row1" style="margin-left: 22.5rem;">
+					<div class="col-12 H3 d-none d-sm-block"
+						style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
+					<div class="col-12 body2 d-none d-sm-block"
+						style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
+						사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 :
+						2022-서울강남-012345 <br> 3호선 경복궁역 지하 1층 | contact@palet.com
+					</div>
+				</div>
+			</div>
+		</div>
 
 	</div>
+	
 	<script>
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
@@ -613,37 +558,26 @@ color: #FFFFFF;
 		}
 		}
 	
+	//쿠폰 등록
+	   $("#registration").on("click",function(){
+      window.open("/coupon/toregistration", "",
+      "top=100,left=200,width=550,height=500");
+      })
+	
 	//선택박스 화살표 방향 이미지
-		$("#registration").on("click",function(){
-		window.open("/coupon/toregistration", "",
-		"top=100,left=200,width=700,height=500");
-		})
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
 			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
+			$(".navi-menu").toggle();
 			
 			click = true;
 		}else{
 			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
+			$(".navi-menu").toggle();
 			click = false;
 		}
 	});
-// 		$("#make").on("click",function(){
-// 			$.ajax({
-// 				url:"/coupon/make",
-// 				data:{number:$("#number").val(),
-// 					dc:$("#dc").val(),
-// 					category:$("#category").val()}
-// 			}).done(function(resp){
-// 				console.log(resp);
-// 			})
-// 		})
-	
 	</script>
 </body>
 </html>
-
-
