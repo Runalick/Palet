@@ -25,7 +25,6 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 12px;
@@ -35,7 +34,6 @@
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -55,6 +53,17 @@
 	padding: 0px;
 	height: 1.875rem;
 }
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
 
 #navparent {
 	position: fixed;
@@ -65,18 +74,14 @@
 	background-color: white;
 }
 
-.navbar {
-	height: 5rem;
-	padding: 0px;
-}
-
 .row>div {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 }
 
+
 .nav-item {
-	padding-left: 20px;
+
 	padding-right: 20px;
 }
 
@@ -339,7 +344,7 @@ align-items: center; */
 
 #row1>div {
 	padding-left: 0px;
-	padding-right: 0px;
+	padding-righ t: 0px;
 }
 
 .hcon {
@@ -412,56 +417,65 @@ a {
 #po {
 	position: relative;
 }
+
+  .container, .container-fluid,  .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}  
+
 </style>
 
 
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
-					<div class="container" id="navparent">
+		<div class="container" >
+			<div class="row" id="container1" >
+				<nav class="navbar navbar-expand-md bg-light navbar-light" >
+					<div class="container" id="navparent" style = "overflow: visible;">
 						<a class="navbar-brand" href="/" id="container"
 							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-						<button class="navbar-toggler" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-							<span class="navbar-toggler-icon"></span>
-						</button>
+
+						<div style="height: 5rem;">
+							<button class="navbar-toggler" type="button"
+								data-bs-toggle="collapse" style="margin-top: 15px;" data-bs-target="#collapsibleNavbar">
+								<span class="navbar-toggler-icon"></span>
+							</button>
+						</div>
+
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-					<li class="nav-item"><a id="About" class="nav-link"
-						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-					</li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/Exhibition/toCurExhibition"
-						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-					<li class="nav-item"><a id="Exhibition" class="nav-link"
-						href="/program/toProgram"
-						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-					<li class="nav-item"><a id="Shop" class="nav-link"
-						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
-					</li>
-					<li class="nav-item"><a id="Login" class="nav-link"
-						href="/member/loginPage"
-						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-					<li class="nav-item"><a id="Signup" class="nav-link"
-						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
-							up</a></li>
-					<li class="nav-item"><a id="Admin" class="nav-link"
-						href="/admin/adminMain"
-						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-					<li class="nav-item"><a id="Mypage" class="nav-link"
-						href="/member/mypage"
-						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-				</ul>
+								<li class="nav-item"><a id="About" class="nav-link"
+									href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+								</li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/Exhibition/toCurExhibition"
+									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+								<li class="nav-item"><a id="Exhibition" class="nav-link"
+									href="/program/toProgram"
+									style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+								<li class="nav-item"><a id="Shop" class="nav-link"
+									href="/shop/toShop"
+									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+								<li class="nav-item"><a id="Login" class="nav-link"
+									href="/member/loginPage"
+									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+								<li class="nav-item"><a id="Signup" class="nav-link"
+									href="/member/join"
+									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+								<li class="nav-item"><a id="Admin" class="nav-link"
+									href="/admin/adminMain"
+									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+								<li class="nav-item"><a id="Mypage" class="nav-link"
+									href="/member/mypage"
+									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+							</ul>
 						</div>
 					</div>
 				</nav>
 
 			</div>
-
 		</div>
 
 		<div class="container d-none d-sm-block"
@@ -515,8 +529,8 @@ a {
 
 			</div>
 		</div>
-<div class="row d-none d-sm-block" style="border-top: 1px solid #DFE3E8;">
-	</div>
+		<div class="row d-none d-sm-block"
+			style="border-top: 1px solid #DFE3E8;"></div>
 
 
 
@@ -579,8 +593,8 @@ a {
 			</div>
 		</div>
 
-<div class="row d-block d-sm-none" style="border-top: 1px solid #DFE3E8;">
-	</div>
+		<div class="row d-block d-sm-none"
+			style="border-top: 1px solid #DFE3E8;"></div>
 
 
 		<div class="container">
@@ -624,8 +638,7 @@ a {
 					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
 					<br>
-					<div class="col-12 body2"
-						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
+					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
 						1층 | contact@palet.com</div>
 
 				</div>
@@ -639,8 +652,6 @@ a {
 </body>
 <script>
 	$(".bookbutton").on("click", function() {
-		
-		
 
 		$(this).next().val($($(this).siblings()[2]).text());
 		$(this).next().next().val($($(this).siblings()[0]).text());
