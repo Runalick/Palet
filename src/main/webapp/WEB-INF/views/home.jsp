@@ -21,8 +21,9 @@
 <body>
 <c:choose>
 	<c:when test="${loginEmail =='admin@palet.com'}">
+	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-	        <div class="container-fluid">
+	        <div class="container" style="padding: 10px;">
 	          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
 	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	            <span class="navbar-toggler-icon"></span>
@@ -33,7 +34,7 @@
 	                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 	                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
 	                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-	                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/event/eventPage"
+	                <li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
                         style="padding-left:0px; padding-right:0px;">Class</a> </li> 
 	                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 	                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
@@ -45,11 +46,13 @@
 	          </div>
 	        </div>
 	      </nav>
+	</div>
 	</c:when>
 	
 	<c:when test="${loginEmail != null}">
+	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-        <div class="container-fluid">
+        <div class="container" style="padding: 10px;">
           <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -60,7 +63,7 @@
                         style="padding-left:0px; padding-right:0px;">About</a> </li>
                 <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/event/eventPage"
+                <li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
                         style="padding-left:0px; padding-right:0px;">Class</a> </li> 
                 <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
@@ -72,33 +75,36 @@
           </div>
         </div>
       </nav>
+    </div>
 	</c:when>
 	
 	<c:otherwise>
-    <nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"> <a id="About" class="nav-link" href="about"
+	<div class="container-fluid">
+    	<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+        <div class="container" style="padding: 10px;">
+        	<a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
+          	<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            	<span class="navbar-toggler-icon"></span>
+          	</button>
+          	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            	<ul class="navbar-nav">
+                	<li class="nav-item"> <a id="About" class="nav-link" href="about"
                         style="padding-left:0px; padding-right:0px;">About</a> </li>
-                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+                	<li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
                         style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/event/eventPage"
+                	<li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
                         style="padding-left:0px; padding-right:0px;">Class</a> </li>        
-                <li class="nav-item"> <a id="Class" class="nav-link" href="/shop/toShop"
+                	<li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
-                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+                	<li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
                         style="padding-left:0px; padding-right:0px;">Login</a> </li>
-                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+                	<li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
                         style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
-            </ul>
-          </div>
+            	</ul>
+          	</div>
         </div>
-      </nav>
+    	</nav>
+     </div>
      </c:otherwise>
 </c:choose>    
 
@@ -168,16 +174,17 @@
                 </div>
 
             </div>
-            <div class="row" style="margin-top: 10rem;">
-                <div class="col-12 h2">
-                    베스트 셀러
-                </div>
-            </div>
+            
         </div>
 
 
 
         <div class="container">
+        	<div class="row" style="margin-top: 10rem;">
+                <div class="col-12 h2">
+                    베스트 셀러
+                </div>
+            </div>
             <div class="row " style="margin-top: 3.75rem;" id="row1">
                 <div class="col-xl-4 col-sm-6 " style="text-align: center; ">
                     <img src="/images/image 21.png" class="w-100 p-3" style="padding-left: 0px;">

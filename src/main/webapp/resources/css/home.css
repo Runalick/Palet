@@ -6,12 +6,13 @@
             .container {
                 max-width: 1280px;
 
-                min-width: 390px;
+                /*min-width: 390px;*/
             }
 
             html {
                 font-size: 12px;
             }
+            
 
         }
 
@@ -50,8 +51,8 @@
             width: 100%;
             padding-left: 2.5rem;
             padding-right: 2.5rem;
-            padding-top: 16px;
-            padding-bottom: 16px;
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
         }
 
         .nav-item{
@@ -75,7 +76,6 @@
             padding-left: 2.5rem;
             padding-right: 2.5rem;
         }
-
 
 
         .nav-link {
@@ -115,7 +115,12 @@
             height: 1.5rem;
         }
 
-        #Help {
+        #Class {
+            width: 2.813rem;
+            height: 1.5rem;
+        }
+        
+        #Shop {
             width: 2.813rem;
             height: 1.5rem;
         }
@@ -130,7 +135,7 @@
             height: 1.5rem;
         }
 
-
+		/*네비바 적용 css - 맨 상단부터 여기까지 복붙하세요*/
 
 
         .h1 {
@@ -442,8 +447,9 @@ color: #FFFFFF;
         }
 
         .hcon {
-            margin-top: 0.938rem;
-            height: 3.75rem;
+            align-content: center;
+    		height: fit-content;
+    		margin: 0.938rem;
         }
 
        
