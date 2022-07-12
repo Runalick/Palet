@@ -402,7 +402,7 @@ padding: 0.3rem 1rem;
 				
 				
 				<div class="content" style="border:1px solid black">
-				
+				메인화면입니다. 
 				</div>
 
 			
