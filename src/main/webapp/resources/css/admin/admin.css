@@ -375,6 +375,19 @@
             /* Gray/900 */
             color: #161C24;
         }
+        
+        .h3_3 {
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.5rem;
+            line-height: 2.25rem;
+           
+            /* Gray/900 */
+            color: #161C24;
+        }
+        
+        
 
         .h3 {
             font-family: 'Spoqa Han Sans Neo';
@@ -563,6 +576,39 @@
             cursor: pointer;
 		}
 		.btn0_1:hover {
+			background: #161C24;
+			color: #F4F6F8;
+		  	cursor: pointer;
+		}
+		
+		.btn0_2 {
+/*             padding: 1.125rem 1.5rem; */
+            gap: 0.625rem;
+
+
+            /* width: 18.813rem; */
+            width: 3.7rem;
+            height: 1.7rem;
+
+
+            color: #161C24;
+            border-radius: 1.25rem;
+            border : 0.080rem solid #F4F6F8;
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.9rem;
+            line-height: 0.4rem;
+            /* identical to box height */
+
+            text-align: center;
+
+            /* Gray/900 */
+
+            background: #F4F6F8;
+            cursor: pointer;
+		}
+		.btn0_2:hover {
 			background: #161C24;
 			color: #F4F6F8;
 		  	cursor: pointer;
