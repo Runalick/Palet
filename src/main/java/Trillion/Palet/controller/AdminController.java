@@ -54,6 +54,8 @@ public class AdminController {
 		return "/admin/adminMain";
 	}
 	
+	// Member Category
+	
 	@RequestMapping("adminMembers")
 	public String adminMembers(Model model, int cpage) {
 		List<MemberDTO> mdto = aServ.memberSelectByPage(cpage);
@@ -70,6 +72,54 @@ public class AdminController {
 		
 		return "/admin/adminMemberDetail";
 	}
+	
+	@RequestMapping(value="adminMemberUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
+	public String adminMemberUpdate(MemberDTO dto) {
+		
+		System.out.println("Email :"+dto.getEmail()+" / Name : "+dto.getName()+" / Grade : "+dto.getGrade()+" / Point : "+dto.getPoint());
+		System.out.println("Phone :"+dto.getPhone()+" / Addr1 : "+dto.getAddress1()+" / Addr2 : "+dto.getAddress2()+" / Postcode : "+dto.getPostcode());
+		aServ.adminMemberModi(dto);
+		
+		return "redirect:adminMemberDetail?email="+dto.getEmail();
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="memberCheckDelete", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public int memberCheckDelete(@RequestParam(value="checkboxArr[]") List<String> checkboxArr) throws Exception {
+		int result = 0;
+		String checkNum = "";
+		
+		for (String str : checkboxArr) {
+			checkNum = str;
+			System.out.println(str);
+			aServ.memberCheckDelete(checkNum);
+		}
+		return result;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="memberCheckUpdate", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public int memberCheckUpdate(@RequestParam(value="checkboxArr2[]") List<String> checkboxArr2, String grade) throws Exception {
+		System.out.println(grade);
+		int result = 0;
+		String checkNum = "";
+		
+		for (String str : checkboxArr2) {
+			checkNum = str;
+			System.out.println(str);
+			
+			aServ.memberCheckUpdate(checkNum, grade);
+		}
+		return result;
+	}
+	
+//	@RequestMapping("adminMemberDelete")
+//	public String adminMemberDelete(String email) {
+//		aServ.adminMemberBan(email);
+//		return "redirect:adminMembers?cpage=1";
+//	}
+	
+	// Exhibition Category
 	
 	@RequestMapping("adminExhibitions")
 	public String adminExhibitions() {
@@ -138,6 +188,8 @@ public class AdminController {
 		}
 		return result;
 	}
+	
+	// Goods Category 
 	
 	@RequestMapping("adminGoods")
 	public String adminGoods(Model model) {
