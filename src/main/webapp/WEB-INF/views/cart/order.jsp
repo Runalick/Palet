@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -33,17 +35,17 @@
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-/*  @media ( min-width : 375px) {  */
-/*  	.container {  */
-/*  		max-width: 1280px;  */
-/*  		min-width: 390px;  */
-/*  	}  */
-/*  	html {  */
-/*  		font-size: 12px;  */
-/*  	}  */
-/*  }  */
+  @media ( min-width : 375px) {  
+  	.container {  
+ 		max-width: 1280px;  
+  		min-width: 390px;  
+  	}  
+  	html {  
+  		font-size: 12px;  
+  	}  
+  }  
 
-@media ( min-width : 1650px) {
+@media ( min-width : 1035px) {
 	.container {
 		max-width: 1280px;
 		min-width: 390px;
@@ -263,7 +265,7 @@ background: #FFFFFF;
 border: 1px solid #DFE3E8;
 border-radius: 1.25rem;
 margin-left:1.6rem;
-position:relative;
+/* position:relative; */
 overflow:hidde;
 }
 .productimg{
@@ -326,7 +328,7 @@ justify-content: center;
 align-items: center;
 padding: 1.125rem 1.5rem;
 gap: 0.625rem;
-position: absolute;
+/* position: absolute; */
 width: 23.5rem;
 height: 3.75;
 background: #161C24;
@@ -581,7 +583,7 @@ text-align:center;
 </style>
 <body>
 	<!-- 네비단 -->
-	<div class="container-fluid" id=navparent>
+	<div class="container-fluid">
 		<div class="container">
 			<div class="row" id="container1">
 				<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -708,7 +710,7 @@ text-align:center;
 					<div class="row H3" style="margin-bottom:1.25rem; padding-left:2.5rem; margin-top:3.75rem;">상품 정보</div>
 				
 <!-- 				여기서부터 상품 반복 -->
-					<div class="row select_list">
+					<div class="row select_list" style="max-width:49.25rem">
 						
 					</div>
 <!-- 			여기까지 하나 -->
@@ -784,12 +786,12 @@ text-align:center;
 	<div class="container-fluid d-block d-lg-none" id="mainparent" style="margin-bottom:4.5rem">
 		<div class="container">
 			<div class="row" style="padding-top: 7.5rem; width:100%">
-				<div class="col-1 margin1" id="cart" style="width:100%">
-					<button id="backbtn">
-						<img src="/images/Vector.png">
-					</button>
-				</div>
-				<div class="col-11 h2" id="ordertitle" style="text-align:center; width:100%">Order / Payment</div> 
+<!-- 				<div class="col-1 margin1" id="cart" style="width:100%"> -->
+<!-- 					<button id="backbtn"> -->
+<!-- 						<img src="/images/Vector.png"> -->
+<!-- 					</button> -->
+<!-- 				</div> -->
+				<div class="col-12 h2" id="ordertitle" style="text-align:center; width:100%">Order / Payment</div> 
 
 				<div class="col-12" style="margin-bottom:1.25rem;">
 					<div class="row">
@@ -800,7 +802,7 @@ text-align:center;
 			<!-- 결제 부분 -->
 			
 			<div class="container">	
-				<div id="product-area">
+				<div id="product-area" style="width:100%">
 				
 				<!-- 배송 부분 -->
 				<div class="row" id="delivery-area" style="margin-left:0rem; display:inline-block; width:100%">
@@ -826,7 +828,7 @@ text-align:center;
 					<div class="row H3" style="margin-bottom:1.25rem; margin-top:3.75rem; margin-left:0rem;">상품 정보</div>
 				
 <!-- 				여기서부터 상품 반복 -->
-					<div class="row select_list">
+					<div class="row select_list" style="margin-left:-2.5rem; width:100%">
 						
 					</div>
 						<div>
@@ -849,27 +851,29 @@ text-align:center;
 								<input type="radio" style="margin-right:0.5rem;"><span class="body2">카드 결제</span>
 							</div>
 						<div class="row">
-							<div  id="payment-area" style="width:100%">
+							<div id="payment-area" style="width:100%; max-width:50rem;">
 								<div class="H3 payinfo">결제 상세</div>
 								<div class="row" id="total-area" style="width:100%; height:16rem;">
 									<div class="col-12" style="padding:1.75rem; width:100%">
-										<div class="col-12"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
+										<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 										<span class="H4 totalprice" id="span4">15,800원</span></div>
-										<div class="col-12"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
+										<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
 										<span class="H4 " id="span10">-0원</span></div>
 										
 										
-										<div class="col-12"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
+										<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
 										<span class="H4 deliveryprice" id="span5">3,000원</span></div>
-										<div class="col-12"><span class="H3" id="span3" >총 결제 금액</span>
+										<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span>
 										<span class="H3 finalTotalPrice" id="span6" class="totalprice">18,800</span></div>
-										<div class="col-12"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
+										<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
 										<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span></div>
 									</div>
 								</div>
-								
-								<div class="col-12"><button id="paybtn" onclick="iamport()" style="">결제하기</button></div>
-								
+								<div class="row">
+									<div class="col-12">
+										<div><button id="paybtn" onclick="iamport()" style="width:100%">결제하기</button></div>
+									</div>
+								</div>
 								<div class="warpper" style="margin-top:6.75rem;">
 									<div class="H4" style="color:#637381; text-align:left;margin-bottom:0.5rem;">약관을 확인하였으며 결제에 동의합니다.</div>
 									<span class="span" id="payspan1" style="margin-left:4.5rem">이용약관 동의</span>
@@ -890,26 +894,23 @@ text-align:center;
 	<!-- 푸터단 -->
 
 	<div class="row" id="footer">
-		<div class="container">
-			<div class="row" id="row1" style="margin-left: 22.5rem;">
-				<div class="col-12 h3 d-none d-sm-block"
-					style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
-				<div class="col-12 body2 d-none d-sm-block"
-					style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
-					사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345
-					<br> 3호선 경복궁역 지하 1층 | contact@palet.com
-				</div>
-			</div>
-		</div>
-	</div>
-	<script>
+            <div class="container" style="padding-left:2.5rem;">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
+   	<script>
 	    window.onload = function(){
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:0rem'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            	}
 	            })
 	    }
