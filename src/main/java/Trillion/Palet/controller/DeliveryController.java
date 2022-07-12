@@ -54,21 +54,21 @@ public class DeliveryController {
 	public String insert() {
 		return "/mypage/insertAddress";
 	}
-	
+	@RequestMapping("modi")
+	public String modi(int deliveryaddress_seq,Model model) {
+		String email = "i2376@naver.com";
+		DeliveryDTO dto = dServ.selectAddress(deliveryaddress_seq, email);
+		model.addAttribute("modi",dto);
+		return  "/mypage/insertAddress";
+	}
 	@ResponseBody
 	@RequestMapping("insertModiNewAddress")
 	public String insertModiNewAddress(DeliveryDTO dto,String modi) {
 //		System.out.println(dto.getName());
 		dto.setEmail("i2376@naver.com");
 		dto.setName("hi");
-		System.out.println(dto.getName());
-		System.out.println(dto.getDefaultaddress());
-		System.out.println(dto.getReceiver());
-		System.out.println(dto.getPostcode());
-		System.out.println(dto.getAddress1());
-		System.out.println(dto.getAddress2());
-		System.out.println(dto.getPhone());
-		System.out.println(dto.getEmail());
+		System.out.println(modi);
+		System.out.println("ddd");
 		
 		if(dto.getDefaultaddress()==null) {
 			dto.setDefaultaddress("N");
@@ -101,8 +101,11 @@ public class DeliveryController {
 	public String selectAllAddress(Model model) {
 		
 		String email = "i2376@naver.com";
+		//default 주소 제외 
 		List<DeliveryDTO> list = dServ.selectAllAddress(email);
+		DeliveryDTO defaultAddress= dServ.selectDefaultAddress(email);
 		model.addAttribute("list",list);
+		model.addAttribute("defaultAddress",defaultAddress);
 		return "/mypage/delivery";
 	}
 	
