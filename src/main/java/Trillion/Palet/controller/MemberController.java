@@ -81,13 +81,14 @@ public class MemberController {
 		
 	}
 	
+	@ResponseBody
 	@RequestMapping("login")
-	public String login(String email, String pw) throws Exception{
+	public boolean login(String email, String pw) throws Exception{
 		boolean result = mServ.login(email,pw);
 		if(result) {
-			session.setAttribute("loginEmail", email);
+			session.setAttribute("loginEmail", email);		
 		}
-		return "redirect:/";
+		return result;
 	}
 	
 	@RequestMapping("logout")
