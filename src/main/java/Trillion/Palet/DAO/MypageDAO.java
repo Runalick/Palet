@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.PayDTO;
 
 @Component
 public class MypageDAO {
@@ -20,6 +21,10 @@ public class MypageDAO {
 
 	public int myTicketcnt(String email) {
 		return mybatis.selectOne("MyPage.myTicketcnt",email);
+	}
+
+	public List<PayDTO> myShopping(String email) {
+		return mybatis.selectList("MyPage.myShopping", email);
 	}
 	
 	

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.MypageDAO;
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.PayDTO;
 
 @Service
 public class MypageService {
@@ -20,6 +21,10 @@ public class MypageService {
 
 	public int myTicketcnt(String email) {
 		return mdao.myTicketcnt(email);
+	}
+
+	public List<PayDTO> myShopping(String email) {
+		return mdao.myShopping(email);
 	}
 	
 	

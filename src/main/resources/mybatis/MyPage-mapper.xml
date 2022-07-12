@@ -10,4 +10,7 @@
 	<select id="myTicketcnt" resultType="int">
 		select count(*) from exticket where et_email=#{value}
 	</select>
+	<select id="myShopping" resultType="Trillion.Palet.DTO.PayDTO">
+		select * from payment where email=#{email}
+	</select>
 </mapper>
