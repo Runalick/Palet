@@ -481,30 +481,31 @@ input::placeholder {
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+					<li class="nav-item"><a id="About" class="nav-link"
+						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+					</li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/Exhibition/toCurExhibition"
+						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/program/toProgram"
+						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+					<li class="nav-item"><a id="Shop" class="nav-link"
+						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
+					</li>
+					<li class="nav-item"><a id="Login" class="nav-link"
+						href="/member/loginPage"
+						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+					<li class="nav-item"><a id="Signup" class="nav-link"
+						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
+							up</a></li>
+					<li class="nav-item"><a id="Admin" class="nav-link"
+						href="/admin/adminMain"
+						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+					<li class="nav-item"><a id="Mypage" class="nav-link"
+						href="/member/mypage"
+						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+				</ul>
 						</div>
 					</div>
 				</nav>
@@ -512,7 +513,7 @@ input::placeholder {
 			</div>
 
 
-			<div class="row">
+			<div class="row mt-4">
 
 
 				<div class="col-1">
@@ -537,14 +538,14 @@ input::placeholder {
 			</div>
 
 		</div>
-		<div class=container>
+		<div class="container mt-3">
 			<div class=row>
 				<div class="col-12">
 					<div class=row>
 						<div class="col-lg-7 col-12 d-none d-sm-block"
 							style="padding-left: 1.564rem;">
-							<div class="row rec1" id=row2>
-								<div class=col-12>이름</div>
+							<div class="row rec1">
+								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
 										placeholder="예매자 이름을 입력해 주세요." required>
@@ -555,7 +556,7 @@ input::placeholder {
 										placeholder="전화번호를 입력해 주세요." required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-								<div class=col-12 style="margin-top: 0.5rem;">
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
 									<input type=text class="input1 email"
 										style="text-align: center;" value="${loginEmail}" readonly>
 								</div>
@@ -567,8 +568,8 @@ input::placeholder {
 
 						<div class="col-lg-7 col-12 d-block d-sm-none"
 							style="padding-left: 1.564rem; text-align: center;">
-							<div class="row rec1" id=row2>
-								<div class=col-12>이름</div>
+							<div class="row rec1">
+								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
 										placeholder="예매자 이름을 입력해 주세요." required>
@@ -579,7 +580,7 @@ input::placeholder {
 										placeholder="전화번호를 입력해 주세요." required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-								<div class=col-12 style="margin-top: 0.5rem;">
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
 									<input type=text class="input1 email"
 										style="text-align: center;" value="${loginEmail}" readonly>
 								</div>
@@ -594,7 +595,7 @@ input::placeholder {
 								<div class="col-6 h3" style="text-align: center;">${price }</div>
 								<div class="col-6 caption" style="text-align: center;">적립예정
 									포인트</div>
-								<div class="col-6 caption" style="text-align: center;" id = point></div>
+								<div class="col-6 caption" style="text-align: center;" id=point></div>
 
 							</div>
 							<div class=row id=row1>
@@ -658,69 +659,71 @@ input::placeholder {
 				</div>
 			</div>
 		</div>
-	</div>
-	<div class=container style="margin-top: 3.75rem;">
-		<div class=row>
 
-			<div class="col-12 h3 d-none d-sm-block">전시 정보</div>
-			<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">전시
-				정보</div>
-		</div>
-		<div class=row
-			style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
+		<div class=container style="margin-top: 3.75rem;">
+			<div class=row>
 
-			<div class="col-lg-7 col-12 rec1"
-				style="padding-left: 0rem; height: 12rem; width: 42rem;">
-				<div class=row id=row1>
-					<div class="col-lg-3 col-5">
-						<img src="/images/anywayloveSM.png"
-							style="width: 10rem; height: 12rem;">
+				<div class="col-12 h3 d-none d-sm-block">전시 정보</div>
+				<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">전시
+					정보</div>
+			</div>
+			<div class=row
+				style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
+
+				<div class="col-lg-7 col-12 rec1"
+					style="padding-left: 0rem; height: 12rem; width: 42rem;">
+					<div class=row id=row1>
+						<div class="col-lg-3 col-5">
+							<img src="/images/anywayloveSM.png"
+								style="width: 10rem; height: 12rem;">
+						</div>
+						<div class="col-lg-1 col-1"></div>
+						<div class="col-lg-8 body1 col-6"
+							style="color: #161C24; margin-top: 2.325rem;">
+							Romantic Days 어쨌든, 사랑
+
+							<div class=h3
+								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
+								id=totalprice>${price}</div>
+							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
+								id=count>${count}매</div>
+
+						</div>
+
+
+
 					</div>
-					<div class="col-lg-1 col-1"></div>
-					<div class="col-lg-8 body1 col-6"
-						style="color: #161C24; margin-top: 2.325rem;">
-						Romantic Days 어쨌든, 사랑
-
-						<div class=h3
-							style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-							id=totalprice>${price}</div>
-						<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-							id=count>${count}매</div>
-
-					</div>
+				</div>
+				<div class="col-lg-5 col-12" style="height: 2rem;"></div>
+			</div>
 
 
 
+			<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
+
+				<div class="col-8" style="padding-left: 0rem; height: 10rem;">
+					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
+						<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
+						<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
+						<li style="list-style-type: none;">*오후 6시 *매월 첫째 주 월요일 휴관
+							*(대체)공휴일 정상 운영</li>
+						<li>관람 가능 연령 : 전체 관람가</li>
+						<li style="list-style-type: none;">*영유아는 보호자 동반 하에만 입장 및 관람이
+							가능합니다.</li>
+						<li>매월 첫째 주 월요일은 휴관입니다.</li>
+						<li>(대체)공휴일 정상 운영합니다.</li>
+
+
+
+
+					</ul>
 				</div>
 			</div>
-			<div class="col-lg-5 col-12" style="height: 2rem;"></div>
+
+
+
+
 		</div>
-
-
-
-		<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
-
-			<div class="col-8" style="padding-left: 0rem; height: 10rem;">
-				<ul class="info body2" style="color: #637381; padding-left: 0rem;">
-					<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
-					<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
-					<li style="list-style-type: none;">*오후 6시 *매월 첫째 주 월요일 휴관
-						*(대체)공휴일 정상 운영</li>
-					<li>관람 가능 연령 : 전체 관람가</li>
-					<li style="list-style-type: none;">*영유아는 보호자 동반 하에만 입장 및 관람이
-						가능합니다.</li>
-					<li>매월 첫째 주 월요일은 휴관입니다.</li>
-					<li>(대체)공휴일 정상 운영합니다.</li>
-
-
-
-
-				</ul>
-			</div>
-		</div>
-
-
-
 
 		<div class="row w-100" id="footer"
 			style="margin-top: 12.5rem; padding: 0px;">
@@ -739,7 +742,6 @@ input::placeholder {
 		</div>
 
 	</div>
-
 </body>
 <script>
 	$(".leftbutton").on("click", function() {
@@ -747,24 +749,16 @@ input::placeholder {
 		location.href = "/Exhibition/toCurExhibition";
 	})
 
-	window.onload = function(){
+	window.onload = function() {
 		let point = '${price}';
-		let point1 = point.replace(",","");
-		let point2 = point1.replace("원","");
-		finalpoint = parseInt(point2) *0.01;
+		let point1 = point.replace(",", "");
+		let point2 = point1.replace("원", "");
+		finalpoint = parseInt(point2) * 0.01;
 
-		$("#point").text(finalpoint+"p");		
-			
-		
-		
-		
+		$("#point").text(finalpoint + "p");
+
 	}
-	
-	
-	
-	
-	
-	
+
 	function iamport() {
 		//가맹점 식별코드
 		IMP.init('imp48062056');
@@ -783,16 +777,16 @@ input::placeholder {
 		}, function(rsp) {
 			console.log(rsp);
 			if (rsp.success) {
-				let price =	$("#totalprice").text();
-				let price1 = price.replace(",","");
-				let price2 = price1.replace("원","");
-				
-				let count =	$("#count").text();
-				let count1 = count.replace("매","");
-			
+				let price = $("#totalprice").text();
+				let price1 = price.replace(",", "");
+				let price2 = price1.replace("원", "");
+
+				let count = $("#count").text();
+				let count1 = count.replace("매", "");
+
 				let point = $("#point").text();
-				let point1 = point.replace("p","");
-				let point2 = parseInt(point1);				
+				let point1 = point.replace("p", "");
+				let point2 = parseInt(point1);
 				$.ajax({
 					url : "/pay/insert",
 					data : {
@@ -802,12 +796,12 @@ input::placeholder {
 						et_place : "지하철 3호선 경복궁역 지하 1층",
 						et_date : "2022.03.16 ~ 2022.10.30",
 						et_booknumber : rsp.merchant_uid,
-						et_state : "Y",
+						et_state : "Y", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
 						et_username : $(".username").val(),
 						et_phone : $(".phone").val(),
 						et_paymethod : "card",
 						et_cost : price2,
-						et_count :count1,
+						et_count : count1,
 						et_point : point2
 					},
 

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -199,16 +198,19 @@
 	/* Inside auto layout */
 }
 
-.btn1_1 {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	padding: 1.125rem 1.5rem;
-	gap: 0.625rem;
-	width: 23.5rem;
+.btn1_1{
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 1.125rem 1.5rem;
+gap: 0.625rem;
+
+
+width: 23.5rem;
 	height: 3.75rem;
-	font-family: 'Spoqa Han Sans Neo';
+
+font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 500;
 	font-size: 1.25rem;
@@ -216,9 +218,10 @@
 	/* identical to box height */
 	text-align: center;
 	color: #FFFFFF;
-	/* Gray/900 */
-	background: #161C24;
-	border-radius: 20px;
+/* Gray/900 */
+
+background: #161C24;
+border-radius: 20px;
 }
 
 .btn2 {
@@ -365,51 +368,21 @@ align-items: center; */
 	float: left;
 }
 
-.curimage {
-	width: 23.5rem;
-	height: 32.5rem;
+.curimage{
+width:23.5rem;
+height: 32.5rem;
 }
 
-.exlink {
-	text-decoration: none;
-	color: #919EAB;
+.exlink{
+text-decoration :none;
+color: #919EAB;
 }
 
-a {
-	text-decoration: none;
-	padding: 0px;
+a{
+text-decoration :none;
+padding:0px;
 }
 
-.leftbutton {
-	width: 3.75rem;
-	height: 3.75rem;
-	padding: 0px;
-	margin-top: 0px;
-}
-
-.bookbutton {
-	padding: 1.125rem 1.5rem;
-	gap: 0.625rem;
-	width: 8.2rem;
-	height: 3.75rem;
-	color: #FFFFFF;
-	/* Gray/900 */
-	background: #161C24;
-	border-radius: 1.25rem;
-	/* Button/Button */
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.25rem;
-	line-height: 1.5rem;
-	/* identical to box height */
-	text-align: center;
-	padding: 1.125rem 1.5rem;
-}
-
-#po {
-	position: relative;
-}
 </style>
 
 
@@ -417,7 +390,7 @@ a {
 <body>
 	<div class="container-fluid">
 		<div class="container">
-			<div class="row">
+			<div class="row" id="container1">
 				<nav class="navbar navbar-expand-sm bg-light navbar-light">
 					<div class="container" id="navparent">
 						<a class="navbar-brand" href="/" id="container"
@@ -459,261 +432,57 @@ a {
 				</nav>
 
 			</div>
-
-		</div>
-
-
-		<div class="container d-none d-sm-block"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
-			<div class="row">
-				<div class="col-lg-1 col-xs-6">
-					<img type=button class=leftbutton src="/images/leftbutton.png"
-						style="margin-left: 0px;">
-				</div>
-
-				<div class="col-lg-2 col-xs-6">
-
-					<img src="${dto.pe_img}"
-						style="width: 10.625rem; height: 14.125rem;">
-
-				</div>
-
-
-				<div class="col-lg-9 col-xs-12">
-
-					<div class="col h3">${dto.pe_name }</div>
-
-
-					<div class="col body1" style="color: #161C24;">${dto.pe_date }</div>
-
-					<form action="/Exhibition/toBook" method="post">
-
-
-
-						<div class="col h2" id=po
-							style="text-align: left; margin-top: 5.781rem;"></div>
-
-					</form>
-				</div>
-
-
-
-
-			</div>
-		</div>
-		<div class="row d-none d-sm-block"
-			style="border-top: 1px solid #DFE3E8;"></div>
-
-
-
-
-		<div class="container d-block d-sm-none"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
-			<div class="row">
-				<!-- <div class="col-6">
-					<img type=button class=leftbutton src="/images/leftbutton.png"
-						style="margin-left: 0px;">
-				</div> -->
-
-				<div class="col-12" style="text-align: center;">
-
-					<img src="${dto.pe_img}"
-						style="width: 10.625rem; height: 14.125rem;">
-
-				</div>
-
-
-				<div class="col-12">
-
-					<div class="col h3" style="text-align: center; margin-top: 3rem;">${dto.pe_name }</div>
-
-
-					<div class="col body1" style="color: #161C24; text-align: center;">${dto.pe_date }</div>
-
-
-					<form action="/Exhibition/toBook" method="post">
-
-
-						<div class="col h2"
-							style="text-align: center; margin-top: 5.781rem;"></div>
-
-					</form>
-				</div>
-
-
-
-
-			</div>
-		</div>
-
-
-		<div class="row d-block d-sm-none"
-			style="border-top: 1px solid #DFE3E8;"></div>
-
-
-
-
-		<div class="container">
-			<div class="row">
-				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
+			<div class="row" id="container1">
+				<div class="col-4 h2" style="margin-top: 2.5rem; text-align: left;">Program</div>
+				<ul class="col-4 ul2 h3 offset-4"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink">전시굿즈</a></li>
-
-
-				</ul>
-				<ul class="col-12 ul2 h3 offset d-block d-sm-none"
-					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li
-						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
-					<li
-						style="width: 4.938rem; text-align: center; color: #919EAB; margin-left: 2.6rem;; margin-right: 2.6rem;"><a
-						class="exlink">전시굿즈</a></li>
+					<li style="width: 4.938rem; margin-left: 3.1rem;">어린이</li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink" href="/Exhibition/toPreExhibition">성인</a></li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class ="exlink" href = "/Exhibition/toUpcommingExhibition">이벤트</a></li>
 
 				</ul>
 			</div>
-			<div class="row mt-3" id=row1>
-
-				<img src="${dto.pe_img }"
-					style="padding: 0px; margin:auto;  text-align: center; width: 25.5rem; height: 32.5rem;">
-			</div>
-
-			<div class="row mt-5" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_contents }</div>
-
-
-
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">기간</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_date }</div>
-
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">관람료</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_price}</div>
-
-
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">작가</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_writer }</div>
-
-
-			<div class="row mt-5 h3" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">작품수</div>
-
-
-
-
-			<div class="row mt-2 body2" id=row1
-				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_artcount}</div>
-
-
-
-		</div>
-
-
-
-
-		<div class="row" id="footer" style="margin-top: 12.5rem;">
-			<div class="container">
-				<div class="row">
-					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-					<br>
-					<div class="col-12 body2"
-						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
-						1층 | contact@palet.com</div>
-
+			<div class="row" id="container1">
+				<div class="col-12" style="margin-top: 5.313rem;">
+				<a href="/program/toClassdetail"><img class = "curimage" src="/images/kidclass.png" ></a>	
 				</div>
-
-
+				<div class="col-12 h3" style="margin-top: 2.5rem;">
+			키즈워크룸 : 애니메이터 프로젝트
+				</div>
+				<div class="col-12 caption" style="margin-top: 2.5rem;">
+			2022.04.01 ~ 2022.10.30
+				</div>
+				<div class="col-12 caption" style="margin-top: 2.5rem;">
+			<!-- 	<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
+				</div>
+			<div class="col-12 caption" style="margin-top: 2.5rem;">
+				<a href="/program/toClassdetail">
+				<button class = "btn1_1" style="background: #161C24;">신청하기</button></a>
+				</div>
+				
 
 			</div>
+
 		</div>
+	
+        <div class="row" id="footer" style = "margin-top:12.5rem;">
+            <div class="container">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 
 	</div>
 
 
 
 </body>
-<script>
-	$(".bookbutton").on("click", function() {
 
-		$(this).next().val($($(this).siblings()[2]).text());
-		$(this).next().next().val($($(this).siblings()[0]).text());
 
-		location.href = "/Exhibition/toBook";
-	})
 
-	$(".leftbutton").on("click", function() {
-
-		location.href = "/Exhibition/toCurExhibition";
-	})
-
-	$(".minusbutton").on("click", function() {
-
-		let result = $(this).next().text();
-		number = parseInt(result) - 1;
-		if (number == 0) {
-			return false;
-		}
-		$(".count").text(number);
-
-		let price = $($(this).siblings()[0]).text();
-		console.log(price);
-		let price1 = price.replace(",", "");
-		console.log(price1);
-		let price2 = price1.replace("원", "");
-		console.log(price2);
-		finalprice = parseInt(price2);
-		finalprice = finalprice - 9000;
-
-		$(".price").text(finalprice.toLocaleString() + "원");
-
-	})
-
-	$(".plusbutton").on("click", function() {
-
-		let result = $($(this).siblings()[2]).text();
-		number = parseInt(result) + 1;
-		if (number > 30) {
-			alert('30매 이상의 단체 예약은 manager@palet.com 으로 연락주세요');
-			return false;
-		}
-		console.log(number);
-		$(".count").text(number);
-
-		let price = $($(this).siblings()[0]).text();
-		let price1 = price.replace(",", "");
-		let price2 = price1.replace("원", "");
-
-		finalprice = parseInt(price2);
-		finalprice = finalprice + 9000;
-		$(".price").text(finalprice.toLocaleString() + "원");
-
-	})
-</script>
 </html>
-

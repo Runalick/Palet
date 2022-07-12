@@ -429,30 +429,31 @@ a {
 						<div class="collapse navbar-collapse justify-content-end"
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+					<li class="nav-item"><a id="About" class="nav-link"
+						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+					</li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/Exhibition/toCurExhibition"
+						style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+					<li class="nav-item"><a id="Exhibition" class="nav-link"
+						href="/program/toProgram"
+						style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+					<li class="nav-item"><a id="Shop" class="nav-link"
+						href="/shop/toShop" style="padding-left: 0px; padding-right: 0px;">Shop</a>
+					</li>
+					<li class="nav-item"><a id="Login" class="nav-link"
+						href="/member/loginPage"
+						style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+					<li class="nav-item"><a id="Signup" class="nav-link"
+						href="/member/join" style="padding-left: 0px; padding-right: 0px;">Sign
+							up</a></li>
+					<li class="nav-item"><a id="Admin" class="nav-link"
+						href="/admin/adminMain"
+						style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+					<li class="nav-item"><a id="Mypage" class="nav-link"
+						href="/member/mypage"
+						style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+				</ul>
 						</div>
 					</div>
 				</nav>
@@ -512,6 +513,8 @@ a {
 
 			</div>
 		</div>
+<div class="row d-none d-sm-block" style="border-top: 1px solid #DFE3E8;">
+	</div>
 
 
 
@@ -547,26 +550,19 @@ a {
 						<div class="col h2"
 							style="text-align: center; margin-top: 5.781rem;">
 
-							<span class="h2 price">9,000원</span> 
-							
-							
-							<img
+							<span class="h2 price">9,000원</span> <img
 								src="/images/minusbutton.png" type="button"
 								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
-								class=minusbutton>
-								
-								
-								 <span class="body1 count"
+								class=minusbutton> <span class="body1 count"
 								style="color: #161C24; margin-left: 1rem;">1</span> <img
 								type="button" class=plusbutton src="/images/plusbutton.png"
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
-						
-								<button class=bookbutton
-									style="text-align: center; margin-top: 3rem;">예매하기</button>
-					
 
-							<input type=hidden name=count class=count1>
-							 <input
+							<button class=bookbutton
+								style="text-align: center; margin-top: 3rem;">예매하기</button>
+
+
+							<input type=hidden name=count class=count1> <input
 								type=hidden name=price class=price1>
 
 
@@ -581,7 +577,8 @@ a {
 			</div>
 		</div>
 
-
+<div class="row d-block d-sm-none" style="border-top: 1px solid #DFE3E8;">
+	</div>
 
 
 		<div class="container">
@@ -640,6 +637,8 @@ a {
 </body>
 <script>
 	$(".bookbutton").on("click", function() {
+		
+		
 
 		$(this).next().val($($(this).siblings()[2]).text());
 		$(this).next().next().val($($(this).siblings()[0]).text());
