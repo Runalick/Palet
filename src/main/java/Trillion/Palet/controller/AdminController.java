@@ -63,6 +63,14 @@ public class AdminController {
 		return "/admin/adminMembers";
 	}
 	
+	@RequestMapping(value="adminMemberDetail", produces="test/html;charset=utf8")
+	public String adminMemberDetail(Model model, String email) {
+		MemberDTO mdto = mServ.getmember(email);
+		model.addAttribute("mdto", mdto);
+		
+		return "/admin/adminMemberDetail";
+	}
+	
 	@RequestMapping("adminExhibitions")
 	public String adminExhibitions() {
 		return "/admin/adminExhibitions";
