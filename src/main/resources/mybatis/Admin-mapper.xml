@@ -10,4 +10,16 @@
   		where to_char(pay_time, 'YY/MM/DD') >= to_char(sysdate-6, 'YY/MM/DD') 
   		group by to_char(pay_time, 'YY/MM/DD') order by to_char(pay_time, 'YY/MM/DD') desc
   	</select>
+  	
+  	<update id="adminMemberModi">
+		update member set name = #{name}, grade= #{grade}, point = #{point} where email = #{email}  	
+  	</update>
+  	
+  	<delete id="adminMemberBan">
+  		delete from member where email = #{value}
+  	</delete>
+  	
+  	<update id="adminMemberUpdate">
+  		update member set grade = #{grade} where email = #{email}
+  	</update>
   </mapper>
