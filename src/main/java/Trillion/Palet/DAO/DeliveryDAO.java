@@ -32,9 +32,9 @@ public class DeliveryDAO {
 			return mybatis.insert("Delivery.insertNewAddress",dto);
 		}
 
-		public List<DeliveryDTO> chooseAddress(String email) {
+		public List<DeliveryDTO> selectAllAddress(String email) {
 			System.out.println("dao"+email);
-			return mybatis.selectList("Delivery.chooseAddress",email);
+			return mybatis.selectList("Delivery.selectAllAddress",email);
 		}
 
 		public DeliveryDTO selectAddress(int deliveryaddress_seq, String email) {
@@ -61,5 +61,7 @@ public class DeliveryDAO {
 			System.out.println(dto.getDeliveryaddress_seq());
 			return mybatis.update("Delivery.updateAddress",dto);
 		}
+
+	
 		
 }

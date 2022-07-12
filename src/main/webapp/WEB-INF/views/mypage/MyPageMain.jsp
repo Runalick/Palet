@@ -380,7 +380,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
@@ -388,6 +388,7 @@ padding: 0.3rem 1rem;
 						<ul>
 							<li class="body3"><a href="#">나의 회원등급</a></li>
 							<li class="body3"><a href="#">나의 쿠폰</a></li>
+							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
@@ -450,6 +451,12 @@ padding: 0.3rem 1rem;
 			$(".navi-menu").css({"display":"block"});
 		}
 		}
+	
+	//쿠폰등록
+	   $("#registration").on("click",function(){
+      window.open("/coupon/toregistration", "",
+      "top=100,left=200,width=550,height=500");
+      })
 	
 	//선택박스 화살표 방향 이미지
 	let click = true;
