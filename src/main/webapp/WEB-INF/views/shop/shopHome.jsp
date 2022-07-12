@@ -246,14 +246,6 @@ color:#fff;
         </div>
     </div>
 
-    
-    
-    <!-- 물건 상세페이지로 가는 임시 버튼 나중에지우세요~   -->
-    <div>
-    <button class="detailview" value="10001" style="height:300px">굿즈1</button>
-    <button class="success" value="10002" style="height:300px">success</button>
-    <button class="detailview" value="10003" style="height:300px">굿즈3</button>
-    </div>
     <script>
     	$(".detailview").on("click",function(){
     		console.log($(".detailview").val());
@@ -325,7 +317,7 @@ color:#fff;
             }).done(function(resp){
             	console.log(resp);
             	for(i=0; i < resp.length; i++){
-            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='"+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
+            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
             	}
             })
 

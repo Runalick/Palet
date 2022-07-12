@@ -83,13 +83,13 @@ line-height:0px;
 border:0px;
 cursor:pointer;
 }
-.insert{
+.insert, .modibtn{
 background:black;
 }
 .close{
 background: #C4CDD5;
 }
-.insert:hover{
+.insert:hover, .modibtn:hover{
 background:#454F5B;
 }
 .close:hover{
@@ -102,30 +102,60 @@ background:#919EAB;
 		<div class="row" id="delivery-area" style="height:35.875rem; width:40.25rem;">
 					<div class="col-4 " style="text-align:left; width:18.75rem; height:6.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text"  class="body2 body2input buyer_name" placeholder="수령인 이름을 입력해 주세요.">
+						<input type="text"  class="body2 body2input buyer_name" placeholder="수령인 이름을 입력해 주세요." value=${modi.receiver }>
 					</div>
 					<div class="col-8 phone" style="text-align:left; width:26rem; height:6.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text"  class="body2 body2input buyer_tel" placeholder="전화번호를 입력해 주세요.">
+						<input type="text"  class="body2 body2input buyer_tel" placeholder="전화번호를 입력해 주세요." value=${modi.phone }>
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-					<input type="text"  class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" > 
+					<input type="text"  class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value=${modi.postcode } > 
 					
-					<input type="text"  class="body2 inputaddress buyer_addr" placeholder="주소: 우편번호를 먼저 검색해 주세요." id="sample4_roadAddress" disabled>
-					<input type="text"  class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress">
+					<input type="text"  class="body2 inputaddress buyer_addr"  placeholder="주소: 우편번호를 먼저 검색해 주세요." id="sample4_roadAddress" disabled value=${modi.address1 }>
+					<input type="text"  class="body2 inputaddress buyer_address2"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" value=${modi.address2 }>
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">
-					<input type="checkbox" value="Y" class="check">기본 배송지로 등록
+					<input type="checkbox" class="check">기본 배송지로 등록
 					</div>
 					
-					<input type="hidden" name="modi" class="modi" value="false">
+				
 					
 					<div style="text-align:center; margin-top:1rem ;">
+					<c:choose>
+					<c:when test="${modi==null }">
 					<button class="btnbtn insert">등록</button>
+					<input type="hidden"  class="modi" value="false">
+					</c:when>
+					<c:otherwise>
+					<button class="btnbtn modibtn">수정</button>
+					<input type="hidden"  class="modi" value="true">
+					</c:otherwise>
+					</c:choose>
+					
 					<button class="btnbtn close" type="button">닫기</button>
 					</div>
 				</div>
 
 <script>
+$(".modibtn").on("click",function(){
+	console.log($(".modi").val())
+	deliveryaddress_seq=${modi.deliveryaddress_seq};
+	$.ajax({
+		url:"/delivery/insertModiNewAddress",
+		data:{
+			receiver:$(".buyer_name").val(),
+			phone:$(".buyer_tel").val(),
+			postcode:$(".buyer_postcode").val(),
+			address1:$(".buyer_addr").val(),
+			address2:$(".buyer_address2").val(),
+			defaultaddress:$(".check").val(),
+			modi:$(".modi").val(),
+			deliveryaddress_seq:deliveryaddress_seq	
+		}
+		}).done(function(resp){
+			alert("수정되었습니다.");
+			window.close();
+			})
+})
 $(".insert").on("click",function(){
 
 	$.ajax({
@@ -144,6 +174,14 @@ $(".insert").on("click",function(){
 			})
 		});
 
+$(document).ready(function(){
+	if($(".check").prop("check")){
+		$(".check").val("Y");
+	}else{
+		$(".check").val("N");
+	}
+	console.log($(".check").prop("check"));
+});
 
 $(".close").on("click",function(){
 	window.close();
