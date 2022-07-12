@@ -23,8 +23,8 @@
 	<c:when test="${loginEmail =='admin@palet.com'}">
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-	        <div class="container" style="padding: 10px;">
-	          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
+	        <div class="container" style="padding: 0.625rem;">
+	          <a class="navbar-brand" href="/"><img src="/images/Logo.svg" border=0 style="padding-left: 10px;"></a>
 	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 	            <span class="navbar-toggler-icon"></span>
 	          </button>
@@ -53,7 +53,7 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
         <div class="container" style="padding: 10px;">
-          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
+          <a class="navbar-brand" href="/"><img src="/images/Logo.svg" border=0></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -67,6 +67,8 @@
                         style="padding-left:0px; padding-right:0px;">Class</a> </li> 
                 <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
                         style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+	                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
                 <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
                         style="padding-left:0px; padding-right:0px;">Logout</a> </li>
                 <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
@@ -82,7 +84,7 @@
 	<div class="container-fluid">
     	<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
         <div class="container" style="padding: 10px;">
-        	<a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
+        	<a class="navbar-brand" href="/"><img src="/images/Logo.svg" border=0></a>
           	<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             	<span class="navbar-toggler-icon"></span>
           	</button>
