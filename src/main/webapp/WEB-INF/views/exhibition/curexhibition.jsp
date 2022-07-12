@@ -119,7 +119,10 @@
 	width: 4.438rem;
 	height: 1.5rem;
 }
-
+#Shop {
+	width: 2.813rem;
+	height: 1.5rem;
+}
 .h1 {
 	padding: 0px;
 	color: #FFFFFF;
