@@ -198,7 +198,7 @@ line-height: 1.125rem;
 	padding: 1.125rem 1.5rem;
 	gap: 10px;
 	color: white;
-	widht: 10.188rem;
+	width: 10.188rem;
 	height: 3.75rem;
 	/* Gray/900 */
 	background: #161C24;
@@ -264,6 +264,7 @@ border: 1px solid #DFE3E8;
 border-radius: 1.25rem;
 margin-left:1.6rem;
 position:relative;
+overflow:hidde;
 }
 .productimg{
 width:10rem;
@@ -625,41 +626,25 @@ text-align:center;
 		</div>
 	</div>
 	<!-- 본문단 -->
-	<div class="container-fluid" id="mainparent">
+	<div class="container-fluid d-none d-lg-block" id="mainparent">
 		<div class="container">
 			<div class="row" style="padding-top: 7.5rem; text-align: center;">
-					<div class="col-1 margin1" id="cart">
-							<button id="backbtn">
-								<img src="/images/Vector.png">
-							</button>
-						</div>
+				<div class="col-1 margin1" id="cart">
+					<button id="backbtn">
+						<img src="/images/Vector.png">
+					</button>
+				</div>
 				<div class="col-11 h2" id="ordertitle">Order / Payment</div> 
-
-
-				
-
-			
 
 				<div class="col-12" style="margin-bottom:1.25rem;">
 					<div class="row" style="padding-left:2.5rem;">
-						
-						<div class="col-3 H3 info">배송정보</div>
-						
+						<div class="col-md-3 col-12 H3 info">배송정보</div>
 					</div>
 				</div>
+				
+			<!-- 결제 부분 -->
 			
-			<div class=container style="min-width:80rem; min-height:40rem;">	
-
-			
-			
-			
-			
-			
-			
-<!-- 			결제 부분 -->
-
-			
-			
+			<div class="container" style="min-width:80rem; min-height:40rem;">	
 				<div  id="payment-area" style="position:relative">
 					<div class="H3 payinfo">결제 상세</div>
 					<div class="row" id="total-area">
@@ -699,13 +684,13 @@ text-align:center;
 				
 				<div id="product-area" >
 				
-				<!-- 			배송 부분 -->
+				<!-- 배송 부분 -->
 				<div class="row" id="delivery-area" style="height:34.875rem; width:49.25rem;">
-					<div class="col-4 " style="text-align:left; width:18.75rem; height:7.5rem">
+					<div class="col-md-4 col-12" style="text-align:left; width:18.75rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
 						<input type="text" class="body2input buyer_name" placeholder="수령인 이름을 입력해 주세요.">
 					</div>
-					<div class="col-8 phone" style="text-align:left; width:26rem; height:7.5rem">
+					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
 						<input type="text" class="body2input buyer_tel" placeholder="전화번호를 입력해 주세요.">
 					</div>
@@ -717,15 +702,6 @@ text-align:center;
 					<div class="body2 delivery_text" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
 					<input type="text" class="body2 inputaddress" style="background: #FFFFFF;" placeholder="수령인 이름을 입력해 주세요.">
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
-				
-				
-				
-				
-				
-				
-				
-				
-				
 				</div>
 				
 				
@@ -803,6 +779,114 @@ text-align:center;
 			</div>
 		</div>
 	</div>
+	
+		<!-- 반응형 본문단 -->
+	<div class="container-fluid d-block d-lg-none" id="mainparent" style="margin-bottom:4.5rem">
+		<div class="container">
+			<div class="row" style="padding-top: 7.5rem; width:100%">
+				<div class="col-1 margin1" id="cart" style="width:100%">
+					<button id="backbtn">
+						<img src="/images/Vector.png">
+					</button>
+				</div>
+				<div class="col-11 h2" id="ordertitle" style="text-align:center; width:100%">Order / Payment</div> 
+
+				<div class="col-12" style="margin-bottom:1.25rem;">
+					<div class="row">
+						<div class="col-12 H3 info">배송정보</div>
+					</div>
+				</div>
+				
+			<!-- 결제 부분 -->
+			
+			<div class="container">	
+				<div id="product-area">
+				
+				<!-- 배송 부분 -->
+				<div class="row" id="delivery-area" style="margin-left:0rem; display:inline-block; width:100%">
+					<div class="col-12" >
+						<div class="col-12 body2" style="margin-bottom:0.5rem;">수령인</div>
+						<div class="col-12"><input type="text" class="body2input buyer_name" placeholder="수령인 이름을 입력해 주세요." style="width:100%"></div>
+					</div>
+					<div class="col-12 phone" >
+						<div class="body2 col-12" style="margin-bottom:0.5rem;">전화 번호</div>
+						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2input buyer_tel" placeholder="전화번호를 입력해 주세요." style="width:100%"></div>
+					</div>
+					<div class="body2 col-12" style="margin-bottom:0.5rem;">배송지</div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%"></div> 
+					
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr" placeholder="주소: 우편번호를 먼저 검색해 주세요." id="sample4_roadAddress" style="width:17.5rem; margin-left:0rem; width:100%"></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" style="width:100%; margin-left:0rem;"></div>
+					<div class="body2 delivery_text" style="margin-bottom:0.5rem;">배송 메시지</div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지."></div>
+					<div id="deliveryinfo" class="col-12" style="margin-bottom:0.5rem;">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
+				</div>
+				
+				
+					<div class="row H3" style="margin-bottom:1.25rem; margin-top:3.75rem; margin-left:0rem;">상품 정보</div>
+				
+<!-- 				여기서부터 상품 반복 -->
+					<div class="row select_list">
+						
+					</div>
+						<div>
+							<div class="row H3" style="margin-bottom:2.188rem; margin-top:3.75rem; margin-left:0rem;">쿠폰 / 마일리지</div>
+							<div class="warp-pay" style="margin-bottom:4.5rem; margin-left:0rem;">
+								<div class="body2" style="margin-bottom:0.5rem; ">쿠폰</div>
+								<div id="select-wrap" style="position:relative">
+									<div id="select" class="body2" style="width:100%">쿠폰을 선택하세요</div>
+									<ul class="select-ul">
+										<li class="li body2" >오프라인 감사 쿠폰</li>
+										<li class="li body2" >이벤트 참여 쿠폰</li>
+									</ul>
+								</div>
+								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
+								<input class="body2 pointinput" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem;">
+								<button class="H4 pointbtn" style="margin-bottom:0.5rem; ">모두 사용</button><br>
+								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
+								<span class="Caption" style="color: #637381;">1200p</span>
+								<div class="H3" style="margin-top:3.75rem;margin-bottom:1.25rem;">결제 수단</div>
+								<input type="radio" style="margin-right:0.5rem;"><span class="body2">카드 결제</span>
+							</div>
+						<div class="row">
+							<div  id="payment-area" style="width:100%">
+								<div class="H3 payinfo">결제 상세</div>
+								<div class="row" id="total-area" style="width:100%; height:16rem;">
+									<div class="col-12" style="padding:1.75rem; width:100%">
+										<div class="col-12"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
+										<span class="H4 totalprice" id="span4">15,800원</span></div>
+										<div class="col-12"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
+										<span class="H4 " id="span10">-0원</span></div>
+										
+										
+										<div class="col-12"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
+										<span class="H4 deliveryprice" id="span5">3,000원</span></div>
+										<div class="col-12"><span class="H3" id="span3" >총 결제 금액</span>
+										<span class="H3 finalTotalPrice" id="span6" class="totalprice">18,800</span></div>
+										<div class="col-12"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
+										<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span></div>
+									</div>
+								</div>
+								
+								<div class="col-12"><button id="paybtn" onclick="iamport()" style="">결제하기</button></div>
+								
+								<div class="warpper" style="margin-top:6.75rem;">
+									<div class="H4" style="color:#637381; text-align:left;margin-bottom:0.5rem;">약관을 확인하였으며 결제에 동의합니다.</div>
+									<span class="span" id="payspan1" style="margin-left:4.5rem">이용약관 동의</span>
+									<span class="span1" id="payspan2" style="left:5.438rem; cursor:pointer; margin-left:5rem">보기</span><br>
+									<span class="span" id="payspan3" style="margin-left:4.5rem">개인정보 수집 및 이용 동의 </span>
+									<span class="span1" id="payspan4" style="left:10.063rem; cursor:pointer; margin-left:5rem">보기</span><br>
+									<span class="span" id="payspan5" style="margin-left:4.5rem">결제 대행 서비스 이용약관</span>
+									<span class="span1" id="payspan6" style="left:9.875rem; cursor:pointer; margin-left:5rem">(주)KG이니시스</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
 	<!-- 푸터단 -->
 
 	<div class="row" id="footer">
@@ -825,7 +909,7 @@ text-align:center;
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:38rem'><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"원</div><div class='body1 cnt' style='color: #919EAB;'>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:0rem'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            	}
 	            })
 	    }
