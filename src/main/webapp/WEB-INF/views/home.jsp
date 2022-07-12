@@ -29,7 +29,8 @@
 
 
 	<div class="container-fluid">
-		<div class="container-fluid" style= "background-color:white; position:fixed;">
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
@@ -47,7 +48,7 @@
 
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
-								<ul class="navbar-nav" style ="background:white;">
+								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
 										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
@@ -96,22 +97,27 @@
 					<br>
 					<div class="col-12 h1 d-block d-sm-none"
 						style="text-align: center;">어쨋든 사랑</div>
+
+
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 12.5rem;">Romantic Days</div>
+						style="margin-top: 12.5rem; padding-left: 0.5rem;">Romantic
+						Days</div>
 					<br>
-					<div class="col-12 h1 d-none d-sm-block">어쨋든 사랑</div>
+					<div class="col-12 h1 d-none d-sm-block"
+						style="padding-left: 0.5rem;">어쨋든 사랑</div>
 					<div class=col-12>
 						<div class="col-12 body1 d-block d-sm-none"
 							style="text-align: center; margin-top: 2.5rem;">2022.03.16
 							~ 2022.10.30</div>
 						<div class="col-12 body1 d-none d-sm-block"
-							style="margin-top: 2.5rem;">2022.03.16 ~ 2022.10.30</div>
+							style="margin-top: 2.5rem; padding-left: 0.5rem;">2022.03.16
+							~ 2022.10.30</div>
 					</div>
 
 
 
 					<div class="col-12  d-none d-sm-block"
-						style="margin-bottom: 14.75rem; margin-top: 5rem;">
+						style="margin-bottom: 14.75rem; margin-top: 5rem; padding-left: 0.5rem;">
 						<button class="btn1">자세히 보기</button>
 						<button class="btn2">예매 하기</button>
 					</div>
@@ -132,7 +138,8 @@
 
 			<div class="container">
 				<div class="row hcon" id="row1">
-					<div class="col-md-1  d-none d-sm-block h4">운영시간</div>
+					<div class="col-md-1  d-none d-sm-block h4"
+						style="margin-left: 0px;">운영시간</div>
 					<div class="col-md-4 d-none d-sm-block body2">화요일–일요일(월요일
 						휴관), 10:00–18:00</div>
 					<div class="col-md-1 d-none d-sm-block h4">전시장소</div>
@@ -154,33 +161,38 @@
 
 
 
-		<div class="container">
-			<div class="row" style="margin-top: 10rem;">
-				<div class="col-12 h2">베스트 셀러</div>
-			</div>
-			<div class="row " style="margin-top: 3.75rem;" id="row1">
+		<div class=row style = "margin-top:10rem;">
+			<div class="col h2" style ="text-align :center;">베스트 셀러</div>
+		</div>
+
+		<div class="container" style="margin-top: 3.75rem;">
+
+
+
+			<div class="row "  id="row1">
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/image 21.png" class="w-100 p-3"
+					<img src="/images/image 21.png" class="w-100 p-5"
 						style="padding-left: 0px;">
 				</div>
 				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-1.png" class="w-100 p-3">
+					<img src="/images/BestGoods-1.png" class="w-100 p-5">
 				</div>
 				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-2.png" class="w-100 p-3">
+					<img src="/images/BestGoods-2.png" class="w-100 p-5">
 				</div>
 				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-3.png" class="w-100 p-3">
+					<img src="/images/BestGoods-3.png" class="w-100 p-5">
 				</div>
 				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-4.png" class="w-100 p-3">
+					<img src="/images/BestGoods-4.png" class="w-100 p-5">
 				</div>
 				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods.png" class="w-100 p-3">
+					<img src="/images/BestGoods.png" class="w-100 p-5">
 				</div>
 			</div>
 
 		</div>
+
 
 		<div class="container">
 			<div class="row " style="margin-top: 3.75rem; text-align: center;"
@@ -209,11 +221,11 @@
 
 
 					<div class="col-12 h2_1 d-none d-sm-block"
-						style="margin-top: 10rem;">곧 시작합니다</div>
+						style="margin-top: 10rem; padding-left : 0.5rem;">곧 시작합니다</div>
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 2.5rem;">과천프로젝트 2022:</div>
+						style="margin-top: 2.5rem; padding-left : 0.5rem;">과천프로젝트 2022:</div>
 					<br>
-					<div class="col-12 h1 d-none d-sm-block">옥상정원_시간의 정원</div>
+					<div class="col-12 h1 d-none d-sm-block" style = "padding-left : 0.5rem;">옥상정원_시간의 정원</div>
 
 
 
@@ -222,11 +234,11 @@
 							style="text-align: center; margin-top: 2.5rem;">
 							2022-06-29~2023-06-25</div>
 						<div class="col-12 body1 d-none d-sm-block"
-							style="margin-top: 2.5rem;">2022-06-29~2023-06-25</div>
+							style="margin-top: 2.5rem; padding-left : 0.5rem;">2022-06-29~2023-06-25</div>
 					</div>
 
 
-					<div class="col-12  d-none d-sm-block" style="margin-top: 5rem;">
+					<div class="col-12  d-none d-sm-block" style="margin-top: 5rem; padding-left : 0.5rem;">
 						<button class="btn1">자세히 보기</button>
 					</div>
 
@@ -256,18 +268,18 @@
 		<div class="container" id=" flow">
 			<div class="row overflow-auto" style="margin-top: 3.75rem;">
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/preex1.png" class="w-100 p-3"
+					<img src="/images/preex1.png" class="w-100 "
 						style="text-align: center;">
 					<div class=h3>카로 악포키에르 «분실된 그림들»</div>
 					<div class=caption>2022-03-03~2022-03-10</div>
 				</div>
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/preex2.png" class="w-100 p-3">
+					<img src="/images/preex2.png" class="w-100 ">
 					<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div>
 					<div class=caption>2022-01-20~2022-06-12</div>
 				</div>
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/preex3.png" class="w-100 p-3">
+					<img src="/images/preex3.png" class="w-100 ">
 					<div class=h3>아이 웨이웨이</div>
 					<div class=caption>2021-12-11~2022-04-17</div>
 				</div>
