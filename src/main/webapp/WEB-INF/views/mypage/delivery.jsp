@@ -61,6 +61,7 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
+	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
@@ -135,7 +136,7 @@ font-weight: 400;
 font-size: 1.25rem;
 line-height: 1.875rem;
 }
-.H3 {
+.h3 {
 	margin-bottom: 0.75rem;
 	display: inline-block;
 	/* Headline/H3 */
@@ -350,8 +351,6 @@ line-height:2rem;
 .btnbtn{
 font-family: 'Spoqa Han Sans Neo';
 line-height:0px;
-flex-direction: row;
-justify-content: center;
 align-items: center;
 padding: 1.125rem 1.5rem;
 gap: 0.625rem;
@@ -371,7 +370,7 @@ color:white;
 </head>
 <body>
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid" >
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -426,7 +425,7 @@ color:white;
 		</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
-		<div class="container" >
+		<div class="container" style="padding-left:2.5rem;" >
 			<div class="row mypage-wrap"  >
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
@@ -488,15 +487,42 @@ color:white;
 								
 							
 							</div>
-							<div class="row list" >
-									<div class="col-2 body3">우리집</div>
-								<div class="col-5 body3">경기도 수원시 영통구 덕영대로 1400 (망포동, 영통아이파크캐슬2단지)</div>
-								<div class="col-3 col-md-2 body3">01030822342</div>
-								<div class="col-2 col-md-3 body3" style="text-align:center">
-								<button class="btnbtn sm-btn body3" style="line-height:0px;">수정</button>
-								<button class="btnbtn sm-btn body3" style="line-height:0px;">삭제</button>
-								</div>
-							</div>
+							
+							
+							
+					<div class="row list" >
+                        <div class="col-2 body3">
+                        	<div class="row">
+                        		
+                        		<div class="col-12" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
+                        	<div class="col-12">${defaultAddress.name }</div>
+                        	</div>
+                      
+                        
+                        </div>
+                        <div class="col-5 body3">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
+                        <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
+                        <div class="col-2 col-md-3 body3" style="text-align:center">
+                        <button class="btnbtn sm-btn body3" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
+                        </div>
+                     </div>
+							
+					<c:forEach var="i" items="${list }">
+                     <div class="row list" >
+                        <div class="col-2 body3">${i.name }</div>
+                        <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
+                        <div class="col-3 col-md-2 body3">${i.phone }</div>
+                        <div class="col-2 col-md-3 body3" style="text-align:center">
+                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;" value=${i.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${i.deliveryaddress_seq }>삭제</button>
+                        </div>
+                     </div>
+                     </c:forEach>
+							
+							
+							
+							
 						</div>
 					</div>
 				
@@ -523,22 +549,34 @@ color:white;
 		<!-- 푸터단 -->
 
 		<div class="row" id="footer" style="margin-top: 12.5rem;">
-			<div class="container">
-				<div class="row" id="row1" style="margin-left: 22.5rem;">
-					<div class="col-12 H3 d-none d-sm-block"
-						style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
-					<div class="col-12 body2 d-none d-sm-block"
-						style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
-						사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 :
-						2022-서울강남-012345 <br> 3호선 경복궁역 지하 1층 | contact@palet.com
-					</div>
-				</div>
-			</div>
+			  <div class="container" style="padding-left:2.5rem;">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
 		</div>
 
 	</div>
 	
 	<script>
+	//주소 삭제
+	$(".delete").on("click",function(){
+		deliveryaddress_seq=$(this).val();
+		list = $(this).parent().parent();
+		$.ajax({
+			url:"/delivery/delAddress",
+			data:{deliveryaddress_seq:deliveryaddress_seq}
+		}).done(function(resp){
+			list.remove();
+		})
+	
+	})
+	
+	
+	
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -551,6 +589,10 @@ color:white;
 			$(".navi-menu").css({"display":"block"});
 		}
 		}
+	//배송지 수정
+	$(".modi").on("click",function(){
+		window.open("/delivery/modi?deliveryaddress_seq="+$(this).val()+"&modi=true","", "top=100,left=200,width=620,height=530");
+	})
 	//배송지 등록
 	$("#insert").on("click",function(){
 		window.open("/delivery/insert","", "top=100,left=200,width=620,height=530");

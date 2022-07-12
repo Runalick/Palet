@@ -310,11 +310,7 @@ right:4.25rem;
 }
 /* 결제부분 */
 
-#payment-area{
-width:23.5rem;
-height:20.688rem;
-float:right;
-}
+
 #total-area{
 box-sizing: border-box;
 height: 12.625rem;
@@ -420,7 +416,11 @@ right:1.5rem;
 
 
 @media ( min-width : 990px) {
-
+#payment-area{
+width:23.5rem;
+height:20.688rem;
+float:right;
+}
 }
 
 @media ( max-width : 990px) {
@@ -433,9 +433,10 @@ height:14.025rem;
 }
 #payment-area{
 padding:0rem;
-width:33rem;
-height:23.688rem;
+max-width:50rem;
+height:26.688rem;
 }
+
 .body1, .H3, #paybtn{
 /* font-size:1.875rem; */
 }
@@ -456,6 +457,7 @@ margin-bottom:1rem;
 #span2{
 margin-right:4.788rem;
 width:5.03rem;
+text-align:left;
 }
 #span5{
 width:10.175rem;
@@ -474,15 +476,17 @@ text-align:left;
 width:9.875rem;
 margin-right:1.325rem;
 }
-#payment-area{
-width:33rem;
-height:24.088rem;
-padding:0rem;
-}
+
 #paybtn{
 width:100%;
 height:4.5rem;
 margin-top:2.25rem;
+}
+#paybtn:hover{
+background:#454F5B;
+}
+.cntbtn:hover{
+background:#F4F6F8;
 }
 .Caption{
 font-size:1.325rem;
@@ -595,14 +599,23 @@ margin:auto;
 				
 					<div class="row" id="total-area">
 						<div class="col-12" style="padding:1.75rem;">
+							<div class="col-12">
 							<span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 							<span class="H4 totalprice" id="span4"></span>
+							</div>
+							
+							<div class="col-12">
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
 							<span class="H4 deliveryprice" id="span5"></span>
+							</div>
+							<div class="col-12">
 							<span class="H3" id="span3" >총 결제 금액</span>
 							<span class="H3 finalTotalPrice" id="span6"></span>
+							</div>
+							<div class="col-12">
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
 							<span class="Caption totalPoint" id="span8" style="color: #919EAB;"></span>
+							</div>
 						</div>
 					</div>
 					<div class="row">
