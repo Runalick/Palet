@@ -72,6 +72,11 @@ public class MemberDAO {
     public int delmember(String email) {
     	return mybatis.delete("Member.delmember",email);
     }
+
+    //배송지부분
+	public String getName(String email) {
+		return mybatis.selectOne("Member.getName",email);
+	}
     
 
 }

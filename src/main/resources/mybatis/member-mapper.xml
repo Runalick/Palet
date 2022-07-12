@@ -34,7 +34,7 @@
     </select>
     
     <delete id="delmember">
-    	delete * from member where email=#{email}
+    	delete from member where email=#{email}
     </delete>
     
     <insert id="insert">
@@ -92,5 +92,8 @@
     
     
     <!-- Admin Fin -->
-    
+    <!-- delivery -->
+    <select id="getName" resultType="String">
+    	select name from member where email=#{value}
+    </select>
 </mapper>

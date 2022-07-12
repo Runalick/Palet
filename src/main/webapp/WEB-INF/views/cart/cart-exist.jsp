@@ -42,7 +42,7 @@
   	}  
   }  
 
-@media ( min-width : 1650px) {
+@media ( min-width : 1035px) {
 	.container {
 		max-width: 1280px;
 		min-width: 390px;
@@ -421,6 +421,13 @@ width:23.5rem;
 height:20.688rem;
 float:right;
 }
+.productInfo{
+width:34rem;
+}
+.container2{
+width:80rem;
+
+}
 }
 
 @media ( max-width : 990px) {
@@ -430,6 +437,10 @@ margin-top:2.675rem;
 }
 #total-area{
 height:14.025rem;
+}
+.productInfo{
+padding:0px;
+width:10rem;
 }
 #payment-area{
 padding:0rem;
@@ -491,6 +502,7 @@ background:#F4F6F8;
 .Caption{
 font-size:1.325rem;
 }
+
 }
 .container{
 margin:auto;
@@ -587,7 +599,7 @@ margin:auto;
 				</div>
 				</c:otherwise>	
 			</c:choose>	
-			<div class="container" style=" min-height:40rem;">	
+			<div class="container container2" style=" min-height:40rem;">	
 <!-- 			결제 부분 -->
 			<div class="main-container"></div>
 			<c:choose>
@@ -643,7 +655,7 @@ margin:auto;
 							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_num }" style="margin-top:0.375rem;">
 							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
-						<div class="col-9 productInfo" style="width:10rem">
+						<div class="col-9 productInfo" >
 							<div class="body1 title">${i.g_name} -${i.g_option }</div>
 							<div class="H3 price" id="${i.g_num }"> </div>
 							<script>

@@ -78,11 +78,11 @@
 	<div id="inputFrm" >
 		<div>
 			<span class="body2">제목</span><br>
-			<input type="text" name="title" id="title" placeholder="제목을 입력하세요">
+			<input type="text" name="title" id="title" placeholder="제목을 입력하세요" maxlength='10'>
 		</div>
 		<div>
 			<span class="body2">그린이</span><br>
-			<input type="text" name="painter" id="painter" placeholder="그린이를 입력하세요">
+			<input type="text" name="painter" id="painter" placeholder="그린이를 입력하세요" maxlength='10'>
 		</div>
 	</div>
 	<div class="sbtn">
