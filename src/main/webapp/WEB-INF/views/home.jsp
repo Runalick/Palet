@@ -161,15 +161,15 @@
 
 
 
-		<div class=row style = "margin-top:10rem;">
-			<div class="col h2" style ="text-align :center;">베스트 셀러</div>
+		<div class=row style="margin-top: 10rem;">
+			<div class="col h2" style="text-align: center;">베스트 셀러</div>
 		</div>
 
 		<div class="container" style="margin-top: 3.75rem;">
 
 
 
-			<div class="row "  id="row1">
+			<div class="row " id="row1">
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
 					<img src="/images/image 21.png" class="w-100 p-5"
 						style="padding-left: 0px;">
@@ -221,11 +221,13 @@
 
 
 					<div class="col-12 h2_1 d-none d-sm-block"
-						style="margin-top: 10rem; padding-left : 0.5rem;">곧 시작합니다</div>
+						style="margin-top: 10rem; padding-left: 0.5rem;">곧 시작합니다</div>
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 2.5rem; padding-left : 0.5rem;">과천프로젝트 2022:</div>
+						style="margin-top: 2.5rem; padding-left: 0.5rem;">과천프로젝트
+						2022:</div>
 					<br>
-					<div class="col-12 h1 d-none d-sm-block" style = "padding-left : 0.5rem;">옥상정원_시간의 정원</div>
+					<div class="col-12 h1 d-none d-sm-block"
+						style="padding-left: 0.5rem;">옥상정원_시간의 정원</div>
 
 
 
@@ -234,11 +236,12 @@
 							style="text-align: center; margin-top: 2.5rem;">
 							2022-06-29~2023-06-25</div>
 						<div class="col-12 body1 d-none d-sm-block"
-							style="margin-top: 2.5rem; padding-left : 0.5rem;">2022-06-29~2023-06-25</div>
+							style="margin-top: 2.5rem; padding-left: 0.5rem;">2022-06-29~2023-06-25</div>
 					</div>
 
 
-					<div class="col-12  d-none d-sm-block" style="margin-top: 5rem; padding-left : 0.5rem;">
+					<div class="col-12  d-none d-sm-block"
+						style="margin-top: 5rem; padding-left: 0.5rem;">
 						<button class="btn1">자세히 보기</button>
 					</div>
 
@@ -256,34 +259,40 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<!-- 	<div class="container">
 			<div class="row " style="margin-top: 10rem; text-align: center;"
 				id="row1">
 				<div class="col-12 h2" style="text-align: center;">지난 전시들</div>
 
 
 			</div>
+		</div> -->
+		<div class=row style="margin-top: 10rem;">
+			<div class="col h2" style="text-align: center;">지난 전시</div>
 		</div>
 
-		<div class="container" id=" flow">
-			<div class="row overflow-auto" style="margin-top: 3.75rem;">
-				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/preex1.png" class="w-100 "
-						style="text-align: center;">
-					<div class=h3>카로 악포키에르 «분실된 그림들»</div>
-					<div class=caption>2022-03-03~2022-03-10</div>
-				</div>
-				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/preex2.png" class="w-100 ">
-					<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div>
-					<div class=caption>2022-01-20~2022-06-12</div>
-				</div>
-				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/preex3.png" class="w-100 ">
-					<div class=h3>아이 웨이웨이</div>
-					<div class=caption>2021-12-11~2022-04-17</div>
-				</div>
-				<!-- <div class="col-xl-4 col-sm-6 overflow-auto " style="text-align: center; ">
+
+		<div class="container" style="margin-top: 3.75rem; padding-left:0px; padding-right:0px;">
+
+			<div class="container" id=" flow">
+				<div class="row overflow-auto" style="margin-top: 3.75rem;">
+					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
+						<img src="/images/preex1.png" class="w-100 "
+							style="text-align: center;">
+						<div class=h3>카로 악포키에르 «분실된 그림들»</div>
+						<div class=caption>2022-03-03~2022-03-10</div>
+					</div>
+					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
+						<img src="/images/preex2.png" class="w-100 ">
+						<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div>
+						<div class=caption>2022-01-20~2022-06-12</div>
+					</div>
+					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
+						<img src="/images/preex3.png" class="w-100 ">
+						<div class=h3>아이 웨이웨이</div>
+						<div class=caption>2021-12-11~2022-04-17</div>
+					</div>
+					<!-- <div class="col-xl-4 col-sm-6 overflow-auto " style="text-align: center; ">
                     <img src="preex1.png" class="w-100 p-3" style="padding-left: 0px;">
                 </div>
                 <div class="col-xl-4 col-sm-6 overflow-auto" style="text-align: center;">
@@ -293,44 +302,44 @@
                     <img src="preex3.png" class="w-100 p-3">
                 </div> -->
 
-			</div>
-
-		</div>
-
-		<div class="container">
-			<div class="row " style="margin-top: 2.5rem; text-align: center;"
-				id="row1">
-				<div class="col-12 h2" style="text-align: center;">
-					<img type=button src="/images/btn4_1.png"
-						style="margin-right: 1.25rem;"><img type=button
-						src="/images/btn4_2.png">
 				</div>
 
-
 			</div>
 		</div>
+
+		<div class="row " style="margin-top: 2.5rem; text-align: center;"
+			id="row1">
+			<div class="col-12 h2" style="text-align: center; margin: auto;">
+				<img type=button src="/images/btn4_1.png"
+					style="margin-right: 1.25rem;"><img type=button
+					src="/images/btn4_2.png">
+			</div>
+
+
+		</div>
+
 		<div class="row" id="main3" style="margin-top: 12.5rem;">
-			<div class="container">
-				<div class="row" id="row1">
-					<div class="col-12 h2"
-						style="text-align: center; margin-top: 10rem;">지루한 지하철? NO!
-					</div>
-					<div class="col-12 h2"
-						style="text-align: center; margin-top: 0.75rem;">팔레트는 매일 새로운
-						즐거움을 전달합니다.</div>
-					<div class="col-12 body1"
-						style="text-align: center; margin-top: 2.5rem; color: #161C24;">
-						일상과 예술의 연결,</div>
-					<div class="col-12 body1"
-						style="text-align: center; margin-top: 0.25rem; color: #161C24;">
-						팔레트와 함께 다양한 색을 만들어 보세요.</div>
-					<div class="col-12 body1"
-						style="text-align: center; margin-bottom: 12.063rem; margin-top: 3.75rem; color: #161C24;">
-						<button class="btn5">팔레트와 새로운 전시 기획하기</button>
-					</div>
-				</div>
+
+			<div class="col-md-12 h2" style="margin-top: 10rem;">지루한 지하철? NO!</div>
+
+			<div class="col-md-12 h2" style="margin-top: 0.75rem;">팔레트는 매일 새로운
+				즐거움을 전달합니다.</div>
+
+			<div class="col-12 body1"
+				style="text-align: center; margin-top: 2.5rem; color: #161C24;">
+				일상과 예술의 연결,</div>
+
+			<div class="col-12 body1"
+				style="text-align: center; margin-top: 0.25rem; color: #161C24;">
+				팔레트와 함께 다양한 색을 만들어 보세요.</div>
+
+			<div class="col-12 body1"
+				style="text-align: center; margin-bottom: 12.063rem; margin-top: 3.75rem; color: #161C24;">
+				<button class="btn5">팔레트와 새로운 전시 기획하기</button>
 			</div>
 		</div>
+
+
 		<div class="row" id="footer">
 			<div class="container">
 				<div class="row" id="row1">
@@ -344,30 +353,27 @@
 				</div>
 			</div>
 		</div>
-	</div>
-	</div>
-	<script>
-		//카카오 초기화 및 토큰 받아오기
-		Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
-		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
-		window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage
-				.getItem('AccessKEY')));
+</div>
+		<script>
+			//카카오 초기화 및 토큰 받아오기
+			Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
+			//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+			window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage
+					.getItem('AccessKEY')));
 
-		function logout() {
-			if (Kakao.Auth.getAccessToken()) {
-				Kakao.Auth.logout(function() {
-					alert("로그아웃 되었습니다.");
-					location.href = "/member/logout";
-				})
+			function logout() {
+				if (Kakao.Auth.getAccessToken()) {
+					Kakao.Auth.logout(function() {
+						alert("로그아웃 되었습니다.");
+						location.href = "/member/logout";
+					})
+					return true;
+				}
+
+				location.href = "/member/logout";
 				return true;
 			}
-
-			location.href = "/member/logout";
-			return true;
-		}
-	</script>
-
-
+		</script>
 </body>
 </html>
 
