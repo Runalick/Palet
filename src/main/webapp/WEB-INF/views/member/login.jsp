@@ -61,6 +61,7 @@
 	<c:when test="${loginEmail =='admin@palet.com'}">
 	<div class="container-fluid">
 		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
+	        
 	        <div class="container" style="padding: 10px;">
 	          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
 	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -148,7 +149,7 @@
      </c:otherwise>
 </c:choose>
     
-<c:choose>
+<%-- <c:choose>
 	<c:when test="${loginEmail != null }">
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 150px;">
@@ -163,7 +164,7 @@
 	</c:when>
 			
 	
-	<c:otherwise>
+	<c:otherwise> --%>
 	<div class="container-fluid">
 		<div class="row" style="padding-top: 150px;">
 			<div class="container" style="max-width: 400px;">
@@ -212,8 +213,8 @@
 					<input type="button" onclick="fn_copy()" value="Copy"/> 
 				</div>
 			</div>
-	</c:otherwise>
-</c:choose>
+<%-- 	</c:otherwise>
+</c:choose> --%>
 </body>
 <script>	
 	$("#login").on("click", function(){
@@ -223,7 +224,7 @@
     	    type:"POST"
 		}).done(function(resp){
 			console.log(resp);
-			if(resp == 'true'){
+			if(resp == true){
 				location.href="/";
 			} else {
 				alert("올바르지 않은 아이디 혹은 비밀번호 입니다.");
@@ -247,6 +248,7 @@
     		typeof(Storage) !== 'undefined' && sessionStorage.setItem('AccessKEY', JSON.stringify(token)); 
 		};
 		
+		
 	    $("#kakao-login-btn").on("click", function(){
 	    	console.log("click");
 	    //1. 로그인 시도
@@ -267,7 +269,7 @@
 	            	    	token:authObj.access_token},
 	            	    type:"POST"
 	            	}).done(function(resp){
-	            		location.reload();
+	            		location.href="/";
 	            	})
 	        	}
 	          })
@@ -278,6 +280,7 @@
 	        },
 	        fail: function(err) {
 	          alert(JSON.stringify(err));
+	          location.reload();
 	        }
 	      });
 	    })
