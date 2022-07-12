@@ -29,7 +29,8 @@
 
 
 	<div class="container-fluid">
-		<div class="container-fluid" style= "background-color:white; position:fixed;">
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
@@ -47,7 +48,7 @@
 
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
-								<ul class="navbar-nav" style ="background:white;">
+								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
 										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
@@ -96,22 +97,27 @@
 					<br>
 					<div class="col-12 h1 d-block d-sm-none"
 						style="text-align: center;">어쨋든 사랑</div>
+
+
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 12.5rem;">Romantic Days</div>
+						style="margin-top: 12.5rem; padding-left: 0.5rem;">Romantic
+						Days</div>
 					<br>
-					<div class="col-12 h1 d-none d-sm-block">어쨋든 사랑</div>
+					<div class="col-12 h1 d-none d-sm-block"
+						style="padding-left: 0.5rem;">어쨋든 사랑</div>
 					<div class=col-12>
 						<div class="col-12 body1 d-block d-sm-none"
 							style="text-align: center; margin-top: 2.5rem;">2022.03.16
 							~ 2022.10.30</div>
 						<div class="col-12 body1 d-none d-sm-block"
-							style="margin-top: 2.5rem;">2022.03.16 ~ 2022.10.30</div>
+							style="margin-top: 2.5rem; padding-left: 0.5rem;">2022.03.16
+							~ 2022.10.30</div>
 					</div>
 
 
 
 					<div class="col-12  d-none d-sm-block"
-						style="margin-bottom: 14.75rem; margin-top: 5rem;">
+						style="margin-bottom: 14.75rem; margin-top: 5rem; padding-left: 0.5rem;">
 						<button class="btn1">자세히 보기</button>
 						<button class="btn2">예매 하기</button>
 					</div>
@@ -132,7 +138,7 @@
 
 			<div class="container">
 				<div class="row hcon" id="row1">
-					<div class="col-md-1  d-none d-sm-block h4">운영시간</div>
+					<div class="col-md-1  d-none d-sm-block h4" style = "margin-left:0px;" >운영시간</div>
 					<div class="col-md-4 d-none d-sm-block body2">화요일–일요일(월요일
 						휴관), 10:00–18:00</div>
 					<div class="col-md-1 d-none d-sm-block h4">전시장소</div>
@@ -157,7 +163,12 @@
 		<div class="container">
 			<div class="row" style="margin-top: 10rem;">
 				<div class="col-12 h2">베스트 셀러</div>
+			
+			
+			
 			</div>
+			
+			
 			<div class="row " style="margin-top: 3.75rem;" id="row1">
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
 					<img src="/images/image 21.png" class="w-100 p-3"
