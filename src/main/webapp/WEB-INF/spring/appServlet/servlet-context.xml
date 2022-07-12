@@ -51,6 +51,7 @@
 			<exclude-mapping
 				path="/Exhibition/toUpcommingExhibition" />
 			<exclude-mapping path="/member/**" />
+			<exclude-mapping path="/shop/goDetail" />
 		
 
 			<exclude-mapping path="/images/*.*" />

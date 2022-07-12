@@ -50,10 +50,25 @@ public class DeliveryController {
 		
 	}
 	
+	@RequestMapping("insert")
+	public String insert() {
+		return "/mypage/insertAddress";
+	}
+	
+	@ResponseBody
 	@RequestMapping("insertModiNewAddress")
 	public String insertModiNewAddress(DeliveryDTO dto,String modi) {
 //		System.out.println(dto.getName());
 		dto.setEmail("i2376@naver.com");
+		dto.setName("hi");
+		System.out.println(dto.getName());
+		System.out.println(dto.getDefaultaddress());
+		System.out.println(dto.getReceiver());
+		System.out.println(dto.getPostcode());
+		System.out.println(dto.getAddress1());
+		System.out.println(dto.getAddress2());
+		System.out.println(dto.getPhone());
+		System.out.println(dto.getEmail());
 		
 		if(dto.getDefaultaddress()==null) {
 			dto.setDefaultaddress("N");
@@ -79,16 +94,16 @@ public class DeliveryController {
 			int result = dServ.updateAddress(dto);
 			System.out.println(result);
 		}
-		return "redirect:delivery?choose=false";
+		return "success";
 	}
 	
-	@RequestMapping("chooseAddress")
-	public String chooseAddress(Model model) {
+	@RequestMapping("selectAllAddress")
+	public String selectAllAddress(Model model) {
 		
 		String email = "i2376@naver.com";
-		List<DeliveryDTO> list = dServ.chooseAddress(email);
+		List<DeliveryDTO> list = dServ.selectAllAddress(email);
 		model.addAttribute("list",list);
-		return "/delivery/chooseAddress";
+		return "/mypage/delivery";
 	}
 	
 	@ResponseBody

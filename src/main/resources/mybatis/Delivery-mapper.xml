@@ -16,7 +16,7 @@
 		  where defaultaddress='Y' 
 		  and email = #{email} 
   	</update>
-  	<select id="chooseAddress" resultType="Trillion.Palet.DTO.DeliveryDTO">
+  	<select id="selectAllAddress" resultType="Trillion.Palet.DTO.DeliveryDTO">
   		select * from deliveryaddress where email = #{email} order by defaultaddress desc ,3
   	</select>
   	<select id="selectAddress" resultType="Trillion.Palet.DTO.DeliveryDTO">
