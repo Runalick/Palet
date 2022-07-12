@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin Page</title>
+<title>Insert title here</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -145,43 +145,131 @@
     </div>
     <!-- navibar close -->
     
-    <!-- main contents open-->
     <section>
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Member List </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 가입된 회원들의 정보를 확인 할 수 있는 페이지 입니다. </div>
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Member Detail View </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : '${mdto.name}' 님의 상세 페이지 입니다. </div>
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
 			            	<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-6 col-lg-5 h3 " style="border-right : 0.125rem solid #DFE3E8">ID(E-mail).</div>
-			            		<div class="col-3 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
-			            		<div class="col-3 col-lg-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
-			           			<div class="col-3 col-lg-2 h3 ">Points.</div>
-			           			<div class="col-12 px-3">
-			           				<div class="card2"></div>
+			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Info</div>
+			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Info</div>
+			            		<div class="col-12 d-none d-lg-block body2 m-auto" style="width:60%; text-align:right" >
+			            			<button class='btn0_1 color_yellow2'>수정</button>
+			            			<button class='btn0_1 color_red2'>삭제</button>
+			            		</div>
+			            		<div class="col-12 d-lg-none body2 m-auto" style="width:85%; text-align:right" >
+			            			<button class='btn0_2 color_yellow2'>수정</button>
+			            			<button class='btn0_2 color_red2'>삭제</button>
+			            		</div>
+			            	</div>
+			            	<div class="row">
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">ID(E-mail)</div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">ID(E-mail)</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' value='${mdto.email }' disabled style="width:50%; text-align:center" ></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' value='${mdto.email }' disabled style="width:70%; text-align:center" ></div>
+			           		</div>
+			            	<div class="row" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Name </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' value='${mdto.name }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' value='${mdto.name }' disabled style="width:70%; text-align:center"></div>
+			           		</div>
+			           		<div class="row">
+			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Grade </div>
+			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Grade </div>
+			           		</div>
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' value='${mdto.grade }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' value='${mdto.grade }' disabled style="width:70%; text-align:center"></div>
+			           		</div>
+			           		<div class="row">
+			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Points </div>
+			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Points </div>
+			           		</div>
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${mdto.point }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${mdto.point }' disabled style="width:70%; text-align:center"></div>
+			           		</div>
+			           		<c:if test='${mdto.phone != null}'>
+			           			<div class="row">
+			           				<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Phone</div>
+			           				<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Phone</div>  
 			           			</div>
+			           			<div class="row" style="text-align:center">
+			           				<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${mdto.phone }' disabled style="width:50%; text-align:center"></div>
+			           				<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${mdto.phone }' disabled style="width:70%; text-align:center"></div>
+			           			</div>
+			           		</c:if>
+			           		<c:if test='${mdto.address1 != null}'>
+			           			<div class="row">
+			           				<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" > Address1</div>
+			           				<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" > Address1</div>
+			           			</div>
+			           			<div class="row" style="text-align:center">
+			           				<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${mdto.address1 }' disabled style="width:50%; text-align:center"></div>
+			           				<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${mdto.address1 }' disabled style="width:70%; text-align:center"></div>
+			           			</div>
+			           		</c:if>
+			           		<c:if test='${mdto.address2 != null }'>
+			           			<div class="row">
+			           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Address2 </div>
+			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Address2 </div>
+			           			</div>
+			           			<div class="row" style="text-align:center">
+			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input typs='text' value='${mdto.address2 }' disabled style="width:50%; text-align:center"></div>
+			           				<div class='col-12 d-lg-none mt-3 body1'><input typs='text' value='${mdto.address2 }' disabled style="width:70%; text-align:center"></div>
+			           			</div>
+			           		</c:if>
+			           		<c:if test='${mdto.postcode != null }'>
+			           			<div class="row">
+			           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Postcode </div>
+			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Postcode </div>
+			           			</div>
+			           			<div class="row" style="text-align:center">
+			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input typs='text' value='${mdto.postcode }' disabled style="width:50%; text-align:center"></div>
+			           				<div class='col-12 d-lg-none mt-3 body1'><input typs='text' value='${mdto.postcode }' disabled style="width:70%; text-align:center"></div>
+			           			</div>
+			           		</c:if>
+			           		
+			           		
+			           				
+			           		<div class="row mt-5">
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem dotted #F9FAFB; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem ridge #F4F6F8; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem dashed #DFE3E8; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem dotted #DFE3E8; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem outset #C4CDD5; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem groove #919EAB; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem inset #637381; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem double #454F5B; width:65%;"></div><br> -->
+<!-- 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem dotted #212B36; width:65%;"></div><br> -->
+			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem solid #161C24; width:65%;"></div>
+			           		</div>
+			           		
+			           		<div class="row pt-4 m-3 mb-4">
+			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Payment</div>    
+			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Payment</div>   
+			            	<div>	
+			            	
+			            		
+			         			           			
 			                    <div class="col-12 p-3">
 			                    	<div class="">
-			                        <hr>
-			                        <c:forEach var="i" items="${list}">
-			                        <div class="row">
-			                        	<div class="col-6 col-lg-5 px-4 body2 ellipsis" ><a href="/admin/adminMemberDetail?email=${i.email}" class="colortext_gray900"><b>${i.email }</b></a> </div> 
-			                        	<div class="col-3 d-none d-lg-block px-5 body2" >${i.name } </div>
-			                        	<div class="col-3 col-lg-2 body2" style="text-align : center" >${i.grade } </div>
-		                            	<div class="col-3 col-lg-2 body2" style="text-align : center" >${i.point } </div>
-		                            </div>
-		                            <hr>			                            	
-		                            </c:forEach>
 			                        </div>	
 			                    </div>    
-			                    <div class="col-12 p-3 body1 colortext_gray400" style="text-align:center">
-			                       	${navi}
-			                    </div>
+								</div>
 			            	</div>
+			            	
+			            	
             			</div>
             		</div>
             	</div>
@@ -208,6 +296,6 @@
 	</section>
 	
 	<!-- footer close -->
-                  	      
+
 </body>
 </html>
