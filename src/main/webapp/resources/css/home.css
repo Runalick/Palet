@@ -1,19 +1,16 @@
 @charset "UTF-8";
 
-
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-		
+
+		/*min-width: 390px;*/
 	}
 	html {
 		font-size: 12px;
 	}
-	
-	
 }
 
 @media ( min-width : 1650px) {
@@ -24,9 +21,7 @@
 	html {
 		font-size: 16px;
 	}
-	
 }
-
 
 * {
 	box-sizing: border-box;
@@ -36,25 +31,12 @@
 	padding: 0px;
 }
 
-<<<<<<< HEAD
 .navbar-brand {
 	margin: 0px;
 	padding: 0px;
 	height: 1.875rem;
 }
 
-#navparent {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-}
-=======
-        .navbar-brand {
-            margin: 0px;
-            padding: 0px;
-            height: 1.875rem;
-        }
-        
-     
 .navbar-nav>li {
 	text-align: right;
 	background: white;
@@ -62,25 +44,24 @@
 	padding-bottom: 1rem;
 }
 
-
 .navbar {
 	height: 5rem;
 	padding: 0px;
 }
 
 #navparent {
-	position: fixed;
 	font-size: 0;
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
 }
-        .nav-item{
-margin:auto;
-        	padding-right: 20px;
-        }
-        
+
+.nav-item {
+	
+	padding-right:20px;
+}
+
 /*         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
 			overflow: hidden;
@@ -89,41 +70,9 @@ margin:auto;
 		.overflow-auto{
 			overflow: hidden;
 		} */
-		
-
-        .row>div {
-            padding-left: 2.5rem;
-            padding-right: 2.5rem;
-        }
->>>>>>> 91ff26f2efadfeb5137163bb17450b774e94ad9d
-
-
-.navbar {
-	position: fixed;
-	padding: 0px;
-	/* padding-left: 2.5rem;
-	padding-right: 2.5rem; */
-	padding-top:1.3rem;
-	padding-bottom:1.3rem;
-	right: 0px;
-	left: 0px;
-	background-color: white;
-}
-
-.navbar-nav .nav-link {
-	margin-top: 10px;
-}
-
 .row>div {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
-}
-
-
-
-
-.nav-item {
-	padding-right: 20px;
 }
 
 .nav-link {
@@ -153,7 +102,12 @@ margin:auto;
 	height: 1.5rem;
 }
 
-#Help {
+#Class {
+	width: 2.813rem;
+	height: 1.5rem;
+}
+
+#Shop {
 	width: 2.813rem;
 	height: 1.5rem;
 }
@@ -168,350 +122,234 @@ margin:auto;
 	height: 1.5rem;
 }
 
-.logoimg {
-    padding-left: 1.875rem;
-    padding-bottom: 0.625rem;
+/*   .logoimg {
+        	padding-left: 0.938rem;
+        	padding-top: 0.625rem;
+        	padding-bottom: 0.625rem;
+        }
+ */
+/*네비바 적용 css - 맨 상단부터 여기까지 복붙하세요*/
+.h1 {
+	padding: 0px;
+	color: #FFFFFF;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 4rem;
+	line-height: 4.813rem;
 }
 
-/* -------------------- 여기까지 네비바 css ---------------------------*/
-
-
-
-        .h1 {
-        
-        
-
-
-            padding: 0px;
-
-
-
-            color: #FFFFFF;
-
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 4rem;
-
-            line-height: 4.813rem;
-
-
-        }
-
-        .body1 {
-
-
-            /* Body/Body1 */
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 1.25rem;
-            line-height: 1.875rem;
-            /* identical to box height, or 150% */
-
-
-            color: #FFFFFF;
-
-        }
-
-        .body2 {
-
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 400;
-            font-size: 1rem;
-            line-height: 1.75rem;
-            /* identical to box height, or 175% */
-
-            margin-bottom: 0px;
-            color: #000000;
-
-
-        }
-
-
-        #mainphoto {
-            margin: 0px;
-            min-height: 600px;
-           	max-height:1920px;
-
-            height: 0;
-
-            padding-bottom: calc(800/1920*100%);
-
-            background-image: url("/images/Mainphoto.png");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 100% 100%;
-
-        }
- 
-        #mainphoto2 {
-            margin: 0px;
-            min-height: 600px;
-
-            height: 0;
-
-            padding-bottom: calc(800/1920*100%);
-
-            background-image: url("/images/timegarden.png");
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: 100% 100%;
-
-        }
-
-    
-
-
-        .btn1 {
-
-            box-sizing: border-box;
-
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-            margin-bottom: 1rem;
-            margin-right: 1.25rem;
-
-            width: 12.5rem;
-            height: 3.75rem;
-
-
-            border: 1px solid #FFFFFF;
-            border-radius: 1.25rem;
-            background-color: rgba(0, 0, 0, 0);
-
-
-            /* Button/Button1 */
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-            /* identical to box height */
-
-            text-align: center;
-
-            color: #FFFFFF;
-
-
-            /* Inside auto layout */
-
-        }
-
-        .btn2 {
-
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-
-            width: 12.5rem;
-            height: 3.75rem;
-
-
-            background: #FFFFFF;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-            /* identical to box height */
-
-            text-align: center;
-
-            /* Gray/900 */
-
-            color: #161C24;
-
-
-            /* Inside auto layout */
-
-        }
-        .btn3 {
-
-
-
-/* display: block; */
-/* flex-direction: row;
+.body1 {
+	/* Body/Body1 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.875rem;
+	/* identical to box height, or 150% */
+	color: #FFFFFF;
+}
+
+.body2 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.75rem;
+	/* identical to box height, or 175% */
+	margin-bottom: 0px;
+	color: #000000;
+}
+
+#mainphoto {
+	margin: 0px;
+	min-height: 600px;
+	max-height: 1920px;
+	height: 0;
+	padding-bottom: calc(800/ 1920 * 100%);
+	background-image: url("/images/Mainphoto.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+#mainphoto2 {
+	margin: 0px;
+	min-height: 600px;
+	height: 0;
+	padding-bottom: calc(800/ 1920 * 100%);
+	background-image: url("/images/timegarden.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+.btn1 {
+	box-sizing: border-box;
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	margin-bottom: 1rem;
+	margin-right: 1.25rem;
+	width: 12.5rem;
+	height: 3.75rem;
+	border: 1px solid #FFFFFF;
+	border-radius: 1.25rem;
+	background-color: rgba(0, 0, 0, 0);
+	/* Button/Button1 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+
+	/* Inside auto layout */
+}
+
+.btn2 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 12.5rem;
+	height: 3.75rem;
+	background: #FFFFFF;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	/* Gray/900 */
+	color: #161C24;
+
+	/* Inside auto layout */
+}
+
+.btn3 {
+	/* display: block; */
+	/* flex-direction: row;
 justify-content: center;
 align-items: center; */
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-
-
-width: 11.625rem;
-height: 3.75rem;
-
-
-
-
-background: #161C24;
-border-radius: 1.25rem;
-
-
-
-
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 500;
-font-size: 1.2rem;
-line-height: 1.5rem;
-
-
-text-align: center;
-
-color: #FFFFFF;
-
-
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 11.625rem;
+	height: 3.75rem;
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	text-align: center;
+	color: #FFFFFF;
 }
 
-        .btn5 {
+.btn5 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 18.813rem;
+	height: 3.75rem;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.22rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+}
 
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
+.h4 {
+	margin-bottom: 0px;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.875rem;
+	/* identical to box height, or 188% */
+	color: #000000;
+}
 
+.h2 {
+/* 	width: 10.375rem;
+	height: 2.688rem; */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 2.688rem;
+	text-align: center;
+	/* Gray/900 */
+	color: #161C24;
+}
 
-            width: 18.813rem;
-            height: 3.75rem;
+.h2_1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 2.688rem;
+	/* Gray/900 */
+	color: white;
+}
 
+.h3 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	/* Gray/900 */
+	color: #161C24;
+}
 
-            /* Gray/900 */
+.caption {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 0.875rem;
+	line-height: 1.063rem;
+	/* identical to box height */
+	/* Gray/500 */
+	color: #919EAB;
+}
 
-            background: #161C24;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-                font-style: normal;
-            font-weight: 500;
-             font-size: 1.22rem;
-            line-height: 1.5rem;
-                        /* identical to box height */
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 
-            text-align: center;
+.hcon {
+	align-content: center;
+	height: fit-content;
+	margin: 0.938rem;
+}
 
-                color: #FFFFFF;
+#main3 {
+	height: 42.375rem;
+	background: linear-gradient(180deg, #F4F6F8 0%, rgba(244, 246, 248, 0)
+		100%);
+}
 
+#footer {
+	background: #F4F6F8;
+	height: 13.25rem;
+}
 
-
-
-        }
-
-      
-
-        .h4 {
-
-            margin-bottom: 0px;
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 1rem;
-            line-height: 1.875rem;
-            /* identical to box height, or 188% */
-
-
-            color: #000000;
-
-        }
-
-        .h2 {
-
-        
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 2.25rem;
-            line-height: 2.688rem;
-            text-align: center;
-
-            /* Gray/900 */
-
-            color: #161C24;
-
-        }
-
-        .h2_1 {
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 2.25rem;
-            line-height: 2.688rem;
-
-
-            /* Gray/900 */
-
-            color: white;
-        }
-
-        .h3 {
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-            /* identical to box height */
-
-
-            /* Gray/900 */
-
-            color: #161C24;
-        }
-
-        .caption {
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 0.875rem;
-            line-height: 1.063rem;
-            /* identical to box height */
-
-
-            /* Gray/500 */
-
-            color: #919EAB;
-        }
-
-
-        #row1>div {
-
-            padding-left: 0px;
-            padding-right: 0px;
-        }
-
-        .hcon {
-            align-content: center;
-    		height: fit-content;
-    		margin: 0.938rem;
-        }
-
-       
-
-        #main3 {
-
-            height: 42.375rem;
-
-
-            background: linear-gradient(180deg, #F4F6F8 0%, rgba(244, 246, 248, 0) 100%);
-
-        }
-
-        #footer{
-            background: #F4F6F8;
-            height: 13.25rem;
-        }
 .exlink {
 	text-decoration: none;
 	color: #919EAB;
 }
-        
-        
-  .container, .container-fluid,  .container-lg, .container-md,
+
+/* .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-}  
+} */
