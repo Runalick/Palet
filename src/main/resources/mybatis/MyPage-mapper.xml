@@ -5,16 +5,16 @@
   
 <mapper namespace="MyPage">
 	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state='Y'
+		select * from exticket where et_email=#{value} and et_state='BU'
 	</select>
 	<select id="myTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state='Y'
+		select count(*) from exticket where et_email=#{value} and et_state='BU'
 	</select>
 	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state='N'
+		select * from exticket where et_email=#{value} and et_state in('AU' ,'BC' , 'AC') 
 	</select>
 	<select id="premyTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state='N'
+		select count(*) from exticket where et_email=#{value} and et_state in('AU' ,'BC' , 'AC')
 	</select>
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}

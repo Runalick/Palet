@@ -341,7 +341,7 @@ font-family: 'Spoqa Han Sans Neo';
 font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 700;
-	font-size: 2.25rem;
+	font-size: 2rem;
 	line-height: 1.875rem;
 }
 .btnbtn{
@@ -541,6 +541,8 @@ width:50rem;
 				price = ${dto.et_cost/dto.et_count  };
 				$("#price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
+				<div class="col-4 total" style="margin-bottom:1rem">총 수량</div>
+				<div class="col-8 total" style="margin-bottom:1rem">${dto.et_count }개</div>
 				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
 				<div class="col-8 total-price" style="margin-bottom:10rem">${dto.et_cost }원</div>
 				<script>
@@ -548,15 +550,16 @@ width:50rem;
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 				
-				
-				<button class="btnbtn">구매 취소</button>
-				
+				<c:if test="${dto.et_state == 'BU' }">
+				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
+				</c:if>
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
 				
 				</div>
 				</div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" style="padding:0px">
+<!-- 티켓 보여주는 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -576,8 +579,9 @@ width:50rem;
 											<div class="body3" style="color: white">예매번호 :
 												${dto.et_booknumber }</div>
 											<div class="body3" style="color: white;">${dto.et_date }</div>
+											<c:if test="${dto.et_state =='BU' }">
 											<div class="qr" id="qr" style="border: 5px solid white;"></div>
-
+											</c:if>
 										</div>
 
 									</div>
@@ -585,15 +589,31 @@ width:50rem;
 								</div>
 							</div>
       <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">닫기</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 구매 취소 모달 -->
+<div class="modal fade" id="exampleModa2" tabindex="-1" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title body4">티켓보기</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+				
+	  </div>
+      <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
 </div>
-
-			
-
 
 
 
@@ -631,13 +651,21 @@ width:50rem;
 		state();
 	});
 	function state(){
-		if(${dto.et_state =='Y'}){
+		if(${dto.et_state =='BU'}){
 			console.log("hi")
 			$("#state").text("구매완료");
 			$("#state").css("font-weight","700");
-		}else{
+		}else if(${dto.et_state =='AU'}){
 			console.log("bte")
 			$("#state").text("사용완료");
+			$("#state").css("font-weight","700");
+			$("#state").css("color","red");
+		}else if(${dto.et_state =='BC'}){
+			$("#state").text("취소 처리중");
+			$("#state").css("font-weight","700");
+			$("#state").css("color","red");
+		}else if(${dto.et_state =='BC'}){
+			$("#state").text("취소완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
 		}
