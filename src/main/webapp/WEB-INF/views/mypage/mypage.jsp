@@ -520,7 +520,7 @@ color: #FFFFFF;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+						<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
@@ -528,7 +528,7 @@ color: #FFFFFF;
 						<ul>
 							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
@@ -722,7 +722,7 @@ color: #FFFFFF;
 
 
 			</div>
-<a href="/mypage/main">main보기</a>
+z
 
 
 		<!-- 푸터단 -->
