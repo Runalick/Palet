@@ -396,58 +396,150 @@ align-items: center; */
 </head>
 <body>
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
 			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
 				<div class="row" id="container1">
-					<nav class="navbar navbar-expand-sm bg-light navbar-light">
-						<div class="container" id="navparent">
-							<a class="navbar-brand" href="#" id="container"
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
-								<ul class="navbar-nav">
-									<li class="nav-item"><a id="About" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-									</li>
-									<li class="nav-item"><a id="Exhibition" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-									</li>
-									<li class="nav-item"><a id="Shop" class="nav-link"
-										href="/shop/toShop"
-										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-									<li class="nav-item"><a id="Help" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Help</a>
-									</li>
-									<li class="nav-item"><a id="Login" class="nav-link"
-										href="/member/loginPage"
-										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-									<li class="nav-item"><a id="Signup" class="nav-link"
-										href="/member/join"
-										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-									<li class="nav-item"><a id="Admin" class="nav-link"
-										href="/admin/adminMain"
-										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-									<c:choose>
-										<c:when test="${loginEmail !=null }">
-											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/cart/cartlist"
-												style="padding-left: 0px; padding-right: 0px;">cart(${totalDto.total_num })</a></li>
-										</c:when>
-									</c:choose>
-									<li class="nav-item"><a id="Mypage" class="nav-link"
-										href="/member/mypage"
-										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
 								</ul>
 							</div>
 						</div>
 					</nav>
-
 				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
@@ -502,12 +594,12 @@ align-items: center; */
 						</div>
 					</div>
 					<div class="row" id="row1">
-					<div class="col-md-2 col-sm-0 body4"></div>
-					<div class="col-md-2 col-sm-4 body4">번호</div>
-					<div class="col-md-2 col-sm-4 body4">할인금</div>
-					<div class="col-md-2 col-sm-4 body4">종류</div>
-					<div class="col-md-2 d-md-block d-none body4">사용여부</div>
-					<div class="col-md-2 col-sm-0 body4"></div>
+						<div class="col-md-2 col-sm-0 body4"></div>
+						<div class="col-md-2 col-sm-4 body4">번호</div>
+						<div class="col-md-2 col-sm-4 body4">할인금</div>
+						<div class="col-md-2 col-sm-4 body4">종류</div>
+						<div class="col-md-2 d-md-block d-none body4">사용여부</div>
+						<div class="col-md-2 col-sm-0 body4"></div>
 					</div>
 					<c:forEach items="${list }" var="i">
 						<div class="row" id="row1">
@@ -522,7 +614,7 @@ align-items: center; */
 								<c:if test="${i.use=='Y' }">
 								사용한 쿠폰입니다.
 							</c:if>
-							<div class="col-md-2 col-sm-0 body5"></div>
+								<div class="col-md-2 col-sm-0 body5"></div>
 							</div>
 						</div>
 					</c:forEach>
@@ -560,48 +652,70 @@ align-items: center; */
 
 	</div>
 	<script>
-	$( window ).resize(function() {   //창크기 변화 감지
-		open_chatroom();
-	});
-	
-	function open_chatroom(){ 
-		var windowWidth = $( window ).width();
-		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
-			$(".navi-menu").css({"display":"none"});
-		} else {      //창 가로 크기가 500보다 클 경우  
-			$(".navi-menu").css({"display":"block"});
+		$(window).resize(function() { //창크기 변화 감지
+			open_chatroom();
+		});
+
+		function open_chatroom() {
+			var windowWidth = $(window).width();
+			if (windowWidth < 992) { //창 가로 크기가 500 미만일 경우  
+				$(".navi-menu").css({
+					"display" : "none"
+				});
+			} else { //창 가로 크기가 500보다 클 경우  
+				$(".navi-menu").css({
+					"display" : "block"
+				});
+			}
 		}
-		}
-	
-	//선택박스 화살표 방향 이미지
-		$("#registration").on("click",function(){
-		window.open("/coupon/toregistration", "",
-		"top=100,left=200,width=700,height=500");
-		})
-	let click = true;
-	$("#select").on("click",function(){
-		if(click==false){
-			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
-			
-			click = true;
-		}else{
-			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
-			click = false;
-		}
-	});
-// 		$("#make").on("click",function(){
-// 			$.ajax({
-// 				url:"/coupon/make",
-// 				data:{number:$("#number").val(),
-// 					dc:$("#dc").val(),
-// 					category:$("#category").val()}
-// 			}).done(function(resp){
-// 				console.log(resp);
-// 			})
-// 		})
-	
+
+		//선택박스 화살표 방향 이미지
+		$("#registration").on(
+				"click",
+				function() {
+					window.open("/coupon/toregistration", "",
+							"top=100,left=200,width=700,height=500");
+				})
+		let click = true;
+		$("#select")
+				.on(
+						"click",
+						function() {
+							if (click == false) {
+								$("#select")
+										.css(
+												{
+													"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ",
+													"background-size" : "1.596rem"
+												});
+								$(".navi-menu").css({
+									"display" : "none"
+								});
+
+								click = true;
+							} else {
+								$("#select")
+										.css(
+												{
+													"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ",
+													"background-size" : "01.596rem"
+												});
+								$(".navi-menu").css({
+									"display" : "block"
+								});
+								click = false;
+							}
+						});
+		// 		$("#make").on("click",function(){
+		// 			$.ajax({
+		// 				url:"/coupon/make",
+		// 				data:{number:$("#number").val(),
+		// 					dc:$("#dc").val(),
+		// 					category:$("#category").val()}
+		// 			}).done(function(resp){
+		// 				console.log(resp);
+		// 			})
+		// 		})
 	</script>
 </body>
 </html>

@@ -23,6 +23,7 @@ public class ExticketDTO {
 	private Timestamp et_buydate;
 	private String et_category;
 	
+	
 	public ExticketDTO() {}
 	public ExticketDTO(String et_email, String et_title, String et_place, String et_date, String et_booknumber,
 			String et_state, String et_username, String et_phone, String et_paymethod, int et_cost, int et_count,
@@ -157,8 +158,7 @@ public class ExticketDTO {
 		this.et_category = et_category;
 	}
 	
-	
-	
+
 
 
 }
