@@ -272,7 +272,8 @@
 		</div>
 
 
-		<div class="container" style="margin-top: 3.75rem; padding-left:0px; padding-right:0px;">
+		<div class="container"
+			style="margin-top: 3.75rem; padding-left: 0px; padding-right: 0px;">
 
 			<div class="container" id=" flow">
 				<div class="row overflow-auto" style="margin-top: 3.75rem;">
@@ -320,10 +321,11 @@
 
 		<div class="row" id="main3" style="margin-top: 12.5rem;">
 
-			<div class="col-md-12 h2" style="margin-top: 10rem;">지루한 지하철? NO!</div>
+			<div class="col-md-12 h2" style="margin-top: 10rem;">지루한 지하철?
+				NO!</div>
 
-			<div class="col-md-12 h2" style="margin-top: 0.75rem;">팔레트는 매일 새로운
-				즐거움을 전달합니다.</div>
+			<div class="col-md-12 h2" style="margin-top: 0.75rem;">팔레트는 매일
+				새로운 즐거움을 전달합니다.</div>
 
 			<div class="col-12 body1"
 				style="text-align: center; margin-top: 2.5rem; color: #161C24;">
@@ -353,27 +355,27 @@
 				</div>
 			</div>
 		</div>
-</div>
-		<script>
-			//카카오 초기화 및 토큰 받아오기
-			Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
-			//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
-			window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage
-					.getItem('AccessKEY')));
+	</div>
+	<script>
+		//카카오 초기화 및 토큰 받아오기
+		Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
+		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+		window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage
+				.getItem('AccessKEY')));
 
-			function logout() {
-				if (Kakao.Auth.getAccessToken()) {
-					Kakao.Auth.logout(function() {
-						alert("로그아웃 되었습니다.");
-						location.href = "/member/logout";
-					})
-					return true;
-				}
-
-				location.href = "/member/logout";
+		function logout() {
+			if (Kakao.Auth.getAccessToken()) {
+				Kakao.Auth.logout(function() {
+					alert("로그아웃 되었습니다.");
+					location.href = "/member/logout";
+				})
 				return true;
 			}
-		</script>
+
+			location.href = "/member/logout";
+			return true;
+		}
+	</script>
 </body>
 </html>
 

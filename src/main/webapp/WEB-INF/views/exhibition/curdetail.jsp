@@ -22,14 +22,14 @@
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-@media ( min-width : 375px) {
+/* @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
 	}
 	html {
 		font-size: 12px;
 	}
-}
+} */
 
 @media ( min-width : 1650px) {
 	.container {
@@ -131,6 +131,7 @@
 	width: 2.813rem;
 	height: 1.5rem;
 }
+
 .h1 {
 	padding: 0px;
 	color: #FFFFFF;
@@ -376,6 +377,12 @@ align-items: center; */
 	float: left;
 }
 
+.ul2_1>li{
+display:inline-block;
+margin:2rem;
+
+}
+
 .curimage {
 	width: 23.5rem;
 	height: 32.5rem;
@@ -417,8 +424,6 @@ a {
 	text-align: center;
 	padding: 1.125rem 1.5rem;
 }
-
-
 
 #po {
 	position: relative;
@@ -581,7 +586,7 @@ a {
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
 
 							<button class=bookbutton
-								style="text-align: center; margin-top: 3rem;">예매하기</button>
+								style="text-align: center; margin-top: 3rem; margin-left:0.7rem;">예매하기</button>
 
 
 							<input type=hidden name=count class=count1> <input
@@ -613,15 +618,15 @@ a {
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">SNS후기</li>
 
 				</ul>
-				<ul class="col-12 ul2 h3 offset d-block d-sm-none"
-					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
+				<ul class="col-12 ul2_1 h3 offset d-block d-sm-none"
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; ">
 					<li
-						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
+						style="width: 4.938rem; text-align: center; ">전시소개</li>
 					<li
-						style="width: 4.938rem; text-align: center; color: #919EAB; margin-left: 2.6rem;; margin-right: 2.6rem;"><a
+						style="width: 4.938rem; text-align: center; color: #919EAB; "><a
 						class="exlink">전시굿즈</a></li>
 					<li
-						style="width: 4.938rem; color: #919EAB; text-align: center; margin-left: 2.6rem;; margin-right: 2.6rem;">SNS후기</li>
+						style="width: 4.938rem; color: #919EAB; text-align: center; ">SNS후기</li>
 
 				</ul>
 			</div>

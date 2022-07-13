@@ -58,8 +58,8 @@
 }
 
 .nav-item {
-	margin: auto;
-	padding-right: 20px;
+	
+	padding-right:20px;
 }
 
 /*         오른쪽 여백 없애기
@@ -349,7 +349,7 @@ align-items: center; */
 	color: #919EAB;
 }
 
-.container, .container-fluid, .container-lg, .container-md,
+/* .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-}
+} */
