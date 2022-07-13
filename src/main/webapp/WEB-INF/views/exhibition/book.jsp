@@ -796,17 +796,18 @@ input::placeholder {
 					data : {
 
 						et_email : $(".email").val(),
-						et_title : "Romantic Days 어쩃든 사랑",
+						et_title : "Romantic Days 어쨋든 사랑",
 						et_place : "지하철 3호선 경복궁역 지하 1층",
 						et_date : "2022.03.16 ~ 2022.10.30",
 						et_booknumber : rsp.merchant_uid,
-						et_state : "Y", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
+						et_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
 						et_username : $(".username").val(),
 						et_phone : $(".phone").val(),
 						et_paymethod : "card",
 						et_cost : price2,
 						et_count : count1,
-						et_point : point2
+						et_point : point2,
+						et_category : 'e'
 					},
 
 					type : "post",

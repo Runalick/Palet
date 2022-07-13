@@ -17,13 +17,16 @@ public class ExticketDTO {
 	private int et_count;
 	private int et_point;
 	private Timestamp et_buydate;
-
+	private String et_category;
+	
 	public ExticketDTO() {
+		
+		
 	}
 
 	public ExticketDTO(String et_email, String et_title, String et_place, String et_date, String et_booknumber,
 			String et_state, String et_username, String et_phone, String et_paymethod, int et_cost, int et_count,
-			int et_point, Timestamp et_buydate) {
+			int et_point, Timestamp et_buydate, String et_category) {
 		super();
 		this.et_email = et_email;
 		this.et_title = et_title;
@@ -38,6 +41,7 @@ public class ExticketDTO {
 		this.et_count = et_count;
 		this.et_point = et_point;
 		this.et_buydate = et_buydate;
+		this.et_category = et_category;
 	}
 
 	public String getEt_email() {
@@ -143,5 +147,15 @@ public class ExticketDTO {
 	public void setEt_buydate(Timestamp et_buydate) {
 		this.et_buydate = et_buydate;
 	}
+
+	public String getEt_category() {
+		return et_category;
+	}
+
+	public void setEt_category(String et_category) {
+		this.et_category = et_category;
+	}
+
+
 
 }

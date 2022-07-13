@@ -7,7 +7,7 @@
 
 
 <insert id="insert">
-		insert into exticket values(#{et_email}, #{et_title}, #{et_place}, #{et_date}, #{et_booknumber}, #{et_state}, #{et_username}, #{et_phone}, #{et_paymethod}, #{et_cost}, #{et_count}, #{et_point}, sysdate)	
+		insert into exticket values(#{et_email}, #{et_title}, #{et_place}, #{et_date}, #{et_booknumber}, #{et_state}, #{et_username}, #{et_phone}, #{et_paymethod}, #{et_cost}, #{et_count}, #{et_point}, sysdate, #{et_category})	
 	</insert>
 
 
