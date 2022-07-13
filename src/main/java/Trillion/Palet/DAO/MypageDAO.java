@@ -22,13 +22,11 @@ public class MypageDAO {
 	public int myTicketcnt(String email) {
 		return mybatis.selectOne("MyPage.myTicketcnt",email);
 	}
-<<<<<<< HEAD
 
 	public List<PayDTO> myShopping(String email) {
 		return mybatis.selectList("MyPage.myShopping", email);
 	}
 	
-=======
 	//지난전시, 쓴 티켓
 	public List<ExticketDTO> premyTicket(String email) {
 		return mybatis.selectList("MyPage.premyTicket",email);
@@ -40,7 +38,6 @@ public class MypageDAO {
 	public ExticketDTO myTicketDetailview(String et_booknumber) {
 		return mybatis.selectOne("MyPage.myTicketDetailview",et_booknumber);
 	}
->>>>>>> c19acb5568a9a6555f495c97cbab8dd06741acf5
 	
 
 }
