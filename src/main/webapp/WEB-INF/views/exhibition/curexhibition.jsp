@@ -21,15 +21,15 @@
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-@media ( min-width : 375px) {
+/* @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		\
+		
 	}
 	html {
 		font-size: 12px;
 	}
-}
+} */
 
 @media ( min-width : 1650px) {
 	.container {
@@ -74,8 +74,8 @@
 }
 
 .nav-item {
-
-	padding-right: 20px;
+	margin: auoto;
+padding-right: 20px;
 }
 
 .nav-link {
@@ -119,10 +119,12 @@
 	width: 4.438rem;
 	height: 1.5rem;
 }
+
 #Shop {
 	width: 2.813rem;
 	height: 1.5rem;
 }
+
 .h1 {
 	padding: 0px;
 	color: #FFFFFF;
@@ -294,8 +296,8 @@ align-items: center; */
 }
 
 .h2 {
-	/* width: 10.375rem;
-            height: 2.688rem; */
+/* 	width: 10.375rem;
+	height: 2.688rem; */
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 700;
@@ -367,6 +369,11 @@ align-items: center; */
 	padding: 0px;
 	float: left;
 }
+.ul2_1>li{
+display:inline-block;
+margin:2rem;
+
+}
 
 .curimage {
 	width: 23.5rem;
@@ -389,6 +396,13 @@ a {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
+
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+} 
+
+
 </style>
 
 
@@ -396,15 +410,16 @@ a {
 <body>
 	<div class="container-fluid">
 		<div class="container">
-			<div class="row" id="container1">
+			<div class="row">
 				<nav class="navbar navbar-expand-md bg-light navbar-light">
-					<div class="container" id="navparent">
+					<div class="container" id="navparent" style="overflow: visible;">
 						<a class="navbar-brand" href="/" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg"  border=0></a>
+							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
 						<div style="height: 5rem;">
 							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" style="margin-top: 15px;" data-bs-target="#collapsibleNavbar">
+								data-bs-toggle="collapse" style="margin-top: 15px;"
+								data-bs-target="#collapsibleNavbar">
 								<span class="navbar-toggler-icon"></span>
 							</button>
 						</div>
@@ -442,9 +457,10 @@ a {
 				</nav>
 
 			</div>
-			<div class="row" id="container1">
-				<div class="col-4 h2" style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
-				<ul class="col-4 ul2 h3 offset-4"
+			<div class="row ">
+				<div class="col-4 h2 d-none d-sm-block"
+					style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
+				<ul class="col-4 ul2 h3 d-none d-sm-block offset-4"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; margin-left: 3.1rem;">현재 전시</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
@@ -454,20 +470,40 @@ a {
 
 				</ul>
 			</div>
+
+
+
+
+			<div class="row ">
+				<div class="col-12 h2 d-block d-sm-none"
+					style="margin-top: 2.5rem; text-align: center;">Exhibition</div>
+				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
+					<li style="width: 4.938rem; text-align:center;">현재 전시</li>
+					<li style="width: 4.938rem;  text-align:center; color: #919EAB; "><a
+						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
+					<li style="width: 4.938rem;   text-align:center; color: #919EAB; "><a
+						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
+
+				</ul>
+			</div>
+
+
+
 			<div class="row" id="container1">
-				<div class="col-12" style="margin-top: 5.313rem;">
+				<div class="col-12 d-none d-sm-block" style="margin-top: 5.313rem;">
 					<a href="/Exhibition/toCurdetail"><img class="curimage"
 						src="/images/anywaylove.png"></a>
 				</div>
-				<div class="col-12 h3" style="margin-top: 2.5rem;">Romantic
+				<div class="col-12 h3 d-none d-sm-block" style="margin-top: 2.5rem;">Romantic
 					Days 어쨌든, 사랑</div>
-				<div class="col-12 caption" style="margin-top: 2.5rem;">
+				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
 					2022.03.16 ~ 2022.10.30</div>
-				<div class="col-12 caption" style="margin-top: 2.5rem;">
+				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
 					<!-- 	<a href="/Exhibition/toBook">
 				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
 				</div>
-				<div class="col-12 caption" style="margin-top: 2.5rem;">
+				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
 					<a href="/Exhibition/toCurdetail">
 						<button class="btn1_1"
 							style="background: #ffffff; color: #161C24;">자세히 보기</button>
@@ -476,6 +512,39 @@ a {
 
 
 			</div>
+			
+			
+			
+			
+			
+			
+			<div class="row" id="container1">
+				<div class="col-12 d-block d-sm-none" style="margin-top: 5.313rem; text-align:center;">
+					<a href="/Exhibition/toCurdetail"><img class="curimage"
+						src="/images/anywaylove.png"></a>
+				</div>
+				<div class="col-12 h3 d-block d-sm-none" style="margin-top: 2.5rem; text-align:center;">Romantic
+					Days 어쨌든, 사랑</div>
+				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem; text-align:center;">
+					2022.03.16 ~ 2022.10.30</div>
+				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
+					<!-- 	<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
+				</div>
+				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
+					<a href="/Exhibition/toCurdetail" style = "text-align:center;">
+						<button class="btn1_1"
+							style="background: #ffffff; margin:auto; color: #161C24;">자세히 보기</button>
+					</a>
+				</div>
+
+
+			</div>
+			
+			
+			
+			
+			
 
 		</div>
 
