@@ -58,6 +58,10 @@ public class GoodsService {
 		}		
 	}
 	
+	public GoodsDTO getGoods(int g_num) {
+		return dao.getGoods(g_num);
+	}
+	
 	public GoodsDTO goodsBestSeller(){
 		return dao.goodsBestSeller();
 	}

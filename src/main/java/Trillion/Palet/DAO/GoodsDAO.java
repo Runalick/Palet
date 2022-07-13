@@ -42,4 +42,8 @@ public class GoodsDAO {
 	public int goodsPicInsert(GoodsPicDTO dto) {
 		return mybatis.insert("File.goodsPicInsert", dto);
 	}
+	
+	public GoodsDTO getGoods(int g_num) {
+		return mybatis.selectOne("Goods.getGoods", g_num);
+	}
 }

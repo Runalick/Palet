@@ -189,6 +189,28 @@ public class AdminController {
 		return result;
 	}
 	
+	@RequestMapping(value="adminExhibitionDetail", produces="test/html;charset=utf8")
+	public String adminExhibitionDetail(Model model, int e_num) {
+		ExhibitionDTO edto = eServ.getExhibition(e_num);
+
+		model.addAttribute("edto", edto);
+		
+		return "/admin/adminExhibitionDetail";
+	}
+	
+	@RequestMapping(value="adminExhibitionUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
+	public String adminExhibitionUpdate(ExhibitionDTO edto) {
+		
+		System.out.println("Email :"+edto.getE_num()+" / Name : "+edto.getE_name()+" / Start : "+edto.getStart_date()+" / End : "+edto.getEnd_date());
+		System.out.println("Price :"+edto.getE_price()+" / period : "+edto.getE_period());
+		
+		aServ.adminExhibitionUpdate(edto);
+		
+		return "redirect:adminExhibitionDetail?e_num="+edto.getE_num();
+	}
+	
+	
+	
 	// Goods Category 
 	
 	@RequestMapping("adminGoods")
@@ -263,6 +285,23 @@ public class AdminController {
 			aServ.goodsCheckUpdate(checkNum, e_num);
 		}
 		return result;
+	}
+	
+	@RequestMapping(value="adminGoodsDetail", produces="test/html;charset=utf8")
+	public String adminGoodsDetail(Model model, int g_num) {
+		GoodsDTO gdto = gServ.getGoods(g_num);
+
+		model.addAttribute("gdto", gdto);
+		
+		return "/admin/adminGoodsDetail";
+	}
+	
+	@RequestMapping(value="adminGoodsUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
+	public String adminGoodsUpdate(GoodsDTO gdto) {
+		
+		aServ.adminGoodsUpdate(gdto);
+		
+		return "redirect:adminGoodsDetail?g_num="+gdto.getG_num();
 	}
 	
 }

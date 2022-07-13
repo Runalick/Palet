@@ -44,4 +44,8 @@ public class ExhibitionDAO {
 		return mybatis.insert("File.exhibitionPicInsert", dto);
 	}
 	
+	public ExhibitionDTO getExhibition(int e_num) {
+		return mybatis.selectOne("Exhibition.getExhibition", e_num);
+	}
+	
 }

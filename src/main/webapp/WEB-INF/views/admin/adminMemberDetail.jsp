@@ -145,6 +145,8 @@
     </div>
     <!-- navibar close -->
     
+    <!-- main contents -->
+    
     <section>
         <div class="container-fluid">
             <div class="row">    
@@ -155,6 +157,12 @@
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
+                			<div class="row pt-3">
+                				<div class="col-12">
+                					<img type=button class=leftbutton src="/images/leftbutton.png">
+                				</div>
+							</div>
+                			
 			            	<form action="/admin/adminMemberUpdate" method="post">
 			            	<div class="row pt-4 m-3 mb-4">
 			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Info</div>
@@ -339,6 +347,11 @@
 		$(".memberBtns").append(cancel);
 		
 	});
+	
+	$(".leftbutton").on("click", function() {
+
+		location.href = "/admin/adminMembers?cpage=1";
+	})
 	
 // 	$("#deleteMember").on("click", ()=>{
 // 		let ban = confirm("정말 삭제 하시겠습니까?");

@@ -183,6 +183,10 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
+	public int adminExhibitionUpdate(ExhibitionDTO edto) {
+		return mybatis.update("Admin.adminExhibitionUpdate", edto);
+	}
+	
 	// Goods Category
 	
 	public List<GoodsDTO> goodsSelectByPage (int cpage) {
@@ -267,6 +271,11 @@ public class AdminDAO {
 		param.put("e_num", e_num);
 		return mybatis.update("Goods.goodsCheckUpdate", param);	
 	}
+	
+	public int adminGoodsUpdate(GoodsDTO gdto) {
+		return mybatis.update("Admin.adminGoodsUpdate", gdto);
+	}
+	
 	
 	// etc..
 	

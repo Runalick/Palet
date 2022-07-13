@@ -5,11 +5,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="Admin">
+  
+  	<!-- DashBoard -->
+  
   	<select id="getWeekSales" resultType="Trillion.Palet.DTO.SalesDTO">
   		select sum(totalprice)as salessum, to_char(pay_time, 'YY/MM/DD')as salesdate from payment 
   		where to_char(pay_time, 'YY/MM/DD') >= to_char(sysdate-6, 'YY/MM/DD') 
   		group by to_char(pay_time, 'YY/MM/DD') order by to_char(pay_time, 'YY/MM/DD') desc
   	</select>
+  	
+  	<!-- Member -->
   	
   	<update id="adminMemberModi">
 		update member set name = #{name}, grade= #{grade}, point = #{point} where email = #{email}  	
@@ -22,4 +27,17 @@
   	<update id="adminMemberUpdate">
   		update member set grade = #{grade} where email = #{email}
   	</update>
+  	
+  	<!-- Exhibition -->
+  	
+  	<update id="adminExhibitionUpdate">
+  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price}, e_period = #{e_period} where e_num = #{e_num}
+  	</update>
+  	
+  	<!-- Goods -->
+  	
+  	<update id="adminGoodsUpdate">
+  		update goods set g_name = #{g_name}, g_stock = #{g_stock}, g_price = #{g_price} where g_num = #{g_num}
+  	</update>
+  	
   </mapper>

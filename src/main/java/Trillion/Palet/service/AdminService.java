@@ -57,6 +57,10 @@ public class AdminService {
 		return adao.getExhibitionPageNavi(cpage);
 	}
 	
+	public void adminExhibitionUpdate(ExhibitionDTO edto) {
+		adao.adminExhibitionUpdate(edto);
+	}
+	
 	// Goods Category
 	
 	public List<GoodsDTO> goodsSelectByPage(int cpage){
@@ -77,6 +81,10 @@ public class AdminService {
 	
 	public int goodsCheckUpdate (String g_num, String e_num) {
 		return adao.goodsCheckUpdate(g_num, e_num);
+	}
+	
+	public void adminGoodsUpdate(GoodsDTO gdto) {
+		adao.adminGoodsUpdate(gdto);
 	}
 	
 	

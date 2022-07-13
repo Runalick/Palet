@@ -157,36 +157,52 @@
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
                 			<div class="row pt-4 p-4" style="text-align:right">
- 								<div id="checkbtns">
+ 								<div class="col-12 d-none d-md-block" id="checkbtns" style="text-align:right">
  									<!-- 추후 join을 통해 받아오는 값으로 꾸려질 예정 (전시이름) 일괄수정 -->
- 									<select class="body2 select0 color_gray100" name="grade" id="grade">
+ 									<select class="body2 select0 color_gray100 " name="grade" id="grade">
 										<option value='White'>White</option>	
 										<option value='Gray'>Gray </option>
 										<option value='Black'>Black</option>
 										<option value='Admin'>Admin</option>
 									</select>
-                            		<button class="btn0_1_1 color_yellow2" onclick="checkboxUpdate()">카테고리 수정</button>
-                            		<button class="btn0_1 color_red2" onclick="checkboxDelete()">삭제</button>
+                            		<button class="btn0_1 color_yellow2 " onclick="checkboxUpdate()">등급 수정</button>
+                            		<button class="btn0_1 color_red2 " onclick="checkboxDelete()">삭제</button>
+                            	</div>
+                            	<div class="col-12 d-md-none" id="checkbtns2" style="text-align:right">
+                            		<select class="body2 select0 color_gray100 " name="grade" id="grade2">
+										<option value='White'>White</option>	
+										<option value='Gray'>Gray </option>
+										<option value='Black'>Black</option>
+										<option value='Admin'>Admin</option>
+									</select>
+                            		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate2()">등급 수정</button>
+                            		<button class="btn0_1 color_red2" onclick="checkboxDelete2()">삭제</button>
  								</div>
  							</div>
                 		
 			            	<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-6 col-lg-5 h3 " style="border-right : 0.125rem solid #DFE3E8"><input type="checkbox" id="checkAll">ID(E-mail).</div>
+			            		<div class="col-6 col-lg-5 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8"><input type="checkbox" id="checkAll">ID(E-mail).</div>
+			            		<div class="col-6 col-lg-5 d-lg-none h3_4" style="border-right : 0.125rem solid #DFE3E8"><input type="checkbox" id="checkAll2">ID(E-mail).</div>
 			            		<div class="col-3 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
-			            		<div class="col-3 col-lg-2 h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
-			           			<div class="col-3 col-lg-2 h3 ">Points.</div>
-			           			<div class="col-12 px-3">
+			            		<div class="col-3 col-lg-2 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Grade.</div>
+			            		<div class="col-3 col-lg-2 d-lg-none h3_4 " style="border-right : 0.125rem solid #DFE3E8; padding-left: 0.25rem; padding-right: 0px;">Grade.</div>
+			           			<div class="col-3 col-lg-2 d-none d-lg-block h3 ">Points.</div>
+			           			<div class="col-3 col-lg-2 d-lg-none h3_4 " style="padding-left: 0.25rem; padding-right: 0px;">Points.</div>
+			           			<div class="col-12 px-3" >
 			           				<div class="card2"></div>
 			           			</div>
 			                    <div class="col-12 p-3">
 			                    	<div class="">
 			                        <hr>
 			                        <c:forEach var="i" items="${list}">
-			                        <div class="row">
-			                        	<div class="col-6 col-lg-5 px-4 body2 ellipsis" ><input type="checkbox" name="checkbox" value="${i.email }"><a href="/admin/adminMemberDetail?email=${i.email}" class="colortext_gray900"><b>${i.email }</b></a> </div> 
+			                        <div class="row" id="row1">
+			                        	<div class="col-6 col-lg-5 d-none d-lg-block px-4 body2 ellipsis" ><input type="checkbox" name="checkbox" value="${i.email }"><a href="/admin/adminMemberDetail?email=${i.email}" class="colortext_gray900"><b>${i.email }</b></a> </div>
+			                        	<div class="col-6 col-lg-5 d-lg-none px-4 body2_1 ellipsis" ><input type="checkbox" name="checkbox2" value="${i.email }"><a href="/admin/adminMemberDetail?email=${i.email}" class="colortext_gray900"><b>${i.email }</b></a> </div> 
 			                        	<div class="col-3 d-none d-lg-block px-5 body2" >${i.name } </div>
-			                        	<div class="col-3 col-lg-2 body2" style="text-align : center" >${i.grade } </div>
-		                            	<div class="col-3 col-lg-2 body2" style="text-align : center" >${i.point } </div>
+			                        	<div class="col-3 col-lg-2 d-none d-lg-block body2" style="text-align : center" >${i.grade } </div>
+			                        	<div class="col-3 col-lg-2 d-lg-none body2_1" style="text-align : center" >${i.grade } </div>
+		                            	<div class="col-3 col-lg-2 d-none d-lg-block body2" style="text-align : center" >${i.point } </div>
+		                            	<div class="col-3 col-lg-2 d-lg-none body2_1" style="text-align : center" >${i.point } </div>
 		                            </div>
 		                            <hr>			                            	
 		                            </c:forEach>
@@ -228,12 +244,24 @@ $("#checkAll").change(function (){
 	$('input[name="checkbox"]').prop('checked', checked);
 });
 
+$("#checkAll2").change(function (){
+	let checked = $(this).prop('checked');
+	$('input[name="checkbox2"]').prop('checked', checked);
+});
 
 $('input[name="checkbox"]').change(function () {
 
 	let selectAll = ($('input[name="checkbox"]').length == $('input[name="checkbox"]:checked').length);
 
 	$("#checkAll").prop('checked', selectAll);
+
+});	
+
+$('input[name="checkbox2"]').change(function () {
+
+	let selectAll = ($('input[name="checkbox2"]').length == $('input[name="checkbox2"]:checked').length);
+
+	$("#checkAll2").prop('checked', selectAll);
 
 });	
 
@@ -262,6 +290,50 @@ function checkboxUpdate(){
 	let checkboxArr2 = [];
 	let grade = $("#grade").val();
 	$('input[name="checkbox"]:checked').each(function() {
+		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+		console.log(checkboxArr2)
+	})
+	
+	$.ajax({
+		type : "POST",
+		url : "/admin/memberCheckUpdate",
+		data : {
+			checkboxArr2 : checkboxArr2,
+			grade : grade
+		},
+		success : function (result){
+			console.log(result);
+			alert("update ok!");
+			location.reload();
+		}
+	});
+}
+
+function checkboxDelete2(){
+	let checkboxArr = [];
+	$('input[name="checkbox2"]:checked').each(function() {
+		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+		console.log(checkboxArr)
+	})
+	
+	$.ajax({
+		type : "POST",
+		url : "/admin/memberCheckDelete",
+		data : {
+			checkboxArr : checkboxArr
+		},
+		success : function (result){
+			console.log(result);
+			alert("delete ok!");
+			location.reload();
+		}
+	});
+}
+
+function checkboxUpdate2(){
+	let checkboxArr2 = [];
+	let grade = $("#grade2").val();
+	$('input[name="checkbox2"]:checked').each(function() {
 		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
 		console.log(checkboxArr2)
 	})

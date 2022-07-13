@@ -140,6 +140,14 @@
 	margin-left : auto;
 }
 
+.leftbutton {
+	width: 3.25rem;
+	height: 3.25rem;
+	padding: 0px;
+	margin-top: 0px;
+	margin-left : 2.5rem;
+}
+
 	/* Exhibition input */
 	
 		#e_price, #e_name {
@@ -387,6 +395,16 @@
             color: #161C24;
         }
         
+       	.h3_4 {
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 1.0rem;
+            line-height: 1.25rem;
+            /* identical to box height */
+            /* Gray/900 */
+            color: #161C24;
+        }
         
 
         .h3 {
@@ -417,6 +435,17 @@
             font-weight: 400;
             font-size: 1rem;
             line-height: 1.75rem;
+            /* identical to box height, or 175% */
+            margin-bottom: 0px;
+            color: #000000;
+        }
+        
+        .body2_1 {
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 0.75rem;
+            line-height: 1.25rem;
             /* identical to box height, or 175% */
             margin-bottom: 0px;
             color: #000000;
@@ -507,7 +536,7 @@
         	margin-left : 10rem;
         }
         .marg_left5{
-        	margin-left : 7rem;
+        	margin-left : 5rem;
         }        
         .marg_right0{
         	margin-right : 17rem;
