@@ -51,7 +51,7 @@ public class MyPageController {
 		return "/mypage/myTicketDetailview";
 	}
 	
-	@RequestMapping("myShopping")
+	@RequestMapping("detailShopping")
 	public String myShopping(Model model) {
 		//String email = (String)session.getAttribute("loginEmail");
 		String email = "iampost@siot.do";

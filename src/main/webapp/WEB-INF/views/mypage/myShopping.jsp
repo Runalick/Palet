@@ -649,102 +649,80 @@ color:white;
 
 		</div>
 
-		<div class="container" style="padding-left:2.5rem;">
-			<div class="row mypage-wrap" id="row1">
-			
-			<div class="col-12 d-block d-lg-none H1 small-navi" >
-			<button id="select" >MY PAGE</button>
-			</div>
-			
-			
-				<div class="navi" >
-				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
-				<strong class="menu-title">My Page</strong>
-				</a>
-				<div class="navi-menu">
-					<ul class="navi-ul">
-					<li>
-						<div class="body4">My Tickets</div>
-						<ul>
-							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
-						</ul>
-					</li>
-					<li>
-						<div class="body4">My Shopping</a></div>
-						<ul>
-							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
-						</ul>
-					</li>
-					<li>
-						<div class="body4">My Info</div>
-						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
-							<li class="body3"><a href="#">나의 쿠폰</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
-						</ul>
-					</li>
-					</ul>
-				</div>
+		<div class="container">
+			<div class="row mypage-wrap" >
+				
+				<div class="row" id="row1">
+				<div class="col-12 d-block d-lg-none H1 small-navi" >
+				<button id="select" >MY PAGE</button>
 				</div>
 				
 				
+					<div class="navi" >
+					<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
+					<strong class="menu-title">My Page</strong>
+					</a>
+					<div class="navi-menu">
+						<ul class="navi-ul">
+						<li>
+							<div class="body4">My Tickets</div>
+							<ul>
+								<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="body4">My Shopping</a></div>
+							<ul>
+								<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+								<li class="body3"><a href="#">취소/반품 내역</a></li>
+								<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
+							</ul>
+						</li>
+						<li>
+							<div class="body4">My Info</div>
+							<ul>
+								<li class="body3"><a href="#">나의 회원등급</a></li>
+								<li class="body3"><a href="#">나의 쿠폰</a></li>
+								<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
+								<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
+							</ul>
+						</li>
+						</ul>
+					</div>
+					</div>
 				
 				
 				
 				
-				<div class="content" style="margin-top:1rem;">
+				
+				
+				<div class="content" style="margin-top:1rem;" >
 					<div class="row">
 						<div class="col-12 main-info">주문 내역</div>
 						
-						<div class="col-12 p-1" style="border-top:1px solid black;margin-top:2.5rem;">
-							<div class="row main-area" style="text-align:center;">
-								<div class="col-2 p-0 body4" >주문일</div>
-								<div class="col-2 p-0 body4">주문번호</div>
-								<div class="col-4 p-0 body4">주문정보</div>
-								<div class="col-2 p-0 body4">주문가격</div>
-								<div class="col-2 p-0 body4">배송상태</div>
-								
-							
+						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
+							<div class="row main-area">
+								<div class="col-2 body4" >주문일</div>
+								<div class="col-2 body4">주문번호</div>
+								<div class="col-4 body4">주문정보</div>
+								<div class="col-2 body4">주문가격</div>
+								<div class="col-2 body4">배송상태</div>
 							</div>
 							
 							
-						<%-- 	
-					<div class="row list" >
-                        <div class="col-2 body3">
-                        	<div class="row">
-                        		
-                        		<div class="col-12" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
-                        	<div class="col-12">${defaultAddress.receiver }</div>
-                        	</div>
-                      
-                        
-                        </div>
-                        <div class="col-5 body3">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
-                        <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
-                        <div class="col-2 col-md-3 body3" style="text-align:center">
-                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
-                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
-                        </div>
-                     </div>
-							
-					<c:forEach var="i" items="${list }">
-                     <div class="row list" >
-                        <div class="col-2 body3">${i.receiver }</div>
-                        <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
-                        <div class="col-3 col-md-2 body3">${i.phone }</div>
-                        <div class="col-2 col-md-3 body3" style="text-align:center">
-                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;" value=${i.deliveryaddress_seq }>수정</button>
-                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${i.deliveryaddress_seq }>삭제</button>
-                        </div>
-                     </div>
-                     </c:forEach>
-							 --%>
-							
-							
-							
+						 	
+					
+							<!--<c:forEach var="i" items="${list }">
+		                     <div class="row list" >
+		                        <div class="col-2 body3">${i.purchase_date }</div>
+		                        <div class="col-3 col-md-2 body3">${i.merchant_uid }</div>
+		                        <div class="col-2 col-md-3 body3">${i.totalprice }</div>
+		                        
+		                        <div class="col-5 body3"></div>
+		                        </div>
+		                     </div>
+		                     </c:forEach> -->
+					
 						</div>
 					</div>
 				
