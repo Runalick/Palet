@@ -329,19 +329,31 @@ margin-bottom:0.8rem;
 font-weight:500;
 font-size:1.675rem;
 }
+.modal-ticket-row .body4{
+font-weight:500;
+font-size:1.675rem;
+margin-bottom:0.25rem;
+}
 .total{
 font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 1.625rem;
+	font-size: 1.425rem;
 	line-height: 1.875rem;
 	
+}
+.cancel-div{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.225rem;
+	line-height: 1.675rem;
 }
 .total-price{
 font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 700;
-	font-size: 2.25rem;
+	font-size: 2rem;
 	line-height: 1.875rem;
 }
 .btnbtn{
@@ -393,6 +405,42 @@ color:white;
 }
 .modal-content{
 width:50rem;
+}
+/* 모달환불 */
+.input{
+margin-top:0.75rem;
+width:100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px 12px;
+gap: 10px;
+background: #FFFFFF;
+border: 1px solid #CFD4D9;
+box-shadow: 0px 0px 0px #CBDAFC;
+border-radius: 5px;
+height:8.25rem; 
+resize:none;
+ padding:0.25rem;
+ margin-bottom:2rem;
+}
+.payinfo .col-7{
+text-align:right;
+}
+.paymodal-title{
+font-family: 'Spoqa Han Sans Neo';
+	font-size: 1.625rem;
+	font-weight: 500;
+	line-height: 1.875rem;
+}
+.paymodal-title2{
+font-family: 'Spoqa Han Sans Neo';
+	font-size: 1.425rem;
+	font-weight: 500;
+	line-height: 1.875rem;
+}
+.modal-body{
+padding-right:0px;
 }
 </style>
 </head>
@@ -538,9 +586,11 @@ width:50rem;
 						</div>
 					</div>
 				<script>
-				price = ${dto.et_cost/dto.et_count  };
+				price = ${(dto.et_cost+dto.et_usedpoint+dto.et_cpdiscount)/dto.et_count  };
 				$("#price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
+				<div class="col-4 total" style="margin-bottom:1rem">총 수량</div>
+				<div class="col-8 total" style="margin-bottom:1rem">${dto.et_count }개</div>
 				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
 				<div class="col-8 total-price" style="margin-bottom:10rem">${dto.et_cost }원</div>
 				<script>
@@ -548,15 +598,16 @@ width:50rem;
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 				
-				
-				<button class="btnbtn">구매 취소</button>
-				
+				<c:if test="${dto.et_state == 'BU' }">
+				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
+				</c:if>
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
 				
 				</div>
 				</div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" style="padding:0px">
+<!-- 티켓 보여주는 모달 -->
+<div class="modal fade" id="exampleModal" tabindex="-1" >
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -576,8 +627,9 @@ width:50rem;
 											<div class="body3" style="color: white">예매번호 :
 												${dto.et_booknumber }</div>
 											<div class="body3" style="color: white;">${dto.et_date }</div>
+											<c:if test="${dto.et_state =='BU' }">
 											<div class="qr" id="qr" style="border: 5px solid white;"></div>
-
+											</c:if>
 										</div>
 
 									</div>
@@ -585,17 +637,110 @@ width:50rem;
 								</div>
 							</div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">닫기</button>
+        
       </div>
     </div>
   </div>
 </div>
 
-			
+<!-- 구매 취소 모달 -->
+<div class="modal fade" id="exampleModa2" tabindex="-1" >
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title paymodal-title">구매 취소</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+			<div class="row">
+		
+			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
+				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
+				</div>
+					<div class="col-8" style="margin-bottom:3rem; width:31rem;">
+						<div class="row modal-ticket-row" >
+							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.et_title }</div>
+							<div class="col-12 paymodal-title2">${dto.et_booknumber }</div>
+							<div class="col-12 paymodal-title2" id="modal-price">${dto.et_cost/ dto.et_count  }원</div>
+						<script>
+				price = ${(dto.et_cost+dto.et_usedpoint+dto.et_cpdiscount)/dto.et_count  };
+				$("#modal-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+				</script>
+						</div>
+					
+					</div>
+					<div class="row" style="padding-right:0.25rem; width:41rem;">
+						<div class="col-12 paymodal-title">취소 사유</div>
+						<div class="col-12" style="margin-bottom:">
+							<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." ></textarea>
+						</div>
+					</div>
+						<div class="row payinfo" style="margin-bottom:1rem;">
+							<div class="col-12 pay paymodal-title" style="margin-bottom:1rem;">결제/환불 금액</div>
+							<div class="col-5 total" style="margin-bottom:1rem">상품금액</div>
+							<div class="col-7 total real-price" style="margin-bottom:1rem"></div>
+							<div class="col-5 total" style="margin-bottom:1rem">총 수량</div>
+							<div class="col-7 total" style="margin-bottom:1rem">${dto.et_count }장</div>
+							<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
+							<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
+							<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
+							<div class="col-7 total" style="margin-bottom:1rem">${dto.et_cpserial }</div>
+							<div class="col-5 total" style="margin-bottom:1rem">포인트 사용</div>
+							<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
+							<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
+							<div class="col-7 total getpoint" style="margin-bottom:1rem"></div>
+							
+							<div class="col-5 total" >최종 환불금액</div>
+							<div class="col-7 total-price" style="color:red;"></div>
+							<script>
+							price=${dto.et_cost} + ${dto.et_usedpoint}+ ${dto.et_cpdiscount}
+							coupon=${dto.et_cpdiscount}
+							usedpoint=${dto.et_usedpoint }
+							getpoint=${dto.et_point }
+							total_price=${dto.et_cost }
+							$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+							$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+							$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+							$(".getpoint").text("+"+getpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+							$(".total-price").text(total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+							</script>
+						</div>
+						<div class="row">
+							<div class="col-12 cancel-div" style="color:#919EAB;">
+							-주문취소 승인 후 적립금과 사용 쿠폰은 즉시 반환되며 다시 사용하실 수 있습니다.
+							</div>
+							<div class="col-12 cancel-div" style="color:#919EAB;">
+							-전체 환불만 가능합니다.
+							</div>
+						</div>
+			</div>
+	  </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
+        <button type="button" class="btn btn-dark total" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-
+<!-- 결제취소 확인 모달 -->
+<div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title paymodal-title">구매 취소</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
+        구매가 취소되었습니다.
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-dark total" data-bs-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 			</div>
@@ -627,17 +772,28 @@ width:50rem;
 	</div>
 	
 	<script>
+	
+	
+	
 	$(document).ready(function(){
 		state();
 	});
 	function state(){
-		if(${dto.et_state =='Y'}){
+		if(${dto.et_state =='BU'}){
 			console.log("hi")
 			$("#state").text("구매완료");
 			$("#state").css("font-weight","700");
-		}else{
+		}else if(${dto.et_state =='AU'}){
 			console.log("bte")
 			$("#state").text("사용완료");
+			$("#state").css("font-weight","700");
+			$("#state").css("color","red");
+		}else if(${dto.et_state =='BC'}){
+			$("#state").text("취소 처리중");
+			$("#state").css("font-weight","700");
+			$("#state").css("color","red");
+		}else if(${dto.et_state =='AC'}){
+			$("#state").text("취소완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
 		}
