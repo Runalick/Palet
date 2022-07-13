@@ -8,8 +8,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Page</title>
- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+ <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
 <script src="http://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +23,7 @@
 <link rel="stylesheet" href="/css/admin/admin.css">
 
 <!-- DatePicker -->
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css"/>  
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/locales/bootstrap-datepicker.ko.min.js"  -->
@@ -47,7 +48,7 @@
 
 </head>
 <body>
-	<div class="navbar navbar-expand-md navbar-light"> 
+	<nav class="navbar navbar-expand-md navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
        			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
        		<span class="navbar-toggler-icon"></span>
@@ -94,7 +95,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
@@ -154,14 +155,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
     <!-- navibar close -->
+    
     <!-- main contents -->
     <section>
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
-            		<div class="row" style="margin-top: 3.45rem">
+            		<div class="row" style="margin-top: 5rem">
 						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Exhibitions </div>
                 		<div class="col-12 body2 colortext_gray600 px-5" >  : 전시 정보를 등록 할 수 있는 페이지 입니다. </div>
                 	</div>
@@ -493,7 +495,13 @@ let end_date;
     	$("#cancel_Btn").css("display","none");
     }
 
-
+    let cnt =0;
+    $(".navbar-toggler").on("click",function(){
+       cnt ++;
+       if(cnt>1){
+       $(".navbar-collapse").toggle();
+       }
+    })
 
 
  	

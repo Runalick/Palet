@@ -9,6 +9,7 @@ import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.SalesDTO;
 
 @Service
@@ -87,6 +88,16 @@ public class AdminService {
 		adao.adminGoodsUpdate(gdto);
 	}
 	
+	// Payment Category
+	
+	public List<PayDTO> paymentSelectByPage(int cpage){
+		return adao.paymentSelectByPage(cpage);
+	}
+	
+	public String getPaymentPageNavi(int cpage) {
+		return adao.getPaymentPageNavi(cpage);
+	}
+	
 	
 	// etc..
 	
@@ -94,6 +105,6 @@ public class AdminService {
 		return adao.getWeekSales();
 	}
 	
-
+	
 }
 

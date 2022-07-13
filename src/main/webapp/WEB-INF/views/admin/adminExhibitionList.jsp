@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
@@ -289,7 +289,13 @@
     	});
     }
     
-    
+    let cnt =0;
+    $(".navbar-toggler").on("click",function(){
+       cnt ++;
+       if(cnt>1){
+       $(".navbar-collapse").toggle();
+       }
+    })
     
  	$("#exhibitionAdded").on("click", ()=>{
  		location.href = "/admin/adminExhibitions";
