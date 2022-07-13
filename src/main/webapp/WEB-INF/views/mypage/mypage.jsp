@@ -277,6 +277,8 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+font-weight: 700;
+line-height: 2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
@@ -430,6 +432,17 @@ color: #FFFFFF;
 
 
         }
+          .container, .container-fluid,  .container-lg, .container-md,
+   .container-sm, .container-xl, .container-xxl {
+   overflow-x: hidden;
+} 
+ input{
+ 	min-width: 200px;
+ 	text-align: center;
+ }
+ .modal-body{
+ 	text-align:center;
+ }
 </style>
 </head>
 <body>
@@ -507,21 +520,21 @@ color: #FFFFFF;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
+						<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Shopping</div>
 						<ul>
-							<li class="body3"><a href="#">주문내역</a></li>
+							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Info</div>
 						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
+							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
 							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
 							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
@@ -541,18 +554,18 @@ color: #FFFFFF;
 						<div class="h2"
 							style="text-align: center; margin-left: auto; margin-bottom: 20px;"> <b>My info.</b></div>
 					</div>
-					<div class="col-12">
-						<div class=row>
+					
+						
 							<div class="col-12">
-								<div class="row">
+								<div class="row" style="text-align: center;">
 									<div class="col-12 h3"
 										style="height: 150%; padding-bottom: 10px;"><b>${dto.email }</b>
 									</div>
 								</div>
 							</div>
 							<div class=row>
-								<div class="col-12" style="margin-bottom: 5px;">
-									<button type="button" data-bs-toggle="modal" class="btn2" style="height: 2.75rem; width: 15rem;"
+								<div class="col-12" style="margin-bottom: 5px; text-align: center;">
+									<button type="button" data-bs-toggle="modal" class="btn2" style="height: 2.75rem; width: 15rem; text-align: center;"
 										data-bs-target="#staticBackdrop">비밀번호 변경</button>
 								</div>
 								<div class="col-12">
@@ -567,16 +580,17 @@ color: #FFFFFF;
 												<div class="modal-content">
 													<div class="modal-header">
 														<h5 class="modal-title" class="h2"
-															id="staticBackdropLabel">비밀번호 변경</h5>
+															id="staticBackdropLabel" >비밀번호 변경</h5>
 														<button type="button" class="btn-close"
 															data-bs-dismiss="modal" aria-label="Close"></button>
 													</div>
 													<div class="modal-body">
 														<input type="password" id="newpw" maxlength="12" name="pw"
-															placeholder="비밀번호를 입력해주세요"><br> <span
+															placeholder="비밀번호를 입력해주세요"
+															style="text-align: center;"><br> <span
 															id="pwck" style="display: none">비밀번호 확인중</span><br>
 														<input type="password" id="newpwck" maxlength="12"
-															placeholder="비밀번호를 다시 입력해주세요"> <span id="pwck2"
+															placeholder="비밀번호를 다시 입력해주세요"><br> <span id="pwck2"
 															style="display: none">비밀번호 확인중</span><br>
 													</div>
 													<div class="modal-footer">
@@ -589,14 +603,13 @@ color: #FFFFFF;
 										</div>
 									</form>
 								</div>
-							</div>
-							<div class=row>
-								<div class="col-2 rp-0 h3"
-									style="min-width: 150px; font-size: 150%; padding-top: 10px;">
+							
+								<div class="col-12 rp-0 h3"
+									style="min-width: 150px; font-size: 150%; padding-top: 10px; text-align: center;">
 									<b>${dto.name }</b></div>
-								<div class="col-3" style="margin-bottom: 5px;">
+								<div class="col-12" style="margin-bottom: 5px; text-align: center;">
 									<button type="button" data-bs-toggle="modal" class="btn2"
-										style="width: 50%; min-width: 100px;"
+										style="width: 25%; min-width: 100px; max-width:100px; text-align: center;"
 										data-bs-target="#staticBackdrop1">수정</button>
 								</div>
 								<!-- Modal -->
@@ -626,14 +639,13 @@ color: #FFFFFF;
 										</div>
 									</div>
 								</form>
-							</div>
-							<div class=row>
-								<div class="col-2 rp-0 h3"
-									style="min-width: 150px; font-size: 150%; padding-top: 10px;">
+
+								<div class="col-12 rp-0 h3"
+									style="min-width: 150px; font-size: 150%; padding-top: 10px; text-align: center;">
 									<b>${dto.phone }</b></div>
-								<div class="col-3" style="margin-bottom: 5px;">
+								<div class="col-12" style="margin-bottom: 5px; text-align: center;">
 									<button type="button" data-bs-toggle="modal" class="btn2"
-										style="width: 50%; min-width: 100px;"
+										style="width: 25%; min-width: 100px; max-width:100px; text-align: center;"
 										data-bs-target="#staticBackdrop2">수정</button>
 								</div>
 								<!-- Modal -->
@@ -653,7 +665,7 @@ color: #FFFFFF;
 												</div>
 												<div class="modal-body">
 													<input type="text" id="phone" maxlength="11" name="phone"
-														placeholder="전화번호를 작성해주세요"
+														placeholder="전화번호를 숫자만 작성해주세요"
 														pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"><br>
 													<span style="display: none;" id="phoneck">핸드폰번호를
 														숫자만입력해주세요</span>
@@ -667,10 +679,8 @@ color: #FFFFFF;
 										</div>
 									</div>
 								</form>
-							</div>
-							<div class="row">
-								<div class="col-12">
-									<button type="button" class="btn2" id="delbtn" style="height: 2.75rem; width: 15rem;">회원탈퇴하기</button>
+								<div class="col-12" style="text-align: center;">
+									<button type="button" class="btn2" id="delbtn" style="height: 2.75rem; width: 15rem; text-align: center;">회원탈퇴하기</button>
 								</div>
 							</div>
 							<!-- 		<div class=row> -->
@@ -710,11 +720,9 @@ color: #FFFFFF;
 					</div>
 
 
-				</div>
 
 			</div>
-		</div>
-<a href="/mypage/main">main보기</a>
+z
 
 
 		<!-- 푸터단 -->
@@ -747,7 +755,7 @@ color: #FFFFFF;
 		}
 	$("#registration").on("click",function(){
 		window.open("/coupon/toregistration", "",
-		"top=100,left=200,width=550,height=500");
+		"top=100,left=200,width=700,height=500");
 		})
 	//선택박스 화살표 방향 이미지
 	let click = true;

@@ -504,7 +504,7 @@ color:white;
                         <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
                         <div class="col-2 col-md-3 body3" style="text-align:center">
                         <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
-                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
+                        <button class="btnbtn sm-btn body3 defaultdelete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
                         </div>
                      </div>
 							
@@ -562,6 +562,9 @@ color:white;
 	</div>
 	
 	<script>
+	$(".defaultdelete").on("click",function(){
+		alert("기본 배송지는 1개 존재해야 합니다.");
+	})
 	//주소 삭제
 	$(".delete").on("click",function(){
 		deliveryaddress_seq=$(this).val();

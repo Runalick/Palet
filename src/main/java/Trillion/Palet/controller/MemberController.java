@@ -164,6 +164,13 @@ public class MemberController {
 		return "/member/findpw";
 	}
 	
+	@RequestMapping("rating")
+	public String ration(Model model) throws Exception{
+		MemberDTO dto = mServ.getmember((String)session.getAttribute("loginEmail"));
+		model.addAttribute("dto",dto);
+		return "/mypage/rating";
+	}
+	
 //	@PostMapping("modiaddress")
 //	public String modiaddress(String postcode,String address1,String address2) throws Exception{
 //		String id = (String)session.getAttribute("loginEmail");

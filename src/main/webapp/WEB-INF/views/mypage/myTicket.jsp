@@ -69,12 +69,16 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
+	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
 	z-index: 5;
 }
-
+ .container, .container-fluid,  .container-lg, .container-md,
+   .container-sm, .container-xl, .container-xxl {
+   overflow-x: hidden;
+} 
 .navbar {
 	height: 5rem;
 	padding: 0px;
@@ -207,7 +211,11 @@
 	background: #FFFFFF;
 	/* Gray/300 */
 }
-
+.body3 {
+		font-family: 'Spoqa Han Sans Neo';
+		font-style: normal;
+		font-weight: 400;
+	}
 @media ( min-width : 992px) {
 	.content {
 		width: calc(100% - 13.625rem);
@@ -331,6 +339,7 @@ li div {
 	margin-right:1.5rem;
 	margin-bottom:1.5rem;
 	border-radius:0.375rem;
+	cursor:pointer;
 }
 
 .qr {
@@ -487,15 +496,21 @@ li div {
 
 					<div class="row" style="padding: 1rem;">
 						<div class="col-12 H5">진행 중 전시 티켓</div>
-						<c:choose>
+<c:choose>
 <c:when test="${cnt !=0}"> 
-						<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
+	<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
   <div class="carousel-inner">
   
 <!--   반복 -->
-<c:forEach var="i" items="${list }">
-    <div class="carousel-item active">
+<c:forEach var="i" items="${list }"  varStatus="status">
+		<c:if test="${status.first }">
+		<div class="carousel-item active">
+		</c:if>
+		<c:if test="${!status.first }">
+		<div class="carousel-item ">
+		</c:if>
      	<div class="col-12 ticket">
+     	<input type="hidden" value="${i.et_booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
@@ -542,11 +557,11 @@ li div {
 						
 						
 						
-						</c:when>
+</c:when>
 <c:otherwise>
 <div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
 </c:otherwise>
-			</c:choose>			
+</c:choose>			
 						
 						
 						
@@ -557,8 +572,9 @@ li div {
 							<div class="row">
 
 								<!-- 						반복문 -->
+								<c:forEach var="i" items="${prelist }">
 								<div class="col-6 pre-ticket">
-
+								<input type="hidden" value="${i.et_booknumber }">
 
 
 									<div class="row" style="height: 100%">
@@ -566,8 +582,8 @@ li div {
 											<img src="/images/anywayloveS.png" class="w-100 h-100">
 										</div>
 										<div class="col-9" style="position: relative">
-											<div class="pre-title" style="color: #637381;">어쨌든 사랑</div>
-											<div class="body6" style="color: #637381;">2020.08.01~2022.06.30</div>
+											<div class="pre-title" style="color: #637381;">${i.et_title }</div>
+											<div class="body6" style="color: #637381;">${i.et_date }</div>
 											
 
 										</div>
@@ -576,26 +592,10 @@ li div {
 
 
 								</div>
+								</c:forEach>
 								
 								
 								
-								<div class="col-6  pre-ticket">
-
-									<div class="row" style="height: 100%">
-										<div class="col-3" style="padding: 1rem;">
-											<img src="/images/anywayloveS.png" class="w-100 h-100">
-										</div>
-										<div class="col-9" style="position: relative">
-											<div class="pre-title" style="color: #637381;">어쨌든 사랑</div>
-											
-											<div class="body6" style="color: #637381;">2020.08.01~2022.06.30</div>
-
-										</div>
-
-									</div>
-
-
-								</div>
 								
 							</div>
 
@@ -657,9 +657,13 @@ li div {
 		}
 		//티켓 상세페이지
 		$(".ticket").on("click",function(){
-			location.href="/mypage/myTicketDetailview";
+			cnt = $($(this).children()[0]).val();
+			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
 		})		
-		
+		$(".pre-ticket").on("click",function(){
+			cnt = $($(this).children()[0]).val();
+			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
+		})
 		//쿠폰
 		   $("#registration").on("click",function(){
       window.open("/coupon/toregistration", "",
