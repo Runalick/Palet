@@ -58,8 +58,8 @@
 }
 
 .nav-item {
-	
-	padding-right:20px;
+	margin: auoto;
+	padding-right: 20px;
 }
 
 /*         오른쪽 여백 없애기
@@ -278,7 +278,7 @@ align-items: center; */
 }
 
 .h2 {
-/* 	width: 10.375rem;
+	/* 	width: 10.375rem;
 	height: 2.688rem; */
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -349,7 +349,15 @@ align-items: center; */
 	color: #919EAB;
 }
 
-/* .container, .container-fluid, .container-lg, .container-md,
+html {
+	overflow-x: hidden;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+.container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-} */
+}
