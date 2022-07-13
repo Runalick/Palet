@@ -367,7 +367,9 @@ align-items: center; */
 
 .ul2>li {
 	padding: 0px;
-	float: left;
+
+	float: right;
+	
 }
 .ul2_1>li{
 display:inline-block;
@@ -460,13 +462,16 @@ a {
 			<div class="row ">
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
-				<ul class="col-4 ul2 h3 d-none d-sm-block offset-4"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 4.938rem; margin-left: 3.1rem;">현재 전시</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
+				<ul class="col-8 ul2 h3 d-none d-sm-block"
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;">
+					
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
 						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
+					
+						
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
+						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
+							<li style="width: 4.938rem; margin-left: 5.2rem;">현재 전시</li>
 
 				</ul>
 			</div>
