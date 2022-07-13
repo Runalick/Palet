@@ -2,21 +2,17 @@
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
+
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-
-		/*min-width: 390px;*/
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -50,6 +46,7 @@
 }
 
 #navparent {
+	position: fixed;
 	font-size: 0;
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
@@ -349,15 +346,9 @@ align-items: center; */
 	color: #919EAB;
 }
 
-html {
-	overflow-x: hidden;
-}
 
-body {
-	overflow-x: hidden;
-}
 
 .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-}
+}  

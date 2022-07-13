@@ -34,7 +34,7 @@
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
-						<div class="container" id="navparent" style="overflow: visible;">
+						<div class="container" id="navparent" style = "overflow:visible;">
 							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
