@@ -21,6 +21,16 @@ public class MypageService {
 	public int myTicketcnt(String email) {
 		return mdao.myTicketcnt(email);
 	}
-	
+
+	public List<ExticketDTO> premyTicket(String email) {
+		return mdao.premyTicket(email);
+	}
+	public int premyTicketcnt(String email) {
+		return mdao.premyTicketcnt(email);
+	}
+
+	public ExticketDTO myTicketDetailview(String et_booknumber) {
+		return mdao.myTicketDetailview(et_booknumber);
+	}
 	
 }
