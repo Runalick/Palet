@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.service.AdminService;
 import Trillion.Palet.service.ExhibitionService;
@@ -304,4 +305,16 @@ public class AdminController {
 		return "redirect:adminGoodsDetail?g_num="+gdto.getG_num();
 	}
 	
+	
+	// Payment 
+	
+	
+	@RequestMapping("adminPayment")
+	public String adminPayment(Model model, int cpage) {		
+		List<PayDTO> pdto = aServ.paymentSelectByPage(cpage);
+		String pageNavi = aServ.getPaymentPageNavi(cpage);
+		model.addAttribute("list", pdto);
+		model.addAttribute("navi", pageNavi);
+		return "/admin/adminPayment";
+	}
 }

@@ -40,4 +40,15 @@
   		update goods set g_name = #{g_name}, g_stock = #{g_stock}, g_price = #{g_price} where g_num = #{g_num}
   	</update>
   	
+  	<!-- Payment -->
+  	
+  	<select id="paymentSelectByPage" resultType="Trillion.Palet.DTO.PayDTO">
+  		select * from (select row_number() over(order by pay_time desc) line, payment.* from payment) where line between #{start} and #{end}
+  	</select>
+  	
+  	<select id="getPaymentTotalCount" resultType="int">
+  		select count(*) from payment
+  	</select>
+  	
+  	
   </mapper>
