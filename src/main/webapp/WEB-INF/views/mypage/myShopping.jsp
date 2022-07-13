@@ -18,22 +18,21 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- <link rel="stylesheet" href="/css/member/join.css">  -->
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -54,14 +53,11 @@
 	height: 1.875rem;
 }
 
-#navparent {
-	position: fixed;
-	font-size: 0;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	height: 5rem;
-	background-color: white;
-	z-index: 5;
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .navbar {
@@ -69,9 +65,31 @@
 	padding: 0px;
 }
 
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -101,7 +119,12 @@
 	height: 1.5rem;
 }
 
-#Help {
+#Class {
+	width: 2.813rem;
+	height: 1.5rem;
+}
+
+#Shop {
 	width: 2.813rem;
 	height: 1.5rem;
 }
@@ -116,64 +139,266 @@
 	height: 1.5rem;
 }
 
-.H2 {
-	/* Headline/H2 */
+.h1 {
+	padding: 0px;
+	color: #FFFFFF;
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 700;
-	font-size: 2.25rem;
-	line-height: 2.688rem;
+	font-size: 4rem;
+	line-height: 4.813rem;
 }
-.body1{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 400;
-font-size: 1.25rem;
-line-height: 1.875rem;
-}
-.H3 {
-	margin-bottom: 0.75rem;
-	display: inline-block;
-	/* Headline/H3 */
+
+.body1 {
+	/* Body/Body1 */
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
-	font-weight: 700;
+	font-weight: 400;
 	font-size: 1.25rem;
-	line-height: 1.5rem;
-	display: inline-block;
-}
-.H1{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 700;
-font-size: 3.438rem;
-line-height: 3.75rem;
-}
-/* <옵션 내용 */
-.h4 {
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 700;
-	font-size: 1rem;
 	line-height: 1.875rem;
-	display: inline-block;
+	/* identical to box height, or 150% */
+	color: #FFFFFF;
 }
 
 .body2 {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 1rem;;
+	font-size: 1rem;
 	line-height: 1.75rem;
+	/* identical to box height, or 175% */
+	margin-bottom: 0px;
+	color: #000000;
 }
-/* footer */
+
+#mainphoto {
+	margin: 0px;
+	min-height: 600px;
+	max-heieght: 1920px;
+	height: 0;
+	padding-bottom: calc(800/ 1920 * 100%);
+	background-image: url("/images/Mainphoto.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+#mainphoto2 {
+	margin: 0px;
+	min-height: 600px;
+	height: 0;
+	padding-bottom: calc(800/ 1920 * 100%);
+	background-image: url("/images/timegarden.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+.btn1 {
+	box-sizing: border-box;
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	margin-bottom: 1rem;
+	margin-right: 1.25rem;
+	width: 12.5rem;
+	height: 3.75rem;
+	border: 1px solid #FFFFFF;
+	border-radius: 1.25rem;
+	background-color: rgba(0, 0, 0, 0);
+	/* Button/Button1 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+
+	/* Inside auto layout */
+}
+
+.btn1_1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 23.5rem;
+	height: 3.75rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 20px;
+}
+
+.btn2 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 12.5rem;
+	height: 3.75rem;
+	background: #FFFFFF;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	/* Gray/900 */
+	color: #161C24;
+
+	/* Inside auto layout */
+}
+
+.btn3 {
+	/* display: block; */
+	/* flex-direction: row;
+justify-content: center;
+align-items: center; */
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 11.625rem;
+	height: 3.75rem;
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.btn5 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 18.813rem;
+	height: 3.75rem;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.22rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.h4 {
+	margin-bottom: 0px;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.875rem;
+	/* identical to box height, or 188% */
+	color: #000000;
+}
+
+.h2 {
+	/* width: 10.375rem;
+            height: 2.688rem; */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 2.688rem;
+	text-align: center;
+	/* Gray/900 */
+	color: #161C24;
+}
+
+.h2_1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2.25rem;
+	line-height: 2.688rem;
+	/* Gray/900 */
+	color: white;
+}
+
+.h3 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	/* Gray/900 */
+	color: #161C24;
+}
+
+.caption {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 0.875rem;
+	line-height: 1.063rem;
+	/* identical to box height */
+	/* Gray/500 */
+	color: #919EAB;
+}
+
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.hcon {
+	margin-top: 0.938rem;
+	height: 3.75rem;
+}
+
+#main3 {
+	height: 42.375rem;
+	background: linear-gradient(180deg, #F4F6F8 0%, rgba(244, 246, 248, 0)
+		100%);
+}
+
 #footer {
 	background: #F4F6F8;
 	height: 13.25rem;
 }
 
-<!--
--->
+.ul2 {
+	list-style: none;
+}
+
+.ul2>li {
+	padding: 0px;
+	float: left;
+}
+
+.curimage {
+	width: 23.5rem;
+	height: 32.5rem;
+}
+
+.exlink {
+	text-decoration: none;
+	color: #919EAB;
+}
+
+a {
+	text-decoration: none;
+	padding: 0px;
+}
+
 #mypage-area {
 	position: absolute;
 	left: 0rem;
@@ -185,9 +410,6 @@ line-height: 3.75rem;
 	background: #FFFFFF;
 	/* Gray/300 */
 }
-
-
-
 
 
 @media ( min-width : 992px) {
@@ -213,6 +435,22 @@ line-height: 3.75rem;
 	font-size: 1.25rem;
 	line-height: 1.875rem;
 	}
+	.main-info{
+		font-size: 1.625rem;
+	}
+	.main-area .body4{
+font-weight:550;
+font-size:1.1rem;
+}
+.sm-btn{
+width: 6.375rem;
+height: 0.675rem;
+margin-right:0.25rem;
+}
+#insert{
+	width:13.375rem;
+	height:2.7rem;
+}
 }
 
 @media ( max-width : 991px) {
@@ -230,12 +468,41 @@ line-height: 3.75rem;
 	padding:0rem;
 	}
 	.body3{
-	font-size:1.625rem;
+	font-size:1.425rem;
 	}
-	.body4{
+	.body4, .main-info{
 	font-size:1.875rem;
 	}
+	.main-area .body4{
+	font-family: 'Spoqa Han Sans Neo';
+	font-weight:550;
+	font-size:1.625rem;
 }
+	.sm-btn{
+	margin-top:0.3rem;
+	width:10.375rem;
+	height:2.875rem;
+	}
+	#insert{
+	width:16.375rem;
+	height:3.3rem;
+}
+	
+}
+.main-info{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 600;
+
+	line-height: 1.875rem;
+	margin-bottom:1rem;
+}
+
+
+  .container, .container-fluid,  .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+} 
 
 /* 네비 */
 
@@ -271,10 +538,13 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+font-weight:700;
+line-height:2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
 font-weight:700;
+line-height:2rem;
 }
 .small-navi{
 margin:1.25rem 0rem ;
@@ -290,167 +560,97 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
-<!-- 버튼 -->
-        .btn1 {
 
-            /* padding:  1.12rem 1.5rem; */
-            gap: 0.625rem;
-
-            /* width: 12.5rem; */
-			width: 100%;
-            height: 3.125rem;
-            
-            /* Gray/900 */
-            color:#FFFFFF;
-            background: #161C24;
-            border-radius: 0.313rem;
-            /* Button/Button */
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.0rem;
-            line-height: 1.2rem;
-            cursor: pointer;
-
-        }
-        
-        .btn1:disabled {
-        	color:#FFFFFF;
-            background: #C4CDD5;
-            cursor: default;
-        }
-		
-		/* join 버튼 */
-        .btn2 {
-
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-
-            /* width: 18.813rem; */
-            width: 10rem;
-            height: 1rem;
-
-
-            color: #FFFFFF;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 0.5rem;
-            /* identical to box height */
-
-            text-align: center;
-
-            /* Gray/900 */
-
-            background: #161C24;
-            cursor: pointer;
-
-        }
-        
-        .btn2:disabled {
-        	color:#FFFFFF;
-            background: #C4CDD5;
-            cursor: default;
-        }
-        
-        .btn3 {
-
-
-
-/* display: block; */
-/* flex-direction: row;
-justify-content: center;
-align-items: center; */
+.main-area{
+margin-top:1rem; 
+padding-bottom:1rem; 
+border-bottom:1px solid #C4CDD5;
+}
+.list{
+padding:1.2rem 0px; 
+border-bottom:1px solid #C4CDD5;
+}
+.list .body3{
+line-height:2rem;
+}
+.btnbtn{
+font-family: 'Spoqa Han Sans Neo';
+line-height:0px;
+align-items: center;
 padding: 1.125rem 1.5rem;
 gap: 0.625rem;
+border:0px;
 
-
-width: 11.625rem;
-height: 3.75rem;
-
-
-
-
+color:white;
+/* Gray/900 */
 background: #161C24;
-border-radius: 1.25rem;
-
-
-
-
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 500;
-font-size: 1.2rem;
-line-height: 1.5rem;
-
-
-text-align: center;
-
-color: #FFFFFF;
-
-
+border-radius: 1rem;
 }
+.btnbtn:hover{
+background: #454F5B;
+color:white;
+} 
 
-        .btn5 {
-
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-
-            width: 18.813rem;
-            height: 3.75rem;
-
-
-            /* Gray/900 */
-
-            background: #161C24;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-                font-style: normal;
-            font-weight: 500;
-             font-size: 1.23rem;
-            line-height: 1.5rem;
-                        /* identical to box height */
-
-            text-align: center;
-
-                color: #FFFFFF;
-
-
-
-
-        }
 </style>
 </head>
 <body>
-<div class="container-fluid">
-	<div class="container">
-		<div class="row">
-		<c:forEach var="i" items="${list }">
-			<div class="col">${merchant_uid }</div>
-			<div class="col">${name }</div>
-			<div class="col">${i.email }</div>
-			<div class="col">${i.phone }</div>
-			<div class="col">${i.address1 }</div>
-			<div class="col">${i.address2 }</div>
-			<div class="col">${i.zipcode }</div>
-			<div class="col">${i.card_name }</div>
-			<div class="col">${i.card_number }</div>
-			<div class="col">${i.card_quota }</div>
-			<div class="col">${i.totalprice }</div>
-			<div class="col">${i.delivery_text }</div>
-			<div class="col">${i.pay_time }</div>
-		</c:forEach>
-		</div>
-	</div>
+	<div class="container-fluid">
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
+			<div class="container">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-<div class="container-fluid" id="mypage-area">
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+									<li class="nav-item"><a id="Exhibition" class="nav-link"
+										href="/Exhibition/toCurExhibition"
+										style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+									<li class="nav-item"><a id="Exhibition" class="nav-link"
+										href="/program/toProgram"
+										style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+									<li class="nav-item"><a id="Shop" class="nav-link"
+										href="/shop/toShop"
+										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+									<li class="nav-item"><a id="Login" class="nav-link"
+										href="/member/loginPage"
+										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+									<li class="nav-item"><a id="Signup" class="nav-link"
+										href="/member/join"
+										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+									<li class="nav-item"><a id="Admin" class="nav-link"
+										href="/admin/adminMain"
+										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+									<li class="nav-item"><a id="Mypage" class="nav-link"
+										href="/member/mypage"
+										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+
+				</div>
+			</div>
+
+		</div>
+
 		<div class="container" style="padding-left:2.5rem;">
-			<div class="row mypage-wrap"  >
+			<div class="row mypage-wrap" id="row1">
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
 			<button id="select" >MY PAGE</button>
@@ -495,50 +695,63 @@ color: #FFFFFF;
 				
 				
 				
-				<div class="content" style="border:1px solid black">
-					<div class="row" id="row1">
-						<div class="col-12">
-							<div class="h2" style="text-align: center; margin-left: auto; margin-bottom: 20px;"> <b>Shopping List</b></div>
-						</div>
-						<div class="col-12">
-							<div class="content">
-								<div class="row">
-									<div class="col-1.5">
-									fdgfgfdfgfgfgfgfg
-									</div>
-									<div class="col-1.5">
-									fdgfgfdfgfgfgfgfgfgf
-									</div>
-									<div class="col-6">
-									fdgfgfdgfgfgfgfgfgf
-									</div>
-									<div class="col-1.5">
-									fdgfgfdgfgfgfgfgf
-									</div>
-									<div class="col-1.5">
-									fdgfgfdfgfgf
-									</div>
-								</div>
+				<div class="content" style="margin-top:1rem;">
+					<div class="row">
+						<div class="col-12 main-info">주문 내역</div>
+						
+						<div class="col-12 p-1" style="border-top:1px solid black;margin-top:2.5rem;">
+							<div class="row main-area" style="text-align:center;">
+								<div class="col-2 p-0 body4" >주문일</div>
+								<div class="col-2 p-0 body4">주문번호</div>
+								<div class="col-4 p-0 body4">주문정보</div>
+								<div class="col-2 p-0 body4">주문가격</div>
+								<div class="col-2 p-0 body4">배송상태</div>
+								
+							
 							</div>
+							
+							
+						<%-- 	
+					<div class="row list" >
+                        <div class="col-2 body3">
+                        	<div class="row">
+                        		
+                        		<div class="col-12" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
+                        	<div class="col-12">${defaultAddress.receiver }</div>
+                        	</div>
+                      
+                        
+                        </div>
+                        <div class="col-5 body3">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
+                        <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
+                        <div class="col-2 col-md-3 body3" style="text-align:center">
+                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
+                        </div>
+                     </div>
+							
+					<c:forEach var="i" items="${list }">
+                     <div class="row list" >
+                        <div class="col-2 body3">${i.receiver }</div>
+                        <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
+                        <div class="col-3 col-md-2 body3">${i.phone }</div>
+                        <div class="col-2 col-md-3 body3" style="text-align:center">
+                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;" value=${i.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${i.deliveryaddress_seq }>삭제</button>
+                        </div>
+                     </div>
+                     </c:forEach>
+							 --%>
+							
+							
+							
 						</div>
 					</div>
+				
 				</div>
-
-			
-
-			
-
-
-
-
 
 			</div>
 		</div>
-
-
-
-
-
 
 
 
@@ -554,7 +767,6 @@ color: #FFFFFF;
                 </div>
             </div>
         </div>
-
 	</div>
 <script>
 	$( window ).resize(function() {   //창크기 변화 감지
