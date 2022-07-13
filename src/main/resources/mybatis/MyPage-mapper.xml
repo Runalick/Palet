@@ -5,10 +5,19 @@
   
 <mapper namespace="MyPage">
 	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value}
+		select * from exticket where et_email=#{value} and et_state='Y'
 	</select>
 	<select id="myTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value}
+		select count(*) from exticket where et_email=#{value} and et_state='Y'
+	</select>
+	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
+		select * from exticket where et_email=#{value} and et_state='N'
+	</select>
+	<select id="premyTicketcnt" resultType="int">
+		select count(*) from exticket where et_email=#{value} and et_state='N'
+	</select>
+	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
+		select * from exticket where et_booknumber = #{value}
 	</select>
 	
 	<select id="myShopping" resultType="Trillion.Palet.DTO.PayDTO">

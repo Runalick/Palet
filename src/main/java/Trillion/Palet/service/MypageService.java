@@ -23,9 +23,22 @@ public class MypageService {
 		return mdao.myTicketcnt(email);
 	}
 
+<<<<<<< HEAD
 	public List<PayDTO> myShopping(String email) {
 		return mdao.myShopping(email);
 	}
 	
+=======
+	public List<ExticketDTO> premyTicket(String email) {
+		return mdao.premyTicket(email);
+	}
+	public int premyTicketcnt(String email) {
+		return mdao.premyTicketcnt(email);
+	}
+
+	public ExticketDTO myTicketDetailview(String et_booknumber) {
+		return mdao.myTicketDetailview(et_booknumber);
+	}
+>>>>>>> c19acb5568a9a6555f495c97cbab8dd06741acf5
 	
 }

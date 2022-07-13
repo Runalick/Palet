@@ -1,132 +1,131 @@
 @charset "UTF-8";
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+
+@media ( min-width : 375px) {
+	.container {
+		max-width: 1280px;
+	}html{
+		font-size: 12px;
+	}
+}
+@media ( min-width : 1650px) {
+	.container {
+		max-width: 1280px;
+	}
+	html {
+		font-size: 16px;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container-fluid {
+	padding: 0px;
+}
+
+.navbar-brand {
+	margin: 0px;
+	padding: 0px;
+	height: 1.875rem;
+}
+
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
+.nav-item {
+	margin: auoto;
+	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
 		
-		/* div{
-			border:1px solid black;
+		.overflow-auto{
+			overflow: hidden;
 		} */
-        @media (min-width: 375px) {
-            .container {
-                max-width: 1280px;
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
 
-                min-width: 390px;
-            }
+.nav-link {
+	padding: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+	width: 3.625rem;
+	height: 1.5rem;
+	/* Button/Button1 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	/* Gray/500 */
+	color: #919EAB;
+	/* Inside auto layout */
+	flex: none;
+	order: 0;
+	flex-grow: 0;
+}
 
-            html {
-                font-size: 12px;
-            }
+#Exhibition {
+	width: 5.938rem;
+	height: 1.5rem;
+}
 
+#Program {
+	width: 4.438rem;
+	height: 1.5rem;
+}
+
+#Shop {
+	width: 2.813rem;
+	height: 1.5rem;
+}
+
+#Login {
+	width: 3.313rem;
+	height: 1.5rem;
+}
+
+#Signup {
+	width: 4.438rem;
+	height: 1.5rem;
+}
+
+/*   .logoimg {
+        	padding-left: 0.938rem;
+        	padding-top: 0.625rem;
+        	padding-bottom: 0.625rem;
         }
-
-    
-        @media (min-width: 1650px) {
-            .container {
-                max-width: 1280px;
-
-                min-width: 390px;
-            }
-
-            html {
-                font-size: 16px;
-            }
-
-        }
-
-
-        * {
-            box-sizing: border-box;
-        }
-
-        .container-fluid {
-            padding: 0px;
-        }
-
-        .navbar-brand {
-            margin: 0px;
-            padding: 0px;
-            height: 1.875rem;
-        }
-
-        #navparent {
-            position: fixed;
-            font-size: 0;
-           /*  padding-left: 2.5rem; */
-            padding-right: 2.5rem;
-            height: 5rem;
-            background-color: white;
-
-        }
-
-        .navbar {
-
-            height: 5rem;
-            padding: 0px;
-
-        }
-
-        .row>div {
-            padding-left: 2.5rem;
-            padding-right: 2.5rem;
-        }
-
-
-        .nav-item {
-
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .nav-link {
-            padding: 0px;
-            padding-right: 0px;
-            padding-left: 0px;
-
-            width: 3.625rem;
-            height: 1.5rem;
-
-            /* Button/Button1 */
-
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 1.5rem;
-            /* identical to box height */
-
-            text-align: center;
-
-            /* Gray/500 */
-
-            color: #919EAB;
-
-
-            /* Inside auto layout */
-
-            flex: none;
-            order: 0;
-            flex-grow: 0;
-
-        }
-
-        #Exhibition {
-            width: 5.938rem;
-            height: 1.5rem;
-        }
-
-        #Help {
-            width: 2.813rem;
-            height: 1.5rem;
-        }
-
-        #Login {
-            width: 3.313rem;
-            height: 1.5rem;
-        }
-
-        #Signup {
-            width: 4.438rem;
-            height: 1.5rem;
-        }
+ */
+/*네비바 적용 css - 맨 상단부터 여기까지 복붙하세요*/
 
 
 

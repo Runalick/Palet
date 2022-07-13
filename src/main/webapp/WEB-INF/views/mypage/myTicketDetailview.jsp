@@ -61,6 +61,7 @@
 #navparent {
 	position: fixed;
 	font-size: 0;
+	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
@@ -189,9 +190,15 @@ line-height: 3.75rem;
 	background: #FFFFFF;
 	/* Gray/300 */
 }
+.body4{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	}
 
-
-
+.body3{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	}
 
 
 @media ( min-width : 992px) {
@@ -301,11 +308,12 @@ display:block;
 padding: 0.3rem 1rem;
 }
 .info{
+font-family: 'Spoqa Han Sans Neo';
 font-size:1.625rem;
-padding-bottom:1.3rem;
+padding-bottom:1rem;
  border-bottom:1px solid black;
   margin-top:1rem;
-  margin-bottom:0.25rem;
+
 }
 .body5{
 font-family: 'Spoqa Han Sans Neo';
@@ -336,7 +344,7 @@ font-family: 'Spoqa Han Sans Neo';
 	font-size: 2.25rem;
 	line-height: 1.875rem;
 }
-.btn{
+.btnbtn{
 display:inline-block;
 width: 180px;
 height: 50px;
@@ -351,15 +359,48 @@ font-family: 'Spoqa Han Sans Neo';
 margin-right:1rem;
 border:0px;
 }
-.btn:hover{
+.btnbtn:hover{
 background:#454F5B;
 color:white;
+}
+ .container, .container-fluid,  .container-lg, .container-md,
+   .container-sm, .container-xl, .container-xxl {
+   overflow-x: hidden;
+   overflow-y: hidden;
+} 
+/* 모달티켓 */
+.ticket {
+	width: 44.5rem;
+	height: 14.5rem;
+	background: black;
+	border-radius:0.375rem;
+}
+.qr {
+	width: 100px;
+	height: 100px;
+	background: white;
+	position: absolute;
+	bottom: 1.5rem;
+	right:2rem;
+
+}
+.H5 {
+	font-family: 'Spoqa Han Sans Neo';
+	padding-bottom: 1.2rem;
+	font-size: 1.625rem;
+	font-weight: 700;
+	line-height: 1.875rem;
+}
+.modal-content{
+width:50rem;
 }
 </style>
 </head>
 <body>
+
+
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid">
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -467,48 +508,89 @@ color:white;
 					</div>
 				
 				
-					<div class="col-3 body4" style="margin-top:1.25rem;">주문번호</div>
-					<div class="col-9 body4" style="margin-top:1.25rem;">324123423</div>
-					<div class="col-3 body4">주문일자</div>
-					<div class="col-9 body4">2022-02-25</div>
-					<div class="col-3 body4">주문자</div>
-					<div class="col-9 body4">홍길동</div>
-					<div class="col-3 body4">주문처리상태</div>
-					<div class="col-9 body4">구매완료</div>
-					<div class="col-3 body4" style="margin-bottom:2rem;">결제수단</div>
-					<div class="col-9 body4" style="margin-bottom:2rem;">카카오페이(간편결제)</div>
+					<div class="col-3 col-md-2 body4" style="margin-top:1.25rem;">주문번호</div>
+					<div class="col-9 col-md-10 body4" style="margin-top:1.25rem;">${dto.et_booknumber }</div>
+					<div class="col-3 col-md-2 body4">주문일자</div>
+					<div class="col-9 col-md-10 body4">${dto.et_buydate }</div>
+					<div class="col-3 col-md-2 body4">주문자</div>
+					<div class="col-9 col-md-10 body4">${dto.et_username }</div>
+					<div class="col-3 col-md-2 body4">주문처리상태</div>
+					<div class="col-9 col-md-10 body4" id="state"></div>
+					<div class="col-3 col-md-2 body4" style="margin-bottom:2rem;">결제수단</div>
+					<div class="col-9 col-md-10 body4" style="margin-bottom:2rem;">${dto.et_paymethod }</div>
 				
 				<div class="col-12 info"><strong>예매자 정보</strong></div>
-				<div class="col-3 body5" style="margin-top:1.25rem;">이름</div>
-					<div class="col-9 body5" style="margin-top:1.25rem;">홍길동</div>
-					<div class="col-3 body5">전화번호</div>
-					<div class="col-9 body5">01012341234</div>
-					<div class="col-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
-					<div class="col-9 body5" style="margin-bottom:3rem;">we@naver.com</div>
+				<div class="col-3 col-md-2 body5" style="margin-top:1.25rem;">이름</div>
+					<div class="col-9 col-md-10 body5" style="margin-top:1.25rem;">${dto.et_username }</div>
+					<div class="col-3 col-md-2 body5">전화번호</div>
+					<div class="col-9 col-md-10 body5">${dto.et_phone }</div>
+					<div class="col-3 col-md-2 body5" style="margin-bottom:3rem;">이메일 주소</div>
+					<div class="col-9 col-md-10 body5" style="margin-bottom:3rem;">${dto.et_email }</div>
 				
 				<div class="col-2" style="height:12.5rem;margin-bottom:5.5rem;  ">
 				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
 					<div class="col-9" style="margin-bottom:5.5rem;">
 						<div class="row ticket-row" >
-							<div class="col-12 body4" style="padding-top:1rem;">굿즈모아선물의집</div>
-							<div class="col-12 body4">rew12312예매번호</div>
-							<div class="col-12 body4">9,000원</div>
+							<div class="col-12 body4" style="padding-top:1rem;">${dto.et_title }</div>
+							<div class="col-12 body4">${dto.et_booknumber }</div>
+							<div class="col-12 body4" id="price">${dto.et_cost/ dto.et_count  }원</div>
 						</div>
 					</div>
-				
+				<script>
+				price = ${dto.et_cost/dto.et_count  };
+				$("#price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+				</script>
 				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
-				<div class="col-8 total-price" style="margin-bottom:10rem">9,000원</div>
+				<div class="col-8 total-price" style="margin-bottom:10rem">${dto.et_cost }원</div>
+				<script>
+				price = ${dto.et_cost  };
+				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+				</script>
 				
 				
+				<button class="btnbtn">구매 취소</button>
 				
-				<button class="btn">구매 취소</button>
-				<button class="btn">티켓 확인하기</button>
+				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
 				
 				</div>
 				</div>
 
-			
+<div class="modal fade" id="exampleModal" tabindex="-1" style="padding:0px">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title body4">티켓보기</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+								<div class="col-12 ticket">
+									<input type="hidden" value="${dto.et_booknumber }">
+									<div class="row" style="height: 100%">
+										<div class="col-3"
+											style="padding: 1rem; padding-left: 1.5rem;">
+											<img src="/images/anywayloveS.png" class="w-100 h-100">
+										</div>
+										<div class="col-9" style="position: relative">
+											<div class="H5" style="color: white; padding: 1.25rem 0px;">${dto.et_title }</div>
+											<div class="body3" style="color: white">예매번호 :
+												${dto.et_booknumber }</div>
+											<div class="body3" style="color: white;">${dto.et_date }</div>
+											<div class="qr" id="qr" style="border: 5px solid white;"></div>
+
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 			
 
@@ -545,6 +627,23 @@ color:white;
 	</div>
 	
 	<script>
+	$(document).ready(function(){
+		state();
+	});
+	function state(){
+		if(${dto.et_state =='Y'}){
+			console.log("hi")
+			$("#state").text("구매완료");
+			$("#state").css("font-weight","700");
+		}else{
+			console.log("bte")
+			$("#state").text("사용완료");
+			$("#state").css("font-weight","700");
+			$("#state").css("color","red");
+		}
+	}	
+
+	
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
