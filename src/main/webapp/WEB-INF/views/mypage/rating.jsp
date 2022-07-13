@@ -17,8 +17,6 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 	crossorigin="anonymous"></script>
-<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
-	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
 
 <style>
@@ -67,7 +65,6 @@
 	background-color: white;
 	z-index: 5;
 }
-
 
 .navbar {
 	height: 5rem;
@@ -241,10 +238,7 @@ line-height: 3.75rem;
 	font-size:1.875rem;
 	}
 }
- .container, .container-fluid,  .container-lg, .container-md,
-   .container-sm, .container-xl, .container-xxl {
-   overflow-x: hidden;
-} 
+
 /* 네비 */
 
 .content{
@@ -279,12 +273,10 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-line-height:2rem;
 }
 .navi-ul li ul li a:hover{
 color:#212B36;
 font-weight:700;
-line-height:2rem;
 }
 .small-navi{
 margin:1.25rem 0rem ;
@@ -300,11 +292,148 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
+<!-- 버튼 -->
+        .btn1 {
+
+            /* padding:  1.12rem 1.5rem; */
+            gap: 0.625rem;
+
+            /* width: 12.5rem; */
+			width: 100%;
+            height: 3.125rem;
+            
+            /* Gray/900 */
+            color:#FFFFFF;
+            background: #161C24;
+            border-radius: 0.313rem;
+            /* Button/Button */
+
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.0rem;
+            line-height: 1.2rem;
+            cursor: pointer;
+
+        }
+        
+        .btn1:disabled {
+        	color:#FFFFFF;
+            background: #C4CDD5;
+            cursor: default;
+        }
+		
+		/* join 버튼 */
+        .btn2 {
+
+            padding: 1.125rem 1.5rem;
+            gap: 0.625rem;
+
+
+            /* width: 18.813rem; */
+            width: 10rem;
+            height: 1rem;
+
+
+            color: #FFFFFF;
+            border-radius: 1.25rem;
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.25rem;
+            line-height: 0.5rem;
+            /* identical to box height */
+
+            text-align: center;
+
+            /* Gray/900 */
+
+            background: #161C24;
+            cursor: pointer;
+
+        }
+        
+        .btn2:disabled {
+        	color:#FFFFFF;
+            background: #C4CDD5;
+            cursor: default;
+        }
+        
+        .btn3 {
+
+
+
+/* display: block; */
+/* flex-direction: row;
+justify-content: center;
+align-items: center; */
+padding: 1.125rem 1.5rem;
+gap: 0.625rem;
+
+
+width: 11.625rem;
+height: 3.75rem;
+
+
+
+
+background: #161C24;
+border-radius: 1.25rem;
+
+
+
+
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 500;
+font-size: 1.2rem;
+line-height: 1.5rem;
+
+
+text-align: center;
+
+color: #FFFFFF;
+
+
+}
+
+        .btn5 {
+
+            padding: 1.125rem 1.5rem;
+            gap: 0.625rem;
+
+
+            width: 18.813rem;
+            height: 3.75rem;
+
+
+            /* Gray/900 */
+
+            background: #161C24;
+            border-radius: 1.25rem;
+            font-family: 'Spoqa Han Sans Neo';
+                font-style: normal;
+            font-weight: 500;
+             font-size: 1.23rem;
+            line-height: 1.5rem;
+                        /* identical to box height */
+
+            text-align: center;
+
+                color: #FFFFFF;
+
+
+
+
+        }
+        .ratingbox{
+        	border: 1px solid black;
+        }
 </style>
 </head>
 <body>
 	<header>
-		<div class="container-fluid" >
+		<div class="container-fluid" id=navparent>
 			<div class="container">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-sm bg-light navbar-light">
@@ -359,7 +488,7 @@ padding: 0.3rem 1rem;
 		</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
-		<div class="container" style="padding-left:2.5rem;">
+		<div class="container" >
 			<div class="row mypage-wrap"  >
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
@@ -368,7 +497,7 @@ padding: 0.3rem 1rem;
 			
 			
 				<div class="navi" >
-				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
+				<a href="#" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">
@@ -376,60 +505,59 @@ padding: 0.3rem 1rem;
 					<li>
 						<div class="body4">My Tickets</div>
 						<ul>
-							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
+							<li class="body3"><a href="#">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
-						<div class="body4">My Shopping</a></div>
+						<div class="body4">My Shopping</div>
 						<ul>
-							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+							<li class="body3"><a href="#">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
+							<li class="body3"><a href="#">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Info</div>
 						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
-							<li class="body3"><a href="#">나의 쿠폰</a></li>
+							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
 							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
+							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
 					</ul>
 				</div>
 				</div>
 				
-				
-				
-				
-				
-				
-				<div class="content" style="border:1px solid black">
-				메인화면입니다. 
-				</div>
-
-			
-
-			
-
-
-
-
-
+				<div class="content">
+					<div class="row" id="row1">
+						<div class="col-12 h3">
+							${dto.email }님의 등급은 ${dto.grade } 입니다.
+					</div>
+						<div class="col-12">
+							등급 상승시 필요한 내용
+						</div>
+					<div class="col-12">
+						<div class="row">
+							<div class="col-4 ratingbox">
+									white 등급 
+							</div>
+							<div class="col-4 ratingbox">
+									gray 등급
+							</div>
+							<div class="col-4 ratingbox">
+									back 등급
+							</div>
+						</div>					
+					</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
+	</div>
+	</div>
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer">
+<div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
@@ -441,7 +569,6 @@ padding: 0.3rem 1rem;
         </div>
 
 	</div>
-	
 	<script>
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
@@ -456,13 +583,11 @@ padding: 0.3rem 1rem;
 		}
 		}
 	
-	//쿠폰등록
-	   $("#registration").on("click",function(){
-      window.open("/coupon/toregistration", "",
-      "top=100,left=200,width=550,height=500");
-      })
-	
 	//선택박스 화살표 방향 이미지
+		$("#registration").on("click",function(){
+		window.open("/coupon/toregistration", "",
+		"top=100,left=200,width=700,height=500");
+		})
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
@@ -476,6 +601,9 @@ padding: 0.3rem 1rem;
 			click = false;
 		}
 	});
+	
 	</script>
 </body>
 </html>
+
+

@@ -19,4 +19,8 @@
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}
 	</select>
+	
+	<select id="myShopping" resultType="Trillion.Palet.DTO.PayDTO">
+		select * from payment where email=#{email}
+	</select>
 </mapper>
