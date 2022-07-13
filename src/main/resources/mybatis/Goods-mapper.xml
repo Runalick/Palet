@@ -59,6 +59,10 @@
   		update goods set e_num = #{e_num} where g_num = #{g_num}
   	</update>
   	
+  	<select id="getGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
+  		select e_num, g_num, g_name, g_price, g_option, g.sales_count, g_stock, e_name from goods g join exhibition e using(e_num) where g_num = #{value}
+  	</select>
+  	
   	<!-- Admin Fin  -->
 	
 	<select id="selectdetail" resultType="Trillion.Palet.DTO.GoodsDTO">
