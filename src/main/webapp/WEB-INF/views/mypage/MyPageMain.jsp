@@ -241,7 +241,10 @@ line-height: 3.75rem;
 	font-size:1.875rem;
 	}
 }
-
+ .container, .container-fluid,  .container-lg, .container-md,
+   .container-sm, .container-xl, .container-xxl {
+   overflow-x: hidden;
+} 
 /* 네비 */
 
 .content{
