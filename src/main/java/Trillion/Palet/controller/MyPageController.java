@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.MypageService;
 
 @Controller
@@ -58,6 +59,15 @@ public class MyPageController {
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
 		model.addAttribute("dto",dto);
 		return "/mypage/myTicketDetailview";
+	}
+	
+	@RequestMapping("detailShopping")
+	public String myShopping(Model model) {
+		//String email = (String)session.getAttribute("loginEmail");
+		String email = "iampost@siot.do";
+		List<PayDTO> list = mServ.myShopping(email);
+		model.addAttribute("list",list);
+		return "/mypage/myShopping";
 	}
 	
 	

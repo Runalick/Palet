@@ -95,115 +95,154 @@ a{
 </style>
 </head>
 <body>
-<c:choose>
-	<c:when test="${loginEmail =='admin@palet.com'}">
+
 	<div class="container-fluid">
-		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-	        
-	        <div class="container" style="padding: 10px;">
-	          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
-	          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-	            <span class="navbar-toggler-icon"></span>
-	          </button>
-	          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-	            <ul class="navbar-nav">
-	                <li class="nav-item"> <a id="About" class="nav-link" href="about"
-	                        style="padding-left:0px; padding-right:0px;">About</a> </li>
-	                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
-	                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-	                <li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
-                        style="padding-left:0px; padding-right:0px;">Class</a> </li> 
-	                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-	                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
-	                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
-	                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
-	                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-	                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
-	                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
-	                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
-	            </ul>
-	          </div>
-	        </div>
-	      </nav>
-	</div>
-	</c:when>
-	
-	<c:when test="${loginEmail != null}">
-	<div class="container-fluid">
-		<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-        <div class="container" style="padding: 10px;">
-          <a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
-          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"> <a id="About" class="nav-link" href="about"
-                        style="padding-left:0px; padding-right:0px;">About</a> </li>
-                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
-                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                <li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
-                        style="padding-left:0px; padding-right:0px;">Class</a> </li> 
-                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
-                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
-                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
-                        style="padding-left:0px; padding-right:0px;">mypage</a> </li>	
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-	</c:when>
-	
-	<c:otherwise>
-	<div class="container-fluid">
-    	<nav class="navbar navbar-expand-md bg-light navbar-light" id="navparent">
-        <div class="container" style="padding: 10px;">
-        	<a class="navbar-brand" href="#"><img src="/images/Logo.svg" border=0></a>
-          	<button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            	<span class="navbar-toggler-icon"></span>
-          	</button>
-          	<div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            	<ul class="navbar-nav">
-                	<li class="nav-item"> <a id="About" class="nav-link" href="about"
-                        style="padding-left:0px; padding-right:0px;">About</a> </li>
-                	<li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
-                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                	<li class="nav-item"> <a id="Class" class="nav-link" href="/event/eventPage"
-                        style="padding-left:0px; padding-right:0px;">Class</a> </li>        
-                	<li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
-                	<li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
-                        style="padding-left:0px; padding-right:0px;">Login</a> </li>
-                	<li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
-                        style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
-            	</ul>
-          	</div>
-        </div>
-    	</nav>
-     </div>
-     </c:otherwise>
-</c:choose>
-    
-<%-- <c:choose>
-	<c:when test="${loginEmail != null }">
-	<div class="container-fluid">
-		<div class="row" style="padding-top: 150px;">
-			<div class="container" style="max-width: 400px;">
-				<div class="row" id="row1">
-					<div class="col-12">${loginEmail }님 안녕하세요.</div>
-					<div class="col-12"><input type="button" id="logout" value="로그아웃"></div>
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
+			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
 				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
-	</div>
-	</c:when>
-			
-	
-	<c:otherwise> --%>
-	<div class="container-fluid">
+		
 		<div class="row" style="padding-top: 150px;">
 			<div class="container" style="max-width: 500px;">
 				<div class="row" id="row1">
@@ -268,6 +307,23 @@ a{
 					<input type="button" id="copybtn" onclick="fn_copy()" value="Copy"/> 
 				</div>
 			</div>
+			
+    
+<%-- <c:choose>
+	<c:when test="${loginEmail != null }">
+	<div class="container-fluid">
+		<div class="row" style="padding-top: 150px;">
+			<div class="container" style="max-width: 400px;">
+				<div class="row" id="row1">
+					<div class="col-12">${loginEmail }님 안녕하세요.</div>
+					<div class="col-12"><input type="button" id="logout" value="로그아웃"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</c:when>
+
+	<c:otherwise> --%>
 <%-- 	</c:otherwise>
 </c:choose> --%>
 </body>
