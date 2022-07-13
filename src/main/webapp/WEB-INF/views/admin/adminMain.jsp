@@ -17,7 +17,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" ></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" ></script> -->
  <link rel="stylesheet" href="/css/admin/admin.css">
 
 <style>
@@ -35,11 +35,13 @@
 </style>
 </head>
 <body>
-<!-- <div class="container "> -->
+<div class="container" >
+			<div class="row" id="container1" >
     <nav class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#sidebar">        		
-            <span class="navbar-toggler-icon"></span>
-        </button>
+    	<div class="container" id="navparent" style = "overflow: visible;">
+        	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">        		
+            	<span class="navbar-toggler-icon"></span>
+        	</button>
 
         <div class="collapse navbar-collapse justify-content-end" id="sidebar">
             <div class="container-fluid">
@@ -138,12 +140,14 @@
                                 </ul>
                             </div>
                         </div>
-                        
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
+    </div>
+    </div>
     <!-- navibar close -->
 
     <!-- card section open-->
