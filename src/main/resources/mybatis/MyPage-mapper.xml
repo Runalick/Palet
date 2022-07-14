@@ -4,23 +4,40 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="MyPage">
+<!-- 티켓 -->
 	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state='BU'
+		select * from exticket where et_email=#{value} and et_state in('BU','BC' )
 	</select>
 	<select id="myTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state='BU'
+		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
 	</select>
 	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state in('AU' ,'BC' , 'AC') 
+		select * from (select row_number() over(order by et_buydate) line, exticket.* 
+		from exticket where et_state ='AU' and et_email=#{email}) where  line between #{limit} and #{limit}+9
 	</select>
 	<select id="premyTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state in('AU' ,'BC' , 'AC')
+		select count(*) from exticket where et_email=#{value} and et_state in('AU' , 'AC')
 	</select>
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}
 	</select>
+	<insert id="payCancel">
+	 insert into cancel values(cancel_seq.nextval,#{content},#{category},#{booknumber},sysdate)
+	</insert>
 	
+<!-- 취소해서 BC 상태로 변경 -->
+	<update id="BeforeCancel">
+		update 
+		
+		<if test='category=="E"'>
+		exticket set et_state ='BC' where et_booknumber
+		</if>
+		 =#{booknumber}
+	</update>
+	
+<!-- 	굿즈 -->
 	<select id="myShopping" resultType="Trillion.Palet.DTO.PayDTO">
 		select * from payment where email=#{email}
 	</select>
+	
 </mapper>

@@ -28,6 +28,8 @@
 	href="//fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&amp;display=swap"
 	rel="stylesheet">
 <script src="/js/qrmaker.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
@@ -659,7 +661,7 @@ li div {
 						
 						<div class="col-12 H5">지난 전시 티켓</div>
 						<div class="col-12">
-							<div class="row">
+							<div class="row pre-ticket-row">
 
 								<!-- 						반복문 -->
 								<c:forEach var="i" items="${prelist }">
@@ -727,7 +729,61 @@ li div {
         </div>
 
 	</div>
+<script>
+AOS.init();
+window.onload = function(){
+	$.ajax({
+		url:"/mypage/mypreTicket",
+		data:{limit : 1},
+		async: false,
+		dataType:"json", // == JSON.parse(resp);
+		success: function (resp) {
+			for(let i = 0 ; i < resp.length; i++) {
+		    	  $(".pre-ticket-row").append("<div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
+						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+					+"</div></div></div>"); 
+		    	
+		    	  console.log("resp.length : " + resp.length);
+			}
+		},
+		});	
+	
+	let limit = 11;
+	
+	
+  	$(document).scroll(function() {
+    let maxHeight = $(document).height();
+    let currentScroll = $(window).scrollTop() + $(window).height();
+	    /* let maxHeight = $(document).height();
+	    let currentScroll = $(window).scrollTop() + $(window).height(); */
+	   
+	    if (maxHeight <= currentScroll+100) {
+	    	console.log("origin limit : " + limit);
+	    	$.ajax({
+				url:"/mypage/mypreTicket",
+				data:{limit : limit},
+				async: false,
+				dataType:"json", // == JSON.parse(resp);
+				success: function (resp) {
+					for(let i = 0 ; i < resp.length; i++) {
+						  $(".pre-ticket-row").append("<div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
+								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
+								+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+							+"</div></div></div>"); 
+				    	  console.log("resp.length : " + resp.length);
+					}
+					limit = limit + resp.length;
+			    	console.log("change limit : " + limit);	
+				},
+				});
+	    	} 
+	      }) 
+}
 
+</script>
 	<script>
 		$(window).resize(function() { //창크기 변화 감지
 			open_chatroom();

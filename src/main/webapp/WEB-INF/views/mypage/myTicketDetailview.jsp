@@ -451,11 +451,9 @@ font-family: 'Spoqa Han Sans Neo';
 	font-weight: 500;
 	line-height: 1.875rem;
 }
-.modal-body{
-padding-right:0px;
-}
 
-#select, #selectcancel {
+
+#selectcancel {
 	width: 23.5rem;
 	height: 3rem;
 	line-height: 2.35rem;
@@ -678,7 +676,7 @@ top:4rem;
         <h5 class="modal-title body4">티켓보기</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
 								<div class="col-12 ticket">
 									<input type="hidden" value="${dto.et_booknumber }">
 									<div class="row" style="height: 100%">
@@ -716,7 +714,7 @@ top:4rem;
         <h5 class="modal-title paymodal-title">구매 취소</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding-right:0px;">
 			<div class="row">
 		
 			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
@@ -812,7 +810,7 @@ top:4rem;
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
-        <button class="btn btn-dark total pay-cancel" data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
+        <button class="btn btn-dark total pay-cancel" value=${dto.et_booknumber } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
       </div>
     </div>
   </div>
@@ -831,7 +829,7 @@ top:4rem;
         구매가 취소되었습니다.
       </div>
       <div class="modal-footer">
-        <button class="btn btn-dark total" data-bs-dismiss="modal">확인</button>
+        <button class="btn btn-dark total ok" data-bs-dismiss="modal">확인</button>
       </div>
     </div>
   </div>
@@ -867,26 +865,35 @@ top:4rem;
 	</div>
 	
 	<script>
+	$(".ok").on("click",function(){
+		location.reload();
+	})
 	//구매 취소 확인 버튼
 	$(".pay-cancel").on("click",function(){
-		console.log("취소");
+		console.log($(".input").val());
+// 		$.ajax({
+// 			url:"/mypage/payCancel",
+// 			data:{content:$(".input").text(),booknumber:$(this).val(),category:'E'}
+// 		}).done(function(resp){
+// 			console.log("성공");
+// 		})
 	})
 	
 	
 	
 	//환불 li
-	$(".li").on("click", function () {
-		$("#selectcancel").text($(this).text());
-		$(".select-ul").toggle();
-	})
+	
 	
 	$(".li").on("click",function(){
+		$("#selectcancel").text($(this).text());
 		if($(this).attr("class")=='li write'){
 			$(".write-contents").css("display","block");
+			$(".input").text("");
 		}else{
 			$(".write-contents").css("display","none");
+			$(".input").text($(this).text());
 		}
-	
+		$(".select-ul").toggle();
 	})
 	//환불 select
 	let clickselect = false;
