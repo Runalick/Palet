@@ -60,7 +60,7 @@ public class EventController {
 	 @ResponseBody
 	 @RequestMapping("admincontents") 
 	 public List<Object> admincontents(int limit) throws Exception { 
-		 List<Object> list = eServ.selectAll(); 
+		 List<Object> list = eServ.selectAll(limit); 
 		 return list;
 	 }
 	 
