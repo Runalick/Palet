@@ -65,6 +65,10 @@ public class ShopController {
 	@RequestMapping("selectBestSeller")
 	public List<GoodsDTO> selectBestSeller(int e_num, String option) {
 		List<GoodsDTO> list = sServ.selectBestSeller(e_num, option);
+		for(GoodsDTO ddto : list) {
+			System.out.println(ddto.getGp_sysname());
+		}
+		System.out.println(list);
 		return list;
 	}
 
