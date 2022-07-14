@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
-import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.SalesDTO;
+import Trillion.Palet.DTO.TotalPaymentDTO;
 import Trillion.Palet.service.AdminService;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.GoodsService;
@@ -311,10 +312,26 @@ public class AdminController {
 	
 	@RequestMapping("adminPayment")
 	public String adminPayment(Model model, int cpage) {		
-		List<PayDTO> pdto = aServ.paymentSelectByPage(cpage);
+		List<TotalPaymentDTO> tpdto = aServ.paymentSelectByPage(cpage);
 		String pageNavi = aServ.getPaymentPageNavi(cpage);
-		model.addAttribute("list", pdto);
+		model.addAttribute("list", tpdto);
 		model.addAttribute("navi", pageNavi);
 		return "/admin/adminPayment";
 	}
+	
+	@RequestMapping("adminPaymentDetail")
+	public String adminPaymentDetail(Model model, String category, String merchant_uid) {
+		
+		if (category.equals("E")) {
+			AdminDTO edto = aServ.getAdminExticketDetail(merchant_uid);
+			model.addAttribute("dto", edto);
+			
+		}else if (category.equals("G")) {
+			AdminDTO pdto = aServ.getAdminPayDetail(merchant_uid);
+			model.addAttribute("dto", pdto);		
+		}
+		
+		return "/admin/adminPaymentDetail";
+	}
+	
 }

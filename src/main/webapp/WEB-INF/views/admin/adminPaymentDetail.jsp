@@ -152,8 +152,8 @@
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Member Detail View </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : '${mdto.name}' 님의 상세 페이지 입니다. </div>
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Payment Detail View </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 결제 번호 '${dto.merchant_uid}'의 상세 페이지 입니다. </div>
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
@@ -163,113 +163,82 @@
                 				</div>
 							</div>
                 			
-			            	<form action="/admin/adminMemberUpdate" method="post">
+<!-- 			            	<form action="/admin/adminMemberUpdate" method="post"> -->
 			            	<div class="row pt-4 m-3 mb-4">
 			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
 			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
 			            		
-			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" >
-			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button>
+<!-- 			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" > -->
+<!-- 			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button> -->
 <!-- 			            			<button class='btn0_1 color_red2' type="button" id='deleteMember' >삭제</button> -->
-			            		</div>
-			            		<div class="col-12 d-lg-none body2 m-auto memberBtns" style="width:85%; text-align:right" >
-			            			<button class='btn0_2 color_yellow2' type="button" id='modifyMember2' >수정</button>
+<!-- 			            		</div> -->
+<!-- 			            		<div class="col-12 d-lg-none body2 m-auto memberBtns" style="width:85%; text-align:right" > -->
+<!-- 			            			<button class='btn0_2 color_yellow2' type="button" id='modifyMember2' >수정</button> -->
 <!-- 			            			<button class='btn0_2 color_red2' type="button" id='deleteMember2' >삭제</button> -->
-			            		</div>
+<!-- 			            		</div> -->
 			            	</div>
-			            	
 			            	<div class="row">
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">ID(E-mail)</div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">ID(E-mail)</div>
-			            	</div>	
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' value='${mdto.email }' disabled style="width:50%; text-align:center" ></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' value='${mdto.email }' disabled style="width:70%; text-align:center" ></div>
-			           			<input type='hidden' name='email' value='${mdto.email }'>
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">UID</div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">UID</div>
+			            	</div>
+			            	<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' value='${dto.merchant_uid }' readonly style="width:50%; text-align:center" ></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' value='${dto.merchant_uid }' readonly style="width:70%; text-align:center" ></div>
 			           		</div>
 			            	<div class="row" >
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Name </div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">UserName </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">UserName</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${mdto.name }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${mdto.name }' disabled style="width:70%; text-align:center"></div>			           			
-			           		</div>
-			           		<div class="row">
-			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Grade </div>
-			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Grade </div>
-			           		</div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.name }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.name }' readonly style="width:70%; text-align:center"></div>			           			
+			           		</div>	
+										            	<div class="row" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Email </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Email</div>
+			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='grade' class='edit' value='${mdto.grade }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='grade' class='editable' value='${mdto.grade }' disabled style="width:70%; text-align:center"></div>
-			           		</div>
-			           		<div class="row">
-			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Points </div>
-			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Points </div>
-			           		</div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.email }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.email }' readonly style="width:70%; text-align:center"></div>			           			
+			           		</div>	
+			            				            	<div class="row" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Phone </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Phone</div>
+			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='point' class='edit' value='${mdto.point }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='point' class='editable' value='${mdto.point }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.phone }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.phone }' readonly style="width:70%; text-align:center"></div>			           			
+			           		</div>	
+			            	<div class="row" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">ProductName </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">ProductName</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.title }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.title }' readonly style="width:70%; text-align:center"></div>			           			
+			           		</div>				            		
+			            	<div class="row" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Payment </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Payment</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.price }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.price }' readonly style="width:70%; text-align:center"></div>			           			
+			           		</div>	
+			            	<div class="row" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Pay Time </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Pay Time</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.pay_time }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.pay_time }' readonly style="width:70%; text-align:center"></div>			           			
 			           		</div>
-			           		<c:if test='${mdto.phone != null}'>
-			           			<div class="row">
-			           				<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Phone</div>
-			           				<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Phone</div>  
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='phone' value='${mdto.phone }' disabled style="width:50%; text-align:center"></div>
-			           				<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='phone' value='${mdto.phone }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='phone' value='${mdto.phone }'>
-			           			</div>
-			           		</c:if>
-			           		<c:if test='${mdto.address1 != null}'>
-			           			<div class="row">
-			           				<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" > Address1</div>
-			           				<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" > Address1</div>
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='address1' value='${mdto.address1 }' disabled style="width:50%; text-align:center"></div>
-			           				<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='address1' value='${mdto.address1 }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='address1' value='${mdto.address1 }'>
-			           			</div>
-			           		</c:if>
-			           		<c:if test='${mdto.address2 != null }'>
-			           			<div class="row">
-			           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Address2 </div>
-			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Address2 </div>
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input typs='text' name='address2' value='${mdto.address2 }' disabled style="width:50%; text-align:center"></div>
-			           				<div class='col-12 d-lg-none mt-3 body1'><input typs='text' name='address2' value='${mdto.address2 }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='address2' value='${mdto.address2 }'>
-			           			</div>
-			           		</c:if>
-			           		<c:if test='${mdto.postcode != null }'>
-			           			<div class="row">
-			           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Postcode </div>
-			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Postcode </div>
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input typs='text' name='postcode' value='${mdto.postcode }' disabled style="width:50%; text-align:center"></div>
-			           				<div class='col-12 d-lg-none mt-3 body1'><input typs='text' name='postcode' value='${mdto.postcode }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='postcode' value='${mdto.postcode }'>
-			           			</div>
-			           		</c:if>
-			           		</form>
+	
 			           		
-			           				
-			           		<div class="row mt-5">
-			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem solid #161C24; width:65%;"></div>
-			           		</div>
+			           					           		
 			           		
-			           		<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Payment</div>    
-			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Payment</div>   
-			            	<div>	
-			            	
-			            		
-			         			           			
-			                    <div class="col-12 p-3">
+			           					         			           			
+			                    <div class="col-12 p-3 pt-5 pb-5">
 			                    	<div class="">
 			                        </div>	
 			                    </div>    
@@ -303,88 +272,21 @@
 	</section>
 	
 	<!-- footer close -->
+	
 <script>
-	$("#modifyMember").on("click", ()=>{
-		$(".edit").removeAttr("disabled");
-		$("#modifyMember").css("display", "none");
-		$("#deleteMember").css("display", "none");
-		let ok = $("<button>");
-		ok.text("수정완료");
-		ok.attr("class","btn0_1 color_yellow2");
-		ok.attr("type", "submit");
-		
-		let cancel = $("<button>");
-		cancel.text("취소");
-		cancel.attr("type","button");
-		cancel.attr("class","btn0_1 colre_gray400");
-		cancel.on("click", ()=>{
-			location.reload();
-		})
-		
-		$(".memberBtns").append(ok);
-		$(".memberBtns").append(cancel);
-		
-	});
-	
-	$("#modifyMember2").on("click", ()=>{
-		$(".editable").removeAttr("disabled");
-		$("#modifyMember2").css("display", "none");
-		$("#deleteMember2").css("display", "none");
-		let ok = $("<button>");
-		ok.text("수정완료");
-		ok.attr("class","btn0_1 color_yellow2");
-		ok.attr("type", "submit");
-		
-		let cancel = $("<button>");
-		cancel.text("취소");
-		cancel.attr("type","button");
-		cancel.attr("class","btn0_1 colre_gray400");
-		cancel.on("click", ()=>{
-			location.reload();
-		})
-		
-		$(".memberBtns").append(ok);
-		$(".memberBtns").append(cancel);
-		
-	});
-	
-	$(".leftbutton").on("click", function() {
+$(".leftbutton").on("click", function() {
 
-		location.href = "/admin/adminMembers?cpage=1";
-	})
-	
-	let cnt =0;
-    $(".navbar-toggler").on("click",function(){
-       cnt ++;
-       if(cnt>1){
-       $(".navbar-collapse").toggle();
-       }
-    })
-	
-// 	$("#deleteMember").on("click", ()=>{
-// 		let ban = confirm("정말 삭제 하시겠습니까?");
-// 		if(ban){
-// 			$.ajax({
-// 				url : "/admin/adminMemberDelete",
-// 				data: {'email' : '${mdto.email}' }
-// 			})	
-// 		}else {
-			
-// 		}
-// 	});
-	
-// 	$("#deleteMember2").on("click", ()=>{
-// 		let ban = confirm("정말 삭제 하시겠습니까?");
-// 		if(ban){
-// 			$.ajax({
-// 				url : "/admin/adminMemberDelete",
-// 				data: {'email' : '${mdto.email}' }
-// 			})	
-// 		}else {
-			
-// 		}
-// 	});
+	location.href = "/admin/adminPayment?cpage=1";
+})
 
-</script>
+let cnt =0;
+$(".navbar-toggler").on("click",function(){
+   cnt ++;
+   if(cnt>1){
+   $(".navbar-collapse").toggle();
+   }
+})
+
+</script>	    
 </body>
 </html>
