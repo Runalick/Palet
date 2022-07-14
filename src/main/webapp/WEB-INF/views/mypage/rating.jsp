@@ -395,6 +395,10 @@ align-items: center; */
 div {
 	text-align: center;
 }
+.mini{
+	width: 7.5rem;
+	height: 7,5rem;
+}
 </style>
 </head>
 <body>
@@ -555,7 +559,7 @@ div {
 
 
 				<div class="navi">
-					<a href="#" style="font-size: 1.625rem;" class="main"> <strong
+					<a href="/mypage/main" style="font-size: 1.625rem;" class="main"> <strong
 						class="menu-title">My Page</strong>
 					</a>
 					<div class="navi-menu">
@@ -569,9 +573,9 @@ div {
 							<li>
 								<div class="body4">My Shopping</div>
 								<ul>
-									<li class="body3"><a href="#">주문내역</a></li>
+									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 									<li class="body3"><a href="#">취소/반품 내역</a></li>
-									<li class="body3"><a href="#">배송지 관리</a></li>
+									<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 								</ul>
 							</li>
 							<li>
@@ -589,21 +593,67 @@ div {
 
 				<div class="content">
 					<div class="row" id="row1">
-						<div class="col-12 h3">${dto.email }님의 등급은 ${dto.grade }
-							입니다.</div>
-						<div class="col-12">
-							등급 상승시 필요한 내용
+						<div class="col-12 h3"> 
+								<c:if test="${dto.name==null }">
+									${dto.email}
+								</c:if> 
+								<c:if test="${dto.name!=null }">
+									${dto.name }
+								</c:if>
+						님의 등급은 
+							<c:if test="${dto.grade == 'White'}">
+								<img src="/images/white.png" class="mini">
+							</c:if>
+							<c:if test="${dto.grade == 'Gray'}">
+								<img src="/images/gray.png" class="mini">
+							</c:if><c:if test="${dto.grade == 'Black'}">
+								<img src="/images/black.png" class="mini">
+							</c:if>
+							입니다.
+						</div>
+						<div class="col-12 body3">
+							
 						</div>
 						<div class="col-12">
 							<div class="row">
-								<div class="col-md-4 col-sm-12 ratingbox">
-									white 등급<br> 마일리지 1%<br>
+								<div class="col-md-4 col-sm-12 ratingbox body3">
+									<img src="/images/white.png"><br>
+									<br>
+									- White 등급<br>
+									- 결제금액의 1% 마일리지 적립<br>
+									- 회원가입시 white등급
 								</div>
-								<div class="col-md-4 col-sm-12 ratingbox">
-									gray 등급<br> 마일리지 5%<br>
+								<div class="col-md-4 col-sm-12 ratingbox body3">
+									<img src="/images/gray.png"><br>
+									<br>
+									 - Gray 등급<br>
+									 - 결제금액의 5% 마일리지 적립<br>
+									 - 누적 결제금액이 10만원 이상이면 Gray 등급으로 상승
 								</div>
-								<div class="col-md-4 col-sm-12 ratingbox">
-									black 등급<br> 마일리지 10%<br>
+								<div class="col-md-4 col-sm-12 ratingbox body3">
+									<img src="/images/black.png"><br>
+									<br>
+									- Black 등급<br>
+									- 결제금액의 10% 마일리지 적립<br>
+									- 누적 결제 금액이 30만원 이상이면 Black 등급으로 상승
+								</div>
+								<div class="col-12 H2" style="text-decoration: underline;">
+									등급 산정 정책
+								</div>
+								<div class="col-12 body4" >
+									* 등급 변동일은 매주 월요일 관리자에 의해 변동됩니다.<br>
+									* 휴면계정 전환시 회원 등급이 초기화 됩니다.<br>
+								</div>
+								<div class="col-12 H2" style="text-decoration: underline;">
+									혜택별 상세 정보
+								</div>
+								<div class="col-12 body4">
+									* 전시 또는 프로그램 관람 횟수 카운팅은 유료 전시 및 프로그램에 한하여 적용됩니다.<br>
+									* 동일 전시 재관람 혜택 이용 시 금액이 추가적용되지 않습니다.<br>
+									* 누적 구매액은 실제 결제금액 기준으로 집계됩니다.<br>
+									* 쿠폰은 결제에 사용후 구매취소 시 재 지급 되지 않습니다.<br>
+									* 쿠폰과 마일리지의 중복 적용은 가능합니다.<br>
+									* 혜택, 등급선정기준, 등급조정 등 회원 정책은 업체의 사정에 따라 변경될 수 있습니다.<br>
 								</div>
 							</div>
 						</div>
@@ -612,7 +662,7 @@ div {
 			</div>
 		</div>
 
-		<!-- 푸터단 -->
+		<!-- 푸터단 -->	
 
 		<div class="row" id="footer">
 			<div class="container">
