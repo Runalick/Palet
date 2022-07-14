@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.AdminDAO;
+import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
-import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.SalesDTO;
+import Trillion.Palet.DTO.TotalPaymentDTO;
 
 @Service
 public class AdminService {
@@ -90,7 +91,7 @@ public class AdminService {
 	
 	// Payment Category
 	
-	public List<PayDTO> paymentSelectByPage(int cpage){
+	public List<TotalPaymentDTO> paymentSelectByPage(int cpage){
 		return adao.paymentSelectByPage(cpage);
 	}
 	
@@ -98,6 +99,13 @@ public class AdminService {
 		return adao.getPaymentPageNavi(cpage);
 	}
 	
+	public AdminDTO getAdminPayDetail(String merchant_uid) {
+		return adao.getAdminPayDetail(merchant_uid);
+	}
+	
+	public AdminDTO getAdminExticketDetail(String merchant_uid) {
+		return adao.getAdminExticketDetail(merchant_uid);
+	}
 	
 	// etc..
 	

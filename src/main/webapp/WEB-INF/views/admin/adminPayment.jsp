@@ -204,10 +204,10 @@
 			                        <c:forEach var="i" items="${list}">
 			                        <div class="row" id="row1">
 			                        	
-				                        	<div class="col-4 col-lg-3 d-none d-lg-block px-4 body2 ellipsis"><a href="/admin/adminPaymentDetail?merchant_uid=${i.merchant_uid}" class="colortext_gray900">  ${i.merchant_uid } </a></div>
+				                        	<div class="col-4 col-lg-3 d-none d-lg-block px-4 body2 ellipsis"><a href="/admin/adminPaymentDetail?merchant_uid=${i.merchant_uid}&category=${i.category}" class="colortext_gray900">  ${i.merchant_uid } </a></div>
 				                        	
 				                        	<div class="col-4 col-lg-2 d-none d-lg-block px-5 body2 ellipsis">${i.name } </div>
-				                        	<div class="col-4 d-lg-none body2_1 ellipsis" style="text-align : center"><a href="/admin/adminPaymentDetail?merchant_uid=${i.merchant_uid}" class="colortext_gray900"> ${i.name } </a></div>
+				                        	<div class="col-4 d-lg-none body2_1 ellipsis" style="text-align : center"><a href="/admin/adminPaymentDetail?merchant_uid=${i.merchant_uid}&category=${i.category}" class="colortext_gray900"> ${i.name } </a></div>
 				                        	
 				                        	<div class="col-3 col-lg-3 d-none d-lg-block body2 ellipsis" style="text-align : center"> ${i.email } </div>
 				                        	<div class="col-4 col-lg-3 d-lg-none body2_1 ellipsis" style="text-align : center"> ${i.email } </div>
@@ -216,7 +216,8 @@
 				                        	
 			                            	<div class="col-3 col-lg-2 d-none d-lg-block body2 ellipsis" style="text-align : center"> ${i.pay_time } </div>
 			                            	<div class="col-4 col-lg-2 d-lg-none body2_1 ellipsis" style="text-align : center"> ${i.pay_time } </div>
-		                            	
+		                            		<input type="hidden" name='state' value='${i.state }'>
+		                            		<input type="hidden" name='category' value='${i.category }'>
 		                            </div>
 		                            <hr>			                            	
 		                            </c:forEach>
