@@ -396,8 +396,11 @@ div {
 	text-align: center;
 }
 .mini{
-	width: 7.5rem;
-	height: 7,5rem;
+	width: 5rem;
+	height: 5rem;
+}
+.ratingbox{
+	padding-top: 1rem;
 }
 </style>
 </head>
