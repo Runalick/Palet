@@ -36,4 +36,7 @@ public class CouponDAO {
 		param.put("category", category);
 		return mybatis.insert("coupon.make",param);
 	}
+	public CouponDTO getCouponName(String et_cpserial) {
+		return mybatis.selectOne("coupon.getCouponName",et_cpserial);
+	}
 }

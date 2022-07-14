@@ -15,5 +15,7 @@
   	<insert id="make">
   		insert into coupon (key,serial,dc,category) values(key_seq.nextval,#{serial},#{dc},#{category})
   	</insert>
-  	
+  	<select id="getCouponName"  resultType="Trillion.Palet.DTO.CouponDTO">
+  		select * from coupon where serial = #{value} 
+  	</select>
   </mapper>

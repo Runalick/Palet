@@ -102,7 +102,7 @@ background:#919EAB;
 		<div class="row" id="delivery-area" style="height:35.875rem; width:40.25rem;">
 					<div class="col-4 " style="text-align:left; width:18.75rem; height:6.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text"  class="body2 body2input buyer_name" placeholder="수령인 이름을 입력해 주세요." value=${modi.receiver }>
+						<input type="text"  class="body2 body2input buyer_name"  placeholder="수령인 이름을 입력해 주세요." value='${modi.receiver }'   >
 					</div>
 					<div class="col-8 phone" style="text-align:left; width:26rem; height:6.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
@@ -136,8 +136,44 @@ background:#919EAB;
 				</div>
 
 <script>
-
+//수정
 $(".modibtn").on("click",function(){
+if(!$(".check").prop("checked")){
+		
+		var rtn = false;
+		$.ajax({
+			url:"/delivery/checkdefaultAddress",
+			async:false
+		}).done(function(resp){
+			console.log(resp);
+			if(resp = 'false'){
+				alert("기본주소지 한 개 필수입니다.");
+				
+			}else{
+				rtn=true;
+			}
+		});
+		return rtn;
+		
+	}
+	if($(".buyer_name").val()==''){
+		alert("받는 사람 이름을 입력해주세요 ");
+		return false;
+	}
+	if($(".buyer_tel").val()==''){
+		alert("핸드폰 번호를 입력해주세요 ");
+		return false;
+	}
+	if($(".buyer_postcode").val()==''){
+		alert("우편주소를 입력해주세요");
+		return false;
+	}
+	if($(".buyer_address2").val()==''){
+		alert("상세주소를 입력해주세요");
+		return false;
+	}
+	
+	
 	console.log($(".modi").val())
 	deliveryaddress_seq=$(this).val();
 	$.ajax({
@@ -158,8 +194,45 @@ $(".modibtn").on("click",function(){
 			window.close();
 			})
 })
+//등록
 $(".insert").on("click",function(){
 
+	if(!$(".check").prop("checked")){
+		
+		var rtn = false;
+		$.ajax({
+			url:"/delivery/checkdefaultAddress",
+			async:false
+		}).done(function(resp){
+			console.log(resp);
+			if(resp = 'false'){
+				alert("기본주소지 한 개 필수입니다.");
+				
+			}else{
+				rtn=true;
+			}
+		});
+		return rtn;
+		
+	}
+	if($(".buyer_name").val()==''){
+		alert("받는 사람 이름을 입력해주세요 ");
+		return false;
+	}
+	if($(".buyer_tel").val()==''){
+		alert("핸드폰 번호를 입력해주세요 ");
+		return false;
+	}
+	if($(".buyer_postcode").val()==''){
+		alert("우편주소를 입력해주세요");
+		return false;
+	}
+	if($(".buyer_address2").val()==''){
+		alert("상세주소를 입력해주세요");
+		return false;
+	}
+	
+	
 	$.ajax({
 		url:"/delivery/insertModiNewAddress",
 		data:{

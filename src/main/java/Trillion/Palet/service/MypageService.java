@@ -37,6 +37,7 @@ public class MypageService {
 	}
 
 	public ExticketDTO myTicketDetailview(String et_booknumber) {
+		
 		return mdao.myTicketDetailview(et_booknumber);
 	}
 
