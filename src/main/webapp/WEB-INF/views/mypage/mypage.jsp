@@ -549,14 +549,9 @@ input {
 					</nav>
 				</div>
 				</c:otherwise>
-				
-				
-				
-				
 				</c:choose>
 			</div>
-
-		</div>
+			</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
 		<div class="container">
@@ -568,7 +563,7 @@ input {
 
 
 				<div class="navi">
-					<a href="#" style="font-size: 1.625rem;" class="main"> <strong
+					<a href="/mypage/main" style="font-size: 1.625rem;" class="main"> <strong
 						class="menu-title">My Page</strong>
 					</a>
 					<div class="navi-menu">
@@ -608,14 +603,14 @@ input {
 
 				<div class="content">
 					<div class="row" id="row1">
-						<div class="h2"
-							style="text-align: center; margin-left: auto; margin-bottom: 20px;">
+						<div class="col-sm-12 h2"
+							style="text-align: center; margin-left: auto; margin-bottom: 20px; text-decoration: underline;">
 							<b>My info.</b>
 						</div>
 					</div>
 
 
-					<div class="col-12">
+					<div class="col-sm-12">
 						<div class="row" style="text-align: center;">
 							<div class="col-12 h3"
 								style="height: 150%; padding-bottom: 10px;">
@@ -624,13 +619,13 @@ input {
 						</div>
 					</div>
 					<div class=row>
-						<div class="col-12"
+						<div class="col-sm-12"
 							style="margin-bottom: 5px; text-align: center;">
 							<button type="button" data-bs-toggle="modal" class="btn2"
 								style="height: 2.75rem; width: 15rem; text-align: center;"
 								data-bs-target="#staticBackdrop">비밀번호 변경</button>
 						</div>
-						<div class="col-12">
+						<div class="col-sm-12">
 							<!-- Modal -->
 							<form action="/member/modipw" method="post"
 								accept-charset="utf-8">
@@ -665,11 +660,11 @@ input {
 							</form>
 						</div>
 
-						<div class="col-12 rp-0 h3"
+						<div class="col-sm-12 rp-0 h3"
 							style="min-width: 150px; font-size: 150%; padding-top: 10px; text-align: center;">
 							<b>${dto.name }</b>
 						</div>
-						<div class="col-12"
+						<div class="col-sm-12"
 							style="margin-bottom: 5px; text-align: center;">
 							<button type="button" data-bs-toggle="modal" class="btn2"
 								style="width: 25%; min-width: 100px; max-width: 100px; text-align: center;"
@@ -702,11 +697,11 @@ input {
 							</div>
 						</form>
 
-						<div class="col-12 rp-0 h3"
+						<div class="col-sm-12 rp-0 h3"
 							style="min-width: 150px; font-size: 150%; padding-top: 10px; text-align: center;">
 							<b>${dto.phone }</b>
 						</div>
-						<div class="col-12"
+						<div class="col-sm-12"
 							style="margin-bottom: 5px; text-align: center;">
 							<button type="button" data-bs-toggle="modal" class="btn2"
 								style="width: 25%; min-width: 100px; max-width: 100px; text-align: center;"
@@ -742,7 +737,7 @@ input {
 								</div>
 							</div>
 						</form>
-						<div class="col-12" style="text-align: center;">
+						<div class="col-sm-12" style="text-align: center; padding-top: 2rem;">
 							<button type="button" class="btn2" id="delbtn"
 								style="height: 2.75rem; width: 15rem; text-align: center;">회원탈퇴하기</button>
 						</div>

@@ -300,10 +300,17 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
+div{
+	text-align: center;
+}
+.mini{
+ width: 7.5rem;
+ height: 7.5rem;
+}
 </style>
 </head>
 <body>
-	<header>
+<header>
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
@@ -441,14 +448,9 @@ padding: 0.3rem 1rem;
 					</nav>
 				</div>
 				</c:otherwise>
-				
-				
-				
-				
 				</c:choose>
 			</div>
-
-		</div>
+			</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
 		<div class="container" style="padding-left:2.5rem;">
@@ -472,7 +474,7 @@ padding: 0.3rem 1rem;
 						</ul>
 					</li>
 					<li>
-						<div class="body4">My Shopping</a></div>
+						<div class="body4">My Shopping</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 							<li class="body3"><a href="#">취소/반품 내역</a></li>
@@ -497,11 +499,36 @@ padding: 0.3rem 1rem;
 				
 				
 				
-				<div class="content" style="border:1px solid black">
-					<div class="row">
-						<div class="col-sm-12">
-								${dto.email}님의 MY page 입니다.
+				<div class="content">
+					<div class="row" style="border: 1px solid black; background-color: #9f9f9f70">
+						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem;">
+								<c:if test="${dto.name==null }">
+									${dto.email}
+								</c:if> 
+								<c:if test="${dto.name!=null }">
+									${dto.name }
+								</c:if>
+								님<br>
+								안녕하세요.
+						</div><br>
+						<div class="col-sm-4 H3" style="padding-top: 1.75rem;"> 
+							<c:if test="${dto.grade == 'White'}">
+								<img src="/images/white.png" class="mini">
+							</c:if>
+							<c:if test="${dto.grade == 'Gray'}">
+								<img src="/images/gray.png" class="mini">
+							</c:if><c:if test="${dto.grade == 'Black'}">
+								<img src="/images/black.png" class="mini">
+							</c:if>
+							<br>
+							${dto.grade}<br>
+							매주 월요일 반영
 						</div>
+						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem;">
+								<span>마일리지<br></span>
+								<span>${dto.point } point</span>
+						</div>
+						<div class="col-12 body4" style="border-bottom: 2px solid black;"></div>
 					</div>
 				</div>
 

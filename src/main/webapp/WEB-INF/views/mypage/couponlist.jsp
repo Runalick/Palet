@@ -395,7 +395,7 @@ align-items: center; */
 </style>
 </head>
 <body>
-	<header>
+<header>
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
@@ -533,14 +533,9 @@ align-items: center; */
 					</nav>
 				</div>
 				</c:otherwise>
-				
-				
-				
-				
 				</c:choose>
 			</div>
-
-		</div>
+			</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
 		<div class="container">
@@ -552,8 +547,8 @@ align-items: center; */
 
 
 				<div class="navi">
-					<a href="#" style="font-size: 1.625rem;" class="main"> <strong
-						class="menu-title">My Page</strong>
+					<a href="/mypage/main" style="font-size: 1.625rem;" class="main">
+						<strong class="menu-title">My Page</strong>
 					</a>
 					<div class="navi-menu">
 						<ul class="navi-ul">
@@ -566,15 +561,16 @@ align-items: center; */
 							<li>
 								<div class="body4">My Shopping</div>
 								<ul>
-									<li class="body3"><a href="#">주문내역</a></li>
+									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 									<li class="body3"><a href="#">취소/반품 내역</a></li>
-									<li class="body3"><a href="#">배송지 관리</a></li>
+									<li class="body3"><a href="/delivery/selectAllAddress">배송지
+											관리</a></li>
 								</ul>
 							</li>
 							<li>
 								<div class="body4">My Info</div>
 								<ul>
-									<li class="body3"><a href="#">나의 회원등급</a></li>
+									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
 									<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
 									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
@@ -588,21 +584,19 @@ align-items: center; */
 					<div class="row" id="row1">
 						<div class="col-12">
 							<div class="h2"
-								style="text-align: center; margin-left: auto; margin-bottom: 20px;">
+								style="text-align: center; margin-left: auto; margin-bottom: 20px; text-decoration: underline;">
 								<b>Coupon List</b>
 							</div>
 						</div>
-					</div>
-					<div class="row" id="row1">
+						<div class="col-12" style="border-bottom: 2px solid black;"></div>
 						<div class="col-md-2 col-sm-0 body4"></div>
 						<div class="col-md-2 col-sm-4 body4">번호</div>
 						<div class="col-md-2 col-sm-4 body4">할인금</div>
 						<div class="col-md-2 col-sm-4 body4">종류</div>
 						<div class="col-md-2 d-md-block d-none body4">사용여부</div>
 						<div class="col-md-2 col-sm-0 body4"></div>
-					</div>
-					<c:forEach items="${list }" var="i">
-						<div class="row" id="row1">
+						<div class="col-12" style="border-bottom: 2px solid black;"></div>
+						<c:forEach items="${list }" var="i">
 							<div class="col-md-2 col-sm-0 body5"></div>
 							<div class="col-md-2 col-sm-4 body5">${i.serial }</div>
 							<div class="col-md-2 col-sm-4 body5">${i.dc }</div>
@@ -616,8 +610,11 @@ align-items: center; */
 							</c:if>
 								<div class="col-md-2 col-sm-0 body5"></div>
 							</div>
-						</div>
-					</c:forEach>
+							<div class="col-12 body4" style="border-bottom: 1px solid black;"></div>
+						</c:forEach>
+					</div>
+
+
 
 					<!-- 테스트용 -->
 					<!-- 					<div class="col-12"> -->
@@ -629,6 +626,12 @@ align-items: center; */
 					<!-- 							<button type="button" id="make">테스트용 쿠폰 만들기</button> -->
 					<!-- 						</div> -->
 
+				</div>
+				<div class="col-12 H3">쿠폰 사용 안내</div>
+				<div class="col-12 body4">
+					* 사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다. <br> * 쿠폰의 최소 주문금액은 배송비를
+					제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.<br> * 상품을 반품하거나 주문을 취소하셨다면, 구매에
+					사용하신 쿠폰은 소모됩니다.<br>
 				</div>
 			</div>
 		</div>

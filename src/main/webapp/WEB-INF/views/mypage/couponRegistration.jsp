@@ -43,7 +43,7 @@
 		<div class="row" style="padding-top: 100px;">
 			<div class="container">
 				<div class="row" id="row1">
-					<div class="h2" style="text-align: center; magin: auto;">Coupon
+					<div class="h2" style="text-align: center; magin: auto; text-decoration: underline;">Coupon
 						Registration</div>
 				</div>
 				<div class="col-12" style="text-align: center; padding: 10px;">
