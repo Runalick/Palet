@@ -26,36 +26,38 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="/css/member/mypage.css">
 <style type="text/css">
-          .container, .container-fluid,  .container-lg, .container-md,
-   .container-sm, .container-xl, .container-xxl {
-   overflow-x: hidden;
-} 
-.btn2{
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}
+
+.btn2 {
 	line-height: 0.7rem;
 }
 </style>
 </head>
 <body>
-	
-	
-		<div class="container-fluid" style="min-width: 600px;">
-			<div class="row" style="padding-top: 100px;">
-				<div class="container">
-					<div class="row" id="row1">
-						<div class="h2"
-							style="text-align: center; magin:auto;">Coupon Registration</div>
-					</div>
-					<div class="col-12" style="text-align: center; padding: 10px;">
-						<input type="text" name="serial" id="serial" placeholder="쿠폰번호를 입력해주세요" maxlength="10"
-						style="width: 200px">
-						<div style="text-align: center;">최대 글자수는 10글자 입니다.</div>
-					</div>
-					<div class="col-12" style="text-align: center; padding:10px;">
-						<button type="button" id="Registration" class="btn2" style="width: 7.5rem; height: 1.5rem;">등록</button>
-					</div>
+
+
+	<div class="container-fluid" style="min-width: 600px;">
+		<div class="row" style="padding-top: 100px;">
+			<div class="container">
+				<div class="row" id="row1">
+					<div class="h2" style="text-align: center; magin: auto;">Coupon
+						Registration</div>
+				</div>
+				<div class="col-12" style="text-align: center; padding: 10px;">
+					<input type="text" name="serial" id="serial"
+						placeholder="쿠폰번호를 입력해주세요" maxlength="10" style="width: 200px">
+					<div style="text-align: center;">최대 글자수는 10글자 입니다.</div>
+				</div>
+				<div class="col-12" style="text-align: center; padding: 10px;">
+					<button type="button" id="Registration" class="btn2"
+						style="width: 7.5rem; height: 1.5rem;">등록</button>
 				</div>
 			</div>
 		</div>
+	</div>
 
 	<script type="text/javascript">
 		$("#Registration").on("click",function(){

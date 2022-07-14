@@ -48,7 +48,7 @@
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > <img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-gift text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
@@ -82,7 +82,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminPayment" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
@@ -106,7 +106,7 @@
                     <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <div class="text-align text-uppercase mb-0 text-white h3">Goods</div>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Payments</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
@@ -146,99 +146,85 @@
     <!-- navibar close -->
     
     <!-- main contents -->
-    
     <section>
         <div class="container-fluid">
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Goods Detail </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : '${gdto.g_name}' 상세 페이지 입니다. </div>
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Payments Log </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 최근 30일 간의 결제 정보를 확인 할 수 있는 페이지 입니다. </div>
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
-                			<div class="row pt-3">
-                				<div class="col-12">
-                					<img type='button' class='leftbutton' src="/images/leftbutton.png">
-                				</div>
-							</div>                			
-			            	<form action="/admin/adminGoodsUpdate" method="post">
+                			<div class="row pt-4 p-4" style="text-align:right">
+ 								<div class="col-12 d-none d-md-block" id="checkbtns" style="text-align:right">
+ 									<!-- 이름/uid/email으로 검색되는 서치바 필요할 것으로 보임  -->
+                                	<form action="">
+                                    <div class="searchBox">
+                                        <input type="text" class="searchInput2" placeholder="Search">
+                                        <button type="button" class="btn btn-light searchBtn2">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                	</form>
+                            	</div>
+                            	<div class="col-12 d-md-none" id="checkbtns2" style="text-align:right">
+                                	<form action="">
+                                    <div class="searchBox">
+                                        <input type="text" class="searchInput3" placeholder="Search">
+                                        <button type="button" class="btn btn-light searchBtn3">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                    </div>
+                                	</form>
+ 								</div>
+ 							</div>
+                		
 			            	<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
-			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
-			            			<div class="row">
-			            				<div class="col-12 d-none d-lg-block body1 m-auto" style="width:60%" >- ${gdto.g_name }</div>
-			            				<div class="col-12 d-lg-none body1 m-auto" style="width:85%" >- ${gdto.g_name }</div>
-			            			</div>			            		
-			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" >
-			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button>
-<!-- 			            			<button class='btn0_1 color_red2' type="button" id='deleteMember' >삭제</button> -->
-			            		</div>
-			            		<div class="col-12 d-lg-none body2 m-auto memberBtns" style="width:85%; text-align:right" >
-			            			<button class='btn0_2 color_yellow2' type="button" id='modifyMember2' >수정</button>
-<!-- 			            			<button class='btn0_2 color_red2' type="button" id='deleteMember2' >삭제</button> -->
-			            		</div>
-			            	</div>
-			            	<div class="row" >
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">E_name </div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">E_name</div>
-			            	</div>	
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' value='${gdto.e_name }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' value='${gdto.e_name }' disabled style="width:70%; text-align:center"></div>
-			           			<input type='hidden' name='e_name' value='${gdto.e_name }'>			           			
-			           		</div>
-			            	<div class="row">
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">G_Name</div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">G_Name</div>
-			            	</div>	
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='g_name' value='${gdto.g_name }' class='edit' disabled style="width:50%; text-align:center" ></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='g_name' value='${gdto.g_name }' class='editable' disabled style="width:70%; text-align:center" ></div>
-			           			<input type="hidden" name="g_num" value="${gdto.g_num }">
-			           			<input type="hidden" name="e_num" value="${gdto.e_num }">
-			           		</div>
-			            	<div class="row" >
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Stock </div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Stock</div>
-			            	</div>	
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='g_stock' class='edit' value='${gdto.g_stock }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='g_stock' class='editable' value='${gdto.g_stock }' disabled style="width:70%; text-align:center"></div>			           			
-			           		</div>
-			           		<div class="row">
-			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Price</div>
-			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Price</div>
-			           		</div>
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='g_price' class='edit' value='${gdto.g_price }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='g_price' class='editable' value='${gdto.g_price }' disabled style="width:70%; text-align:center"></div>
-			           		</div>
-			           		<div class="row">
-			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Option</div>
-			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Option</div>  
-			           		</div>
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${gdto.g_option }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${gdto.g_option }' disabled style="width:70%; text-align:center"></div>
-			           			<input type='hidden' name='g_option' value="${gdto.g_option }">
-			           		</div>			           		
-			           		<div class="row">
-			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Total Sales </div>
-			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Total Sales </div>
-			           		</div>
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${gdto.sales_count }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${gdto.sales_count }' disabled style="width:70%; text-align:center"></div>
-			           			<input type='hidden' name='sales_count' value="${gdto.sales_count }">
-			           		</div>
-			           		</form>		  
-			           		
-			           		<div class="row">
-				           		<div class="col-12 p-3">
-				                	<div class="">
-				                	</div>	
-				                </div>            	
+			            		<div class="col-4 col-lg-3 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">UID</div>	
+			            			
+			            		<div class="col-4 col-lg-2 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Name.</div>
+			            		<div class="col-4 d-lg-none h3_4" style="border-right : 0.125rem solid #DFE3E8">Name.</div>
+			            		
+			            		<div class="col-3 col-lg-3 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Email</div>
+			            		<div class="col-4 col-lg-3 d-lg-none h3_4 " style="border-right : 0.125rem solid #DFE3E8; padding-left: 0.25rem; padding-right: 0px;">Email</div>
+			            		
+			            		<div class="col-3 col-lg-2 d-none d-lg-block h3 ">Payment</div>
+<!-- 			            		<div class="col-3 col-lg-2 d-lg-none h3_4 " style="padding-left: 0.25rem; padding-right: 0px;">Payment</div> -->
+
+			           			<div class="col-3 col-lg-2 d-none d-lg-block h3 " style="border-left : 0.125rem solid #DFE3E8;">PayTime</div>
+			           			<div class="col-4 col-lg-2 d-lg-none h3_4 " style="border-left : 0.125rem solid #DFE3E8; padding-left: 0.25rem; padding-right: 0px;">PayTime</div>
+			           			
+			           			<div class="col-12 px-3" >
+			           				<div class="card2"></div>
+			           			</div>
+			                    <div class="col-12 p-3">
+			                    	<div class="">
+			                        <hr>
+			                        <c:forEach var="i" items="${list}">
+			                        <div class="row" id="row1">
+			                        	
+				                        	<div class="col-4 col-lg-3 d-none d-lg-block px-4 body2 ellipsis"><a href="/admin/adminPaymentDetail?merchant_uid=${i.merchant_uid}" class="colortext_gray900">  ${i.merchant_uid } </a></div>
+				                        	
+				                        	<div class="col-4 col-lg-2 d-none d-lg-block px-5 body2 ellipsis">${i.name } </div>
+				                        	<div class="col-4 d-lg-none body2_1 ellipsis" style="text-align : center"><a href="/admin/adminPaymentDetail?merchant_uid=${i.merchant_uid}" class="colortext_gray900"> ${i.name } </a></div>
+				                        	
+				                        	<div class="col-3 col-lg-3 d-none d-lg-block body2 ellipsis" style="text-align : center"> ${i.email } </div>
+				                        	<div class="col-4 col-lg-3 d-lg-none body2_1 ellipsis" style="text-align : center"> ${i.email } </div>
+				                        	
+				                        	<div class="col-3 col-lg-2 d-none d-lg-block body2" style="text-align : center"> ${i.totalprice } </div>
+				                        	
+			                            	<div class="col-3 col-lg-2 d-none d-lg-block body2 ellipsis" style="text-align : center"> ${i.pay_time } </div>
+			                            	<div class="col-4 col-lg-2 d-lg-none body2_1 ellipsis" style="text-align : center"> ${i.pay_time } </div>
+		                            	
+		                            </div>
+		                            <hr>			                            	
+		                            </c:forEach>
+			                        </div>	
+			                    </div>    
+			                    <div class="col-12 p-3 body1 colortext_gray400" style="text-align:center">
+			                       	${navi}
+			                    </div>
 			            	</div>
             			</div>
             		</div>
@@ -246,8 +232,11 @@
             </div>
         </div>
     </section>
-	
-	<section>
+    
+    <!-- main contents close-->
+    
+    <!-- footer open -->
+    <section>
 		<div class="container-fluid">
 			<div class="row ml-auto" id="footerbox" style="margin-top: 8rem;">
 	            <div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="footMain1">
@@ -261,67 +250,17 @@
 	        </div>
 		</div>
 	</section>
-
-<script>
-$("#modifyMember").on("click", ()=>{
-	$(".edit").removeAttr("disabled");
-	$("#modifyMember").css("display", "none");
-	$("#deleteMember").css("display", "none");
-	let ok = $("<button>");
-	ok.text("수정완료");
-	ok.attr("class","btn0_1 color_yellow2");
-	ok.attr("type", "submit");
 	
-	let cancel = $("<button>");
-	cancel.text("취소");
-	cancel.attr("type","button");
-	cancel.attr("class","btn0_1 colre_gray400");
-	cancel.on("click", ()=>{
-		location.reload();
-	})
-	
-	$(".memberBtns").append(ok);
-	$(".memberBtns").append(cancel);
-	
-});
-
-$("#modifyMember2").on("click", ()=>{
-	$(".editable").removeAttr("disabled");
-	$("#modifyMember2").css("display", "none");
-	$("#deleteMember2").css("display", "none");
-	let ok = $("<button>");
-	ok.text("수정완료");
-	ok.attr("class","btn0_1 color_yellow2");
-	ok.attr("type", "submit");
-	
-	let cancel = $("<button>");
-	cancel.text("취소");
-	cancel.attr("type","button");
-	cancel.attr("class","btn0_1 colre_gray400");
-	cancel.on("click", ()=>{
-		location.reload();
-	})
-	
-	$(".memberBtns").append(ok);
-	$(".memberBtns").append(cancel);
-	
-});
-
-$(".leftbutton").on("click", function() {
-
-	location.href = "/admin/adminGoodsList?cpage=1";
-})
-
-    let cnt =0;
+	<!-- footer close -->
+    
+ <script>
+	let cnt =0;
     $(".navbar-toggler").on("click",function(){
        cnt ++;
        if(cnt>1){
        $(".navbar-collapse").toggle();
        }
     })
-
-</script>
-    
-
+ </script>   
 </body>
 </html>
