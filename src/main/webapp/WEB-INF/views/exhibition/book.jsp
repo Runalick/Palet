@@ -1,5 +1,4 @@
 
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -29,7 +28,6 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	
 	}
 	html {
 		font-size: 12px;
@@ -39,7 +37,6 @@
 @media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
-	
 	}
 	html {
 		font-size: 16px;
@@ -326,6 +323,43 @@ align-items: center; */
 	color: #161C24;
 }
 
+.h5{
+
+
+
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 400;
+font-size: 0.875rem;
+line-height: 1.125rem;
+/* identical to box height, or 129% */
+
+
+/* Gray/600 */
+
+color: #637381;
+
+
+
+}
+
+.h5_1{
+
+
+/* Caption/Caption */
+
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 0.875rem;
+line-height: 1.125rem;
+/* identical to box height, or 129% */
+
+
+/* Gray/600 */
+
+color: #637381;
+}
 .caption {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -465,7 +499,56 @@ input::placeholder {
 	text-align: center;
 }
 
+.warp-pay {
+	text-align: left;
+	margin-left: 2.3rem;
+	margin-bottom: 12.5rem;
+}
+/* select */
+#select {
+	width: 23.5rem;
+	height: 3rem;
+	line-height: 2.35rem;
+	box-sizing: border-box;
+	border: 0.063rem solid #CFD4D9;
+	box-shadow: 0px 0px 0px #CBDAFC;
+	border-radius: 0.313rem;
+	margin-bottom: 1.5rem;
+	color: #637381;
+	background: #FFFFFF url('/images/uparrow.png') no-repeat 97% 50%/15px
+		auto;
+	background-size: 0.796rem;
+	padding: 0.3rem 1.875rem 0.3rem 0.6rem;
+	border: 0.06rem solid #b8b8b8;
+	overflow: hidden;
+	font-size: 1rem;
+	color: #666666;
+}
 
+.select-ul {
+	list-style-type: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 1rem;
+	color: #666666;
+	border: 1px solid #b8b8b8;
+	display: none;
+	position: absolute;
+	top: 2.938rem;
+	background: #FFFFFF;
+	border-top: none;
+	padding: 0px;
+	left: 0rem;
+}
+
+.select-ul li {
+	padding: 0.625rem 0 0.625rem 1.125rem;
+	width: 23.2rem;
+}
+
+.select-ul li:hover {
+	background-color: #F4F6F8;
+}
 </style>
 
 
@@ -705,7 +788,7 @@ input::placeholder {
 
 			<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
 
-				<div class="col-8" style="padding-left: 0rem; height: 10rem;">
+				<div class="col-12" style="padding-left: 0rem;">
 					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
 						<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
 						<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
@@ -722,7 +805,36 @@ input::placeholder {
 
 					</ul>
 				</div>
+				<div class="col-12 h3"
+					style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+				<div class="col-12 body2"
+					style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
+				<div class="col-12 h3"
+					style="padding-left: 0rem; margin-top: 1.125rem;">
+					<select class="form-select" aria-label="Default select example"
+						style="width: 23.5rem; height: 3rem;">
+						<option selected>쿠폰을 선택해 주세요.</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+					</select>
+				</div>
+				<div class="col-12 body2"
+					style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+
+				<div class="col-12 body2"
+					style="padding-left: 0rem; margin-top: 1.125em;">
+
+					<input type=text class=body2 style="width: 15rem; height: 3rem;">
+					<button class="h4"
+						style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+						사용</button>
+				</div>
+				<div class="col-12 h5"
+					style="padding-left: 0rem; margin-top: 2.188em;">보유마일리지 <span class=h5_1>1200p</span></div>
+
 			</div>
+
 
 
 
@@ -807,6 +919,10 @@ input::placeholder {
 						et_cost : price2,
 						et_count : count1,
 						et_point : point2,
+						et_usedpoint : 500,
+						et_cpdiscount : 1000,
+						et_cpserial : "신규가입쿠폰",
+
 						et_category : 'e'
 					},
 
