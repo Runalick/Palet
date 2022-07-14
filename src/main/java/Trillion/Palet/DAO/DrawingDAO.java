@@ -40,8 +40,8 @@ public class DrawingDAO {
 		return mybatis.delete("Event.deleteDraw", draw_seq);
 	}
 
-	public List<Object> selectConfirm() {
-		return mybatis.selectList("Event.selectConfirm");
+	public List<Object> selectConfirm(int limit) {
+		return mybatis.selectList("Event.selectConfirm", limit);
 	}
 
 	public int findEmail(String email) {
