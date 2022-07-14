@@ -45,6 +45,10 @@ public class DeliveryService {
 		return dao.ModiDefaultAddress(dto);
 	}
 
+	public boolean checkdefaultAddress(String email) {
+		return dao.checkdefaultAddress(email);
+	}
+
 	
 
 	
