@@ -126,13 +126,15 @@
 	font-size: 2.25rem;
 	line-height: 2.688rem;
 }
-.body1{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 400;
-font-size: 1.25rem;
-line-height: 1.875rem;
+
+.body1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.875rem;
 }
+
 .H3 {
 	margin-bottom: 0.75rem;
 	display: inline-block;
@@ -144,12 +146,13 @@ line-height: 1.875rem;
 	line-height: 1.5rem;
 	display: inline-block;
 }
-.H1{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 700;
-font-size: 3.438rem;
-line-height: 3.75rem;
+
+.H1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 3.438rem;
+	line-height: 3.75rem;
 }
 /* <옵션 내용 */
 .h4 {
@@ -188,398 +191,472 @@ line-height: 3.75rem;
 	/* Gray/300 */
 }
 
-
-
-
-
 @media ( min-width : 992px) {
-	.content{
-	  width: calc(100% - 13.625rem);
+	.content {
+		width: calc(100% - 13.625rem);
 	}
-	.navi{
-	width:11.875rem;
-	padding:0rem;
-	display:block;
+	.navi {
+		width: 11.875rem;
+		padding: 0rem;
+		display: block;
 	}
-	.body3{
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 1rem;;
-	line-height: 1.75rem;
+	.body3 {
+		font-family: 'Spoqa Han Sans Neo';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1rem;;
+		line-height: 1.75rem;
 	}
-	.body4{
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 1.25rem;
-	line-height: 1.875rem;
+	.body4 {
+		font-family: 'Spoqa Han Sans Neo';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1.25rem;
+		line-height: 1.875rem;
 	}
 }
 
 @media ( max-width : 991px) {
-	.main{
-	display:none;
+	.main {
+		display: none;
 	}
-	.navi-menu{
-	display:none;
+	.navi-menu {
+		display: none;
 	}
-	
-	.content{
-	  width: calc(100% - 1.625rem);
+	.content {
+		width: calc(100% - 1.625rem);
 	}
-	.navi{
-	padding:0rem;
+	.navi {
+		padding: 0rem;
 	}
-	.body3{
-	font-size:1.625rem;
+	.body3 {
+		font-size: 1.625rem;
 	}
-	.body4{
-	font-size:1.875rem;
+	.body4 {
+		font-size: 1.875rem;
 	}
 }
 
 /* 네비 */
-
-.content{
-  
-    margin-left:1.75rem;
-}
-.mypage-wrap{
-margin:4.625rem auto 9.375rem;
-}
-body li{
-    list-style-type: none;
-    
-}
-body ul{
-padding:0px;
-}
-body a{
-text-decoration:none;
-}
-.menu-title{
-display:block;
-color:black;
-border-bottom:1px solid black;
-padding:1rem;
+.content {
+	margin-left: 1.75rem;
 }
 
-li div{
-background:#212B36;
-color:white;
-padding: 0.125rem 1rem;
+.mypage-wrap {
+	margin: 4.625rem auto 9.375rem;
 }
 
-.navi-ul li ul li a{
-color:#919EAB;
+body li {
+	list-style-type: none;
 }
-.navi-ul li ul li a:hover{
-color:#212B36;
-font-weight:700;
+
+body ul {
+	padding: 0px;
 }
-.small-navi{
-margin:1.25rem 0rem ;
+
+body a {
+	text-decoration: none;
 }
-#select{
-width:100%;
-border:0px;
-background:url('/images/downarrow.png') no-repeat 97% 50%/15px auto ;
-background-size: 01.596rem;
-text-align:left;
+
+.menu-title {
+	display: block;
+	color: black;
+	border-bottom: 1px solid black;
+	padding: 1rem;
 }
-.body3 a{
-display:block;
-padding: 0.3rem 1rem;
+
+li div {
+	background: #212B36;
+	color: white;
+	padding: 0.125rem 1rem;
 }
-<!-- 버튼 -->
-        .btn1 {
 
-            /* padding:  1.12rem 1.5rem; */
-            gap: 0.625rem;
+.navi-ul li ul li a {
+	color: #919EAB;
+}
 
-            /* width: 12.5rem; */
-			width: 100%;
-            height: 3.125rem;
-            
-            /* Gray/900 */
-            color:#FFFFFF;
-            background: #161C24;
-            border-radius: 0.313rem;
-            /* Button/Button */
+.navi-ul li ul li a:hover {
+	color: #212B36;
+	font-weight: 700;
+}
 
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.0rem;
-            line-height: 1.2rem;
-            cursor: pointer;
+.small-navi {
+	margin: 1.25rem 0rem;
+}
 
-        }
-        
-        .btn1:disabled {
-        	color:#FFFFFF;
-            background: #C4CDD5;
-            cursor: default;
-        }
-		
-		/* join 버튼 */
-        .btn2 {
+#select {
+	width: 100%;
+	border: 0px;
+	background: url('/images/downarrow.png') no-repeat 97% 50%/15px auto;
+	background-size: 01.596rem;
+	text-align: left;
+}
 
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
+.body3 a {
+	display: block;
+	padding: 0.3rem 1rem;
+}
 
+<!--
+버튼 -->.btn1 {
+	/* padding:  1.12rem 1.5rem; */
+	gap: 0.625rem;
+	/* width: 12.5rem; */
+	width: 100%;
+	height: 3.125rem;
+	/* Gray/900 */
+	color: #FFFFFF;
+	background: #161C24;
+	border-radius: 0.313rem;
+	/* Button/Button */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.0rem;
+	line-height: 1.2rem;
+	cursor: pointer;
+}
 
-            /* width: 18.813rem; */
-            width: 10rem;
-            height: 1rem;
+.btn1:disabled {
+	color: #FFFFFF;
+	background: #C4CDD5;
+	cursor: default;
+}
 
+/* join 버튼 */
+.btn2 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	/* width: 18.813rem; */
+	width: 10rem;
+	height: 1rem;
+	color: #FFFFFF;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 0.5rem;
+	/* identical to box height */
+	text-align: center;
+	/* Gray/900 */
+	background: #161C24;
+	cursor: pointer;
+}
 
-            color: #FFFFFF;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-            font-style: normal;
-            font-weight: 500;
-            font-size: 1.25rem;
-            line-height: 0.5rem;
-            /* identical to box height */
+.btn2:disabled {
+	color: #FFFFFF;
+	background: #C4CDD5;
+	cursor: default;
+}
 
-            text-align: center;
-
-            /* Gray/900 */
-
-            background: #161C24;
-            cursor: pointer;
-
-        }
-        
-        .btn2:disabled {
-        	color:#FFFFFF;
-            background: #C4CDD5;
-            cursor: default;
-        }
-        
-        .btn3 {
-
-
-
-/* display: block; */
-/* flex-direction: row;
+.btn3 {
+	/* display: block; */
+	/* flex-direction: row;
 justify-content: center;
 align-items: center; */
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-
-
-width: 11.625rem;
-height: 3.75rem;
-
-
-
-
-background: #161C24;
-border-radius: 1.25rem;
-
-
-
-
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 500;
-font-size: 1.2rem;
-line-height: 1.5rem;
-
-
-text-align: center;
-
-color: #FFFFFF;
-
-
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 11.625rem;
+	height: 3.75rem;
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	text-align: center;
+	color: #FFFFFF;
 }
 
-        .btn5 {
+.btn5 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 18.813rem;
+	height: 3.75rem;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.23rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+}
 
-            padding: 1.125rem 1.5rem;
-            gap: 0.625rem;
-
-
-            width: 18.813rem;
-            height: 3.75rem;
-
-
-            /* Gray/900 */
-
-            background: #161C24;
-            border-radius: 1.25rem;
-            font-family: 'Spoqa Han Sans Neo';
-                font-style: normal;
-            font-weight: 500;
-             font-size: 1.23rem;
-            line-height: 1.5rem;
-                        /* identical to box height */
-
-            text-align: center;
-
-                color: #FFFFFF;
-
-
-
-
-        }
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}
 </style>
 </head>
 <body>
 	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
 			<div class="container">
-				<div class="row" id="container1">
-					<nav class="navbar navbar-expand-sm bg-light navbar-light">
-						<div class="container" id="navparent">
-							<a class="navbar-brand" href="#" id="container"
-								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							</button>
-							<div class="collapse navbar-collapse justify-content-end"
-								id="collapsibleNavbar">
-								<ul class="navbar-nav">
-									<li class="nav-item"><a id="About" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-									</li>
-									<li class="nav-item"><a id="Exhibition" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-									</li>
-									<li class="nav-item"><a id="Shop" class="nav-link"
-										href="/shop/toShop"
-										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-									<li class="nav-item"><a id="Help" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Help</a>
-									</li>
-									<li class="nav-item"><a id="Login" class="nav-link"
-										href="/member/loginPage"
-										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-									<li class="nav-item"><a id="Signup" class="nav-link"
-										href="/member/join"
-										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-									<li class="nav-item"><a id="Admin" class="nav-link"
-										href="/admin/adminMain"
-										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-									<c:choose>
-										<c:when test="${loginEmail !=null }">
-											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/cart/cartlist"
-												style="padding-left: 0px; padding-right: 0px;">cart(${totalDto.total_num })</a></li>
-										</c:when>
-									</c:choose>
-									<li class="nav-item"><a id="Mypage" class="nav-link"
-										href="/member/mypage"
-										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-								</ul>
-							</div>
-						</div>
-					</nav>
+				<c:choose>
+					<c:when test="${loginEmail =='admin@palet.com'}">
+						<div class="row" id="container1">
+							<nav class="navbar navbar-expand-md bg-light navbar-light">
+								<div class="container" id="navparent" style="overflow: visible;">
+									<a class="navbar-brand" href="/" id="container"
+										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-				</div>
+									<div style="height: 5rem;">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse" style="margin-top: 15px;"
+											data-bs-target="#collapsibleNavbar">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
+
+									<div class="collapse navbar-collapse justify-content-end"
+										id="collapsibleNavbar">
+										<ul class="navbar-nav" style="background: white;">
+											<li class="nav-item"><a id="About" class="nav-link"
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+											</li>
+
+											<li class="nav-item"><a id="Exhibition" class="nav-link"
+												href="/Exhibition/toCurExhibition"
+												style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+											</li>
+
+											<li class="nav-item"><a id="Program" class="nav-link"
+												href="/program/toProgram"
+												style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+
+											<li class="nav-item"><a id="Shop" class="nav-link"
+												href="/shop/toShop"
+												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+
+											<li class="nav-item"><a id="Logout" class="nav-link"
+												href="/member/loginPage" onclick="return logout();"
+												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+
+											<li class="nav-item"><a id="Admin" class="nav-link"
+												href="/admin/adminMain"
+												style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+
+										</ul>
+									</div>
+								</div>
+							</nav>
+						</div>
+					</c:when>
+
+					<c:when test="${loginEmail != null}">
+						<div class="row" id="container1">
+							<nav class="navbar navbar-expand-md bg-light navbar-light">
+								<div class="container" id="navparent" style="overflow: visible;">
+									<a class="navbar-brand" href="/" id="container"
+										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+									<div style="height: 5rem;">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse" style="margin-top: 15px;"
+											data-bs-target="#collapsibleNavbar">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
+
+									<div class="collapse navbar-collapse justify-content-end"
+										id="collapsibleNavbar">
+										<ul class="navbar-nav" style="background: white;">
+											<li class="nav-item"><a id="About" class="nav-link"
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+											</li>
+
+											<li class="nav-item"><a id="Exhibition" class="nav-link"
+												href="/Exhibition/toCurExhibition"
+												style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+											</li>
+
+											<li class="nav-item"><a id="Program" class="nav-link"
+												href="/program/toProgram"
+												style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+
+											<li class="nav-item"><a id="Shop" class="nav-link"
+												href="/shop/toShop"
+												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+
+											<li class="nav-item"><a id="Cart" class="nav-link"
+												href="/cart/cartlist"
+												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
+
+											<li class="nav-item"><a id="Logout" class="nav-link"
+												href="/member/loginPage" onclick="return logout();"
+												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+
+											<li class="nav-item"><a id="Mypage" class="nav-link"
+												href="/mypage/main"
+												style="padding-left: 0px; padding-right: 0px;">Mypage</a></li>
+
+										</ul>
+									</div>
+								</div>
+							</nav>
+						</div>
+					</c:when>
+
+					<c:otherwise>
+						<div class="row" id="container1">
+							<nav class="navbar navbar-expand-md bg-light navbar-light">
+								<div class="container" id="navparent" style="overflow: visible;">
+									<a class="navbar-brand" href="/" id="container"
+										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+									<div style="height: 5rem;">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse" style="margin-top: 15px;"
+											data-bs-target="#collapsibleNavbar">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
+
+									<div class="collapse navbar-collapse justify-content-end"
+										id="collapsibleNavbar">
+										<ul class="navbar-nav" style="background: white;">
+											<li class="nav-item"><a id="About" class="nav-link"
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+											</li>
+
+											<li class="nav-item"><a id="Exhibition" class="nav-link"
+												href="/Exhibition/toCurExhibition"
+												style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+											</li>
+
+											<li class="nav-item"><a id="Program" class="nav-link"
+												href="/program/toProgram"
+												style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+
+											<li class="nav-item"><a id="Shop" class="nav-link"
+												href="/shop/toShop"
+												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+
+											<li class="nav-item"><a id="Login" class="nav-link"
+												href="/member/loginPage"
+												style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+
+											<li class="nav-item"><a id="Signup" class="nav-link"
+												href="/member/join"
+												style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+
+										</ul>
+									</div>
+								</div>
+							</nav>
+						</div>
+					</c:otherwise>
+
+
+
+
+				</c:choose>
 			</div>
+
 		</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
-		<div class="container" >
-			<div class="row mypage-wrap"  >
-			
-			<div class="col-12 d-block d-lg-none H1 small-navi" >
-			<button id="select" >MY PAGE</button>
-			</div>
-			
-			
-				<div class="navi" >
-				<a href="#" style=" font-size:1.625rem;" class="main" >
-				<strong class="menu-title">My Page</strong>
-				</a>
-				<div class="navi-menu">
-					<ul class="navi-ul">
-					<li>
-						<div class="body4">My Tickets</div>
-						<ul>
-							<li class="body3"><a href="#">티켓예매 목록</a></li>
-						</ul>
-					</li>
-					<li>
-						<div class="body4">My Shopping</div>
-						<ul>
-							<li class="body3"><a href="#">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="#">배송지 관리</a></li>
-						</ul>
-					</li>
-					<li>
-						<div class="body4">My Info</div>
-						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
-							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
-						</ul>
-					</li>
-					</ul>
+		<div class="container">
+			<div class="row mypage-wrap">
+
+				<div class="col-12 d-block d-lg-none H1 small-navi">
+					<button id="select">MY PAGE</button>
 				</div>
+
+
+				<div class="navi">
+					<a href="/mypage/main" style="font-size: 1.625rem;" class="main">
+						<strong class="menu-title">My Page</strong>
+					</a>
+					<div class="navi-menu">
+						<ul class="navi-ul">
+							<li>
+								<div class="body4">My Tickets</div>
+								<ul>
+									<li class="body3"><a href="#">티켓예매 목록</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="body4">My Shopping</div>
+								<ul>
+									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+									<li class="body3"><a href="#">취소/반품 내역</a></li>
+									<li class="body3"><a href="/delivery/selectAllAddress">배송지
+											관리</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="body4">My Info</div>
+								<ul>
+									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+									<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
+									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
-				
+
 				<div class="content">
-				<div class="row" id="row1">
-					<div class="col-12">
-						<div class="h2"
-							style="text-align: center; margin-left: auto; margin-bottom: 20px;"> <b>Coupon List</b></div>
-					</div>
-					</div>
-					<div class="row">
-								<div class="col-3 body4">
-									번호
-								</div>
-								<div class="col-3 body4">
-									할인금
-								</div>
-								<div class="col-3 body4">
-									종류
-								</div>
-								<div class="col-3 body4">
-									사용여부
-								</div>
-					</div>
-					<c:forEach items="${list }" var="i">
-						<div class="row">
-						<div class="col-3">
-							${i.serial }
+					<div class="row" id="row1">
+						<div class="col-12">
+							<div class="h2"
+								style="text-align: center; margin-left: auto; margin-bottom: 20px;">
+								<b>Coupon List</b>
+							</div>
 						</div>
-						<div class="col-3">
-							${i.dc }
-						</div>
-						<div class="col-3">
-							${i.category }
-						</div>
-						<div class="col-3">
-							<c:if test="${(i.use == null)||(i.use=='N') }">
+						<div class="col-12" style="border-bottom: 2px solid black;"></div>
+						<div class="col-md-2 col-sm-0 body4"></div>
+						<div class="col-md-2 col-sm-4 body4">번호</div>
+						<div class="col-md-2 col-sm-4 body4">할인금</div>
+						<div class="col-md-2 col-sm-4 body4">종류</div>
+						<div class="col-md-2 d-md-block d-none body4">사용여부</div>
+						<div class="col-md-2 col-sm-0 body4"></div>
+						<div class="col-12" style="border-bottom: 2px solid black;"></div>
+						<c:forEach items="${list }" var="i">
+							<div class="col-md-2 col-sm-0 body5"></div>
+							<div class="col-md-2 col-sm-4 body5">${i.serial }</div>
+							<div class="col-md-2 col-sm-4 body5">${i.dc }</div>
+							<div class="col-md-2 col-sm-4 body5">${i.category }</div>
+							<div class="col-md-2 d-md-block d-none body5">
+								<c:if test="${(i.use == null)||(i.use=='N') }">
 								미사용 쿠폰입니다.
 							</c:if>
-							<c:if test="${i.use=='Y' }">
+								<c:if test="${i.use=='Y' }">
 								사용한 쿠폰입니다.
-							</c:if>							
-							
-						</div>
-						</div>
-					</c:forEach>
-					
-					<!-- 테스트용 -->
-<!-- 					<div class="col-12"> -->
-<!-- 						<input type="text" placeholder="발급숫자" name="number" id="number"><br> -->
-<!-- 						<input type="text" placeholder="할인금액" name="dc" id="dc"><br> -->
-<!-- 						<input type="text" placeholder="종류" naem="category" id="category"> -->
-<!-- 					</div> -->
-<!-- 					<div class="col-12"> -->
-<!-- 							<button type="button" id="make">테스트용 쿠폰 만들기</button> -->
-<!-- 						</div> -->
+							</c:if>
+								<div class="col-md-2 col-sm-0 body5"></div>
+							</div>
+							<div class="col-12 body4" style="border-bottom: 1px solid black;"></div>
+						</c:forEach>
+					</div>
 
+
+
+					<!-- 테스트용 -->
+					<!-- 					<div class="col-12"> -->
+					<!-- 						<input type="text" placeholder="발급숫자" name="number" id="number"><br> -->
+					<!-- 						<input type="text" placeholder="할인금액" name="dc" id="dc"><br> -->
+					<!-- 						<input type="text" placeholder="종류" naem="category" id="category"> -->
+					<!-- 					</div> -->
+					<!-- 					<div class="col-12"> -->
+					<!-- 							<button type="button" id="make">테스트용 쿠폰 만들기</button> -->
+					<!-- 						</div> -->
+
+				</div>
+				<div class="col-12 H3">쿠폰 사용 안내</div>
+				<div class="col-12 body4">
+					* 사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다. <br> * 쿠폰의 최소 주문금액은 배송비를
+					제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.<br> * 상품을 반품하거나 주문을 취소하셨다면, 구매에
+					사용하신 쿠폰은 소모됩니다.<br>
 				</div>
 			</div>
 		</div>
@@ -587,61 +664,86 @@ color: #FFFFFF;
 
 		<!-- 푸터단 -->
 
-<div class="row" id="footer">
-            <div class="container">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+		<div class="row" id="footer">
+			<div class="container">
+				<div class="row" id="row1">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
 
-                </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
 
 	</div>
 	<script>
-	$( window ).resize(function() {   //창크기 변화 감지
-		open_chatroom();
-	});
-	
-	function open_chatroom(){ 
-		var windowWidth = $( window ).width();
-		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
-			$(".navi-menu").css({"display":"none"});
-		} else {      //창 가로 크기가 500보다 클 경우  
-			$(".navi-menu").css({"display":"block"});
+		$(window).resize(function() { //창크기 변화 감지
+			open_chatroom();
+		});
+
+		function open_chatroom() {
+			var windowWidth = $(window).width();
+			if (windowWidth < 992) { //창 가로 크기가 500 미만일 경우  
+				$(".navi-menu").css({
+					"display" : "none"
+				});
+			} else { //창 가로 크기가 500보다 클 경우  
+				$(".navi-menu").css({
+					"display" : "block"
+				});
+			}
 		}
-		}
-	
-	//선택박스 화살표 방향 이미지
-		$("#registration").on("click",function(){
-		window.open("/coupon/toregistration", "",
-		"top=100,left=200,width=700,height=500");
-		})
-	let click = true;
-	$("#select").on("click",function(){
-		if(click==false){
-			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
-			
-			click = true;
-		}else{
-			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
-			click = false;
-		}
-	});
-// 		$("#make").on("click",function(){
-// 			$.ajax({
-// 				url:"/coupon/make",
-// 				data:{number:$("#number").val(),
-// 					dc:$("#dc").val(),
-// 					category:$("#category").val()}
-// 			}).done(function(resp){
-// 				console.log(resp);
-// 			})
-// 		})
-	
+
+		//선택박스 화살표 방향 이미지
+		$("#registration").on(
+				"click",
+				function() {
+					window.open("/coupon/toregistration", "",
+							"top=100,left=200,width=700,height=500");
+				})
+		let click = true;
+		$("#select")
+				.on(
+						"click",
+						function() {
+							if (click == false) {
+								$("#select")
+										.css(
+												{
+													"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ",
+													"background-size" : "1.596rem"
+												});
+								$(".navi-menu").css({
+									"display" : "none"
+								});
+
+								click = true;
+							} else {
+								$("#select")
+										.css(
+												{
+													"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ",
+													"background-size" : "01.596rem"
+												});
+								$(".navi-menu").css({
+									"display" : "block"
+								});
+								click = false;
+							}
+						});
+		// 		$("#make").on("click",function(){
+		// 			$.ajax({
+		// 				url:"/coupon/make",
+		// 				data:{number:$("#number").val(),
+		// 					dc:$("#dc").val(),
+		// 					category:$("#category").val()}
+		// 			}).done(function(resp){
+		// 				console.log(resp);
+		// 			})
+		// 		})
 	</script>
 </body>
 </html>

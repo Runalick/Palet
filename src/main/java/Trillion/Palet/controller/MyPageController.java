@@ -10,7 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
 
 @Controller
@@ -21,6 +23,9 @@ public class MyPageController {
 	private MypageService mServ;
 	
 	@Autowired
+	private MemberService memServ;
+	
+	@Autowired
 	private HttpSession session;
 	
 	@RequestMapping("outline")
@@ -29,7 +34,10 @@ public class MyPageController {
 		return "/mypage/outline";
 	}
 	@RequestMapping("main")
-	public String main() {
+	public String main(Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		MemberDTO dto = memServ.getmember(email);
+		model.addAttribute("dto",dto);
 		return "/mypage/MyPageMain";
 	}
 	

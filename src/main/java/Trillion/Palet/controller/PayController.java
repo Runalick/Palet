@@ -45,6 +45,7 @@ public class PayController {
 		System.out.println(	dto.getEt_count());
 		System.out.println(	dto.getEt_point());
 		System.out.println(	dto.getEt_buydate());
+		System.out.println(	dto.getEt_category());
 	    int result = pServ.insert(dto);
 	
 		 List<ExticketDTO> list = new ArrayList<ExticketDTO>();

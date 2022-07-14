@@ -81,7 +81,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
@@ -162,9 +162,12 @@
 							</div>                			
 			            	<form action="/admin/adminExhibitionUpdate" method="post">
 			            	<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Info</div>
-			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Info</div>
-			            		
+			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
+			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
+			            			<div class="row">
+			            				<div class="col-12 d-none d-lg-block body1 m-auto" style="width:60%" >- ${edto.e_name }</div>
+			            				<div class="col-12 d-lg-none body1 m-auto" style="width:85%" >- ${edto.e_name }</div>
+			            			</div>
 			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" >
 			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button>
 <!-- 			            			<button class='btn0_1 color_red2' type="button" id='deleteMember' >삭제</button> -->
@@ -303,6 +306,14 @@ $(".leftbutton").on("click", function() {
 
 	location.href = "/admin/adminExhibitionList?cpage=1";
 })
+
+    let cnt =0;
+    $(".navbar-toggler").on("click",function(){
+       cnt ++;
+       if(cnt>1){
+       $(".navbar-collapse").toggle();
+       }
+    })
 
 </script>
 	

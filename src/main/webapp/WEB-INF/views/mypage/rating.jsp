@@ -17,8 +17,6 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 	crossorigin="anonymous"></script>
-<link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
-	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
 
 <style>
@@ -67,7 +65,6 @@
 	background-color: white;
 	z-index: 5;
 }
-
 
 .navbar {
 	height: 5rem;
@@ -129,13 +126,15 @@
 	font-size: 2.25rem;
 	line-height: 2.688rem;
 }
-.body1{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 400;
-font-size: 1.25rem;
-line-height: 1.875rem;
+
+.body1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.875rem;
 }
+
 .H3 {
 	margin-bottom: 0.75rem;
 	display: inline-block;
@@ -147,12 +146,13 @@ line-height: 1.875rem;
 	line-height: 1.5rem;
 	display: inline-block;
 }
-.H1{
-font-family: 'Spoqa Han Sans Neo';
-font-style: normal;
-font-weight: 700;
-font-size: 3.438rem;
-line-height: 3.75rem;
+
+.H1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 3.438rem;
+	line-height: 3.75rem;
 }
 /* <옵션 내용 */
 .h4 {
@@ -191,126 +191,221 @@ line-height: 3.75rem;
 	/* Gray/300 */
 }
 
-
-
-
-
 @media ( min-width : 992px) {
-	.content{
-	  width: calc(100% - 13.625rem);
+	.content {
+		width: calc(100% - 13.625rem);
 	}
-	.navi{
-	width:11.875rem;
-	padding:0rem;
-	display:block;
+	.navi {
+		width: 11.875rem;
+		padding: 0rem;
+		display: block;
 	}
-	.body3{
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 1rem;;
-	line-height: 1.75rem;
+	.body3 {
+		font-family: 'Spoqa Han Sans Neo';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1rem;;
+		line-height: 1.75rem;
 	}
-	.body4{
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 1.25rem;
-	line-height: 1.875rem;
+	.body4 {
+		font-family: 'Spoqa Han Sans Neo';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1.25rem;
+		line-height: 1.875rem;
 	}
 }
 
 @media ( max-width : 991px) {
-	.main{
-	display:none;
+	.main {
+		display: none;
 	}
-	.navi-menu{
-	display:none;
+	.navi-menu {
+		display: none;
 	}
-	
-	.content{
-	  width: calc(100% - 1.625rem);
+	.content {
+		width: calc(100% - 1.625rem);
 	}
-	.navi{
-	padding:0rem;
+	.navi {
+		padding: 0rem;
 	}
-	.body3{
-	font-size:1.625rem;
+	.body3 {
+		font-size: 1.625rem;
 	}
-	.body4{
-	font-size:1.875rem;
+	.body4 {
+		font-size: 1.875rem;
 	}
 }
- .container, .container-fluid,  .container-lg, .container-md,
-   .container-sm, .container-xl, .container-xxl {
-   overflow-x: hidden;
-} 
+
 /* 네비 */
-
-.content{
-  
-    margin-left:1.75rem;
-}
-.mypage-wrap{
-margin:4.625rem auto 9.375rem;
-}
-body li{
-    list-style-type: none;
-    
-}
-body ul{
-padding:0px;
-}
-body a{
-text-decoration:none;
-}
-.menu-title{
-display:block;
-color:black;
-border-bottom:1px solid black;
-padding:1rem;
+.content {
+	margin-left: 1.75rem;
 }
 
-li div{
-background:#212B36;
-color:white;
-padding: 0.125rem 1rem;
+.mypage-wrap {
+	margin: 4.625rem auto 9.375rem;
 }
 
-.navi-ul li ul li a{
-color:#919EAB;
-line-height:2rem;
+body li {
+	list-style-type: none;
 }
-.navi-ul li ul li a:hover{
-color:#212B36;
-font-weight:700;
-line-height:2rem;
+
+body ul {
+	padding: 0px;
 }
-.small-navi{
-margin:1.25rem 0rem ;
+
+body a {
+	text-decoration: none;
 }
-#select{
-width:100%;
-border:0px;
-background:url('/images/downarrow.png') no-repeat 97% 50%/15px auto ;
-background-size: 01.596rem;
-text-align:left;
+
+.menu-title {
+	display: block;
+	color: black;
+	border-bottom: 1px solid black;
+	padding: 1rem;
 }
-.body3 a{
-display:block;
-padding: 0.3rem 1rem;
+
+li div {
+	background: #212B36;
+	color: white;
+	padding: 0.125rem 1rem;
 }
-div{
+
+.navi-ul li ul li a {
+	color: #919EAB;
+}
+
+.navi-ul li ul li a:hover {
+	color: #212B36;
+	font-weight: 700;
+}
+
+.small-navi {
+	margin: 1.25rem 0rem;
+}
+
+#select {
+	width: 100%;
+	border: 0px;
+	background: url('/images/downarrow.png') no-repeat 97% 50%/15px auto;
+	background-size: 01.596rem;
+	text-align: left;
+}
+
+.body3 a {
+	display: block;
+	padding: 0.3rem 1rem;
+}
+
+<!--
+버튼 -->.btn1 {
+	/* padding:  1.12rem 1.5rem; */
+	gap: 0.625rem;
+	/* width: 12.5rem; */
+	width: 100%;
+	height: 3.125rem;
+	/* Gray/900 */
+	color: #FFFFFF;
+	background: #161C24;
+	border-radius: 0.313rem;
+	/* Button/Button */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.0rem;
+	line-height: 1.2rem;
+	cursor: pointer;
+}
+
+.btn1:disabled {
+	color: #FFFFFF;
+	background: #C4CDD5;
+	cursor: default;
+}
+
+/* join 버튼 */
+.btn2 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	/* width: 18.813rem; */
+	width: 10rem;
+	height: 1rem;
+	color: #FFFFFF;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 0.5rem;
+	/* identical to box height */
+	text-align: center;
+	/* Gray/900 */
+	background: #161C24;
+	cursor: pointer;
+}
+
+.btn2:disabled {
+	color: #FFFFFF;
+	background: #C4CDD5;
+	cursor: default;
+}
+
+.btn3 {
+	/* display: block; */
+	/* flex-direction: row;
+justify-content: center;
+align-items: center; */
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 11.625rem;
+	height: 3.75rem;
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.2rem;
+	line-height: 1.5rem;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.btn5 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 18.813rem;
+	height: 3.75rem;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.23rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.ratingbox {
+	border: 1px solid black;
+}
+
+div {
 	text-align: center;
 }
 .mini{
- width: 7.5rem;
- height: 7.5rem;
+	width: 5rem;
+	height: 5rem;
+}
+.ratingbox{
+	padding-top: 1rem;
 }
 </style>
 </head>
 <body>
-	<header>
+<header>
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
@@ -458,65 +553,57 @@ div{
 		</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
-		<div class="container" style="padding-left:2.5rem;">
-			<div class="row mypage-wrap"  >
-			
-			<div class="col-12 d-block d-lg-none H1 small-navi" >
-			<button id="select" >MY PAGE</button>
-			</div>
-			
-			
-				<div class="navi" >
-				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
-				<strong class="menu-title">My Page</strong>
-				</a>
-				<div class="navi-menu">
-					<ul class="navi-ul">
-					<li>
-						<div class="body4">My Tickets</div>
-						<ul>
-							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
-						</ul>
-					</li>
-					<li>
-						<div class="body4">My Shopping</div>
-						<ul>
-							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
-							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
-						</ul>
-					</li>
-					<li>
-						<div class="body4">My Info</div>
-						<ul>
-							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
-							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
-						</ul>
-					</li>
-					</ul>
+		<div class="container">
+			<div class="row mypage-wrap">
+
+				<div class="col-12 d-block d-lg-none H1 small-navi">
+					<button id="select">MY PAGE</button>
 				</div>
+
+
+				<div class="navi">
+					<a href="/mypage/main" style="font-size: 1.625rem;" class="main"> <strong
+						class="menu-title">My Page</strong>
+					</a>
+					<div class="navi-menu">
+						<ul class="navi-ul">
+							<li>
+								<div class="body4">My Tickets</div>
+								<ul>
+									<li class="body3"><a href="#">티켓예매 목록</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="body4">My Shopping</div>
+								<ul>
+									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+									<li class="body3"><a href="#">취소/반품 내역</a></li>
+									<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
+								</ul>
+							</li>
+							<li>
+								<div class="body4">My Info</div>
+								<ul>
+									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+									<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
+									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 				</div>
-				
-				
-				
-				
-				
-				
+
 				<div class="content">
-					<div class="row" style="border: 1px solid black; background-color: #9f9f9f70">
-						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem;">
+					<div class="row" id="row1">
+						<div class="col-12 h3"> 
 								<c:if test="${dto.name==null }">
 									${dto.email}
 								</c:if> 
 								<c:if test="${dto.name!=null }">
 									${dto.name }
 								</c:if>
-								님<br>
-								안녕하세요.
-						</div><br>
-						<div class="col-sm-4 H3" style="padding-top: 1.75rem;"> 
+						님의 등급은 
 							<c:if test="${dto.grade == 'White'}">
 								<img src="/images/white.png" class="mini">
 							</c:if>
@@ -525,51 +612,76 @@ div{
 							</c:if><c:if test="${dto.grade == 'Black'}">
 								<img src="/images/black.png" class="mini">
 							</c:if>
-							<br>
-							${dto.grade}<br>
-							매주 월요일 반영
+							입니다.
 						</div>
-						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem;">
-								<span>마일리지<br></span>
-								<span>${dto.point } point</span>
+						<div class="col-12 body3">
+							
 						</div>
-						<div class="col-12 body4" style="border-bottom: 2px solid black;"></div>
+						<div class="col-12">
+							<div class="row">
+								<div class="col-md-4 col-sm-12 ratingbox body3">
+									<img src="/images/white.png"><br>
+									<br>
+									- White 등급<br>
+									- 결제금액의 1% 마일리지 적립<br>
+									- 회원가입시 white등급
+								</div>
+								<div class="col-md-4 col-sm-12 ratingbox body3">
+									<img src="/images/gray.png"><br>
+									<br>
+									 - Gray 등급<br>
+									 - 결제금액의 5% 마일리지 적립<br>
+									 - 누적 결제금액이 10만원 이상이면 Gray 등급으로 상승
+								</div>
+								<div class="col-md-4 col-sm-12 ratingbox body3">
+									<img src="/images/black.png"><br>
+									<br>
+									- Black 등급<br>
+									- 결제금액의 10% 마일리지 적립<br>
+									- 누적 결제 금액이 30만원 이상이면 Black 등급으로 상승
+								</div>
+								<div class="col-12 H2" style="text-decoration: underline;">
+									등급 산정 정책
+								</div>
+								<div class="col-12 body4" >
+									* 등급 변동일은 매주 월요일 관리자에 의해 변동됩니다.<br>
+									* 휴면계정 전환시 회원 등급이 초기화 됩니다.<br>
+								</div>
+								<div class="col-12 H2" style="text-decoration: underline;">
+									혜택별 상세 정보
+								</div>
+								<div class="col-12 body4">
+									* 전시 또는 프로그램 관람 횟수 카운팅은 유료 전시 및 프로그램에 한하여 적용됩니다.<br>
+									* 동일 전시 재관람 혜택 이용 시 금액이 추가적용되지 않습니다.<br>
+									* 누적 구매액은 실제 결제금액 기준으로 집계됩니다.<br>
+									* 쿠폰은 결제에 사용후 구매취소 시 재 지급 되지 않습니다.<br>
+									* 쿠폰과 마일리지의 중복 적용은 가능합니다.<br>
+									* 혜택, 등급선정기준, 등급조정 등 회원 정책은 업체의 사정에 따라 변경될 수 있습니다.<br>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
-
-			
-
-			
-
-
-
-
-
 			</div>
 		</div>
 
-
-
-
-
-
-
-
-		<!-- 푸터단 -->
+		<!-- 푸터단 -->	
 
 		<div class="row" id="footer">
-            <div class="container">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+			<div class="container">
+				<div class="row" id="row1">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
 
-                </div>
-            </div>
-        </div>
+				</div>
+			</div>
+		</div>
 
 	</div>
-	
 	<script>
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
@@ -584,13 +696,11 @@ div{
 		}
 		}
 	
-	//쿠폰등록
-	   $("#registration").on("click",function(){
-      window.open("/coupon/toregistration", "",
-      "top=100,left=200,width=700,height=500");
-      })
-	
 	//선택박스 화살표 방향 이미지
+		$("#registration").on("click",function(){
+		window.open("/coupon/toregistration", "",
+		"top=100,left=200,width=700,height=500");
+		})
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
@@ -604,6 +714,9 @@ div{
 			click = false;
 		}
 	});
+	
 	</script>
 </body>
 </html>
+
+
