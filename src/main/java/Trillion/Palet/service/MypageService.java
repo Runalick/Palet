@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.MypageDAO;
+import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.PayDTO;
 
@@ -28,8 +29,8 @@ public class MypageService {
 	}
 	
 
-	public List<ExticketDTO> premyTicket(String email) {
-		return mdao.premyTicket(email);
+	public List<ExticketDTO> premyTicket(String email,int limit ) {
+		return mdao.premyTicket(email,limit);
 	}
 	public int premyTicketcnt(String email) {
 		return mdao.premyTicketcnt(email);
@@ -37,6 +38,12 @@ public class MypageService {
 
 	public ExticketDTO myTicketDetailview(String et_booknumber) {
 		return mdao.myTicketDetailview(et_booknumber);
+	}
+
+	public int payCancel(CancelDTO dto) {
+		
+		mdao.BeforeCancel(dto);
+		return mdao.payCancel(dto);
 	}
 	
 }
