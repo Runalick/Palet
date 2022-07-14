@@ -301,7 +301,7 @@ display:block;
 padding: 0.3rem 1rem;
 }
 div{
-text-align: center;
+	text-align: center;
 }
 .mini{
  width: 7.5rem;
@@ -504,18 +504,19 @@ text-align: center;
 				
 				
 				
-				<div class="content" style="border:1px solid black">
-					<div class="row">
-						<div class="col-sm-12 H2">
+				<div class="content">
+					<div class="row" style="border: 1px solid black; background-color: #9f9f9f70">
+						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem;">
 								<c:if test="${dto.name==null }">
 									${dto.email}
 								</c:if> 
 								<c:if test="${dto.name!=null }">
 									${dto.name }
 								</c:if>
-								님 안녕하세요.
+								님<br>
+								안녕하세요.
 						</div><br>
-						<div class="col-12 H3"> 
+						<div class="col-sm-4 H3" style="padding-top: 1.75rem;"> 
 							<c:if test="${dto.grade == 'White'}">
 								<img src="/images/white.png" class="mini">
 							</c:if>
@@ -524,10 +525,15 @@ text-align: center;
 							</c:if><c:if test="${dto.grade == 'Black'}">
 								<img src="/images/black.png" class="mini">
 							</c:if>
+							<br>
+							${dto.grade}<br>
+							매주 월요일 반영
 						</div>
-						<div class="col-12 H3">
-							
+						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem;">
+								<span>마일리지<br></span>
+								<span>${dto.point } point</span>
 						</div>
+						<div class="col-12 body4" style="border-bottom: 2px solid black;"></div>
 					</div>
 				</div>
 
