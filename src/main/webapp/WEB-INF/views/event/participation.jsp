@@ -15,6 +15,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -166,7 +168,7 @@
             /* Gray/900 */
 
             color: #161C24;
-
+			margin-top: 10px;
 
             /* Inside auto layout */
 
@@ -195,7 +197,7 @@
             /* Gray/900 */
 
             color: #161C24;
-
+			margin-top: 10px;
 
             /* Inside auto layout */
 
@@ -313,12 +315,13 @@
 </style>
 </head>
 <body>
-<div class="container-fluid" id="navparent">
+<div class="container-fluid">
+	<div class="row">
 	<div class="container">
 		<div class="row navrow" style="align-items: center;">
 			<div class="col-3">
-				<a class="navbar-brand" href="/" id="container" style="padding :0px;">
-                	<img src="/images/Logo.svg" border=0>
+				<a class="navbar-brand" href="/" style="padding :0px;">
+                	<img src="/images/Logo.svg" border=0 style="margin-top: 10px;">
                 </a>
 			</div>
 			<div class="col-9 d-none d-sm-block">
@@ -331,27 +334,46 @@
 			</div>
 		</div>
 	</div>
-</div>
+	</div>
 
-<div class="container-fluid"">
+
 	<div class="row">
-	<div class="container">
-		<div class="row" style="padding-top: 120px;" align=center>
-			<div class="col h2">
-				오늘의 상상일기를 그림으로 표현해보세요.
+		<div class="container">
+			<div class="row" style="padding-top: 120px;" align=center>
+				<div class="col h2">
+					오늘의 상상일기를 그림으로 표현해보세요.
+				</div>
 			</div>
-		</div>
-		<div class="row" align=center>
-			<div class="col body2_1">
-				· 본 이벤트는 1 계정당 1회만 참여 가능합니다.<br>
-				· 그림은 관리자 승인 후 업데이트 됩니다.<br>
-				· 이벤트 참여시 추첨을 통해 'Palet' 할인쿠폰을 지급해드립니다.
+			<div class="row" align=center>
+				<div class="col body2_1">
+					· 본 이벤트는 1 계정당 1회만 참여 가능합니다.<br>
+					· 그림은 관리자 승인 후 업데이트 됩니다.<br>
+					· 이벤트 참여시 추첨을 통해 'Palet' 할인쿠폰을 지급해드립니다.
+				</div>
 			</div>
+			
+		<div class="row" style="padding-top: 50px; padding-bottom: 50px;" id="container">
+		</div>	
+		
+		
 		</div>
-	<c:choose>
-		<c:when test="${loginEmail == 'admin@palet.com'}">
-			<div class="row" style="padding-top: 50px; padding-bottom: 50px;">
-			<c:forEach var="i" items="${all}">
+	</div>
+	
+	<div class="row" id="footer" style=margin-top: 50px;">
+	        <div class="container" style="width: 80%;">
+	        	<div class="row" id="row1">
+	        		<div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+	                <div class="col-12 body2" style = "color: #637381; padding-right: 60px;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+	                <div class="col-12 body2" style = "color: #637381; ">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+	        	</div>
+	    	</div>
+	</div>
+</div>		
+	<%-- <c:choose>
+		<c:when test="${loginEmail == 'admin@palet.com'}"> -
+			<div class="row" style="padding-top: 50px; padding-bottom: 50px;" id="container">
+			</div>
+			 <c:forEach var="i" items="${all}">
 				<div class="col-12 col-md-6 col-lg-3">
 					<div class="row" align=center style="padding-top: 50px;">
 						
@@ -380,13 +402,13 @@
 						
 					</div>
 				</div>
-			</c:forEach>
+			</c:forEach> 
 			</div>
 		</c:when>
 		
 		<c:otherwise>
-			<div class="row" style="padding-top: 50px; padding-bottom: 50px;">
-			<c:forEach var="i" items="${okconfirm}">
+			<div class="row" style="padding-top: 50px; padding-bottom: 50px;" id="container">
+			<%-- <c:forEach var="i" items="${okconfirm}">
 				<div class="col-12 col-md-6 col-lg-3">
 					<div class="row" align=center style="padding-top: 50px;">
 						<div class="col-12 p-0" style="align-items: center;">
@@ -401,28 +423,89 @@
 						
 					</div>
 				</div>
-			</c:forEach>
+			</c:forEach> 
 			</div>
 		</c:otherwise>
-	</c:choose>
-	</div>
-	<div class="row" id="footer" style=margin-top: 50px;">
-        <div class="container" style="width: 80%;">
-        	<div class="row" id="row1">
-        		<div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                <div class="col-12 body2" style = "color: #637381; padding-right: 60px;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                <div class="col-12 body2" style = "color: #637381; ">3호선 경복궁역 지하 1층 | contact@palet.com</div>
-			</div>
-        </div>
-    </div>
-	
-</div>
+	</c:choose> --%>
+
 
 	
 	<script>
+	AOS.init();
 	window.onload = function(){
-		console.log("${loginEmail}");
-	}
+		$.ajax({
+			url:"/event/contents",
+			data:{limit : 1},
+			async: false,
+			dataType:"json", // == JSON.parse(resp);
+			success: function (resp) {
+				for(let i = 0 ; i < resp.length; i++) {
+					let text_html = 
+						"<div class='col-12 col-md-6 col-lg-3'>"
+						+ "<div class='row' align=center style='padding-top: 50px;'>"
+						+	"<div class='col-12 p-0' style='align-items: center;'>"
+						+		"<img src=" + resp[i].d_file + " style='width:200px; height:200px;'>"
+						+	"</div>"
+						+	"<div class='col-12 ellipsis'>"
+						+		"제목 : " + resp[i].d_title 
+						+	"</div>"
+						+	"<div class='col-12 ellipsis'>"
+						+		"그린이 : " + resp[i].painter 
+						+	"</div>"
+						+"</div>"
+						+"</div>";
+					
+					console.log(text_html);
+			    	$("#container").append(text_html); 
+			    	console.log("resp.length : " + resp.length);
+				}
+			},
+		});	
+	
+	 	let limit = 12;
+		
+		
+	  	$(document).scroll(function() {
+	    let maxHeight = $(document).height();
+	    let currentScroll = $(window).scrollTop() + $(window).height();
+		   
+		   
+		    if (maxHeight <= currentScroll+100) {
+		    	console.log("origin limit : " + limit);
+		    	$.ajax({
+					url:"/event/contents",
+					data:{limit : limit},
+					async: false,
+					dataType:"json", // == JSON.parse(resp);
+					success: function (resp) {
+						for(let i = 0 ; i < resp.length; i++) {
+							let text_html = 
+								"<div class='col-12 col-md-6 col-lg-3'>"
+								+ "<div class='row' align=center style='padding-top: 50px;'>"
+								+	"<div class='col-12 p-0' style='align-items: center;'>"
+								+		"<img src=" + resp[i].d_file + " style='width:200px; height:200px;'>"
+								+	"</div>"
+								+	"<div class='col-12 ellipsis'>"
+								+		"제목 : " + resp[i].d_title 
+								+	"</div>"
+								+	"<div class='col-12 ellipsis'>"
+								+		"그린이 : " + resp[i].painter 
+								+	"</div>"
+								+"</div>"
+								+"</div>";
+							
+							//console.log(text_html);
+					    	$("#container").append(text_html); 
+					    	console.log(text_html);
+						}
+						limit = limit + resp.length;
+				    	console.log("change limit : " + limit);	
+					},
+					});
+		    	} 
+		      })  
+		}
+	
 
 	$("#paint").on("click", function(){
 		location.href="/event/paint";
@@ -461,6 +544,8 @@
 			location.reload();
 		})
 	})
+	
+	
 	
 	
 	

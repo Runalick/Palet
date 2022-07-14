@@ -58,8 +58,8 @@ public class EventService {
 		
 	}
 
-	public List<Object> selectConfirm() {
-		return dao.selectConfirm();
+	public List<Object> selectConfirm(int limit) {
+		return dao.selectConfirm(limit);
 	}
 
 	public int findEmail(String email) {

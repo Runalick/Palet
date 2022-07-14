@@ -52,8 +52,14 @@
 		delete drawing where draw_seq=#{draw_seq}
 	</delete>
 	
-	<select id="selectConfirm" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
+	<!-- <select id="selectConfirm" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
 	   select * from drawing where admin_ok='Y'
+	</select> -->
+	
+	<select id="selectConfirm" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
+	   select * from(select row_number() over(order by draw_seq) as num, 
+		draw_seq, d_title, painter, d_file, email, admin_ok from drawing where admin_ok='Y') 
+		where num between #{limit} and #{limit}+10
 	</select>
 	
 	
