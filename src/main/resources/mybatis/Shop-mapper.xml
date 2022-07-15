@@ -5,7 +5,7 @@
   
   <mapper namespace="Shop">
 
-  	<select id="selectBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">
+  	<select id="selectGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
   		select goods.g_name, g_price, goods.g_num, gp_sysname from goods 
 		left outer join goodspic on goods.g_num = goodspic.g_num
 		where goods.e_num = #{e_num}
@@ -16,4 +16,4 @@
 		</trim>
   	</select>  	
   	
-  </mapper>
+  </mapper>	
