@@ -82,8 +82,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminPayment" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -153,16 +158,26 @@
             		<div class="row" style="margin-top: 5rem">
                 		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Payments Log </div>
                 		<div class="col-12 body2 colortext_gray600 px-5" >  : 최근 30일 간의 결제 정보를 확인 할 수 있는 페이지 입니다. </div>
-                	</div>   
+                	</div>
+                	<div class="row pt-3 px-5">
+						<div class="col-12 mr-auto" id="paymentBtns">
+							<button class="btn0 color_gray900 colortext_gray100" id="paymentList">결제 현황</button>
+							<button class="btn0 " id="cancelList">취소 현황</button>
+						</div>
+                	</div>                	   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
                 			<div class="row pt-4 p-4" style="text-align:right">
  								<div class="col-12 d-none d-md-block" id="checkbtns" style="text-align:right">
  									<!-- 이름/uid/email으로 검색되는 서치바 필요할 것으로 보임  -->
-                                	<form action="">
+                                	<form action="/admin/adminPayment?cpage=1" method='post'>
                                     <div class="searchBox">
-                                        <input type="text" class="searchInput2" placeholder="Search">
-                                        <button type="button" class="btn btn-light searchBtn2">
+                                    	<select class="select0" name='checked'>
+                                    		<option value='U'>UID</option>
+                                    		<option value='N'>Name</option>
+                                    	</select>
+                                        <input type="text" class="searchInput2" name="search" placeholder="Search">
+                                        <button type="submit" class="btn btn-light searchBtn2">
                                             <i class="bi bi-search"></i>
                                         </button>
                                     </div>
@@ -262,6 +277,15 @@
        $(".navbar-collapse").toggle();
        }
     })
+    
+    
+    $("#paymentList").on("click", ()=>{
+ 		location.href = "/admin/adminPayment?cpage=1";
+ 	})
+ 	
+ 	$("#cancelList").on("click", ()=>{
+ 		location.href = "/admin/adminCancelPayment?cpage=1";
+ 	})
  </script>   
 </body>
 </html>
