@@ -23,10 +23,6 @@ public class MypageService {
 	public int myTicketcnt(String email) {
 		return mdao.myTicketcnt(email);
 	}
-
-	public List<PayDTO> myShopping(String email) {
-		return mdao.myShopping(email);
-	}
 	
 
 	public List<ExticketDTO> premyTicket(String email,int limit ) {
@@ -46,5 +42,12 @@ public class MypageService {
 		mdao.BeforeCancel(dto);
 		return mdao.payCancel(dto);
 	}
+	
+	// Shopping
+
+	public List<Object> myShopping(int limit, String email) {
+		return mdao.myShopping(limit, email);
+	}
+
 	
 }

@@ -26,9 +26,6 @@ public class MypageDAO {
 		return mybatis.selectOne("MyPage.myTicketcnt",email);
 	}
 
-	public List<PayDTO> myShopping(String email) {
-		return mybatis.selectList("MyPage.myShopping", email);
-	}
 	
 	//지난전시, 쓴 티켓
 	public List<ExticketDTO> premyTicket(String email,int limit ) {
@@ -75,5 +72,14 @@ public class MypageDAO {
 		return mybatis.insert("MyPage.payCancel",dto);
 	}
 	
+	
+	// Shopping
+	
+	public List<Object> myShopping(int limit, String email) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("limit", limit);
+		param.put("email", email);
+		return mybatis.selectList("MyPage.myShopping", param);
+	}
 
 }

@@ -458,7 +458,7 @@
 						+		"참여자 : " + resp[i].email 
 						+	"</div>"
 						
-						+	"<div class='col-12 ellipsis' id=" + i + ">"
+						+	"<div class='col-12 ellipsis' id=" + i + " style='visibility:hidden;'>"
 						+		resp[i].admin_ok
 						+	"</div>"
 						+	"<div class='col'>"
@@ -528,7 +528,7 @@
 								+		"참여자 : " + resp[i].email 
 								+	"</div>"
 								
-								+	"<div class='col-12 ellipsis' id=" + i + ">"
+								+	"<div class='col-12 ellipsis' id=" + i + " style='visibility:hidden;'>"
 								+		resp[i].admin_ok
 								+	"</div>"
 								+	"<div class='col'>"
