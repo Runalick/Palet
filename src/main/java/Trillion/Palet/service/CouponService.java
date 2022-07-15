@@ -34,4 +34,9 @@ public class CouponService {
 			dao.make(serial,dc,category);
 		}
 	}
+	
+	//[티켓] 쿠폰 이름 가져오기
+	public CouponDTO getCouponName(String et_cpserial) {
+		return dao.getCouponName(et_cpserial);
+	}
 }

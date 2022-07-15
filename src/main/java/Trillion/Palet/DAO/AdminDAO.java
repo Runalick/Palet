@@ -8,11 +8,12 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
-import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.SalesDTO;
+import Trillion.Palet.DTO.TotalPaymentDTO;
 
 @Repository
 public class AdminDAO {
@@ -280,7 +281,7 @@ public class AdminDAO {
 	
 	// Payment Category
 	
-	public List<PayDTO> paymentSelectByPage (int cpage) {
+	public List<TotalPaymentDTO> paymentSelectByPage (int cpage) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);
 		Map<String, String> param = new HashMap<>();
@@ -340,6 +341,14 @@ public class AdminDAO {
 			sb.append(link+(endNavi+1)+"'>> </a>");
 		}
 		return sb.toString();
+	}
+	
+	public AdminDTO getAdminPayDetail (String merchant_uid) {
+		return mybatis.selectOne("Admin.getAdminPayDetail", merchant_uid);
+	}
+	
+	public AdminDTO getAdminExticketDetail (String merchant_uid) {
+		return mybatis.selectOne("Admin.getAdminExticketDetail", merchant_uid);
 	}
 	
 	// etc..

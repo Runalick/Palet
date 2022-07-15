@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>Admin Page</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -165,8 +165,8 @@
                 			
 			            	<form action="/admin/adminMemberUpdate" method="post">
 			            	<div class="row pt-4 m-3 mb-4">
-			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Info</div>
-			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Info</div>
+			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
+			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
 			            		
 			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" >
 			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button>

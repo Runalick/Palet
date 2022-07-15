@@ -181,8 +181,17 @@
 }
 
 .active {
-background-color: #000;
-color:#fff;
+	background-color: #000;
+	color:#fff;
+}
+
+.active1 {
+	color: #161C24;
+
+}
+
+.exhibitionLink{
+	color:
 }
 
 /* font */
@@ -215,35 +224,59 @@ color:#fff;
 
 <body>
 	<div class="container-fluid" id=navparent>
-        <div class="container">
-            <div class="row" id="container1">
-                <nav class="navbar navbar-expand-sm bg-light navbar-light">
-                    <div class="container" id="navparent"> <a class="navbar-brand" href="#" id="container"
-                            style="padding :0px;"><img src="/images/Logo.svg" border=0></a> <button class="navbar-toggler"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar"> <span
-                                class="navbar-toggler-icon"></span> </button>
-                        <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                            <ul class="navbar-nav">
-                                <li class="nav-item"> <a id="About" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">About</a> </li>
-                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
-                                <li class="nav-item"> <a id="Shop" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
-                                <li class="nav-item"> <a id="Help" class="nav-link" href="#"
-                                        style="padding-left:0px; padding-right:0px;">Help</a> </li>
-                                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
-                                        style="padding-left:0px; padding-right:0px;">Login</a> </li>
-                                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
-                                        style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
-<!--                                 <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain" -->
-<!--                                 		style="padding-left:0px; padding-right:0px;">Admin</a> </li> -->
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
+<div class="container-fluid"
+			style="background-color: white; position: fixed;">
+			<div class="container">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+									<li class="nav-item"><a id="Exhibition" class="nav-link"
+										href="/Exhibition/toCurExhibition"
+										style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
+									<li class="nav-item"><a id="Exhibition" class="nav-link"
+										href="/program/toProgram"
+										style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+									<li class="nav-item"><a id="Shop" class="nav-link"
+										href="/shop/toShop"
+										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+									<li class="nav-item"><a id="Login" class="nav-link"
+										href="/member/loginPage"
+										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+									<li class="nav-item"><a id="Signup" class="nav-link"
+										href="/member/join"
+										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+									<li class="nav-item"><a id="Admin" class="nav-link"
+										href="/admin/adminMain"
+										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+									<li class="nav-item"><a id="Mypage" class="nav-link"
+										href="/member/mypage"
+										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+								</ul>
+							</div>
+						</div>
+					</nav>
+
+				</div>
+			</div>
+
+		</div>
     </div>
 
     <script>
@@ -265,8 +298,8 @@ color:#fff;
 						<div class="h2" style="display: inline-block; margin-right: 55.125rem; ">Shop</div>
                     </div>
                     <div class="col-3" style="text-align: right; ">
-						<div class="currentExhibition h3" style="display: inline-block; margin-right: 3rem;">현재전시</div>
-						<div class="pastExhibition h3" style="display: inline-block; ">지난전시</div>
+						<div class="currentExhibition h3 exhibitionLink" id="currentExhibition" style="display: inline-block; margin-right: 3rem;">현재전시</div>
+						<div class="pastExhibition h3 exhibitionLink" id="pastExhibition" style="display: inline-block; ">지난전시</div>
                     </div>
 				</div>
 					<div class="row" style="padding-top: 45px;">
@@ -317,13 +350,22 @@ color:#fff;
             }).done(function(resp){
             	console.log(resp);
             	for(i=0; i < resp.length; i++){
-            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
+            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
             	}
             })
 
     	}
+    	
+    	if(!($("#currentExhibition").hasClass("active1"))){
+    		$("#currentExhibition").addClass("active1");
+    		$.ajax({
+    			
+    		})
+    	}
+    	
     }
 
+    
      $(".button").on("click",function(){
         $(this).addClass("active");
         $(".button").not(this).removeClass("active");

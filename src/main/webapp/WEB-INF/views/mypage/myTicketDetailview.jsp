@@ -32,8 +32,16 @@
 	html {
 		font-size: 12px;
 	}
+	#select-wrap .select-ul{
+		width:37.6rem;
+	}
 }
-
+@media ( min-width : 503px) {
+	
+	#select-wrap .select-ul{
+		width:39.2rem;
+	}
+}
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
@@ -42,7 +50,11 @@
 	html {
 		font-size: 16px;
 	}
+	#select-wrap .select-ul{
+		width:37.6rem;
+	}
 }
+
 
 * {
 	box-sizing: border-box;
@@ -296,7 +308,7 @@ line-height:2rem;
 .small-navi{
 margin:1.25rem 0rem ;
 }
-#select{
+#select, #selectcancel{
 width:100%;
 border:0px;
 background:url('/images/downarrow.png') no-repeat 97% 50%/15px auto ;
@@ -439,8 +451,58 @@ font-family: 'Spoqa Han Sans Neo';
 	font-weight: 500;
 	line-height: 1.875rem;
 }
-.modal-body{
-padding-right:0px;
+
+
+#selectcancel {
+	width: 23.5rem;
+	height: 3rem;
+	line-height: 2.35rem;
+	box-sizing: border-box;
+	
+	border: 0.063rem solid #CFD4D9;
+	box-shadow: 0px 0px 0px #CBDAFC;
+	border-radius: 0.313rem;
+	margin-bottom: 3.75rem;
+	color: #637381;
+	background: #FFFFFF url('/images/uparrow.png') no-repeat 97% 50%/15px auto;
+	background-size: 0.796rem;
+	padding: 0.3rem 1.875rem 0.3rem 0.6rem;
+	border: 0.06rem solid #b8b8b8;
+	overflow: hidden;
+	font-size: 1rem;
+	color: #666666;
+}
+#selectcancel{
+width:100%;
+margin-top:1rem;
+margin-bottom:1rem;
+}
+
+.select-ul {
+	list-style-type: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 1rem;
+	color: #666666;
+	border: 1px solid #b8b8b8;
+	display: none;
+	position: absolute;
+	top:3rem;
+	background: #FFFFFF;
+	border-top: none;
+	padding: 0px;
+}
+#select-wrap .select-ul{
+top:4rem;
+}
+.select-ul li {
+	padding: 0.625rem 0 0.625rem 1.125rem;
+	width: 100%;
+	
+}
+
+.select-ul li:hover {
+	background-color: #F4F6F8;
 }
 </style>
 </head>
@@ -614,7 +676,7 @@ padding-right:0px;
         <h5 class="modal-title body4">티켓보기</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" >
 								<div class="col-12 ticket">
 									<input type="hidden" value="${dto.et_booknumber }">
 									<div class="row" style="height: 100%">
@@ -652,13 +714,13 @@ padding-right:0px;
         <h5 class="modal-title paymodal-title">구매 취소</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding-right:0px;">
 			<div class="row">
 		
 			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
 				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
-					<div class="col-8" style="margin-bottom:3rem; width:31rem;">
+					<div class="col-8" style="margin-bottom:3rem; width:30rem;">
 						<div class="row modal-ticket-row" >
 							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.et_title }</div>
 							<div class="col-12 paymodal-title2">${dto.et_booknumber }</div>
@@ -670,9 +732,19 @@ padding-right:0px;
 						</div>
 					
 					</div>
-					<div class="row" style="padding-right:0.25rem; width:41rem;">
+					<div class="row" style="padding-right:0.25rem; width:41.7rem;">
 						<div class="col-12 paymodal-title">취소 사유</div>
-						<div class="col-12" style="margin-bottom:">
+					<div id="select-wrap" style="position:relative;">
+								<div id="selectcancel">상품옵션을 선택하세요</div>
+								<ul class="select-ul">
+									
+										<li class="li" >단순 변심</li>
+											<li class="li" >주문 실수</li>
+											<li class="li write" >직접 입력</li>
+								</ul>
+							</div>
+
+						<div class="col-12 write-contents" style="display:none;">
 							<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." ></textarea>
 						</div>
 					</div>
@@ -685,7 +757,7 @@ padding-right:0px;
 							<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
 							<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
-							<div class="col-7 total" style="margin-bottom:1rem">${dto.et_cpserial }</div>
+							<div class="col-7 total" style="margin-bottom:1rem">${cdto.category }</div>
 							<div class="col-5 total" style="margin-bottom:1rem">포인트 사용</div>
 							<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
@@ -724,8 +796,29 @@ padding-right:0px;
   </div>
 </div>
 
-<!-- 결제취소 확인 모달 -->
+
+<!-- 결제취소 재확인 모달 -->
 <div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title paymodal-title">구매 취소</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
+        구매 취소 하시겠습니까?
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
+        <button class="btn btn-dark total pay-cancel" value=${dto.et_booknumber } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- 결제취소 확인 모달 -->
+<div class="modal fade" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -736,7 +829,7 @@ padding-right:0px;
         구매가 취소되었습니다.
       </div>
       <div class="modal-footer">
-        <button class="btn btn-dark total" data-bs-dismiss="modal">확인</button>
+        <button class="btn btn-dark total ok" data-bs-dismiss="modal">확인</button>
       </div>
     </div>
   </div>
@@ -772,7 +865,64 @@ padding-right:0px;
 	</div>
 	
 	<script>
+	$(".ok").on("click",function(){
+		location.reload();
+	})
+	//구매 취소 확인 버튼
+	$(".pay-cancel").on("click",function(){
+		console.log($(".input").val());
+		$.ajax({
+			url:"/mypage/payCancel",
+			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
+		}).done(function(resp){
+			console.log("성공");
+		})
+	})
 	
+	
+	
+	//환불 li
+	
+	
+	$(".li").on("click",function(){
+		$("#selectcancel").text($(this).text());
+		if($(this).attr("class")=='li write'){
+			$(".write-contents").css("display","block");
+			$(".input").text("");
+		}else{
+			$(".write-contents").css("display","none");
+			$(".input").text($(this).text());
+		}
+		$(".select-ul").toggle();
+	})
+	//환불 select
+	let clickselect = false;
+	$("#selectcancel").on("click",function(){
+		if(click==false){
+			$("#selectcancel").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "0.796rem"});
+			clickselect = true;
+		}else{
+			$("#selectcancel").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "0.796rem"});
+			clickselect = false;
+		}
+	});
+	//선택박스누를 시 옵션 열기
+	$("#selectcancel").on("click", function () {
+	    $(".select-ul").toggle();
+	})
+	
+	/* 셀렉트 박스 옵션 선택 */
+
+	
+// /* 셀렉트 박스 이외 선택시 보이지 않게 하기 */
+$("body").on("click", function(e){
+	if($(".select-ul").css("display") == "block"){
+    	if($("#select-wrap").has(e.target).length == 0){
+        	$(".select-ul").hide()
+        }
+    }
+
+})
 	
 	
 	$(document).ready(function(){

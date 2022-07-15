@@ -489,11 +489,12 @@ color:white;
 							</div>
 							
 							
-							
+							<c:if test="${defaultAddress.receiver !=null}">
 					<div class="row list" >
                         <div class="col-2 body3">
                         	<div class="row">
                         		
+					
                         		<div class="col-12" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
                         	<div class="col-12">${defaultAddress.receiver }</div>
                         	</div>
@@ -507,7 +508,7 @@ color:white;
                         <button class="btnbtn sm-btn body3 defaultdelete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
                         </div>
                      </div>
-							
+							</c:if>
 					<c:forEach var="i" items="${list }">
                      <div class="row list" >
                         <div class="col-2 body3">${i.receiver }</div>

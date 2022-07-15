@@ -42,13 +42,37 @@
   	
   	<!-- Payment -->
   	
-  	<select id="paymentSelectByPage" resultType="Trillion.Palet.DTO.PayDTO">
-  		select * from (select row_number() over(order by pay_time desc) line, payment.* from payment) where line between #{start} and #{end}
+  	<select id="paymentSelectByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">
+  		with total1 as (
+		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
+		UNION ALL
+		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket),
+		total2 as(
+		select row_number() over(order by pay_time desc) line, merchant_uid, name, email, phone, totalprice, pay_time, state, category
+		from total1)
+		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from total2 where line between #{start} and #{end}
   	</select>
   	
   	<select id="getPaymentTotalCount" resultType="int">
-  		select count(*) from payment
+  		select count(*)
+		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
+		UNION ALL
+		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket)
   	</select>
   	
+  	<select id="getAdminPayDetail" resultType="Trillion.Palet.DTO.AdminDTO">
+  		select merchant_uid, name, email, phone, address1, address2, zipcode, g_name as title,
+  		 card_name, card_number, card_quota, state, category, totalprice as price, pay_time, delivery_text from payment 
+  		 where merchant_uid = #{value}
+  	</select>
+  	
+  	<select id="getAdminExticketDetail" resultType="Trillion.Palet.DTO.AdminDTO">
+  		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone,
+		et_title as title, et_place as place, et_paymethod as card_name, et_date as period, et_state as state,
+		et_category as category, et_cost as price, et_buydate as pay_time, et_count as count, et_point as point,
+		et_usedpoint as usedpoint, et_cpdiscount as cpdiscount, et_cpserial as cpserial from exticket where et_booknumber = #{value}
+	</select>
   	
   </mapper>

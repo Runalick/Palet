@@ -310,7 +310,7 @@ div{
 </style>
 </head>
 <body>
-	<header>
+<header>
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
@@ -448,14 +448,9 @@ div{
 					</nav>
 				</div>
 				</c:otherwise>
-				
-				
-				
-				
 				</c:choose>
 			</div>
-
-		</div>
+			</div>
 	</header>
 	<div class="container-fluid" id="mypage-area">
 		<div class="container" style="padding-left:2.5rem;">

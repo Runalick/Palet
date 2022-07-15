@@ -77,6 +77,11 @@ public class MemberDAO {
 	public String getName(String email) {
 		return mybatis.selectOne("Member.getName",email);
 	}
+	
+	
+	 public MemberDTO getpoint(String email) {
+	    	return mybatis.selectOne("Member.getpoint",email);
+	    }
     
 
 }
