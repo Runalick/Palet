@@ -33,7 +33,8 @@
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">
-  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price}, e_period = #{e_period} where e_num = #{e_num}
+  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price}, e_period = #{e_period} 
+  		where e_num = #{e_num}
   	</update>
   	
   	<!-- Goods -->
@@ -117,5 +118,33 @@
 		et_category as category, et_cost as price, et_buydate as pay_time, et_count as count, et_point as point,
 		et_usedpoint as usedpoint, et_cpdiscount as cpdiscount, et_cpserial as cpserial from exticket where et_booknumber = #{value}
 	</select>
+  	
+  	<select id="cancelSelectByPage" resultType="Trillion.Palet.DTO.CancelDTO">
+  		select * from (select row_number() over(order by cancel_seq desc) line, cancel.* from cancel) where line between #{start} and #{end}
+  	</select>
+  	
+  	<select id="getCancelTotalCount" resultType="int">
+  		select count(*) from cancel
+  	</select>
+  	
+  	<!-- Cancel Logic -->
+  	
+  	<select id="categoryCheck" resultType="String">
+  		select category from (select category, merchant_uid from payment UNION ALL select et_category as category, et_booknumber as merchant_uid from exticket) 
+  		where merchant_uid = #{value}
+  	</select>
+  	
+  	<update id="cancelExticketUpdate">
+  		update exticket set et_category = 'AC' where et_booknumber = #{value}
+  	</update>
+  	
+  	<update id="cancelGoodsUpdate">
+  		update payment set category = 'AC' where merchant_uid = #{value}
+  	</update>  	
+  	
+  	<delete id="cancelPaymentCheckDelete">
+  		delete from cancel where booknumber = #{value}
+  	</delete>
+  	
   	
   </mapper>
