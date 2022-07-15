@@ -39,4 +39,13 @@ public class CouponService {
 	public CouponDTO getCouponName(String et_cpserial) {
 		return dao.getCouponName(et_cpserial);
 	}
+	public List<CouponDTO> getAllList() throws Exception{
+		return dao.getAllList();
+	}
+	public String getCouponPageNavi(int cpage) throws Exception{
+		return dao.getcouponPageNavi(cpage);
+	}
+	public List<CouponDTO> selectbypage(int cpage) throws Exception{
+		return dao.selectbypage(cpage);
+	}
 }

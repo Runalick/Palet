@@ -602,10 +602,10 @@ align-items: center; */
 							<div class="col-md-2 col-sm-4 body5">${i.dc }</div>
 							<div class="col-md-2 col-sm-4 body5">${i.category }</div>
 							<div class="col-md-2 d-md-block d-none body5">
-								<c:if test="${(i.use == null)||(i.use=='N') }">
+								<c:if test="${(i.use == null)||(i.use=='N')||(i.use='n') }">
 								미사용 쿠폰입니다.
 							</c:if>
-								<c:if test="${i.use=='Y' }">
+								<c:if test="${(i.use=='Y')||(i.use='y') }">
 								사용한 쿠폰입니다.
 							</c:if>
 								<div class="col-md-2 col-sm-0 body5"></div>
@@ -614,17 +614,6 @@ align-items: center; */
 						</c:forEach>
 					</div>
 
-
-
-					<!-- 테스트용 -->
-					<!-- 					<div class="col-12"> -->
-					<!-- 						<input type="text" placeholder="발급숫자" name="number" id="number"><br> -->
-					<!-- 						<input type="text" placeholder="할인금액" name="dc" id="dc"><br> -->
-					<!-- 						<input type="text" placeholder="종류" naem="category" id="category"> -->
-					<!-- 					</div> -->
-					<!-- 					<div class="col-12"> -->
-					<!-- 							<button type="button" id="make">테스트용 쿠폰 만들기</button> -->
-					<!-- 						</div> -->
 
 				</div>
 				<div class="col-12 H3">쿠폰 사용 안내</div>
@@ -709,16 +698,6 @@ align-items: center; */
 								click = false;
 							}
 						});
-		// 		$("#make").on("click",function(){
-		// 			$.ajax({
-		// 				url:"/coupon/make",
-		// 				data:{number:$("#number").val(),
-		// 					dc:$("#dc").val(),
-		// 					category:$("#category").val()}
-		// 			}).done(function(resp){
-		// 				console.log(resp);
-		// 			})
-		// 		})
 	</script>
 </body>
 </html>

@@ -57,8 +57,8 @@ public class CouponController {
 	
 	@RequestMapping("make")
 	@ResponseBody
-	public String make(int number,String dc,String category) throws Exception{
+	public int make(int number,String dc,String category) throws Exception{
 		cser.make(number,dc,category);
-		return "makeok";
+		return number;
 	}
 }

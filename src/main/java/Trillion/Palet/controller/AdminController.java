@@ -15,12 +15,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
 import Trillion.Palet.service.AdminService;
+import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.GoodsService;
 import Trillion.Palet.service.MemberService;
@@ -43,6 +45,9 @@ public class AdminController {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@Autowired
+	private CouponService cServ;
 	
 	@RequestMapping("adminMain")
 	public String adminMain(Model model) {
@@ -421,6 +426,15 @@ public class AdminController {
 	
 	// Coupon page
 	
+	@RequestMapping("adminCoupon")
+	public String adminCoupon(Model model,int cpage) throws Exception {
+		
+		List<CouponDTO> list = cServ.selectbypage(cpage);
+		String navi = cServ.getCouponPageNavi(cpage);
+		model.addAttribute("list", list);
+		model.addAttribute("navi", navi);
+		return "/admin/adminCoupon";
+	}
 	
 	
 	

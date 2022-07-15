@@ -87,7 +87,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>                            
@@ -160,46 +160,103 @@
                 		<div class="col-12 body2 colortext_gray600 px-5" >  : 쿠폰을 등록 할 수 있는 페이지 입니다. </div>
                 	</div>    
 					<div class="row" style="margin-top: 1rem" id="roundboxParent">
-                		<div class="col " style="align-item :center"" id="roundbox">
+                		<div class="col " style="align-item :center" id="roundbox">
                 			<div class="row pt-2 m-3 mb-4">
 								<div class="h3_2">Make Coupon</div>
 							</div>
-							<div class="row">
-							<form action="#" method="post">		
+							<div class="row">	
 								<div class="col">
-							
-								
+	
 									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 이름</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 이름</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 이름</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 이름</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 이름</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">발급 매수</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">발급 매수</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">발급 매수</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">발급 매수</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">발급 매수</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="g_name" id="g_name" placeholder="Input Goods Name" >
-											<input type="hidden" name="g_num" value="0">
+											<input type="text" name="number" id="cp_number" placeholder="input number max:99" maxlength="2">
 										</div>
 									</div>
-
-
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">할인 금액</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">할인 금액</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">할인 금액</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">할인 금액</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">할인 금액</div>
+									</div>
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text"  placeholder="input cd number max:99999" name="dc" id="cp_dc" maxlength="5">
+										</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">종류</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">종류</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">종류</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">종류</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">종류</div>
+									</div>
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" placeholder="input category max:15" name="category" id="cp_category" maxlength="15">
+										</div>
+									</div>
 
 									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
-												<input class="btn2_1" type="submit" id="upload" value="등록">
+												<input class="btn2_1" type="button" id="make" value="발행">
 										</div>
 									</div>
                 				</div>
-							</form>
-            				</div>
-            			</div>
+                				<div class="row mt-5">
+			           				<div class="col-12 m-auto" style="border-bottom : 0.3rem solid #161C24; width:85%;"></div>
+			           			</div>
+            			
+								<div class="row pt-5 m-3 mb-4">
+									<div class="h3_2">CouponList</div>
+								</div>
+								<div class="row pt-3 m-3 mb-4">	
+									<div class="col-1 col-xl-1 d-none d-xl-block h3" style="border-right : 0.125rem solid #DFE3E8">No</div>
+	            					<div class="col-4 d-none d-lg-block col-lg-4 col-xl-3 h3" style="border-right : 0.125rem solid #DFE3E8">Email</div>
+	            					<div class="col-4 col-lg-4 d-lg-none h3_4" style="border-right : 0.125rem solid #DFE3E8; padding: 0px; text-align :center;">Email</div>
+				            		<div class="col-4 col-lg-2 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Serial </div>
+				            		<div class="col-4 d-lg-none h3_4" style="border-right : 0.125rem solid #DFE3E8; padding: 0px; text-align :center;">Serial </div>
+				            		<div class="col-2 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">할인금</div>
+				            		<div class="col-2 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">종류</div>
+				            		<div class="col-2 d-none d-lg-block h3">사용여부</div>
+				            		<div class="col-4 d-lg-none h3_4" style="padding:0px; text-align :center;">사용여부</div>
+				            		<div class="col-12 px-3">
+				            			<div class="card2"></div>
+				            		</div>        		
+	          						<div class="col-12 pt-2 p-3">
+	                            		<div class="">
+											<hr>
+	                            			<c:forEach var="i" items="${list}">
+	                            			<div class="row">
+		                            			<div class="col-1 col-xl-1 d-none d-xl-block px-4 body2">${i.key }</div>
+		                            			<div class="col-4 d-none d-lg-block col-lg-4 col-xl-3 px-4 body2">${i.email }</div>
+		                            			<div class="col-4 col-lg-4 d-lg-none px-4 body2_1 ellipsis">${i.email }</div>
+					                        	<div class="col-4 col-lg-2 d-none d-lg-block px-4 body2" >${i.serial }</div>
+					                        	<div class="col-4 d-lg-none px-4 body2_1" >${i.serial }</div>
+					                        	<div class="col-2 d-none d-lg-block px-4 body2" >${i.dc }</div>
+				                            	<div class="col-2 d-none d-lg-block px-4 body2 ellipsis" >${i.category }</div>
+				                            	<div class="col-2 d-none d-lg-block px-4 body2">${i.use }</div>
+				                            	<div class="col-4 d-lg-none px-4 body2_1">${i.use }</div>
+				                            </div>
+			                            	<hr>
+		                            		</c:forEach>
+	                            		</div>
+	                            	</div>	
+				                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
+				                    	${navi}
+				                    </div>
+	            				</div>
+			              	</div>
+            			</div>      
             		</div>
             	</div>
             </div>
-        </div>
     </section>
     
     <!-- main contents close-->
@@ -232,6 +289,17 @@ $(".navbar-toggler").on("click",function(){
    }
 })
 
+
+$("#make").on("click",function(){
+	$.ajax({
+		url:"/coupon/make",
+		data:{number:$("#cp_number").val(),
+		dc:$("#cp_dc").val(),
+		category:$("#cp_category").val()}
+	}).done(function(resp){
+		alert("쿠폰 "+resp+"매가 발행되었습니다.");
+	})
+})
 </script>	
 </body>
 </html>
