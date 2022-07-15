@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DTO.AdminDTO;
+import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -238,7 +239,7 @@ public class AdminController {
 		if (value != null) {
 			orderByWord = value;
 			List<GoodsDTO> gdto = aServ.goodsJoinSelectByPage(cpage, orderByWord);
-			String pageNavi = aServ.getGoodsPageNavi(cpage);
+			String pageNavi = aServ.getGoodsJoinPageNavi(cpage);
 			model.addAttribute("exhibition", edto);
 			model.addAttribute("list", gdto);
 			model.addAttribute("navi", pageNavi);
@@ -247,7 +248,7 @@ public class AdminController {
 		}else {
 			orderByWord = "line";
 			List<GoodsDTO> gdto = aServ.goodsJoinSelectByPage(cpage, orderByWord);
-			String pageNavi = aServ.getGoodsPageNavi(cpage);
+			String pageNavi = aServ.getGoodsJoinPageNavi(cpage);
 			model.addAttribute("exhibition", edto);
 			model.addAttribute("list", gdto);
 			model.addAttribute("navi", pageNavi);
@@ -319,16 +320,15 @@ public class AdminController {
 			model.addAttribute("list", tpdto);
 			model.addAttribute("navi", pageNavi);
 		}else {
-			if (checked.equals("U")) {		
-				
-				System.out.println("UID");
+			if (checked.equals("U")) {						
+				System.out.println("UID로 분류");
 				List<TotalPaymentDTO> tpdto = aServ.paymentSelectUIDByPage(cpage, search);
 				String pageNavi = aServ.getPaymentUIDPageNavi(cpage, search);
 				model.addAttribute("list", tpdto);
 				model.addAttribute("navi", pageNavi);
 			}else if (checked.equals("N")) {
 				
-				System.out.println("Name");
+				System.out.println("Name으로 분류 ");
 				List<TotalPaymentDTO> tpdto = aServ.paymentSelectNameByPage(cpage, search);
 				for(TotalPaymentDTO dto : tpdto) {
 					System.out.println(dto.getName());
@@ -379,18 +379,45 @@ public class AdminController {
 	
 	// cancel Page
 	
-//	@RequestMapping("adminCancelPayment")
-//	public String adminCancelPayment(Model model, int cpage) {
-//		//
-//		//
-//		//
-//		//
-//		//
-//		//
-//		
-//		
-//
-//	}
+	@RequestMapping("adminCancelPayment")
+	public String adminCancelPayment(Model model, int cpage) {
+		List<CancelDTO> dto = aServ.cancelSelectByPage(cpage);
+		String pageNavi = aServ.getCancelPageNavi(cpage);
+		model.addAttribute("list", dto);
+		model.addAttribute("navi", pageNavi);
+		
+		return "/admin/adminCancelPayment";
+
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="cancelPaymentCheckDelete", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public int cancelPaymentCheckDelete(@RequestParam(value="checkboxArr2[]") List<String> checkboxArr2) throws Exception {
+
+		int result = 0;
+		String check = "";
+		
+		for (String str : checkboxArr2) {
+			check = str;
+			System.out.println(str);
+			String category = aServ.categoryCheck(check);
+			
+			if(category.equals("E")) {
+				// update exhibition 
+				// AC로 업데이트 
+				aServ.cancelExticketUpdate(check);
+			}else if (category.equals("G")) {
+				// update goods(payment)
+				// AC로 업데이트 
+				aServ.cancelGoodsUpdate(check);
+			}
+			
+			// cancel table delete
+			aServ.cancelPaymentCheckDelete(check);
+			
+		}
+		return result;
+	}
 	
 	// Coupon page
 	

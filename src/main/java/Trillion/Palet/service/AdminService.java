@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.AdminDTO;
+import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -77,6 +78,10 @@ public class AdminService {
 		return adao.getGoodsPageNavi(cpage);
 	}
 	
+	public String getGoodsJoinPageNavi(int cpage) {
+		return adao.getGoodsJoinPageNavi(cpage);
+	}
+	
 	public int goodsCheckDelelte (int g_num) {
 		return adao.goodsCheckDelete(g_num);
 	}
@@ -122,6 +127,34 @@ public class AdminService {
 	public AdminDTO getAdminExticketDetail(String merchant_uid) {
 		return adao.getAdminExticketDetail(merchant_uid);
 	}
+	
+	// Payment > Cancel
+	
+	public List<CancelDTO> cancelSelectByPage(int cpage){
+		return adao.cancelSelectByPage(cpage);
+	}
+	
+	public String getCancelPageNavi(int cpage) {
+		return adao.getCancelPageNavi(cpage);
+	}
+	
+	public String categoryCheck(String check) {
+		return adao.categoryCheck(check);
+	}
+	
+	public int cancelExticketUpdate(String check) {
+		return adao.cancelExticketUpdate(check);
+	}
+	
+	public int cancelGoodsUpdate(String check) {
+		return adao.cancelGoodsUpdate(check);
+	}
+	
+	public int cancelPaymentCheckDelete(String check) {
+		return adao.cancelPaymentCheckDelete(check);	
+	}
+	
+
 	
 	// etc..
 	
