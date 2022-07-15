@@ -31,4 +31,7 @@
   	address2=#{address2},phone=#{phone},defaultaddress=#{defaultaddress} 
   	where deliveryaddress_seq=#{deliveryaddress_seq}
   </update>
+  <select id="checkdefaultAddress" resultType="boolean">
+  	select count(*) from deliveryaddress where defaultaddress='Y' and email = #{value}
+  </select>
   </mapper>	

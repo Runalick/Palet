@@ -29,7 +29,7 @@ public class DeliveryController {
 	
 	@RequestMapping("delivery")
 	public String delivery(Model model,String choose) {
-		String email = "i2376@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 		System.out.println(choose);
 		
 		if(choose.equals("false")) {
@@ -48,7 +48,7 @@ public class DeliveryController {
 		if(deliveryaddress_seq==0) {
 			return "/delivery/NewAddress";
 		}else {
-			String email = "i2376@naver.com";
+			String email = (String)session.getAttribute("loginEmail");
 			DeliveryDTO dto = dServ.selectAddress(deliveryaddress_seq,email);
 			model.addAttribute("modiAddress",dto);
 
@@ -102,7 +102,7 @@ public class DeliveryController {
 	@RequestMapping("selectAllAddress")
 	public String selectAllAddress(Model model) {
 		
-		String email = "i2376@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 		//default 주소 제외 
 		List<DeliveryDTO> list = dServ.selectAllAddress(email);
 		DeliveryDTO defaultAddress= dServ.selectDefaultAddress(email);
@@ -116,4 +116,13 @@ public class DeliveryController {
 	public int delAddress(int deliveryaddress_seq) {
 		return dServ.delAddress(deliveryaddress_seq);
 	}
+	
+	@ResponseBody
+	@RequestMapping("checkdefaultAddress")
+	public boolean checkdefaultAddress() {
+		String email = (String)session.getAttribute("loginEmail");
+		
+		return  dServ.checkdefaultAddress(email);
+	}
+	
 }

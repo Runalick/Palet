@@ -1,5 +1,4 @@
 
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -29,7 +28,6 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	
 	}
 	html {
 		font-size: 12px;
@@ -39,7 +37,6 @@
 @media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
-	
 	}
 	html {
 		font-size: 16px;
@@ -326,6 +323,29 @@ align-items: center; */
 	color: #161C24;
 }
 
+.h5 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 0.875rem;
+	line-height: 1.125rem;
+	/* identical to box height, or 129% */
+	/* Gray/600 */
+	color: #637381;
+}
+
+.h5_1 {
+	/* Caption/Caption */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 0.875rem;
+	line-height: 1.125rem;
+	/* identical to box height, or 129% */
+	/* Gray/600 */
+	color: #637381;
+}
+
 .caption {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -465,7 +485,56 @@ input::placeholder {
 	text-align: center;
 }
 
+.warp-pay {
+	text-align: left;
+	margin-left: 2.3rem;
+	margin-bottom: 12.5rem;
+}
+/* select */
+#select {
+	width: 23.5rem;
+	height: 3rem;
+	line-height: 2.35rem;
+	box-sizing: border-box;
+	border: 0.063rem solid #CFD4D9;
+	box-shadow: 0px 0px 0px #CBDAFC;
+	border-radius: 0.313rem;
+	margin-bottom: 1.5rem;
+	color: #637381;
+	background: #FFFFFF url('/images/uparrow.png') no-repeat 97% 50%/15px
+		auto;
+	background-size: 0.796rem;
+	padding: 0.3rem 1.875rem 0.3rem 0.6rem;
+	border: 0.06rem solid #b8b8b8;
+	overflow: hidden;
+	font-size: 1rem;
+	color: #666666;
+}
 
+.select-ul {
+	list-style-type: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 1rem;
+	color: #666666;
+	border: 1px solid #b8b8b8;
+	display: none;
+	position: absolute;
+	top: 2.938rem;
+	background: #FFFFFF;
+	border-top: none;
+	padding: 0px;
+	left: 0rem;
+}
+
+.select-ul li {
+	padding: 0.625rem 0 0.625rem 1.125rem;
+	width: 23.2rem;
+}
+
+.select-ul li:hover {
+	background-color: #F4F6F8;
+}
 </style>
 
 
@@ -596,11 +665,18 @@ input::placeholder {
 						<div class="col-lg-4 col-12" style="padding-left: 1.564rem;">
 							<div class="row  rec1 h-70" id=row2>
 								<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
-								<div class="col-6 h3" style="text-align: center;">${price }</div>
+								<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
 								<div class="col-6 caption" style="text-align: center;">적립예정
 									포인트</div>
 								<div class="col-6 caption" style="text-align: center;" id=point></div>
-
+								<div class="col-6 caption" style="text-align: center;">포인트
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=usedpoint>0p</div>
+								<div class="col-6 caption" style="text-align: center;">쿠폰
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=coupondc>0p</div>
 							</div>
 							<div class=row id=row1>
 								<div class="col-12"
@@ -705,7 +781,7 @@ input::placeholder {
 
 			<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
 
-				<div class="col-8" style="padding-left: 0rem; height: 10rem;">
+				<div class="col-12" style="padding-left: 0rem;">
 					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
 						<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
 						<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
@@ -722,7 +798,43 @@ input::placeholder {
 
 					</ul>
 				</div>
+				<div class="col-12 h3"
+					style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+				<div class="col-12 body2"
+					style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
+				<div class="col-12 h3"
+					style="padding-left: 0rem; margin-top: 1.125rem;">
+
+					<select id = "selectbox" class="form-select" aria-label="Default select example"
+						style="width: 23.5rem; height: 3rem;">
+
+						<option value='0' value1 ="inavailableCP" selected >쿠폰을 선택해 주세요.</option>
+						<c:forEach var="clist" items="${clist }">
+							<option id = option1 class = "option1" value="${clist.dc}" value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -${clist.dc}원</option>
+								
+						</c:forEach>
+					</select>
+
+				</div>
+				<div class="col-12 body2"
+					style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+
+				<div class="col-12 body2"
+					style="padding-left: 0rem; margin-top: 1.125em;">
+
+					<input type=text class="body2 usedpoint"
+						style="width: 15rem; height: 3rem;">
+					<button class="h4 usedbutton"
+						style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+						사용</button>
+				</div>
+				<div class="col-12 h5"
+					style="padding-left: 0rem; margin-top: 2.188em;">
+					남은마일리지 <span class=h5_1>${mdto.point }</span>
+				</div>
+
 			</div>
+
 
 
 
@@ -748,10 +860,141 @@ input::placeholder {
 	</div>
 </body>
 <script>
+
+$(".form-select").on('change',function(){
+ if(${mdto.point}!=$(".h5_1").text())
+ 
+ {
+	 
+	 
+	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
+	return false;
+ }
+
+	if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
+		$("#finalprice").text('${price}');
+		 let coupondc =  $(".form-select option:selected").val();
+			$('#coupondc').text(coupondc+'p');
+	}
+	else{
+   let coupondc =  $(".form-select option:selected").text();
+	$('#coupondc').text(coupondc);
+	let price = '${price}';
+	let price1 = price.replace(",", "");
+	let price2 = price1.replace("원", "");
+	
+	$("#finalprice").text((price2-$(".form-select option:selected").val()).toLocaleString()+"원");
+}
+})
+
+
+
+
+
+
+
+
 	$(".leftbutton").on("click", function() {
 
 		location.href = "/Exhibition/toCurExhibition";
 	})
+
+	
+	
+	
+	
+	
+	//모두사용
+	
+	$(".usedbutton").on("click", function() {
+/* 	let p =	$(".form-select option:selected").val();
+	let a =	$(".form-select option:selected").attr('value1');
+	
+	console.log(p+'d');
+	console.log(a+'abbbbb'); */
+		if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
+			console.log('hihddi');
+			
+
+		
+		
+		if($(".h5_1").text()==0){
+			
+			alert('사용 가능한 마일리지가 없습니다.');
+		return false;	
+		}
+
+		let price = '${price}';
+		let price1 = price.replace(",", "");
+		let price2 = price1.replace("원", "");
+		
+		$(".h5_1").text(0);
+		$("#usedpoint").text('-'+${mdto.point}+"p");
+		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
+		
+		}else{
+			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			return false;
+		}
+
+	})
+
+	
+	
+	
+	
+	
+	
+	
+	//일부 마일리지 사용엔터
+	
+	
+	$(".usedpoint").keypress(function(e) {
+		if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
+		if (e.keyCode == 13) {
+			let mypoint = parseInt($(".h5_1").text());
+			
+			let price = $("#finalprice").text();
+			let price1 = price.replace(",", "");
+			let price2 = price1.replace("원", "");
+			
+		let ipusedpoint =	$(".usedpoint").val();
+		let ipusedpoint1 =	parseInt(ipusedpoint);
+		
+		let opusedpoint =	$("#usedpoint").text();
+		let opusedpoint1 = opusedpoint.replace('p','');
+		let opusedpoint2 = parseInt(opusedpoint1);
+		
+		console.log(ipusedpoint);
+		console.log(opusedpoint2);
+		
+		
+
+			
+			
+			if ($(".usedpoint").val() <= mypoint) {
+				
+				(mypoint - $(".usedpoint").val())
+
+				$(".h5_1").text(mypoint - $(".usedpoint").val());
+				${mdto.point }
+				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
+			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(".usedpoint").val())+'p'));
+				$("#finalprice").text((price2-$(".usedpoint").val()).toLocaleString()+"원");
+				$(".usedpoint").val('');
+			} else {
+				alert('사용 가능한 point를 초과하였습니다.');
+				$(".usedpoint").val('');
+			}
+		}
+		}else{
+			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			return false;
+		}
+
+	})
+	
+
 
 	window.onload = function() {
 		let point = '${price}';
@@ -781,7 +1024,7 @@ input::placeholder {
 		}, function(rsp) {
 			console.log(rsp);
 			if (rsp.success) {
-				let price = $("#totalprice").text();
+				let price = $("#finalprice").text();
 				let price1 = price.replace(",", "");
 				let price2 = price1.replace("원", "");
 
@@ -791,6 +1034,13 @@ input::placeholder {
 				let point = $("#point").text();
 				let point1 = point.replace("p", "");
 				let point2 = parseInt(point1);
+				
+				
+				let usedpoint = $("#usedpoint").text();
+				let usedpoint1 = usedpoint.replace("p","");
+				let usedpoint2 = usedpoint1.replace("-","");
+				let usedpoint3 = parseInt(usedpoint2);
+				
 				$.ajax({
 					url : "/pay/insert",
 					data : {
@@ -807,7 +1057,11 @@ input::placeholder {
 						et_cost : price2,
 						et_count : count1,
 						et_point : point2,
-						et_category : 'e'
+						et_usedpoint : usedpoint3,
+						et_cpdiscount : parseInt($(".form-select option:selected").val()),
+						et_cpserial :  $(".form-select option:selected").attr('value1'),
+
+						et_category : 'E'
 					},
 
 					type : "post",

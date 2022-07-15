@@ -8,10 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
 
@@ -27,6 +31,9 @@ public class MyPageController {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@Autowired
+	private CouponService cServ;
 	
 	@RequestMapping("outline")
 	public String outline() {
@@ -49,23 +56,34 @@ public class MyPageController {
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
 		List<ExticketDTO> list =mServ.myTicket(email);
-		List<ExticketDTO> prelist =mServ.premyTicket(email);
+		
 		int precnt = mServ.premyTicketcnt(email);
 		
 		//현재전시
 		model.addAttribute("list",list);
-		model.addAttribute("prelist",prelist);
+	
 		//지난전시
 		model.addAttribute("cnt",cnt);
 		model.addAttribute("precnt",precnt);
 		model.addAttribute("url",url);
 		return "/mypage/myTicket";
 	}
+	@ResponseBody
+	@RequestMapping("mypreTicket")
+	public List<ExticketDTO> mypreTicket(int limit) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<ExticketDTO> prelist =mServ.premyTicket(email,limit);
+		return prelist;
+	}
+	
+	
 	@RequestMapping("myTicketDetailview")
 	public String myTicketDetailview(String et_booknumber,Model model) {
 		
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
+		CouponDTO cdto = cServ.getCouponName(dto.getEt_cpserial());
 		model.addAttribute("dto",dto);
+		model.addAttribute("cdto",cdto);
 		return "/mypage/myTicketDetailview";
 	}
 	
@@ -78,6 +96,18 @@ public class MyPageController {
 		return "/mypage/myShopping";
 	}
 	
-	
+	@ResponseBody
+	@RequestMapping("payCancel")
+	public String payCancel(CancelDTO dto) {
+
+		if(dto.getContent()=="") {
+			dto.setContent("취소 사유 없음");
+		}
+		System.out.println(dto.getContent());
+		System.out.println(dto.getBooknumber());
+		System.out.println(dto.getCategory());
+		mServ.payCancel(dto);
+		return "success";
+	}
 	
 }
