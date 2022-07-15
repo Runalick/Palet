@@ -19,7 +19,7 @@
 	crossorigin="anonymous"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-<!-- 지도api -->
+<script src="/js/qrmaker.js"></script>
 
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -983,6 +983,14 @@ $("body").on("click", function(e){
 			click = false;
 		}
 	});
+    var qrcode = new QRCode(document.getElementById("qr"), {
+        text: "${url}",
+        width: 90,
+        height: 90,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
 	</script>
 </body>
 </html>
