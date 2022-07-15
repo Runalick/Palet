@@ -27,15 +27,18 @@ public class AdminDTO {
 	private int usedpoint;
 	private int cpdiscount;
 	private String cpserial;
+	private String options;
 	
 	public AdminDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
+	// 전체 adminDTO
+	
 	public AdminDTO(String merchant_uid, String name, String email, String phone, String address1, String address2,
 			int zipcode, String title, String place, String card_name, String card_number, int card_quota,
 			String period, String state, String category, int price, Timestamp pay_time, String delivery_text,
-			int count, int point, int usedpoint, int cpdiscount, String cpserial) {
+			int count, int point, int usedpoint, int cpdiscount, String cpserial, String options) {
 		super();
 		this.merchant_uid = merchant_uid;
 		this.name = name;
@@ -60,13 +63,15 @@ public class AdminDTO {
 		this.usedpoint = usedpoint;
 		this.cpdiscount = cpdiscount;
 		this.cpserial = cpserial;
+		this.options = options;
 	}
-
-	// payment용 admindto
 	
+	// payment용(GOODS)용 생성자
+
 	public AdminDTO(String merchant_uid, String name, String email, String phone, String address1, String address2,
 			int zipcode, String title, String card_name, String card_number, int card_quota, String state,
-			String category, int price, Timestamp pay_time, String delivery_text) {
+			String category, int price, Timestamp pay_time, String delivery_text, int count, int point, int usedpoint,
+			int cpdiscount, String cpserial, String options) {
 		super();
 		this.merchant_uid = merchant_uid;
 		this.name = name;
@@ -84,13 +89,19 @@ public class AdminDTO {
 		this.price = price;
 		this.pay_time = pay_time;
 		this.delivery_text = delivery_text;
+		this.count = count;
+		this.point = point;
+		this.usedpoint = usedpoint;
+		this.cpdiscount = cpdiscount;
+		this.cpserial = cpserial;
+		this.options = options;
 	}
 	
-	// exticket 용 admindto
+	// Exticket 용 생성자
 
 	public AdminDTO(String merchant_uid, String name, String email, String phone, String title, String place,
-			String card_name, String period, String state, String category, int price, Timestamp pay_time, int count,
-			int point, int usedpoint, int cpdiscount, String cpserial) {
+			String card_name, String card_number, int card_quota, String period, String state, String category,
+			int price, Timestamp pay_time, int count, int point, int usedpoint, int cpdiscount, String cpserial) {
 		super();
 		this.merchant_uid = merchant_uid;
 		this.name = name;
@@ -99,6 +110,8 @@ public class AdminDTO {
 		this.title = title;
 		this.place = place;
 		this.card_name = card_name;
+		this.card_number = card_number;
+		this.card_quota = card_quota;
 		this.period = period;
 		this.state = state;
 		this.category = category;
@@ -294,6 +307,15 @@ public class AdminDTO {
 	public void setCpserial(String cpserial) {
 		this.cpserial = cpserial;
 	}
+
+	public String getOptions() {
+		return options;
+	}
+
+	public void setOptions(String options) {
+		this.options = options;
+	}
+	
 	
 	
 	

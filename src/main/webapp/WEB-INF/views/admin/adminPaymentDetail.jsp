@@ -61,7 +61,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminMembers?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-people text-black fa-lg mr-3"></i> Members
                                 </a>
                             </li>
@@ -81,10 +81,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
+                                </a>
+                            </li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
@@ -216,7 +221,20 @@
 			           		<div class="row" style="text-align:center">
 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.title }' readonly style="width:50%; text-align:center"></div>
 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.title }' readonly style="width:70%; text-align:center"></div>			           			
-			           		</div>				            		
+			           		</div>
+			           		
+			           		<c:if test="${dto.options != null }">
+			           		<div class="row pt-3" >
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Product Option </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Product Option</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.options }' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.options }' readonly style="width:70%; text-align:center"></div>			           			
+			           		</div>	
+			           		</c:if>
+			           		
+			           						            		
 			            	<div class="row pt-3" >
 			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Category </div>
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Category</div>
@@ -237,9 +255,13 @@
 			            	</div>	
 			           		<div class="row" style="text-align:center">
 			           			<c:if test="${dto.state == 'BU'}">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='사용예정' readonly style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='사용예정' readonly style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='구매완료' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='구매완료' readonly style="width:70%; text-align:center"></div>
 			           			</c:if>
+			           			<c:if test="${dto.state == 'CU'}">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='배송중' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='배송중' readonly style="width:70%; text-align:center"></div>
+			           			</c:if>			           			
 			           			<c:if test="${dto.state == 'AU'}">
 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='사용완료' readonly style="width:50%; text-align:center"></div>
 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='사용완료' readonly style="width:70%; text-align:center"></div>
@@ -376,8 +398,8 @@
 			           		</c:if>			           		
 			           		<c:if test="${dto.delivery_text != null }">
 			           		<div class="row pt-3" >
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">others </div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">others</div>
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Message </div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Message</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.delivery_text }' readonly style="width:50%; text-align:center"></div>
