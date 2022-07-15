@@ -60,4 +60,10 @@ public class ExhibitionService {
 	public ExhibitionDTO getExhibition(int e_num) {
 		return edao.getExhibition(e_num);
 	}
+	
+	public int updateSalesCount(String et_title, int et_count) {
+		
+		return edao.updateSalesCount(et_title, et_count+1);
+		
+	}
 }
