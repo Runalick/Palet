@@ -87,7 +87,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>                            
@@ -160,46 +160,110 @@
                 		<div class="col-12 body2 colortext_gray600 px-5" >  : 쿠폰을 등록 할 수 있는 페이지 입니다. </div>
                 	</div>    
 					<div class="row" style="margin-top: 1rem" id="roundboxParent">
-                		<div class="col " style="align-item :center"" id="roundbox">
+                		<div class="col " style="align-item :center" id="roundbox">
                 			<div class="row pt-2 m-3 mb-4">
 								<div class="h3_2">Make Coupon</div>
 							</div>
-							<div class="row">
-							<form action="#" method="post">		
+							<div class="row">	
 								<div class="col">
-							
-								
+	
 									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 이름</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 이름</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 이름</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 이름</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 이름</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">발급 매수</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">발급 매수</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">발급 매수</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">발급 매수</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">발급 매수</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="g_name" id="g_name" placeholder="Input Goods Name" >
-											<input type="hidden" name="g_num" value="0">
+											<input type="text" name="number" id="number" placeholder="input number max:99" maxlength="2">
 										</div>
 									</div>
-
-
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">할인 금액</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">할인 금액</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">할인 금액</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">할인 금액</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">할인 금액</div>
+									</div>
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text"  placeholder="input cd number max:99999" name="dc" id="dc" maxlength="5">
+										</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">종류</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">종류</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">종류</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">종류</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">종류</div>
+									</div>
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" placeholder="input category max:15" name="category" id="category" maxlength="15">
+										</div>
+									</div>
 
 									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
-												<input class="btn2_1" type="submit" id="upload" value="등록">
+												<input class="btn2_1" type="button" id="make" value="발행">
 										</div>
 									</div>
                 				</div>
-							</form>
             				</div>
             			</div>
+							<div class="row pt-2 m-3 mb-4">
+								<div class="h3_2">CouponList</div>
+							</div>
+							<div class="col-12" style="border-bottom: 1px solid black;"></div>
+							<div class="row">
+							<div class="col-1">
+								발행번호
+							</div>
+							<div class="col-2">
+								소유자 이메일
+							</div>
+							<div class="col-2">
+								Serial
+							</div>
+							<div class="col-2">
+								할인금
+							</div>
+							<div class="col-2">
+								종류
+							</div>
+							<div class="col-1">
+								사용여부
+							</div>
+							</div>
+							<div class="col-12" style="border-bottom: 1px solid black;"></div>
+							<c:forEach items="${list }" var="i">
+							<div class="row">
+							<div class="col-1">
+								${i.key }
+							</div>
+							<div class="col-2">
+								${i.email }
+							</div>
+							<div class="col-2">
+								${i.serial }
+							</div>
+							<div class="col-2">
+								${i.dc }
+							</div>
+							<div class="col-2">
+								${i.category }
+							</div>
+							<div class="col-1">
+								${i.use }
+							</div>
+							</div>
+							</c:forEach>
+										                    <div class="col-12 p-3 body1 colortext_gray400" style="text-align:center">
+			                       	${navi}
+			                    </div>
             		</div>
             	</div>
             </div>
-        </div>
     </section>
     
     <!-- main contents close-->
@@ -231,7 +295,16 @@ $(".navbar-toggler").on("click",function(){
    $(".navbar-collapse").toggle();
    }
 })
-
+				$("#make").on("click",function(){
+					$.ajax({
+						url:"/coupon/make",
+						data:{number:$("#number").val(),
+							dc:$("#dc").val(),
+							category:$("#category").val()}
+					}).done(function(resp){
+						alert("쿠폰 "+resp+"매가 발행되었습니다.");
+					})
+				})
 </script>	
 </body>
 </html>

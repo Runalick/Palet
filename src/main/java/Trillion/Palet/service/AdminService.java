@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.AdminDTO;
+import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -129,6 +130,7 @@ public class AdminService {
 		return adao.getWeekSales();
 	}
 	
+
 	
 }
 

@@ -39,4 +39,67 @@ public class CouponDAO {
 	public CouponDTO getCouponName(String et_cpserial) {
 		return mybatis.selectOne("coupon.getCouponName",et_cpserial);
 	}
+	public List<CouponDTO> getAllList() throws Exception{
+		return mybatis.selectList("coupon.alllist");
+	}
+	public int getcouponTotalCount() throws Exception{
+		return mybatis.selectOne("coupon.listcount");
+	}
+	public List<CouponDTO> selectbypage(int cpage) throws Exception{
+		String start = String.valueOf(cpage * 10 - 9);
+		String end = String.valueOf(cpage * 10);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		return mybatis.selectList("coupon.selectbypage",param);
+	}
+	public String getcouponPageNavi(int currentPage) throws Exception {
+		int recordTotalCount = this.getcouponTotalCount(); 
+		int recordCountPerPage = 10; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = (int)Math.ceil(recordTotalCount/(double)recordCountPerPage); // 0; 
+		
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminCoupon?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
+	}
+	
 }
