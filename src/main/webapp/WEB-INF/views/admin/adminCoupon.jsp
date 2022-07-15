@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminGoods" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-gift text-black fa-lg mr-3"></i> Goods
                                 </a>
                             </li>
@@ -87,10 +87,10 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="#" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
-                            </li> 
+                            </li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
@@ -156,39 +156,19 @@
             <div class="row">    
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Goods </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 상품을 등록 할 수 있는 페이지 입니다. </div>
-                	</div>
-                	<div class="row pt-3 px-5">
-						<div class="col-12 mr-auto" id="goodsBtns">
-							<button class="btn0 color_gray900 colortext_gray100" id="goodsAdded">상품 등록</button>
-							<button class="btn0 " id="goodsList">재고 현황</button>
-						</div>
-                	</div>
-                	<div class="row" style="margin-top: 1rem" id="roundboxParent">
+						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Coupon </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 쿠폰을 등록 할 수 있는 페이지 입니다. </div>
+                	</div>    
+					<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col " style="align-item :center"" id="roundbox">
                 			<div class="row pt-2 m-3 mb-4">
-								<div class="h3_2">Input Goods</div>
+								<div class="h3_2">Make Coupon</div>
 							</div>
 							<div class="row">
-							<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">		
+							<form action="#" method="post">		
 								<div class="col">
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 카테고리</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 카테고리</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">전시 카테고리</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">전시 카테고리</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">전시 카테고리</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<select id="e_num" name="e_num" class="select1"> 
-												<c:forEach var="i" items="${list}">	
-												<option value='${i.e_num}'>${i.e_name} </option>
-												</c:forEach>
-											</select>
-										</div>
-									</div>
+							
+								
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 이름</div>
 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 이름</div>
@@ -202,54 +182,9 @@
 											<input type="hidden" name="g_num" value="0">
 										</div>
 									</div>
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 가격</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 가격</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 가격</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 가격</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 가격</div>
-									</div>
-									<div class="row" style="text-align:center;">
-										<div class="col-12 p-0">
-											<input type="text" name="g_price" id="g_price" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"
-											placeholder="Input Goods Price">
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 옵션</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 옵션</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 옵션</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 옵션</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 옵션</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<input type="text" name="g_option" id="g_option" placeholder="Input Goods Options" >
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 사진</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 사진</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 사진</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 사진</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 사진</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0 filebox">
-											<input class="upload_view" value="" placeholder="Input Goods Images">
-											<span>
-												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>
-												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
-											</span>
-										</div>
-									</div>  
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<img src="" id="img_section" value="N">
-											<input class="btn1_0 mrg_left1" type="button" id="cancel_Btn" onclick="img_cancel()" style="display: none" value="첨부 취소">
-										</div>
-									</div>
+
+
+
 									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
@@ -265,8 +200,8 @@
             	</div>
             </div>
         </div>
-    </section>							
-							
+    </section>
+    
     <!-- main contents close-->
     
     <!-- footer open -->
@@ -285,65 +220,18 @@
 		</div>
 	</section>
 	
-	<!-- footer close -->
-    
-    
-    
+	<!-- footer close -->	
+	
 <script>
-	$("#goodsAdded").on("click", ()=>{
- 		location.href = "/admin/adminGoods";
- 	})
- 	
- 	$("#goodsList").on("click", ()=>{
- 		location.href = "/admin/adminGoodsList?cpage=1";
- 	})
-	
- 	
- 	$("#file").on('change',function(){
-  		let fileName = $("#file").val();
- 	 	$(".upload_view").val(fileName);
-	});
-	
- 	const reader = new FileReader();
- 	reader.onload = (readerEvent) =>{
- 		document.querySelector("#img_section").setAttribute("src",readerEvent.target.result);
- 		console.log(readerEvent.target.result);
- 	}
-     document.querySelector("#file").addEventListener("change",(changeEvent) => {
-       const imgFile = changeEvent.target.files[0];
-       reader.readAsDataURL(imgFile);
-     })
-     
-    function isFileImg(obj){
-			  pathPoint = obj.value.lastIndexOf('.');
-			  filePoint = obj.value.substring(pathPoint+1,obj.length);
-			  fileType=filePoint.toLowerCase();
-			  if(fileType!='jpg'&&fileType!='png'&&fileType!='jpeg'){				
-				 alert("이미지 파일만 등록이 가능합니다.");
-// 				 parentObj = obj.parentNode;
-// 				 node = parentObj.replaceChild(obj.cloneNode(true),obj);
-					$("#file").val("");
-					$(".upload_view").val("");
-			  }
-			  $("#cancel_Btn").css("display","inline-block");
-	}
-     
-    function img_cancel(){
-    	$("#img_section").attr("src","");
-    	$("#file").val("");
-    	$(".upload_view").val("");
-    	$("#cancel_Btn").css("display","none");
-    }
-	
-    let cnt =0;
-    $(".navbar-toggler").on("click",function(){
-       cnt ++;
-       if(cnt>1){
-       $(".navbar-collapse").toggle();
-       }
-    })
-    
-</script>    
-    
+
+let cnt =0;
+$(".navbar-toggler").on("click",function(){
+   cnt ++;
+   if(cnt>1){
+   $(".navbar-collapse").toggle();
+   }
+})
+
+</script>	
 </body>
 </html>

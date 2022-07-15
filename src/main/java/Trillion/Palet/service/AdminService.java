@@ -91,6 +91,22 @@ public class AdminService {
 	
 	// Payment Category
 	
+	public List<TotalPaymentDTO> paymentSelectUIDByPage(int cpage, String uid){
+		return adao.paymentSelectUIDByPage(cpage, uid);
+	}
+	
+	public String getPaymentUIDPageNavi(int cpage, String search) {
+		return adao.getPaymentUIDPageNavi(cpage, search);
+	}
+	
+	public List<TotalPaymentDTO> paymentSelectNameByPage(int cpage, String name){
+		return adao.paymentSelectNameByPage(cpage, name);
+	}
+	
+	public String getPaymentNamePageNavi(int cpage, String search) {
+		return adao.getPaymentNamePageNavi(cpage, search);
+	}
+	
 	public List<TotalPaymentDTO> paymentSelectByPage(int cpage){
 		return adao.paymentSelectByPage(cpage);
 	}

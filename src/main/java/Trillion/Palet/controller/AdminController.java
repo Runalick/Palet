@@ -307,17 +307,60 @@ public class AdminController {
 	}
 	
 	
-	// Payment 
+	// Payment Category
 	
 	
 	@RequestMapping("adminPayment")
-	public String adminPayment(Model model, int cpage) {		
-		List<TotalPaymentDTO> tpdto = aServ.paymentSelectByPage(cpage);
-		String pageNavi = aServ.getPaymentPageNavi(cpage);
-		model.addAttribute("list", tpdto);
-		model.addAttribute("navi", pageNavi);
+	public String adminPayment(Model model, int cpage, String search, String checked) {
+		System.out.println(checked+"  :  "+search);
+		if (checked == null) {
+			List<TotalPaymentDTO> tpdto = aServ.paymentSelectByPage(cpage);
+			String pageNavi = aServ.getPaymentPageNavi(cpage);
+			model.addAttribute("list", tpdto);
+			model.addAttribute("navi", pageNavi);
+		}else {
+			if (checked.equals("U")) {		
+				
+				System.out.println("UID");
+				List<TotalPaymentDTO> tpdto = aServ.paymentSelectUIDByPage(cpage, search);
+				String pageNavi = aServ.getPaymentUIDPageNavi(cpage, search);
+				model.addAttribute("list", tpdto);
+				model.addAttribute("navi", pageNavi);
+			}else if (checked.equals("N")) {
+				
+				System.out.println("Name");
+				List<TotalPaymentDTO> tpdto = aServ.paymentSelectNameByPage(cpage, search);
+				for(TotalPaymentDTO dto : tpdto) {
+					System.out.println(dto.getName());
+				}
+				
+				String pageNavi = aServ.getPaymentNamePageNavi(cpage, search);
+				model.addAttribute("list", tpdto);
+				model.addAttribute("navi", pageNavi);
+			}
+		}	
+		
 		return "/admin/adminPayment";
 	}
+	
+//	@RequestMapping(value="adminPaymentSearch", produces="test/html;charset=utf8", method = RequestMethod.POST)
+//	public String adminPaymentSearch(Model model, int cpage, int checked, String search) {
+//		System.out.println(cpage +"   "+ checked + "   " + search);
+//		if (checked == 1) {
+//			List<TotalPaymentDTO> tpdto = aServ.paymentSelectUIDByPage(cpage, search);
+//			String pageNavi = aServ.getPaymentUIDPageNavi(cpage);
+//			model.addAttribute("list", tpdto);
+//			model.addAttribute("navi", pageNavi);
+//		}else if (checked == 2) {
+//			
+//			List<TotalPaymentDTO> tpdto = aServ.paymentSelectNameByPage(cpage, search);
+//			String pageNavi = aServ.getPaymentNamePageNavi(cpage);
+//			model.addAttribute("list", tpdto);
+//			model.addAttribute("navi", pageNavi);
+//		}
+//		
+//		return "redirect:adminPayment?cpage=1";
+//	}
 	
 	@RequestMapping("adminPaymentDetail")
 	public String adminPaymentDetail(Model model, String category, String merchant_uid) {
@@ -333,5 +376,25 @@ public class AdminController {
 		
 		return "/admin/adminPaymentDetail";
 	}
+	
+	// cancel Page
+	
+//	@RequestMapping("adminCancelPayment")
+//	public String adminCancelPayment(Model model, int cpage) {
+//		//
+//		//
+//		//
+//		//
+//		//
+//		//
+//		
+//		
+//
+//	}
+	
+	// Coupon page
+	
+	
+	
 	
 }
