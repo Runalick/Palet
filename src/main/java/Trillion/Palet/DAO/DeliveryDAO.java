@@ -69,6 +69,10 @@ public class DeliveryDAO {
 			return mybatis.update("Delivery.updateAddress",dto);
 		}
 
+		public boolean checkdefaultAddress(String email) {
+			return mybatis.selectOne("Delivery.checkdefaultAddress",email);
+		}
+
 	
 		
 }

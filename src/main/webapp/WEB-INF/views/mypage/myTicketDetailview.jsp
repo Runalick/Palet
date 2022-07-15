@@ -757,7 +757,7 @@ top:4rem;
 							<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
 							<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
-							<div class="col-7 total" style="margin-bottom:1rem">${dto.et_cpserial }</div>
+							<div class="col-7 total" style="margin-bottom:1rem">${cdto.category }</div>
 							<div class="col-5 total" style="margin-bottom:1rem">포인트 사용</div>
 							<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
@@ -871,12 +871,12 @@ top:4rem;
 	//구매 취소 확인 버튼
 	$(".pay-cancel").on("click",function(){
 		console.log($(".input").val());
-// 		$.ajax({
-// 			url:"/mypage/payCancel",
-// 			data:{content:$(".input").text(),booknumber:$(this).val(),category:'E'}
-// 		}).done(function(resp){
-// 			console.log("성공");
-// 		})
+		$.ajax({
+			url:"/mypage/payCancel",
+			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
+		}).done(function(resp){
+			console.log("성공");
+		})
 	})
 	
 	

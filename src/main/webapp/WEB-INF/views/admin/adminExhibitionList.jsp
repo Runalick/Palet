@@ -87,6 +87,11 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+                                <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
+                                </a>
+                            </li>                            
+                            <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>

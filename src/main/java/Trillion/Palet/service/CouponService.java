@@ -34,4 +34,18 @@ public class CouponService {
 			dao.make(serial,dc,category);
 		}
 	}
+	
+	//[티켓] 쿠폰 이름 가져오기
+	public CouponDTO getCouponName(String et_cpserial) {
+		return dao.getCouponName(et_cpserial);
+	}
+	public List<CouponDTO> getAllList() throws Exception{
+		return dao.getAllList();
+	}
+	public String getCouponPageNavi(int cpage) throws Exception{
+		return dao.getcouponPageNavi(cpage);
+	}
+	public List<CouponDTO> selectbypage(int cpage) throws Exception{
+		return dao.selectbypage(cpage);
+	}
 }

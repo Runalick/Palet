@@ -333,11 +333,11 @@ li div {
 	cursor:pointer;
 }
 
-.pre-ticket {
+.pre-ticket, .a {
 	width: 24.5rem;
 	height: 10.5rem;
 	background: #DFE3E8;
-	margin-right:1.5rem;
+	margin-right:2.5rem;
 	margin-bottom:1.5rem;
 	border-radius:0.375rem;
 	cursor:pointer;
@@ -386,6 +386,7 @@ li div {
 	font-size:1.625rem;
 	}
 }
+
 </style>
 </head>
 <body>
@@ -716,7 +717,6 @@ li div {
 
 
 		<!-- 푸터단 -->
-
 		<div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
@@ -727,8 +727,9 @@ li div {
                 </div>
             </div>
         </div>
-
+		
 	</div>
+
 <script>
 AOS.init();
 window.onload = function(){
@@ -739,11 +740,11 @@ window.onload = function(){
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
 			for(let i = 0 ; i < resp.length; i++) {
-		    	  $(".pre-ticket-row").append("<div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
 						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
-					+"</div></div></div>"); 
+					+"</div></div></div></a>"); 
 		    	
 		    	  console.log("resp.length : " + resp.length);
 			}
@@ -768,11 +769,11 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						  $(".pre-ticket-row").append("<div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
 				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
 								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
 								+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
-							+"</div></div></div>"); 
+							+"</div></div></div></a>"); 
 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit + resp.length;
@@ -805,7 +806,8 @@ window.onload = function(){
 		$(".ticket").on("click",function(){
 			cnt = $($(this).children()[0]).val();
 			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
-		})		
+		})	
+		
 		$(".pre-ticket").on("click",function(){
 			cnt = $($(this).children()[0]).val();
 			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
@@ -813,7 +815,7 @@ window.onload = function(){
 		//쿠폰
 		   $("#registration").on("click",function(){
       window.open("/coupon/toregistration", "",
-      "top=100,left=200,width=550,height=500");
+      "top=100,left=200,width=700,height=500");
       })
 		
 		//선택박스 화살표 방향 이미지

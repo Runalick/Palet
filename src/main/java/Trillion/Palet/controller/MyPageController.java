@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
 
@@ -29,6 +31,9 @@ public class MyPageController {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@Autowired
+	private CouponService cServ;
 	
 	@RequestMapping("outline")
 	public String outline() {
@@ -76,7 +81,9 @@ public class MyPageController {
 	public String myTicketDetailview(String et_booknumber,Model model) {
 		
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
+		CouponDTO cdto = cServ.getCouponName(dto.getEt_cpserial());
 		model.addAttribute("dto",dto);
+		model.addAttribute("cdto",cdto);
 		return "/mypage/myTicketDetailview";
 	}
 	

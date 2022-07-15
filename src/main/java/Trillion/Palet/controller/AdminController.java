@@ -14,12 +14,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DTO.AdminDTO;
+import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
 import Trillion.Palet.service.AdminService;
+import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.GoodsService;
 import Trillion.Palet.service.MemberService;
@@ -42,6 +44,9 @@ public class AdminController {
 	
 	@Autowired
 	private HttpSession session;
+	
+	@Autowired
+	private CouponService cServ;
 	
 	@RequestMapping("adminMain")
 	public String adminMain(Model model) {
@@ -307,17 +312,60 @@ public class AdminController {
 	}
 	
 	
-	// Payment 
+	// Payment Category
 	
 	
 	@RequestMapping("adminPayment")
-	public String adminPayment(Model model, int cpage) {		
-		List<TotalPaymentDTO> tpdto = aServ.paymentSelectByPage(cpage);
-		String pageNavi = aServ.getPaymentPageNavi(cpage);
-		model.addAttribute("list", tpdto);
-		model.addAttribute("navi", pageNavi);
+	public String adminPayment(Model model, int cpage, String search, String checked) {
+		System.out.println(checked+"  :  "+search);
+		if (checked == null) {
+			List<TotalPaymentDTO> tpdto = aServ.paymentSelectByPage(cpage);
+			String pageNavi = aServ.getPaymentPageNavi(cpage);
+			model.addAttribute("list", tpdto);
+			model.addAttribute("navi", pageNavi);
+		}else {
+			if (checked.equals("U")) {		
+				
+				System.out.println("UID");
+				List<TotalPaymentDTO> tpdto = aServ.paymentSelectUIDByPage(cpage, search);
+				String pageNavi = aServ.getPaymentUIDPageNavi(cpage, search);
+				model.addAttribute("list", tpdto);
+				model.addAttribute("navi", pageNavi);
+			}else if (checked.equals("N")) {
+				
+				System.out.println("Name");
+				List<TotalPaymentDTO> tpdto = aServ.paymentSelectNameByPage(cpage, search);
+				for(TotalPaymentDTO dto : tpdto) {
+					System.out.println(dto.getName());
+				}
+				
+				String pageNavi = aServ.getPaymentNamePageNavi(cpage, search);
+				model.addAttribute("list", tpdto);
+				model.addAttribute("navi", pageNavi);
+			}
+		}	
+		
 		return "/admin/adminPayment";
 	}
+	
+//	@RequestMapping(value="adminPaymentSearch", produces="test/html;charset=utf8", method = RequestMethod.POST)
+//	public String adminPaymentSearch(Model model, int cpage, int checked, String search) {
+//		System.out.println(cpage +"   "+ checked + "   " + search);
+//		if (checked == 1) {
+//			List<TotalPaymentDTO> tpdto = aServ.paymentSelectUIDByPage(cpage, search);
+//			String pageNavi = aServ.getPaymentUIDPageNavi(cpage);
+//			model.addAttribute("list", tpdto);
+//			model.addAttribute("navi", pageNavi);
+//		}else if (checked == 2) {
+//			
+//			List<TotalPaymentDTO> tpdto = aServ.paymentSelectNameByPage(cpage, search);
+//			String pageNavi = aServ.getPaymentNamePageNavi(cpage);
+//			model.addAttribute("list", tpdto);
+//			model.addAttribute("navi", pageNavi);
+//		}
+//		
+//		return "redirect:adminPayment?cpage=1";
+//	}
 	
 	@RequestMapping("adminPaymentDetail")
 	public String adminPaymentDetail(Model model, String category, String merchant_uid) {
@@ -333,5 +381,34 @@ public class AdminController {
 		
 		return "/admin/adminPaymentDetail";
 	}
+	
+	// cancel Page
+	
+//	@RequestMapping("adminCancelPayment")
+//	public String adminCancelPayment(Model model, int cpage) {
+//		//
+//		//
+//		//
+//		//
+//		//
+//		//
+//		
+//		
+//
+//	}
+	
+	// Coupon page
+	
+	@RequestMapping("adminCoupon")
+	public String adminCoupon(Model model,int cpage) throws Exception {
+		
+		List<CouponDTO> list = cServ.selectbypage(cpage);
+		String navi = cServ.getCouponPageNavi(cpage);
+		model.addAttribute("list", list);
+		model.addAttribute("navi", navi);
+		return "/admin/adminCoupon";
+	}
+	
+	
 	
 }
