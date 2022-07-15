@@ -966,7 +966,7 @@ $("body").on("click", function(e){
 	//쿠폰 등록
 	   $("#registration").on("click",function(){
       window.open("/coupon/toregistration", "",
-      "top=100,left=200,width=550,height=500");
+      "top=100,left=200,width=700,height=500");
       })
 	
 	//선택박스 화살표 방향 이미지
