@@ -143,10 +143,11 @@ if(!$(".check").prop("checked")){
 		var rtn = false;
 		$.ajax({
 			url:"/delivery/checkdefaultAddress",
-			async:false
+			async:false,
+			dataType:"json"
 		}).done(function(resp){
 			console.log(resp);
-			if(resp = 'false'){
+			if(resp == 'false'){
 				alert("기본주소지 한 개 필수입니다.");
 				
 			}else{
@@ -196,25 +197,27 @@ if(!$(".check").prop("checked")){
 })
 //등록
 $(".insert").on("click",function(){
-
 	if(!$(".check").prop("checked")){
-		
+		alert("hi");
 		var rtn = false;
 		$.ajax({
 			url:"/delivery/checkdefaultAddress",
-			async:false
+			async:false,
+			dataType:"json"
 		}).done(function(resp){
 			console.log(resp);
-			if(resp = 'false'){
+			if(resp == 'false'){
 				alert("기본주소지 한 개 필수입니다.");
 				
 			}else{
 				rtn=true;
 			}
 		});
-		return rtn;
 		
+		console.log("여기요"+rtn);
+		return rtn;
 	}
+	
 	if($(".buyer_name").val()==''){
 		alert("받는 사람 이름을 입력해주세요 ");
 		return false;
@@ -248,6 +251,7 @@ $(".insert").on("click",function(){
 			opener.parent.location.reload();
 			window.close();
 			})
+
 		});
 
 $(document).ready(function(){
