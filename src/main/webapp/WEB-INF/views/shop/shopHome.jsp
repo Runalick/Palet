@@ -500,7 +500,7 @@
         	data:{"e_num":"1002",
         		"option":"sell"}
         }).done(function(resp){
-        	$(".list").empty();
+//         	$(".list").empty();
         	for(i=0; i < resp.length; i++){
         		$(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price.toLocaleString()+"원</div></div>");
         	}
