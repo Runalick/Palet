@@ -77,8 +77,12 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.myShopping", param);
 	}
 
-	public Object myShoppingDetailView(String merchant_uid) {
-		return mybatis.selectList("MyPage.myShoppingDetailView", merchant_uid);
+	public PayDTO myShoppingDetailView(String merchant_uid) {
+		return mybatis.selectOne("MyPage.myShoppingDetailView", merchant_uid);
+	}
+
+	public Object myShoppingProduct(String merchant_uid) {
+		return mybatis.selectOne("MyPage.myShoppingProduct", merchant_uid);
 	}
 
 }

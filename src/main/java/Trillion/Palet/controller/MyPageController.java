@@ -1,6 +1,8 @@
 package Trillion.Palet.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +16,7 @@ import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
@@ -120,13 +123,22 @@ public class MyPageController {
 	@RequestMapping("ShoppingList")
 	public List<Object> ShopingList(int limit, String email) {
 		List<Object> list = mServ.myShopping(limit, email);
-		System.out.println(list);
+		//System.out.println(list);
 		return list;
 	}
 	
 	@RequestMapping("myShoppingDetail")
-	public void myShoppingDetail(String merchant_uid) {
-		mServ.myShoppingDetailView(merchant_uid);
+	public String myShoppingDetail(String merchant_uid, Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
+		Object product = mServ.myShoppingProduct(merchant_uid);
+		
+		System.out.println(detail);
+		System.out.println(product);
+		
+		model.addAttribute("detail",detail);
+		model.addAttribute("product",product);
+		return "/mypage/myShoppingDetailView";
 	}
 	
 	
