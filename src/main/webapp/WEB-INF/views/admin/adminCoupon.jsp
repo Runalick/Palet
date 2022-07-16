@@ -176,7 +176,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="number" id="number" placeholder="input number max:99" maxlength="2">
+											<input type="text" name="number" id="cp_number" placeholder="input number max:99" maxlength="2">
 										</div>
 									</div>
 									<div class="row">
@@ -187,7 +187,7 @@
 										<div class="col-12 d-sm-none p-0 body2 marg_left5">할인 금액</div>
 									</div>
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text"  placeholder="input cd number max:99999" name="dc" id="dc" maxlength="5">
+											<input type="text"  placeholder="input cd number max:99999" name="dc" id="cp_dc" maxlength="5">
 										</div>
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">종류</div>
@@ -197,7 +197,7 @@
 										<div class="col-12 d-sm-none p-0 body2 marg_left5">종류</div>
 									</div>
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" placeholder="input category max:15" name="category" id="category" maxlength="15">
+											<input type="text" placeholder="input category max:15" name="category" id="cp_category" maxlength="15">
 										</div>
 									</div>
 
@@ -209,58 +209,51 @@
 										</div>
 									</div>
                 				</div>
-            				</div>
-            			</div>
-							<div class="row pt-2 m-3 mb-4">
-								<div class="h3_2">CouponList</div>
-							</div>
-							<div class="col-12" style="border-bottom: 1px solid black;"></div>
-							<div class="row">
-							<div class="col-1">
-								발행번호
-							</div>
-							<div class="col-2">
-								소유자 이메일
-							</div>
-							<div class="col-2">
-								Serial
-							</div>
-							<div class="col-2">
-								할인금
-							</div>
-							<div class="col-2">
-								종류
-							</div>
-							<div class="col-1">
-								사용여부
-							</div>
-							</div>
-							<div class="col-12" style="border-bottom: 1px solid black;"></div>
-							<c:forEach items="${list }" var="i">
-							<div class="row">
-							<div class="col-1">
-								${i.key }
-							</div>
-							<div class="col-2">
-								${i.email }
-							</div>
-							<div class="col-2">
-								${i.serial }
-							</div>
-							<div class="col-2">
-								${i.dc }
-							</div>
-							<div class="col-2">
-								${i.category }
-							</div>
-							<div class="col-1">
-								${i.use }
-							</div>
-							</div>
-							</c:forEach>
-										                    <div class="col-12 p-3 body1 colortext_gray400" style="text-align:center">
-			                       	${navi}
-			                    </div>
+                				<div class="row mt-5">
+			           				<div class="col-12 m-auto" style="border-bottom : 0.3rem solid #161C24; width:85%;"></div>
+			           			</div>
+            			
+								<div class="row pt-5 m-3 mb-4">
+									<div class="h3_2">CouponList</div>
+								</div>
+								<div class="row pt-3 m-3 mb-4">	
+									<div class="col-1 col-xl-1 d-none d-xl-block h3" style="border-right : 0.125rem solid #DFE3E8">No</div>
+	            					<div class="col-4 d-none d-lg-block col-lg-4 col-xl-3 h3" style="border-right : 0.125rem solid #DFE3E8">Email</div>
+	            					<div class="col-4 col-lg-4 d-lg-none h3_4" style="border-right : 0.125rem solid #DFE3E8; padding: 0px; text-align :center;">Email</div>
+				            		<div class="col-4 col-lg-2 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Serial </div>
+				            		<div class="col-4 d-lg-none h3_4" style="border-right : 0.125rem solid #DFE3E8; padding: 0px; text-align :center;">Serial </div>
+				            		<div class="col-2 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">할인금</div>
+				            		<div class="col-2 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">종류</div>
+				            		<div class="col-2 d-none d-lg-block h3">사용여부</div>
+				            		<div class="col-4 d-lg-none h3_4" style="padding:0px; text-align :center;">사용여부</div>
+				            		<div class="col-12 px-3">
+				            			<div class="card2"></div>
+				            		</div>        		
+	          						<div class="col-12 pt-2 p-3">
+	                            		<div class="">
+											<hr>
+	                            			<c:forEach var="i" items="${list}">
+	                            			<div class="row">
+		                            			<div class="col-1 col-xl-1 d-none d-xl-block px-4 body2">${i.key }</div>
+		                            			<div class="col-4 d-none d-lg-block col-lg-4 col-xl-3 px-4 body2">${i.email }</div>
+		                            			<div class="col-4 col-lg-4 d-lg-none px-4 body2_1 ellipsis">${i.email }</div>
+					                        	<div class="col-4 col-lg-2 d-none d-lg-block px-4 body2" >${i.serial }</div>
+					                        	<div class="col-4 d-lg-none px-4 body2_1" >${i.serial }</div>
+					                        	<div class="col-2 d-none d-lg-block px-4 body2" >${i.dc }</div>
+				                            	<div class="col-2 d-none d-lg-block px-4 body2 ellipsis" >${i.category }</div>
+				                            	<div class="col-2 d-none d-lg-block px-4 body2">${i.use }</div>
+				                            	<div class="col-4 d-lg-none px-4 body2_1">${i.use }</div>
+				                            </div>
+			                            	<hr>
+		                            		</c:forEach>
+	                            		</div>
+	                            	</div>	
+				                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
+				                    	${navi}
+				                    </div>
+	            				</div>
+			              	</div>
+            			</div>      
             		</div>
             	</div>
             </div>
@@ -295,16 +288,18 @@ $(".navbar-toggler").on("click",function(){
    $(".navbar-collapse").toggle();
    }
 })
-				$("#make").on("click",function(){
-					$.ajax({
-						url:"/coupon/make",
-						data:{number:$("#number").val(),
-							dc:$("#dc").val(),
-							category:$("#category").val()}
-					}).done(function(resp){
-						alert("쿠폰 "+resp+"매가 발행되었습니다.");
-					})
-				})
+
+
+$("#make").on("click",function(){
+	$.ajax({
+		url:"/coupon/make",
+		data:{number:$("#cp_number").val(),
+		dc:$("#cp_dc").val(),
+		category:$("#cp_category").val()}
+	}).done(function(resp){
+		alert("쿠폰 "+resp+"매가 발행되었습니다.");
+	})
+})
 </script>	
 </body>
 </html>

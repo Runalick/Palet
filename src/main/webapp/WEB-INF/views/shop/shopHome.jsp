@@ -47,6 +47,10 @@
         padding: 0px;
     }
 
+	.container, .container-fluid,  .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+   		overflow-x: hidden;
+	} 
 	.navbar-brand {
         margin: 0px;
         padding: 0px;
@@ -161,7 +165,7 @@
 		justify-content: center;
 		align-items: center;
 		padding: 12px 20px;
-		
+/* 		margin-left:0.75rem; */
 /* 		height: 48px; */
 		
 		/* Gray/200 */
@@ -178,6 +182,10 @@
 
 .button:hover {
   cursor: pointer;
+}
+
+.exhibitionLink:hover{
+	cursor: pointer;
 }
 
 .active {
@@ -210,7 +218,46 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
-    
+    color: #919EAB;
+}
+
+.h3_2{
+	font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #161C24;
+}
+
+.goodsName{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 30px;
+	/* identical to box height, or 150% */
+	
+	
+	/* Gray/900 */
+	
+	color: #161C24;
+}
+
+.goodsPrice{
+	/* Headline/H3 */
+
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 24px;
+	/* identical to box height */
+	
+	
+	/* Gray/900 */
+	
+	color: #161C24;
 }
 
 /* 가로 스크롤바 제거 */
@@ -280,10 +327,13 @@
     </div>
 
     <script>
+		//	굿즈 디테일 연결
     	$(".detailview").on("click",function(){
     		console.log($(".detailview").val());
     		location.href="/shop/goDetail?g_num="+$(".detailview").val();
     	})
+    	
+		//	구매완료 페이지 연결
     	$(".success").on("click",function(){
     		console.log("d")
     		location.href="/shop/success";
@@ -294,23 +344,23 @@
 		<div class="row" style="padding-top: 100px;">
 			<div class="container">
 				<div class="row" >
-					<div class="col-9">
+					<div class="col-lg-9 col-12">
 						<div class="h2" style="display: inline-block; margin-right: 55.125rem; ">Shop</div>
                     </div>
-                    <div class="col-3" style="text-align: right; ">
-						<div class="currentExhibition h3 exhibitionLink" id="currentExhibition" style="display: inline-block; margin-right: 3rem;">현재전시</div>
-						<div class="pastExhibition h3 exhibitionLink" id="pastExhibition" style="display: inline-block; ">지난전시</div>
-                    </div>
+                    <ul class="col-lg-3 col-12" style="text-align: right;">
+						<li class="currentExhibition h3 exhibitionLink" id="currentExhibition" style="display: inline-block; margin-right: 3rem;">현재전시</li>
+						<li class="pastExhibition h3 exhibitionLink" id="pastExhibition" style="display: inline-block; ">지난전시</li>
+                    </ul>
 				</div>
 					<div class="row" style="padding-top: 45px;">
-						<div class="col-9 scroll_y" style="overflow: auto; white-space: nowrap;">
-							<div class="button" id="1001" style="display: inline-block;">Romantic Days 어쨋든, 사랑</div>
-							<div class="button" id="1002" style="display: inline-block;">카로 악포키에르 |분실된 그림들|</div>
-                            <div class="button" id="1003" style="display: inline-block;">국제미술 소장품 기획전 |미술로, 세계로|</div>
-                            <div class="button" id="1004" style="display: inline-block;">아이 웨이웨이</div>
-                            <div class="button" id="1005" style="display: inline-block;">Romantic Days 어쨋든, 사랑</div>
+						<div class="col-9 scroll_y category" style="overflow: auto; white-space: nowrap;">
+<!-- 							<div class="button" id="1001" style="display: inline-block;">Romantic Days 어쨋든, 사랑</div> -->
+<!-- 							<div class="button" id="1002" style="display: inline-block;">카로 악포키에르 |분실된 그림들|</div> -->
+<!--                             <div class="button" id="1003" style="display: inline-block;">국제미술 소장품 기획전 |미술로, 세계로|</div> -->
+<!--                             <div class="button" id="1004" style="display: inline-block;">아이 웨이웨이</div> -->
+<!--                             <div class="button" id="1005" style="display: inline-block;">Romantic Days 어쨋든, 사랑</div> -->
 						</div>
-						<div class="col-3">
+						<div class="col-12 col-sm-3">
 							<select class="form-select" id="select_value" aria-label="Default select example" onchange="select_value(this)">
 								 <option value="sell" class="option">판매량</option>
 								 <option value="lowPrice" class="option">가격낮은순</option>
@@ -319,16 +369,17 @@
 						</div>
 					</div>
                     <div class="row list" style="padding-top: 52px; text-align: center;">
-                    	
+
                     </div>
 				</div>
 			</div>
-		<div class="row" id="footer" style="margin-top: 80px; background-color: #F4F6F8; ">
-            <div class="container">
+		<div class="row" id="footer">
+            <div class="container" style="padding-left:2.5rem;">
                 <div class="row" id="row1">
-                    <div class="col-12 h3 d-none d-sm-block" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2 d-none d-sm-block" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
                 </div>
             </div>
         </div>
@@ -339,60 +390,102 @@
 
 </body>
 <script>
-
+	// 	페이지 로딩시
     window.onload = function(){
+    	//	현재전시버튼 기본 CSS, append
+    	if(!($(".currentExhibition").hasClass("h3_2"))){
+    		$(".currentExhibition").addClass("h3_2");
+    		$(".category").append("<div class='button' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+    	}
+
+    	//	전시회 버튼 기본 CSS, append (현재전시)
     	if(!($("#1001").hasClass("active"))){
     		$("#1001").addClass("active");
     		$.ajax({
-            	url:"/shop/selectBestSeller",
+            	url:"/shop/selectGoods",
             	data:{"e_num":"1001",
-            		"option":"sell"}
+            		"option":"sell"
+            		}
             }).done(function(resp){
             	console.log(resp);
             	for(i=0; i < resp.length; i++){
-            		$(".list").append("<div class='col-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
+            		$(".list").append("<div class='col-12 col-sm-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price+"원</div></div>");
             	}
             })
 
     	}
     	
-    	if(!($("#currentExhibition").hasClass("active1"))){
-    		$("#currentExhibition").addClass("active1");
-    		$.ajax({
-    			
-    		})
-    	}
-    	
     }
 
+    //	현재전시 버튼 이벤트
+    $(".currentExhibition").on("click",function(){
+    	$(".currentExhibition").addClass("h3_2");
+    	$(".pastExhibition").removeClass("h3_2");
+    	$(".category").empty();
+    	$(".category").append("<div class='button active' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+    	$.ajax({
+        	url:"/shop/selectGoods",
+        	data:{"e_num":"1001",
+        		"option":"sell"}
+        }).done(function(resp){
+        	$(".list").empty();
+        	for(i=0; i < resp.length; i++){
+        		$(".list").append("<div class='col-12 col-sm-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price+"원</div></div>");
+        	}
+        })
+    });
     
-     $(".button").on("click",function(){
+    // 지난전시 버튼 이벤트
+    $(".pastExhibition").on("click",function(){
+    	$(".pastExhibition").addClass("h3_2");
+    	$(".currentExhibition").removeClass("h3_2");
+    	$(".category").empty();
+    	$(".category").append("<div class='button active' id='1002' style='display: inline-block;'>카로 악포키에르 <<분실된 그림들>></div>");
+    	$(".category").append("<div class='button' id='1003' style='display: inline-block;'>국제미술 소장품 기획전 <<미술로, 세계로>></div>");
+    	$(".category").append("<div class='button' id='1004' style='display: inline-block;'>아이 웨이웨이</div>");
+    	$(".category").append("<div class='button' id='1005' style='display: inline-block;'>대지의 시간</div>");
+    	$(".category").append("<div class='button' id='1006' style='display: inline-block;'>창동레지던시 입주보고서 2021:풀 물 몸</div>");
+    	$.ajax({
+        	url:"/shop/selectGoods",
+        	data:{"e_num":"1002",
+        		"option":"sell"}
+        }).done(function(resp){
+        	$(".list").empty();
+        	for(i=0; i < resp.length; i++){
+        		$(".list").append("<div class='col-12 col-sm-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price+"원</div></div>");
+        	}
+        })
+    });
+    
+    //	전시회 카테고리 변경 이벤트
+     $(document).on("click",".button",function(){
         $(this).addClass("active");
         $(".button").not(this).removeClass("active");
         $(".form-select").val("sell");
             $.ajax({
-            	url:"/shop/selectBestSeller",
+            	url:"/shop/selectGoods",
             	data:{"e_num":$(this).attr("id"),
             		"option":"sell"}
             }).done(function(resp){
             	$(".list").empty();
             	for(i=0; i < resp.length; i++){
-            		$(".list").append("<div class='col-4 col-md-3 '><div class='t'><a href='"+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");
+            		$(".list").append("<div class='col-12 col-sm-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price+"원</div></div>");
             	}
             })
      });
      
+     //	정렬순서 변경시 이벤트
      function select_value(value){
     	 let select_option = $(value).val();
     	 console.log(select_option);
             $.ajax({
-            	url:"/shop/selectBestSeller",
+            	url:"/shop/selectGoods",
             	data:{"e_num":$(".active").attr("id"),
             		"option":select_option}
             }).done(function(resp){
             	$(".list").empty();
             	for(i=0; i < resp.length; i++){
-            		$(".list").append("<div class='col-4 col-md-3'><div class='t'><a href='"+resp[i].g_num+"'><img class='con' src='/home/"+resp[i].gp_sysname+"'></a></div><div class='b'>" + resp[i].g_name + "</div><div>"+resp[i].g_price+"원</div></div>");	
+            		$(".list").append("<div class='col-12 col-sm-4 col-md-3' style='border-radius: 20px; border: 1px solid black;'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price+"원</div></div>");	
             	}
             })
      }

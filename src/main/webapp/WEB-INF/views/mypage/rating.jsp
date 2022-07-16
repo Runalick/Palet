@@ -391,10 +391,6 @@ align-items: center; */
 .ratingbox {
 	border: 1px solid black;
 }
-
-div {
-	text-align: center;
-}
 .mini{
 	width: 5rem;
 	height: 5rem;
@@ -592,8 +588,8 @@ div {
 				<div class="content">
 					<div class="row" id="row1">
 											<div class="col-sm-12 h2"
-							style="text-align: center; margin-left: auto; margin-bottom: 20px; text-decoration: underline;">
-							<b>Grade.</b>
+							style="text-align: center; margin-left: auto; margin-bottom: 20px;">
+							<b style="text-decoration: underline;">Grade.</b>
 						<div class="col-12 h3"> 
 								<c:if test="${dto.name==null }">
 									${dto.email}
@@ -661,6 +657,7 @@ div {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 
 		<!-- 푸터단 -->	

@@ -19,7 +19,7 @@
 	crossorigin="anonymous"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-<!-- 지도api -->
+<script src="/js/qrmaker.js"></script>
 
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -966,7 +966,7 @@ $("body").on("click", function(e){
 	//쿠폰 등록
 	   $("#registration").on("click",function(){
       window.open("/coupon/toregistration", "",
-      "top=100,left=200,width=550,height=500");
+      "top=100,left=200,width=700,height=500");
       })
 	
 	//선택박스 화살표 방향 이미지
@@ -983,6 +983,14 @@ $("body").on("click", function(e){
 			click = false;
 		}
 	});
+    var qrcode = new QRCode(document.getElementById("qr"), {
+        text: "${url}",
+        width: 90,
+        height: 90,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
 	</script>
 </body>
 </html>

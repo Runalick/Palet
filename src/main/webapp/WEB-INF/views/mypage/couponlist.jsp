@@ -602,10 +602,10 @@ align-items: center; */
 							<div class="col-md-2 col-sm-4 body5">${i.dc }</div>
 							<div class="col-md-2 col-sm-4 body5">${i.category }</div>
 							<div class="col-md-2 d-md-block d-none body5">
-								<c:if test="${(i.use == null)||(i.use=='N') }">
+								<c:if test="${(i.use == null)||(i.use=='N')||(i.use='n') }">
 								미사용 쿠폰입니다.
 							</c:if>
-								<c:if test="${i.use=='Y' }">
+								<c:if test="${(i.use=='Y')||(i.use='y') }">
 								사용한 쿠폰입니다.
 							</c:if>
 								<div class="col-md-2 col-sm-0 body5"></div>
@@ -613,9 +613,6 @@ align-items: center; */
 							<div class="col-12 body4" style="border-bottom: 1px solid black;"></div>
 						</c:forEach>
 					</div>
-
-
-
 
 
 				</div>
