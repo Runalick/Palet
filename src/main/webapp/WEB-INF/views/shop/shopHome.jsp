@@ -403,11 +403,10 @@
             </div>
                <div class="row" style="padding-top: 45px;">
                   <!-- e_num category -->
-                      <div class="col-1" style="padding-right:0px;"><span id="before"><img src="/images/btn4_1.png" id="beforeBtn"></span></div>
-		              <div class="col-12 col-md-7 scroll_y category" style="overflow: auto; white-space: nowrap; ">
-		              		          
+		              <div class="col-12 col-md-9 scroll_y category" style="overflow: auto; white-space: nowrap; postion:relative">
+		              	<span id="before" style="position:absolute"><img src="/images/btn4_1.png" id="beforeBtn"></span>
+		              	<span id="pre" style="position:absolute; right:0px"><img src="/images/btn4_2.png" id="preBtn"></span>
 		              </div>
-	                  <div class="col-1" style="padding-left:0px;" ><span id="pre"><img src="/images/btn4_2.png" id="preBtn"></span></div>
                   <!-- order by value select -->
                   <div class="col-12 col-md-3 select-form" style="padding-left:0px">
                      <select class="form-select" id="select_value" aria-label="Default select example" onchange="select_value(this)" >
@@ -442,118 +441,220 @@
 
 </body>
 <script>
-   //    페이지 로딩시
-    window.onload = function(){
-       //   현재전시버튼 기본 CSS, append
-       if(!($(".currentExhibition").hasClass("h3_2"))){
-          $(".currentExhibition").addClass("h3_2");
-          $(".category").append("<div class='button' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
-       }
+	$(window).resize(function() { //창크기 변화 감지
+		open_chatroom();
+	});
 
-       //   전시회 버튼 기본 CSS, append (현재전시)
-       if(!($("#1001").hasClass("active"))){
-          $("#1001").addClass("active");
-          $.ajax({
-               url:"/shop/selectGoods",
-               data:{"e_num":"1001",
-                  "option":"sales_count desc",
-                  "limit":"1"
-                  }
-            }).done(function(resp){
-               console.log(resp);
-               for(i=0; i < resp.length; i++){
-                  $(".list").append("<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >" + resp[i].g_name + "</div><div class='goodsPrice' >"+resp[i].g_price.toLocaleString()+"원</div></div>");
-               }
-            })
+	function open_chatroom() {
+		var windowWidth = $(window).width();
+		if (windowWidth < 720) { //창 가로 크기가 500 미만일 경우
+// 			$(".category").css({
 
-       }
-       
-    }
+// 			});
+		} else { //창 가로 크기가 500보다 클 경우
+			$(".category").css({
+				"position" : "relative"
+			});
+		}
+	}
 
-    //   현재전시 버튼 이벤트
-    $(".currentExhibition").on("click",function(){
-       $(".currentExhibition").addClass("h3_2");
-       $(".pastExhibition").removeClass("h3_2");
-       $(".button").remove();
-       $(".category").append("<div class='button active' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
-       $.ajax({
-           url:"/shop/selectGoods",
-           data:{"e_num":"1001",
-              "option":"sales_count",
-              "limit":"1"
-              }
-        }).done(function(resp){
-           $(".list").empty();
-           for(i=0; i < resp.length; i++){
-              $(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price.toLocaleString()+"원</div></div>");
-           }
-        })
-    });
-    
-    // 지난전시 버튼 이벤트
-    $(".pastExhibition").on("click",function(){
-       $(".pastExhibition").addClass("h3_2");
-       $(".currentExhibition").removeClass("h3_2");
-       $(".button").remove();
-       $(".category").append("<div class='button active' id='1002' style='display: inline-block;'>카로 악포키에르 <<분실된 그림들>></div>");
-       $(".category").append("<div class='button' id='1003' style='display: inline-block;'>국제미술 소장품 기획전 <<미술로, 세계로>></div>");
-       $(".category").append("<div class='button' id='1004' style='display: inline-block;'>아이 웨이웨이</div>");
-       $(".category").append("<div class='button' id='1005' style='display: inline-block;'>대지의 시간</div>");
-       $(".category").append("<div class='button' id='1006' style='display: inline-block;'>창동레지던시 입주보고서 2021:풀 물 몸</div>");
-       $.ajax({
-           url:"/shop/selectGoods",
-           data:{"e_num":"1002",
-              "option":"sales_count",
-              "limit":"1"
-              }
-        }).done(function(resp){
-           $(".list").empty();
-           for(i=0; i < resp.length; i++){
-              $(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price.toLocaleString()+"원</div></div>");
-           }
-        })
-    });
-    
-    //   전시회 카테고리 변경 이벤트
-     $(document).on("click",".button",function(){
-        $(this).addClass("active");
-        $(".button").not(this).removeClass("active");
-        $(".form-select").val("sell");
-            $.ajax({
-               url:"/shop/selectGoods",
-               data:{"e_num":$(this).attr("id"),
-                  "option":"sell",
-                  "limit":"1"
-                  }
-            }).done(function(resp){
-               $(".list").empty();
-               for(i=0; i < resp.length; i++){
-                  $(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price.toLocaleString()+"원</div></div>");
-               }
-            })
-     });
-     
-     //   정렬순서 변경시 이벤트
-     function select_value(value){
-        let select_option = $(value).val();
-        console.log(select_option);
-            $.ajax({
-               url:"/shop/selectGoods",
-               data:{"e_num":$(".active").attr("id"),
-                  "option":select_option,
-                  "limit":"1"
-                  }
-            }).done(function(resp){
-               $(".list").empty();
-               for(i=0; i < resp.length; i++){
-                  $(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="+resp[i].g_num+"'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>" + resp[i].g_name + "</div><div class='goodsPrice' style='text-align:left;'>"+resp[i].g_price.toLocaleString()+"원</div></div>");   
-               }
-            })
-     }
-    
-   
-   
+	// 페이지 로딩시
+	window.onload = function() {
+		//   현재전시버튼 기본 CSS, append
+		if (!($(".currentExhibition").hasClass("h3_2"))) {
+			$(".currentExhibition").addClass("h3_2");
+			$(".category")
+					.append(
+							"<div class='button' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+		}
 
+		//   전시회 버튼 기본 CSS, append (현재전시)
+		if (!($("#1001").hasClass("active"))) {
+			$("#1001").addClass("active");
+			$
+					.ajax({
+						url : "/shop/selectGoods",
+						data : {
+							"e_num" : "1001",
+							"option" : "sales_count desc",
+							"limit" : "1"
+						}
+					})
+					.done(
+							function(resp) {
+								console.log(resp);
+								for (i = 0; i < resp.length; i++) {
+									$(".list")
+											.append(
+													"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+															+ resp[i].g_num
+															+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
+															+ resp[i].g_name
+															+ "</div><div class='goodsPrice' >"
+															+ resp[i].g_price
+																	.toLocaleString()
+															+ "원</div></div>");
+								}
+							})
+
+		}
+
+	}
+
+	//   현재전시 버튼 이벤트
+	$(".currentExhibition")
+			.on(
+					"click",
+					function() {
+						$(".currentExhibition").addClass("h3_2");
+						$(".pastExhibition").removeClass("h3_2");
+						$(".button").remove();
+						$(".category")
+								.append(
+										"<div class='button active' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+						$
+								.ajax({
+									url : "/shop/selectGoods",
+									data : {
+										"e_num" : "1001",
+										"option" : "sales_count",
+										"limit" : "1"
+									}
+								})
+								.done(
+										function(resp) {
+											$(".list").empty();
+											for (i = 0; i < resp.length; i++) {
+												$(".list")
+														.append(
+																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
+																		+ resp[i].g_num
+																		+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+																		+ resp[i].g_name
+																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
+																		+ resp[i].g_price
+																				.toLocaleString()
+																		+ "원</div></div>");
+											}
+										})
+					});
+
+	// 지난전시 버튼 이벤트
+	$(".pastExhibition")
+			.on(
+					"click",
+					function() {
+						$(".pastExhibition").addClass("h3_2");
+						$(".currentExhibition").removeClass("h3_2");
+						$(".button").remove();
+						$(".category")
+								.append(
+										"<div class='button active' id='1002' style='display: inline-block;'>카로 악포키에르 <<분실된 그림들>></div>");
+						$(".category")
+								.append(
+										"<div class='button' id='1003' style='display: inline-block;'>국제미술 소장품 기획전 <<미술로, 세계로>></div>");
+						$(".category")
+								.append(
+										"<div class='button' id='1004' style='display: inline-block;'>아이 웨이웨이</div>");
+						$(".category")
+								.append(
+										"<div class='button' id='1005' style='display: inline-block;'>대지의 시간</div>");
+						$(".category")
+								.append(
+										"<div class='button' id='1006' style='display: inline-block;'>창동레지던시 입주보고서 2021:풀 물 몸</div>");
+						$
+								.ajax({
+									url : "/shop/selectGoods",
+									data : {
+										"e_num" : "1002",
+										"option" : "sales_count",
+										"limit" : "1"
+									}
+								})
+								.done(
+										function(resp) {
+											$(".list").empty();
+											for (i = 0; i < resp.length; i++) {
+												$(".list")
+														.append(
+																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
+																		+ resp[i].g_num
+																		+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+																		+ resp[i].g_name
+																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
+																		+ resp[i].g_price
+																				.toLocaleString()
+																		+ "원</div></div>");
+											}
+										})
+					});
+
+	//   전시회 카테고리 변경 이벤트
+	$(document)
+			.on(
+					"click",
+					".button",
+					function() {
+						$(this).addClass("active");
+						$(".button").not(this).removeClass("active");
+						$(".form-select").val("sell");
+						$
+								.ajax({
+									url : "/shop/selectGoods",
+									data : {
+										"e_num" : $(this).attr("id"),
+										"option" : "sell",
+										"limit" : "1"
+									}
+								})
+								.done(
+										function(resp) {
+											$(".list").empty();
+											for (i = 0; i < resp.length; i++) {
+												$(".list")
+														.append(
+																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
+																		+ resp[i].g_num
+																		+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+																		+ resp[i].g_name
+																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
+																		+ resp[i].g_price
+																				.toLocaleString()
+																		+ "원</div></div>");
+											}
+										})
+					});
+
+	//   정렬순서 변경시 이벤트
+	function select_value(value) {
+		let select_option = $(value).val();
+		console.log(select_option);
+		$
+				.ajax({
+					url : "/shop/selectGoods",
+					data : {
+						"e_num" : $(".active").attr("id"),
+						"option" : select_option,
+						"limit" : "1"
+					}
+				})
+				.done(
+						function(resp) {
+							$(".list").empty();
+							for (i = 0; i < resp.length; i++) {
+								$(".list")
+										.append(
+												"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
+														+ resp[i].g_num
+														+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+														+ resp[i].g_name
+														+ "</div><div class='goodsPrice' style='text-align:left;'>"
+														+ resp[i].g_price
+																.toLocaleString()
+														+ "원</div></div>");
+							}
+						})
+	}
 </script>
 <!-- Channel Plugin Scripts -->
 <script>
