@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.service.ExhibitionService;
+import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.PayService;
 
 @Controller
@@ -21,6 +22,9 @@ public class PayController {
 	
 	@Autowired
 	private ExhibitionService eServ;
+	
+	@Autowired
+	private MemberService mServ;
 	
 
 //	@ResponseBody
@@ -55,6 +59,7 @@ public class PayController {
 		System.out.println(	dto.getEt_category());
 	    int result = pServ.insert(dto);
 	    int result1 = eServ.updateSalesCount(dto.getEt_title(),dto.getEt_count());
+	    int result2 = mServ.updatePoint(dto.getEt_point(),dto.getEt_usedpoint(),dto.getEt_email());
 	
 		 List<ExticketDTO> list = new ArrayList<ExticketDTO>();
 		

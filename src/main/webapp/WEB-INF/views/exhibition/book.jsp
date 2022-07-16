@@ -1000,8 +1000,17 @@ $(".form-select").on('change',function(){
 		let point = '${price}';
 		let point1 = point.replace(",", "");
 		let point2 = point1.replace("원", "");
+		
+		if('${mdto.grade}'=='White'){
 		finalpoint = parseInt(point2) * 0.01;
-
+		
+		}else if('${mdto.grade}'=='Gray'){
+			finalpoint = parseInt(point2) * 0.05;
+	
+		}else if('${mdto.grade}'=='Black'){
+			finalpoint = parseInt(point2) * 0.1;
+		}
+		
 		$("#point").text(finalpoint + "p");
 
 	}

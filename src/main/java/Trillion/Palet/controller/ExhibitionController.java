@@ -83,6 +83,7 @@ public class ExhibitionController {
 		System.out.println(mdto.getPoint());
 		System.out.println(mdto.getGrade());
 		
+		
 		model.addAttribute("loginEmail", email);
 		model.addAttribute("count", count);
 		model.addAttribute("price", price);
