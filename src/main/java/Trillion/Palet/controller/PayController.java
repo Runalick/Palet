@@ -13,6 +13,7 @@ import Trillion.Palet.DTO.ProticketDTO;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.PayService;
+import Trillion.Palet.service.ProgramService;
 
 @Controller
 @RequestMapping("/pay/")
@@ -23,6 +24,9 @@ public class PayController {
 	
 	@Autowired
 	private ExhibitionService eServ;
+
+	@Autowired
+	private ProgramService proServ;
 	
 	@Autowired
 	private MemberService mServ;
@@ -93,10 +97,10 @@ public class PayController {
 		System.out.println(	dto.getPro_buydate());
 		System.out.println(	dto.getPro_category());
 	    int result = pServ.insertPro(dto);
-	    int result1 = eServ.updateSalesCount(dto.getEt_title(),dto.getEt_count());
-	    int result2 = mServ.updatePoint(dto.getEt_point(),dto.getEt_usedpoint(),dto.getEt_email());
+	    int result1 = proServ.updateSalesCount(dto.getPro_title(),dto.getPro_count());
+	    int result2 = mServ.updatePoint(dto.getPro_point(),dto.getPro_usedpoint(),dto.getPro_email());
 	
-		 List<ExticketDTO> list = new ArrayList<ExticketDTO>();
+		 List<ProticketDTO> list = new ArrayList<ProticketDTO>();
 		
 		
 		return list;

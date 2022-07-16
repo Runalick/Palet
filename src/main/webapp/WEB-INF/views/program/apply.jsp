@@ -1048,12 +1048,12 @@ $(".form-select").on('change',function(){
 				let usedpoint3 = parseInt(usedpoint2);
 				
 				$.ajax({
-					url : "/pay/insert",
+					url : "/pay/insertPro",
 					data : {
 
 						pro_email : $(".email").val(),
-						pro_title : "Romantic Days 어쨋든 사랑",
-						pro_place : "지하철 3호선 경복궁역 지하 1층",
+						pro_title : "키즈 워크룸:애니메이터 프로젝트",
+						pro_place : "지하철 3호선 경복궁역 지하 2층",
 						pro_date : "2022.03.16 ~ 2022.10.30",
 						pro_booknumber : rsp.merchant_uid,
 						pro_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
@@ -1068,7 +1068,7 @@ $(".form-select").on('change',function(){
 						pro_usedpoint : usedpoint3,
 						pro_cpdiscount : parseInt($(".form-select option:selected").val()),
 						pro_cpserial :  $(".form-select option:selected").attr('value1'),
-						pro_category : 'E'
+						pro_category : 'P'
 					},
 
 					type : "post",
