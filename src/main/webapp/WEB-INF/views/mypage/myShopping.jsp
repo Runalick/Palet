@@ -16,6 +16,8 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!-- <link rel="stylesheet" href="/css/member/join.css">  -->
 <style>
 @charset "UTF-8";
@@ -359,6 +361,7 @@ align-items: center; */
 	padding-right: 0px;
 }
 
+
 .hcon {
 	margin-top: 0.938rem;
 	height: 3.75rem;
@@ -410,7 +413,6 @@ a {
 	background: #FFFFFF;
 	/* Gray/300 */
 }
-
 
 @media ( min-width : 992px) {
 	.content{
@@ -507,7 +509,6 @@ margin-right:0.25rem;
 /* 네비 */
 
 .content{
-  
     margin-left:1.75rem;
 }
 .mypage-wrap{
@@ -590,6 +591,12 @@ border-radius: 1rem;
 background: #454F5B;
 color:white;
 } 
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* 말줄임 적용 */
+}
 
 </style>
 </head>
@@ -697,31 +704,63 @@ color:white;
 				
 				
 				<div class="content" style="margin-top:1rem;" >
-					<div class="row">
-						<div class="col-12 main-info">주문 내역</div>
+					<div class="row" >
+						<div class="col-12 main-info" >주문 내역</div>
 						
 						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
 							<div class="row main-area">
-								<div class="col-2 body4" >주문일</div>
-								<div class="col-2 body4">주문번호</div>
-								<div class="col-4 body4">주문정보</div>
-								<div class="col-2 body4">주문가격</div>
-								<div class="col-2 body4">배송상태</div>
+								<div class="col-2 px-3 body4" >주문일</div>
+								<div class="col-5 px-3 body4">주문정보</div>
+								<div class="col-1 px-3 body4">수량</div>
+								<div class="col-2 px-3 body4">가격</div>
+								<div class="col-2 px-3 body4">배송상태</div>
 							</div>
-							
-							
-						 	
-					
-							<!--<c:forEach var="i" items="${list }">
-		                     <div class="row list" >
-		                        <div class="col-2 body3">${i.purchase_date }</div>
-		                        <div class="col-3 col-md-2 body3">${i.merchant_uid }</div>
-		                        <div class="col-2 col-md-3 body3">${i.totalprice }</div>
-		                        
-		                        <div class="col-5 body3"></div>
-		                        </div>
-		                     </div>
-		                     </c:forEach> -->
+							<div id="contents_area">
+							</div>
+							<%-- <c:forEach var="i" items="${list}">
+								<a href='/mypage/myShoppingDetailview?merchant_uid=${i.merchant_uid}'>
+								<div class="row main-area">
+								<div class="col-2 px-3 ellipsis body4" >${i.pay_time}</div>
+								<div class="col-5 px-3 ellipsis body4">
+									<div class="row">
+										<div class="col-5 px-3">
+											<img src="/images/anywayloveS.png" class="w-100 h-100">
+											<img class='con' src='/shop/shopHome/"+ ${gp_sysname }+"'>
+										</div>
+										<div class="col-7 px-3">
+											<div class="col-12 px-3">${i.merchant_uid}</div>
+											<div class="col-12 px-3">${i.e_name }</div>
+											<div class="col-12 px-3">${i.G_NAME }</div>
+											<div class="col-12 px-3">${i.G_OPTION }</div>
+										</div>
+										
+										
+									</div>
+								</div>
+								<div class="col-1 px-3 ellipsis body4">${i.g_count }</div>
+								<div class="col-2 px-3 ellipsis body4">${i.totalprice }</div>
+								<div class="col-2 ellipsis px-3 body4">
+									<c:if test="${i.state =='BU' }">
+										<div>주문완료</div>
+										<button>주문취소</button>
+									</c:if>
+									<c:if test="${i.state =='CU' }">
+										<div>배송 중</div>
+									</c:if>
+									<c:if test="${i.state =='AU' }">
+										<div>배송완료</div>
+										<button>반품신청</button>
+									</c:if>
+									<c:if test="${i.state =='BC' }">
+										<div>취소 대기 중</div>
+									</c:if>
+									<c:if test="${i.state =='AC' }">
+										<div>취소완료</div>
+									</c:if>
+								</div>
+							</div>
+							</a>
+							</c:forEach> --%>
 					
 						</div>
 					</div>
@@ -747,6 +786,128 @@ color:white;
         </div>
 	</div>
 <script>
+	AOS.init();
+	window.onload = function(){
+		$.ajax({
+			url:"/mypage/ShoppingList",
+			data:{"limit" : 1, "email": "${email}"},
+			async: false,
+			dataType:"json", // == JSON.parse(resp);
+			success: function (resp) {
+				for(let i = 0 ; i < resp.length; i++) {
+					let text_html=
+							"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
+							+"<div class='row main-area'>"
+							+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
+							+"<div class='col-5 px-3 ellipsis body4'>"
+							+	"<div class='row'>"
+							+		"<div class='col-5 px-3'>"
+							+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
+							+		"</div>"
+							+		"<div class='col-7 px-3'>"
+							+			"<div class='col-12 px-3'>" + resp[i].merchant_uid + "</div>"
+							+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
+							+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
+							+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
+							+		"</div>"	
+							+	"</div>"
+							+"</div>"
+							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
+							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
+							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
+							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
+							+"</div></div></a>";
+						
+						$("#contents_area").append(text_html);
+			    		console.log("resp.length : " + resp.length);
+					}	
+					for(let i=0; i<resp.length;i++){
+				    	if($("#state"+i).val()=='BU'){
+				    		$("#del" + i).append("<div>주문완료</div><button class='ok' id='cencle"+i+"'>주문취소</button>");
+				    	} 
+		    		} 
+					
+					/* for(let i=0; i<resp.length;i++){
+						let date = new Date($("#paytime"+i).text());
+						let enddate = new Date(date.setDate(date.getDate()+1));
+						let today = new Date(); 
+						console.log("구매일 : " + date);
+						console.log("변경일 : " +enddate);
+						console.log("현재날짜 : " +today);
+						if(enddate<today){
+							$.ajax({
+								url:"/mypage/"
+							})
+							$("#cencle" + i).attr('style',"display:none;");
+						}
+							
+					} */
+					
+				
+				},
+			});	
+		
+		let limit = 11;
+		
+		
+	  	$(document).scroll(function() {
+	    let maxHeight = $(document).height();
+	    let currentScroll = $(window).scrollTop() + $(window).height();
+		    
+		   
+		    if (maxHeight <= currentScroll+100) {
+		    	console.log("origin limit : " + limit);
+		    	$.ajax({
+					url:"/mypage/ShoppingList",
+					data:{limit : limit},
+					async: false,
+					dataType:"json", // == JSON.parse(resp);
+					success: function (resp) {
+						let text_html=
+							"<a href='/mypage/myShoppingDetail?merchant_uid='" + resp[i].merchant_uid + "'>"
+							+"<div class='row main-area'>"
+							+"<div class='col-2 px-3 ellipsis body4' >" + resp[i].pay_time +"</div>"
+							+"<div class='col-5 px-3 ellipsis body4'>"
+							+	"<div class='row'>"
+							+		"<div class='col-5 px-3'>"
+							+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
+							+		"</div>"
+							+		"<div class='col-7 px-3'>"
+							+			"<div class='col-12 px-3'>" + resp[i].merchant_uid + "</div>"
+							+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
+							+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
+							+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
+							+		"</div>"	
+							+	"</div>"
+							+"</div>"
+							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
+							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
+							+"<div class='col-2 ellipsis px-3 body4'>"
+							+"</div></div></a>";
+						
+						$("#contents_area").append(text_html);
+			    		console.log("resp.length : " + resp.length);
+			    		
+			    		
+					},
+					});
+		    	} 
+		      })  
+	}
+	
+	$("#contents_area").on("click", ".ok", function(){
+		console.log($(this).siblings().eq(1).val());
+		/* $.ajax({
+			url:"/event/confirmation",
+			data: {draw_seq:$(this).siblings().eq(1).val()}
+		}).done(function(resp){
+			alert(resp);
+			location.reload();
+		}) */
+	})
+	
+	
+
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
