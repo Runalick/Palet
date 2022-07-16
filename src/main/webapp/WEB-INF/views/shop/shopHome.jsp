@@ -404,11 +404,11 @@
                <div class="row" style="padding-top: 45px;">
                   <!-- e_num category -->
 		              <div class="col-12 col-md-9 scroll_y category" style="overflow: auto; white-space: nowrap; postion:relative">
-		              	<span id="before" style="position:absolute"><img src="/images/btn4_1.png" id="beforeBtn"></span>
-		              	<span id="pre" style="position:absolute; right:0px"><img src="/images/btn4_2.png" id="preBtn"></span>
+		              	<span id="before" style="position:absolute; top:0.25rem;"><img src="/images/btn4_1.png" id="beforeBtn"></span>
+		              	<span id="pre" style="position:absolute; right:0px; top:0.25rem;"><img src="/images/btn4_2.png" id="preBtn"></span>
 		              </div>
                   <!-- order by value select -->
-                  <div class="col-12 col-md-3 select-form" style="padding-left:0px">
+                  <div class="col-12 col-md-3 select-form">
                      <select class="form-select" id="select_value" aria-label="Default select example" onchange="select_value(this)" >
                          <option value="sell" class="option">판매량</option>
                          <option value="lowPrice" class="option">가격낮은순</option>
@@ -444,17 +444,30 @@
 	$(window).resize(function() { //창크기 변화 감지
 		open_chatroom();
 	});
-
+	
+	$(document).ready(function(){
+        open_chatroom();
+    });
+	
 	function open_chatroom() {
 		var windowWidth = $(window).width();
 		if (windowWidth < 720) { //창 가로 크기가 500 미만일 경우
-// 			$(".category").css({
-
-// 			});
+			$("#before").css({
+				"display":"none"
+			})
+			$("#pre").css({
+				"display":"none"
+			})
 		} else { //창 가로 크기가 500보다 클 경우
 			$(".category").css({
 				"position" : "relative"
-			});
+			})
+			$("#before").css({
+				"display":"inline"
+			})
+			$("#pre").css({
+				"display":"inline"
+			})
 		}
 	}
 
