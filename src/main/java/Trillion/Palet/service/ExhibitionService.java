@@ -66,4 +66,6 @@ public class ExhibitionService {
 		return edao.updateSalesCount(et_title, et_count+1);
 		
 	}
+	
+
 }
