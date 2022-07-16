@@ -96,4 +96,9 @@
     <select id="getName" resultType="String">
     	select name from member where email=#{value}
     </select>
+    
+    
+     <update id="updatePoint">
+  	update member set point = (point + #{et_point}) -#{et_usedpoint} where email = #{et_email}
+  </update>
 </mapper>

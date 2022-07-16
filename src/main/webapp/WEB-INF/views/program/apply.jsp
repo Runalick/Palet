@@ -600,7 +600,7 @@ input::placeholder {
 				<div class="col-12" style="margin-top: 2.5rem; text-align: left;">
 
 
-					<div class="col h3" style="padding: 0px;">예매자 정보</div>
+					<div class="col h3" style="padding: 0px;">신청자 정보</div>
 
 
 
@@ -621,7 +621,7 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="예매자 이름을 입력해 주세요." required>
+										placeholder="신청자 이름을 입력해 주세요." required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
@@ -645,7 +645,7 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="예매자 이름을 입력해 주세요." required>
+										placeholder="신청자 이름을 입력해 주세요." required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
@@ -743,8 +743,8 @@ input::placeholder {
 		<div class=container style="margin-top: 3.75rem;">
 			<div class=row>
 
-				<div class="col-12 h3 d-none d-sm-block">전시 정보</div>
-				<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">전시
+				<div class="col-12 h3 d-none d-sm-block">프로그램 정보</div>
+				<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">프로그램
 					정보</div>
 			</div>
 			<div class=row
@@ -754,14 +754,13 @@ input::placeholder {
 					style="padding-left: 0rem; height: 12rem; width: 42rem;">
 					<div class=row id=row1>
 						<div class="col-lg-3 col-5">
-							<img src="/images/anywayloveSM.png"
+							<img src="/images/kidclass.png"
 								style="width: 10rem; height: 12rem;">
 						</div>
 						<div class="col-lg-1 col-1"></div>
 						<div class="col-lg-8 body1 col-6"
 							style="color: #161C24; margin-top: 2.325rem;">
-							Romantic Days 어쨌든, 사랑
-
+						키즈 워크룸:애니메이터 프로젝트
 							<div class=h3
 								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
 								id=totalprice>${price}</div>
@@ -783,16 +782,14 @@ input::placeholder {
 
 				<div class="col-12" style="padding-left: 0rem;">
 					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
-						<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
-						<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
-						<li style="list-style-type: none;">*오후 6시 *매월 첫째 주 월요일 휴관
-							*(대체)공휴일 정상 운영</li>
-						<li>관람 가능 연령 : 전체 관람가</li>
-						<li style="list-style-type: none;">*영유아는 보호자 동반 하에만 입장 및 관람이
-							가능합니다.</li>
-						<li>매월 첫째 주 월요일은 휴관입니다.</li>
-						<li>(대체)공휴일 정상 운영합니다.</li>
-
+						<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
+						<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
+					
+						<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
+				
+						<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다. (보호자의 전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
+						<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용 부탁드립니다.</li>
+						
 
 
 
@@ -1051,27 +1048,27 @@ $(".form-select").on('change',function(){
 				let usedpoint3 = parseInt(usedpoint2);
 				
 				$.ajax({
-					url : "/pay/insert",
+					url : "/pay/insertPro",
 					data : {
 
-						et_email : $(".email").val(),
-						et_title : "Romantic Days 어쨋든 사랑",
-						et_place : "지하철 3호선 경복궁역 지하 1층",
-						et_date : "2022.03.16 ~ 2022.10.30",
-						et_booknumber : rsp.merchant_uid,
-						et_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
-						et_username : $(".username").val(),
-						et_phone : $(".phone").val(),
-						et_paymethod : rsp.card_name,
-						et_cardnumber : rsp.card_number,
-						et_cardquota : rsp.card_quota,
-						et_cost : price2,
-						et_count : count1,
-						et_point : point2,
-						et_usedpoint : usedpoint3,
-						et_cpdiscount : parseInt($(".form-select option:selected").val()),
-						et_cpserial :  $(".form-select option:selected").attr('value1'),
-						et_category : 'E'
+						pro_email : $(".email").val(),
+						pro_title : "키즈 워크룸:애니메이터 프로젝트",
+						pro_place : "지하철 3호선 경복궁역 지하 2층",
+						pro_date : "2022.03.16 ~ 2022.10.30",
+						pro_booknumber : rsp.merchant_uid,
+						pro_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
+						pro_username : $(".username").val(),
+						pro_phone : $(".phone").val(),
+						pro_paymethod : rsp.card_name,
+						pro_cardnumber : rsp.card_number,
+						pro_cardquota : rsp.card_quota,
+						pro_cost : price2,
+						pro_count : count1,
+						pro_point : point2,
+						pro_usedpoint : usedpoint3,
+						pro_cpdiscount : parseInt($(".form-select option:selected").val()),
+						pro_cpserial :  $(".form-select option:selected").attr('value1'),
+						pro_category : 'P'
 					},
 
 					type : "post",

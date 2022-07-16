@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.ExhibitionPicDTO;
 
+
 @Repository
 public class ExhibitionDAO {
 
@@ -46,6 +47,18 @@ public class ExhibitionDAO {
 	
 	public ExhibitionDTO getExhibition(int e_num) {
 		return mybatis.selectOne("Exhibition.getExhibition", e_num);
+	}
+	
+	
+	
+public int updateSalesCount(String et_title, int et_count) {
+	
+	Map<Object, Object> param = new HashMap<>();
+	param.put("et_title", et_title);
+	param.put("et_count", et_count);
+		
+		return mybatis.update("Exhibition.updateSalesCount", param);
+		
 	}
 	
 }
