@@ -488,7 +488,7 @@ a {
 					<div class="col body1" style="color: #161C24;">2022-04-01 ~
 						2022-10-30</div>
 
-					<form action="/Exhibition/toBook" method="post">
+					<form action="/program/toApply" method="post">
 
 
 
@@ -698,7 +698,7 @@ a {
 		$(this).next().val($($(this).siblings()[2]).text());
 		$(this).next().next().val($($(this).siblings()[0]).text());
 
-		location.href = "/Exhibition/toBook";
+		location.href = "/program/toApply";
 	})
 
 	$(".leftbutton").on("click", function() {

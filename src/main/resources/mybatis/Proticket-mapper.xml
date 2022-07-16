@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Proticket">
+
+
+<insert id="insert">
+		insert into proticket values(#{pro_email}, #{pro_title}, #{pro_place}, #{pro_date}, #{pro_booknumber}, #{pro_state}, #{pro_username}, #{pro_phone}, #{pro_paymethod},#{pro_cardnumber},#{pro_cardquota}, #{pro_cost}, #{pro_count}, #{pro_point},#{pro_usedpoint},#{pro_cpdiscount},#{pro_cpserial}, sysdate, #{pro_category})	
+	</insert>
+
+
+</mapper>

@@ -30,15 +30,15 @@
 			position : static;
 		}
 	}
-
 </style>
-
 </head>
 <body>
-	<div class="navbar navbar-expand-md navbar-light"> 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
-       			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
-       		<span class="navbar-toggler-icon"></span>
+<!-- <div class="container "> -->
+    <nav class="navbar navbar-expand-md  navbar-light"> 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
+        		aria-controls="sidebar" aria-expanded="false"
+							aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="sidebar">
@@ -48,7 +48,7 @@
                     <!-- sidebar class name for css, fixed-->
                     <div class="col-xl-2 col-lg-3 col-md-3 col-12 sidebar ml-auto fixed-top">
                         <!-- 최상단 로고 위치 텍스트/이미지 형태 -->
-                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" ><img src="/images/Logo.svg"> </a> 
+                        <a href="/" class="navbar-brand text-black text-center d-block mx-auto py-3 mb-4 bottom-border" > <img src="/images/Logo.svg"> </a> 
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
@@ -67,7 +67,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminExhibitions" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-easel text-black fa-lg mr-3"></i> Exhibitions
                                 </a>
                             </li>
@@ -82,15 +82,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminPayment?cpage=1" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-cash-coin text-black fa-lg mr-3"></i> Payment
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
-                            </li>                            
+                            </li>
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
@@ -102,15 +102,16 @@
                                 </a>
                             </li>
                         </ul>
+                        
                     </div>
-                    <!-- sidebar close -->
-                    
+                    <!-- sidebar end -->
+
                     <!-- main navi 9 grid open -->
                     
-                    <div class="col-xl-10 col-lg-9 top-navbar bg-dark fixed-top py-2">
+                    <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <div class="text-align text-uppercase mb-0 text-white h3">Exhibitions</div>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Payments</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">
@@ -134,72 +135,64 @@
                                             <i class="bi bi-bell"></i>
                                         </a>
                                     </li>
-                                    <li class="nav-item icon-parent m-auto">
+                                    <li class="nav-item icon-parent ml-md-auto">
                                         <a href="#" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
     <!-- navibar close -->
     
     <!-- main contents -->
     <section>
         <div class="container-fluid">
             <div class="row">    
-            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain">  <!-- 추후CSS작업 시 바뀔이름 -->
+            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Exhibitions List </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 전시 관련 정보를 확인 할 수 있는 페이지 입니다. </div>
+                		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Cancel Log </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 결제 취소 정보를 확인 할 수 있는 페이지 입니다. </div>
                 	</div>
                 	<div class="row pt-3 px-5">
-						<div class="col-12 mr-auto" id="exhibitionBtns">
-							<button class="btn0 " id="exhibitionAdded">전시 등록</button>
-							<button class="btn0 color_gray900 colortext_gray100" id="exhibitionList">전시회 목록</button>
+						<div class="col-12 mr-auto" id="paymentBtns">
+							<button class="btn0" id="paymentList">결제 현황</button>
+							<button class="btn0 color_gray900 colortext_gray100" id="cancelList">취소 현황</button>
 						</div>
-                	</div>
+                	</div>                	   
                 	<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">  
- 							<div class="row pt-4 p-4" style="text-align:right">
+                	    	<div class="row pt-4 p-4" style="text-align:right">
  								<div id="checkbtns">
- 									<select class="body2 select0 color_gray100" name="e_period" id="e_period">
-										<option value='F'>예정전시 </option>
-										<option value='N'>현재전시 </option>
-										<option value='P'>지난전시 </option>
-									</select>
-                            		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate()">기간 수정</button>
-                            		<button class="btn0_1 color_red2" onclick="checkboxDelete()">삭제</button>
+                            		<button class="btn0_1 color_red2" onclick="checkboxCancel()">환불 처리</button>
  								</div>
  							</div>
-            				<div class="row pt-3 m-3 mb-4">
-            					
-            					<div class="col-8 col-lg-4 h3" style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll"> Exhibition Name  <a href="/admin/adminExhibitionList?value=e_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-4 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Period  <a href="/admin/adminExhibitionList?value=start_date&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a><a href="/admin/adminExhibitionList?value=end_date&cpage=1" ><i class="bi bi-arrow-up-square colortext_gray900"></i></a></div>
-			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminExhibitionList?value=e_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-4 col-lg-2 h3 ">Condition  <a href="/admin/adminExhibitionList?value=e_period&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+                	    	
+                	    	<div class="row pt-3 m-3 mb-4">	
+            					<div class="col-4  h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">UID  </div>
+			            		<div class="col-4  h3 " style="border-right : 0.125rem solid #DFE3E8">Comment</div>
+			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Category</div>
+			            		<div class="col-4 col-xl-2 h3 " >Cancel_Date </div>
+			            		
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
-			            		</div>
-                        		<div class="col-12 pt-2 px-3">
+			            		</div>        		
+          						<div class="col-12 pt-2 p-3">
                             		<div class="">
 										<hr>
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
-	                            			<div class="col-8 col-lg-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.e_num}"> <a href="/admin/adminExhibitionDetail?e_num=${i.e_num}" class="colortext_gray900"><b>${i.e_name }</b></a> </div> 
-	                            			<div class="col-4 d-none d-lg-block px-4 body2">${i.start_date } <b> ~ </b> ${i.end_date } </div> 
-	                            			<div class="col-2 d-none d-xl-block px-4 body2">${i.e_price } </div> 
-		                            		<c:choose> 
-		                            			<c:when test="${i.e_period eq 'N'}"> <div class="col-4 col-lg-2 px-4 body2">현재전시</div></c:when> 
-		                            			<c:when test="${i.e_period eq 'F'}"> <div class="col-4 col-lg-2 px-4 body2">예정전시</div></c:when>
-		                            			<c:when test="${i.e_period eq 'P'}"> <div class="col-4 col-lg-2 px-4 body2">지난전시</div></c:when>
-		                            		</c:choose>
-		                            	</div>
+	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
+	                            			<input type="hidden" value="${i.booknumber }">
+	                            			<div class="col-4 px-4 body2">${i.content } </div>
+				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.category }</div>
+				                        	<div class="col-2 col-xl-2 px-4 body2" >${i.cancel_date} </div>
+			                            </div>
 		                            	<hr>
 	                            		</c:forEach>
                             		</div>
@@ -207,7 +200,7 @@
 			                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
 			                    	${navi}
 			                    </div>
-            				</div>
+			            	</div>
             			</div>
             		</div>
             	</div>
@@ -216,7 +209,7 @@
     </section>
     
     <!-- main contents close-->
-    
+
     <!-- footer open -->
     <section>
 		<div class="container-fluid">
@@ -233,16 +226,33 @@
 		</div>
 	</section>
 	
-	<!-- footer close -->
+	<!-- footer close --> 
+ 
+ 
     
-    <script>
-	
+ <script>
+	let cnt =0;
+    $(".navbar-toggler").on("click",function(){
+       cnt ++;
+       if(cnt>1){
+       $(".navbar-collapse").toggle();
+       }
+    })
+
     $("#checkAll").change(function (){
     	let checked = $(this).prop('checked');
     	$('input[name="checkbox"]').prop('checked', checked);
     });
     
-    $('input[name="checkbox"]').change(function () {
+    $("#paymentList").on("click", ()=>{
+ 		location.href = "/admin/adminPayment?cpage=1";
+ 	})
+ 	
+ 	$("#cancelList").on("click", ()=>{
+ 		location.href = "/admin/adminCancelPayment?cpage=1";
+ 	})
+ 	
+ 	$('input[name="checkbox"]').change(function () {
 
     	let selectAll = ($('input[name="checkbox"]').length == $('input[name="checkbox"]:checked').length);
 
@@ -250,7 +260,7 @@
 
     });	
     
-    function checkboxDelete(){
+    function checkboxCancel(){
     	let checkboxArr = [];
     	$('input[name="checkbox"]:checked').each(function() {
     		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
@@ -259,9 +269,10 @@
     	
     	$.ajax({
     		type : "POST",
-    		url : "/admin/exhibitionCheckDelete",
+    		url : "/admin/cancelPaymentCheckDelete",
     		data : {
     			checkboxArr : checkboxArr
+    			
     		},
     		success : function (result){
     			console.log(result);
@@ -270,47 +281,7 @@
     		}
     	});
     }
-    
-    function checkboxUpdate(){
-    	let checkboxArr2 = [];
-    	let e_period = $("#e_period").val();
-    	$('input[name="checkbox"]:checked').each(function() {
-    		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
-    		console.log(checkboxArr2)
-    	})
-    	
-    	$.ajax({
-    		type : "POST",
-    		url : "/admin/exhibitionCheckUpdate",
-    		data : {
-    			checkboxArr2 : checkboxArr2,
-    			e_period : e_period
-    		},
-    		success : function (result){
-    			console.log(result);
-    			alert("update ok!");
-    			location.reload();
-    		}
-    	});
-    }
-    
-    let cnt =0;
-    $(".navbar-toggler").on("click",function(){
-       cnt ++;
-       if(cnt>1){
-       $(".navbar-collapse").toggle();
-       }
-    })
-    
- 	$("#exhibitionAdded").on("click", ()=>{
- 		location.href = "/admin/adminExhibitions";
- 	})
  	
- 	$("#exhibitionList").on("click", ()=>{
- 		location.href = "/admin/adminExhibitionList?cpage=1";
- 	})
- 	
-    
-    </script>
+ </script>       
 </body>
 </html>

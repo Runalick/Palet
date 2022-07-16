@@ -40,10 +40,10 @@ public class ShopController {
 	public String goDetail(int g_num, Model model) {
 		String email = (String)session.getAttribute("loginEmail");
 		GoodsDTO dto = gServ.goodsdetail(g_num);
+		//굿즈 관련 정보
 		List<GoodsDTO> list = gServ.getoption(dto.getG_name());
-		for(GoodsDTO ddto : list) {
-			System.out.println(ddto.getG_option());
-		}
+		
+		//장바구니 담긴 갯수
 		if(email !=null) {
 			TotalCartDTO totalDto=cServ.total(email);
 		 model.addAttribute("totalDto",totalDto);
@@ -62,13 +62,9 @@ public class ShopController {
 	private ShopService sServ;
 	
 	@ResponseBody
-	@RequestMapping("selectBestSeller")
-	public List<GoodsDTO> selectBestSeller(int e_num, String option) {
-		List<GoodsDTO> list = sServ.selectBestSeller(e_num, option);
-		for(GoodsDTO ddto : list) {
-			System.out.println(ddto.getGp_sysname());
-		}
-		System.out.println(list);
+	@RequestMapping("selectGoods")
+	public List<GoodsDTO> selectGoods(int e_num, String option) {
+		List<GoodsDTO> list = sServ.selectGoods(e_num, option);
 		return list;
 	}
 

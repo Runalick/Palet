@@ -607,7 +607,7 @@ color:white;
 		
 
 		
-		window.open("/delivery/insert","", "top=100,left=200,width=620,height=530");
+		window.open("/delivery/insert","", "top=100,left=200,width=765,height=660");
 	})
 	//쿠폰
 	   $("#registration").on("click",function(){

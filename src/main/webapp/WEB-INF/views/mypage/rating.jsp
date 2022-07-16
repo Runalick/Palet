@@ -391,10 +391,6 @@ align-items: center; */
 .ratingbox {
 	border: 1px solid black;
 }
-
-div {
-	text-align: center;
-}
 .mini{
 	width: 5rem;
 	height: 5rem;
@@ -592,8 +588,8 @@ div {
 				<div class="content">
 					<div class="row" id="row1">
 											<div class="col-sm-12 h2"
-							style="text-align: center; margin-left: auto; margin-bottom: 20px; text-decoration: underline;">
-							<b>Grade.</b>
+							style="text-align: center; margin-left: auto; margin-bottom: 20px;">
+							<b style="text-decoration: underline;">Grade.</b>
 						<div class="col-12 h3"> 
 								<c:if test="${dto.name==null }">
 									${dto.email}
@@ -653,7 +649,7 @@ div {
 									* 동일 전시 재관람 혜택 이용 시 금액이 추가적용되지 않습니다.<br>
 									* 누적 구매액은 실제 결제금액 기준으로 집계됩니다.<br>
 									* 쿠폰은 결제에 사용후 구매취소 시 재 지급 되지 않습니다.<br>
-									* 쿠폰과 마일리지의 중복 적용은 가능합니다.<br>
+									* 쿠폰과 마일리지의 중복 적용은 불가능합니다.<br>
 									* 혜택, 등급선정기준, 등급조정 등 회원 정책은 업체의 사정에 따라 변경될 수 있습니다.<br>
 								</div>
 							</div>
@@ -661,6 +657,7 @@ div {
 					</div>
 				</div>
 			</div>
+		</div>
 		</div>
 
 		<!-- 푸터단 -->	

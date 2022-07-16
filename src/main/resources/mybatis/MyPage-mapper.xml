@@ -21,6 +21,12 @@
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}
 	</select>
+	<update id="MinusSalesCnt">
+		update exhibition set sales_count = sales_count-(select et_count from exticket 
+		where et_booknumber=#{booknumber}) where e_name = (select et_title from exticket where et_booknumber=#{booknumber})
+	</update>
+	
+<!-- 	cancel 테이블에 취소사유 넣기 -->
 	<insert id="payCancel">
 	 insert into cancel values(cancel_seq.nextval,#{content},#{category},#{booknumber},sysdate)
 	</insert>

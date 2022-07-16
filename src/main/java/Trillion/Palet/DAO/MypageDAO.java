@@ -46,26 +46,21 @@ public class MypageDAO {
 		return mybatis.selectOne("MyPage.myTicketDetailview",et_booknumber);
 	}
 
+	//state BC 상태로 변경
 	public int BeforeCancel(CancelDTO dto) {
 //		굿즈랑 클래스도 이런식으로 취소 하면 됩니다
 //		if(dto.getCategory().equals("E")) {
+//		mybatis.update("MyPage.MinusSalesCnt",dto);
 //			return mybatis.update("MyPage.BeforeCancel",dto);
 //		}else if(dto.getCategory().equals("G")){
 		
-//	}else if(dto.getCategory().equals("E")){
+//	}else if(dto.getCategory().equals("G")){
 		
 //	}
 		
-		System.out.println(dto.getBooknumber());
-		System.out.println(dto.getCategory());
-		Map<String,String> param = new HashMap<>();
-		param.put("content", dto.getContent());
-		param.put("category", dto.getCategory());
-		param.put("booknumber", dto.getBooknumber());
 		
-		
-		
-		return mybatis.update("MyPage.BeforeCancel",param);
+		mybatis.update("MyPage.MinusSalesCnt",dto);
+		return mybatis.update("MyPage.BeforeCancel",dto);
 	}
 
 	public int payCancel(CancelDTO dto) {

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.AdminDTO;
+import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -214,8 +215,61 @@ public class AdminDAO {
 		return mybatis.selectOne("Goods.getGoodsTotalCount");
 	}
 	
+	private int getGoodsJoinTotalCount() {
+		return mybatis.selectOne("Goods.getGoodsJoinTotalCount");
+	}
+	
 	public String getGoodsPageNavi(int currentPage) {
 		int recordTotalCount = this.getGoodsTotalCount(); 
+		int recordCountPerPage = 10; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = (int)Math.ceil(recordTotalCount/(double)recordCountPerPage); // 0; 
+		
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminGoodsList?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
+	}
+	
+	public String getGoodsJoinPageNavi(int currentPage) {
+		int recordTotalCount = this.getGoodsJoinTotalCount(); 
 		int recordCountPerPage = 10; 
 		int naviCountPerPage = 10; 
 		int pageTotalCount = (int)Math.ceil(recordTotalCount/(double)recordCountPerPage); // 0; 
@@ -280,7 +334,6 @@ public class AdminDAO {
 	
 	
 	// Payment Category
-	
 	public List<TotalPaymentDTO> paymentSelectByPage (int cpage) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);
@@ -290,6 +343,7 @@ public class AdminDAO {
 		return mybatis.selectList("Admin.paymentSelectByPage", param);
 	}
 	
+
 	private int getPaymentTotalCount() {
 		return mybatis.selectOne("Admin.getPaymentTotalCount");
 	}
@@ -341,6 +395,141 @@ public class AdminDAO {
 			sb.append(link+(endNavi+1)+"'>> </a>");
 		}
 		return sb.toString();
+	}	
+
+	
+	public List<TotalPaymentDTO> paymentSelectUIDByPage (int cpage, String uid) {
+		String start = String.valueOf((cpage - 1 )* 50 + 1);
+		String end = String.valueOf(cpage * 50);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		param.put("uid", uid);
+		return mybatis.selectList("Admin.paymentSelectUIDByPage", param);
+	}
+
+	private int getPaymentUIDTotalCount(String search) {
+		return mybatis.selectOne("Admin.getPaymentUIDTotalCount", search);
+	}
+	
+	public String getPaymentUIDPageNavi(int currentPage, String search) {
+		int recordTotalCount = this.getPaymentUIDTotalCount(search); 
+		int recordCountPerPage = 50; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = (int)Math.ceil(recordTotalCount/(double)recordCountPerPage); // 0; 
+		
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminPayment?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
+	}	
+	
+	
+	public List<TotalPaymentDTO> paymentSelectNameByPage (int cpage, String name) {
+		String start = String.valueOf((cpage - 1 )* 50 + 1);
+		String end = String.valueOf(cpage * 50);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		param.put("name", name);
+		return mybatis.selectList("Admin.paymentSelectNameByPage", param);
+	}
+	
+	private int getPaymentNameTotalCount(String search) {
+		return mybatis.selectOne("Admin.getPaymentNameTotalCount", search);
+	}
+	
+	public String getPaymentNamePageNavi(int currentPage, String search) {
+		int recordTotalCount = this.getPaymentNameTotalCount(search); 
+		int recordCountPerPage = 50; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = 0; 
+		
+		if(recordTotalCount % recordCountPerPage > 0) {
+			pageTotalCount = recordTotalCount / recordCountPerPage +1;
+		}else {
+			pageTotalCount = recordTotalCount / recordCountPerPage;
+		}
+		
+		
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminPayment?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
 	}
 	
 	public AdminDTO getAdminPayDetail (String merchant_uid) {
@@ -350,6 +539,93 @@ public class AdminDAO {
 	public AdminDTO getAdminExticketDetail (String merchant_uid) {
 		return mybatis.selectOne("Admin.getAdminExticketDetail", merchant_uid);
 	}
+	
+	public List<CancelDTO> cancelSelectByPage (int cpage) {
+		String start = String.valueOf(cpage * 10 - 9);
+		String end = String.valueOf(cpage * 10);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		return mybatis.selectList("Admin.cancelSelectByPage", param);
+	}
+	
+	private int getCancelTotalCount() {
+		return mybatis.selectOne("Admin.getCancelTotalCount");
+	}
+	
+	public String getCancelPageNavi(int currentPage) {
+		int recordTotalCount = this.getCancelTotalCount(); 
+		int recordCountPerPage = 10; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = 0; 
+		
+		if(recordTotalCount % recordCountPerPage > 0) {
+			pageTotalCount = recordTotalCount / recordCountPerPage +1;
+		}else {
+			pageTotalCount = recordTotalCount / recordCountPerPage;
+		}
+		
+		
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminCancelPayment?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
+	}
+	
+	public String categoryCheck(String check) {
+		return mybatis.selectOne("Admin.categoryCheck", check);
+	}
+	
+	public int cancelExticketUpdate(String check) {
+		return mybatis.update("Admin.cancelExticketUpdate", check);
+	}
+	
+	public int cancelGoodsUpdate(String check) {
+		return mybatis.update("Admin.cancelGoodsUpdate", check);
+	}
+	
+	public int cancelPaymentCheckDelete(String check) {
+		return mybatis.delete("Admin.cancelPaymentCheckDelete", check);
+	}
+	
+	
 	
 	// etc..
 	

@@ -18,4 +18,10 @@
   	<select id="getCouponName"  resultType="Trillion.Palet.DTO.CouponDTO">
   		select * from coupon where serial = #{value} 
   	</select>
+  	<select id="selectbypage" resultType="Trillion.Palet.DTO.CouponDTO">
+  		select * from (select row_number() over(order by key) line, coupon.* from coupon) where line between #{start} and #{end}
+  	</select>
+  	<select id="listcount" resultType="int">
+  		select count(*) from coupon
+  	</select>
   </mapper>

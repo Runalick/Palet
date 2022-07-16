@@ -293,6 +293,31 @@
             margin-bottom: 0.625rem;
             
 		}
+			/* coupon input */
+	
+		#cp_number, #cp_dc, #cp_category {
+			padding:  1.125rem 1.5rem;
+            gap: 0.625rem;
+
+            /*width: 12.5rem;*/
+            width: 50%;
+            height: 3.125rem;
+            
+            /* Gray/900 */
+            
+            border: 2px solid #C4CDD5;
+            border-radius: 0.313rem;
+            /* Button/Button */
+
+            font-family: 'Spoqa Han Sans Neo';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 1.2rem;
+            line-height: 0.5rem;
+            
+            margin-bottom: 0.625rem;
+		}
+		
 		
 		.ellipsis{
 			/* width : 35.5rem; */
