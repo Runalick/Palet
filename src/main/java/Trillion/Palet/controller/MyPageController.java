@@ -14,7 +14,6 @@ import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
-import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
@@ -90,14 +89,6 @@ public class MyPageController {
 		return "/mypage/myTicketDetailview";
 	}
 	
-	@RequestMapping("detailShopping")
-	public String myShopping(Model model) {
-		//String email = (String)session.getAttribute("loginEmail");
-		String email = "iampost@siot.do";
-		List<PayDTO> list = mServ.myShopping(email);
-		model.addAttribute("list",list);
-		return "/mypage/myShopping";
-	}
 	
 	@ResponseBody
 	@RequestMapping("payCancel")
@@ -112,5 +103,31 @@ public class MyPageController {
 		mServ.payCancel(dto);
 		return "success";
 	}
+	
+	// Shopping
+	@RequestMapping("myShopping")
+	public String myShopping(Model model) {
+		//String email = (String)session.getAttribute("loginEmail");
+		String email = "maisy40@naver.com";
+//		List<Object> list = mServ.myShopping(email);
+//		System.out.println(list);
+//		model.addAttribute("list",list);
+		model.addAttribute("email",email);
+		return "/mypage/myShopping";
+	}
+	
+	@ResponseBody
+	@RequestMapping("ShoppingList")
+	public List<Object> ShopingList(int limit, String email) {
+		List<Object> list = mServ.myShopping(limit, email);
+		System.out.println(list);
+		return list;
+	}
+	
+	@RequestMapping("myShoppingDetail")
+	public void myShoppingDetail(String merchant_uid) {
+		mServ.myShoppingDetailView(merchant_uid);
+	}
+	
 	
 }

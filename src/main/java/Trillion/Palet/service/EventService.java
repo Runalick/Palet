@@ -39,8 +39,8 @@ public class EventService {
 	}
 	
 	
-	public List<Object> selectAll() { 
-		return dao.selectAll(); 
+	public List<Object> selectAll(int limit) { 
+		return dao.selectAll(limit); 
 	}
 	
 	
