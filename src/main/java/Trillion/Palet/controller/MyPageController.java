@@ -112,5 +112,10 @@ public class MyPageController {
 		mServ.payCancel(dto);
 		return "success";
 	}
+	//취소환불
+	@RequestMapping("refund")
+	public String refund() {
+		return "/mypage/refund";
+	}
 	
 }
