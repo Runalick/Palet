@@ -414,7 +414,6 @@ a {
 	/* Gray/300 */
 }
 
-
 @media ( min-width : 992px) {
 	.content{
 	  width: calc(100% - 13.625rem);
@@ -797,7 +796,7 @@ color:white;
 			success: function (resp) {
 				for(let i = 0 ; i < resp.length; i++) {
 					let text_html=
-							"<a href='/mypage/myShoppingDetailview?merchant_uid='" + resp[i].merchant_uid + "'>"
+							"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
 							+"<div class='row main-area'>"
 							+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
 							+"<div class='col-5 px-3 ellipsis body4'>"
@@ -824,13 +823,25 @@ color:white;
 					}	
 					for(let i=0; i<resp.length;i++){
 				    	if($("#state"+i).val()=='BU'){
-				    		$("#del" + i).append("<div>주문완료</div><button id='cencle"+i+"'>주문취소</button>");
+				    		$("#del" + i).append("<div>주문완료</div><button class='ok' id='cencle"+i+"'>주문취소</button>");
 				    	} 
 		    		} 
 					
-					for(let i=0; i<resp.length;i++){
-						console.log($("#paytime"+i).text());
-					}
+					/* for(let i=0; i<resp.length;i++){
+						let date = new Date($("#paytime"+i).text());
+						let enddate = new Date(date.setDate(date.getDate()+1));
+						let today = new Date(); 
+						console.log("구매일 : " + date);
+						console.log("변경일 : " +enddate);
+						console.log("현재날짜 : " +today);
+						if(enddate<today){
+							$.ajax({
+								url:"/mypage/"
+							})
+							$("#cencle" + i).attr('style',"display:none;");
+						}
+							
+					} */
 					
 				
 				},
@@ -847,13 +858,13 @@ color:white;
 		    if (maxHeight <= currentScroll+100) {
 		    	console.log("origin limit : " + limit);
 		    	$.ajax({
-					url:"/mypage/mypreTicket",
+					url:"/mypage/ShoppingList",
 					data:{limit : limit},
 					async: false,
 					dataType:"json", // == JSON.parse(resp);
 					success: function (resp) {
 						let text_html=
-							"<a href='/mypage/myShoppingDetailview?merchant_uid='" + resp[i].merchant_uid + "'>"
+							"<a href='/mypage/myShoppingDetail?merchant_uid='" + resp[i].merchant_uid + "'>"
 							+"<div class='row main-area'>"
 							+"<div class='col-2 px-3 ellipsis body4' >" + resp[i].pay_time +"</div>"
 							+"<div class='col-5 px-3 ellipsis body4'>"
@@ -884,16 +895,16 @@ color:white;
 		      })  
 	}
 	
-	/* $("#contents_area").on("click", ".ok", function(){
+	$("#contents_area").on("click", ".ok", function(){
 		console.log($(this).siblings().eq(1).val());
-		$.ajax({
+		/* $.ajax({
 			url:"/event/confirmation",
 			data: {draw_seq:$(this).siblings().eq(1).val()}
 		}).done(function(resp){
 			alert(resp);
 			location.reload();
-		})
-	}) */
+		}) */
+	})
 	
 	
 

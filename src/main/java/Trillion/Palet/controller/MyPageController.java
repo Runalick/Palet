@@ -121,5 +121,10 @@ public class MyPageController {
 		return list;
 	}
 	
+	@RequestMapping("myShoppingDetail")
+	public void myShoppingDetail(String merchant_uid) {
+		mServ.myShoppingDetailView(merchant_uid);
+	}
+	
 	
 }

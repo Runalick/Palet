@@ -49,5 +49,9 @@ public class MypageService {
 		return mdao.myShopping(limit, email);
 	}
 
+	public Object myShoppingDetailView(String merchant_uid) {
+		return mdao.myShoppingDetailView(merchant_uid);
+	}
+
 	
 }

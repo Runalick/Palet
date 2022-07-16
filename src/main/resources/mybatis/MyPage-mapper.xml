@@ -36,7 +36,7 @@
 	</update>
 	
 <!-- 	굿즈 -->
-<!-- jdbcType="TIMESTAMP" javaType="java.sql.Date" -->
+<!-- TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time jdbcType="TIMESTAMP"  javaType="java.util.Date -->
 	<resultMap type="HashMap" id="selectMap">
 		<result property="line" column="line"/>
 		<result property="merchant_uid" column="merchant_uid"/>
@@ -59,6 +59,9 @@
 		left join exhibition e using (e_num)
 		join goodspic gp using (g_num)
 		where email = #{email}) where line between #{limit} and #{limit}+9
+	</select>
+	
+	<select id="myShoppingDetailView" resultType="Trillion.Palet.DTO.PayDTO">
 	</select>
 	
 </mapper>
