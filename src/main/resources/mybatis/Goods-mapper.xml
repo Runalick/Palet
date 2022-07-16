@@ -71,7 +71,9 @@
   	<!-- Admin Fin  -->
 	
 	<select id="selectdetail" resultType="Trillion.Palet.DTO.GoodsDTO">
-		select * from goods where g_num = #{value}
+		select goods.g_num, goods.e_num, g_name,g_price,g_option,sales_count,
+		g_stock,gp_seq,gp_oriname,gp_sysname from goods left outer join goodspic 
+		on goods.g_num = goodspic.g_num where goods.g_num = #{value}
 	</select>
 	<select id="getoption" resultType="Trillion.Palet.DTO.GoodsDTO">
 		select * from goods where g_name = #{value}

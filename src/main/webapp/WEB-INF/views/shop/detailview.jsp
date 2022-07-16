@@ -795,7 +795,7 @@ $(".li").on("click", function () {
 						
 					<!-- 상품 이미지 -->	
 						<div class=" margin1" id="imgdiv">
-							<img src="/images/image 21.png" id="img">
+							<img src="/shop/shopHome/${dto.gp_sysname }" id="img">
 						</div>
 						
 						
