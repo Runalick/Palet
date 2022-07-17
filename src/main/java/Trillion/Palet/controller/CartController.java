@@ -117,6 +117,7 @@ public class CartController {
 		}
 		//default주소 가져오기
 		String email = (String)session.getAttribute("loginEmail");
+		//배송지 등록 안해논 사람 null 포인터 에러나니까 고치기
 		DeliveryDTO dto = dServ.selectDefaultAddress(email);
 		System.out.println(dto.getEmail());
 		System.out.println(dto.getReceiver());

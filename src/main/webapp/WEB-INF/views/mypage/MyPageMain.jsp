@@ -22,22 +22,21 @@
 <!-- 지도api -->
 
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -58,6 +57,18 @@
 	height: 1.875rem;
 }
 
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -65,18 +76,24 @@
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
-	z-index: 5;
-}
-
-
-.navbar {
-	height: 5rem;
-	padding: 0px;
 }
 
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -106,19 +123,42 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
 
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
+
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
+}
+
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .H2 {
@@ -170,6 +210,45 @@ line-height: 3.75rem;
 	font-weight: 400;
 	font-size: 1rem;;
 	line-height: 1.75rem;
+}
+#gradeblack{
+	margin: 0px;
+	/* min-height: 600px;
+	max-height: 1920px; */
+	height: 0;
+	padding-bottom: calc(600/ 1920 * 100%);
+	background-image: url("/images/blackpainting.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+#gradegray{
+	margin: 0px;
+	/* min-height: 600px;
+	max-height: 1920px; */
+	height: 0;
+	padding-bottom: calc(600/ 1920 * 100%);
+	background-image: url("/images/graypainting.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+#gradewhite{
+	margin: 0px;
+	/* min-height: 600px;
+	max-height: 1920px; */
+	height: 0;
+	padding-bottom: calc(600/ 1920 * 100%);
+	background-image: url("/images/whitepainting.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100% 100%;
+}
+
+.gradetext{
+	padding-top: 60px;
 }
 /* footer */
 #footer {
@@ -248,7 +327,6 @@ line-height: 3.75rem;
 /* 네비 */
 
 .content{
-  
     margin-left:1.75rem;
 }
 .mypage-wrap{
@@ -279,6 +357,7 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
+font-weight:700;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{
@@ -300,15 +379,47 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
-.mini{
- width: 7.5rem;
- height: 7.5rem;
+
+.main-area{
+margin-top:1rem; 
+padding-bottom:1rem; 
+border-bottom:1px solid #C4CDD5;
+}
+.list{
+padding:1.2rem 0px; 
+border-bottom:1px solid #C4CDD5;
+}
+.list .body3{
+line-height:2rem;
+}
+.btnbtn{
+font-family: 'Spoqa Han Sans Neo';
+line-height:0px;
+align-items: center;
+padding: 1.125rem 1.5rem;
+gap: 0.625rem;
+border:0px;
+
+color:white;
+/* Gray/900 */
+background: #161C24;
+border-radius: 1rem;
+}
+.btnbtn:hover{
+background: #454F5B;
+color:white;
+} 
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* 말줄임 적용 */
 }
 </style>
 </head>
 <body>
-<header>
-		<div class="container-fluid"
+		<div class="container-fluid">
+			<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
 				<c:choose>
@@ -445,16 +556,18 @@ padding: 0.3rem 1rem;
 					</nav>
 				</div>
 				</c:otherwise>
+	
 				</c:choose>
 			</div>
-			</div>
-	</header>
-	<div class="container-fluid" id="mypage-area">
-		<div class="container" style="padding-left:2.5rem;">
-			<div class="row mypage-wrap"  >
+
+		</div>
+	
+		<div class="container">
+			<div class="row mypage-wrap" >
 			
+			<div class="row" id="row1">
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
-			<button id="select" >MY PAGE</button>
+			<button id="select" style="padding:0px;">MY PAGE</button>
 			</div>
 			
 			
@@ -474,7 +587,7 @@ padding: 0.3rem 1rem;
 						<div class="body4">My Shopping</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
+							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
@@ -497,6 +610,94 @@ padding: 0.3rem 1rem;
 				
 				
 				<div class="content">
+					<c:if test="${dto.grade == 'White'}">
+						<div id="gradewhite" class="row">
+							<div class="row gradetext">
+							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
+								<c:if test="${dto.name==null }">
+									${dto.email}
+								</c:if> 
+								<c:if test="${dto.name!=null }">
+									${dto.name }
+								</c:if>
+								님<br>
+								안녕하세요.
+							</div><br>
+							<div class="col-sm-4 H3" style=" padding-top: 1.75rem; text-align: center;"> 
+								
+								<br>
+								${dto.grade}<br>
+								매주 월요일 반영
+							</div>
+							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
+									<span>마일리지<br></span>
+									<span>${dto.point } point</span>
+							</div>
+							</div>
+						</div>
+					</c:if>
+					<c:if test="${dto.grade == 'Black'}">
+						<div id="gradegray" class="row">
+						<div class="row gradetext">
+							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
+								<c:if test="${dto.name==null }">
+									${dto.email}
+								</c:if> 
+								<c:if test="${dto.name!=null }">
+									${dto.name }
+								</c:if>
+								님<br>
+								안녕하세요.
+							</div><br>
+							<div class="col-sm-4 H3" style=" padding-top: 1.75rem; text-align: center;"> 
+								
+								<br>
+								${dto.grade}<br>
+								매주 월요일 반영
+							</div>
+							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
+									<span>마일리지<br></span>
+									<span>${dto.point } point</span>
+							</div>
+						</div>
+						</div>
+					</c:if>
+					<c:if test="${dto.grade == 'Gray'}">
+						<div id="gradeblack" class="row">
+						<div class="row gradetext">
+							<div class="col-sm-4 H2" style="color: white; line-height: 50px; padding-top: 2rem; text-align: center;">
+								<c:if test="${dto.name==null }">
+									${dto.email}
+								</c:if> 
+								<c:if test="${dto.name!=null }">
+									${dto.name }
+								</c:if>
+								님<br>
+								안녕하세요.
+							</div><br>
+							<div class="col-sm-4 H3" style="color: white; padding-top: 1.75rem; text-align: center;"> 
+								
+								<br>
+								${dto.grade}<br>
+								매주 월요일 반영
+							</div>
+							<div class="col-sm-4 H2" style="color: white; line-height: 50px; padding-top: 2rem; text-align: center;">
+									<span>마일리지<br></span>
+									<span>${dto.point } point</span>
+							</div>
+						</div>
+						</div>
+					</c:if>
+				<div >
+						
+						
+						
+						
+					</div>
+				</div>
+				
+				
+				<%-- <div class="content">
 					<div class="row" style="border: 1px solid black; background-color: #9f9f9f70">
 						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem; text-align: center;">
 								<c:if test="${dto.name==null }">
@@ -513,7 +714,7 @@ padding: 0.3rem 1rem;
 								<img src="/images/white.png" class="mini">
 							</c:if>
 							<c:if test="${dto.grade == 'Gray'}">
-								<img src="/images/gray.png" class="mini">
+								<img src="/images/blackpainting.png" class="mini">
 							</c:if><c:if test="${dto.grade == 'Black'}">
 								<img src="/images/black.png" class="mini">
 							</c:if>
@@ -527,10 +728,12 @@ padding: 0.3rem 1rem;
 						</div>
 						<div class="col-12 body4" style="border-bottom: 2px solid black;"></div>
 					</div>
-				</div>
+				</div> --%>
+				
+				
 			</div>
 		</div>
-
+	</div>
 
 
 

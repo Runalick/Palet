@@ -486,7 +486,7 @@ margin-right:0.25rem;
 /* 네비 */
 
 .content{
-    margin-left:1.75rem;
+    /* margin-left:1.75rem; */
 }
 .mypage-wrap{
 margin:4.625rem auto 9.375rem;
@@ -574,6 +574,94 @@ color:white;
   overflow: hidden;
   text-overflow: ellipsis;  /* 말줄임 적용 */
 }
+
+/* 모달환불 */
+.input{
+margin-top:0.75rem;
+width:100%;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 10px 12px;
+gap: 10px;
+background: #FFFFFF;
+border: 1px solid #CFD4D9;
+box-shadow: 0px 0px 0px #CBDAFC;
+border-radius: 5px;
+height:8.25rem; 
+resize:none;
+ padding:0.25rem;
+ margin-bottom:2rem;
+}
+.payinfo .col-7{
+text-align:right;
+}
+.paymodal-title{
+font-family: 'Spoqa Han Sans Neo';
+	font-size: 1.625rem;
+	font-weight: 500;
+	line-height: 1.875rem;
+}
+.paymodal-title2{
+font-family: 'Spoqa Han Sans Neo';
+	font-size: 1.425rem;
+	font-weight: 500;
+	line-height: 1.875rem;
+}
+
+
+#selectcancel {
+	width: 23.5rem;
+	height: 3rem;
+	line-height: 2.35rem;
+	box-sizing: border-box;
+	
+	border: 0.063rem solid #CFD4D9;
+	box-shadow: 0px 0px 0px #CBDAFC;
+	border-radius: 0.313rem;
+	margin-bottom: 3.75rem;
+	color: #637381;
+	background: #FFFFFF url('/images/uparrow.png') no-repeat 97% 50%/15px auto;
+	background-size: 0.796rem;
+	padding: 0.3rem 1.875rem 0.3rem 0.6rem;
+	border: 0.06rem solid #b8b8b8;
+	overflow: hidden;
+	font-size: 1rem;
+	color: #666666;
+}
+#selectcancel{
+width:100%;
+margin-top:1rem;
+margin-bottom:1rem;
+}
+
+.select-ul {
+	list-style-type: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 1rem;
+	color: #666666;
+	border: 1px solid #b8b8b8;
+	display: none;
+	position: absolute;
+	top:3rem;
+	background: #FFFFFF;
+	border-top: none;
+	padding: 0px;
+}
+#select-wrap .select-ul{
+top:4rem;
+}
+.select-ul li {
+	padding: 0.625rem 0 0.625rem 1.125rem;
+	width: 100%;
+	
+}
+
+.select-ul li:hover {
+	background-color: #F4F6F8;
+}
+
 
 </style>
 
@@ -833,7 +921,7 @@ color:white;
 								<div class="col-3">상품 금액</div>
 								<div class="col-9" id="price"></div>
 								<div class="col-3">배송비</div>
-								<div class="col-9">2500</div>
+								<div class="col-9">3000</div>
 								<div class="col-3">쿠폰할인</div>
 								<div class="col-9">${detail.cpdiscount }</div>
 								<div class="col-3">포인트 사용</div>
@@ -843,7 +931,7 @@ color:white;
 								
 								
 							</div>
-							
+							<button class='ok' id="cancel" data-bs-toggle='modal' data-bs-target='#exampleModa2'>주문취소</button>
 						
 						</div>
 					</div>
@@ -852,6 +940,136 @@ color:white;
 
 			</div>
 		</div>
+		
+		<!-- 구매 취소 모달 -->
+				<div class="modal fade" id="exampleModa2" tabindex="-1" >
+				  <div class="modal-dialog modal-dialog-centered">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title paymodal-title">구매 취소</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body" style="padding-right:0px;">
+							<div class="row">
+						
+							<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
+								<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
+								</div>
+									<div class="col-8" style="margin-bottom:3rem; width:30rem;">
+										<div class="row modal-ticket-row" >
+											<div class="col-12 paymodal-title2" style="padding-top:1rem;">${product.e_name }</div>
+											<div class="col-12 paymodal-title2">${detail.merchant_uid }</div>
+											<div class="col-12 paymodal-title2" id="modal-price">${detail.totalprice/ detail.g_count  }원</div>
+										<script>
+										
+								price = ${(detail.totalprice+detail.usedpoint+detail.cpdiscount)/detail.g_count  };
+								$("#modal-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								</script>
+										</div>
+									
+									</div>
+									<div class="row" style="padding-right:0.25rem; width:41.7rem;">
+										<div class="col-12 paymodal-title">취소 사유</div>
+									<div id="select-wrap" style="position:relative;">
+												<div id="selectcancel">상품옵션을 선택하세요</div>
+												<ul class="select-ul">
+													
+														<li class="li" >단순 변심</li>
+															<li class="li" >주문 실수</li>
+															<li class="li write" >직접 입력</li>
+												</ul>
+											</div>
+				
+										<div class="col-12 write-contents" style="display:none;">
+											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." ></textarea>
+										</div>
+									</div>
+										<div class="row payinfo" style="margin-bottom:1rem;">
+											<div class="col-12 pay paymodal-title" style="margin-bottom:1rem;">결제/환불 금액</div>
+											<div class="col-5 total" style="margin-bottom:1rem">상품금액</div>
+											<div class="col-7 total real-price" style="margin-bottom:1rem"></div>
+											<div class="col-5 total" style="margin-bottom:1rem">상품 개수</div>
+											<div class="col-7 total" style="margin-bottom:1rem">${detail.g_count }개</div>
+											<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
+											<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
+											<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
+											<div class="col-7 total" style="margin-bottom:1rem">${detail.cpserial }</div>
+											<div class="col-5 total" style="margin-bottom:1rem">포인트 사용</div>
+											<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
+											<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
+											<div class="col-7 total getpoint" style="margin-bottom:1rem"></div>
+											
+											<div class="col-5 total" >최종 환불금액</div>
+											<div class="col-7 total-price" style="color:red;"></div>
+											<script>
+											price=${detail.totalprice} + ${detail.usedpoint }+ ${detail.cpdiscount }
+											coupon=${detail.cpdiscount }
+											usedpoint=${detail.usedpoint }
+											getpoint=${detail.point }
+											total_price=${detail.totalprice}
+											$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+											$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+											$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+											$(".getpoint").text("+"+getpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+											$(".total-price").text(total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+											</script>
+										</div>
+										<div class="row">
+											<div class="col-12 cancel-div" style="color:#919EAB;">
+											-주문취소 승인 후 적립금과 사용 쿠폰은 즉시 반환되며 다시 사용하실 수 있습니다.
+											</div>
+											<div class="col-12 cancel-div" style="color:#919EAB;">
+											-전체 환불만 가능합니다.
+											</div>
+										</div>
+							</div>
+					  </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
+				        <button type="button" class="btn btn-dark total" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">확인</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				
+				
+				<!-- 결제취소 재확인 모달 -->
+				<div class="modal fade" id="exampleModalToggle3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+				  <div class="modal-dialog modal-dialog-centered">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title paymodal-title">구매 취소</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
+				        구매 취소 하시겠습니까?
+				      </div>
+				      <div class="modal-footer">
+				        <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
+				        <button class="btn btn-dark total pay-cancel" value=${detail.merchant_uid } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				
+				
+				<!-- 결제취소 확인 모달 -->
+				<div class="modal fade" id="exampleModalToggle4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+				  <div class="modal-dialog modal-dialog-centered">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title paymodal-title">구매 취소</h5>
+				        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				      </div>
+				      <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
+				        구매가 취소되었습니다.
+				      </div>
+				      <div class="modal-footer">
+				        <button class="btn btn-dark total ok" data-bs-dismiss="modal">확인</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
 
 
 
@@ -868,12 +1086,68 @@ color:white;
             </div>
         </div>
 	</div>
-	
+</div>	
 	
 	
 <script>
+//구매 취소 확인 버튼
+$(".pay-cancel").on("click",function(){
+	console.log($(".input").val());
+	$.ajax({
+		url:"/mypage/payCancel",
+		data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
+	}).done(function(resp){
+		console.log("성공");
+	})
+})
+
+
+
+//환불 li
+
+
+$(".li").on("click",function(){
+	$("#selectcancel").text($(this).text());
+	if($(this).attr("class")=='li write'){
+		$(".write-contents").css("display","block");
+		$(".input").text("");
+	}else{
+		$(".write-contents").css("display","none");
+		$(".input").text($(this).text());
+	}
+	$(".select-ul").toggle();
+})
+//환불 select
+let clickselect = false;
+$("#selectcancel").on("click",function(){
+	if(click==false){
+		$("#selectcancel").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "0.796rem"});
+		clickselect = true;
+	}else{
+		$("#selectcancel").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "0.796rem"});
+		clickselect = false;
+	}
+});
+//선택박스누를 시 옵션 열기
+$("#selectcancel").on("click", function () {
+    $(".select-ul").toggle();
+})
+
+/* 셀렉트 박스 옵션 선택 */
+
+
+///* 셀렉트 박스 이외 선택시 보이지 않게 하기 */
+$("body").on("click", function(e){
+if($(".select-ul").css("display") == "block"){
+	if($("#select-wrap").has(e.target).length == 0){
+    	$(".select-ul").hide()
+    }
+}
+
+})
+
 	window.onload = function(){
-		let price = ( ${detail.totalprice } + ${detail.usedpoint } + ${detail.cpdiscount } - 2500 );
+		let price = ( ${detail.totalprice } + ${detail.usedpoint } + ${detail.cpdiscount } - 3000 );
 		$("#price").text(price);
 		
 		if(${detail.card_quota } == 0){
@@ -884,13 +1158,18 @@ color:white;
 			$("#state").text("주문완료");
 		} else if (($("#state").html())=='CU'){
 			$("#state").text("배송 중");
+			$("#cancel").attr('style',"display:none;");
 		} else if (($("#state").html())=='AU'){
 			$("#state").text("배송완료");
+			$("#cancel").attr('style',"display:none;");
 		} else if (($("#state").html())=='BC'){
 			$("#state").text("취소 중");
+			$("#cancel").attr('style',"display:none;");
 		} else if (($("#state").html())=='AC'){
 			$("#state").text("취소완료");
+			$("#cancel").attr('style',"display:none;");
 		} 
+	
 		
 	}
 		
