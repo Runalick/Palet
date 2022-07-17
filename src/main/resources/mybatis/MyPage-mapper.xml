@@ -41,6 +41,19 @@
 		 =#{booknumber}
 	</update>
 	
+<!-- 	취소리스트 -->
+	<select id="CancelList" resultType="Trillion.Palet.DTO.CancelListDTO">
+		select * from (
+select g_num as nums, email, g_name as title, totalprice, pay_time, state, category, g_option as options, 
+goodspic.gp_sysname as sysname, goodspic.gp_main as mained from payment left outer join goodspic using(g_num) 
+where state like '%'||C and goodspic.gp_main = 'Y'
+UNION ALL
+select e_num as nums, et_email as email, et_title as title, et_cost as totalprice, et_buydate as pay_time, et_state as state, 
+et_category as category, et_booknumber as options, exhibitionpic.ep_sysname as sysname, exhibitionpic.ep_main as mained from exticket left outer join exhibitionpic using(e_num)
+where et_state like '%'||'C' and exhibitionpic.ep_main = 'Y' and email = #{email})
+		
+	</select>
+	
 <!-- 	굿즈 -->
 <!-- TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time jdbcType="TIMESTAMP"  javaType="java.util.Date -->
 	<resultMap type="HashMap" id="selectMap">

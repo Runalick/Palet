@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -105,7 +106,13 @@ public class MyPageController {
 	}
 	//취소환불
 	@RequestMapping("refund")
-	public String refund() {
+	public String refund(Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<CancelListDTO> list = mServ.CancelList(email);
+		for(CancelListDTO dto : list){
+			System.out.println(dto.getTitle());
+		}
+		model.addAttribute("list",list);
 		return "/mypage/refund";
 	}
 	

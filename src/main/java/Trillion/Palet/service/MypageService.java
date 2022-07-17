@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.MypageDAO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.PayDTO;
 
@@ -51,6 +52,10 @@ public class MypageService {
 
 	public Object myShoppingDetailView(String merchant_uid) {
 		return mdao.myShoppingDetailView(merchant_uid);
+	}
+
+	public List<CancelListDTO> CancelList(String email) {
+		return mdao.CancelList(email);
 	}
 
 	

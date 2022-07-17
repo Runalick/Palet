@@ -316,7 +316,44 @@ border:0px;
 cursor:pointer;
 background:#F4F6F8;
 }
-
+.body5-title{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 500;
+font-size: 1.5rem;;
+line-height: 1.75rem;
+margin-bottom:0.4rem;
+}
+.body5-price{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 500;
+font-size: 1.35rem;;
+line-height: 1.75rem;
+margin-right:l.7rem;
+/* width:100px; */
+}
+.body5-date{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.1rem;;
+	line-height: 1.75rem;
+	color:#919EAB;
+}
+.body5-state{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.1rem;;
+	line-height: 1.75rem;
+	margin-top:0.25rem;
+}
+.body5{
+color:red;
+padding-bottom:1rem;
+margin-bottom:0.5rem; 
+}
 </style>
 </head>
 <body>
@@ -431,15 +468,47 @@ background:#F4F6F8;
 							<button class="btnbtn">3개월</button>
 						</div>
 					</div>
+<!-- 				전시회	반복 -->
+					<div class="row" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
+						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
+								<img src="/images/image 21.png" style="width:100px; height:100px;">
+						</div>
+						<div class="col-8 col-md-9" >
+							<div class="row">
+								<div class="col-12 body5-title">[Exhibition]어쨌든 사랑</div>
+								<div class="col-12" >
+									<span class="body5-price">9,000원</span>
+									<span class="body5-date">2022.07.06</span>
+								</div>
+								<div class="col-12 body5-state body5" >결제취소</div>
+								<div class="col-12 body5-state">취소처리가 완료되었습니다.</div>
+								
+							</div>
+						</div>
+					</div>
+<!-- 				여기까지 -->
+<!-- 				상품 반복 -->
+					<div class="row" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
+						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
+								<img src="/images/image 21.png" style="width:100px; height:100px;">
+						</div>
+						<div class="col-8 col-md-9" >
+							<div class="row">
+								<div class="col-12 body5-title">[Shop]로맨틱 폭죽</div>
+								<div class="col-12 body5-date">옵션:<span>파란색</span></div>
+								<div class="col-12" >
+									<span class="body5-price">9,000원</span>
+									<span class="body5-date">2022.07.06</span>
+								</div>
+								<div class="col-12 body5-state body5" >취소 처리중</div>
+								<div class="col-12 body5-state">취소처리가 진행중입니다.</div>
+								
+							</div>
+						</div>
+					</div>
 				
 				
-				
-				
-				
-				
-				
-				
-				
+<!-- 				content 끝나는 div -->
 				</div>
 
 			
@@ -508,7 +577,20 @@ background:#F4F6F8;
       "top=100,left=200,width=550,height=500");
       })
 	
-	
+	//선택박스 화살표 방향 이미지
+	let click = true;
+	$("#select").on("click",function(){
+		if(click==false){
+			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$(".navi-menu").toggle();
+			
+			click = true;
+		}else{
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
+			$(".navi-menu").toggle();
+			click = false;
+		}
+	});
 	</script>
 </body>
 </html>

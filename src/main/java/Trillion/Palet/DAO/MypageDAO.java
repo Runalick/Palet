@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.PayDTO;
 
@@ -79,6 +80,10 @@ public class MypageDAO {
 
 	public Object myShoppingDetailView(String merchant_uid) {
 		return mybatis.selectList("MyPage.myShoppingDetailView", merchant_uid);
+	}
+
+	public List<CancelListDTO> CancelList(String email) {
+		return mybatis.selectList("MyPage.CancelList",email);
 	}
 
 }
