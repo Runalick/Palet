@@ -13,5 +13,11 @@
   </update>
   
   
-  	
+  
+  
+  <!-- Admin  -->
+    <select id="programBestSeller" resultType="Trillion.Palet.DTO.ProgramDTO">
+  		select * from (select * from program order by sales_count desc) where rownum=1
+  	</select>
+  <!-- Admin Fin -->
   </mapper>

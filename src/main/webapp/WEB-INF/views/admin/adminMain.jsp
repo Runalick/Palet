@@ -77,8 +77,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
+                                <a href="/admin/adminProgram" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Programs
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -90,17 +90,18 @@
                                 <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
+                                </a>
                             </li> 
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> Documentation
-                                </a>
-                            </li>
+
                         </ul>
                         
                     </div>
@@ -168,11 +169,11 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between">
-                                        <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
-                                        <img src="/images/sample.png" class="cardImage">
+                                       <!--   <i class="bi bi-gift-fill text-warning cardIcon" ></i>  -->
+                                       <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
                                             <div class="h3" style="text-align:right">BestSeller</div>
-                                            <div class="body1" style="text-align:right">${GoodsBestSeller.g_name}</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${GoodsBestSeller.g_name}</div>
                                             <div class="h2" style="text-align:right">${GoodsBestSeller.sales_count}</div>
                                         </div>
                                     </div>
@@ -192,7 +193,7 @@
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
                                             <div class="h3" style="text-align:right">BestExhibition</div>
-                                            <div class="body1" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
                                             <div class="h2" style="text-align:right">${ExhibitionBestSeller.sales_count}</div>
                                         </div>
                                     </div>
@@ -211,9 +212,9 @@
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">Total</div>
-                                            <div class="body1" style="text-align:right">Members</div>
-                                            <div class="h2" style="text-align:right">${totalMembers}</div>
+                                            <div class="h3" style="text-align:right">BestProgram</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${ProgramBestSeller.p_name }</div>
+                                            <div class="h2" style="text-align:right">${ProgramBestSeller.sales_count }</div>
                                         </div>
                                     </div>
                                 </div>
@@ -231,9 +232,9 @@
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">총매출로수정예정</div>
-                                            <div class="body1" style="text-align:right">아직변경안됨</div>
-                                            <div class="h2 colortext_red3" style="text-align:right">${totalMembers}</div>
+                                            <div class="h3" style="text-align:right">Total</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">Members</div>
+                                            <div class="h2 colortext_blue3" style="text-align:right">${totalMembers}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -335,7 +336,11 @@
 			<c:forEach var="i" items="${weekSales }" varStatus="status">
 				<input type="hidden" id="salessum${status.count}" value="${i.salessum }">		
 				<input type="hidden" id="salesdate${status.count}" value="${i.salesdate }">
-			</c:forEach>         
+			</c:forEach>   
+			<c:forEach var="i" items="${weekCount }" varStatus="status">
+				<input type="hidden" id="countsum${status.count}" value="${i.salescount }">		
+				<input type="hidden" id="countdate${status.count}" value="${i.salesdate }">
+			</c:forEach>      
     	</div>
     </section>
     <!-- Graph section close-->
@@ -404,7 +409,7 @@
 				labels: dayList,
 				datasets: [{
 					data: sumList,
-					label: "판매량",
+					label: "판매 금액 추이",
 					borderColor: "#FFC107",
 					fill : false
 					
@@ -444,13 +449,13 @@
 	}
 	
 	function getBarGraph(){
-		let sumList = [];
+		let cntList = [];
 		let dayList = [];
 		for (let i = 7; i > 0; i--){
-			sumList.push($("#salessum"+i).val());
-			dayList.push($("#salesdate"+i).val());
+			cntList.push($("#countsum"+i).val());
+			dayList.push($("#countdate"+i).val());
 		}
-		console.log(sumList);
+		console.log(cntList);
 		console.log(dayList);
 		
 		new Chart(document.getElementById("myChart2"), {
@@ -458,8 +463,8 @@
 			data: {
 				labels: dayList,
 				datasets: [{
-					data: sumList,
-					label: "매출 현황",
+					data: cntList,
+					label: "판매 갯수 추이",
 					backgroundColor: "#3cba9f",
 
 					fill : false
@@ -469,7 +474,7 @@
 			option: {
 				title: {
 					display: true,
-					text: 'Total Sales per Week'
+					text: 'Total SalesCount per Week'
 				}
 			}
 		});	

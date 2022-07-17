@@ -29,6 +29,7 @@ public class AdminDTO {
 	private String cpserial;
 	private String options;
 	
+	
 	public AdminDTO() {
 		// TODO Auto-generated constructor stub
 	}

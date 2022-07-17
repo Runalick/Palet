@@ -129,6 +129,10 @@ public class AdminService {
 		return adao.getAdminExticketDetail(merchant_uid);
 	}
 	
+	public AdminDTO getAdminProticketDetail(String merchant_uid) {
+		return adao.getAdminProticketDetail(merchant_uid);
+	}
+	
 	// Payment > Cancel
 	
 	public List<CancelDTO> cancelSelectByPage(int cpage){
@@ -151,6 +155,10 @@ public class AdminService {
 		return adao.cancelGoodsUpdate(check);
 	}
 	
+	public int cancelProticketUpdate(String check) {
+		return adao.cancelProticketUpdate(check);
+	}
+	
 	public int cancelPaymentCheckDelete(String check) {
 		return adao.cancelPaymentCheckDelete(check);	
 	}
@@ -163,7 +171,9 @@ public class AdminService {
 		return adao.getWeekSales();
 	}
 	
-
+	public List<SalesDTO> getWeekCount(){
+		return adao.getWeekCount();
+	}
 	
 }
 

@@ -540,6 +540,10 @@ public class AdminDAO {
 		return mybatis.selectOne("Admin.getAdminExticketDetail", merchant_uid);
 	}
 	
+	public AdminDTO getAdminProticketDetail (String merchant_uid) {
+		return mybatis.selectOne("Admin.getAdminProticketDetail", merchant_uid);
+	}
+	
 	public List<CancelDTO> cancelSelectByPage (int cpage) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);
@@ -621,6 +625,10 @@ public class AdminDAO {
 		return mybatis.update("Admin.cancelGoodsUpdate", check);
 	}
 	
+	public int cancelProticketUpdate(String check) {
+		return mybatis.update("Admin.cancelProticketUpdate", check);
+	}
+	
 	public int cancelPaymentCheckDelete(String check) {
 		return mybatis.delete("Admin.cancelPaymentCheckDelete", check);
 	}
@@ -631,6 +639,10 @@ public class AdminDAO {
 	
 	public List<SalesDTO> getWeekSales(){
 		return mybatis.selectList("Admin.getWeekSales");
+	}
+	
+	public List<SalesDTO> getWeekCount(){
+		return mybatis.selectList("Admin.getWeekCount");
 	}
 	
 }

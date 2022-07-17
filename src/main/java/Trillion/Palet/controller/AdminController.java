@@ -19,6 +19,7 @@ import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.ProgramDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
 import Trillion.Palet.service.AdminService;
@@ -26,6 +27,7 @@ import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.GoodsService;
 import Trillion.Palet.service.MemberService;
+import Trillion.Palet.service.ProgramService;
 
 @Controller
 @RequestMapping("/admin/")
@@ -44,6 +46,9 @@ public class AdminController {
 	private GoodsService gServ;
 	
 	@Autowired
+	private ProgramService pServ;
+	
+	@Autowired
 	private HttpSession session;
 	
 	@Autowired
@@ -53,12 +58,16 @@ public class AdminController {
 	public String adminMain(Model model) {
 		ExhibitionDTO edto = eServ.exhibitionBestSeller();
 		GoodsDTO gdto = gServ.goodsBestSeller();
+		ProgramDTO pdto = pServ.programBestSeller();
 		List<SalesDTO> sdto = aServ.getWeekSales();
+		List<SalesDTO> cdto = aServ.getWeekCount();
 		int members = aServ.getMemberTotalCount();
+		model.addAttribute("weekCount", cdto);
 		model.addAttribute("weekSales", sdto);
 		model.addAttribute("totalMembers", members);
 		model.addAttribute("ExhibitionBestSeller", edto);
 		model.addAttribute("GoodsBestSeller", gdto);
+		model.addAttribute("ProgramBestSeller", pdto);
 		return "/admin/adminMain";
 	}
 	
@@ -312,6 +321,13 @@ public class AdminController {
 		return "redirect:adminGoodsDetail?g_num="+gdto.getG_num();
 	}
 	
+	// Program Category
+	
+	@RequestMapping("adminProgram")
+	public String adminProgram() {
+		return "/admin/adminProgram";
+	}
+	
 	
 	// Payment Category
 	
@@ -332,13 +348,11 @@ public class AdminController {
 				model.addAttribute("list", tpdto);
 				model.addAttribute("navi", pageNavi);
 			}else if (checked.equals("N")) {
-				
 				System.out.println("Name으로 분류 ");
 				List<TotalPaymentDTO> tpdto = aServ.paymentSelectNameByPage(cpage, search);
 				for(TotalPaymentDTO dto : tpdto) {
 					System.out.println(dto.getName());
 				}
-				
 				String pageNavi = aServ.getPaymentNamePageNavi(cpage, search);
 				model.addAttribute("list", tpdto);
 				model.addAttribute("navi", pageNavi);
@@ -372,11 +386,13 @@ public class AdminController {
 		
 		if (category.equals("E")) {
 			AdminDTO edto = aServ.getAdminExticketDetail(merchant_uid);
-			model.addAttribute("dto", edto);
-			
+			model.addAttribute("dto", edto);	
 		}else if (category.equals("G")) {
 			AdminDTO pdto = aServ.getAdminPayDetail(merchant_uid);
 			model.addAttribute("dto", pdto);		
+		}else if (category.equals("P")) {
+			AdminDTO cdto = aServ.getAdminProticketDetail(merchant_uid);
+			model.addAttribute("dto", cdto);
 		}
 		
 		return "/admin/adminPaymentDetail";
@@ -415,6 +431,8 @@ public class AdminController {
 				// update goods(payment)
 				// AC로 업데이트 
 				aServ.cancelGoodsUpdate(check);
+			}else if (category.equals("P")) {
+				aServ.cancelProticketUpdate(check);
 			}
 			
 			// cancel table delete

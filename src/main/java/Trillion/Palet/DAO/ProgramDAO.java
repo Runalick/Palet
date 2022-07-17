@@ -7,6 +7,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import Trillion.Palet.DTO.ProgramDTO;
+
 @Repository
 public class ProgramDAO {
 	
@@ -25,4 +27,10 @@ public int updateSalesCount(String pro_title, int pro_count) {
 		
 	}
 
+
+	// Admin
+
+	public ProgramDTO programBestSeller(){
+		return mybatis.selectOne("Program.programBestSeller");
+	}
 }
