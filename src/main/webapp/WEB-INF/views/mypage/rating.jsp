@@ -597,12 +597,12 @@ align-items: center; */
 							<div>나의 회원등급</div>
 						<div class="col-12 h3" style="margin-top:2rem; margin-bottom:2rem;"> 
 								<c:if test="${dto.grade == 'White'}">
-									<img src="/images/white.png" class="mini">
+									<img src="/images/white.jpeg" class="mini">
 								</c:if>
 								<c:if test="${dto.grade == 'Gray'}">
-									<img src="/images/gray.png" class="mini">
+									<img src="/images/gray.jpeg" class="mini">
 								</c:if><c:if test="${dto.grade == 'Black'}">
-									<img src="/images/black.png" class="mini">
+									<img src="/images/black.jpeg" class="mini">
 								</c:if>
 								<c:if test="${dto.name==null }">
 									${dto.email}
@@ -628,19 +628,19 @@ align-items: center; */
 						<div class="col-12">
 							<div class="row">
 								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<img src="/images/white.png"><br>
+									<img src="/images/white.jpeg"><br>
 									<div class="col-12" style="text-align:left;">- White 등급</div>
 									<div class="col-12" style="text-align:left;">- 결제금액의 1% 마일리지 적립</div>
 									<div class="col-12" style="text-align:left;">- 회원가입시 white등급</div>
 								</div>
 								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<img src="/images/gray.png"><br>
+									<img src="/images/gray.jpeg"><br>
 									 <div class="col-12" style="text-align:left;">- Gray 등급</div>
 									 <div class="col-12" style="text-align:left;">- 결제금액의 5% 마일리지 적립</div>
 									 <div class="col-12" style="text-align:left;">- 누적 결제금액이 10만원 이상이면 Gray 등급으로 상승</div>
 								</div>
 								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<img src="/images/black.png"><br>
+									<img src="/images/black.jpeg"><br>
 									<div class="col-12" style="text-align:left;">- Black 등급</div>
 									<div class="col-12" style="text-align:left;">- 결제금액의 10% 마일리지 적립</div>
 									<div class="col-12" style="text-align:left;">- 누적 결제 금액이 30만원 이상이면 Black 등급으로 상승</div>
