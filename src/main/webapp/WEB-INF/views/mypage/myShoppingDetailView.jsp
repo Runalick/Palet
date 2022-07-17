@@ -788,7 +788,7 @@ color:white;
 								<div class="col-3">주문자ID</div>
 								<div class="col-9">${detail.email }</div>
 								<div class="col-3">주문처리상태</div>
-								<div class="col-9" id="state" value="${detail.state }">상태</div>
+								<div class="col-9" id="state">${detail.state }</div>
 								<div class="col-3">결제수단</div>
 								<div class="col-9">${detail.card_name } - ${detail.card_number } </div>
 								<div class="col-3">할부기간</div>
@@ -879,27 +879,22 @@ color:white;
 		if(${detail.card_quota } == 0){
 			$("#quota").text("일시불"); 
 		}
-		
-		console.log($("#state").val());
-		console.log(${detail.state });
 	
+		if(($("#state").text())=='BU'){
+			$("#state").text("주문완료");
+		} else if (($("#state").html())=='CU'){
+			$("#state").text("배송 중");
+		} else if (($("#state").html())=='AU'){
+			$("#state").text("배송완료");
+		} else if (($("#state").html())=='BC'){
+			$("#state").text("취소 중");
+		} else if (($("#state").html())=='AC'){
+			$("#state").text("취소완료");
+		} 
 		
 	}
-	
-	let state = $("#state").val();
-	console.log(state);
-	
-		/* if(${detail.state } = 'BU'){
-			$("#state").text("주문완료");
-		} else if (${detail.state } = 'CU'){
-			$("#state").text("배송 중");
-		} else if (${detail.state } = 'AU') {
-			$("#state").text("배송완료");
-		} else if (${detail.state } = 'BC') {
-			$("#state").text("취소 중");
-		} else {
-			$("#state").text("취소완료");
-		}  */
+		
+		
 </script>
 </body>
 </html>
