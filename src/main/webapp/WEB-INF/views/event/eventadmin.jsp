@@ -602,6 +602,8 @@
 		})
 	})
 	
+	
+	
 	/* $(".ok").on("click", function(){
 		console.log("123");
 		console.log($(this).siblings().eq(1).val());

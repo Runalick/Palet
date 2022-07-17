@@ -838,7 +838,7 @@ color:white;
 
 			</div>
 		</div>
-
+	</div>
 
 
 		<!-- 푸터단 -->
@@ -874,7 +874,7 @@ color:white;
 							+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
 							+		"</div>"
 							+		"<div class='col-7 px-3'>"
-							+			"<div class='col-12 px-3'>" + resp[i].merchant_uid + "</div>"
+							+			"<div class='col-12 px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
 							+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
 							+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
 							+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
@@ -884,6 +884,7 @@ color:white;
 							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
 							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
 							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
+							+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
 							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
 							+"</div></div></a>";
 						
@@ -892,25 +893,63 @@ color:white;
 					}	
 					for(let i=0; i<resp.length;i++){
 				    	if($("#state"+i).val()=='BU'){
-				    		$("#del" + i).append("<div>주문완료</div><button class='ok' id='cencle"+i+"'>주문취소</button>");
+				    		$("#state_text" + i).text("주문완료");
+				    	} else if($("#state"+i).val()=='CU'){
+				    		$("#state_text" + i).text("배송 중");
+				    		$("#cancel" + i).attr('style',"display:none;");
+				    	} else if($("#state"+i).val()=='AU'){
+				    		$("#state_text" + i).text("배송완료");
+				    		$("#cancel" + i).attr('style',"display:none;");
+				    	} else if($("#state"+i).val()=='BC'){
+				    		$("#state_text" + i).text("취소 중");
+				    		$("#cancel" + i).attr('style',"display:none;");
+				    	} else if($("#state"+i).val()=='AC'){
+				    		$("#state_text" + i).text("취소완료");
+				    		$("#cancel" + i).attr('style',"display:none;");
 				    	} 
-		    		} 
+				    	
+		    		}  
 					
-					/* for(let i=0; i<resp.length;i++){
+					for(let i=0; i<resp.length;i++){
 						let date = new Date($("#paytime"+i).text());
 						let enddate = new Date(date.setDate(date.getDate()+1));
+						
 						let today = new Date(); 
-						console.log("구매일 : " + date);
-						console.log("변경일 : " +enddate);
+						
+						let del = new Date($("#paytime"+i).text());
+						let delend = new Date(del.setDate(del.getDate()+3));
+						
+						console.log("주문완료시각 : " + $("#paytime"+i).text());
+						console.log("배송중변경일 : " +enddate);
 						console.log("현재날짜 : " +today);
-						if(enddate<today){
-							$.ajax({
-								url:"/mypage/"
-							})
-							$("#cencle" + i).attr('style',"display:none;");
+						console.log("배송완료날짜 : " +delend);
+						console.log($("#merchant_uid"+i).text());
+						console.log($("#state"+i).val()=='CU');
+						
+						// 주문완료 -> 배송 중 (1일뒤)
+						if($("#state"+i).val()=='BU'){
+							if(enddate <= today){
+								$.ajax({
+									url:"/mypage/changeStateCU",
+									data: {"merchant_uid":$("#merchant_uid"+i).text()}
+								}).done(function(resp){
+									locaiton.reload();
+								})
+							}
 						}
-							
-					} */
+						
+						// 배송 중 -> 배송완료 (주문완료 3일 뒤)
+						if($("#state"+i).val()=='CU' ){
+							if(delend <= today){
+								$.ajax({
+									url:"/mypage/changeStateAU",
+									data: {"merchant_uid":$("#merchant_uid"+i).text()}
+								}).done(function(resp){
+									locaiton.reload();
+								})
+							}
+						}	
+					} 
 					
 				
 				},
@@ -932,37 +971,102 @@ color:white;
 					async: false,
 					dataType:"json", // == JSON.parse(resp);
 					success: function (resp) {
-						let text_html=
-							"<a href='/mypage/myShoppingDetail?merchant_uid='" + resp[i].merchant_uid + "'>"
-							+"<div class='row main-area'>"
-							+"<div class='col-2 px-3 ellipsis body4' >" + resp[i].pay_time +"</div>"
-							+"<div class='col-5 px-3 ellipsis body4'>"
-							+	"<div class='row'>"
-							+		"<div class='col-5 px-3'>"
-							+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
-							+		"</div>"
-							+		"<div class='col-7 px-3'>"
-							+			"<div class='col-12 px-3'>" + resp[i].merchant_uid + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
-							+		"</div>"	
-							+	"</div>"
-							+"</div>"
-							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
-							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
-							+"<div class='col-2 ellipsis px-3 body4'>"
-							+"</div></div></a>";
+						for(let i = 0 ; i < resp.length; i++) {
+							let text_html=
+									"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
+									+"<div class='row main-area'>"
+									+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
+									+"<div class='col-5 px-3 ellipsis body4'>"
+									+	"<div class='row'>"
+									+		"<div class='col-5 px-3'>"
+									+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
+									+		"</div>"
+									+		"<div class='col-7 px-3'>"
+									+			"<div class='col-12 px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
+									+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
+									+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
+									+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
+									+		"</div>"	
+									+	"</div>"
+									+"</div>"
+									+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
+									+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
+									+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
+									+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
+									+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
+									+"</div></div></a>";
+								
+								$("#contents_area").append(text_html);
+					    		console.log("resp.length : " + resp.length);
+							}
+							limit = limit + resp.length;
+					    	console.log("change limit : " + limit);	
 						
-						$("#contents_area").append(text_html);
-			    		console.log("resp.length : " + resp.length);
-			    		
-			    		
-					},
-					});
-		    	} 
-		      })  
-	}
+						
+							for(let i=0; i<resp.length;i++){
+						    	if($("#state"+i).val()=='BU'){
+						    		$("#state_text" + i).text("주문완료");
+						    	} else if($("#state"+i).val()=='CU'){
+						    		$("#state_text" + i).text("배송 중");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} else if($("#state"+i).val()=='AU'){
+						    		$("#state_text" + i).text("배송완료");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} else if($("#state"+i).val()=='BC'){
+						    		$("#state_text" + i).text("취소 중");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} else if($("#state"+i).val()=='AC'){
+						    		$("#state_text" + i).text("취소완료");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} 
+						    	
+				    		}  
+							
+							for(let i=0; i<resp.length;i++){
+								let date = new Date($("#paytime"+i).text());
+								let enddate = new Date(date.setDate(date.getDate()+1));
+								
+								let today = new Date(); 
+								
+								let del = new Date($("#paytime"+i).text());
+								let delend = new Date(del.setDate(del.getDate()+3));
+								
+								console.log("주문완료시각 : " + $("#paytime"+i).text());
+								console.log("배송중변경일 : " +enddate);
+								console.log("현재날짜 : " +today);
+								console.log("배송완료날짜 : " +delend);
+								console.log($("#merchant_uid"+i).text());
+								console.log($("#state"+i).val()=='CU');
+								
+								// 주문완료 -> 배송 중 (1일뒤)
+								if($("#state"+i).val()=='BU'){
+									if(enddate <= today){
+										$.ajax({
+											url:"/mypage/changeStateCU",
+											data: {"merchant_uid":$("#merchant_uid"+i).text()}
+										}).done(function(resp){
+											locaiton.reload();
+										})
+									}
+								}
+								
+								// 배송 중 -> 배송완료 (주문완료 3일 뒤)
+								if($("#state"+i).val()=='CU' ){
+									if(delend <= today){
+										$.ajax({
+											url:"/mypage/changeStateAU",
+											data: {"merchant_uid":$("#merchant_uid"+i).text()}
+										}).done(function(resp){
+											locaiton.reload();
+										})
+									}
+								}	
+							}	
+					}
+				}); // ajax
+		    } // if
+		 })  // scroll
+	}	// onload
 	
 	$("#contents_area").on("click", ".ok", function(){
 		console.log($(this).siblings().eq(1).val());

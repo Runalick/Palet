@@ -576,6 +576,7 @@ color:white;
 }
 
 </style>
+
 <body>
 <div class="container-fluid">
 		<div class="container-fluid"
@@ -783,17 +784,17 @@ color:white;
 								<div class="col-3">주문일자</div>
 								<div class="col-9">${detail.pay_time }</div>
 								<div class="col-3">주문자</div>
-								<div class="col-9">member table 이름 가져오기</div>
+								<div class="col-9">${name }</div>
 								<div class="col-3">주문자ID</div>
 								<div class="col-9">${detail.email }</div>
 								<div class="col-3">주문처리상태</div>
-								<div class="col-9" id="state">${detail.state }</div>
+								<div class="col-9" id="state" value="${detail.state }">상태</div>
 								<div class="col-3">결제수단</div>
 								<div class="col-9">${detail.card_name } - ${detail.card_number } </div>
 								<div class="col-3">할부기간</div>
 								<div class="col-9" id="quota">${detail.card_quota }개월</div>
-								
-								
+							</div>	
+							<div class="row main-area">	
 								<div class="col-12 caption">배송지정보</div>
 								<div class="col-3">수령인</div>
 								<div class="col-9">${detail.name }</div>
@@ -807,7 +808,8 @@ color:white;
 								<div class="col-9">${detail.phone }</div>
 								<div class="col-3">배송메시지</div>
 								<div class="col-9">${detail.delivery_text }</div>
-								
+							</div>
+							<div class="row main-area">	
 								<div class="col-12 caption">상품정보</div>
 								<div class="row">
 									<div class="col-5">
@@ -823,7 +825,8 @@ color:white;
 										</div>
 									</div>
 								</div>
-								
+							</div>
+							<div class="row main-area">
 								<div class="col-12 caption">결제정보</div>
 								<div class="col-3">적립 포인트</div>
 								<div class="col-9">${detail.point }</div>
@@ -865,6 +868,9 @@ color:white;
             </div>
         </div>
 	</div>
+	
+	
+	
 <script>
 	window.onload = function(){
 		let price = ( ${detail.totalprice } + ${detail.usedpoint } + ${detail.cpdiscount } - 2500 );
@@ -874,7 +880,16 @@ color:white;
 			$("#quota").text("일시불"); 
 		}
 		
-		if(${detail.state } = 'BU'){
+		console.log($("#state").val());
+		console.log(${detail.state });
+	
+		
+	}
+	
+	let state = $("#state").val();
+	console.log(state);
+	
+		/* if(${detail.state } = 'BU'){
 			$("#state").text("주문완료");
 		} else if (${detail.state } = 'CU'){
 			$("#state").text("배송 중");
@@ -884,9 +899,7 @@ color:white;
 			$("#state").text("취소 중");
 		} else {
 			$("#state").text("취소완료");
-		}
-		
-	}
+		}  */
 </script>
 </body>
 </html>

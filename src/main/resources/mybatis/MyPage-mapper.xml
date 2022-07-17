@@ -91,4 +91,12 @@
 		select name from member where email=#{email}
 	</select>
 	
+	<update id="changeStateCU">
+		update payment set state='CU' where merchant_uid=#{merchant_uid}
+	</update>
+	
+	<update id="changeStateAU">
+		update payment set state='AU' where merchant_uid=#{merchant_uid}
+	</update>
+	
 </mapper>

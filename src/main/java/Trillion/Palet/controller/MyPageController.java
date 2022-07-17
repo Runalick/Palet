@@ -132,14 +132,27 @@ public class MyPageController {
 		String email = (String)session.getAttribute("loginEmail");
 		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
 		Object product = mServ.myShoppingProduct(merchant_uid);
-		
-		System.out.println(detail);
-		System.out.println(product);
+		String name = mServ.memberName(email);
+		System.out.println(name);
 		
 		model.addAttribute("detail",detail);
 		model.addAttribute("product",product);
+		model.addAttribute("name",name);
 		return "/mypage/myShoppingDetailView";
 	}
 	
+	// 주문완료 -> 배송 중 (1일뒤)
+	@ResponseBody
+	@RequestMapping("changeStateCU")
+	public void changeStateCU(String merchant_uid) {
+		int change = mServ.changeStateCU(merchant_uid);
+	}
+	
+	// 배송 중 -> 배송완료 (주문완료 3일 뒤)
+	@ResponseBody
+	@RequestMapping("changeStateAU")
+	public void changeStateAU(String merchant_uid) {
+		int change = mServ.changeStateAU(merchant_uid);
+	}
 	
 }
