@@ -13,6 +13,7 @@ import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.ProgramDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
 
@@ -114,6 +115,10 @@ public class AdminDAO {
 		param.put("email", email);
 		param.put("grade", grade);
 		return mybatis.update("Admin.adminMemberUpdate", param);
+	}
+	
+	public List<AdminDTO> getMemberPayment(String email) {
+		return mybatis.selectList("Admin.getMemberPayment", email);
 	}
 	
 	// Exhibition Category
@@ -332,8 +337,79 @@ public class AdminDAO {
 		return mybatis.update("Admin.adminGoodsUpdate", gdto);
 	}
 	
+	// Program Category
+	
+	public List<ProgramDTO> programSelectByPage (int cpage, String order) {
+		String start = String.valueOf(cpage * 10 - 9);
+		String end = String.valueOf(cpage * 10);
+		Map<String, String> param = new HashMap<>();
+		param.put("start", start);
+		param.put("end", end);
+		param.put("order", order);
+		return mybatis.selectList("Program.programSelectByPage", param);
+	}
+	
+	private int getProgramTotalCount() {
+		return mybatis.selectOne("Program.getProgramTotalCount");
+	}
+	
+	public String getProgramPageNavi(int currentPage) {
+		int recordTotalCount = this.getProgramTotalCount(); 
+		int recordCountPerPage = 10; 
+		int naviCountPerPage = 10; 
+		int pageTotalCount = (int)Math.ceil(recordTotalCount/(double)recordCountPerPage); // 0; 
+		
+//		if(recordTotalCount % recordCountPerPage > 0) {
+//			pageTotalCount = recordTotalCount / recordCountPerPage +1;
+//		}else {
+//			pageTotalCount = recordTotalCount / recordCountPerPage;
+//		}
+		if(currentPage < 1) {
+			currentPage= 1;
+		}else if(currentPage > pageTotalCount) {
+			currentPage = pageTotalCount;
+		}
+		
+		int startNavi = (currentPage-1) / naviCountPerPage * naviCountPerPage + 1;
+		int endNavi = startNavi + naviCountPerPage - 1;
+		
+		if (endNavi > pageTotalCount) {
+			endNavi = pageTotalCount;
+		}
+		
+		boolean needNext = true;
+		boolean needPrev = true;
+		
+		if (startNavi == 1) {
+			needPrev = false;
+		}
+		if (endNavi == pageTotalCount) {
+			needNext = false;
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		String link = "<a href='/admin/adminProgramList?cpage=";
+		
+		if (needPrev) {
+			sb.append(link+(startNavi-1)+"'>< </a>");
+		}
+		
+		for (int i = startNavi ; i <= endNavi; i++) {
+			if (currentPage == i) {
+				sb.append(link+i+"\'>["+i+"] </a>");
+			}else {
+				sb.append(link+i+"\'>"+i+" </a>");
+			}
+		}
+		if (needNext) {
+			sb.append(link+(endNavi+1)+"'>> </a>");
+		}
+		return sb.toString();
+	}
+	
 	
 	// Payment Category
+	
 	public List<TotalPaymentDTO> paymentSelectByPage (int cpage) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);

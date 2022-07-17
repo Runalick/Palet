@@ -42,10 +42,19 @@
   		update member set grade = #{grade} where email = #{email}
   	</update>
   	
+  	<select id="getMemberPayment" resultType='Trillion.Palet.DTO.AdminDTO'>
+  		select * from (
+		select merchant_uid, g_name as title, totalprice as price, pay_time, category from payment where email = #{value}
+		UNION ALL
+		select et_booknumber as merchant_uid, et_title as title, et_cost as price, et_buydate as pay_time, et_category as category from exticket where et_email = #{value}
+		UNION ALL
+		select pro_booknumber as merchant_uid, pro_title as title, pro_cost as price, pro_buydate as pay_time, pro_category as category from proticket where pro_email = #{value}) where pay_time > sysdate-13 order by pay_time desc
+  	</select>
+  	
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">
-  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price}, e_period = #{e_period} 
+  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price} 
   		where e_num = #{e_num}
   	</update>
   	
@@ -174,15 +183,15 @@
   	</select>
   	
   	<update id="cancelExticketUpdate">
-  		update exticket set et_category = 'AC' where et_booknumber = #{value}
+  		update exticket set et_state = 'AC' where et_booknumber = #{value}
   	</update>
   	
   	<update id="cancelGoodsUpdate">
-  		update payment set category = 'AC' where merchant_uid = #{value}
+  		update payment set state = 'AC' where merchant_uid = #{value}
   	</update>
   	
   	<update id="cancelProticketUpdate">
-  		update proticket set pro_category = 'AC' where pro_booknumber = #{value}
+  		update proticket set pro_state = 'AC' where pro_booknumber = #{value}
   	</update>  	
   	
   	<delete id="cancelPaymentCheckDelete">

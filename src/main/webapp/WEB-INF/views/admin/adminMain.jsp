@@ -137,7 +137,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item icon-parent ml-md-auto">
-                                        <a href="#" class="nav-link icon-bullet text-warning">
+                                        <a href="/" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
                                     </li>
@@ -172,9 +172,9 @@
                                        <!--   <i class="bi bi-gift-fill text-warning cardIcon" ></i>  -->
                                        <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">BestSeller</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${GoodsBestSeller.g_name}</div>
-                                            <div class="h2" style="text-align:right">${GoodsBestSeller.sales_count}</div>
+                                            <div class="h3" style="text-align:right">BestExhibition</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
+                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.sales_count}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -192,9 +192,9 @@
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
                                         <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">BestExhibition</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
-                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.sales_count}</div>
+                                            <div class="h3" style="text-align:right">BestSeller</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${GoodsBestSeller.g_name}</div>
+                                            <div class="h2" style="text-align:right">${GoodsBestSeller.sales_count}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +234,7 @@
                                         <div class="text-right text-secondary">
                                             <div class="h3" style="text-align:right">Total</div>
                                             <div class="body1 ellipsis2" style="text-align:right">Members</div>
-                                            <div class="h2 colortext_blue3" style="text-align:right">${totalMembers}</div>
+                                            <div class="h2" style="text-align:right">${totalMembers}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -406,12 +406,14 @@
 		new Chart(document.getElementById("myChart"), {
 			type: 'line',
 			data: {
+				responsive : true,
 				labels: dayList,
 				datasets: [{
 					data: sumList,
 					label: "판매 금액 추이",
 					borderColor: "#FFC107",
-					fill : false
+					fill : false,
+					borderWidth : 5
 					
 				  }
 // 				, {
@@ -465,7 +467,7 @@
 				datasets: [{
 					data: cntList,
 					label: "판매 갯수 추이",
-					backgroundColor: "#3cba9f",
+					backgroundColor: "#B72136",
 
 					fill : false
 				  }

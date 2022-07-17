@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>Insert title here</title>
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Page</title>
@@ -164,131 +165,64 @@
     </nav>
     <!-- navibar close -->
     
-    <!-- main contents -->
+       <!-- main contents -->
     <section>
         <div class="container-fluid">
             <div class="row">    
-            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
+            	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain">  <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
-						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Programs </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 프롣그램 정보를 등록 할 수 있는 페이지 입니다. </div>
+						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Programs List </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 프로그램 관련 정보를 확인 할 수 있는 페이지 입니다. </div>
                 	</div>
                 	<div class="row pt-3 px-5">
-						<div class="col-12 mr-auto" id="exhibitionBtns">
-							<button class="btn0 color_gray900 colortext_gray100" id="programAdded">프로그램 등록</button>
-							<button class="btn0 " id="programList">프로그램 목록</button>
+						<div class="col-12 mr-auto" id="programBtns">
+							<button class="btn0 " id="programAdded">프로그램 등록</button>
+							<button class="btn0 color_gray900 colortext_gray100" id="programList">프로그램 목록</button>
 						</div>
-                	</div>            		
-            		<div class="row" style="margin-top: 1rem" id="roundboxParent">
-                		<div class="col " style="align-item :center"" id="roundbox">
-            				<div class="row pt-2 m-3 mb-4">
-								<div class="h3_2">Input Program</div>
-							</div>
-							<div class="row">
-                            	<form action="/admin/programInsert" method="post" enctype="multipart/form-data">
-								<div class="col">
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">카테고리</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">카테고리</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">카테고리</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">카테고리</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">카테고리</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<select name="p_period" id="p_period" class="select1">
-												<option value='F'>예정프로그램 </option>
-												<option value='N'>현재프로그램 </option>
-												<option value='P'>지난프로그램 </option>
-											</select>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">프로그램 이름</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">프로그램 이름</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">프로그램 이름</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">프로그램 이름</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">프로그램 이름</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="p_name" id="p_name" placeholder="Input Program Name" >
-										</div>
-									</div>
-<!-- 									<div class="row"> -->
-<!-- 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-sm-none p-0 body2 marg_left5">클래스 시작일</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="row" style="text-align:center;"> -->
-<!-- 										<div class="col-12 p-0"> -->
-<!-- 											<input type="text" name="start_date" id="start_date" placeholder="Input Start Day"> -->
-<!-- 											<input type="hidden" id="start_date_value"> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-sm-none p-0 body2 marg_left5">클래스 마감일</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="row" style="text-align:center;"> -->
-<!-- 										<div class="col-12 p-0"> -->
-<!-- 											<input type="text" name="end_date" id="end_date" placeholder="Input End Day"> -->
-<!-- 											<input type="hidden" id="end_date_value"> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">프로그램 가격</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">프로그램 가격</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">프로그램 가격</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">프로그램 가격</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">프로그램 가격</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<input type="text" name="p_price" id="p_price" 
-											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Just Number">
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">프로그램 사진</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">프로그램 사진</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">프로그램 사진</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">프로그램 사진</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">프로그램 사진</div>
-									</div>
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0 ">
-											<input class="upload_view" value="첨부파일" placeholder="Input Programs Images">
-											<span>	
-												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>	
-												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
-											</span>
-										</div>
-										
-									</div>  
-									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
-											<img src="" id="img_section" value="N">
-											<input class="btn1_0 mrg_left1" type="button" id="cancel_Btn" onclick="img_cancel()" style="display: none" value="첨부 취소">
-										</div>
-									</div>
-									
-									
-									<div class="row pt-4 pb-4" style="text-align:center">
-										<div class="col-12 p-0">
-											<a href="/admin/adminProgram">
-											<input class="btn1" type="button" id="return" value="초기화"></a> 
-											<input class="btn2_1" type="submit" id="upload" value="등록" disabled>
-										</div>
-									</div>
-								</div>
-								</form>
+                	</div>
+                	<div class="row" style="margin-top: 1rem" id="roundboxParent">
+                		<div class="col-12" id="roundbox">  
+ 							<div class="row pt-4 p-4" style="text-align:right">
+ 								<div id="checkbtns">
+ 									<select class="body2 select0 color_gray100" name="p_period" id="p_period">
+										<option value='F'>예정 프로그램 </option>
+										<option value='N'>현재 프로그램 </option>
+										<option value='P'>지난 프로그램 </option>
+									</select>
+                            		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate()">기간 수정</button>
+                            		<button class="btn0_1 color_red2" onclick="checkboxDelete()">삭제</button>
+ 								</div>
+ 							</div>
+            				<div class="row pt-3 m-3 mb-4">
+            					
+            					<div class="col-8 col-lg-4 h3" style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll"> Programs Name  <a href="/admin/adminProgramList?value=p_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-4 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Date  <a href="/admin/adminProgramList?value=p_date&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminProgramList?value=p_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-4 col-lg-2 h3 ">Condition  <a href="/admin/adminExhibitionList?value=p_period&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-12 px-3">
+			            			<div class="card2"></div>
+			            		</div>
+                        		<div class="col-12 pt-2 px-3">
+                            		<div class="">
+										<hr>
+                            			<c:forEach var="i" items="${list}">
+                            			<div class="row">
+	                            			<div class="col-8 col-lg-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.p_num}"> <a href="/admin/adminProgramDetail?p_num=${i.p_num}" class="colortext_gray900"><b>${i.p_name }</b></a> </div> 
+	                            			<div class="col-4 d-none d-lg-block px-4 body2">${i.p_date } </div> 
+	                            			<div class="col-2 d-none d-xl-block px-4 body2">${i.p_price } </div> 
+		                            		<c:choose> 
+		                            			<c:when test="${i.p_period eq 'N'}"> <div class="col-4 col-lg-2 px-4 body2">현재 프로그램</div></c:when> 
+		                            			<c:when test="${i.p_period eq 'F'}"> <div class="col-4 col-lg-2 px-4 body2">예정 프로그램</div></c:when>
+		                            			<c:when test="${i.p_period eq 'P'}"> <div class="col-4 col-lg-2 px-4 body2">지난 프로그램</div></c:when>
+		                            		</c:choose>
+		                            	</div>
+		                            	<hr>
+	                            		</c:forEach>
+                            		</div>
+                            	</div>	
+			                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
+			                    	${navi}
+			                    </div>
             				</div>
             			</div>
             		</div>
@@ -318,49 +252,61 @@
 	<!-- footer close -->
 
 <script>
-$("#return").on("click", ()=>{
-	location.reload();
-})
-
-$("#upload").on("click", ()=>{
-	
-	alert("Program Added Success");
-})
-
- $("#file").on('change',function(){
-		let fileName = $("#file").val();
-	 	$(".upload_view").val(fileName);
+$("#checkAll").change(function (){
+	let checked = $(this).prop('checked');
+	$('input[name="checkbox"]').prop('checked', checked);
 });
 
-	const reader = new FileReader();
-	reader.onload = (readerEvent) =>{
-		document.querySelector("#img_section").setAttribute("src",readerEvent.target.result);
-		console.log(readerEvent.target.result);
-	}
- document.querySelector("#file").addEventListener("change",(changeEvent) => {
-   const imgFile = changeEvent.target.files[0];
-   reader.readAsDataURL(imgFile);
- })
- 
-function isFileImg(obj){
-		  pathPoint = obj.value.lastIndexOf('.');
-		  filePoint = obj.value.substring(pathPoint+1,obj.length);
-		  fileType=filePoint.toLowerCase();
-		  if(fileType!='jpg'&&fileType!='png'&&fileType!='jpeg'){				
-			 alert("이미지 파일만 등록이 가능합니다.");
-//				 parentObj = obj.parentNode;
-//				 node = parentObj.replaceChild(obj.cloneNode(true),obj);
-				$("#file").val("");
-				$(".upload_view").val("");
-		  }
-		  $("#cancel_Btn").css("display","inline-block");
+$('input[name="checkbox"]').change(function () {
+
+	let selectAll = ($('input[name="checkbox"]').length == $('input[name="checkbox"]:checked').length);
+
+	$("#checkAll").prop('checked', selectAll);
+
+});	
+
+function checkboxDelete(){
+	let checkboxArr = [];
+	$('input[name="checkbox"]:checked').each(function() {
+		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+		console.log(checkboxArr)
+	})
+	
+	$.ajax({
+		type : "POST",
+		url : "/admin/programCheckDelete",
+		data : {
+			checkboxArr : checkboxArr
+		},
+		success : function (result){
+			console.log(result);
+			alert("delete ok!");
+			location.reload();
+		}
+	});
 }
- 
-function img_cancel(){
-	$("#img_section").attr("src","");
-	$("#file").val("");
-	$(".upload_view").val("");
-	$("#cancel_Btn").css("display","none");
+
+function checkboxUpdate(){
+	let checkboxArr2 = [];
+	let p_period = $("#p_period").val();
+	$('input[name="checkbox"]:checked').each(function() {
+		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+		console.log(checkboxArr2)
+	})
+	
+	$.ajax({
+		type : "POST",
+		url : "/admin/programCheckUpdate",
+		data : {
+			checkboxArr2 : checkboxArr2,
+			p_period : p_period
+		},
+		success : function (result){
+			console.log(result);
+			alert("update ok!");
+			location.reload();
+		}
+	});
 }
 
 let cnt =0;
@@ -371,13 +317,13 @@ $(".navbar-toggler").on("click",function(){
    }
 })
 
- 	$("#programAdded").on("click", ()=>{
- 		location.href = "/admin/adminProgram";
- 	})
- 	
- 	$("#programList").on("click", ()=>{
- 		location.href = "/admin/adminProgramList?cpage=1";
- 	})
+	$("#programAdded").on("click", ()=>{
+		location.href = "/admin/adminProgram";
+	})
+	
+	$("#programList").on("click", ()=>{
+		location.href = "/admin/adminProgramList?cpage=1";
+	})
 
 </script>
 

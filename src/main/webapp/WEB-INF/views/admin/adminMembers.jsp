@@ -169,7 +169,7 @@
 										<option value='White'>White</option>	
 										<option value='Gray'>Gray </option>
 										<option value='Black'>Black</option>
-										<option value='Admin'>Admin</option>
+										
 									</select>
                             		<button class="btn0_1 color_yellow2 " onclick="checkboxUpdate()">등급 수정</button>
                             		<button class="btn0_1 color_red2 " onclick="checkboxDelete()">삭제</button>
@@ -179,7 +179,7 @@
 										<option value='White'>White</option>	
 										<option value='Gray'>Gray </option>
 										<option value='Black'>Black</option>
-										<option value='Admin'>Admin</option>
+										
 									</select>
                             		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate2()">등급 수정</button>
                             		<button class="btn0_1 color_red2" onclick="checkboxDelete2()">삭제</button>

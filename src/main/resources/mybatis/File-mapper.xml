@@ -13,4 +13,8 @@
   		insert into exhibitionpic values(ep_seq.nextval, #{e_num}, #{ep_oriname}, #{ep_sysname})
   	</insert>
   	
+  	<insert id="programPicInsert">
+  		insert into programpic values(pp_seq.nextval, #{p_num}, #{pp_oriname}, #{pp_sysname})
+  	</insert>
+  	
   </mapper>

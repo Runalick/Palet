@@ -230,8 +230,8 @@
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" >Condition</div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='e_period' class='edit' value='${edto.e_period }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='e_period' class='editable' value='${edto.e_period }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='e_period'  value='${edto.e_period }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='e_period'  value='${edto.e_period}' disabled style="width:70%; text-align:center"></div>
 			           		</div>
 			           		</form>		  
 			           		

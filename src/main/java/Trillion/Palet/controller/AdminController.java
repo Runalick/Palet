@@ -85,7 +85,9 @@ public class AdminController {
 	@RequestMapping(value="adminMemberDetail", produces="test/html;charset=utf8")
 	public String adminMemberDetail(Model model, String email) {
 		MemberDTO mdto = mServ.getmember(email);
+		List<AdminDTO> adto = aServ.getMemberPayment(email);
 		model.addAttribute("mdto", mdto);
+		model.addAttribute("adto", adto);
 		
 		return "/admin/adminMemberDetail";
 	}
@@ -328,6 +330,38 @@ public class AdminController {
 		return "/admin/adminProgram";
 	}
 	
+	@RequestMapping(value="programInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
+	public String programInsert(ProgramDTO pdto, MultipartFile[] file) {
+		
+		String realPath = session.getServletContext().getRealPath("ProgramPic");
+		pServ.programInsert(pdto, realPath, file);
+		return "redirect:adminProgram";
+	}
+	
+	@RequestMapping("adminProgramList")
+	public String adminProgramList(Model model, int cpage, String value) {
+		String orderByWord;
+		
+		if (value != null) {
+			orderByWord = value;
+			List<ProgramDTO> pdto = aServ.programSelectByPage(cpage, orderByWord);
+			String pageNavi = aServ.getProgramPageNavi(cpage);
+			model.addAttribute("list", pdto);
+			model.addAttribute("navi", pageNavi);
+			
+			
+		}else {
+			orderByWord = "line";
+			List<ProgramDTO> edto = aServ.programSelectByPage(cpage, orderByWord);
+			String pageNavi = aServ.getProgramPageNavi(cpage);
+			model.addAttribute("list", edto);
+			model.addAttribute("navi", pageNavi);
+						
+		}
+		
+		return "/admin/adminProgramList";
+	}
+	
 	
 	// Payment Category
 	
@@ -413,7 +447,7 @@ public class AdminController {
 	
 	@ResponseBody
 	@RequestMapping(value="cancelPaymentCheckDelete", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public int cancelPaymentCheckDelete(@RequestParam(value="checkboxArr2[]") List<String> checkboxArr2) throws Exception {
+	public int cancelPaymentCheckDelete(@RequestParam(value="checkboxArr[]") List<String> checkboxArr2) throws Exception {
 
 		int result = 0;
 		String check = "";

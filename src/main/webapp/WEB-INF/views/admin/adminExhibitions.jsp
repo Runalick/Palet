@@ -150,7 +150,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item icon-parent m-auto">
-                                        <a href="#" class="nav-link icon-bullet text-warning">
+                                        <a href="/" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
                                     </li>

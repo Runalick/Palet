@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.ProgramDTO;
+import Trillion.Palet.DTO.ProgramPicDTO;
 
 @Repository
 public class ProgramDAO {
@@ -32,5 +33,13 @@ public int updateSalesCount(String pro_title, int pro_count) {
 
 	public ProgramDTO programBestSeller(){
 		return mybatis.selectOne("Program.programBestSeller");
+	}
+	
+	public int programInsert(ProgramDTO dto) {
+		return mybatis.insert("Program.programInsert", dto);
+	}
+	
+	public int programPicinsert(ProgramPicDTO dto) {
+		return mybatis.insert("File.programPicInsert", dto);
 	}
 }

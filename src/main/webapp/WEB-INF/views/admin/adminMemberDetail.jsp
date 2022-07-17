@@ -245,8 +245,8 @@
 			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Address2 </div>
 			           			</div>
 			           			<div class="row" style="text-align:center">
-			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input typs='text' name='address2' value='${mdto.address2 }' disabled style="width:50%; text-align:center"></div>
-			           				<div class='col-12 d-lg-none mt-3 body1'><input typs='text' name='address2' value='${mdto.address2 }' disabled style="width:70%; text-align:center"></div>
+			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input type='text' name='address2' value='${mdto.address2 }' disabled style="width:50%; text-align:center"></div>
+			           				<div class='col-12 d-lg-none mt-3 body1'><input type='text' name='address2' value='${mdto.address2 }' disabled style="width:70%; text-align:center"></div>
 			           				<input type='hidden' name='address2' value='${mdto.address2 }'>
 			           			</div>
 			           		</c:if>
@@ -256,23 +256,50 @@
 			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Postcode </div>
 			           			</div>
 			           			<div class="row" style="text-align:center">
-			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input typs='text' name='postcode' value='${mdto.postcode }' disabled style="width:50%; text-align:center"></div>
-			           				<div class='col-12 d-lg-none mt-3 body1'><input typs='text' name='postcode' value='${mdto.postcode }' disabled style="width:70%; text-align:center"></div>
+			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input type='text' name='postcode' value='${mdto.postcode }' disabled style="width:50%; text-align:center"></div>
+			           				<div class='col-12 d-lg-none mt-3 body1'><input type='text' name='postcode' value='${mdto.postcode }' disabled style="width:70%; text-align:center"></div>
 			           				<input type='hidden' name='postcode' value='${mdto.postcode }'>
 			           			</div>
 			           		</c:if>
 			           		</form>
 			           		
-			           				
+			           		<c:if test='${!empty adto }'>		
 			           		<div class="row mt-5">
 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem solid #161C24; width:65%;"></div>
 			           		</div>
 			           		
 			           		<div class="row pt-4 m-3 mb-4">
 			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Payment</div>    
-			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Payment</div>   
-			            	<div>	
-			            	
+			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Payment</div> 
+			            		<div class="col-12 d-none d-lg-block body2 colortext_gray600 px-5 m-auto" style="width:60%">  (최근 14일 정보) </div>  
+			            		<div class="col-12 d-lg-none body2 colortext_gray600 px-5 m-auto" style="width:85%">  (최근 14일 정보) </div>
+			            	</div>	
+			            	</c:if>
+			            	<c:forEach var='i' items='${adto }'>
+			            		<br>
+			            		<div class="row m-auto" style="margin-top: 1rem" id="roundboxParent">
+			            		<div class="col-12 m-auto" id="roundbox" style="width:70%">
+			            		<div class="row">
+				            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24;  text-align:left"><a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.merchant_uid }" class="colortext_gray700">${i.merchant_uid }<a></a></div>
+				            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">${i.merchant_uid }</div>
+				            	</div>
+				            	<div class="row " >
+				            		<div class='col-8 d-none d-lg-block  body1 m-auto' style=" text-align:left">구매 내역 : ${i.title }</div>
+				            	    <div class='col-8 d-lg-none mt-3 body1  m-auto' style="width:70%; text-align:left">구매 내역 : ${i.title }</div>
+				            	    <div class='col-4 d-none d-lg-block  body1 m-auto' style=" text-align:center">${i.price }원</div>
+			           				<div class='col-4 d-lg-none mt-3 body1  m-auto' style="width:70%; text-align:center">${i.price }원</div>
+				            	</div>
+				            	<div class="row">
+				            	
+			           			</div>	
+			           			<div class="row">
+				            		<div class="col-12 d-none d-lg-block body1 m-auto" style="text-align:left">결제시각 : ${i.pay_time }</div>
+				            		<div class="col-12 d-lg-none body1 m-auto" style="width:70%; text-align:left">결제시각 : ${i.pay_time }</div>
+				            	</div>
+				            	</div>
+				            	</div>
+				            			            	
+			            	</c:forEach>
 			            		
 			         			           			
 			                    <div class="col-12 p-3">
