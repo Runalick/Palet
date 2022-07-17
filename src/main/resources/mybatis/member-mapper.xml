@@ -79,11 +79,11 @@
     
     <!-- Admin -->
     <select id="memberSelectAll" resultType="Trillion.Palet.DTO.MemberDTO">>
-    	select * from member order by grade
+    	select * from member where grade != 'Admin' order by grade
     </select>
     
     <select id="memberSelectByPage" resultType="Trillion.Palet.DTO.MemberDTO">
-  		select * from (select row_number() over(order by grade) line, member.* from member) where line between #{start} and #{end}
+  		select * from (select row_number() over(order by grade) line, member.* from member) where grade != 'Admin' and line between #{start} and #{end}
   	</select>
   	
   	<select id="getMemberTotalCount" resultType="int">

@@ -29,6 +29,7 @@ public class AdminDTO {
 	private String cpserial;
 	private String options;
 	
+	
 	public AdminDTO() {
 		// TODO Auto-generated constructor stub
 	}
@@ -97,7 +98,7 @@ public class AdminDTO {
 		this.options = options;
 	}
 	
-	// Exticket 용 생성자
+	// Exticket / proticket용 생성자
 
 	public AdminDTO(String merchant_uid, String name, String email, String phone, String title, String place,
 			String card_name, String card_number, int card_quota, String period, String state, String category,
@@ -122,6 +123,17 @@ public class AdminDTO {
 		this.usedpoint = usedpoint;
 		this.cpdiscount = cpdiscount;
 		this.cpserial = cpserial;
+	}
+	
+	
+
+	public AdminDTO(String merchant_uid, String title, int price, Timestamp pay_time, String category) {
+		super();
+		this.merchant_uid = merchant_uid;
+		this.title = title;
+		this.price = price;
+		this.pay_time = pay_time;
+		this.category = category;
 	}
 
 	public String getMerchant_uid() {

@@ -76,8 +76,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
+                                <a href="/admin/adminProgram" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Programs
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -89,17 +89,18 @@
                                 <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
+                                </a>
                             </li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> Documentation
-                                </a>
-                            </li>
+
                         
                         </ul>
                         
@@ -168,7 +169,7 @@
 										<option value='White'>White</option>	
 										<option value='Gray'>Gray </option>
 										<option value='Black'>Black</option>
-										<option value='Admin'>Admin</option>
+										
 									</select>
                             		<button class="btn0_1 color_yellow2 " onclick="checkboxUpdate()">등급 수정</button>
                             		<button class="btn0_1 color_red2 " onclick="checkboxDelete()">삭제</button>
@@ -178,7 +179,7 @@
 										<option value='White'>White</option>	
 										<option value='Gray'>Gray </option>
 										<option value='Black'>Black</option>
-										<option value='Admin'>Admin</option>
+										
 									</select>
                             		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate2()">등급 수정</button>
                             		<button class="btn0_1 color_red2" onclick="checkboxDelete2()">삭제</button>

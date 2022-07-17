@@ -164,6 +164,14 @@
 	line-height: 4.813rem;
 }
 
+.H1{
+font-family: 'Spoqa Han Sans Neo';
+font-style: normal;
+font-weight: 700;
+font-size: 3.438rem;
+line-height: 3.75rem;
+}
+
 .body1 {
 	/* Body/Body1 */
 	font-family: 'Spoqa Han Sans Neo';
@@ -446,6 +454,10 @@ margin-right:0.25rem;
 }
 
 @media ( max-width : 991px) {
+.content div{
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+}
 	.main{
 	display:none;
 	}
@@ -499,7 +511,7 @@ margin-right:0.25rem;
 /* 네비 */
 
 .content{
-    margin-left:1.75rem;
+    /* margin-left:1.75rem; */
 }
 .mypage-wrap{
 margin:4.625rem auto 9.375rem;
@@ -587,6 +599,7 @@ color:white;
   overflow: hidden;
   text-overflow: ellipsis;  /* 말줄임 적용 */
 }
+
 
 </style>
 </head>
@@ -743,7 +756,7 @@ color:white;
 				
 				<div class="row" id="row1">
 				<div class="col-12 d-block d-lg-none H1 small-navi" >
-				<button id="select" >MY PAGE</button>
+				<button id="select" style="padding: 0px;">MY PAGE</button>
 				</div>
 				
 				
@@ -785,11 +798,11 @@ color:white;
 				
 				
 				
-				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
+				<div class="content" style="margin-top:1rem;" >
 					<div class="row" >
 						<div class="col-12 main-info" >주문 내역</div>
 						
-						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
+						<div class="col-12" style="margin-top:2.5rem;">
 							<div class="row main-area">
 								<div class="col-2 px-3 body4" >주문일</div>
 								<div class="col-5 px-3 body4">주문정보</div>
@@ -848,9 +861,15 @@ color:white;
 					</div>
 				
 				</div>
+				
+				
+				
+				
 
 			</div>
 		</div>
+		
+		
 	</div>
 
 
@@ -897,17 +916,20 @@ color:white;
 							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
 							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
 							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
-							+"<div id='state_text"+i+"'></div><div class='ok' id='cancel"+ i +"'>주문취소</div>"
+							+"<div id='state_text"+i+"'></div>"
 							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
+							+ "<input type='hidden' id='uid" + i + "' value=" + resp[i].merchant_uid + ">"
 							+"</div></div>";
 						
 						$("#contents_area").append(text_html);
 			    		console.log("resp.length : " + resp.length);
 					}	
 					for(let i=0; i<resp.length;i++){
-						$("#detailView"+i).on("click", function(e){
-							alert(resp[i].merchant_uid);
+						$("#detailView"+i).on("click", function(){
+							location.href="/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid 
 						})
+						
+						
 						
 				    	if($("#state"+i).val()=='BU'){
 				    		$("#state_text" + i).text("주문완료");
@@ -926,6 +948,7 @@ color:white;
 				    	} 
 				    	
 		    		}  
+					
 					
 					for(let i=0; i<resp.length;i++){
 						let date = new Date($("#paytime"+i).text());
@@ -968,8 +991,20 @@ color:white;
 						}	
 						
 						
-					} //for 
+					}  
 					
+					// 주문 취소 버튼 클릭시
+					$(".ok").on("click", function(event){
+						event.stopPropagation();
+						//alert($($($($(this).parent().siblings()[1]).children().children()[1]).children()[0]).text());
+						$.ajax({
+							url:"/mypage/delCancel",
+							data: {"merchant_uid":$($($($(this).parent().siblings()[1]).children().children()[1]).children()[0]).text()}
+						}).done(function(resp){
+							console.log(resp);
+						})
+						
+					})
 				
 				},
 			});	
@@ -1012,7 +1047,7 @@ color:white;
 									+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
 									+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
 									+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
-									+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
+									+"<div id='state_text"+i+"'></div>"
 									+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
 									+"</div></div></div>";
 								
@@ -1089,24 +1124,8 @@ color:white;
 		 })  // scroll
 	}	// onload
 	
+	
 
-	
-	$("#contents_area").on("click", ".ok", function(e){
-		alert("111");
-		event.stopPropagation();
-		//console.log($(this).siblings().eq(1).val());
-		/* $.ajax({
-			url:"/event/confirmation",
-			data: {draw_seq:$(this).siblings().eq(1).val()}
-		}).done(function(resp){
-			alert(resp);
-			location.reload();
-		}) */
-	})
-	
-	
-	
-	
 
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();

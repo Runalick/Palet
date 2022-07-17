@@ -76,8 +76,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
+                                <a href="/admin/adminProgram" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Programs
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -89,17 +89,18 @@
                                 <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
-                            </li>                            
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
+                                </a>
+                            </li>                           
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> Documentation
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                     <!-- sidebar close -->
@@ -229,8 +230,8 @@
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" >Condition</div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='e_period' class='edit' value='${edto.e_period }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='e_period' class='editable' value='${edto.e_period }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='e_period'  value='${edto.e_period }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='e_period'  value='${edto.e_period}' disabled style="width:70%; text-align:center"></div>
 			           		</div>
 			           		</form>		  
 			           		

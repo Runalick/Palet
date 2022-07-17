@@ -494,12 +494,12 @@
 			$(".currentExhibition").addClass("h3_2");
 			$(".category")
 					.append(
-							"<div class='button' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+							"<div class='button' id='1' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
 		}
 
 		//   전시회 버튼 기본 CSS, append (현재전시)
-		if (!($("#1001").hasClass("active"))) {
-			$("#1001").addClass("active");
+		if (!($("#1").hasClass("active"))) {
+			$("#1").addClass("active");
 			$.ajax({
 				url:"/shop/selectGoods",
 				data:{"e_num" : $(".active").attr("id"),
@@ -643,7 +643,7 @@
 						$(".button").remove();
 						$(".category")
 								.append(
-										"<div class='button active' id='1001' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+										"<div class='button active' id='1' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
 						$.ajax({
 							url:"/shop/selectGoods",
 							data:{"e_num" : $(".active").attr("id"),
@@ -721,19 +721,19 @@
 						
 						$(".category")
 								.append(
-										"<div class='button active' id='1002' style='display: inline-block;'>카로 악포키에르 <<분실된 그림들>></div>");
+										"<div class='button active' id='2' style='display: inline-block;'>카로 악포키에르 <<분실된 그림들>></div>");
 						$(".category")
 								.append(
-										"<div class='button' id='1003' style='display: inline-block;'>국제미술 소장품 기획전 <<미술로, 세계로>></div>");
+										"<div class='button' id='3' style='display: inline-block;'>국제미술 소장품 기획전 <<미술로, 세계로>></div>");
 						$(".category")
 								.append(
-										"<div class='button' id='1004' style='display: inline-block;'>아이 웨이웨이</div>");
+										"<div class='button' id='4' style='display: inline-block;'>아이 웨이웨이</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='1005' style='display: inline-block;'>대지의 시간</div>");
+										"<div class='button' id='5' style='display: inline-block;'>대지의 시간</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='1006' style='display: inline-block;'>창동레지던시 입주보고서 2021:풀 물 몸</div>");
+										"<div class='button' id='6' style='display: inline-block;'>창동레지던시 입주보고서 2021:풀 물 몸</div>");
 						$
 								.ajax({
 									url : "/shop/selectGoods",
