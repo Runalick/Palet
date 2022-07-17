@@ -78,8 +78,24 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.myShopping", param);
 	}
 
-	public Object myShoppingDetailView(String merchant_uid) {
-		return mybatis.selectList("MyPage.myShoppingDetailView", merchant_uid);
+	public PayDTO myShoppingDetailView(String merchant_uid) {
+		return mybatis.selectOne("MyPage.myShoppingDetailView", merchant_uid);
+	}
+
+	public Object myShoppingProduct(String merchant_uid) {
+		return mybatis.selectOne("MyPage.myShoppingProduct", merchant_uid);
+	}
+
+	public String memberName(String email) {
+		return mybatis.selectOne("MyPage.memberName", email);
+	}
+
+	public int changeStateCU(String merchant_uid) {
+		return mybatis.update("MyPage.changeStateCU",merchant_uid);
+	}
+
+	public int changeStateAU(String merchant_uid) {
+		return mybatis.update("MyPage.changeStateAU",merchant_uid);
 	}
 
 	public List<CancelListDTO> CancelList(String email) {

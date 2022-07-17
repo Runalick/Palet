@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shopping List</title>
+<title>Insert title here</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -18,7 +18,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<!-- <link rel="stylesheet" href="/css/member/join.css">  -->
+</head>
 <style>
 @charset "UTF-8";
 
@@ -576,9 +576,9 @@ color:white;
 }
 
 </style>
-</head>
+
 <body>
-	<div class="container-fluid">
+<div class="container-fluid">
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
@@ -773,64 +773,78 @@ color:white;
 				
 				
 				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
-					<div class="row" >
-						<div class="col-12 main-info" >주문 내역</div>
+					<div class="row" id="row1">
+						<div class="col-12 main-info" >주문 상세</div>
 						
 						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
 							<div class="row main-area">
-								<div class="col-2 px-3 body4" >주문일</div>
-								<div class="col-5 px-3 body4">주문정보</div>
-								<div class="col-1 px-3 body4">수량</div>
-								<div class="col-2 px-3 body4">가격</div>
-								<div class="col-2 px-3 body4">배송상태</div>
+								<div class="col-12 caption">주문정보</div>
+								<div class="col-3">주문번호</div>
+								<div class="col-9">${detail.merchant_uid }</div>
+								<div class="col-3">주문일자</div>
+								<div class="col-9">${detail.pay_time }</div>
+								<div class="col-3">주문자</div>
+								<div class="col-9">${name }</div>
+								<div class="col-3">주문자ID</div>
+								<div class="col-9">${detail.email }</div>
+								<div class="col-3">주문처리상태</div>
+								<div class="col-9" id="state" value="${detail.state }">상태</div>
+								<div class="col-3">결제수단</div>
+								<div class="col-9">${detail.card_name } - ${detail.card_number } </div>
+								<div class="col-3">할부기간</div>
+								<div class="col-9" id="quota">${detail.card_quota }개월</div>
+							</div>	
+							<div class="row main-area">	
+								<div class="col-12 caption">배송지정보</div>
+								<div class="col-3">수령인</div>
+								<div class="col-9">${detail.name }</div>
+								<div class="col-3">우편번호</div>
+								<div class="col-9">${detail.zipcode }</div>
+								<div class="col-3">주소</div>
+								<div class="col-9">${detail.address1 }</div>
+								<div class="col-3"></div>
+								<div class="col-9">${detail.address2 }</div>
+								<div class="col-3">휴대전화</div>
+								<div class="col-9">${detail.phone }</div>
+								<div class="col-3">배송메시지</div>
+								<div class="col-9">${detail.delivery_text }</div>
 							</div>
-							<div id="contents_area">
-							</div>
-							<%-- <c:forEach var="i" items="${list}">
-								<a href='/mypage/myShoppingDetailview?merchant_uid=${i.merchant_uid}'>
-								<div class="row main-area">
-								<div class="col-2 px-3 ellipsis body4" >${i.pay_time}</div>
-								<div class="col-5 px-3 ellipsis body4">
-									<div class="row">
-										<div class="col-5 px-3">
-											<img src="/images/anywayloveS.png" class="w-100 h-100">
-											<img class='con' src='/shop/shopHome/"+ ${gp_sysname }+"'>
+							<div class="row main-area">	
+								<div class="col-12 caption">상품정보</div>
+								<div class="row">
+									<div class="col-5">
+										<img src="/images/anywayloveS.png" class="w-100 h-100">
+										<%-- <img class='con' src='/shop/shopHome/"+ ${gp_sysname }+"'> --%>
+									</div>
+									<div class="col-7">
+										<div class="row">
+											<div class="col-12">${product.e_name }</div>
+											<div class="col-12">${product.g_name }</div>
+											<div class="col-12">${product.G_OPTION }</div>
+											<div class="col-12">${product.g_count }</div>
 										</div>
-										<div class="col-7 px-3">
-											<div class="col-12 px-3">${i.merchant_uid}</div>
-											<div class="col-12 px-3">${i.e_name }</div>
-											<div class="col-12 px-3">${i.G_NAME }</div>
-											<div class="col-12 px-3">${i.G_OPTION }</div>
-										</div>
-										
-										
 									</div>
 								</div>
-								<div class="col-1 px-3 ellipsis body4">${i.g_count }</div>
-								<div class="col-2 px-3 ellipsis body4">${i.totalprice }</div>
-								<div class="col-2 ellipsis px-3 body4">
-									<c:if test="${i.state =='BU' }">
-										<div>주문완료</div>
-										<button>주문취소</button>
-									</c:if>
-									<c:if test="${i.state =='CU' }">
-										<div>배송 중</div>
-									</c:if>
-									<c:if test="${i.state =='AU' }">
-										<div>배송완료</div>
-										<button>반품신청</button>
-									</c:if>
-									<c:if test="${i.state =='BC' }">
-										<div>취소 중</div>
-									</c:if>
-									<c:if test="${i.state =='AC' }">
-										<div>취소완료</div>
-									</c:if>
-								</div>
 							</div>
-							</a>
-							</c:forEach> --%>
-					
+							<div class="row main-area">
+								<div class="col-12 caption">결제정보</div>
+								<div class="col-3">적립 포인트</div>
+								<div class="col-9">${detail.point }</div>
+								<div class="col-3">상품 금액</div>
+								<div class="col-9" id="price"></div>
+								<div class="col-3">배송비</div>
+								<div class="col-9">2500</div>
+								<div class="col-3">쿠폰할인</div>
+								<div class="col-9">${detail.cpdiscount }</div>
+								<div class="col-3">포인트 사용</div>
+								<div class="col-9">${detail.usedpoint }</div>
+								<div class="col-3">총 주문 금액</div>
+								<div class="col-9">${detail.totalprice }</div>
+								
+								
+							</div>
+							
+						
 						</div>
 					</div>
 				
@@ -838,7 +852,7 @@ color:white;
 
 			</div>
 		</div>
-	</div>
+
 
 
 		<!-- 푸터단 -->
@@ -854,275 +868,38 @@ color:white;
             </div>
         </div>
 	</div>
+	
+	
+	
 <script>
-	AOS.init();
 	window.onload = function(){
-		$.ajax({
-			url:"/mypage/ShoppingList",
-			data:{"limit" : 1, "email": "${email}"},
-			async: false,
-			dataType:"json", // == JSON.parse(resp);
-			success: function (resp) {
-				for(let i = 0 ; i < resp.length; i++) {
-					let text_html=
-							"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
-							+"<div class='row main-area'>"
-							+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
-							+"<div class='col-5 px-3 ellipsis body4'>"
-							+	"<div class='row'>"
-							+		"<div class='col-5 px-3'>"
-							+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
-							+		"</div>"
-							+		"<div class='col-7 px-3'>"
-							+			"<div class='col-12 px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
-							+		"</div>"	
-							+	"</div>"
-							+"</div>"
-							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
-							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
-							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
-							+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
-							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
-							+"</div></div></a>";
-						
-						$("#contents_area").append(text_html);
-			    		console.log("resp.length : " + resp.length);
-					}	
-					for(let i=0; i<resp.length;i++){
-				    	if($("#state"+i).val()=='BU'){
-				    		$("#state_text" + i).text("주문완료");
-				    	} else if($("#state"+i).val()=='CU'){
-				    		$("#state_text" + i).text("배송 중");
-				    		$("#cancel" + i).attr('style',"display:none;");
-				    	} else if($("#state"+i).val()=='AU'){
-				    		$("#state_text" + i).text("배송완료");
-				    		$("#cancel" + i).attr('style',"display:none;");
-				    	} else if($("#state"+i).val()=='BC'){
-				    		$("#state_text" + i).text("취소 중");
-				    		$("#cancel" + i).attr('style',"display:none;");
-				    	} else if($("#state"+i).val()=='AC'){
-				    		$("#state_text" + i).text("취소완료");
-				    		$("#cancel" + i).attr('style',"display:none;");
-				    	} 
-				    	
-		    		}  
-					
-					for(let i=0; i<resp.length;i++){
-						let date = new Date($("#paytime"+i).text());
-						let enddate = new Date(date.setDate(date.getDate()+1));
-						
-						let today = new Date(); 
-						
-						let del = new Date($("#paytime"+i).text());
-						let delend = new Date(del.setDate(del.getDate()+3));
-						
-						console.log("주문완료시각 : " + $("#paytime"+i).text());
-						console.log("배송중변경일 : " +enddate);
-						console.log("현재날짜 : " +today);
-						console.log("배송완료날짜 : " +delend);
-						console.log($("#merchant_uid"+i).text());
-						console.log($("#state"+i).val()=='CU');
-						
-						// 주문완료 -> 배송 중 (1일뒤)
-						if($("#state"+i).val()=='BU'){
-							if(enddate <= today){
-								$.ajax({
-									url:"/mypage/changeStateCU",
-									data: {"merchant_uid":$("#merchant_uid"+i).text()}
-								}).done(function(resp){
-									locaiton.reload();
-								})
-							}
-						}
-						
-						// 배송 중 -> 배송완료 (주문완료 3일 뒤)
-						if($("#state"+i).val()=='CU' ){
-							if(delend <= today){
-								$.ajax({
-									url:"/mypage/changeStateAU",
-									data: {"merchant_uid":$("#merchant_uid"+i).text()}
-								}).done(function(resp){
-									locaiton.reload();
-								})
-							}
-						}	
-					} 
-					
-				
-				},
-			});	
+		let price = ( ${detail.totalprice } + ${detail.usedpoint } + ${detail.cpdiscount } - 2500 );
+		$("#price").text(price);
 		
-		let limit = 11;
+		if(${detail.card_quota } == 0){
+			$("#quota").text("일시불"); 
+		}
 		
+		console.log($("#state").val());
+		console.log(${detail.state });
+	
 		
-	  	$(document).scroll(function() {
-	    let maxHeight = $(document).height();
-	    let currentScroll = $(window).scrollTop() + $(window).height();
-		    
-		   
-		    if (maxHeight <= currentScroll+100) {
-		    	console.log("origin limit : " + limit);
-		    	$.ajax({
-					url:"/mypage/ShoppingList",
-					data:{limit : limit},
-					async: false,
-					dataType:"json", // == JSON.parse(resp);
-					success: function (resp) {
-						for(let i = 0 ; i < resp.length; i++) {
-							let text_html=
-									"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
-									+"<div class='row main-area'>"
-									+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
-									+"<div class='col-5 px-3 ellipsis body4'>"
-									+	"<div class='row'>"
-									+		"<div class='col-5 px-3'>"
-									+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
-									+		"</div>"
-									+		"<div class='col-7 px-3'>"
-									+			"<div class='col-12 px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
-									+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
-									+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
-									+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
-									+		"</div>"	
-									+	"</div>"
-									+"</div>"
-									+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
-									+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
-									+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
-									+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
-									+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
-									+"</div></div></a>";
-								
-								$("#contents_area").append(text_html);
-					    		console.log("resp.length : " + resp.length);
-							}
-							limit = limit + resp.length;
-					    	console.log("change limit : " + limit);	
-						
-						
-							for(let i=0; i<resp.length;i++){
-						    	if($("#state"+i).val()=='BU'){
-						    		$("#state_text" + i).text("주문완료");
-						    	} else if($("#state"+i).val()=='CU'){
-						    		$("#state_text" + i).text("배송 중");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} else if($("#state"+i).val()=='AU'){
-						    		$("#state_text" + i).text("배송완료");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} else if($("#state"+i).val()=='BC'){
-						    		$("#state_text" + i).text("취소 중");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} else if($("#state"+i).val()=='AC'){
-						    		$("#state_text" + i).text("취소완료");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} 
-						    	
-				    		}  
-							
-							for(let i=0; i<resp.length;i++){
-								let date = new Date($("#paytime"+i).text());
-								let enddate = new Date(date.setDate(date.getDate()+1));
-								
-								let today = new Date(); 
-								
-								let del = new Date($("#paytime"+i).text());
-								let delend = new Date(del.setDate(del.getDate()+3));
-								
-								console.log("주문완료시각 : " + $("#paytime"+i).text());
-								console.log("배송중변경일 : " +enddate);
-								console.log("현재날짜 : " +today);
-								console.log("배송완료날짜 : " +delend);
-								console.log($("#merchant_uid"+i).text());
-								console.log($("#state"+i).val()=='CU');
-								
-								// 주문완료 -> 배송 중 (1일뒤)
-								if($("#state"+i).val()=='BU'){
-									if(enddate <= today){
-										$.ajax({
-											url:"/mypage/changeStateCU",
-											data: {"merchant_uid":$("#merchant_uid"+i).text()}
-										}).done(function(resp){
-											locaiton.reload();
-										})
-									}
-								}
-								
-								// 배송 중 -> 배송완료 (주문완료 3일 뒤)
-								if($("#state"+i).val()=='CU' ){
-									if(delend <= today){
-										$.ajax({
-											url:"/mypage/changeStateAU",
-											data: {"merchant_uid":$("#merchant_uid"+i).text()}
-										}).done(function(resp){
-											locaiton.reload();
-										})
-									}
-								}	
-							}	
-					}
-				}); // ajax
-		    } // if
-		 })  // scroll
-	}	// onload
+	}
 	
-	$("#contents_area").on("click", ".ok", function(){
-		console.log($(this).siblings().eq(1).val());
-		/* $.ajax({
-			url:"/event/confirmation",
-			data: {draw_seq:$(this).siblings().eq(1).val()}
-		}).done(function(resp){
-			alert(resp);
-			location.reload();
-		}) */
-	})
+	let state = $("#state").val();
+	console.log(state);
 	
-	
-
-	$( window ).resize(function() {   //창크기 변화 감지
-		open_chatroom();
-	});
-	
-	function open_chatroom(){ 
-		var windowWidth = $( window ).width();
-		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
-			$(".navi-menu").css({"display":"none"});
-		} else {      //창 가로 크기가 500보다 클 경우  
-			$(".navi-menu").css({"display":"block"});
-		}
-		}
-	
-	//선택박스 화살표 방향 이미지
-		$("#registration").on("click",function(){
-		window.open("/coupon/toregistration", "",
-		"top=100,left=200,width=700,height=500");
-		})
-	let click = true;
-	$("#select").on("click",function(){
-		if(click==false){
-			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").css({"display":"none"});
-			
-			click = true;
-		}else{
-			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").css({"display":"block"});
-			click = false;
-		}
-	});
-// 		$("#make").on("click",function(){
-// 			$.ajax({
-// 				url:"/coupon/make",
-// 				data:{number:$("#number").val(),
-// 					dc:$("#dc").val(),
-// 					category:$("#category").val()}
-// 			}).done(function(resp){
-// 				console.log(resp);
-// 			})
-// 		})
-	
-	</script>
+		/* if(${detail.state } = 'BU'){
+			$("#state").text("주문완료");
+		} else if (${detail.state } = 'CU'){
+			$("#state").text("배송 중");
+		} else if (${detail.state } = 'AU') {
+			$("#state").text("배송완료");
+		} else if (${detail.state } = 'BC') {
+			$("#state").text("취소 중");
+		} else {
+			$("#state").text("취소완료");
+		}  */
+</script>
 </body>
 </html>

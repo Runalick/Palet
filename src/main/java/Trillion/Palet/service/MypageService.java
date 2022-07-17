@@ -50,12 +50,28 @@ public class MypageService {
 		return mdao.myShopping(limit, email);
 	}
 
-	public Object myShoppingDetailView(String merchant_uid) {
+	public PayDTO myShoppingDetailView(String merchant_uid) {
 		return mdao.myShoppingDetailView(merchant_uid);
 	}
 
 	public List<CancelListDTO> CancelList(String email) {
 		return mdao.CancelList(email);
+	}
+		
+	public Object myShoppingProduct(String merchant_uid) {
+		return mdao.myShoppingProduct(merchant_uid);
+	}
+
+	public String memberName(String email) {
+		return mdao.memberName(email);
+	}
+
+	public int changeStateCU(String merchant_uid) {
+		return mdao.changeStateCU(merchant_uid);
+	}
+
+	public int changeStateAU(String merchant_uid) {
+		return mdao.changeStateAU(merchant_uid);
 	}
 
 	
