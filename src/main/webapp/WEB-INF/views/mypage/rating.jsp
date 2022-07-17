@@ -20,22 +20,21 @@
 <!-- 지도api -->
 
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -56,14 +55,11 @@
 	height: 1.875rem;
 }
 
-#navparent {
-	position: fixed;
-	font-size: 0;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	height: 5rem;
-	background-color: white;
-	z-index: 5;
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .navbar {
@@ -71,9 +67,30 @@
 	padding: 0px;
 }
 
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow-x: hidden;
+		}
+		
+/* 		.overflow-auto{ */
+/* 			overflow: hidden; */
+/* 		}  */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -103,15 +120,33 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -283,7 +318,10 @@ li div {
 .small-navi {
 	margin: 1.25rem 0rem;
 }
-
+#row1>div{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 #select {
 	width: 100%;
 	border: 0px;
@@ -302,8 +340,8 @@ li div {
 	overflow-x: hidden;
 } 
 
-<!--
-버튼 -->.btn1 {
+/* 	버튼  */
+	.btn1 {
 	/* padding:  1.12rem 1.5rem; */
 	gap: 0.625rem;
 	/* width: 12.5rem; */
@@ -406,7 +444,7 @@ align-items: center; */
 </style>
 </head>
 <body>
-<header>
+	<div class="container-fluid">
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
@@ -544,22 +582,22 @@ align-items: center; */
 					</nav>
 				</div>
 				</c:otherwise>
+				
 				</c:choose>
 			</div>
-			</div>
-	</header>
-	<div class="container-fluid" id="mypage-area">
+		</div>
+		
 		<div class="container">
 			<div class="row mypage-wrap">
-
+				
+				<div class="row" id="row1">
 				<div class="col-12 d-block d-lg-none H1 small-navi">
 					<button id="select">MY PAGE</button>
 				</div>
 
-
 				<div class="navi">
-					<a href="/mypage/main" style="font-size: 1.625rem;" class="main"> <strong
-						class="menu-title">My Page</strong>
+					<a href="/mypage/main" style="font-size: 1.625rem;" class="main"> 
+						<strong class="menu-title">My Page</strong>
 					</a>
 					<div class="navi-menu">
 						<ul class="navi-ul">
@@ -580,10 +618,10 @@ align-items: center; */
 							<li>
 								<div class="body4">My Info</div>
 								<ul>
-									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-									<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
-									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
+									<li class="body3"><a href="#">나의 회원등급</a></li>
+									<li class="body3"><a href="#">나의 쿠폰</a></li>
+									 <li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
+									<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -591,9 +629,8 @@ align-items: center; */
 				</div>
 
 				<div class="content">
-					<div class="row" id="row1">
-											<div class="col-sm-12 h2"
-							style="text-align: left; margin-left: auto; margin-bottom: 20px;">
+					<div class="row" style="padding: 1rem;">
+						<div class="col-sm-12 h2" style="text-align: left; margin-left: auto; margin-bottom: 20px;">
 							<div>나의 회원등급</div>
 						<div class="col-12 h3" style="margin-top:2rem; margin-bottom:2rem;"> 
 								<c:if test="${dto.grade == 'White'}">
@@ -621,28 +658,27 @@ align-items: center; */
 							</c:if>
 							입니다
 						</div>
-						<hr>
 						<div class="col-12 body3">
 							
 						</div>
 						<div class="col-12">
-							<div class="row">
+							<div class="row" style="box-size:border-box;">
 								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<img src="/images/white.jpeg"><br>
-									<div class="col-12" style="text-align:left;">- White 등급</div>
-									<div class="col-12" style="text-align:left;">- 결제금액의 1% 마일리지 적립</div>
+									<div class="col-12" style="border-bottom:1px solid #f2f2f2">White 등급</div>
+									<img src="/images/white.jpeg" style="width:70%">
+									<div class="col-12" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 1% 마일리지 적립</div>
 									<div class="col-12" style="text-align:left;">- 회원가입시 white등급</div>
 								</div>
 								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<img src="/images/gray.jpeg"><br>
-									 <div class="col-12" style="text-align:left;">- Gray 등급</div>
-									 <div class="col-12" style="text-align:left;">- 결제금액의 5% 마일리지 적립</div>
+									<div class="col-12" style="border-bottom:1px solid #f2f2f2">Gray 등급</div>
+									<img src="/images/gray.jpeg" style="width:70%">
+									 <div class="col-12" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 5% 마일리지 적립</div>
 									 <div class="col-12" style="text-align:left;">- 누적 결제금액이 10만원 이상이면 Gray 등급으로 상승</div>
 								</div>
 								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<img src="/images/black.jpeg"><br>
-									<div class="col-12" style="text-align:left;">- Black 등급</div>
-									<div class="col-12" style="text-align:left;">- 결제금액의 10% 마일리지 적립</div>
+									<div class="col-12" style="border-bottom:1px solid #f2f2f2">Black 등급</div>
+									<img src="/images/black.jpeg" style="width:70%">
+									<div class="col-12" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 10% 마일리지 적립</div>
 									<div class="col-12" style="text-align:left;">- 누적 결제 금액이 30만원 이상이면 Black 등급으로 상승</div>
 								</div>
 								<div class="col-12 H2" style="margin-top:5rem;">
@@ -668,6 +704,7 @@ align-items: center; */
 					</div>
 				</div>
 			</div>
+			</div>
 		</div>
 		</div>
 
@@ -686,7 +723,6 @@ align-items: center; */
 				</div>
 			</div>
 		</div>
-
 	</div>
 	<script>
 	$( window ).resize(function() {   //창크기 변화 감지
