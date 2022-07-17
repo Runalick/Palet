@@ -1,6 +1,8 @@
 package Trillion.Palet.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -49,8 +51,24 @@ public class MypageService {
 		return mdao.myShopping(limit, email);
 	}
 
-	public Object myShoppingDetailView(String merchant_uid) {
+	public PayDTO myShoppingDetailView(String merchant_uid) {
 		return mdao.myShoppingDetailView(merchant_uid);
+	}
+
+	public Object myShoppingProduct(String merchant_uid) {
+		return mdao.myShoppingProduct(merchant_uid);
+	}
+
+	public String memberName(String email) {
+		return mdao.memberName(email);
+	}
+
+	public int changeStateCU(String merchant_uid) {
+		return mdao.changeStateCU(merchant_uid);
+	}
+
+	public int changeStateAU(String merchant_uid) {
+		return mdao.changeStateAU(merchant_uid);
 	}
 
 	

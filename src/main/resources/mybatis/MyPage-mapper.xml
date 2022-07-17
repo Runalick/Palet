@@ -67,7 +67,36 @@
 		where email = #{email}) where line between #{limit} and #{limit}+9
 	</select>
 	
+	
 	<select id="myShoppingDetailView" resultType="Trillion.Palet.DTO.PayDTO">
+		select * from payment where merchant_uid = #{merchant_uid}
 	</select>
+	
+	<resultMap type="HashMap" id="productMap">
+		<result property="e_name" column="e_name"/>
+		<result property="g_name" column="g_name"/>
+		<result property="g_count" column="g_count"/>
+		<result property="g_option" column="p.g_option"/>
+		<result property="gp_sysname" column="gp_sysname"/>
+	</resultMap>
+	
+	<select id="myShoppingProduct" parameterType="HashMap" resultType="HashMap" resultMap="productMap">
+		select e_name, g_name, g_count, p.g_option, gp_sysname 
+		from goodspic gp join payment p using (g_num)
+		join exhibition e using (e_num)
+		where merchant_uid=#{merchant_uid}
+	</select>
+	
+	<select id="memberName" resultType="String">
+		select name from member where email=#{email}
+	</select>
+	
+	<update id="changeStateCU">
+		update payment set state='CU' where merchant_uid=#{merchant_uid}
+	</update>
+	
+	<update id="changeStateAU">
+		update payment set state='AU' where merchant_uid=#{merchant_uid}
+	</update>
 	
 </mapper>

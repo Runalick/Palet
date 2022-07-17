@@ -1,6 +1,8 @@
 package Trillion.Palet.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -14,6 +16,7 @@ import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
@@ -120,14 +123,36 @@ public class MyPageController {
 	@RequestMapping("ShoppingList")
 	public List<Object> ShopingList(int limit, String email) {
 		List<Object> list = mServ.myShopping(limit, email);
-		System.out.println(list);
+		//System.out.println(list);
 		return list;
 	}
 	
 	@RequestMapping("myShoppingDetail")
-	public void myShoppingDetail(String merchant_uid) {
-		mServ.myShoppingDetailView(merchant_uid);
+	public String myShoppingDetail(String merchant_uid, Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
+		Object product = mServ.myShoppingProduct(merchant_uid);
+		String name = mServ.memberName(email);
+		System.out.println(name);
+		
+		model.addAttribute("detail",detail);
+		model.addAttribute("product",product);
+		model.addAttribute("name",name);
+		return "/mypage/myShoppingDetailView";
 	}
 	
+	// 주문완료 -> 배송 중 (1일뒤)
+	@ResponseBody
+	@RequestMapping("changeStateCU")
+	public void changeStateCU(String merchant_uid) {
+		int change = mServ.changeStateCU(merchant_uid);
+	}
+	
+	// 배송 중 -> 배송완료 (주문완료 3일 뒤)
+	@ResponseBody
+	@RequestMapping("changeStateAU")
+	public void changeStateAU(String merchant_uid) {
+		int change = mServ.changeStateAU(merchant_uid);
+	}
 	
 }
