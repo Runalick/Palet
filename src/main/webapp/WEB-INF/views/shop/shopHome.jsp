@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Insert title here</title>
 <!-- JQUERY -->
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
@@ -210,6 +212,9 @@
 	cursor: pointer;
 }
 
+#before, #pre:hover{
+	cursor:pointer;
+}
 .row { -
 	-bs-gutter-x: 0rem;
 }
@@ -224,14 +229,13 @@
 }
 
 #preBtn {
-	height: 2.5rem;
-	width: 2.5rem;
-	left: 56.2rem;
+	height: 3rem;
+	width: 3rem;
 }
 
 #beforeBtn {
-	height: 2.5rem;
-	width: 2.5rem;
+	height: 3rem;
+	width: 3rem;
 }
 
 /* append 이미지 크기 */
@@ -391,17 +395,19 @@
 				</div>
 				<div class="row" style="padding-top: 45px;">
 					<!-- e_num category -->
-					<div class="col-12 col-md-9 scroll_y category"
-						style="overflow: auto; white-space: nowrap; postion: relative">
-						<span id="before" style="position: absolute; top: 0.25rem;"><img
-							src="/images/btn4_1.png" id="beforeBtn"></span> <span id="pre"
-							style="position: absolute; right: 0px; top: 0.25rem;"><img
-							src="/images/btn4_2.png" id="preBtn"></span>
+					<span class="col-1" id="before" style="padding-left:1.875rem; padding-right:0rem;">
+						<img src="/images/btn4_1.png" id="beforeBtn" style="top: 0.25rem; align:right;">
+					</span> 
+					<div class="col-10 col-md-7 scroll_y category" style="overflow-x: scroll; white-space: nowrap; padding-right:0rem; padding-left:0rem;">
+						
 					</div>
+					<span class="col-1" id="pre" style="padding-right:1.875rem; padding-left:0rem;">
+						<img src="/images/btn4_2.png" id="preBtn" style="top: 0.25rem; float:right;">
+					</span>
 					<!-- order by value select -->
 					<div class="col-12 col-md-3 select-form">
 						<select class="form-select" id="select_value"
-							aria-label="Default select example" onchange="select_value(this)">
+							aria-label="Default select example" onchange="select_value(this)" style="margin-top:0px !important">
 							<option value="sales_count desc" class="option" selected>판매량</option>
 							<option value="g_price" class="option">가격낮은순</option>
 							<option value="g_price desc" class="option">가격높은순</option>
@@ -436,35 +442,35 @@
 
 </body>
 <script>
-	$(window).resize(function() { //창크기 변화 감지
-		open_chatroom();
-	});
+// 	$(window).resize(function() { //창크기 변화 감지
+// 		open_chatroom();
+// 	});
 	
-	$(document).ready(function(){
-        open_chatroom();
-    });
+// 	$(document).ready(function(){
+//         open_chatroom();
+//     });
 	
-	function open_chatroom() {
-		var windowWidth = $(window).width();
-		if (windowWidth < 720) { //창 가로 크기가 500 미만일 경우
-			$("#before").css({
-				"display":"none"
-			})
-			$("#pre").css({
-				"display":"none"
-			})
-		} else { //창 가로 크기가 500보다 클 경우
-			$(".category").css({
-				"position" : "relative"
-			})
-			$("#before").css({
-				"display":"inline"
-			})
-			$("#pre").css({
-				"display":"inline"
-			})
-		}
-	}
+// 	function open_chatroom() {
+// 		var windowWidth = $(window).width();
+// 		if (windowWidth < 720) { //창 가로 크기가 500 미만일 경우
+// 			$("#before").css({
+// 				"display":"none"
+// 			})
+// 			$("#pre").css({
+// 				"display":"none"
+// 			})
+// 		} else { //창 가로 크기가 500보다 클 경우
+// 			$(".category").css({
+// 				"position" : "relative"
+// 			})
+// 			$("#before").css({
+// 				"display":"inline"
+// 			})
+// 			$("#pre").css({
+// 				"display":"inline"
+// 			})
+// 		}
+// 	}
 
 	// 페이지 로딩시
 	window.onload = function() {
@@ -610,7 +616,7 @@
 // 		    	} 
 // 		      }) 
 	}
-
+	
 	//   현재전시 버튼 이벤트
 	$(".currentExhibition")
 			.on(
