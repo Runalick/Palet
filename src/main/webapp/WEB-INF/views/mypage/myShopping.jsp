@@ -121,20 +121,33 @@
 	height: 1.5rem;
 }
 
-#Class {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Shop {
-	width: 2.813rem;
+#Logout {
+	width: 4.5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -865,8 +878,8 @@ color:white;
 			success: function (resp) {
 				for(let i = 0 ; i < resp.length; i++) {
 					let text_html=
-							"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
-							+"<div class='row main-area'>"
+							//"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
+							"<div class='row main-area' id='detailView" + i +"'>"
 							+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
 							+"<div class='col-5 px-3 ellipsis body4'>"
 							+	"<div class='row'>"
@@ -884,14 +897,18 @@ color:white;
 							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
 							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
 							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
-							+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
+							+"<div id='state_text"+i+"'></div><div class='ok' id='cancel"+ i +"'>주문취소</div>"
 							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
-							+"</div></div></a>";
+							+"</div></div>";
 						
 						$("#contents_area").append(text_html);
 			    		console.log("resp.length : " + resp.length);
 					}	
 					for(let i=0; i<resp.length;i++){
+						$("#detailView"+i).on("click", function(e){
+							alert(resp[i].merchant_uid);
+						})
+						
 				    	if($("#state"+i).val()=='BU'){
 				    		$("#state_text" + i).text("주문완료");
 				    	} else if($("#state"+i).val()=='CU'){
@@ -949,7 +966,9 @@ color:white;
 								})
 							}
 						}	
-					} 
+						
+						
+					} //for 
 					
 				
 				},
@@ -967,13 +986,14 @@ color:white;
 		    	console.log("origin limit : " + limit);
 		    	$.ajax({
 					url:"/mypage/ShoppingList",
-					data:{limit : limit},
+					data:{"limit" : limit, "email": "${email}"},
 					async: false,
 					dataType:"json", // == JSON.parse(resp);
 					success: function (resp) {
 						for(let i = 0 ; i < resp.length; i++) {
 							let text_html=
-									"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
+									//"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
+									"<div id='detailView" + i +"'>"
 									+"<div class='row main-area'>"
 									+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
 									+"<div class='col-5 px-3 ellipsis body4'>"
@@ -994,7 +1014,7 @@ color:white;
 									+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
 									+"<div id='state_text"+i+"'></div><button class='ok' id='cancel"+ i +"'>주문취소</button>"
 									+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
-									+"</div></div></a>";
+									+"</div></div></div>";
 								
 								$("#contents_area").append(text_html);
 					    		console.log("resp.length : " + resp.length);
@@ -1004,6 +1024,7 @@ color:white;
 						
 						
 							for(let i=0; i<resp.length;i++){
+								
 						    	if($("#state"+i).val()=='BU'){
 						    		$("#state_text" + i).text("주문완료");
 						    	} else if($("#state"+i).val()=='CU'){
@@ -1062,14 +1083,16 @@ color:white;
 									}
 								}	
 							}	
-					}
+					},
 				}); // ajax
 		    } // if
 		 })  // scroll
 	}	// onload
 	
-	$("#contents_area").on("click", ".ok", function(){
-		console.log($(this).siblings().eq(1).val());
+	$("#contents_area").on("click", ".ok", function(e){
+		alert("111");
+		event.stopPropagation();
+		//console.log($(this).siblings().eq(1).val());
 		/* $.ajax({
 			url:"/event/confirmation",
 			data: {draw_seq:$(this).siblings().eq(1).val()}
@@ -1078,6 +1101,8 @@ color:white;
 			location.reload();
 		}) */
 	})
+	
+	
 	
 	
 

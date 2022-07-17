@@ -52,14 +52,22 @@
 
 @media ( min-width : 375px) {
 	.form-select {
-		margin-top: 0.5rem;
 		width: 100%;
+	}
+	.category{
+		margin-bottom:1.5rem;
 	}
 	.goodsName {
 		text-align: center;
 	}
 	.goodsPrice {
 		text-align: center;
+	}
+	.categoryRow{
+		margin-top:1.5rem;
+	}
+	.mainRow{
+		padding-top:1.5rem;
 	}
 }
 
@@ -72,6 +80,12 @@
 	}
 	.goodsPrice {
 		text-align: left;
+	}
+	.categoryRow{
+		margin-top: 2.813rem;
+	}
+	.mainRow{
+		padding-top:6.25rem;
 	}
 }
 
@@ -246,11 +260,11 @@
 }
 
 .before {
-	padding-right: 0 !important;
+	padding-right: 0rem !important;
 }
 
 .pre {
-	padding-right: 0 !important;
+	padding-right: 0rem !important;
 }
 
 /* footer */
@@ -378,30 +392,30 @@
 
 	<!-- main contents -->
 	<div class="container-fluid">
-		<div class="row" style="padding-top: 100px;">
+		<div class="row mainRow">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-9 col-12">
 						<div class="h2"
 							style="display: inline-block; margin-right: 55.125rem;">Shop</div>
 					</div>
-					<ul class="col-md-3 col-12" style="text-align: center;">
+					<ul class="col-md-3 col-12" style="text-align: center; margin-bottom:0rem;">
 						<li class="currentExhibition h3 exhibitionLink"
 							id="currentExhibition"
-							style="display: inline-block; margin-right: 3rem;">현재전시</li>
+							style="display: inline-block; margin-right: 3rem; margin-top:0.8rem;">현재전시</li>
 						<li class="pastExhibition h3 exhibitionLink" id="pastExhibition"
 							style="display: inline-block; right: 23.75rem">지난전시</li>
 					</ul>
 				</div>
-				<div class="row" style="padding-top: 45px;">
+				<div class="row categoryRow">
 					<!-- e_num category -->
-					<span class="col-1" id="before" style="padding-left:1.875rem; padding-right:0rem;">
-						<img src="/images/btn4_1.png" id="beforeBtn" style="top: 0.25rem; align:right;">
+					<span class="col-1" id="before" style="padding-left:1.875rem; padding-right:1rem; z-index:6">
+						<img src="/images/btn4_1.png" id="beforeBtn" style="top: 0.25rem; float:left;">
 					</span> 
-					<div class="col-10 col-md-7 scroll_y category" style="overflow-x: scroll; white-space: nowrap; padding-right:0rem; padding-left:0rem;">
+					<div class="col-10 col-md-7 scroll_y category" style="overflow-x: scroll; white-space: nowrap; padding-right:1rem; padding-left:1rem; z-index:3">
 						
 					</div>
-					<span class="col-1" id="pre" style="padding-right:1.875rem; padding-left:0rem;">
+					<span class="col-1" id="pre" style="padding-right:1.875rem; padding-left:1rem; z-index:6">
 						<img src="/images/btn4_2.png" id="preBtn" style="top: 0.25rem; float:right;">
 					</span>
 					<!-- order by value select -->
@@ -813,7 +827,17 @@
 						})
 	}
 	
-	// 	인피니티스크롤
+// 	우측버튼 클릭시 우측스크롤 기능
+	$("#pre").on("click",function(){
+		let category = $('.category').scrollLeft();
+		$(".category").animate({scrollLeft: category + 200}, 800)
+	})
+	
+// 	좌측버튼 클릭시 좌측스크롤 기능
+	$("#before").on("click",function(){
+		let category = $('.category').scrollLeft();
+		$(".category").animate({scrollLeft: category - 200}, 800)
+	})
 
 	
 </script>
