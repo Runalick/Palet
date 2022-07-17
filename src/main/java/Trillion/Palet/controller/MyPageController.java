@@ -1,8 +1,6 @@
 package Trillion.Palet.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -175,14 +173,17 @@ public class MyPageController {
 	@ResponseBody
 	@RequestMapping("changeStateCU")
 	public void changeStateCU(String merchant_uid) {
-		int change = mServ.changeStateCU(merchant_uid);
+		mServ.changeStateCU(merchant_uid);
 	}
 	
 	// 배송 중 -> 배송완료 (주문완료 3일 뒤)
 	@ResponseBody
 	@RequestMapping("changeStateAU")
 	public void changeStateAU(String merchant_uid) {
-		int change = mServ.changeStateAU(merchant_uid);
+		mServ.changeStateAU(merchant_uid);
 	}
+	
+	
+	
 	
 }

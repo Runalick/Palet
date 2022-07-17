@@ -81,7 +81,6 @@ where et_state like '%C' and exhibitionpic.ep_main = 'Y' and et_email = #{email}
 		<result property="g_num" column="g_num"/>
 		<result property="e_name" column="e_name"/>
 		<result property="gp_sysname" column="gp_sysname"/>
-		<result property="gp_sysname" column="gp_sysname"/>
 		<result property="g_option" column="p.g_option"/>
 		<result property="g_count" column="g_count"/>
 		<result property="totalprice" column="totalprice"/>
@@ -107,10 +106,15 @@ where et_state like '%C' and exhibitionpic.ep_main = 'Y' and et_email = #{email}
 		<result property="g_count" column="g_count"/>
 		<result property="g_option" column="p.g_option"/>
 		<result property="gp_sysname" column="gp_sysname"/>
+		<result property="totalprice" column="totalprice"/>
+		<result property="point" column="point"/>
+		<result property="usedpoint" column="usedpoint"/>
+		<result property="cpdiscount" column="cpdiscount"/>
+		<result property="cpserial" column="cpserial"/>
 	</resultMap>
 	
 	<select id="myShoppingProduct" parameterType="HashMap" resultType="HashMap" resultMap="productMap">
-		select e_name, g_name, g_count, p.g_option, gp_sysname 
+		select e_name, g_name, g_count, p.g_option, gp_sysname, totalprice, point, usedpoint, cpdiscount, cpserial              
 		from goodspic gp join payment p using (g_num)
 		join exhibition e using (e_num)
 		where merchant_uid=#{merchant_uid}
