@@ -86,10 +86,14 @@ public class MyPageController {
 		String url = "http://14.39.252.82/Exhibition/toCurdetail";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
+		
+		if(dto.getEt_cpserial()!=null) {
 		CouponDTO cdto = cServ.getCouponName(dto.getEt_cpserial());
+		model.addAttribute("cdto",cdto);
+		}
 		model.addAttribute("url",url);
 		model.addAttribute("dto",dto);
-		model.addAttribute("cdto",cdto);
+		
 		return "/mypage/myTicketDetailview";
 	}
 	
