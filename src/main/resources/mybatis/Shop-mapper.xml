@@ -21,4 +21,7 @@
 <!-- 		</trim> -->
   	</select>  	
   	
+  	<select id="selectMemberData" resultType="Trillion.Palet.DTO.MemberDataDTO">
+  		select member.email, member.grade, member.point, coupon.category, coupon.serial, coupon.dc, coupon.use from member left outer join coupon on member.email = coupon.email where member.email=#{value}
+  	</select>
   </mapper>	
