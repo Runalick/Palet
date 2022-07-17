@@ -63,8 +63,8 @@ public class ShopController {
 	
 	@ResponseBody
 	@RequestMapping("selectGoods")
-	public List<GoodsDTO> selectGoods(int e_num, String option) {
-		List<GoodsDTO> list = sServ.selectGoods(e_num, option);
+	public List<GoodsDTO> selectGoods(int e_num, String option, int limit) {
+		List<GoodsDTO> list = sServ.selectGoods(e_num, option, limit);
 		return list;
 	}
 
