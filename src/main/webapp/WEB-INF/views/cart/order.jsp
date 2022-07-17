@@ -686,7 +686,7 @@ cursor:pointer;
 					<div class="row" id="total-area">
 						<div class="col-12" style="padding:1.75rem;">
 							<span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
-							<span class="H4 totalprice" id="span4">15,800원</span>
+							<span class="H4 totalprice" id="span4"> </span>
 							<span class="H4 " id="span9" style="color:#919EAB">할인</span>
 							<span class="H4 " id="span10">-0원</span>
 							
@@ -694,7 +694,7 @@ cursor:pointer;
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
 							<span class="H4 deliveryprice" id="span5">3,000원</span>
 							<span class="H3" id="span3" >총 결제 금액</span>
-							<span class="H3 finalTotalPrice" id="span6" class="totalprice">18,800</span>
+							<span class="H3 finalTotalPrice" id="span6">18,800</span>
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
 							<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span>
 						</div>
@@ -787,18 +787,15 @@ cursor:pointer;
 						<div id="select-wrap" style="position:relative">
 								<div id="select" class="body2">쿠폰을 선택하세요</div>
 								<ul class="select-ul">
-								<li class="li body2" >오프라인 감사 쿠폰</li>
-								<li class="li body2" >이벤트 참여 쿠폰</li>
-<%-- 									<c:forEach var="i" items="${optionlist}"> --%>
-<%-- 									<li class="li" value="${i.g_num }">${i.g_option}</li> --%>
-<%-- 									</c:forEach> --%>
+<!-- 									<li class="li body2" >오프라인 감사 쿠폰</li> -->
+<!-- 									<li class="li body2" >이벤트 참여 쿠폰</li> -->
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
 				<input class="body2 pointinput" type="text" placeholder="0">
 				<button class="H4 pointbtn">모두 사용</button><br>
 				<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
-				<span class="Caption" style="color: #637381;">1200p</span>
+				<span class="Caption myPoint" style="color: #637381;"> </span>
 				<div class="H3" style="margin-top:3.75rem;margin-bottom:1.25rem;">결제 수단</div>
 				<input type="radio" style="margin-right:0.5rem;"><span class="body2">카드 결제</span>
 				</div>
@@ -900,15 +897,17 @@ cursor:pointer;
 								<div id="select-wrap" style="position:relative">
 									<div id="select" class="body2" style="width:100%">쿠폰을 선택하세요</div>
 									<ul class="select-ul">
-										<li class="li body2" >오프라인 감사 쿠폰</li>
-										<li class="li body2" >이벤트 참여 쿠폰</li>
+<!-- 										<li class="li body2" >오프라인 감사 쿠폰</li> -->
+<!-- 										<li class="li body2" >이벤트 참여 쿠폰</li> -->
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
 								<input class="body2 pointinput" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem;">
 								<button class="H4 pointbtn" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
-								<span class="Caption" style="color: #637381;">1200p</span>
+								<span class="Caption myPoint" style="color: #637381;">
+									<!-- 1200p -->
+								</span>
 								<div class="H3" style="margin-top:3.75rem;margin-bottom:1.25rem;">결제 수단</div>
 								<input type="radio" style="margin-right:0.5rem;"><span class="body2">카드 결제</span>
 							</div>
@@ -918,7 +917,7 @@ cursor:pointer;
 								<div class="row" id="total-area" style="width:100%; height:16rem;">
 									<div class="col-12" style="padding:1.75rem; width:100%">
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
-										<span class="H4 totalprice" id="span4">15,800원</span></div>
+										<span class="H4 totalprice" id="span4"> </span></div>
 										<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
 										<span class="H4 " id="span10">-0원</span></div>
 										
@@ -926,7 +925,7 @@ cursor:pointer;
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
 										<span class="H4 deliveryprice" id="span5">3,000원</span></div>
 										<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span>
-										<span class="H3 finalTotalPrice" id="span6" class="totalprice">18,800</span></div>
+										<span class="H3 finalTotalPrice" id="span6" > </span></div>
 										<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
 										<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span></div>
 									</div>
@@ -965,7 +964,6 @@ cursor:pointer;
             </div>
         </div>
    	<script>
- 
    	
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
@@ -1049,18 +1047,35 @@ cursor:pointer;
    	})
    	
    	
+   	
+		//	쿠폰 포인트 가져오는 함수
 	    window.onload = function(){
    			
+   		let sumPrice = 0;
    		
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/home/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		sumPrice += resp[i].totalPrice;
 	            	}
+	            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
+	            	$(".finalTotalPrice").text((sumPrice + 3000).toLocaleString()+"원")
 	            })
+	            
+	    			$.ajax({
+						url:"/shop/selectMemberData"
+					}).done(function(resp){
+						for(let i = 0; i < resp.length; i++)
+							$(".myPoint").html(resp[i].point);
+							$(".select-ul").append("<li class='li body2'>"+resp[i].cagegory+"</li>")
+					})
 	    }
+   	  	
+   	  
+   	  
 	</script>
 	<script>
 		window.addEventListener('beforeunload', (event) => {

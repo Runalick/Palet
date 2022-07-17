@@ -22,22 +22,21 @@
 <!-- 지도api -->
 
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -58,6 +57,18 @@
 	height: 1.875rem;
 }
 
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -65,18 +76,24 @@
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
-	z-index: 5;
-}
-
-
-.navbar {
-	height: 5rem;
-	padding: 0px;
 }
 
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -100,21 +117,42 @@
 	order: 0;
 	flex-grow: 0;
 }
-
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -191,13 +229,16 @@ line-height: 3.75rem;
 	/* Gray/300 */
 }
 
-
+.body3{
+padding:0px;
+}
 
 
 
 @media ( min-width : 992px) {
 	.content{
 	  width: calc(100% - 13.625rem);
+	  
 	}
 	.navi{
 	width:11.875rem;
@@ -210,6 +251,7 @@ line-height: 3.75rem;
 	font-weight: 400;
 	font-size: 1rem;;
 	line-height: 1.75rem;
+	
 	}
 	.body4{
 	font-family: 'Spoqa Han Sans Neo';
@@ -235,8 +277,15 @@ margin-right:0.25rem;
 	height:2.7rem;
 }
 }
-
+#row2>div{
+padding-left:1rem;
+padding-right:1rem;
+}
 @media ( max-width : 991px) {
+.content div{
+padding-right:0.5rem;
+padding-left:0.5rem;
+}
 	.main{
 	display:none;
 	}
@@ -246,6 +295,7 @@ margin-right:0.25rem;
 	
 	.content{
 	  width: calc(100% - 1.625rem);
+	  margin:0px;
 	}
 	.navi{
 	padding:0rem;
@@ -270,6 +320,8 @@ margin-right:0.25rem;
 	width:16.375rem;
 	height:3.3rem;
 }
+
+
 	
 }
 .main-info{
@@ -282,10 +334,7 @@ margin-right:0.25rem;
 }
 /* 네비 */
 
-.content{
-  
-    margin-left:1.75rem;
-}
+
 .mypage-wrap{
 margin:4.625rem auto 9.375rem;
 }
@@ -369,67 +418,157 @@ color:white;
 </style>
 </head>
 <body>
-	<header>
 		<div class="container-fluid" >
+			<div class="container-fluid"
+			style="background-color: white;">
 			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
 				<div class="row" id="container1">
-					<nav class="navbar navbar-expand-sm bg-light navbar-light">
-						<div class="container" id="navparent">
-							<a class="navbar-brand" href="#" id="container"
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
-								<ul class="navbar-nav">
-									<li class="nav-item"><a id="About" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-									</li>
-									<li class="nav-item"><a id="Exhibition" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-									</li>
-									<li class="nav-item"><a id="Shop" class="nav-link"
-										href="/shop/toShop"
-										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-									<li class="nav-item"><a id="Help" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Help</a>
-									</li>
-									<li class="nav-item"><a id="Login" class="nav-link"
-										href="/member/loginPage"
-										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-									<li class="nav-item"><a id="Signup" class="nav-link"
-										href="/member/join"
-										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-									<li class="nav-item"><a id="Admin" class="nav-link"
-										href="/admin/adminMain"
-										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-									<c:choose>
-										<c:when test="${loginEmail !=null }">
-											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/cart/cartlist"
-												style="padding-left: 0px; padding-right: 0px;">cart(${totalDto.total_num })</a></li>
-										</c:when>
-									</c:choose>
-									<li class="nav-item"><a id="Mypage" class="nav-link"
-										href="/member/mypage"
-										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
 								</ul>
 							</div>
 						</div>
 					</nav>
-
 				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
-	</header>
-	<div class="container-fluid" id="mypage-area">
-		<div class="container" style="padding-left:2.5rem;" >
+		<div class="container"  >
 			<div class="row mypage-wrap"  >
-			
+			<div class="row" id="row1">				
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
-			<button id="select" >MY PAGE</button>
+			<button id="select" style="padding:0px;" >MY PAGE</button>
 			</div>
 			
 			
@@ -472,36 +611,36 @@ color:white;
 				
 				
 				<div class="content" style="margin-top:1rem;">
-					<div class="row">
-						<div class="col-12 main-info">배송지 목록</div>
-						<div class="col-8 body4">배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
+					<div class="row" >
+						<div class="col-12 main-info ">배송지 목록</div>
+						<div class="col-8 body4 " >배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
 						<div class="col-4 body4">
 						<button class="btnbtn body3" id="insert">배송지 등록</button>
 						</div>
-						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
+						<div class="col-12  " style="margin-top:2.5rem;">
 							<div class="row main-area" >
-								<div class="col-2  body4" >배송지</div>
-								<div class="col-5 body4">주소</div>
-								<div class="col-3 col-md-2 body4">연락처</div>
-								<div class="col-2 col-md-3 body4" style="text-align:center">수정·삭제</div>
+								<div class="col-2  body4 px-3 " >배송지</div>
+								<div class="col-5 body4  px-3">주소</div>
+								<div class="col-3 col-md-2  px-3 body4">연락처</div>
+								<div class="col-2 col-md-3  px-3 body4" style="text-align:center">수정·삭제</div>
 								
 							
 							</div>
 							
 							
 							<c:if test="${defaultAddress.receiver !=null}">
-					<div class="row list" >
+					<div class="row list" id="row2" >
                         <div class="col-2 body3">
                         	<div class="row">
                         		
 					
-                        		<div class="col-12" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
-                        	<div class="col-12">${defaultAddress.receiver }</div>
+                        		<div class="col-12  p-0" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
+                        	<div class="col-12 p-0">${defaultAddress.receiver }</div>
                         	</div>
                       
                         
                         </div>
-                        <div class="col-5 body3">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
+                        <div class="col-5 body3 ">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
                         <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
                         <div class="col-2 col-md-3 body3" style="text-align:center">
                         <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
@@ -510,7 +649,7 @@ color:white;
                      </div>
 							</c:if>
 					<c:forEach var="i" items="${list }">
-                     <div class="row list" >
+                     <div class="row list" id="row2">
                         <div class="col-2 body3">${i.receiver }</div>
                         <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
                         <div class="col-3 col-md-2 body3">${i.phone }</div>
@@ -539,7 +678,7 @@ color:white;
 
 			</div>
 		</div>
-
+</div>
 
 
 
@@ -561,7 +700,6 @@ color:white;
 		</div>
 
 	</div>
-	
 	<script>
 	$(".defaultdelete").on("click",function(){
 		alert("기본 배송지는 1개 존재해야 합니다.");

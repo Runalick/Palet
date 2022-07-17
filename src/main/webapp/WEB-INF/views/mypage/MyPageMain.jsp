@@ -587,7 +587,7 @@ color:white;
 						<div class="body4">My Shopping</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
+							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>

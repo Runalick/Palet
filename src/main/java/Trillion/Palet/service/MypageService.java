@@ -1,14 +1,13 @@
 package Trillion.Palet.service;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.MypageDAO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.PayDTO;
 
@@ -55,6 +54,10 @@ public class MypageService {
 		return mdao.myShoppingDetailView(merchant_uid);
 	}
 
+	public List<CancelListDTO> CancelList(String email) {
+		return mdao.CancelList(email);
+	}
+		
 	public Object myShoppingProduct(String merchant_uid) {
 		return mdao.myShoppingProduct(merchant_uid);
 	}
@@ -69,6 +72,10 @@ public class MypageService {
 
 	public int changeStateAU(String merchant_uid) {
 		return mdao.changeStateAU(merchant_uid);
+	}
+
+	public List<CancelListDTO> refundajax(String email, String btn) {
+		return mdao.refundajax(email,btn);
 	}
 
 	
