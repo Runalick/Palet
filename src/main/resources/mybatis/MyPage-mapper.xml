@@ -41,6 +41,35 @@
 		 =#{booknumber}
 	</update>
 	
+<!-- 	취소리스트 -->
+	<select id="CancelList" resultType="Trillion.Palet.DTO.CancelListDTO">
+		select * from (
+		select g_num as nums, email, g_name as title, totalprice, pay_time, state, category, g_option as options, merchant_uid as uids,
+goodspic.gp_sysname as sysname, goodspic.gp_main as mained from payment left outer join goodspic using(g_num) 
+where state like '%C' and goodspic.gp_main = 'Y'
+UNION ALL
+select e_num as nums, et_email as email, et_title as title, et_cost as totalprice, et_buydate as pay_time, et_state as state, 
+et_category as category, et_username as options ,et_booknumber as uids, exhibitionpic.ep_sysname as sysname, exhibitionpic.ep_main as mained from exticket left outer join exhibitionpic using(e_num)
+where et_state like '%C' and exhibitionpic.ep_main = 'Y' and et_email = #{value}) order by pay_time
+		
+	</select>
+<!-- 	취소리스트 기간 ajax -->
+	<select id="refundajax" resultType="Trillion.Palet.DTO.CancelListDTO">
+	select * from (
+		select g_num as nums, email, g_name as title, totalprice, pay_time, state, category, g_option as options, merchant_uid as uids,
+goodspic.gp_sysname as sysname, goodspic.gp_main as mained from payment left outer join goodspic using(g_num) 
+where state like '%C' and goodspic.gp_main = 'Y'
+UNION ALL
+select e_num as nums, et_email as email, et_title as title, et_cost as totalprice, et_buydate as pay_time, et_state as state, 
+et_category as category, et_username as options ,et_booknumber as uids, exhibitionpic.ep_sysname as sysname, exhibitionpic.ep_main as mained from exticket left outer join exhibitionpic using(e_num)
+where et_state like '%C' and exhibitionpic.ep_main = 'Y' and et_email = #{email}) 
+	<if test='#{btn}=="week"'>
+	where pay_time between add_months(sysdate,-1) and sysdate order by pay_time
+	</if>	
+		
+	</select>
+
+
 <!-- 	굿즈 -->
 <!-- TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time jdbcType="TIMESTAMP"  javaType="java.util.Date -->
 	<resultMap type="HashMap" id="selectMap">

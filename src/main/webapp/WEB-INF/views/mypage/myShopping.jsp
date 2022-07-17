@@ -1089,6 +1089,8 @@ color:white;
 		 })  // scroll
 	}	// onload
 	
+
+	
 	$("#contents_area").on("click", ".ok", function(e){
 		alert("111");
 		event.stopPropagation();

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -106,6 +107,34 @@ public class MyPageController {
 		mServ.payCancel(dto);
 		return "success";
 	}
+	//취소환불
+	@RequestMapping("refund")
+	public String refund(Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<CancelListDTO> list = mServ.CancelList(email);
+		for(CancelListDTO dto : list){
+			System.out.println(dto.getTitle());
+			System.out.println(dto.getState());
+			System.out.println(dto.getCategory());
+		}
+		model.addAttribute("list",list);
+		return "/mypage/refund";
+	}
+	//취소환불 ajax
+	@ResponseBody
+	@RequestMapping("refundajax")
+	public List<CancelListDTO> refundajax(Model model,String btn) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<CancelListDTO> list = mServ.refundajax(email,btn);
+		for(CancelListDTO dto : list){
+			System.out.println(dto.getTitle());
+			System.out.println(dto.getState());
+			System.out.println(dto.getCategory());
+		}
+		model.addAttribute("list",list);
+		return list;
+	}
+	
 	
 	// Shopping
 	@RequestMapping("myShopping")
@@ -129,6 +158,7 @@ public class MyPageController {
 	
 	@RequestMapping("myShoppingDetail")
 	public String myShoppingDetail(String merchant_uid, Model model) {
+		System.out.println(merchant_uid);
 		String email = (String)session.getAttribute("loginEmail");
 		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
 		Object product = mServ.myShoppingProduct(merchant_uid);
