@@ -827,7 +827,17 @@
 						})
 	}
 	
-	// 	인피니티스크롤
+// 	우측버튼 클릭시 우측스크롤 기능
+	$("#pre").on("click",function(){
+		let category = $('.category').scrollLeft();
+		$(".category").animate({scrollLeft: category + 200}, 800)
+	})
+	
+// 	좌측버튼 클릭시 좌측스크롤 기능
+	$("#before").on("click",function(){
+		let category = $('.category').scrollLeft();
+		$(".category").animate({scrollLeft: category - 200}, 800)
+	})
 
 	
 </script>
