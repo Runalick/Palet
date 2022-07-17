@@ -65,6 +65,7 @@
 	}
 	.categoryRow{
 		margin-top:1.5rem;
+		justify-content: center;
 	}
 	.mainRow{
 		padding-top:1.5rem;
@@ -409,13 +410,13 @@
 				</div>
 				<div class="row categoryRow">
 					<!-- e_num category -->
-					<span class="col-1" id="before" style="padding-left:1.875rem; padding-right:1rem; z-index:6">
+					<span class="col-1 d-none d-sm-inline" id="before" style="padding-left:1.875rem; padding-right:1rem; z-index:6">
 						<img src="/images/btn4_1.png" id="beforeBtn" style="top: 0.25rem; float:left;">
 					</span> 
 					<div class="col-10 col-md-7 scroll_y category" style="overflow-x: scroll; white-space: nowrap; padding-right:1rem; padding-left:1rem; z-index:3">
 						
 					</div>
-					<span class="col-1" id="pre" style="padding-right:1.875rem; padding-left:1rem; z-index:6">
+					<span class="col-1 d-none d-sm-inline" id="pre" style="padding-right:1.875rem; padding-left:1rem; z-index:6">
 						<img src="/images/btn4_2.png" id="preBtn" style="top: 0.25rem; float:right;">
 					</span>
 					<!-- order by value select -->
@@ -839,8 +840,41 @@
 		$(".category").animate({scrollLeft: category - 200}, 800)
 	})
 
-	
 </script>
+
+<!-- 터치스크롤 스크립트 -->
+<script>
+  const slider = document.querySelector('.category');
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', e => {
+    isDown = true;
+    slider.classList.add('active2');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active2');
+  });
+
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active2');
+  });
+
+  slider.addEventListener('mousemove', e => {
+    if (!isDown) return; 
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = x - startX;
+    slider.scrollLeft = scrollLeft - walk;
+  });
+</script>
+
 <!-- Channel Plugin Scripts -->
 <script>
     (function() {
