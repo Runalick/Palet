@@ -101,5 +101,13 @@ public class MypageDAO {
 	public List<CancelListDTO> CancelList(String email) {
 		return mybatis.selectList("MyPage.CancelList",email);
 	}
+	//
+	public List<CancelListDTO> refundajax(String email, String btn) {
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("btn", btn);
+		
+		return mybatis.selectList("MyPage.refundajax",param);
+	}
 
 }

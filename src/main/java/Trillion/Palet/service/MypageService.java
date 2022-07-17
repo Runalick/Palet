@@ -74,5 +74,9 @@ public class MypageService {
 		return mdao.changeStateAU(merchant_uid);
 	}
 
+	public List<CancelListDTO> refundajax(String email, String btn) {
+		return mdao.refundajax(email,btn);
+	}
+
 	
 }
