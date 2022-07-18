@@ -41,7 +41,7 @@ public class GoodsDTO {
 	// admin용 DTO
 
 	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option1, String g_option2,
-			String g_option3, int sales_count, String g_contents, int g_stock) {
+			String g_option3, int sales_count, String g_contents, String e_name, int g_stock) {
 		super();
 		this.g_num = g_num;
 		this.e_num = e_num;
@@ -52,6 +52,7 @@ public class GoodsDTO {
 		this.g_option3 = g_option3;
 		this.sales_count = sales_count;
 		this.g_contents = g_contents;
+		this.e_name = e_name;
 		this.g_stock = g_stock;
 	}
 

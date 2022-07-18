@@ -51,6 +51,10 @@
 		select pro_booknumber as merchant_uid, pro_title as title, pro_cost as price, pro_buydate as pay_time, pro_category as category from proticket where pro_email = #{value}) where pay_time > sysdate-13 order by pay_time desc
   	</select>
   	
+  	<select id='getMemberAddress' resultType='Trillion.Palet.DTO.DeliveryDTO'>
+  		select * from deliveryaddress where defaultaddress = 'Y' and email = #{value}
+  	</select>
+  	
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">

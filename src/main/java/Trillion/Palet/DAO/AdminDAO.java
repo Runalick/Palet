@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -120,6 +121,10 @@ public class AdminDAO {
 	
 	public List<AdminDTO> getMemberPayment(String email) {
 		return mybatis.selectList("Admin.getMemberPayment", email);
+	}
+	
+	public DeliveryDTO getMemberAddress(String email) {
+		return mybatis.selectOne("Admin.getMemberAddress", email);
 	}
 	
 	// Exhibition Category

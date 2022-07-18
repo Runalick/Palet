@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -54,6 +55,11 @@ public class AdminService {
 	public List<AdminDTO> getMemberPayment(String email) {
 		return adao.getMemberPayment(email);
 	}
+	
+	public DeliveryDTO getMemberAddress(String email) {
+		return adao.getMemberAddress(email);
+	}
+	
 	
 	// Exhibition Category
 	

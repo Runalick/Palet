@@ -228,41 +228,46 @@
 			           				<input type='hidden' name='phone' value='${mdto.phone }'>
 			           			</div>
 			           		</c:if>
-			           		<c:if test='${mdto.address1 != null}'>
-			           			<div class="row">
-			           				<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" > Address1</div>
-			           				<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" > Address1</div>
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='address1' value='${mdto.address1 }' disabled style="width:50%; text-align:center"></div>
-			           				<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='address1' value='${mdto.address1 }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='address1' value='${mdto.address1 }'>
-			           			</div>
-			           		</c:if>
-			           		<c:if test='${mdto.address2 != null }'>
-			           			<div class="row">
-			           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Address2 </div>
-			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Address2 </div>
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input type='text' name='address2' value='${mdto.address2 }' disabled style="width:50%; text-align:center"></div>
-			           				<div class='col-12 d-lg-none mt-3 body1'><input type='text' name='address2' value='${mdto.address2 }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='address2' value='${mdto.address2 }'>
-			           			</div>
-			           		</c:if>
-			           		<c:if test='${mdto.postcode != null }'>
-			           			<div class="row">
-			           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Postcode </div>
-			           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Postcode </div>
-			           			</div>
-			           			<div class="row" style="text-align:center">
-			           				<div class='col-12 d-none d-lg-block mt-3 body1'><input type='text' name='postcode' value='${mdto.postcode }' disabled style="width:50%; text-align:center"></div>
-			           				<div class='col-12 d-lg-none mt-3 body1'><input type='text' name='postcode' value='${mdto.postcode }' disabled style="width:70%; text-align:center"></div>
-			           				<input type='hidden' name='postcode' value='${mdto.postcode }'>
-			           			</div>
-			           		</c:if>
+			           		<input type='hidden' name='address1' value='${mdto.address1 }'>
+			           		<input type='hidden' name='address2' value='${mdto.address2 }'>
+			           		<input type='hidden' name='postcode' value='${mdto.postcode }'>
 			           		</form>
+			           		<c:if test='${!empty ddto }'>	
+				           		<c:if test='${ddto.address1 != null}'>
+				           			<div class="row">
+				           				<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" > Address1</div>
+				           				<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" > Address1</div>
+				           			</div>
+				           			<div class="row" style="text-align:center">
+				           				<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='address1' value='${ddto.address1 }' disabled style="width:50%; text-align:center"></div>
+				           				<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='address1' value='${ddto.address1 }' disabled style="width:70%; text-align:center"></div>
+				           				
+				           			</div>
+				           		</c:if>
+				           		<c:if test='${ddto.address2 != null }'>
+				           			<div class="row">
+				           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Address2 </div>
+				           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Address2 </div>
+				           			</div>
+				           			<div class="row" style="text-align:center">
+				           				<div class='col-12 d-none d-lg-block mt-3 body1'><input type='text' name='address2' value='${ddto.address2 }' disabled style="width:50%; text-align:center"></div>
+				           				<div class='col-12 d-lg-none mt-3 body1'><input type='text' name='address2' value='${ddto.address2 }' disabled style="width:70%; text-align:center"></div>
+				           				
+				           			</div>
+				           		</c:if>
+				           		<c:if test='${ddto.postcode != null }'>
+				           			<div class="row">
+				           				<div class='col-12 d-none d-lg-block h3_3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Postcode </div>
+				           				<div class='col-12 d-lg-none h3 m-auto' style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Postcode </div>
+				           			</div>
+				           			<div class="row" style="text-align:center">
+				           				<div class='col-12 d-none d-lg-block mt-3 body1'><input type='text' name='postcode' value='${ddto.postcode }' disabled style="width:50%; text-align:center"></div>
+				           				<div class='col-12 d-lg-none mt-3 body1'><input type='text' name='postcode' value='${ddto.postcode }' disabled style="width:70%; text-align:center"></div>
+				           				
+				           			</div>
+				           		</c:if>
 			           		
+			           		</c:if>
 			           		<c:if test='${!empty adto }'>		
 			           		<div class="row mt-5">
 			           			<div class="col-12 m-auto" style="border-bottom : 0.5rem solid #161C24; width:65%;"></div>
