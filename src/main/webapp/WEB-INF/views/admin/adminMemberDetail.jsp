@@ -206,8 +206,8 @@
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Grade </div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='grade' class='edit' value='${mdto.grade }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='grade' class='editable' value='${mdto.grade }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='grade'  value='${mdto.grade }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='grade'  value='${mdto.grade }' disabled style="width:70%; text-align:center"></div>
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Points </div>

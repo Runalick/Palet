@@ -30,17 +30,20 @@ public class CouponController {
 		if(dto==null) {
 			return "false";
 		}
-		//쿠폰 사용여부 확인
-		if(dto.getEmail()==null&&(dto.getUse()=="N"||dto.getUse()==null)) {
-			cser.userupdate(serial,email);
-			return "registration";
-		}
-		if(dto.getUse()=="Y") {
+		//쿠폰 존재 여부 확인
+		if(dto.getUsed()=="Y") {
 			return "use";
 		}
+		//쿠폰 사용 여부 확인
 		if(!(dto.getEmail()==null)) {
 			return "noregistration";
 		}
+		//쿠폰 등록 여부 확인
+		if(dto.getEmail()==null&&(dto.getUsed().charAt(0)=='N'||dto.getUsed().charAt(0)=='n'||dto.getUsed()==null)) {
+			cser.userupdate(serial,email);
+			return "registration";
+		}
+		//쿠폰 등록
 		return "false";
 	}
 	@RequestMapping("toregistration")

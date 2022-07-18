@@ -106,6 +106,10 @@ public class AdminService {
 		adao.adminGoodsUpdate(gdto);
 	}
 	
+	public GoodsDTO getGoods(int g_seq) {
+		return adao.getGoods(g_seq);
+	}
+	
 	// Program Category
 	
 	public List<ProgramDTO> programSelectByPage(int cpage, String value){

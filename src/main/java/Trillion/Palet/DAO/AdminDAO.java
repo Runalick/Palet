@@ -343,6 +343,10 @@ public class AdminDAO {
 		return mybatis.update("Admin.adminGoodsUpdate", gdto);
 	}
 	
+	public GoodsDTO getGoods(int g_seq) {
+		return mybatis.selectOne("Admin.getGoods", g_seq);
+	}
+	
 	// Program Category
 	
 	public List<ProgramDTO> programSelectByPage (int cpage, String order) {

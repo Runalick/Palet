@@ -441,7 +441,7 @@ color:white;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -484,7 +484,7 @@ color:white;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -531,7 +531,7 @@ color:white;
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -573,7 +573,7 @@ color:white;
 			
 			
 				<div class="navi" >
-				<a href="#" style=" font-size:1.625rem;" class="main" >
+				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">
@@ -587,18 +587,18 @@ color:white;
 					<li>
 						<div class="body4">My Shopping</div>
 						<ul>
-							<li class="body3"><a href="#">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
+							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Info</div>
 						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
-							<li class="body3"><a href="#">나의 쿠폰</a></li>
+							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
 							   <li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
+							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
 					</ul>

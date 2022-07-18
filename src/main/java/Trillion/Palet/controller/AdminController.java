@@ -310,8 +310,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="adminGoodsDetail", produces="test/html;charset=utf8")
-	public String adminGoodsDetail(Model model, int g_num) {
-		GoodsDTO gdto = gServ.getGoods(g_num);
+	public String adminGoodsDetail(Model model, int g_seq) {
+		GoodsDTO gdto = aServ.getGoods(g_seq);
 
 		model.addAttribute("gdto", gdto);
 		

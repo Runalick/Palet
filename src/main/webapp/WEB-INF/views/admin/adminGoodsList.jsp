@@ -194,7 +194,7 @@
 										<hr>
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
-	                            			<div class="col-5 col-lg-4 col-xl-3 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.g_num}"> <a href="/admin/adminGoodsDetail?g_num=${i.g_num}" class="colortext_gray900"> <b>${i.g_name }</b> </a></div>
+	                            			<div class="col-5 col-lg-4 col-xl-3 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.g_seq}"> <a href="/admin/adminGoodsDetail?g_seq=${i.g_seq}" class="colortext_gray900"> <b>${i.g_name }</b> </a></div>
 	                            			<div class="col-4 col-xl-3 px-4 body2">${i.e_name }</div>
 				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.g_price } </div>
 				                        	<div class="col-2 d-none d-lg-block px-4 body2" >${i.sales_count } </div>

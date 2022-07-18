@@ -1,13 +1,13 @@
 package Trillion.Palet.DTO;
 
 public class GoodsDTO {
+	private int g_seq;
 	private int g_num;
 	private int e_num;
 	private String g_name;
 	private int g_price;
-	private String g_option1;
-	private String g_option2;
-	private String g_option3;
+	private String g_option;
+	
 	private int sales_count;
 	private String g_contents;
 
@@ -20,42 +20,45 @@ public class GoodsDTO {
 	//goodspic 테이블
 	public GoodsDTO() {}
 	
-	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option1, String g_option2,
-			String g_option3, int sales_count, String g_contents, int g_stock, String e_name, int gp_seq, String gp_sysname) {
+	public GoodsDTO(int g_seq, int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count,
+			String g_contents, int g_stock, String e_name, int gp_seq, String gp_sysname) {
 		super();
+		this.g_seq = g_seq;
 		this.g_num = g_num;
 		this.e_num = e_num;
 		this.g_name = g_name;
 		this.g_price = g_price;
-		this.g_option1 = g_option1;
-		this.g_option2 = g_option2;
-		this.g_option3 = g_option3;
+		this.g_option = g_option;
 		this.sales_count = sales_count;
-		this.g_stock = g_stock;
 		this.g_contents = g_contents;
+		this.g_stock = g_stock;
 		this.e_name = e_name;
 		this.gp_seq = gp_seq;
 		this.gp_sysname = gp_sysname;
 	}
 	
-	// admin용 DTO
+	
 
-	public GoodsDTO(int g_num, int e_num, String g_name, int g_price, String g_option1, String g_option2,
-			String g_option3, int sales_count, String g_contents, String e_name, int g_stock) {
+	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count,
+			String g_contents, int g_stock, String e_name) {
 		super();
-		this.g_num = g_num;
+		this.g_seq = g_seq;
 		this.e_num = e_num;
 		this.g_name = g_name;
 		this.g_price = g_price;
-		this.g_option1 = g_option1;
-		this.g_option2 = g_option2;
-		this.g_option3 = g_option3;
+		this.g_option = g_option;
 		this.sales_count = sales_count;
 		this.g_contents = g_contents;
-		this.e_name = e_name;
 		this.g_stock = g_stock;
+		this.e_name = e_name;
 	}
 
+	public int getG_seq() {
+		return g_seq;
+	}
+	public void setG_seq(int g_seq) {
+		this.g_seq = g_seq;
+	}
 	public int getG_num() {
 		return g_num;
 	}
@@ -80,23 +83,11 @@ public class GoodsDTO {
 	public void setG_price(int g_price) {
 		this.g_price = g_price;
 	}
-	public String getG_option1() {
-		return g_option1;
+	public String getG_option() {
+		return g_option;
 	}
-	public void setG_option1(String g_option1) {
-		this.g_option1 = g_option1;
-	}
-	public String getG_option2() {
-		return g_option2;
-	}
-	public void setG_option2(String g_option2) {
-		this.g_option2 = g_option2;
-	}
-	public String getG_option3() {
-		return g_option3;
-	}
-	public void setG_option3(String g_option3) {
-		this.g_option3 = g_option3;
+	public void setG_option(String g_option) {
+		this.g_option = g_option;
 	}
 	public int getSales_count() {
 		return sales_count;
@@ -104,17 +95,17 @@ public class GoodsDTO {
 	public void setSales_count(int sales_count) {
 		this.sales_count = sales_count;
 	}
-	public int getG_stock() {
-		return g_stock;
-	}
-	public void setG_stock(int g_stock) {
-		this.g_stock = g_stock;
-	}
 	public String getG_contents() {
 		return g_contents;
 	}
 	public void setG_contents(String g_contents) {
 		this.g_contents = g_contents;
+	}
+	public int getG_stock() {
+		return g_stock;
+	}
+	public void setG_stock(int g_stock) {
+		this.g_stock = g_stock;
 	}
 	public String getE_name() {
 		return e_name;
