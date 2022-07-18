@@ -180,6 +180,15 @@ $(".modibtn").on("click",function(){
 			return false;
 		}
 		
+		let name = $(".buyer_name").val();
+		let nameRegex = /^[가-힣]{2,7}$/;
+		let nameResult = nameRegex.test(name);
+		
+		let phoneRegex = var regPhone = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+		
+		
+		
+		
 		console.log($(".modi").val())
 		deliveryaddress_seq=$(this).val();
 		$.ajax({
