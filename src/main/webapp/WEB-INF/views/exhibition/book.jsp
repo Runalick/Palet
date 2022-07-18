@@ -1051,7 +1051,7 @@ $(".form-select").on('change',function(){
 				let usedpoint3 = parseInt(usedpoint2);
 				
 				$.ajax({
-					url : "/pay/insert",
+					url : "/pay/insertEx",
 					data : {
 
 						et_email : $(".email").val(),
@@ -1071,7 +1071,8 @@ $(".form-select").on('change',function(){
 						et_usedpoint : usedpoint3,
 						et_cpdiscount : parseInt($(".form-select option:selected").val()),
 						et_cpserial :  $(".form-select option:selected").attr('value1'),
-						et_category : 'E'
+						et_category : 'E',
+						e_num : 1020
 					},
 
 					type : "post",
