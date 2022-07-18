@@ -3,12 +3,15 @@ package Trillion.Palet.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.ProticketDTO;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.MemberService;
@@ -18,6 +21,9 @@ import Trillion.Palet.service.ProgramService;
 @Controller
 @RequestMapping("/pay/")
 public class PayController {
+	
+	@Autowired
+	private HttpSession session;
 	
 	@Autowired
 	private PayService pServ;
@@ -32,12 +38,14 @@ public class PayController {
 	private MemberService mServ;
 	
 
-//	@ResponseBody
-//	@RequestMapping("insert")
-//	public List<PayDTO> insert(PayDTO dto) {
-//		return pServ.insert(dto);
-//		
-//	}
+	@ResponseBody
+	@RequestMapping("insert")
+	public List<PayDTO> insert(PayDTO dto) {
+		String email = (String)session.getAttribute("loginEmail");
+		dto.setEmail(email);
+		return pServ.insert(dto);
+		
+	}
 	
 	
 	@ResponseBody

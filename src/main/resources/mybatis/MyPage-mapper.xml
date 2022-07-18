@@ -142,5 +142,14 @@ where et_state like '%C') where email = #{email}
 	<update id="changeStateAU">
 		update payment set state='AU' where merchant_uid=#{merchant_uid}
 	</update>
-	
+	<select id="mypageUserDetail" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
+		select coupon.category, exticket.et_title, exticket.et_date, payment.g_name, payment.totalprice,
+		exhibitionpic.ep_sysname, exhibitionpic.ep_main, goods.g_num, goodspic.gp_sysname 
+		from coupon left outer join exticket on coupon.email = exticket.et_email
+		left outer join payment on exticket.et_email = payment.email
+		left outer join exhibitionpic on exticket.e_num = exhibitionpic.e_num
+		left outer join goods on payment.g_num = goods.g_num
+		left outer join goodspic on goods.g_num = goodspic.g_num
+		where coupon.email = #{value} and exhibitionpic.ep_main = 'Y'
+	</select>
 </mapper>
