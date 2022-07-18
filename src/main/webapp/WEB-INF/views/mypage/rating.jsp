@@ -170,7 +170,7 @@
 	line-height: 1.875rem;
 }
 
-.H3 {
+.h3 {
 	margin-bottom: 0.75rem;
 	display: inline-block;
 	/* Headline/H3 */
@@ -182,6 +182,17 @@
 	display: inline-block;
 }
 
+.h3_2{
+		margin-bottom: 0.75rem;
+	display: inline-block;
+	/* Headline/H3 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	display: inline-block;
+}
 .H1 {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -663,41 +674,41 @@ align-items: center; */
 						</div>
 						<div class="col-12">
 							<div class="row" style="box-size:border-box;">
-								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<div class="col-12" style="border-bottom:1px solid #f2f2f2">White 등급</div>
+								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center; margin-bottom:2rem;">
+									<div class="col-12 h3" style="border-bottom:1px solid #f2f2f2; padding-bottom:1rem;">White 등급</div>
 									<img src="/images/white.jpeg" style="width:70%">
-									<div class="col-12" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 1% 마일리지 적립</div>
-									<div class="col-12" style="text-align:left;">- 회원가입시 white등급</div>
+									<div class="col-12 h4" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 1% 마일리지 적립</div>
+									<div class="col-12 h4" style="text-align:left;">- 회원가입시 white등급</div>
 								</div>
-								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<div class="col-12" style="border-bottom:1px solid #f2f2f2">Gray 등급</div>
+								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center; margin-bottom:2rem;">
+									<div class="col-12 h3" style="border-bottom:1px solid #f2f2f2; padding-bottom:1rem;">Gray 등급</div>
 									<img src="/images/gray.jpeg" style="width:70%">
-									 <div class="col-12" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 5% 마일리지 적립</div>
-									 <div class="col-12" style="text-align:left;">- 누적 결제금액이 10만원 이상이면 Gray 등급으로 상승</div>
+									 <div class="col-12 h4" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 5% 마일리지 적립</div>
+									 <div class="col-12 h4" style="text-align:left;">- 누적 결제금액이 10만원 이상이면 Gray 등급으로 상승</div>
 								</div>
-								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center;">
-									<div class="col-12" style="border-bottom:1px solid #f2f2f2">Black 등급</div>
+								<div class="col-md-4 col-sm-12 ratingbox body3" style="text-align:center; margin-bottom:2rem;">
+									<div class="col-12 h3" style="border-bottom:1px solid #f2f2f2; padding-bottom:1rem;">Black 등급</div>
 									<img src="/images/black.jpeg" style="width:70%">
-									<div class="col-12" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 10% 마일리지 적립</div>
-									<div class="col-12" style="text-align:left;">- 누적 결제 금액이 30만원 이상이면 Black 등급으로 상승</div>
+									<div class="col-12 h4" style="text-align:left; border-top:1px solid #f2f2f2; padding-top:2.5rem;">- 결제금액의 10% 마일리지 적립</div>
+									<div class="col-12 h4" style="text-align:left;">- 누적 결제 금액이 30만원 이상이면 Black 등급으로 상승</div>
 								</div>
 								<div class="col-12 H2" style="margin-top:5rem;">
 									등급 산정 정책
 								</div>
 								<div class="col-12 body4" style="margin-top:2rem">
-									<div class="col-12" style="text-align:left;">- 등급 변동일은 매주 월요일 관리자에 의해 변동됩니다.</div>
-									<div class="col-12" style="text-align:left;">- 휴면계정 전환시 회원 등급이 초기화 됩니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 등급 변동일은 매주 월요일 관리자에 의해 변동됩니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 휴면계정 전환시 회원 등급이 초기화 됩니다.</div>
 								</div>
 								<div class="col-12 H2" style="margin-top:5rem;">
 									혜택별 상세 정보
 								</div>
 								<div class="col-12 body4" style="margin-top:2rem">
-									<div class="col-12" style="text-align:left;">- 전시 또는 프로그램 관람 횟수 카운팅은 유료 전시 및 프로그램에 한하여 적용됩니다.</div>
-									<div class="col-12" style="text-align:left;">- 동일 전시 재관람 혜택 이용 시 금액이 추가적용되지 않습니다.</div>
-									<div class="col-12" style="text-align:left;">- 누적 구매액은 실제 결제금액 기준으로 집계됩니다.</div>
-									<div class="col-12" style="text-align:left;">- 쿠폰은 결제에 사용후 구매취소 시 재 지급 되지 않습니다.</div>
-									<div class="col-12" style="text-align:left;">- 쿠폰과 마일리지의 중복 적용은 불가능합니다.</div>
-									<div class="col-12" style="text-align:left;">- 혜택, 등급선정기준, 등급조정 등 회원 정책은 업체의 사정에 따라 변경될 수 있습니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 전시 또는 프로그램 관람 횟수 카운팅은 유료 전시 및 프로그램에 한하여 적용됩니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 동일 전시 재관람 혜택 이용 시 금액이 추가적용되지 않습니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 누적 구매액은 실제 결제금액 기준으로 집계됩니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 쿠폰은 결제에 사용후 구매취소 시 재 지급 되지 않습니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 쿠폰과 마일리지의 중복 적용은 불가능합니다.</div>
+									<div class="col-12 h3_2" style="text-align:left;">- 혜택, 등급선정기준, 등급조정 등 회원 정책은 업체의 사정에 따라 변경될 수 있습니다.</div>
 								</div>
 							</div>
 						</div>
