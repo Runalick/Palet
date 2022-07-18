@@ -1002,6 +1002,7 @@ top:4rem;
 			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
 		}).done(function(resp){
 			console.log("성공");
+			location.reload();
 		})
 	})
 	
