@@ -113,18 +113,18 @@
                                 <div class="text-align text-uppercase mb-0 text-white h3">Exhibitions</div>
                             </div>
                             <div class="col-md-5">
-                                <form action="">
+                                <!-- <form action="">
                                     <div class="searchBox">
                                         <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                             <div class="col-md-3">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item icon-parent">
+                                    <!-- <li class="nav-item icon-parent">
                                         <a href="#" class="nav-link icon-bullet text-white">
                                             <i class="bi bi-house"></i>
                                         </a>
@@ -133,9 +133,9 @@
                                         <a href="#" class="nav-link icon-bullet text-white">
                                             <i class="bi bi-bell"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item icon-parent m-auto">
-                                        <a href="#" class="nav-link icon-bullet text-warning">
+                                        <a href="/" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
                                     </li>
