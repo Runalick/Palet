@@ -562,7 +562,7 @@ align-items: center; */
 								<div class="body4">My Shopping</div>
 								<ul>
 									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-									<li class="body3"><a href="#">취소/반품 내역</a></li>
+									<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 									<li class="body3"><a href="/delivery/selectAllAddress">배송지
 											관리</a></li>
 								</ul>
@@ -602,10 +602,10 @@ align-items: center; */
 							<div class="col-md-2 col-sm-4 body5">${i.dc }</div>
 							<div class="col-md-2 col-sm-4 body5">${i.category }</div>
 							<div class="col-md-2 d-md-block d-none body5">
-								<c:if test="${(i.use == null)||(i.use=='N')||(i.use='n') }">
+								<c:if test="${(i.used == null)||(i.used=='N')||(i.used='n') }">
 								미사용 쿠폰입니다.
 							</c:if>
-								<c:if test="${(i.use=='Y')||(i.use='y') }">
+								<c:if test="${(i.used=='Y')||(i.used='y') }">
 								사용한 쿠폰입니다.
 							</c:if>
 								<div class="col-md-2 col-sm-0 body5"></div>

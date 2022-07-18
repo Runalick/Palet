@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
 
 @Component
@@ -104,6 +105,10 @@ public class MypageDAO {
 		param.put("btn", btn);
 		
 		return mybatis.selectList("MyPage.refundajax",param);
+	}
+	
+	public List<MypageUserDetailDTO> mypageUserDetail(String email){
+		return mybatis.selectList("MyPage.mypageUserDetail",email);
 	}
 
 }

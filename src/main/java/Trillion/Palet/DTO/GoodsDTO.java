@@ -36,8 +36,22 @@ public class GoodsDTO {
 		this.gp_seq = gp_seq;
 		this.gp_sysname = gp_sysname;
 	}
+	
+	
 
-
+	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count,
+			String g_contents, int g_stock, String e_name) {
+		super();
+		this.g_seq = g_seq;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.g_option = g_option;
+		this.sales_count = sales_count;
+		this.g_contents = g_contents;
+		this.g_stock = g_stock;
+		this.e_name = e_name;
+	}
 
 	public int getG_seq() {
 		return g_seq;

@@ -30,6 +30,10 @@ input {
 .divbox {
 	text-align: center;
 }
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}
 </style>
 </head>
 <body>
@@ -229,9 +233,8 @@ input {
 					<span id="pwck2" style="display: none">비밀번호 확인중</span><br>
 				</div>
 				<div class="col-12 body2 divbox">
-					<button id="btn2" class="btn1" style="display: none" disabled
-					style="height: 2.75rem; width: 7.5rem; text-align: center;">비밀번호
-						적용</button>
+					<button id="btn2" class="btn1" style="display: none; height: 2.75rem; width: 7.5rem; text-align: center;" disabled
+					>비밀번호	적용</button>
 				</div>
 			</div>
 		</div>
@@ -331,32 +334,60 @@ input {
     					"사용할수 있는 비밀번호 입니다.");
     		   isPwOk = true;
     	   }
+		// 테스트
+		   if($("#newpw").val()==$("#newpwck").val()){
+    		   isPwOk2 = true;   
+    	   }else{
+    		   isPwOk2 = false;
+    	   }
+		   if (!isPwOk2) {
+        	   $("#newpwck").css("border", "1px solid red");
+        	   $("#pwck2").css("color", "red");
+        	   $("#pwck2").css("display","inline");
+    			$("#pwck2").text(
+    					"비밀번호가 다릅니다.");
+           }
+           if(isPwOk2){
+    		   $("#newpwck").css("border", "1px solid blue");
+    		   $("#pwck2").css("color", "blue");
+        	   $("#pwck2").css("display","inline");
+    			$("#pwck2").text(
+    					"비밀번호가 같습니다.");
+    	   }
+           if(isPwOk2 && isPwOk && inok){
+			   $("#btn2").removeAttr("disabled");
+		   }else if((!isPwOk2)||(!isPwOk)||(!inok)){
+			   $("#btn2").attr("disabled","true");
+		   }
+         //테스트
+    	   
+    	   
        },
     	   focusout : function(){
-    		   if($("#newpw").val()==$("#newpwck").val()){
-        		   isPwOk2 = true;   
-        	   }else{
-        		   isPwOk2 = false;
-        	   }
-    		   if (!isPwOk2) {
-            	   $("#newpwck").css("border", "1px solid red");
-            	   $("#pwck2").css("color", "red");
-            	   $("#pwck2").css("display","inline");
-        			$("#pwck2").text(
-        					"비밀번호가 다릅니다.");
-               }
-               if(isPwOk2){
-        		   $("#newpwck").css("border", "1px solid blue");
-        		   $("#pwck2").css("color", "blue");
-            	   $("#pwck2").css("display","inline");
-        			$("#pwck2").text(
-        					"비밀번호가 같습니다.");
-        	   }
-               if(isPwOk2 && isPwOk && inok){
-    			   $("#btn2").removeAttr("disabled");
-    		   }else if((!isPwOk2)||(!isPwOk)||(!inok)){
-    			   $("#btn2").attr("disabled","true");
-    		   }
+//     		   if($("#newpw").val()==$("#newpwck").val()){
+//         		   isPwOk2 = true;   
+//         	   }else{
+//         		   isPwOk2 = false;
+//         	   }
+//     		   if (!isPwOk2) {
+//             	   $("#newpwck").css("border", "1px solid red");
+//             	   $("#pwck2").css("color", "red");
+//             	   $("#pwck2").css("display","inline");
+//         			$("#pwck2").text(
+//         					"비밀번호가 다릅니다.");
+//                }
+//                if(isPwOk2){
+//         		   $("#newpwck").css("border", "1px solid blue");
+//         		   $("#pwck2").css("color", "blue");
+//             	   $("#pwck2").css("display","inline");
+//         			$("#pwck2").text(
+//         					"비밀번호가 같습니다.");
+//         	   }
+//                if(isPwOk2 && isPwOk && inok){
+//     			   $("#btn2").removeAttr("disabled");
+//     		   }else if((!isPwOk2)||(!isPwOk)||(!inok)){
+//     			   $("#btn2").attr("disabled","true");
+//     		   }
     	   }
        
        })
@@ -381,18 +412,31 @@ input {
     			$("#pwck2").text(
     					"비밀번호가 같습니다.");
     	   }
+           
+           //테스트
+		   if(isPwOk2 && isPwOk && inok){
+			   $("#btn2").removeAttr("disabled");
+		   }else if((!isPwOk2)||(!isPwOk)||(!idok)){
+			   $("#btn2").attr("disabled","true");
+		   }
+		   if($("#newpw").val()==$("#newpwck").val()){
+    		   isPwOk2 = true;   
+    	   }else{
+    		   isPwOk2 = false;
+    	   }
+           //테스트
        },
     	   focusout : function(){
-    		   if(isPwOk2 && isPwOk && inok){
-    			   $("#btn2").removeAttr("disabled");
-    		   }else if((!isPwOk2)||(!isPwOk)||(!idok)){
-    			   $("#btn2").attr("disabled","true");
-    		   }
-    		   if($("#newpw").val()==$("#newpwck").val()){
-        		   isPwOk2 = true;   
-        	   }else{
-        		   isPwOk2 = false;
-        	   }
+//     		   if(isPwOk2 && isPwOk && inok){
+//     			   $("#btn2").removeAttr("disabled");
+//     		   }else if((!isPwOk2)||(!isPwOk)||(!idok)){
+//     			   $("#btn2").attr("disabled","true");
+//     		   }
+//     		   if($("#newpw").val()==$("#newpwck").val()){
+//         		   isPwOk2 = true;   
+//         	   }else{
+//         		   isPwOk2 = false;
+//         	   }
     	   }
        
        })
