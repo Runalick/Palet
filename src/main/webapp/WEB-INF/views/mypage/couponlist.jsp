@@ -555,7 +555,7 @@ align-items: center; */
 							<li>
 								<div class="body4">My Tickets</div>
 								<ul>
-									<li class="body3"><a href="#">티켓예매 목록</a></li>
+									<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 								</ul>
 							</li>
 							<li>
