@@ -352,6 +352,7 @@ a{
 	})
 	// SDK를 초기화. 사용할 앱의 JavaScript 키
       	Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	
 	    console.log(Kakao.isInitialized());
 	    
 	    //item을 localStorage에 저장하는 메소드
@@ -385,9 +386,9 @@ a{
 	        	}
 	          })
  	          console.log(authObj); //access 토큰 값
-			  Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
-			  var token = authObj.access_token;
-			  saveToDos(token);
+			  //Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
+			  //var token = authObj.access_token;
+			  //saveToDos(token);
 	        },
 	        fail: function(err) {
 	          alert(JSON.stringify(err));
@@ -396,16 +397,21 @@ a{
 	      });
 	    })
 	    
-	$("#logout").on("click", function(){
-		if (Kakao.Auth.getAccessToken()) {
-			Kakao.Auth.logout(function() {
-      			alert("로그아웃 되었습니다.");
-      			location.href="/member/logout";
-   		 	})
-		}
+	function logout() {
 		
-		location.href="/member/logout";
-	})
+			if (!Kakao.Auth.getAccessToken()) {
+			      alert('Not logged in.')
+			      return
+			    }
+			    Kakao.Auth.logout(function() {
+			      alert('로그아웃 되었습니다.');
+			      location.href="/member/logout";
+			    })
+			
+
+			location.href = "/member/logout";
+			return true;
+		}
 	
 	//공유하기 모달창
 	$(function(){

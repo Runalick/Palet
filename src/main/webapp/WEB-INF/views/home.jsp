@@ -450,19 +450,20 @@
 	</div>
 	<script>
 		//카카오 초기화 및 토큰 받아오기
-		Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
+		Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
-		window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage
-				.getItem('AccessKEY')));
-
+		//window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
 		function logout() {
-			if (Kakao.Auth.getAccessToken()) {
-				Kakao.Auth.logout(function() {
-					alert("로그아웃 되었습니다.");
-					location.href = "/member/logout";
-				})
-				return true;
-			}
+		
+			if (!Kakao.Auth.getAccessToken()) {
+			      alert('Not logged in.')
+			      return
+			    }
+			    Kakao.Auth.logout(function() {
+			      alert('로그아웃 되었습니다.');
+			      location.href="/member/logout";
+			    })
+			
 
 			location.href = "/member/logout";
 			return true;
