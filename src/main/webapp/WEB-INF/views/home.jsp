@@ -17,9 +17,9 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="/css/home.css">
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<link rel="stylesheet" href="/css/home.css">
 
 
 
@@ -210,17 +210,17 @@
 
 					<div class="col-12  d-none d-sm-block"
 						style="margin-bottom: 14.75rem; margin-top: 5rem; padding-left: 0.5rem;">
-						<button class="btn1">자세히 보기</button>
-						<button class="btn2">예매 하기</button>
+						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'">자세히 보기</button>
+						<button class="btn2" onclick="location.href='/Exhibition/toBook'";>예매 하기</button>
 					</div>
 					<div class="col-12 d-block d-sm-none"
 						style="margin-bottom: 14.75rem; text-align: center; margin-top: 5rem;">
 
-						<button class="btn1"
+						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'"
 							style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
 							보기</button>
 						<br>
-						<button class="btn2" style="text-align: center;">예매 하기</button>
+						<button class="btn2" onclick="location.href='/Exhibition/toBook'" style="text-align: center;">예매 하기</button>
 					</div>
 
 				</div>
@@ -290,7 +290,7 @@
 			<div class="row " style="margin-top: 3.75rem; text-align: center;"
 				id="row1">
 				<div class="col-12" style="text-align: center;">
-					<button class="btn3 btn">전시 굿즈 더보기</button>
+					<button class="btn3 btn" onclick="location.href='/shop/toShop'" >전시 굿즈 더보기</button>
 				</div>
 
 
@@ -334,7 +334,7 @@
 
 					<div class="col-12  d-none d-sm-block"
 						style="margin-top: 5rem; padding-left: 0.5rem;">
-						<button class="btn1">자세히 보기</button>
+						<button class="btn1" onclick="location.href='/Exhibition/toUpcommingExhibition'">자세히 보기</button>
 					</div>
 
 

@@ -18,21 +18,23 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <!-- 카카오 공유하기 -->
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<link rel="stylesheet" href="/css/member/login.css">
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
- @media ( min-width : 375px) {
+
+@media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
-} 
-
+}
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
@@ -77,14 +79,22 @@
 	background-color: white;
 }
 
-.row>div {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-}
-
 .nav-item {
 	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -114,23 +124,36 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
 
-#Signup {
-	width: 4.438rem;
+
+#Cart {
+	width: 3rem;
 	height: 1.5rem;
 }
 
-#Shop {
-	width: 2.813rem;
+
+#Signup {
+	width: 4.438rem;
 	height: 1.5rem;
 }
 
@@ -446,19 +469,12 @@ a {
 	display: none;
 }
 
-.share1 {
+.share {
 	width: 30px;
     height: 30px;
-    /* position: absolute;
-    right: 120px;
-    top: 10px; */
     cursor: pointer;
 }
 
-.share2 {
-	width: 30px;
-    height: 30px;
-}
 
 .modal_content{
   width:300px; 
@@ -527,58 +543,154 @@ a {
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<nav class="navbar navbar-expand-md bg-light navbar-light">
-					<div class="container" id="navparent" style="overflow: visible;">
-						<a class="navbar-brand" href="/" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+		<div class="container-fluid"
+			style="background-color: white; position: fixed;">
+			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-						<div style="height: 5rem;">
-							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" style="margin-top: 15px;"
-								data-bs-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
+								</ul>
+							</div>
 						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-						<div class="collapse navbar-collapse justify-content-end"
-							id="collapsibleNavbar">
-							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/program/toProgram"
-									style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
 						</div>
-					</div>
-				</nav>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
 
 		<div class="container d-none d-sm-block"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			style="margin-top: 100px; margin-bottom: 3.375rem;'">
 			<div class="row">
 				<div class="col-lg-1 col-xs-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
@@ -588,7 +700,7 @@ a {
 				<div class="col-lg-2 col-xs-6">
 
 					<img src="/images/anywayloveS.png"
-						style="width: 10.625rem; height: 14.125rem;">
+						style="width: 10.625rem; height: 14.125rem; margin-bottom: 20px; margin-top: 10px;">
 
 				</div>
 
@@ -616,7 +728,7 @@ a {
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
 							
 							<ul style="float: right; list-style:none;">
-								<li style="float: left"><img src="/images/share.png" class="modalbtn share1">
+								<li style="float: left"><img src="/images/share.png" class="modalbtn share">
 								<li style="float: right; margin-left: 15px;"><button class=bookbutton>예매하기</button>
 							
 							</ul>	
@@ -640,7 +752,7 @@ a {
 
 
 		<div class="container d-block d-sm-none"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			style="margin-top: 100px; margin-bottom: 3.375rem;'">
 			<div class="row">
 				<!-- <div class="col-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
@@ -679,7 +791,7 @@ a {
 								type="button" class=plusbutton src="/images/plusbutton.png"
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
 							<br>
-							<img src="/images/share.png" id="modalbtn" class="modalbtn share2">
+							<img src="/images/share.png" id="modalbtn" class="modalbtn share">
 							<button class=bookbutton
 								style="text-align: center; margin-top: 3rem; margin-left:0.7rem;">예매하기</button>
 
@@ -864,18 +976,19 @@ a {
 	    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
 	}
 	
-	// 카카오톡 공유하기
-	function shareKakao() {
- 
   // 사용할 앱의 JavaScript 키 설정
   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	
+  // 카카오톡 공유하기
+	function shareKakao() {
+ 
  
   // 카카오링크 버튼 생성
   Kakao.Link.createDefaultButton({
     container: '#btnKakao', // 카카오공유버튼ID
     objectType: 'feed',
     content: {
-      title: "[Palet]Romantic Days 어쨌든, 사랑", // 보여질 제목
+      title: "[Palet] Romantic Days 어쨌든, 사랑", // 보여질 제목
       description: "전시회 바로 예약하기", // 보여질 설명
       imageUrl: 'http://localhost/images/anywayloveS.png', // 콘텐츠 URL
       link: {
@@ -885,7 +998,21 @@ a {
     }
   });
   
-  
+  function logout() {
+		
+		if (!Kakao.Auth.getAccessToken()) {
+		      alert('Not logged in.')
+		      return
+		    }
+		    Kakao.Auth.logout(function() {
+		      alert('로그아웃 되었습니다.');
+		      location.href="/member/logout";
+		    })
+		
+
+		location.href = "/member/logout";
+		return true;
+	}
   
 }
 </script>

@@ -18,7 +18,8 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/event/event.css">
-
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 </head>
 <body>
@@ -169,7 +170,7 @@
 		<div class="container">
 			<div class="row" id="container1" style="margin-top : 70px">
 				<div class="col-12 hb1" style="margin-top: 2.5rem; text-align: left;">Event</div>
-				<div class="col-12 h2" style="margin-top: 1.5rem; margin-bottom: 3rem; text-align: left;"> - NOW</div>
+				<div class="col-12 h2" style="margin-top: 1.5rem; margin-bottom: 3rem; text-align: left;"> NOW</div>
 			</div>
 		</div>
 		<div class="row" id="background-area">
@@ -208,6 +209,21 @@
 	$("#enjoy").on("click", function(){
 		location.href="/event/participation";
 	})
+	
+	function logout() {
+   
+   if (!Kakao.Auth.getAccessToken()) {
+         alert('Not logged in.')
+         return
+       }
+       Kakao.Auth.logout(function() {
+         alert('로그아웃 되었습니다.');
+         location.href="/member/logout";
+       })
+   
+   location.href = "/member/logout";
+   return true;
+}
 </script>
 
 
