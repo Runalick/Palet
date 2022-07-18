@@ -245,13 +245,25 @@
 	.askdiv img{
 	height:13.125rem;
 	}
+	#odd1,#odd2,#odd3{
+	padding-left:1.5rem;
+	padding-right:1.5rem;
+	}
+	#even1,#even2,#even3{
+	padding-left:1rem;
+	padding-right:1.5rem;
+	}
+	.info-row{
+	padding-left:2rem;
+	}
+	
 }
 @media ( max-width : 992px) {
 .border-text, .info, .askinfo{
 	padding-top:4rem;
 }
-.askdiv img{
-
+.askinfo-row{
+padding-left:2rem;
 }
 	
 }
@@ -287,6 +299,7 @@ box-shadow: 0px 0px 0px #CBDAFC;
 border-radius: 5px;
 }
 .askbtn{
+border:0px;
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -470,14 +483,14 @@ border-radius: 20px;
 		</span>
 		</div>
 		<div class="col-12">
-			<div class="row"  id="row1" style="margin-top:10rem; margin-bottom:10rem;">
+			<div class="row"  id="row1" style="padding:0.8rem;margin-top:10rem; margin-bottom:10rem;">
 				<div class="col-12 col-lg-6 border">
 				<img src="/images/about_picture3.png" style="width:18.75rem">
 				</div>
 				<div class="col-12  col-lg-6 border-text  ">
-					<div class="row"  >
-						<div class="col-12 h3">palette? pallet? palet!!</div>
-						<div class="col-12 body2">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
+					<div class="row info-row"  >
+						<div class="col-12 h3" style="padding-left:0.8rem;">palette? pallet? palet!!</div>
+						<div class="col-12 body2" style="padding-left:0.8rem;">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
 ‘palete’는 대형 화물을 옮길 때 사용되는 받침대입니다.
 이 두 단어를 합성하여 만들어진 ‘palet’라는 이름는 ‘여러가지 색을 가진 다양한 작품, 다채로운 즐거움을 전달하자’는 의미를 담고있습니다.</div>
 					
@@ -488,20 +501,20 @@ border-radius: 20px;
 		
 		
 		<div class="col-12">
-			<div class="row" id="row1" style="margin-top:10rem; margin-bottom:10rem;">
+			<div class="row" id="row1" style="padding:0.8rem;margin-top:10rem; margin-bottom:10rem;">
 				<div class="col-12 col-lg-6 mapdiv" id="map">
 				
 				</div>
 				<div class="col-12  col-lg-6  info ">
-					<div class="row" >
+					<div class="row info-row"  >
 						
-					<div class="col-12 h3" style="margin-top:0.75rem">운영시간</div>
-						<div class="col-12 body2" style="margin-bottom:2.5rem;">화요일–일요일(월요일 휴관), 10:00–18:00<br>
+					<div class="col-12 h3" style="margin-top:0.75rem;padding-left:0.8rem;">운영시간</div>
+						<div class="col-12 body2" style="margin-bottom:2.5rem;padding-left:0.8rem;">화요일–일요일(월요일 휴관), 10:00–18:00<br>
 미술관 전시장 내 관람객이 120명이 초과될 경우 입장이 제한될 수 있습니다.</div>
-						<div class="col-12 h3">위치</div>
-						<div class="col-12 body2" style="margin-bottom:2.5rem;">지하철3호선 경복궁역 지하 1층</div>
-						<div class="col-12 h3">주차 안내</div>
-						<div class="col-12 body2">주차불가<br>
+						<div class="col-12 h3" style="padding-left:0.8rem;">위치</div>
+						<div class="col-12 body2" style="margin-bottom:2.5rem;padding-left:0.8rem;">지하철3호선 경복궁역 지하 1층</div>
+						<div class="col-12 h3" style="padding-left:0.8rem;">주차 안내</div>
+						<div class="col-12 body2" style="padding-left:0.8rem;">주차불가<br>
 인근 유료 주차장 별도 이용(국립현대미술관 서울관 지하 주차장 및 경복궁 주차장 등)</div>
 					</div>
 				</div>
@@ -515,18 +528,18 @@ border-radius: 20px;
 		<div class="row" id="row1" style="margin-top:10rem; margin-bottom:10rem;">
 				<div class="col-12 col-lg-6 askdiv">
 				<div class="row" >
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask1.png" class="odd" ></div>
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask2.png" class="even"  ></div>
-				<div class="col-4 col-lg-6">
-				<img src="/images/ask3.png" class="odd" ></div>
-				<div class="col-4 col-lg-6">
-				<img src="/images/ask4.png" class="even"></div>
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask5.png" class="odd"></div>
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask6.png" class="even"></div>
+				<div class="col-4 col-lg-6 " id="odd1">
+					<img src="/images/ask1.png"  ></div>
+				<div class="col-4 col-lg-6 " id="even1">
+					<img src="/images/ask2.png" ></div>
+				<div class="col-4 col-lg-6 " id="odd2">
+				<img src="/images/ask3.png " ></div>
+				<div class="col-4 col-lg-6 " id="even2">
+				<img src="/images/ask4.png " ></div>
+				<div class="col-4 col-lg-6 "id="odd3">
+					<img src="/images/ask5.png" ></div>
+				<div class="col-4 col-lg-6 " id="even3">
+					<img src="/images/ask6.png" ></div>
 			
 			
 				
@@ -536,7 +549,7 @@ border-radius: 20px;
 				</div>
 				</div>
 				<div class="col-12  col-lg-6  askinfo ">
-					<div class="row" id="row1" style="margin-top:1rem;">
+					<div class="row info-row askinfo-row" id="row1" style="margin-top:1rem;">
 						<div class="col-12 h3" style="margin-bottom:2.5rem; height:1.5rem;">대관 문의</div>
 						<div class="col-12 body2" >이메일</div>
 						<div class="col-12">
