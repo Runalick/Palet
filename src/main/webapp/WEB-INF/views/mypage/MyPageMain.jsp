@@ -21,6 +21,8 @@
 	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
 
+<!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 @charset "UTF-8";
 
@@ -420,7 +422,7 @@ color:white;
 <body>
 		<div class="container-fluid">
 			<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -595,8 +597,8 @@ color:white;
 						<div class="body4">My Info</div>
 						<ul>
 							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
@@ -604,95 +606,150 @@ color:white;
 				</div>
 				</div>
 				
-				
-				
-				
-				
-				
-				<div class="content">
-					<c:if test="${dto.grade == 'White'}">
-						<div id="gradewhite" class="row">
-							<div class="row gradetext">
-							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;">
-								<img src="/images/003.png" style=" height:400px;">
-								
-							</div><br>
-							<div class="col-6 H3" style=""> 
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-								<span>마일리지<br></span>
-								<span>${dto.point } point</span>							
+				<div class="content" style="margin-top:1rem;">
+					<div class="row">
+						<div class="col-12 h2" style="margin-left:3.5rem; margin-bottom:1.5rem;">
+							<c:if test="${dto.name==null }"> 
+								${dto.email} 
+							</c:if> 
+							<c:if test="${dto.name!=null }"> 
+								${dto.name }
+ 							</c:if>
+								님 안녕하세요
+						</div>
+						<div class="col-12 col-md-6" style="text-align:center;">
+							<c:choose>
+								<c:when test="${dto.grade == 'White'}">
+									<img src="/images/003.png" style=" height:300px;">
+								</c:when>
+								<c:when test="${dto.grade == 'Black'}">
+									<img src="/images/002.png" style=" height:300px;">
+								</c:when>
+								<c:when test="${dto.grade == 'Gray'}">
+									<img src="/images/001.png" style=" height:300px;">
+								</c:when>	
+							</c:choose>
+							
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="row">
+								<div class="col-12" style="padding-bottom:5rem;">
+									<div class="h3"><i class="fa-solid fa-coins"></i> 마일리지</div>
+									<div>회원님께서 보유하신 포인트 잔액입니다.</div>
+									<hr>
+		 							<div>${dto.point } POINT</div>
+	 							</div>
+	 							<div class="col-12" style="height:50%">
+		 							<div class="h3"><i class="fa-solid fa-ticket-simple"></i> 쿠폰</div>
+									<div>회원님께서 보유하신 쿠폰입니다.</div>
+									<hr>
+		 							<div>${dto.point } POINT</div>
+	 							</div>
+ 							</div>
+						</div>
+						<div class="col-12" style="margin-top:5rem;">
+							<div class="row">
+								<div class="col-6">
+									<div class="h3"><i class="fa-solid fa-ticket"></i> 최근 예매 내역</div>
+									<div>회원님께서 최근 전시 또는 프로그램 티켓을 예매하신 내역입니다.</div>
+									<hr>
+								</div>
+								<div class="col-6">
+									<div class="h3"><i class="fa-solid fa-box"></i> 최근 주문 내역</div>
+									<div>회원님께서 최근 상품을 구매하신 내역입니다.</div>
+									<hr>
+								</div>
 							</div>
-<!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
-<!-- 									<span>마일리지<br></span> -->
-<%-- 									<span>${dto.point } point</span> --%>
-<!-- 							</div> -->
 						</div>
-					</c:if>
-					<c:if test="${dto.grade == 'Black'}">
-						<div id="gradegray" class="row">
-						<div class="row gradetext">
-							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;">
-								<img src="/images/002.png" style=" height:400px;">
-								
-							</div><br>
-							<div class="col-6 H3" style=""> 
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-								<span>마일리지<br></span>
-								<span>${dto.point } point</span>							
-							</div>
-<!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
-<!-- 									<span>마일리지<br></span> -->
-<%-- 									<span>${dto.point } point</span> --%>
-<!-- 							</div> -->
-						</div>
-						</div>
-					</c:if>
-					<c:if test="${dto.grade == 'Gray'}">
-						<div id="gradeblack" class="row">
-						<div class="row gradetext">
-							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;">
-								<img src="/images/001.png" style=" height:400px;">
-								
-							</div><br>
-							<div class="col-6 H3" style=""> 
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-								<span>마일리지<br></span>
-								<span>${dto.point } point</span>							
-							</div>
-<!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
-<!-- 									<span>마일리지<br></span> -->
-<%-- 									<span>${dto.point } point</span> --%>
-<!-- 							</div> -->
-						</div>
-						</div>
-					</c:if>
-				<div >
-						
-						
-						
-						
 					</div>
+				
+				
+				
+				
+<%-- 					<c:if test="${dto.grade == 'White'}"> --%>
+<!-- 						<div id="gradewhite" class="row"> -->
+<!-- 							<div class="row gradetext"> -->
+<!-- 							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;"> -->
+<!-- 								<img src="/images/003.png" style=" height:400px;"> -->
+								
+<!-- 							</div><br> -->
+<!-- 							<div class="col-6 H3" style="">  -->
+<%-- 								<c:if test="${dto.name==null }"> --%>
+<%-- 									${dto.email} --%>
+<%-- 								</c:if>  --%>
+<%-- 								<c:if test="${dto.name!=null }"> --%>
+<%-- 									${dto.name } --%>
+<%-- 								</c:if> --%>
+<!-- 								님<br> -->
+<!-- 								안녕하세요. -->
+<!-- 								<span>마일리지<br></span> -->
+<%-- 								<span>${dto.point } point</span>							 --%>
+<!-- 							</div> -->
+<!-- <!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> --> 
+<!-- <!-- 									<span>마일리지<br></span> --> 
+<%-- <%-- 									<span>${dto.point } point</span> --%> 
+<!-- <!-- 							</div> --> 
+<!-- 						</div> -->
+<!-- 					</div> -->
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${dto.grade == 'Black'}"> --%>
+<!-- 						<div id="gradegray" class="row"> -->
+<!-- 						<div class="row gradetext"> -->
+<!-- 							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;"> -->
+<!-- 								<img src="/images/002.png" style=" height:400px;"> -->
+								
+<!-- 							</div><br> -->
+<!-- 							<div class="col-6 H3" style="">  -->
+<%-- 								<c:if test="${dto.name==null }"> --%>
+<%-- 									${dto.email} --%>
+<%-- 								</c:if>  --%>
+<%-- 								<c:if test="${dto.name!=null }"> --%>
+<%-- 									${dto.name } --%>
+<%-- 								</c:if> --%>
+<!-- 								님<br> -->
+<!-- 								안녕하세요. -->
+<!-- 								<span>마일리지<br></span> -->
+<%-- 								<span>${dto.point } point</span>							 --%>
+<!-- 							</div> -->
+<!-- <!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
+<!-- <!-- 									<span>마일리지<br></span> --> 
+<%-- <%-- 									<span>${dto.point } point</span> --%> 
+<!-- <!-- 							</div> --> 
+<!-- 						</div> -->
+<!-- 						</div> -->
+<%-- 					</c:if> --%>
+<%-- 					<c:if test="${dto.grade == 'Gray'}"> --%>
+<!-- 						<div id="gradeblack" class="row"> -->
+<!-- 						<div class="row gradetext"> -->
+<!-- 							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;"> -->
+<!-- 								<img src="/images/001.png" style=" height:400px;"> -->
+								
+<!-- 							</div><br> -->
+<!-- 							<div class="col-6 H3" style="">  -->
+<%-- 								<c:if test="${dto.name==null }"> --%>
+<%-- 									${dto.email} --%>
+<%-- 								</c:if>  --%>
+<%-- 								<c:if test="${dto.name!=null }"> --%>
+<%-- 									${dto.name } --%>
+<%-- 								</c:if> --%>
+<!-- 								님<br> -->
+<!-- 								안녕하세요. -->
+<!-- 								<span>마일리지<br></span> -->
+<%-- 								<span>${dto.point } point</span>							 --%>
+<!-- 							</div> -->
+<!-- <!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> --> 
+<!-- <!-- 									<span>마일리지<br></span> --> 
+<%-- <%-- 									<span>${dto.point } point</span> --%> 
+<!-- <!-- 							</div> --> 
+<!-- 						</div> -->
+<!-- 						</div> -->
+<%-- 					</c:if> --%>
+<!-- 				<div > -->
+						
+						
+						
+						
+<!-- 					</div> -->
 				</div>
 				
 				
@@ -745,7 +802,7 @@ color:white;
 		<div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
