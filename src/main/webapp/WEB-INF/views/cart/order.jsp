@@ -604,7 +604,7 @@ text-align:left;
         }
         
 .default, .new{
-cursor:pointer;
+	cursor:pointer;
 }
 </style>
 <body>
