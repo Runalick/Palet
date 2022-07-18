@@ -650,17 +650,13 @@ width:36.375rem;
 							<div id="select-wrap" style="position:relative;">
 								<div id="select">상품옵션을 선택하세요</div>
 								<ul class="select-ul">
-									<c:forEach var="i" items="${optionlist}">
 									
-									<c:choose>
-										<c:when test="${i.g_option ==null}">
-										<li class="li" value="${i.g_num }">${dto.g_name}</li>
-										</c:when>
-										<c:otherwise>
-											<li class="li" value="${i.g_num }">${i.g_option}</li>
-										</c:otherwise>
-									</c:choose>
-									</c:forEach>
+								
+										<li class="li" value="option1">${dto.g_option1}</li>
+										<li class="li" value="option2">${dto.g_option2}</li>
+										<li class="li" value="option3">${dto.g_option3}</li>
+								
+									
 								</ul>
 							</div>
 
