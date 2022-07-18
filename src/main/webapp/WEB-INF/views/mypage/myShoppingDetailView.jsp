@@ -575,6 +575,42 @@ color:white;
   text-overflow: ellipsis;  /* 말줄임 적용 */
 }
 
+.content-row .body4, .content-row .body5{
+margin-bottom:0.8rem;
+}
+.ticket-row .body4{
+font-weight:500;
+font-size:1.675rem;
+}
+.modal-ticket-row .body4{
+font-weight:500;
+font-size:1.675rem;
+margin-bottom:0.25rem;
+}
+.total{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.425rem;
+	line-height: 1.875rem;
+	
+}
+.cancel-div{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.225rem;
+	line-height: 1.675rem;
+}
+.total-price{
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 1.875rem;
+}
+
+
 /* 모달환불 */
 .input{
 margin-top:0.75rem;
@@ -660,6 +696,17 @@ top:4rem;
 
 .select-ul li:hover {
 	background-color: #F4F6F8;
+}
+
+@media ( max-width : 500px) {
+   .select-ul{
+    width:390px;
+   }
+}
+@media ( min-width : 500px) {
+   .select-ul{
+    width:406px;
+   }
 }
 
 
@@ -971,12 +1018,11 @@ top:4rem;
 									<div class="row" style="padding-right:0.25rem; width:41.7rem;">
 										<div class="col-12 paymodal-title">취소 사유</div>
 									<div id="select-wrap" style="position:relative;">
-												<div id="selectcancel">상품옵션을 선택하세요</div>
+												<div id="selectcancel">취소사유를 선택하세요</div>
 												<ul class="select-ul">
-													
-														<li class="li" >단순 변심</li>
-															<li class="li" >주문 실수</li>
-															<li class="li write" >직접 입력</li>
+													<li class="li" >단순 변심</li>
+													<li class="li" >주문 실수</li>
+													<li class="li write" >직접 입력</li>
 												</ul>
 											</div>
 				
@@ -998,19 +1044,23 @@ top:4rem;
 											<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
 											<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
 											<div class="col-7 total getpoint" style="margin-bottom:1rem"></div>
+											<div class="col-5 total" style="margin-bottom:1rem">배송료</div>
+											<div class="col-7 total deltax" style="margin-bottom:1rem"></div>
 											
 											<div class="col-5 total" >최종 환불금액</div>
 											<div class="col-7 total-price" style="color:red;"></div>
 											<script>
-											price=${detail.totalprice} + ${detail.usedpoint }+ ${detail.cpdiscount }
+											price=${detail.totalprice} + ${detail.usedpoint }+ ${detail.cpdiscount }-3000
 											coupon=${detail.cpdiscount }
 											usedpoint=${detail.usedpoint }
 											getpoint=${detail.point }
 											total_price=${detail.totalprice}
+											deltax = 3000
 											$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 											$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 											$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 											$(".getpoint").text("+"+getpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+											$(".deltax").text("+"+deltax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 											$(".total-price").text(total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 											</script>
 										</div>
@@ -1095,12 +1145,28 @@ $(".pay-cancel").on("click",function(){
 	console.log($(".input").val());
 	$.ajax({
 		url:"/mypage/payCancel",
-		data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
+		data:{content:$(".input").val(), booknumber:$(this).val(),category:'G'}
 	}).done(function(resp){
 		console.log("성공");
+		location.reload();
 	})
 })
 
+
+//선택박스 화살표 방향 이미지
+	let click = true;
+	$("#select").on("click",function(){
+		if(click==false){
+			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$(".navi-menu").toggle();
+			
+			click = true;
+		}else{
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
+			$(".navi-menu").toggle();
+			click = false;
+		}
+	});
 
 
 //환불 li
