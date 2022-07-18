@@ -21,10 +21,18 @@
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}
 	</select>
+	<!-- 
+	관리자에서 취소완료시 재고량 판매량 수정
 	<update id="MinusSalesCnt">
-		update exhibition set sales_count = sales_count-(select et_count from exticket 
+		update exhibition set sales_count = sales_count-(select et_count from payment 
 		where et_booknumber=#{booknumber}) where e_name = (select et_title from exticket where et_booknumber=#{booknumber})
 	</update>
+	
+	<update id="MinusSalesCnt_G">
+		update goods set sales_count = sales_count-(select g_count from payment 
+		where merchant_uid=#{merchant_uid}), g_stock = g_stock + (select g_count from payment where merchant_uid=#{merchant_uid})
+		where g_num = (select g_num from payment where merchant_uid=#{merchant_uid});
+	</update> -->
 	
 <!-- 	cancel 테이블에 취소사유 넣기 -->
 	<insert id="payCancel">
@@ -37,6 +45,9 @@
 		
 		<if test='category=="E"'>
 		exticket set et_state ='BC' where et_booknumber
+		</if>
+		<if test='category=="G"'>
+		payment set state='BC' where merchant_uid
 		</if>
 		 =#{booknumber}
 	</update>

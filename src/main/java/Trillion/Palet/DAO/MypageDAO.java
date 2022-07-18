@@ -49,15 +49,11 @@ public class MypageDAO {
 
 	//state BC 상태로 변경
 	public int BeforeCancel(CancelDTO dto) {
-//		굿즈랑 클래스도 이런식으로 취소 하면 됩니다
-//		if(dto.getCategory().equals("E")) {
-//		mybatis.update("MyPage.MinusSalesCnt",dto);
-//			return mybatis.update("MyPage.BeforeCancel",dto);
-//		}else if(dto.getCategory().equals("G")){
-		
-//	}else if(dto.getCategory().equals("G")){
-		
-//	}
+		if(dto.getCategory().equals("E")) {
+			return mybatis.update("MyPage.BeforeCancel",dto);
+		}else if(dto.getCategory().equals("G")){
+			return mybatis.update("MyPage.BeforeCancel", dto);
+		}
 		
 		
 		mybatis.update("MyPage.MinusSalesCnt",dto);
