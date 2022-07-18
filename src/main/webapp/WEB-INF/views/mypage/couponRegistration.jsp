@@ -65,6 +65,7 @@
 				url: "/coupon/Registration",
 				data:{serial:$("#serial").val()}
 			}).done(function(resp){
+				console.log(resp)
 				if(resp=="false"){
 					alert("쿠폰번호를 확인해주세요")
 					return false;
@@ -79,6 +80,7 @@
 				}
 				if(resp=="registration"){
 					alert("쿠폰이 등록되었습니다.")
+					opener.location.reload();
 					window.close();
 					location.href="/coupon/couponlist"
 				}
