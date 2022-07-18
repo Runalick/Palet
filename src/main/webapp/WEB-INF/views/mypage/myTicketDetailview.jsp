@@ -254,7 +254,19 @@ line-height: 3.75rem;
 	line-height: 1.875rem;
 	}
 	
+	
 }
+@media ( max-width : 500px) {
+	.select-ul{
+	 width:390px;
+	}
+}
+@media ( min-width : 500px) {
+	.select-ul{
+	 width:406px;
+	}
+}
+
 
 @media ( max-width : 991px) {
 	.main{
@@ -865,7 +877,17 @@ top:4rem;
 							<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
 							<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
+							
+							<c:choose>
+							<c:when test="${cdto.category !=null }">
 							<div class="col-7 total" style="margin-bottom:1rem">${cdto.category }</div>
+							</c:when>
+							<c:otherwise>
+							<div class="col-7 total" style="margin-bottom:1rem">사용한 쿠폰 없음</div>
+							</c:otherwise>
+							</c:choose>
+							
+							
 							<div class="col-5 total" style="margin-bottom:1rem">포인트 사용</div>
 							<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
