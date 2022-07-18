@@ -12,8 +12,20 @@
 		select sum(totalprice)as salessum , payday as salesdate from (
 		select totalprice, to_char(pay_time, 'YY/MM/DD')as payday from payment 
 		UNION ALL
-		select et_cost as totalprice, to_char(et_buydate, 'YY/MM/DD') as payday from exticket) 
-		where payday >= to_char(sysdate-6, 'YY/MM/DD') group by payday order by payday desc
+		select et_cost as totalprice, to_char(et_buydate, 'YY/MM/DD') as payday from exticket
+		UNION ALL
+		select pro_cost as totalprice, to_char(pro_buydate, 'YY/MM/DD') as payday from proticket
+		) where payday >= to_char(sysdate-6, 'YY/MM/DD') group by payday order by payday desc
+  	</select>
+  	
+  	<select id="getWeekCount" resultType="Trillion.Palet.DTO.SalesDTO">
+  		select sum(salescount)as salescount , payday as salesdate from (
+		select g_count as salescount, to_char(pay_time, 'YY/MM/DD')as payday from payment 
+		UNION ALL
+		select et_count as salescount, to_char(et_buydate, 'YY/MM/DD') as payday from exticket
+		UNION ALL
+		select pro_count as salescount, to_char(pro_buydate, 'YY/MM/DD') as payday from proticket
+		) where payday >= to_char(sysdate-6, 'YY/MM/DD') group by payday order by payday desc
   	</select>
   	
   	<!-- Member -->
@@ -30,10 +42,19 @@
   		update member set grade = #{grade} where email = #{email}
   	</update>
   	
+  	<select id="getMemberPayment" resultType='Trillion.Palet.DTO.AdminDTO'>
+  		select * from (
+		select merchant_uid, g_name as title, totalprice as price, pay_time, category from payment where email = #{value}
+		UNION ALL
+		select et_booknumber as merchant_uid, et_title as title, et_cost as price, et_buydate as pay_time, et_category as category from exticket where et_email = #{value}
+		UNION ALL
+		select pro_booknumber as merchant_uid, pro_title as title, pro_cost as price, pro_buydate as pay_time, pro_category as category from proticket where pro_email = #{value}) where pay_time > sysdate-13 order by pay_time desc
+  	</select>
+  	
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">
-  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price}, e_period = #{e_period} 
+  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price} 
   		where e_num = #{e_num}
   	</update>
   	
@@ -50,7 +71,10 @@
 		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
-		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket),
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
+		UNION ALL
+        select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket),
 		total2 as(
 		select row_number() over(order by pay_time desc) line, merchant_uid, name, email, phone, totalprice, pay_time, state, category
 		from total1)
@@ -62,7 +86,10 @@
 		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
-		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket)
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
+		UNION ALL
+        select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket)
   	</select>
   	  	
   	<select id="paymentSelectUIDByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">
@@ -70,7 +97,10 @@
 		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment where merchant_uid like '%'||#{uid}||'%'
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
-		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket where et_booknumber like '%'||#{uid}||'%'),
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket where et_booknumber like '%'||#{uid}||'%'
+		UNION ALL
+        select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket where pro_booknumber like '%'||#{uid}||'%'),
 		total2 as(
 		select row_number() over(order by pay_time desc) line, merchant_uid, name, email, phone, totalprice, pay_time, state, category
 		from total1)
@@ -82,7 +112,10 @@
 		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
-		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket) where merchant_uid like '%'||#{search}||'%'
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
+		UNION ALL
+        select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket) where merchant_uid like '%'||#{search}||'%'
   	</select>
   	
   	<select id="paymentSelectNameByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">
@@ -90,7 +123,10 @@
 		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment where name like '%'||#{name}||'%'
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
-		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket where et_username like '%'||#{name}||'%'),
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket where et_username like '%'||#{name}||'%'
+		UNION ALL
+        select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket where pro_username like '%'||#{name}||'%'),
 		total2 as(
 		select row_number() over(order by pay_time desc) line, merchant_uid, name, email, phone, totalprice, pay_time, state, category
 		from total1)
@@ -102,7 +138,10 @@
 		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
-		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket) where name like '%'||#{search}||'%'
+		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
+		UNION ALL
+        select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket) where name like '%'||#{search}||'%'
   	</select>
   	
   	<select id="getAdminPayDetail" resultType="Trillion.Palet.DTO.AdminDTO">
@@ -118,6 +157,13 @@
 		et_category as category, et_cost as price, et_buydate as pay_time, et_count as count, et_point as point,
 		et_usedpoint as usedpoint, et_cpdiscount as cpdiscount, et_cpserial as cpserial from exticket where et_booknumber = #{value}
 	</select>
+	
+	<select id="getAdminProticketDetail" resultType="Trillion.Palet.DTO.AdminDTO">
+		select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
+		pro_title as title, pro_place as place, pro_paymethod as card_name, pro_date as period, pro_state as state,
+		pro_category as category, pro_cost as price, pro_buydate as pay_time, pro_count as count, pro_point as point,
+		pro_usedpoint as usedpoint, pro_cpdiscount as cpdiscount, pro_cpserial as cpserial from proticket where pro_booknumber = #{value}
+	</select>
   	
   	<select id="cancelSelectByPage" resultType="Trillion.Palet.DTO.CancelDTO">
   		select * from (select row_number() over(order by cancel_seq desc) line, cancel.* from cancel) where line between #{start} and #{end}
@@ -130,16 +176,22 @@
   	<!-- Cancel Logic -->
   	
   	<select id="categoryCheck" resultType="String">
-  		select category from (select category, merchant_uid from payment UNION ALL select et_category as category, et_booknumber as merchant_uid from exticket) 
+  		select category from (select category, merchant_uid from payment 
+  		UNION ALL select et_category as category, et_booknumber as merchant_uid from exticket
+  		UNION ALL select pro_category as category, pro_booknumber as merchant_uid from proticket) 
   		where merchant_uid = #{value}
   	</select>
   	
   	<update id="cancelExticketUpdate">
-  		update exticket set et_category = 'AC' where et_booknumber = #{value}
+  		update exticket set et_state = 'AC' where et_booknumber = #{value}
   	</update>
   	
   	<update id="cancelGoodsUpdate">
-  		update payment set category = 'AC' where merchant_uid = #{value}
+  		update payment set state = 'AC' where merchant_uid = #{value}
+  	</update>
+  	
+  	<update id="cancelProticketUpdate">
+  		update proticket set pro_state = 'AC' where pro_booknumber = #{value}
   	</update>  	
   	
   	<delete id="cancelPaymentCheckDelete">
