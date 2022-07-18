@@ -217,10 +217,10 @@ line-height: 3.75rem;
 	max-height: 1920px; */
 	height: 0;
 	padding-bottom: calc(600/ 1920 * 100%);
-	background-image: url("/images/blackpainting.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% 100%;
+/* 	background-image: url("/images/blackpainting.png"); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center center; */
+/* 	background-size: 100% 100%; */
 }
 
 #gradegray{
@@ -229,10 +229,10 @@ line-height: 3.75rem;
 	max-height: 1920px; */
 	height: 0;
 	padding-bottom: calc(600/ 1920 * 100%);
-	background-image: url("/images/graypainting.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% 100%;
+/* 	background-image: url("/images/graypainting.png"); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center center; */
+/* 	background-size: 100% 100%; */
 }
 
 #gradewhite{
@@ -241,10 +241,10 @@ line-height: 3.75rem;
 	max-height: 1920px; */
 	height: 0;
 	padding-bottom: calc(600/ 1920 * 100%);
-	background-image: url("/images/whitepainting.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% 100%;
+/* 	background-image: url("/images/whitepainting.png"); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center center; */
+/* 	background-size: 100% 100%; */
 }
 
 .gradetext{
@@ -613,7 +613,11 @@ color:white;
 					<c:if test="${dto.grade == 'White'}">
 						<div id="gradewhite" class="row">
 							<div class="row gradetext">
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
+							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;">
+								<img src="/images/003.png" style=" height:400px;">
+								
+							</div><br>
+							<div class="col-6 H3" style=""> 
 								<c:if test="${dto.name==null }">
 									${dto.email}
 								</c:if> 
@@ -622,24 +626,23 @@ color:white;
 								</c:if>
 								님<br>
 								안녕하세요.
-							</div><br>
-							<div class="col-sm-4 H3" style=" padding-top: 1.75rem; text-align: center;"> 
-								
-								<br>
-								${dto.grade}<br>
-								매주 월요일 반영
+								<span>마일리지<br></span>
+								<span>${dto.point } point</span>							
 							</div>
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
-									<span>마일리지<br></span>
-									<span>${dto.point } point</span>
-							</div>
-							</div>
+<!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
+<!-- 									<span>마일리지<br></span> -->
+<%-- 									<span>${dto.point } point</span> --%>
+<!-- 							</div> -->
 						</div>
 					</c:if>
 					<c:if test="${dto.grade == 'Black'}">
 						<div id="gradegray" class="row">
 						<div class="row gradetext">
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
+							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;">
+								<img src="/images/002.png" style=" height:400px;">
+								
+							</div><br>
+							<div class="col-6 H3" style=""> 
 								<c:if test="${dto.name==null }">
 									${dto.email}
 								</c:if> 
@@ -648,24 +651,24 @@ color:white;
 								</c:if>
 								님<br>
 								안녕하세요.
-							</div><br>
-							<div class="col-sm-4 H3" style=" padding-top: 1.75rem; text-align: center;"> 
-								
-								<br>
-								${dto.grade}<br>
-								매주 월요일 반영
+								<span>마일리지<br></span>
+								<span>${dto.point } point</span>							
 							</div>
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
-									<span>마일리지<br></span>
-									<span>${dto.point } point</span>
-							</div>
+<!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
+<!-- 									<span>마일리지<br></span> -->
+<%-- 									<span>${dto.point } point</span> --%>
+<!-- 							</div> -->
 						</div>
 						</div>
 					</c:if>
 					<c:if test="${dto.grade == 'Gray'}">
 						<div id="gradeblack" class="row">
 						<div class="row gradetext">
-							<div class="col-sm-4 H2" style="color: white; line-height: 50px; padding-top: 2rem; text-align: center;">
+							<div class="col-6 H2" style=" line-height: 50px; text-align: left; padding-left:0rem;">
+								<img src="/images/001.png" style=" height:400px;">
+								
+							</div><br>
+							<div class="col-6 H3" style=""> 
 								<c:if test="${dto.name==null }">
 									${dto.email}
 								</c:if> 
@@ -674,17 +677,13 @@ color:white;
 								</c:if>
 								님<br>
 								안녕하세요.
-							</div><br>
-							<div class="col-sm-4 H3" style="color: white; padding-top: 1.75rem; text-align: center;"> 
-								
-								<br>
-								${dto.grade}<br>
-								매주 월요일 반영
+								<span>마일리지<br></span>
+								<span>${dto.point } point</span>							
 							</div>
-							<div class="col-sm-4 H2" style="color: white; line-height: 50px; padding-top: 2rem; text-align: center;">
-									<span>마일리지<br></span>
-									<span>${dto.point } point</span>
-							</div>
+<!-- 							<div class="col-3 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;"> -->
+<!-- 									<span>마일리지<br></span> -->
+<%-- 									<span>${dto.point } point</span> --%>
+<!-- 							</div> -->
 						</div>
 						</div>
 					</c:if>
