@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 public class ExticketDTO {
+	private int e_num;
 	private String et_email;
 	private String et_title;
 	private String et_place;
@@ -13,6 +14,8 @@ public class ExticketDTO {
 	private String et_username;
 	private String et_phone;
 	private String et_paymethod;
+	private String et_cardnumber;
+	private String et_cardquota;
 	private int et_cost;
 	private int et_count;
 	private int et_point;
@@ -27,12 +30,12 @@ public class ExticketDTO {
 	
 	
 
-
-	public ExticketDTO(String et_email, String et_title, String et_place, String et_date, String et_booknumber,
-			String et_state, String et_username, String et_phone, String et_paymethod, int et_cost, int et_count,
-			int et_point, int et_usedpoint, int et_cpdiscount, String et_cpserial, Timestamp et_buydate,
-			String et_category) {
+	public ExticketDTO(int e_num, String et_email, String et_title, String et_place, String et_date,
+			String et_booknumber, String et_state, String et_username, String et_phone, String et_paymethod,
+			String et_cardnumber, String et_cardquota, int et_cost, int et_count, int et_point, int et_usedpoint,
+			int et_cpdiscount, String et_cpserial, Timestamp et_buydate, String et_category) {
 		super();
+		this.e_num = e_num;
 		this.et_email = et_email;
 		this.et_title = et_title;
 		this.et_place = et_place;
@@ -42,6 +45,8 @@ public class ExticketDTO {
 		this.et_username = et_username;
 		this.et_phone = et_phone;
 		this.et_paymethod = et_paymethod;
+		this.et_cardnumber = et_cardnumber;
+		this.et_cardquota = et_cardquota;
 		this.et_cost = et_cost;
 		this.et_count = et_count;
 		this.et_point = et_point;
@@ -53,6 +58,15 @@ public class ExticketDTO {
 	}
 
 
+
+	public int getE_num() {
+		return e_num;
+	}
+
+
+	public void setE_num(int e_num) {
+		this.e_num = e_num;
+	}
 
 
 	public String getEt_email() {
@@ -145,6 +159,26 @@ public class ExticketDTO {
 	}
 
 
+	public String getEt_cardnumber() {
+		return et_cardnumber;
+	}
+
+
+	public void setEt_cardnumber(String et_cardnumber) {
+		this.et_cardnumber = et_cardnumber;
+	}
+
+
+	public String getEt_cardquota() {
+		return et_cardquota;
+	}
+
+
+	public void setEt_cardquota(String et_cardquota) {
+		this.et_cardquota = et_cardquota;
+	}
+
+
 	public int getEt_cost() {
 		return et_cost;
 	}
@@ -225,5 +259,7 @@ public class ExticketDTO {
 	}
 
 
+
+	
 
 }

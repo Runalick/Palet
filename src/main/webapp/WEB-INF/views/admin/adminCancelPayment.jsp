@@ -77,8 +77,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
+                                <a href="/admin/adminProgram" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Programs
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -87,8 +87,13 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -96,11 +101,7 @@
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> Documentation
-                                </a>
-                            </li>
+
                         </ul>
                         
                     </div>
@@ -111,7 +112,7 @@
                     <div class="col-xl-10 col-lg-9 bg-dark fixed-top py-2 top-navbar">
                         <div class="row align-items-center">
                             <div class="col-md-4">
-                                <div class="text-align text-uppercase mb-0 text-white h3">Payments</div>
+                                <div class="text-align text-uppercase mb-0 text-white h3">Coupons</div>
                             </div>
                             <div class="col-md-5">
                                 <form action="">

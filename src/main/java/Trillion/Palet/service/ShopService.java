@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.ShopDAO;
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.MemberDataDTO;
 
 @Service
 public class ShopService {
@@ -14,9 +15,12 @@ public class ShopService {
 	@Autowired
 	private ShopDAO dao;
 	
-	public List<GoodsDTO> selectBestSeller(int e_num, String option) {
-		return dao.selectBestSeller(e_num, option);
+	public List<GoodsDTO> selectGoods(int e_num, String option, int limit) {
+		return dao.selectGoods(e_num, option, limit);
 	}
 	
+	public List<MemberDataDTO> selectMemberData(String email){
+		return dao.selectMemberData(email);
+	}
 	
 }

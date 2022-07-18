@@ -71,7 +71,7 @@ public class DeliveryController {
 	@ResponseBody
 	@RequestMapping("insertModiNewAddress")
 	public String insertModiNewAddress(DeliveryDTO dto,String modi) {
-//		System.out.println(dto.getName());
+		System.out.println(dto.getName());
 		String email = (String)session.getAttribute("loginEmail");
 		dto.setEmail(email);
 		String name = mServ.getName(email);

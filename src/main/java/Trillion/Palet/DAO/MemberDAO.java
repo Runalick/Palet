@@ -82,6 +82,17 @@ public class MemberDAO {
 	 public MemberDTO getpoint(String email) {
 	    	return mybatis.selectOne("Member.getpoint",email);
 	    }
-    
+	 public int updatePoint(int et_point, int et_usedpoint, String et_email) {
+			
+			Map<Object, Object> param = new HashMap<>();
+			param.put("et_point", et_point);
+			param.put("et_usedpoint", et_usedpoint);
+			param.put("et_email", et_email);
+				
+				return mybatis.update("Member.updatePoint", param);
+				
+			}
+			
+		
 
 }

@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CartListDTO;
+import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
 import Trillion.Palet.DTO.goodsOrderDTO;
 import Trillion.Palet.service.CartService;
+import Trillion.Palet.service.DeliveryService;
 
 
 
@@ -26,6 +28,8 @@ public class CartController {
 	private CartService cServ;
 	@Autowired
 	private HttpSession session;
+	@Autowired
+	private DeliveryService dServ;
 	
 	@ResponseBody
 	@RequestMapping("/isGoodsExist")
@@ -107,11 +111,27 @@ public class CartController {
 	}
 	
 	@RequestMapping("order")
-	public String order(int[] cart_seq) {
+	public String order(int[] cart_seq, Model model) {
 		for(int i=0; i<cart_seq.length;i++) {
 			cServ.insertSelect_Cart(cart_seq[i]);
 		}
+		//default주소 가져오기
+		String email = (String)session.getAttribute("loginEmail");
+		//배송지 등록 안해논 사람 null 포인터 에러나니까 고치기
+		DeliveryDTO dto = dServ.selectDefaultAddress(email);
+		System.out.println(dto.getEmail());
+		System.out.println(dto.getReceiver());
+		System.out.println(dto.getAddress1());
+		model.addAttribute("dto",dto);
 		return "/cart/order";
+	}
+	//주소 선택 창으로 가기
+	@RequestMapping("choosedeliverybtn")
+	public String choosedeliverybtn(Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<DeliveryDTO> list = dServ.selectAllAddress(email);
+		model.addAttribute("list",list);
+		return "/cart/delivery";
 	}
 	
 	@ResponseBody

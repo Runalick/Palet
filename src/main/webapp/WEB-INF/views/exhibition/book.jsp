@@ -1000,8 +1000,17 @@ $(".form-select").on('change',function(){
 		let point = '${price}';
 		let point1 = point.replace(",", "");
 		let point2 = point1.replace("원", "");
+		
+		if('${mdto.grade}'=='White'){
 		finalpoint = parseInt(point2) * 0.01;
-
+		
+		}else if('${mdto.grade}'=='Gray'){
+			finalpoint = parseInt(point2) * 0.05;
+	
+		}else if('${mdto.grade}'=='Black'){
+			finalpoint = parseInt(point2) * 0.1;
+		}
+		
 		$("#point").text(finalpoint + "p");
 
 	}
@@ -1015,9 +1024,9 @@ $(".form-select").on('change',function(){
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
 			amount : 100, //실제 결제되는 가격
-			buyer_email : 'iamport@siot.do',
-			buyer_name : '조양기',
-			buyer_tel : '010-1234-5678',
+			buyer_email : $(".email").val(),
+			buyer_name : $(".username").val(),
+			buyer_tel : $(".phone").val(),
 			buyer_addr : '서울 강남구 도곡동',
 			buyer_postcode : '123-456'
 
@@ -1053,14 +1062,15 @@ $(".form-select").on('change',function(){
 						et_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
 						et_username : $(".username").val(),
 						et_phone : $(".phone").val(),
-						et_paymethod : "card",
+						et_paymethod : rsp.card_name,
+						et_cardnumber : rsp.card_number,
+						et_cardquota : rsp.card_quota,
 						et_cost : price2,
 						et_count : count1,
 						et_point : point2,
 						et_usedpoint : usedpoint3,
 						et_cpdiscount : parseInt($(".form-select option:selected").val()),
 						et_cpserial :  $(".form-select option:selected").attr('value1'),
-
 						et_category : 'E'
 					},
 
@@ -1071,9 +1081,15 @@ $(".form-select").on('change',function(){
 				});
 				var msg = '결제가 완료되었습니다.';
 				msg += '고유ID : ' + rsp.imp_uid;
+				console.log(msg);
 				msg += '상점 거래ID : ' + rsp.merchant_uid;
+				console.log(msg);
 				msg += '결제 금액 : ' + rsp.paid_amount;
+				console.log(msg);
 				msg += '카드 승인번호 : ' + rsp.apply_num;
+				
+				
+			console.log(msg);
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;

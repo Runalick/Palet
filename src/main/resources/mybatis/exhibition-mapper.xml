@@ -59,6 +59,10 @@
   		select * from exhibition where e_num = #{e_num}
   	</select>
   	
-
+ <update id="updateSalesCount">
+  	update exhibition set sales_count=#{et_count} where e_name = #{et_title}
+  </update>
+  
+  
   	
   </mapper>

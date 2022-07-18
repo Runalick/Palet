@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -90,14 +91,6 @@ public class MyPageController {
 		return "/mypage/myTicketDetailview";
 	}
 	
-	@RequestMapping("detailShopping")
-	public String myShopping(Model model) {
-		//String email = (String)session.getAttribute("loginEmail");
-		String email = "iampost@siot.do";
-		List<PayDTO> list = mServ.myShopping(email);
-		model.addAttribute("list",list);
-		return "/mypage/myShopping";
-	}
 	
 	@ResponseBody
 	@RequestMapping("payCancel")
@@ -112,5 +105,85 @@ public class MyPageController {
 		mServ.payCancel(dto);
 		return "success";
 	}
+	//취소환불
+	@RequestMapping("refund")
+	public String refund(Model model) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<CancelListDTO> list = mServ.CancelList(email);
+		for(CancelListDTO dto : list){
+			System.out.println(dto.getTitle());
+			System.out.println(dto.getState());
+			System.out.println(dto.getCategory());
+		}
+		model.addAttribute("list",list);
+		return "/mypage/refund";
+	}
+	//취소환불 ajax
+	@ResponseBody
+	@RequestMapping("refundajax")
+	public List<CancelListDTO> refundajax(Model model,String btn) {
+		String email = (String)session.getAttribute("loginEmail");
+		List<CancelListDTO> list = mServ.refundajax(email,btn);
+		for(CancelListDTO dto : list){
+			System.out.println(dto.getTitle());
+			System.out.println(dto.getState());
+			System.out.println(dto.getCategory());
+		}
+		model.addAttribute("list",list);
+		return list;
+	}
+	
+	
+	// Shopping
+	@RequestMapping("myShopping")
+	public String myShopping(Model model) {
+		//String email = (String)session.getAttribute("loginEmail");
+		String email = "maisy40@naver.com";
+//		List<Object> list = mServ.myShopping(email);
+//		System.out.println(list);
+//		model.addAttribute("list",list);
+		model.addAttribute("email",email);
+		return "/mypage/myShopping";
+	}
+	
+	@ResponseBody
+	@RequestMapping("ShoppingList")
+	public List<Object> ShopingList(int limit, String email) {
+		List<Object> list = mServ.myShopping(limit, email);
+		//System.out.println(list);
+		return list;
+	}
+	
+	@RequestMapping("myShoppingDetail")
+	public String myShoppingDetail(String merchant_uid, Model model) {
+		System.out.println(merchant_uid);
+		String email = (String)session.getAttribute("loginEmail");
+		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
+		Object product = mServ.myShoppingProduct(merchant_uid);
+		String name = mServ.memberName(email);
+		System.out.println(name);
+		
+		model.addAttribute("detail",detail);
+		model.addAttribute("product",product);
+		model.addAttribute("name",name);
+		return "/mypage/myShoppingDetailView";
+	}
+	
+	// 주문완료 -> 배송 중 (1일뒤)
+	@ResponseBody
+	@RequestMapping("changeStateCU")
+	public void changeStateCU(String merchant_uid) {
+		mServ.changeStateCU(merchant_uid);
+	}
+	
+	// 배송 중 -> 배송완료 (주문완료 3일 뒤)
+	@ResponseBody
+	@RequestMapping("changeStateAU")
+	public void changeStateAU(String merchant_uid) {
+		mServ.changeStateAU(merchant_uid);
+	}
+	
+	
+	
 	
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.PayDTO;
 
@@ -26,9 +27,6 @@ public class MypageDAO {
 		return mybatis.selectOne("MyPage.myTicketcnt",email);
 	}
 
-	public List<PayDTO> myShopping(String email) {
-		return mybatis.selectList("MyPage.myShopping", email);
-	}
 	
 	//지난전시, 쓴 티켓
 	public List<ExticketDTO> premyTicket(String email,int limit ) {
@@ -49,31 +47,67 @@ public class MypageDAO {
 		return mybatis.selectOne("MyPage.myTicketDetailview",et_booknumber);
 	}
 
+	//state BC 상태로 변경
 	public int BeforeCancel(CancelDTO dto) {
 //		굿즈랑 클래스도 이런식으로 취소 하면 됩니다
 //		if(dto.getCategory().equals("E")) {
+//		mybatis.update("MyPage.MinusSalesCnt",dto);
 //			return mybatis.update("MyPage.BeforeCancel",dto);
 //		}else if(dto.getCategory().equals("G")){
 		
-//	}else if(dto.getCategory().equals("E")){
+//	}else if(dto.getCategory().equals("G")){
 		
 //	}
 		
-		System.out.println(dto.getBooknumber());
-		System.out.println(dto.getCategory());
-		Map<String,String> param = new HashMap<>();
-		param.put("content", dto.getContent());
-		param.put("category", dto.getCategory());
-		param.put("booknumber", dto.getBooknumber());
 		
-		
-		
-		return mybatis.update("MyPage.BeforeCancel",param);
+		mybatis.update("MyPage.MinusSalesCnt",dto);
+		return mybatis.update("MyPage.BeforeCancel",dto);
 	}
 
 	public int payCancel(CancelDTO dto) {
 		return mybatis.insert("MyPage.payCancel",dto);
 	}
 	
+	
+	// Shopping
+	
+	public List<Object> myShopping(int limit, String email) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("limit", limit);
+		param.put("email", email);
+		return mybatis.selectList("MyPage.myShopping", param);
+	}
+
+	public PayDTO myShoppingDetailView(String merchant_uid) {
+		return mybatis.selectOne("MyPage.myShoppingDetailView", merchant_uid);
+	}
+
+	public Object myShoppingProduct(String merchant_uid) {
+		return mybatis.selectOne("MyPage.myShoppingProduct", merchant_uid);
+	}
+
+	public String memberName(String email) {
+		return mybatis.selectOne("MyPage.memberName", email);
+	}
+
+	public int changeStateCU(String merchant_uid) {
+		return mybatis.update("MyPage.changeStateCU",merchant_uid);
+	}
+
+	public int changeStateAU(String merchant_uid) {
+		return mybatis.update("MyPage.changeStateAU",merchant_uid);
+	}
+
+	public List<CancelListDTO> CancelList(String email) {
+		return mybatis.selectList("MyPage.CancelList",email);
+	}
+	//
+	public List<CancelListDTO> refundajax(String email, String btn) {
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("btn", btn);
+		
+		return mybatis.selectList("MyPage.refundajax",param);
+	}
 
 }

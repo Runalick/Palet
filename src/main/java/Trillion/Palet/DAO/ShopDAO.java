@@ -9,31 +9,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.GoodsDTO;
-import Trillion.Palet.DTO.ShopDTO;
+import Trillion.Palet.DTO.MemberDataDTO;
 
 @Repository
 public class ShopDAO {
 	@Autowired
 	private SqlSession mybatis;
 	
-	public List<GoodsDTO> selectBestSeller(int e_num, String option) {
+	public List<GoodsDTO> selectGoods(int e_num, String option, int limit) {
 		Map<String, Object> param = new HashMap<>();
 		param.put("e_num", e_num);
 		param.put("option", option);
-		return mybatis.selectList("Shop.selectBestSeller", param);
+		param.put("limit", limit);
+		return mybatis.selectList("Shop.selectGoods", param);
 	}
 	
-	public List<ShopDTO> selectLowPrice(int e_numSelectVal) {
-		return mybatis.selectList("Shop.selectLowPrice", e_numSelectVal);
+	public List<MemberDataDTO> selectMemberData(String email){
+		return mybatis.selectList("Shop.selectMemberData", email);
 	}
-	
-	public List<ShopDTO> selectHighPrice(int e_numSelectVal) {
-		return mybatis.selectList("Shop.selectHighPrice", e_numSelectVal);
-	}
-	
-	public String goodsPic(int g_num) {
-		return mybatis.selectOne("Shop.goodsPic", g_num);
-	}
-	
-	
 }

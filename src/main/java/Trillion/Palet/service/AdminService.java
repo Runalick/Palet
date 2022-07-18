@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
-import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.ProgramDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
 
@@ -49,6 +49,10 @@ public class AdminService {
 	
 	public int memberCheckUpdate (String email, String grade) {
 		return adao.memberCheckUpdate(email, grade);
+	}
+	
+	public List<AdminDTO> getMemberPayment(String email) {
+		return adao.getMemberPayment(email);
 	}
 	
 	// Exhibition Category
@@ -95,6 +99,17 @@ public class AdminService {
 		adao.adminGoodsUpdate(gdto);
 	}
 	
+	// Program Category
+	
+	public List<ProgramDTO> programSelectByPage(int cpage, String value){
+		return adao.programSelectByPage(cpage, value);
+	}
+	
+	public String getProgramPageNavi(int cpage) {
+		return adao.getProgramPageNavi(cpage);
+	}
+	
+	
 	// Payment Category
 	
 	public List<TotalPaymentDTO> paymentSelectUIDByPage(int cpage, String uid){
@@ -129,6 +144,10 @@ public class AdminService {
 		return adao.getAdminExticketDetail(merchant_uid);
 	}
 	
+	public AdminDTO getAdminProticketDetail(String merchant_uid) {
+		return adao.getAdminProticketDetail(merchant_uid);
+	}
+	
 	// Payment > Cancel
 	
 	public List<CancelDTO> cancelSelectByPage(int cpage){
@@ -151,6 +170,10 @@ public class AdminService {
 		return adao.cancelGoodsUpdate(check);
 	}
 	
+	public int cancelProticketUpdate(String check) {
+		return adao.cancelProticketUpdate(check);
+	}
+	
 	public int cancelPaymentCheckDelete(String check) {
 		return adao.cancelPaymentCheckDelete(check);	
 	}
@@ -163,7 +186,9 @@ public class AdminService {
 		return adao.getWeekSales();
 	}
 	
-
+	public List<SalesDTO> getWeekCount(){
+		return adao.getWeekCount();
+	}
 	
 }
 

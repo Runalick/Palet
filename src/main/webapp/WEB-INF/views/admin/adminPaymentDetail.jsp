@@ -76,8 +76,8 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Class
+                                <a href="/admin/adminProgram" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Programs
                                 </a>
                             </li>
                             <li class="nav-item">
@@ -89,17 +89,18 @@
                                 <a href="/admin/adminCoupon?cpage=1" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
+                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
+                                </a>
                             </li>                            
                             <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
-                                    <i class="bi bi-folder text-black fa-lg mr-3"></i> Documentation
-                                </a>
-                            </li>
+
                         
                         </ul>
                         
@@ -247,6 +248,10 @@
 			           			<c:if test="${dto.category == 'E'}">
 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='Exhibition' readonly style="width:50%; text-align:center"></div>
 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='Exhibition' readonly style="width:70%; text-align:center"></div>
+			           			</c:if>
+			           			<c:if test="${dto.category == 'P'}">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='Program' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='Program' readonly style="width:70%; text-align:center"></div>
 			           			</c:if>				           			
 			           		</div>
 							<div class="row pt-3" >
@@ -282,8 +287,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Added Point</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.point }' readonly style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.point }' readonly style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='+ ${dto.point } point' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='+ ${dto.point } point' readonly style="width:70%; text-align:center"></div>			           			
 			           		</div>	
 			           		</c:if>
 			           		
@@ -293,8 +298,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Used Point</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.usedpoint }' readonly style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.usedpoint }' readonly style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='- ${dto.usedpoint } point' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='- ${dto.usedpoint } point' readonly style="width:70%; text-align:center"></div>			           			
 			           		</div>	
 			           		</c:if>
 			           		
@@ -304,8 +309,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Coupon DC</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.cpdiscount }[${dto.cpserial}]' readonly style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.cpdiscount }[${dto.cpserial}]' readonly style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.cpdiscount }원 할인 [${dto.cpserial}]' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.cpdiscount }원 할인 [${dto.cpserial}]' readonly style="width:70%; text-align:center"></div>			           			
 			           		</div>	
 			           		</c:if>
 			           		
@@ -325,8 +330,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Payment</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.price }' readonly style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.price }' readonly style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.price }원' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.price }원' readonly style="width:70%; text-align:center"></div>			           			
 			           		</div>
 			            	<div class="row pt-3" >
 			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Pay Method </div>
@@ -354,8 +359,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Installments</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.card_quota }' readonly style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.card_quota }' readonly style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${dto.card_quota } 개월' readonly style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${dto.card_quota } 개월' readonly style="width:70%; text-align:center"></div>			           			
 			           		</div>	
 			           		</c:if>
 			            	<div class="row pt-3" >

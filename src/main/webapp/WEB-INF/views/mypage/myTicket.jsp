@@ -31,22 +31,21 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -67,6 +66,18 @@
 	height: 1.875rem;
 }
 
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -74,20 +85,23 @@
 	padding-right: 2.5rem;
 	height: 5rem;
 	background-color: white;
-	z-index: 5;
-}
- .container, .container-fluid,  .container-lg, .container-md,
-   .container-sm, .container-xl, .container-xxl {
-   overflow-x: hidden;
-} 
-.navbar {
-	height: 5rem;
-	padding: 0px;
 }
 
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow-x: hidden;
+		}
+		
+/* 		.overflow-auto{ */
+/* 			overflow: hidden; */
+/* 		}  */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -117,15 +131,33 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -287,6 +319,7 @@ body a {
 .menu-title {
 	display: block;
 	color: black;
+	border-bottom: 1px solid black;
 	padding: 1rem;
 }
 
@@ -310,7 +343,10 @@ li div {
 .small-navi {
 	margin: 1.25rem 0rem;
 }
-
+#row1>div{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 #select {
 	width: 100%;
 	border: 0px;
@@ -390,11 +426,11 @@ li div {
 </style>
 </head>
 <body>
-	<header>
+	<div class="container-fluid">
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
 			<div class="container">
-					<c:choose>
+				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
@@ -529,21 +565,17 @@ li div {
 				</div>
 				</c:otherwise>
 				
-				
-				
-				
 				</c:choose>
 			</div>
 		</div>
-	</header>
-	<div class="container-fluid" id="mypage-area">
+	
 		<div class="container">
 			<div class="row mypage-wrap">
-
+				
+				<div class="row" id="row1">
 				<div class="col-12 d-block d-lg-none H1 small-navi">
 					<button id="select">MY PAGE</button>
 				</div>
-
 
 				<div class="navi">
 					<a href="/mypage/main" style="font-size: 1.625rem;" class="main">
@@ -578,32 +610,24 @@ li div {
 					</div>
 				</div>
 
-
-
-
-
-
-				<div class="content">
-
-
-
-					<div class="row" style="padding: 1rem;">
-						<div class="col-12 H5">진행 중 전시 티켓</div>
-<c:choose>
-<c:when test="${cnt !=0}"> 
-	<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
-  <div class="carousel-inner">
+			<div class="content">
+				<div class="row" style="padding: 1rem;">
+					<div class="col-12 H5">진행 중 전시 티켓</div>
+			<c:choose>
+				<c:when test="${cnt !=0}"> 
+					<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
+  					<div class="carousel-inner">
   
-<!--   반복 -->
-<c:forEach var="i" items="${list }"  varStatus="status">
-		<c:if test="${status.first }">
-		<div class="carousel-item active">
-		</c:if>
-		<c:if test="${!status.first }">
-		<div class="carousel-item ">
-		</c:if>
-     	<div class="col-12 ticket">
-     	<input type="hidden" value="${i.et_booknumber }">
+			<!--  반복 -->
+			<c:forEach var="i" items="${list }"  varStatus="status">
+					<c:if test="${status.first }">
+						<div class="carousel-item active">
+					</c:if>
+					<c:if test="${!status.first }">
+						<div class="carousel-item ">
+					</c:if>
+			     	<div class="col-12 ticket">
+			     	<input type="hidden" value="${i.et_booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
@@ -613,63 +637,34 @@ li div {
 										<div class="body3" style="color: white" >예매번호 : ${i.et_booknumber }</div>
 									<div class="body3" style="color: white;">${i.et_date }</div>
 									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
-
 								</div>
-
 							</div>
-
 						</div>
-						
-    </div>
-    </c:forEach>
-<!--     여기까지 -->
-   
-   
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-						
-						
-						
-						
-						
-						
-						
-						
-						
-						
-					
-						
-						
-						
-						
-</c:when>
-<c:otherwise>
-<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
-</c:otherwise>
-</c:choose>			
-						
-						
-						
-						
-						
-						<div class="col-12 H5">지난 전시 티켓</div>
-						<div class="col-12">
-							<div class="row pre-ticket-row">
-
-								<!-- 						반복문 -->
-								<c:forEach var="i" items="${prelist }">
-								<div class="col-6 pre-ticket">
+					</c:forEach>					
+			    </div>
+				<!-- 여기까지 -->
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+			    <span class="visually-hidden">Next</span>
+			  </button>
+  			</c:when>
+				<c:otherwise>
+					<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
+				</c:otherwise>
+			</c:choose>	
+		</div>
+			<div class="col-12 H5">지난 전시 티켓</div>
+				<div class="col-12">
+					<div class="row pre-ticket-row">
+						<!-- 반복문 -->
+						<c:forEach var="i" items="${prelist }">
+							<div class="col-6 pre-ticket">
 								<input type="hidden" value="${i.et_booknumber }">
-
-
 									<div class="row" style="height: 100%">
 										<div class="col-3" style="padding: 1rem;">
 											<img src="/images/anywayloveS.png" class="w-100 h-100">
@@ -677,57 +672,28 @@ li div {
 										<div class="col-9" style="position: relative">
 											<div class="pre-title" style="color: #637381;">${i.et_title }</div>
 											<div class="body6" style="color: #637381;">${i.et_date }</div>
-											
-
 										</div>
-
 									</div>
-
-
 								</div>
-								</c:forEach>
-								
-								
-								
-								
-							</div>
-
-
-
-
+							</c:forEach>
 						</div>
 					</div>
-
-
-
-
-
-
-
-
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
+		</div>
 
 		<!-- 푸터단 -->
 		<div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
                 </div>
             </div>
         </div>
-		
 	</div>
 
 <script>

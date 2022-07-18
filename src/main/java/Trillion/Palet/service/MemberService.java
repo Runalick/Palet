@@ -72,4 +72,10 @@ public class MemberService {
 		return dao.getName(email);
 	}
 	
+	public int updatePoint(int et_point, int et_usedpoint, String et_email) {
+		
+		return dao.updatePoint(et_point, et_usedpoint, et_email);
+		
+	}
+	
 }

@@ -136,85 +136,100 @@ background:#919EAB;
 				</div>
 
 <script>
+
+function insert(){
+
+	
+	
+}
 //수정
 $(".modibtn").on("click",function(){
-if(!$(".check").prop("checked")){
-		
-		var rtn = false;
+	var rtn = true;
+	if(!$(".check").prop("checked")){
 		$.ajax({
 			url:"/delivery/checkdefaultAddress",
-			async:false
+			async:false,
+			dataType:"json"
 		}).done(function(resp){
-			console.log(resp);
-			if(resp = 'false'){
+			if(resp == false){
 				alert("기본주소지 한 개 필수입니다.");
-				
-			}else{
-				rtn=true;
+				rtn=false;
 			}
 		});
-		return rtn;
 		
 	}
-	if($(".buyer_name").val()==''){
-		alert("받는 사람 이름을 입력해주세요 ");
-		return false;
-	}
-	if($(".buyer_tel").val()==''){
-		alert("핸드폰 번호를 입력해주세요 ");
-		return false;
-	}
-	if($(".buyer_postcode").val()==''){
-		alert("우편주소를 입력해주세요");
-		return false;
-	}
-	if($(".buyer_address2").val()==''){
-		alert("상세주소를 입력해주세요");
+	
+	if(rtn==false){
 		return false;
 	}
 	
-	
-	console.log($(".modi").val())
-	deliveryaddress_seq=$(this).val();
-	$.ajax({
-		url:"/delivery/insertModiNewAddress",
-		data:{
-			receiver:$(".buyer_name").val(),
-			phone:$(".buyer_tel").val(),
-			postcode:$(".buyer_postcode").val(),
-			address1:$(".buyer_addr").val(),
-			address2:$(".buyer_address2").val(),
-			defaultaddress:$(".check").val(),
-			modi:$(".modi").val(),
-			deliveryaddress_seq:deliveryaddress_seq	
+		if($(".buyer_name").val()==''){
+			alert("받는 사람 이름을 입력해주세요 ");
+			return false;
 		}
-		}).done(function(resp){
-			alert("수정되었습니다.");
-			opener.parent.location.reload();
-			window.close();
-			})
-})
+		if($(".buyer_tel").val()==''){
+			alert("핸드폰 번호를 입력해주세요 ");
+			return false;
+		}
+		if($(".buyer_postcode").val()==''){
+			alert("우편주소를 입력해주세요");
+			return false;
+		}
+		if($(".buyer_address2").val()==''){
+			alert("상세주소를 입력해주세요");
+			return false;
+		}
+		
+		console.log($(".modi").val())
+		deliveryaddress_seq=$(this).val();
+		$.ajax({
+			url:"/delivery/insertModiNewAddress",
+			data:{
+				receiver:$(".buyer_name").val(),
+				phone:$(".buyer_tel").val(),
+				postcode:$(".buyer_postcode").val(),
+				address1:$(".buyer_addr").val(),
+				address2:$(".buyer_address2").val(),
+				defaultaddress:$(".check").val(),
+				modi:$(".modi").val(),
+				deliveryaddress_seq:deliveryaddress_seq	
+			}
+			}).done(function(resp){
+				alert("수정되었습니다.");
+				opener.parent.location.reload();
+				window.close();
+				})
+		
+	
+	
+	
+});
+
+
 //등록
 $(".insert").on("click",function(){
-
+	var rtn = true;
 	if(!$(".check").prop("checked")){
 		
-		var rtn = false;
 		$.ajax({
 			url:"/delivery/checkdefaultAddress",
-			async:false
+			async:false,
+			dataType:"json"
 		}).done(function(resp){
 			console.log(resp);
-			if(resp = 'false'){
+			if(resp == false){
 				alert("기본주소지 한 개 필수입니다.");
-				
-			}else{
-				rtn=true;
+				rtn=false;
 			}
 		});
-		return rtn;
+		
+	
 		
 	}
+	if(rtn==false){
+		return false;
+	}
+	
 	if($(".buyer_name").val()==''){
 		alert("받는 사람 이름을 입력해주세요 ");
 		return false;
@@ -248,6 +263,7 @@ $(".insert").on("click",function(){
 			opener.parent.location.reload();
 			window.close();
 			})
+
 		});
 
 $(document).ready(function(){

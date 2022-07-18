@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.MypageDAO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.PayDTO;
 
@@ -22,10 +23,6 @@ public class MypageService {
 
 	public int myTicketcnt(String email) {
 		return mdao.myTicketcnt(email);
-	}
-
-	public List<PayDTO> myShopping(String email) {
-		return mdao.myShopping(email);
 	}
 	
 
@@ -46,5 +43,40 @@ public class MypageService {
 		mdao.BeforeCancel(dto);
 		return mdao.payCancel(dto);
 	}
+	
+	// Shopping
+
+	public List<Object> myShopping(int limit, String email) {
+		return mdao.myShopping(limit, email);
+	}
+
+	public PayDTO myShoppingDetailView(String merchant_uid) {
+		return mdao.myShoppingDetailView(merchant_uid);
+	}
+
+	public List<CancelListDTO> CancelList(String email) {
+		return mdao.CancelList(email);
+	}
+		
+	public Object myShoppingProduct(String merchant_uid) {
+		return mdao.myShoppingProduct(merchant_uid);
+	}
+
+	public String memberName(String email) {
+		return mdao.memberName(email);
+	}
+
+	public int changeStateCU(String merchant_uid) {
+		return mdao.changeStateCU(merchant_uid);
+	}
+
+	public int changeStateAU(String merchant_uid) {
+		return mdao.changeStateAU(merchant_uid);
+	}
+
+	public List<CancelListDTO> refundajax(String email, String btn) {
+		return mdao.refundajax(email,btn);
+	}
+
 	
 }

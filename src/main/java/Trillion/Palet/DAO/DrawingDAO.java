@@ -23,8 +23,8 @@ public class DrawingDAO {
 		return  mybatis.selectList("Event.selectImage");
 	}
 	
-	public List<Object> selectAll() {
-		return  mybatis.selectList("Event.selectAll");
+	public List<Object> selectAll(int limit) {
+		return  mybatis.selectList("Event.selectAll", limit);
 	}
 	
 	
