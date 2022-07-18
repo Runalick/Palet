@@ -28,6 +28,7 @@ public class AdminDTO {
 	private int cpdiscount;
 	private String cpserial;
 	private String options;
+	private int nums;
 	
 	
 	public AdminDTO() {
@@ -39,7 +40,7 @@ public class AdminDTO {
 	public AdminDTO(String merchant_uid, String name, String email, String phone, String address1, String address2,
 			int zipcode, String title, String place, String card_name, String card_number, int card_quota,
 			String period, String state, String category, int price, Timestamp pay_time, String delivery_text,
-			int count, int point, int usedpoint, int cpdiscount, String cpserial, String options) {
+			int count, int point, int usedpoint, int cpdiscount, String cpserial, String options, int nums) {
 		super();
 		this.merchant_uid = merchant_uid;
 		this.name = name;
@@ -65,6 +66,7 @@ public class AdminDTO {
 		this.cpdiscount = cpdiscount;
 		this.cpserial = cpserial;
 		this.options = options;
+		this.nums = nums;
 	}
 	
 	// payment용(GOODS)용 생성자
@@ -96,6 +98,7 @@ public class AdminDTO {
 		this.cpdiscount = cpdiscount;
 		this.cpserial = cpserial;
 		this.options = options;
+		
 	}
 	
 	// Exticket / proticket용 생성자
@@ -135,6 +138,7 @@ public class AdminDTO {
 		this.pay_time = pay_time;
 		this.category = category;
 	}
+	
 
 	public String getMerchant_uid() {
 		return merchant_uid;
@@ -328,7 +332,13 @@ public class AdminDTO {
 		this.options = options;
 	}
 	
-	
+	public int getNums() {
+		return nums;
+	}
+
+	public void setNums(int nums) {
+		this.nums = nums;
+	}
 	
 	
 	

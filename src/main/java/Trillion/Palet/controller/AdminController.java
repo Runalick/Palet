@@ -461,12 +461,18 @@ public class AdminController {
 				// update exhibition 
 				// AC로 업데이트 
 				aServ.cancelExticketUpdate(check);
+				// 세일즈 카운트 복구
+				aServ.cancelExAfterWorks(check);
 			}else if (category.equals("G")) {
 				// update goods(payment)
 				// AC로 업데이트 
 				aServ.cancelGoodsUpdate(check);
+				// 세일즈 카운트, 재고 복구
+				aServ.cancelGoodsAfterWorks(check); 
 			}else if (category.equals("P")) {
 				aServ.cancelProticketUpdate(check);
+				// 세일즈 카운트 복구
+				aServ.cancelProAfterWorks(check);
 			}
 			
 			// cancel table delete

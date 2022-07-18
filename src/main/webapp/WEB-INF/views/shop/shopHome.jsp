@@ -188,7 +188,7 @@
 /* 정렬기준 버튼(select option) */
 .form-select {
 	border: 1px solid #CFD4D9;
-	box-shadow: 0px 0px 0px #CBDAFC;
+/* 	box-shadow: 0px 0px 0px #CBDAFC; */
 	border-radius: 0.313rem;
 	/*        width: 15rem;  */
 	height: 3rem;
@@ -762,37 +762,25 @@
 					});
 
 	//   전시회 카테고리 변경 이벤트
-	$(document)
-			.on(
-					"click",
-					".button",
-					function() {
-						$(this).addClass("active");
-						$(".button").not(this).removeClass("active");
-						$(".form-select").val("sell");
-						$
-								.ajax({
-									url : "/shop/selectGoods",
-									data : {
-										"e_num" : $(".active").attr("id"),
-										"option" : $("#select_value").val(),
-										"limit" : "1"
-									}
-								})
-								.done(
-										function(resp) {
-											$(".list").empty();
-											for (i = 0; i < resp.length; i++) {
-												$(".list")
-														.append(
-																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-																		+ resp[i].g_num
-																		+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-																		+ resp[i].g_name
-																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
-																		+ resp[i].g_price
-																				.toLocaleString()
-																		+ "원</div></div>");
+	$(document).on("click", ".button",function() {
+		console.log($("#select_value").val());
+		$(this).addClass("active");
+		$(".button").not(this).removeClass("active");
+		$.ajax({url : "/shop/selectGoods",
+				data : {"e_num" : $(".active").attr("id"),
+						"option" : "sales_count desc",
+						"limit" : "1"
+						}
+					}).done(function(resp) {
+						$(".list").empty();
+						for (i = 0; i < resp.length; i++) {
+							$(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
+												+ resp[i].g_num
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
+												+ resp[i].g_name
+												+ "</div><div class='goodsPrice' style='text-align:left;'>"
+												+ resp[i].g_price.toLocaleString()
+												+ "원</div></div>");
 											}
 										})
 					});

@@ -188,7 +188,7 @@
 										<hr>
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
-	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
+	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
 	                            			<input type="hidden" value="${i.booknumber }">
 	                            			<div class="col-4 px-4 body2">${i.content } </div>
 				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.category }</div>
