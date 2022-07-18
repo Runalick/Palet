@@ -15,6 +15,7 @@ import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
@@ -187,7 +188,11 @@ public class MyPageController {
 		mServ.changeStateAU(merchant_uid);
 	}
 	
-	
-	
+	@ResponseBody
+	@RequestMapping("mypageUserDetail")
+	public List<MypageUserDetailDTO> mypageUserDetail(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.mypageUserDetail(email);
+	}
 	
 }
