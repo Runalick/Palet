@@ -3,7 +3,7 @@ package Trillion.Palet.DTO;
 import java.sql.Timestamp;
 
 public class CancelListDTO {
-	private int nums;
+	private int g_seq;
 	private String email;
 	private String title;
 	private int totalprice;
@@ -18,10 +18,10 @@ public class CancelListDTO {
 	public CancelListDTO() {}
 
 	
-	public CancelListDTO(int nums, String email, String title, int totalprice, Timestamp pay_time, String state,
+	public CancelListDTO(int g_seq, String email, String title, int totalprice, Timestamp pay_time, String state,
 			String category, String options, String sysname, String mained, String uids) {
 		super();
-		this.nums = nums;
+		this.g_seq = g_seq;
 		this.email = email;
 		this.title = title;
 		this.totalprice = totalprice;
@@ -35,12 +35,12 @@ public class CancelListDTO {
 	}
 
 
-	public int getNums() {
-		return nums;
+	public int getG_seq() {
+		return g_seq;
 	}
 
-	public void setNums(int nums) {
-		this.nums = nums;
+	public void setG_seq(int g_seq) {
+		this.g_seq = g_seq;
 	}
 
 	public String getEmail() {
@@ -122,6 +122,9 @@ public class CancelListDTO {
 	public void setUids(String uids) {
 		this.uids = uids;
 	}
+
+	
+	
 	
 	
 	

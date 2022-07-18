@@ -21,19 +21,19 @@ public class CartDAO {
 	@Autowired
 	private SqlSession mybatis;
 	
-	public boolean isGoodsExist(int g_num,String email) {
+	public boolean isGoodsExist(int g_seq,String email) {
 		Map<Object,Object> param = new HashMap<>();
-		param.put("g_num",  g_num);
+		param.put("g_seq",  g_seq);
 		param.put("email", email);
 		System.out.println("---");
-		System.out.println(g_num);
+		System.out.println(g_seq);
 		System.out.println(email);
 		return mybatis.selectOne("Cart.isGoodsExist",param);
 	}
 
-	public int insertCart(int g_num,int cartstock,String email) {
+	public int insertCart(int g_seq,int cartstock,String email) {
 		Map<Object,Object> param = new HashMap<>();
-		param.put("g_num",  g_num);
+		param.put("g_seq",  g_seq);
 		param.put("cartstock", cartstock);
 		param.put("email", email);
 		return mybatis.insert("Cart.insertCart",param);
@@ -48,14 +48,14 @@ public class CartDAO {
 		return mybatis.selectOne("Cart.total",email);
 	}
 
-	public int delete(int g_num) {
-		return mybatis.delete("Cart.delete",g_num);
+	public int delete(int g_seq) {
+		return mybatis.delete("Cart.delete",g_seq);
 	}
 
-	public int selectModiOne(int g_num,int cartstock,String email) {
+	public int selectModiOne(int g_seq,int cartstock,String email) {
 	
 		Map<Object,Object>param = new HashMap<>();
-		param.put("g_num", g_num);
+		param.put("g_seq", g_seq);
 		param.put("cartstock", cartstock);
 		param.put("email", email);
 		return mybatis.update("Cart.selectModiOne",param);
@@ -73,9 +73,9 @@ public class CartDAO {
 		
 	}
 
-	public boolean isGoodsStocksame(int g_num, int cartstock,String email) {
+	public boolean isGoodsStocksame(int g_seq, int cartstock,String email) {
 		Map<Object,Object> param = new HashMap<>();
-		param.put("g_num",  g_num);
+		param.put("g_seq",  g_seq);
 		param.put("cartstock", cartstock);
 		param.put("email", email);
 		return mybatis.selectOne("Cart.isGoodsStocksame",param);

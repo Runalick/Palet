@@ -42,8 +42,8 @@ public class ShopController {
 		String email = (String)session.getAttribute("loginEmail");
 		GoodsDTO dto = gServ.goodsdetail(g_num);
 		
-		//굿즈 관련 정보 삭제해도됨
-//		List<GoodsDTO> list = gServ.getoption(dto.getG_name());
+		//굿즈 관련 정보 
+		List<GoodsDTO> list = gServ.getoption(dto.getG_num());
 		
 		//장바구니 담긴 갯수
 		if(email !=null) {
@@ -53,6 +53,7 @@ public class ShopController {
 		
 		model.addAttribute("loginEmail",email);
 		model.addAttribute("dto",dto);
+		model.addAttribute("list",list);
 		return "/shop/detailview";
 	}
 	

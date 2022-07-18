@@ -35,8 +35,8 @@ public class GoodsDAO {
 		return mybatis.selectOne("Goods.selectdetail",g_num);
 	}
 
-	public List<GoodsDTO> getoption(String g_name) {
-		return mybatis.selectList("Goods.getoption",g_name);
+	public List<GoodsDTO> getoption(int g_num) {
+		return mybatis.selectList("Goods.getoption",g_num);
 	}
 	
 	public int goodsPicInsert(GoodsPicDTO dto) {

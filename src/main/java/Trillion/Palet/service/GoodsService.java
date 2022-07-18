@@ -71,8 +71,8 @@ public class GoodsService {
 	}
 
 	//같은 이름 다른 옵션 가져오기
-	public List<GoodsDTO> getoption(String g_name) {
-		return dao.getoption(g_name);
+	public List<GoodsDTO> getoption(int g_num) {
+		return dao.getoption(g_num);
 	}
 	
 }
