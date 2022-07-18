@@ -69,6 +69,7 @@ public class AdminService {
 		adao.adminExhibitionUpdate(edto);
 	}
 	
+	
 	// Goods Category
 	
 	public List<GoodsDTO> goodsSelectByPage(int cpage){
@@ -108,7 +109,6 @@ public class AdminService {
 	public String getProgramPageNavi(int cpage) {
 		return adao.getProgramPageNavi(cpage);
 	}
-	
 	
 	// Payment Category
 	
@@ -178,6 +178,37 @@ public class AdminService {
 		return adao.cancelPaymentCheckDelete(check);	
 	}
 	
+	public void cancelExAfterWorks(String check) {
+		adao.restoreExCountAndStock(check);
+		
+		int result = adao.checkUsedExPoint(check);
+		
+		if (result != 0) {
+			adao.restoreExPoint(check);
+		}
+		
+	}
+	
+	public void cancelGoodsAfterWorks(String check) {
+		adao.restoreGoodsCountAndStock(check);
+		
+		int result = adao.checkUsedGoodsPoint(check);
+		
+		if (result != 0) {
+			adao.restoreGoodsPoint(check);
+		}
+		
+	}
+	
+	public void cancelProAfterWorks (String check)  {
+		adao.restoreProCountAndStock(check);
+		
+		int result = adao.checkUsedProPoint(check);
+		
+		if(result != 0) {
+			adao.restoreProPoint(check);
+		}
+	}
 
 	
 	// etc..
