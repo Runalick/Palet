@@ -698,12 +698,28 @@ color:white;
 	<script>
 	window.onload = function(){
 		$.ajax({
-			url:"/mypage/mypageUserDetail"
+			url:"/mypage/selectMyCoupon"
 		}).done(function(resp){
 			console.log(resp);
 			for(let i = 0; i < resp.length; i++){
 				$(".coupon").append("<div>"+resp[i].category+"</div>");
-				$(".ticket").append("<div>"+resp[i].et_title+"</div>");
+			}
+		})
+		
+		$.ajax({
+			url:"/mypage/selectMyexhibition"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
+				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"'><div class='row' style='border: 1px solid black; border-radius:0.5rem; height:15rem;'><div class='col-3' style='border-right: 1px solid black'><img class='con' referrerpolicy='no-referrer' src="+resp[i].ep_sysname+"></div><div class='col-9'>"+resp[i].et_title+"</div></div></a>");
+			}
+		})
+		
+		$.ajax({
+			url:"/mypage/selectMyGoods"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
 				$(".goods").append("<div>"+resp[i].g_name+"</div>");
 			}
 		})

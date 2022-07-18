@@ -189,10 +189,24 @@ public class MyPageController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("mypageUserDetail")
-	public List<MypageUserDetailDTO> mypageUserDetail(){
+	@RequestMapping("selectMyCoupon")
+	public List<MypageUserDetailDTO> selectMyCoupon(){
 		String email = (String)session.getAttribute("loginEmail");
-		return mServ.mypageUserDetail(email);
+		return mServ.selectMyCoupon(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectMyexhibition")
+	public List<MypageUserDetailDTO> selectMyexhibition(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyexhibition(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectMyGoods")
+	public List<MypageUserDetailDTO> selectMyGoods(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyGoods(email);
 	}
 	
 }

@@ -107,8 +107,16 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.refundajax",param);
 	}
 	
-	public List<MypageUserDetailDTO> mypageUserDetail(String email){
-		return mybatis.selectList("MyPage.mypageUserDetail",email);
+	public List<MypageUserDetailDTO> selectMyCoupon(String email){
+		return mybatis.selectList("MyPage.selectMyCoupon",email);
+	}
+	
+	public List<MypageUserDetailDTO> selectMyexhibition(String email){
+		return mybatis.selectList("MyPage.selectMyexhibition",email);
+	}
+
+	public List<MypageUserDetailDTO> selectMyGoods(String email){
+		return mybatis.selectList("MyPage.selectMyGoods",email);
 	}
 
 }
