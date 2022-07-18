@@ -513,7 +513,7 @@
 						.append(
 								"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
 										+ resp[i].g_num
-										+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
+										+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
 										+ resp[i].g_name
 										+ "</div><div class='goodsPrice' >"
 										+ resp[i].g_price
@@ -549,7 +549,7 @@
 								.append(
 										"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
 												+ resp[i].g_num
-												+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
 												+ resp[i].g_name
 												+ "</div><div class='goodsPrice' >"
 												+ resp[i].g_price
@@ -658,7 +658,7 @@
 									.append(
 											"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
 													+ resp[i].g_num
-													+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
+													+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
 													+ resp[i].g_name
 													+ "</div><div class='goodsPrice' >"
 													+ resp[i].g_price
@@ -694,7 +694,7 @@
 											.append(
 													"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
 															+ resp[i].g_num
-															+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
+															+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
 															+ resp[i].g_name
 															+ "</div><div class='goodsPrice' >"
 															+ resp[i].g_price
@@ -751,7 +751,7 @@
 														.append(
 																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
 																		+ resp[i].g_num
-																		+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+																		+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
 																		+ resp[i].g_name
 																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
 																		+ resp[i].g_price
@@ -787,7 +787,7 @@
 														.append(
 																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
 																		+ resp[i].g_num
-																		+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+																		+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
 																		+ resp[i].g_name
 																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
 																		+ resp[i].g_price
@@ -818,7 +818,7 @@
 										.append(
 												"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
 														+ resp[i].g_num
-														+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' style='text-align:left;'>"
+														+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
 														+ resp[i].g_name
 														+ "</div><div class='goodsPrice' style='text-align:left;'>"
 														+ resp[i].g_price
