@@ -641,15 +641,13 @@ color:white;
 							<div class="row">
 								<div class="col-12" style="padding-bottom:5rem; margin-bottom:1.5rem;">
 									<div class="h3"><i class="fa-solid fa-coins"></i> 마일리지</div>
-									<div>회원님께서 보유하신 포인트 잔액입니다.</div>
-									<hr>
-		 							<div>${dto.point } POINT</div>
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 보유하신 포인트 잔액입니다.</div>
+		 							<div style="padding-top:1rem;">${dto.point } POINT</div>
 	 							</div>
 	 							<div class="col-12" style="margin-bottom:1.5rem;">
 		 							<div class="h3"><i class="fa-solid fa-ticket-simple"></i> 쿠폰</div>
-									<div>회원님께서 보유하신 쿠폰입니다.</div>
-									<hr>
-		 							<div class="coupon"> 
+									<div style="border-bottom:1px solid black; padding-bottom:0.5rem;">회원님께서 보유하신 쿠폰입니다.</div>
+		 							<div class="coupon" style="padding-top:1rem;"> 
 		 							
 		 							</div>
 	 							</div>
@@ -659,17 +657,15 @@ color:white;
 							<div class="row">
 								<div class="col-12 col-md-6" style="margin-bottom:1.5rem; padding-bottom:5rem;">
 									<div class="h3"><i class="fa-solid fa-ticket"></i> 최근 예매 내역</div>
-									<div>회원님께서 최근 전시 또는 프로그램 티켓을 예매하신 내역입니다.</div>
-									<hr>
-									<div class="ticket"> 
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 최근 전시 또는 프로그램 티켓을 예매하신 내역입니다.</div>
+									<div class="ticket" style="padding-top:1rem;"> 
 									
 									</div>
 								</div>
 								<div class="col-12 col-md-6" style="margin-bottom:1.5rem; padding-bottom:5rem;">
 									<div class="h3"><i class="fa-solid fa-box"></i> 최근 주문 내역</div>
-									<div>회원님께서 최근 상품을 구매하신 내역입니다.</div>
-									<hr>
-									<div class="goods"> 
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 최근 상품을 구매하신 내역입니다.</div>
+									<div class="goods" style="padding-top:1rem;"> 
 									
 									</div>
 								</div>
@@ -711,7 +707,7 @@ color:white;
 		}).done(function(resp){
 			console.log(resp);
 			for(let i = 0; i < resp.length; i++){
-				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"'><div class='row' style='border: 1px solid black; border-radius:0.5rem; height:15rem;'><div class='col-3' style='border-right: 1px solid black'><img class='con' referrerpolicy='no-referrer' src="+resp[i].ep_sysname+"></div><div class='col-9'>"+resp[i].et_title+"</div></div></a>");
+				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"'><div class='row' style='border: 1px solid black; border-radius:0.5rem; height:10rem; margin-left:0.1rem; margin-right:0.1rem;'><div class='col-4'><img class='con' referrerpolicy='no-referrer' src="+resp[i].ep_sysname+"></div><div class='col-8'><div class='col-12'>"+resp[i].et_title+"</div><div class='col-12'>"+resp[i].et_date+"</div></div></div></a>");
 			}
 		})
 		
