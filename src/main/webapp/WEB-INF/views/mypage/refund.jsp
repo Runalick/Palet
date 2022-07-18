@@ -513,7 +513,7 @@ cursor:pointer;
 						</div>
 						<div class="col-8 col-md-9" >
 							<div class="row">
-								<div class="col-12 body5-title">[Shop]로맨틱 폭죽</div>
+								<div class="col-12 body5-title">[Shop]${i.title }</div>
 								<div class="col-12 body5-date">옵션:<span>${i.options }</span></div>
 								<div class="col-12" >
 									<span class="body5-price">결제 금액 ${i.totalprice }
@@ -611,23 +611,25 @@ cursor:pointer;
 		val = $(this).val();
 		$.ajax({
 			url:"/mypage/refundajax",
-			data:{"btn":val}
+			data:{"btn":val},
+			dataType:"json"
 		}).done(function(resp){
 			$(".Elist").remove();
 			$(".Glist").remove();
-			for(let i=0; i<resp.lenght; i++){
-			
-					
+			console.log("iia");
+			for(let i=0; i<resp.length; i++){
+					console.log("ii");
+					console.log(resp[i].category);
 					
 					if(resp[i].category == 'E'){
-						$(".content").append("
+						$(".content").append(
 								+"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
-								+"		<input type='hidden' value="+resp[i].uids+">
-								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >""
+								+"		<input type='hidden' value="+resp[i].uids+">"
+								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src=''/images/image 21.png' style='width:100px; height:100px;'></div>"
-								+"		<div class='col-8 col-md-9' >""
+								+"		<div class='col-8 col-md-9' >"
 								+"			<div class='row'>"
-								+"				<div class='col-12 body5-title'>[Exhibition]"+reap[i].title+" }</div>"
+								+"				<div class='col-12 body5-title'>[Exhibition]"+reap[i].title+" </div>"
 								+"				<div class='col-12' >"
 								+"					<span class='body5-price'> 결제 금액 "+reap[i].totalprice 
 								+"					<input type='hidden' class="+resp[i].nums+ ">	</span>"
