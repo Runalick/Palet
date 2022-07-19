@@ -151,6 +151,14 @@
 	line-height: 4.813rem;
 }
 
+.H1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 3.438rem;
+	line-height: 3.75rem;
+}
+
 .body1 {
 	/* Body/Body1 */
 	font-family: 'Spoqa Han Sans Neo';
@@ -159,7 +167,17 @@
 	font-size: 1.25rem;
 	line-height: 1.875rem;
 	/* identical to box height, or 150% */
-	color: #FFFFFF;
+}
+
+.body1_1 {
+	/* Body/Body1 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 550;
+	font-size: 2rem;
+	line-height: 2rem;
+	padding-botton: 1.5rem;
+	/* identical to box height, or 150% */
 }
 
 .body2 {
@@ -168,6 +186,17 @@
 	font-weight: 400;
 	font-size: 1rem;
 	line-height: 1.75rem;
+	/* identical to box height, or 175% */
+	margin-bottom: 0px;
+	color: #000000;
+}
+
+.body2_1 {
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.2rem;
+	line-height: 2rem;
 	/* identical to box height, or 175% */
 	margin-bottom: 0px;
 	color: #000000;
@@ -320,6 +349,8 @@ align-items: center; */
 	/* identical to box height */
 	/* Gray/900 */
 	color: #161C24;
+	padding-bottom: 0.938rem;
+	
 }
 
 .caption {
@@ -528,6 +559,7 @@ line-height:2rem;
 margin:1.25rem 0rem ;
 }
 #select{
+padding: 0px;
 width:100%;
 border:0px;
 background:url('/images/downarrow.png') no-repeat 97% 50%/15px auto ;
@@ -540,8 +572,8 @@ padding: 0.3rem 1rem;
 }
 
 .main-area{
-margin-top:1rem; 
-padding-bottom:1rem; 
+margin-top:2rem; 
+padding-bottom:2rem; 
 border-bottom:1px solid #C4CDD5;
 }
 .list{
@@ -552,21 +584,24 @@ border-bottom:1px solid #C4CDD5;
 line-height:2rem;
 }
 .btnbtn{
-font-family: 'Spoqa Han Sans Neo';
-line-height:0px;
-align-items: center;
-padding: 1.125rem 1.5rem;
-gap: 0.625rem;
-border:0px;
+	font-family: 'Spoqa Han Sans Neo';
+	line-height:0px;
+	align-items: center;
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	border:0px;
+    width: 180px;
+    height: 50px;
 
-color:white;
-/* Gray/900 */
-background: #161C24;
-border-radius: 1rem;
+	color:white;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1rem;
 }
+
 .btnbtn:hover{
-background: #454F5B;
-color:white;
+	background: #454F5B;
+	color:white;
 } 
 
 .ellipsis {
@@ -708,6 +743,17 @@ top:4rem;
     width:406px;
    }
 }
+
+@media ( min-width : 375px) {
+	.container {
+		max-width: 1280px;
+	}html{
+		font-size: 12px;
+	}
+}
+
+
+
 
 
 </style>
@@ -909,76 +955,104 @@ top:4rem;
 				
 				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
 					<div class="row" id="row1">
-						<div class="col-12 main-info" >주문 상세</div>
+						<div class="col-12 px-4 main-info" >주문 상세</div>
 						
-						<div class="col-12" style="border-top:1px solid black;margin-top:2.5rem;">
+						<div class="col-12" style="margin-top:2.5rem;">
 							<div class="row main-area">
-								<div class="col-12 caption">주문정보</div>
-								<div class="col-3">주문번호</div>
-								<div class="col-9">${detail.merchant_uid }</div>
-								<div class="col-3">주문일자</div>
-								<div class="col-9">${detail.pay_time }</div>
-								<div class="col-3">주문자</div>
-								<div class="col-9">${name }</div>
-								<div class="col-3">주문자ID</div>
-								<div class="col-9">${detail.email }</div>
-								<div class="col-3">주문처리상태</div>
-								<div class="col-9" id="state">${detail.state }</div>
-								<div class="col-3">결제수단</div>
-								<div class="col-9">${detail.card_name } - ${detail.card_number } </div>
-								<div class="col-3">할부기간</div>
-								<div class="col-9" id="quota">${detail.card_quota }개월</div>
+								<div class="col-12 h3">주문정보</div>
+								<div class="col-3 body2_1">주문번호</div>
+								<div class="col-9 body2_1">${detail.merchant_uid }</div>
+								<div class="col-3 body2_1">주문일자</div>
+								<div class="col-9 body2_1">${detail.pay_time }</div>
+								<div class="col-3 body2_1">주문자</div>
+								<div class="col-9 body2_1">${name }</div>
+								<div class="col-3 body2_1">주문자ID</div>
+								<div class="col-9 body2_1">${detail.email }</div>
+								<div class="col-3 body2_1">주문처리상태</div>
+								<div class="col-9 body2_1" id="state">${detail.state }</div>
+								<div class="col-3 body2_1">결제수단</div>
+								<div class="col-9 body2_1">${detail.card_name } - ${detail.card_number } </div>
+								<div class="col-3 body2_1">할부기간</div>
+								<div class="col-9 body2_1" id="quota">${detail.card_quota }개월</div>
 							</div>	
 							<div class="row main-area">	
-								<div class="col-12 caption">배송지정보</div>
-								<div class="col-3">수령인</div>
-								<div class="col-9">${detail.name }</div>
-								<div class="col-3">우편번호</div>
-								<div class="col-9">${detail.zipcode }</div>
-								<div class="col-3">주소</div>
-								<div class="col-9">${detail.address1 }</div>
-								<div class="col-3"></div>
-								<div class="col-9">${detail.address2 }</div>
-								<div class="col-3">휴대전화</div>
-								<div class="col-9">${detail.phone }</div>
-								<div class="col-3">배송메시지</div>
-								<div class="col-9">${detail.delivery_text }</div>
+								<div class="col-12 h3">배송지정보</div>
+								<div class="col-3 body2_1">수령인</div>
+								<div class="col-9 body2_1">${detail.name }</div>
+								<div class="col-3 body2_1">우편번호</div>
+								<div class="col-9 body2_1">${detail.zipcode }</div>
+								<div class="col-3 body2_1">주소</div>
+								<div class="col-9 body2_1">${detail.address1 }</div>
+								<div class="col-3 body2_1"></div>
+								<div class="col-9 body2_1">${detail.address2 }</div>
+								<div class="col-3 body2_1">휴대전화</div>
+								<div class="col-9 body2_1">${detail.phone }</div>
+								<div class="col-3 body2_1">배송메시지</div>
+								<div class="col-9 body2_1">${detail.delivery_text }</div>
 							</div>
 							<div class="row main-area">	
-								<div class="col-12 caption">상품정보</div>
+								<div class="col-12 h3">상품정보</div>
+								
 								<div class="row">
-									<div class="col-5">
-										<img src="/images/anywayloveS.png" class="w-100 h-100">
+									<div class="col-5 p-0">
+										<a href="/"><img src="/images/anywayloveS.png" class="w-100 h-100" style="max-width: 300px; min-width: 120px; padding: 10px;"></a>
 										<%-- <img class='con' src='/shop/shopHome/"+ ${gp_sysname }+"'> --%>
 									</div>
 									<div class="col-7">
 										<div class="row">
-											<div class="col-12">${product.e_name }</div>
-											<div class="col-12">${product.g_name }</div>
-											<div class="col-12">${product.G_OPTION }</div>
-											<div class="col-12">${product.g_count }</div>
+											<%-- <div class="col-12 px-3 body2_1">${product.e_name }</div>
+											<div class="col-12 px-3 body2_1">${product.g_name }</div>
+											<div class="col-12 px-3 body2_1">${product.G_OPTION }</div>
+											<div class="col-12 px-3 body2_1">${product.g_count }</div> --%>
+											
+											<div class="col-12 px-3 body1_1" style="padding-top: 1.5rem; padding-bottom: 1.5rem">
+												<a href="/">${product.g_name }</a>
+											</div>
+											<div class="col-12 px-3 body2_1" style="padding-bottom: 1rem">
+												<a href="/">product.e_name</a>
+											</div>
+											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">옵션 : product.G_OPTION </div>
+											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">수량 : product.g_count </div>
 										</div>
 									</div>
 								</div>
+								
 							</div>
 							<div class="row main-area">
-								<div class="col-12 caption">결제정보</div>
-								<div class="col-3">적립 포인트</div>
-								<div class="col-9">${detail.point }</div>
-								<div class="col-3">상품 금액</div>
-								<div class="col-9" id="price"></div>
-								<div class="col-3">배송비</div>
-								<div class="col-9">3000</div>
-								<div class="col-3">쿠폰할인</div>
-								<div class="col-9">${detail.cpdiscount }</div>
-								<div class="col-3">포인트 사용</div>
-								<div class="col-9">${detail.usedpoint }</div>
-								<div class="col-3">총 주문 금액</div>
-								<div class="col-9">${detail.totalprice }</div>
+								<div class="col-12 h3">결제정보</div>
+								<div class="col-3 total">적립 포인트</div>
+								<div class="col-9 total getpoint"></div>
+								<div class="col-3 total">상품 금액</div>
+								<div class="col-9 total real-price"></div>
+								<div class="col-3 total">배송비</div>
+								<div class="col-9 total">3000</div>
+								<div class="col-3 total">쿠폰할인</div>
+								<div class="col-9 total coupon"></div>
+								<div class="col-3 total">포인트 사용</div>
+								<div class="col-9 total usedpoint"></div>
+								<div class="col-3 total">총 주문 금액</div>
+								<div class="col-9 total total-price"></div>
+								
+								<script>
+								price=${detail.totalprice} + ${detail.usedpoint }+ ${detail.cpdiscount }-3000
+								coupon=${detail.cpdiscount }
+								usedpoint=${detail.usedpoint }
+								getpoint=${detail.point }
+								total_price=${detail.totalprice}
+								deltax = 3000
+								$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								$(".getpoint").text("+"+getpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								$(".deltax").text("+"+deltax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								$(".total-price").text(total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+								</script>
 								
 								
 							</div>
-							<button class='ok' id="cancel" data-bs-toggle='modal' data-bs-target='#exampleModa2'>주문취소</button>
+							<button class='ok btnbtn' id="cancel" style="margin: 2.5rem;" data-bs-toggle='modal' data-bs-target='#exampleModa2'>
+								주문취소
+							</button>
 						
 						</div>
 					</div>
@@ -1000,14 +1074,17 @@ top:4rem;
 							<div class="row">
 						
 							<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
-								<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
+								<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem; margin-left: 1.563rem;">
 								</div>
-									<div class="col-8" style="margin-bottom:3rem; width:30rem;">
+									<div class="col-9" style="margin-bottom:3rem; width:30rem;">
 										<div class="row modal-ticket-row" >
-											<div class="col-12 paymodal-title2" style="padding-top:1rem;">${product.e_name }</div>
+											<div class="col-12 paymodal-title2" style="padding-top:1rem;">${product.g_name }</div>
 											<div class="col-12 paymodal-title2">${detail.merchant_uid }</div>
+											<div class="col-12 caption">${product.G_OPTION }</div>
+											<div class="col-12 caption">${product.g_count }</div>
 											<div class="col-12 paymodal-title2" id="modal-price">${detail.totalprice/ detail.g_count  }원</div>
 										<script>
+								
 										
 								price = ${(detail.totalprice+detail.usedpoint+detail.cpdiscount)/detail.g_count  };
 								$("#modal-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");

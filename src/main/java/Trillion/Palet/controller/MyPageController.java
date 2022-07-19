@@ -142,8 +142,7 @@ public class MyPageController {
 	// Shopping
 	@RequestMapping("myShopping")
 	public String myShopping(Model model) {
-		//String email = (String)session.getAttribute("loginEmail");
-		String email = "maisy40@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 //		List<Object> list = mServ.myShopping(email);
 //		System.out.println(list);
 //		model.addAttribute("list",list);
@@ -166,7 +165,7 @@ public class MyPageController {
 		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
 		Object product = mServ.myShoppingProduct(merchant_uid);
 		String name = mServ.memberName(email);
-		System.out.println(name);
+		System.out.println(product);
 		
 		model.addAttribute("detail",detail);
 		model.addAttribute("product",product);
