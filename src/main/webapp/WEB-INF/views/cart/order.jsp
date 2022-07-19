@@ -723,8 +723,8 @@ text-align:left;
 				<div class="row delivery-area-info body2" style=" display:inline-block; width:100%">
 					<div class="col-12">${dto.receiver }</div>
 					<div class="col-12">${dto.phone }</div>
-					<div class="col-12">
-						<span>(${dto.postcode })</span>
+						<span>${dto.postcode }</span>
+						
 						<span>${dto.address1 }</span>
 						<span>${dto.address2 }</span>
 						
@@ -1203,7 +1203,6 @@ text-align:left;
                 data:{
                 	merchant_uid : rsp.merchant_uid,
                 	name : rsp.buyer_name,
-                	email : rsp.buyer_email,
                 	phone : rsp.buyer_tel,
                 	address1 : rsp.buyer_addr,
                 	address2 : $(".buyer_address2").val(),

@@ -17,14 +17,14 @@ public class CartService {
 	@Autowired
 	private CartDAO cdao;
 	
-	public boolean isGoodsExist(int g_num,String email) {
-		System.out.println(g_num);
+	public boolean isGoodsExist(int g_seq,String email) {
+		System.out.println(g_seq);
 		System.out.println(email);
-		return cdao.isGoodsExist(g_num,email);
+		return cdao.isGoodsExist(g_seq,email);
 	}
 
-	public int insertCart(int g_num, int cartstock, String email ) {
-		return cdao.insertCart(g_num,cartstock,email);
+	public int insertCart(int g_seq, int cartstock, String email ) {
+		return cdao.insertCart(g_seq,cartstock,email);
 	}
 
 	public List<CartListDTO> selectAll(String email) {
@@ -35,19 +35,19 @@ public class CartService {
 		return cdao.total(email);
 	}
 
-	public int delete(int g_num) {
-		return cdao.delete(g_num);
+	public int delete(int g_seq) {
+		return cdao.delete(g_seq);
 	}
-	public int selectModiOne(int g_num,int cartstock,String email) {
-		return cdao.selectModiOne(g_num,cartstock,email);
+	public int selectModiOne(int g_seq,int cartstock,String email) {
+		return cdao.selectModiOne(g_seq,cartstock,email);
 	}
 
 	public List<CartListDTO> purchase(int[] buy,String email) {
 		return cdao.purchase(buy,email);
 	}
 
-	public boolean isGoodsStocksame(int g_num, int cartstock,String email) {
-		return cdao.isGoodsStocksame(g_num,cartstock,email);
+	public boolean isGoodsStocksame(int g_seq, int cartstock,String email) {
+		return cdao.isGoodsStocksame(g_seq,cartstock,email);
 	}
 
 	public int insertSelect_Cart(int cart_seq) {

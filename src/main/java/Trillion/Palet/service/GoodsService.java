@@ -26,8 +26,8 @@ public class GoodsService {
 	public void goodsInsert(GoodsDTO gdto, String realPath, MultipartFile[] file) {
 
 		int seq;
-		String option = gdto.getG_option1();
-		System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option1()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
+		String option = gdto.getG_option();
+		System.out.println("enum : "+gdto.getE_num()+"  gnum : "+gdto.getG_num()+"  gname : "+gdto.getG_name()+"  gprice : "+gdto.getG_price()+"  goption : "+gdto.getG_option()+"  salecount : "+gdto.getSales_count()+"  stock : "+gdto.getG_stock());
 		System.out.println(option);
 		
 		if(option.equals("")) {
@@ -71,8 +71,8 @@ public class GoodsService {
 	}
 
 	//같은 이름 다른 옵션 가져오기
-	public List<GoodsDTO> getoption(String g_name) {
-		return dao.getoption(g_name);
+	public List<GoodsDTO> getoption(int g_num) {
+		return dao.getoption(g_num);
 	}
 	
 }

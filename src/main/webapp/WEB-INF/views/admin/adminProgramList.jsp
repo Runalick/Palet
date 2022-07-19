@@ -5,7 +5,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin Page</title>
@@ -129,18 +128,18 @@
                                 <div class="text-align text-uppercase mb-0 text-white h3">Programs</div>
                             </div>
                             <div class="col-md-5">
-                                <form action="">
+                                <!-- <form action="">
                                     <div class="searchBox">
                                         <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                             <div class="col-md-3">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item icon-parent">
+                                    <!-- <li class="nav-item icon-parent">
                                         <a href="#" class="nav-link icon-bullet text-white">
                                             <i class="bi bi-house"></i>
                                         </a>
@@ -149,7 +148,7 @@
                                         <a href="#" class="nav-link icon-bullet text-white">
                                             <i class="bi bi-bell"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item icon-parent m-auto">
                                         <a href="/" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
@@ -165,7 +164,7 @@
     </nav>
     <!-- navibar close -->
     
-       <!-- main contents -->
+    <!-- main contents -->
     <section>
         <div class="container-fluid">
             <div class="row">    

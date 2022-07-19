@@ -7,17 +7,17 @@ public class CouponDTO {
 	private String serial;
 	private String dc;
 	private String category;
-	private String use;
+	private String used;
 	
 
-	public CouponDTO(int key, String email, String serial, String dc, String category, String use) {
+	public CouponDTO(int key, String email, String serial, String dc, String category, String used) {
 		super();
 		this.key = key;
 		this.email = email;
 		this.serial = serial;
 		this.dc = dc;
 		this.category = category;
-		this.use = use;
+		this.used = used;
 	}
 
 	public CouponDTO() {
@@ -56,11 +56,11 @@ public class CouponDTO {
 	public void setDc(String dc) {
 		this.dc = dc;
 	}
-	public String getUse() {
-		return use;
+	public String getUsed() {
+		return used;
 	}
-	public void setUse(String use) {
-		this.use = use;
+	public void setUsed(String used) {
+		this.used = used;
 	}
 	
 	

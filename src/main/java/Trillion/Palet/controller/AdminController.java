@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CouponDTO;
+import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -86,6 +87,8 @@ public class AdminController {
 	public String adminMemberDetail(Model model, String email) {
 		MemberDTO mdto = mServ.getmember(email);
 		List<AdminDTO> adto = aServ.getMemberPayment(email);
+		DeliveryDTO ddto = aServ.getMemberAddress(email);
+		model.addAttribute("ddto", ddto);
 		model.addAttribute("mdto", mdto);
 		model.addAttribute("adto", adto);
 		
@@ -307,8 +310,8 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="adminGoodsDetail", produces="test/html;charset=utf8")
-	public String adminGoodsDetail(Model model, int g_num) {
-		GoodsDTO gdto = gServ.getGoods(g_num);
+	public String adminGoodsDetail(Model model, int g_seq) {
+		GoodsDTO gdto = aServ.getGoods(g_seq);
 
 		model.addAttribute("gdto", gdto);
 		
