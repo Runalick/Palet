@@ -145,6 +145,9 @@ where et_state like '%C') where email = #{email}
 	<select id="selectMyCoupon" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select category, dc from coupon where email = #{value} and used = 'N'
 	</select>
+	<select id="selectMyCouponStatus" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
+		select category, dc from coupon where email = #{email} and used = #{used}
+	</select>
 	<select id="selectMyexhibition" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select * from (select row_number() over(order by et_buydate) line, et_title, et_date, et_buydate, exticket.e_num, exhibitionpic.ep_sysname, et_booknumber from exticket left outer join exhibitionpic on exticket.e_num = exhibitionpic.e_num where et_email = #{value} and ep_main = 'Y') where line between 1 and 3
 	</select>
