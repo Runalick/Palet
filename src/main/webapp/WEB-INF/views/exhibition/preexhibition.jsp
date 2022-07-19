@@ -603,7 +603,7 @@ text-align:center;
 		</div>
 			<div class="row" id="footer" style="margin-top: 12.5rem;">
 				<div class="container">
-					<div class="row" id="row1">
+					<div class="row">
 						<div class="col-12 h3"
 							style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
 						<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :

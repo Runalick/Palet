@@ -1043,6 +1043,9 @@ a {
   });
 }
 	
+	//카카오 초기화 및 토큰 받아오기
+	Kakao.init('feb50c309d28b138aefe9ddc94d76870');v
+	
 	function logout() {
 		   
 		   if (!Kakao.Auth.getAccessToken()) {

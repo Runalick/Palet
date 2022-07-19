@@ -400,7 +400,13 @@ align-items: center; */
 
 .ul2>li {
 	padding: 0px;
-	float: left;
+	float: right;
+}
+
+.ul2_1>li{
+display:inline-block;
+margin:2rem;
+
 }
 
 .curimage{
@@ -425,7 +431,7 @@ padding:0px;
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -568,16 +574,32 @@ padding:0px;
 		</div>
 		
 		<div class="container">
-			<div class="row" id="container1" style="padding-top: 70px;">
-				<div class="col-4 h2" style="margin-top: 2.5rem; text-align: left;">Program</div>
-				<ul class="col-4 ul2 h3 offset-4"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 4.938rem; margin-left: 3.1rem;">어린이</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class="exlink" href="/Exhibition/toPreExhibition">성인</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a class ="exlink" href = "/event/eventPage">이벤트</a></li>
+			
+			<div class="row">
+				<div class="col-4 h2 d-none d-sm-block"
+					style="margin-top: 2.5rem; text-align: left;">Program</div>
+				<ul class="col-8 ul2 h3 d-none d-sm-block"
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 5rem; padding-left: 0px;">
+					
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
+						class="exlink" href="/event/eventPage">이벤트</a></li>
+					<li style="width: 4.938rem; margin-left: 5.2rem;">어린이</li>
 
 				</ul>
 			</div>
+		
+			<div class="row ">
+				<div class="col-12 h2 d-block d-sm-none"
+					style="margin-top: 2.5rem; text-align: center;">Program</div>
+				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
+					<li style="width: 4.938rem; color: #919EAB;"><a
+						class="exlink" href="/event/eventPage">이벤트</a></li>
+					<li style="width: 4.938rem;">어린이</li>
+
+				</ul>
+			</div>
+			
 			<div class="row" id="container1">
 				<div class="col-12" style="margin-top: 5.313rem;">
 				<a href="/program/toClassdetail"><img class = "curimage" src="/images/kidclass.png" ></a>	
@@ -604,7 +626,7 @@ padding:0px;
 	
         <div class="row" id="footer" style = "margin-top:12.5rem;">
             <div class="container">
-                <div class="row" id="row1">
+                <div class="row">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
@@ -619,6 +641,10 @@ padding:0px;
 
 </body>
 <script>
+
+//카카오 초기화 및 토큰 받아오기
+Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+
 function logout() {
 	
 	if (!Kakao.Auth.getAccessToken()) {
