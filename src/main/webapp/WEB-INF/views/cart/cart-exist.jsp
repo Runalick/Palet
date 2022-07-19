@@ -568,7 +568,7 @@ background:#454F5B;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -611,7 +611,7 @@ background:#454F5B;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -658,7 +658,7 @@ background:#454F5B;
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -941,17 +941,16 @@ function setTotalInfo() {
 	</div>
 	<!-- 푸터단 -->
 
-		<div class="row" id="footer">
-            <div class="container" style="padding-left:2.5rem;">
-                <div class="row" id="row1">
+<div class="row" id="footer" style = "margin-top:12.5rem;">
+            <div class="container">
+                <div class="row">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
                 </div>
             </div>
         </div>
-	</div>
 	<script>
 	//쇼핑하러 가기
 	$(".btn1").on("click",function(){
@@ -1094,6 +1093,24 @@ function setTotalInfo() {
 		location.href="/cart/choosedel?g_seq="+del;
 	})
 });
+
+	   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	   
+	   function logout() {
+	      
+	      if (!Kakao.Auth.getAccessToken()) {
+	            alert('Not logged in.')
+	            return
+	          }
+	          Kakao.Auth.logout(function() {
+	            alert('로그아웃 되었습니다.');
+	            location.href="/member/logout";
+	          })
+	      
+
+	      location.href = "/member/logout";
+	      return true;
+	   }
 	</script>
 </body>
 </html>
