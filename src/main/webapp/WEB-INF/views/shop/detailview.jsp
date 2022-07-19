@@ -507,6 +507,7 @@ padding-left:4rem;
 	color: #161C24;
 	margin-bottom: 1rem;
 	width: 23.5rem;
+	
 }
 
 #price {
