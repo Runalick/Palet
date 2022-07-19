@@ -641,15 +641,13 @@ color:white;
 							<div class="row">
 								<div class="col-12" style="padding-bottom:5rem; margin-bottom:1.5rem;">
 									<div class="h3"><i class="fa-solid fa-coins"></i> 마일리지</div>
-									<div>회원님께서 보유하신 포인트 잔액입니다.</div>
-									<hr>
-		 							<div>${dto.point } POINT</div>
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 보유하신 포인트 잔액입니다.</div>
+		 							<div style="padding-top:1rem;">${dto.point } POINT</div>
 	 							</div>
 	 							<div class="col-12" style="margin-bottom:1.5rem;">
 		 							<div class="h3"><i class="fa-solid fa-ticket-simple"></i> 쿠폰</div>
-									<div>회원님께서 보유하신 쿠폰입니다.</div>
-									<hr>
-		 							<div class="coupon"> 
+									<div style="border-bottom:1px solid black; padding-bottom:0.5rem;">회원님께서 보유하신 쿠폰입니다.</div>
+		 							<div class="coupon" style="padding-top:1rem;"> 
 		 							
 		 							</div>
 	 							</div>
@@ -659,17 +657,15 @@ color:white;
 							<div class="row">
 								<div class="col-12 col-md-6" style="margin-bottom:1.5rem; padding-bottom:5rem;">
 									<div class="h3"><i class="fa-solid fa-ticket"></i> 최근 예매 내역</div>
-									<div>회원님께서 최근 전시 또는 프로그램 티켓을 예매하신 내역입니다.</div>
-									<hr>
-									<div class="ticket"> 
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 최근 전시 또는 프로그램 티켓을 예매하신 내역입니다.</div>
+									<div class="ticket" style="padding-top:1rem;"> 
 									
 									</div>
 								</div>
 								<div class="col-12 col-md-6" style="margin-bottom:1.5rem; padding-bottom:5rem;">
 									<div class="h3"><i class="fa-solid fa-box"></i> 최근 주문 내역</div>
-									<div>회원님께서 최근 상품을 구매하신 내역입니다.</div>
-									<hr>
-									<div class="goods"> 
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 최근 상품을 구매하신 내역입니다.</div>
+									<div class="goods" style="padding-top:1rem;"> 
 									
 									</div>
 								</div>
@@ -698,12 +694,28 @@ color:white;
 	<script>
 	window.onload = function(){
 		$.ajax({
-			url:"/mypage/mypageUserDetail"
+			url:"/mypage/selectMyCoupon"
 		}).done(function(resp){
 			console.log(resp);
 			for(let i = 0; i < resp.length; i++){
 				$(".coupon").append("<div>"+resp[i].category+"</div>");
-				$(".ticket").append("<div>"+resp[i].et_title+"</div>");
+			}
+		})
+		
+		$.ajax({
+			url:"/mypage/selectMyexhibition"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
+				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid black; border-radius:1rem;  margin-left:0.1rem; margin-right:0.1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%;'>"+resp[i].et_title+"</div><div class='col-12' style='height:50%;'>"+resp[i].et_date+"</div></div></div></a>");
+			}
+		})
+		
+		$.ajax({
+			url:"/mypage/selectMyGoods"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
 				$(".goods").append("<div>"+resp[i].g_name+"</div>");
 			}
 		})

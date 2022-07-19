@@ -13,6 +13,7 @@ public class MypageUserDetailDTO {
 	private Timestamp et_buydate;
 	private int e_num;
 	private String ep_sysname;
+	private String et_booknumber;
 	
 	private String g_name;
 	private int totalprice;
@@ -30,7 +31,7 @@ public class MypageUserDetailDTO {
 	}
 
 	public MypageUserDetailDTO(int line, String et_title, String et_date, Timestamp et_buydate, int e_num,
-			String ep_sysname) {
+			String ep_sysname, String et_booknumber) {
 		super();
 		this.line = line;
 		this.et_title = et_title;
@@ -38,6 +39,7 @@ public class MypageUserDetailDTO {
 		this.et_buydate = et_buydate;
 		this.e_num = e_num;
 		this.ep_sysname = ep_sysname;
+		this.et_booknumber = et_booknumber;
 	}
 
 	public MypageUserDetailDTO(int line, String g_name, int totalprice, Timestamp pay_time) {
@@ -144,6 +146,13 @@ public class MypageUserDetailDTO {
 		this.pay_time = pay_time;
 	}
 	
+	public String getEt_booknumber() {
+		return et_booknumber;
+	}
+
+	public void setEt_booknumber(String et_booknumber) {
+		this.et_booknumber = et_booknumber;
+	}
 	
 
 	
