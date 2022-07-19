@@ -931,7 +931,7 @@ text-align:left;
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
 								<input class="body2 pointinput1" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem;">
-								<button class="H4 allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
+								<button class="H4 pointbtn allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 								<span class="Caption myPoint1 allPointUse1" style="color: #637381;">
 									<!-- 1200p -->
@@ -1110,8 +1110,8 @@ text-align:left;
 					for(let i = 0; i < resp.length; i++){
 						$(".myPoint1").html(resp[i].point);
 						$(".myPoint2").html(resp[i].point);
-						$(".select-ul1").append("<li class='li body2' style='width:100%;'>"+resp[i].category+"</li>")
-						$(".select-ul2").append("<li class='li body2'>"+resp[i].category+"</li>")
+						$(".select-ul1").append("<li class='li1 body2' style='width:100%;'>"+resp[i].category+"</li>")
+						$(".select-ul2").append("<li class='li2 body2'>"+resp[i].category+"</li>")
 					}
 				})
 		
@@ -1150,18 +1150,27 @@ text-align:left;
 	//선택박스누를 시 옵션 열기
 	$("#select1").on("click", function () {
 	    $(".select-ul1").toggle();
-	})
+	    
+		$(".li1").on("click", function () {
+			let text = $(this).text();
+	    	$("#select1").text(text);
+	    	$("#select2").text(text);
+	    	$(".select-ul1").toggle();	
+		});
+	});
+	
 	$("#select2").on("click", function () {
 	    $(".select-ul2").toggle();
-	})
+	    
+		$(".li2").on("click", function () {
+			let text = $(this).text();
+	    	$("#select1").text(text);
+	    	$("#select2").text(text);
+	    	$(".select-ul2").toggle();	
+		});
+	});
+
 	
-	$(".li").on("click", function () {
-		let text = $(this).text();
-		console.log(text);
-    	$("#select1").text(text);
-    	$("#select2").text(text);
-		
-	})
 	 function sample4_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {
