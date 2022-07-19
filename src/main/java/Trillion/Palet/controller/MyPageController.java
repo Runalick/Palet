@@ -15,6 +15,7 @@ import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
@@ -84,10 +85,14 @@ public class MyPageController {
 		String url = "http://14.39.252.82/Exhibition/toCurdetail";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
+		
+		if(dto.getEt_cpserial()!=null) {
 		CouponDTO cdto = cServ.getCouponName(dto.getEt_cpserial());
+		model.addAttribute("cdto",cdto);
+		}
 		model.addAttribute("url",url);
 		model.addAttribute("dto",dto);
-		model.addAttribute("cdto",cdto);
+		
 		return "/mypage/myTicketDetailview";
 	}
 	
@@ -182,7 +187,25 @@ public class MyPageController {
 		mServ.changeStateAU(merchant_uid);
 	}
 	
+	@ResponseBody
+	@RequestMapping("selectMyCoupon")
+	public List<MypageUserDetailDTO> selectMyCoupon(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyCoupon(email);
+	}
 	
+	@ResponseBody
+	@RequestMapping("selectMyexhibition")
+	public List<MypageUserDetailDTO> selectMyexhibition(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyexhibition(email);
+	}
 	
+	@ResponseBody
+	@RequestMapping("selectMyGoods")
+	public List<MypageUserDetailDTO> selectMyGoods(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyGoods(email);
+	}
 	
 }

@@ -115,18 +115,18 @@
                                 <div class="text-align text-uppercase mb-0 text-white h3">Coupons</div>
                             </div>
                             <div class="col-md-5">
-                                <form action="">
+                                <!-- <form action="">
                                     <div class="searchBox">
                                         <input type="text" class="searchInput" placeholder="Search">
                                         <button type="button" class="btn btn-light searchBtn">
                                             <i class="bi bi-search"></i>
                                         </button>
                                     </div>
-                                </form>
+                                </form> -->
                             </div>
                             <div class="col-md-3">
                                 <ul class="navbar-nav">
-                                    <li class="nav-item icon-parent">
+                                    <!-- <li class="nav-item icon-parent">
                                         <a href="#" class="nav-link icon-bullet text-white">
                                             <i class="bi bi-house"></i>
                                         </a>
@@ -135,9 +135,9 @@
                                         <a href="#" class="nav-link icon-bullet text-white">
                                             <i class="bi bi-bell"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item icon-parent ml-md-auto">
-                                        <a href="#" class="nav-link icon-bullet text-warning">
+                                        <a href="/" class="nav-link icon-bullet text-warning">
                                             <i class="bi bi-box-arrow-up-right"></i>
                                         </a>
                                     </li>
@@ -188,7 +188,7 @@
 										<hr>
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
-	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
+	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
 	                            			<input type="hidden" value="${i.booknumber }">
 	                            			<div class="col-4 px-4 body2">${i.content } </div>
 				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.category }</div>

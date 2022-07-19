@@ -407,6 +407,17 @@ input {
 .modal-body {
 	text-align: center;
 }
+.h3_2{
+		margin-bottom: 0.75rem;
+	display: inline-block;
+	/* Headline/H3 */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	display: inline-block;
+}
 </style>
 </head>
 <body>
@@ -578,7 +589,7 @@ input {
 								<div class="body4">My Shopping</div>
 								<ul>
 									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-									<li class="body3"><a href="#">취소/반품 내역</a></li>
+									<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 									<li class="body3"><a href="/delivery/selectAllAddress">배송지
 											관리</a></li>
 								</ul>
@@ -663,6 +674,7 @@ input {
 						<div class="col-sm-12 rp-0 h3"
 							style="min-width: 150px; font-size: 150%; padding-top: 10px; text-align: center;">
 							<b>${dto.name }</b>
+							<c:if test="${dto.name==null }">이름을 입력해주세요.</c:if>
 						</div>
 						<div class="col-sm-12"
 							style="margin-bottom: 5px; text-align: center;">
@@ -700,6 +712,7 @@ input {
 						<div class="col-sm-12 rp-0 h3"
 							style="min-width: 150px; font-size: 150%; padding-top: 10px; text-align: center;">
 							<b>${dto.phone }</b>
+							<c:if test="${dto.phone==null }">핸드폰 번호를 입력해주세요.</c:if>
 						</div>
 						<div class="col-sm-12"
 							style="margin-bottom: 5px; text-align: center;">
@@ -737,6 +750,17 @@ input {
 								</div>
 							</div>
 						</form>
+						<div class="col-12 H2" style="margin-top:3rem; text-align: center;">
+								회원 탈퇴 주의사항
+						</div>
+						<div class="col-12 body4" style="margin-top:1rem;">
+							<div class="col-12 h3_2" style="text-align: center;">
+								- 회원탈퇴는 1회 확인후 즉시 탈퇴됩니다.
+							</div>
+							<div class="col-12 h3_2" style="text-align:center;">
+								- 회원탈퇴시 모든 정보는 즉시 삭제됩니다.
+							</div>
+						</div>
 						<div class="col-sm-12" style="text-align: center; padding-top: 2rem;">
 							<button type="button" class="btn2" id="delbtn"
 								style="height: 2.75rem; width: 15rem; text-align: center;">회원탈퇴하기</button>
@@ -781,7 +805,6 @@ input {
 
 
 		</div>
-		z
 
 
 		<!-- 푸터단 -->

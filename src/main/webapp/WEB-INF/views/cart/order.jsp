@@ -709,7 +709,7 @@ text-align:left;
 					<span class="span" id="payspan3">개인정보 수집 및 이용 동의 </span>
 					<span class="span1" id="payspan4" style="left:10.063rem; cursor:pointer">보기</span><br>
 					<span class="span" id="payspan5">결제 대행 서비스 이용약관</span>
-					<span class="span1" id="payspan6" style="left:9.875rem; cursor:pointer">(주)KG이니시스</span>
+					<span class="span1" id="payspan6" style="left:9.875rem; cursor:pointer"><a href="https://www.inicis.com/terms">(주)KG이니시스</a></span>
 					</div>
 				</div>
 			
@@ -723,8 +723,8 @@ text-align:left;
 				<div class="row delivery-area-info body2" style=" display:inline-block; width:100%">
 					<div class="col-12">${dto.receiver }</div>
 					<div class="col-12">${dto.phone }</div>
-					<div class="col-12">
-						<span>(${dto.postcode })</span>
+						<span>${dto.postcode }</span>
+						
 						<span>${dto.address1 }</span>
 						<span>${dto.address2 }</span>
 						
@@ -1046,6 +1046,21 @@ text-align:left;
    		$(".buyer_address2").val($(this).val());
    	})
    	
+   	$("#payspan2").on("click", function(){
+	window.open("/member/agreement1","이용약관", "width=700, height=500");
+	})
+
+	$("#payspan4").on("click", function(){
+		window.open("/member/agreement2","개인정보 수집 및 이용", "width=700, height=500");
+	})
+	
+	$("#agreement1").on("click", function(){
+	window.open("/member/agreement1","이용약관", "width=700, height=500");
+})
+
+// 	$("#agreement6").on("click", function(){
+// 		window.open("","결제 대행 서비스 이용약관", "width=700, height=500");
+// 	})
    	
    	
 		//	쿠폰 포인트 가져오는 함수
@@ -1188,7 +1203,6 @@ text-align:left;
                 data:{
                 	merchant_uid : rsp.merchant_uid,
                 	name : rsp.buyer_name,
-                	email : rsp.buyer_email,
                 	phone : rsp.buyer_tel,
                 	address1 : rsp.buyer_addr,
                 	address2 : $(".buyer_address2").val(),

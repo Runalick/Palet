@@ -179,6 +179,27 @@ $(".modibtn").on("click",function(){
 			alert("상세주소를 입력해주세요");
 			return false;
 		}
+		//이름 정규식
+		let name = $(".buyer_name").val();
+		let nameRegex = /^[가-힣]{2,7}$/;
+		let nameResult = nameRegex.test(name);
+		if (!nameResult) {
+			alert("이름의 입력형식이 올바르지 않습니다.");
+			return false;
+		}
+		
+		//전화번호 정규식
+		let phone = $(".buyer_tel").val();
+		let phoneRegex =  /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+		let phoneResult = phoneRegex.test(phone);
+		if(!phoneResult){
+			alert("전화번호의 입력형식이 올바르지 않습니다.");
+			return false;
+		}
+// 		주소
+		
+		
+		
 		
 		console.log($(".modi").val())
 		deliveryaddress_seq=$(this).val();
@@ -246,7 +267,23 @@ $(".insert").on("click",function(){
 		alert("상세주소를 입력해주세요");
 		return false;
 	}
+	//이름 정규식
+	let name = $(".buyer_name").val();
+	let nameRegex = /^[가-힣]{2,7}$/;
+	let nameResult = nameRegex.test(name);
+	if (!nameResult) {
+		alert("이름의 입력형식이 올바르지 않습니다.");
+		return false;
+	}
 	
+	//전화번호 정규식
+	let phone = $(".buyer_tel").val();
+	let phoneRegex =  /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	let phoneResult = phoneRegex.test(phone);
+	if(!phoneResult){
+		alert("전화번호의 입력형식이 올바르지 않습니다.");
+		return false;
+	}
 	
 	$.ajax({
 		url:"/delivery/insertModiNewAddress",

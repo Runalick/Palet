@@ -33,22 +33,22 @@ public class CartController {
 	
 	@ResponseBody
 	@RequestMapping("/isGoodsExist")
-	public String isGoodsExist(int[] g_num, int[] cartstock) {
-			System.out.println(g_num[0]);
+	public String isGoodsExist(int[] g_seq, int[] cartstock) {
+			System.out.println(g_seq[0]);
 			System.out.println(cartstock[0]);
 			String email = (String)session.getAttribute("loginEmail");
 			System.out.println(email);
-			for(int i=0; i<g_num.length;i++) {
-			boolean isGoodsExist = cServ.isGoodsExist(g_num[i],email);
-			boolean isGoodsStocksame=cServ.isGoodsStocksame(g_num[i],cartstock[i],email);
+			for(int i=0; i<g_seq.length;i++) {
+			boolean isGoodsExist = cServ.isGoodsExist(g_seq[i],email);
+			boolean isGoodsStocksame=cServ.isGoodsStocksame(g_seq[i],cartstock[i],email);
 			//옵션,수량 같을 때 멈춤
 			if(isGoodsExist && isGoodsStocksame) {
 				continue;
 				
 			}else if(isGoodsExist || isGoodsStocksame){ //옵션은 있는데 수량이 다를 때 변경
-				cServ.selectModiOne(g_num[i],cartstock[i],email);
+				cServ.selectModiOne(g_seq[i],cartstock[i],email);
 			}else {//둘 다 없을 때 insert
-				cServ.insertCart(g_num[i],cartstock[i],email);
+				cServ.insertCart(g_seq[i],cartstock[i],email);
 			}
 			}
 			return "false"; 
@@ -61,13 +61,16 @@ public class CartController {
 		
 		//장바구니 list
 		List<CartListDTO> list = cServ.selectAll(email);
+		for(CartListDTO dto : list) {
+			System.out.println(dto.getG_price());
+		}
 		//총 수량, 가격
 		TotalCartDTO totalList = cServ.total(email);
 		//옵션
 		String realpath = "/cart/cartList/";
 		
 		
-		model.addAttribute("realpath",realpath);
+		
 		model.addAttribute("list",list);
 		model.addAttribute("totalList",totalList);
 		return"cart/cart-exist";
@@ -75,17 +78,17 @@ public class CartController {
 	
 	
 	@RequestMapping("cartDel")
-	public String cartDel(int g_num) {
+	public String cartDel(int g_seq) {
 
-		cServ.delete(g_num);
+		cServ.delete(g_seq);
 		return"redirect:cartlist";
 	}
 	
 	@ResponseBody
 	@RequestMapping("cartModi")
-	public String cartModi(int g_num,int cartstock) {
+	public String cartModi(int g_seq,int cartstock) {
 		String email = (String)session.getAttribute("loginEmail");
-		cServ.selectModiOne(g_num,cartstock,email);
+		cServ.selectModiOne(g_seq,cartstock,email);
 		return "success";
 	}
 	
@@ -102,9 +105,9 @@ public class CartController {
 	}
 	
 	@RequestMapping("choosedel")
-	public String choosedel(int[] g_num) {
-		for(int i=0; i<g_num.length;i++) {
-			cServ.delete(g_num[i]);	
+	public String choosedel(int[] g_seq) {
+		for(int i=0; i<g_seq.length;i++) {
+			cServ.delete(g_seq[i]);	
 		}
 		
 		return "redirect:cartlist";
@@ -118,7 +121,22 @@ public class CartController {
 		//default주소 가져오기
 		String email = (String)session.getAttribute("loginEmail");
 		//배송지 등록 안해논 사람 null 포인터 에러나니까 고치기
+		
 		DeliveryDTO dto = dServ.selectDefaultAddress(email);
+		System.out.println(dto);
+		
+		//배송지 없어서 나는 에러 방지
+		if(dto==null) {
+			dto = new DeliveryDTO();
+			dto.setReceiver("");
+			dto.setPhone("");
+			dto.setPostcode("");
+			dto.setAddress1("");
+			dto.setAddress2("");
+		}
+		
+		System.out.println("receiver"+dto.getReceiver());
+		
 		System.out.println(dto.getEmail());
 		System.out.println(dto.getReceiver());
 		System.out.println(dto.getAddress1());

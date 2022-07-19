@@ -293,11 +293,10 @@ padding:0px;
 }
 .title{
 margin-top:1.875rem;
-margin-bottom:0.5rem;
 }
 .price{
 margin-bottom:1.5rem;
-margin-top:3.313rem;
+margin-top:1rem;
 
 }
 .cnt{
@@ -652,16 +651,17 @@ margin:auto;
 				<c:forEach var="i" items="${list }">
 					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
 						<div class="col-3 p-0 productimg" style="background-color:pink;">
-							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_num }" style="margin-top:0.375rem;">
+							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_seq }" style="margin-top:0.375rem;">
 							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
 						<div class="col-9 productInfo" >
-							<div class="body1 title">${i.g_name} -${i.g_option }</div>
-							<div class="H3 price" id="${i.g_num }"> </div>
+							<div class="body1 title">${i.g_name} </div>
+							<div class="body1 option">${i.g_option }</div>
+							<div class="H3 price" id="${i.g_seq }"> </div>
 							<script>
 							price = ${i.g_price} ;
 							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-							$("#${i.g_num}").text(price+"원");
+							$("#${i.g_seq}").text(price+"원");
 							</script>
 							<input class="hidden-price" type="hidden" value="${i.g_price }">
 							<input class="hidden-point" type="hidden" value="${i.point}">
@@ -679,7 +679,7 @@ margin:auto;
 								
 							<input class="hidden-cnt" type="hidden" value="${i.cartstock }">
 							<span class="delete body2">삭제
-							<input class="hidden-g_num" type="hidden" value="${i.g_num }">
+							<input class="hidden-g_num" type="hidden" value="${i.g_seq }">
 							</span>	
 						
 						</div>
@@ -842,11 +842,11 @@ function setTotalInfo() {
 	
 			setTotalInfo();
 			
-			g_num=$($(this).parent().siblings()[8]).children().val();
+			g_seq=$($(this).parent().siblings()[8]).children().val();
 			$.ajax({
 				url:"/cart/cartModi",
 				dataType:"json",
-				data:{g_num:g_num,cartstock:number}
+				data:{g_seq:g_seq,cartstock:number}
 			}).done(function(resp){
 				console.log(resp)
 			})
@@ -877,11 +877,11 @@ function setTotalInfo() {
 
 			setTotalInfo();
 	
-			g_num=$($(this).parent().siblings()[8]).children().val();
+			g_seq=$($(this).parent().siblings()[8]).children().val();
 			$.ajax({
 				url:"/cart/cartModi",
 				dataType:"json",
-				data:{g_num:g_num,cartstock:number}
+				data:{g_seq:g_seq,cartstock:number}
 			}).done(function(resp){
 				console.log(resp)
 			})
@@ -941,7 +941,7 @@ function setTotalInfo() {
 	$(".delete").on("click",function(){
 	$(this).parent().parent().remove();
 	value = $(this).children().val();
-	location.href="/cart/cartDel?g_num="+value;
+	location.href="/cart/cartDel?g_seq="+value;
 	
 })
 	//선택 삭제
@@ -953,7 +953,7 @@ function setTotalInfo() {
 		del.push($(this).val());
 		console.log(del);
 		$(item).parent().parent().remove();
-		location.href="/cart/choosedel?g_num="+del;
+		location.href="/cart/choosedel?g_seq="+del;
 	})
 });
 	</script>

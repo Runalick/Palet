@@ -303,7 +303,6 @@ background:#454F5B;
 }
 
 #productdetail {
-	width: 23.438rem;
 	margin: auto;
 	padding: 0px;
 }
@@ -555,7 +554,6 @@ font-size:1.8rem;
  height:4.5rem; 
 }
 #productdetail{
-width:36.375rem;
 }
 }
 
@@ -650,17 +648,13 @@ width:36.375rem;
 							<div id="select-wrap" style="position:relative;">
 								<div id="select">상품옵션을 선택하세요</div>
 								<ul class="select-ul">
-									<c:forEach var="i" items="${optionlist}">
 									
-									<c:choose>
-										<c:when test="${i.g_option ==null}">
-										<li class="li" value="${i.g_num }">${dto.g_name}</li>
-										</c:when>
-										<c:otherwise>
-											<li class="li" value="${i.g_num }">${i.g_option}</li>
-										</c:otherwise>
-									</c:choose>
+									<c:forEach var="i" items="${list }">
+										<li class="li" value="${i.g_seq }">${i.g_option}</li>
+								
 									</c:forEach>
+									
+									
 								</ul>
 							</div>
 
@@ -668,7 +662,7 @@ width:36.375rem;
 
 							<!-- 옵션 선택 -->
 <!-- 							<div class="col-12 choose"> -->
-<!-- 								<input type="hidden" class='hidden_g_num" value="g_num"> -->
+<!-- 								<input type="hidden" class='hidden_g_seq" value="g_num"> -->
 <!-- 								<span class="h4 name">로맨틱데이즈</span>  -->
 <!-- 								<span class="h4 price">7,900원</span><br> -->
 <!-- 								<span><button class="cntbtn minus"> -->
@@ -689,7 +683,7 @@ $(".li").on("click", function () {
 	let value= $(this).val();
 		$(".choose").each(
 				function (index, element){
-					if ($(element).find(".hidden_g_num").val()==value ) {
+					if ($(element).find(".hidden_g_seq").val()==value ) {
 						alert("이미 담긴 상품입니다.")
 						result=true;
 					}
@@ -734,7 +728,7 @@ $(".li").on("click", function () {
     delete1.text("삭제");
     
     //hidden
-    let hidden = $("<input type='hidden' class='hidden_g_num'>");
+    let hidden = $("<input type='hidden' class='hidden_g_seq'>");
     hidden.attr("value",$(this).val());
     
     minusbtnspan.append(minusbtn);
@@ -786,16 +780,10 @@ $(".li").on("click", function () {
 				<div class="product-area">
 					<div class="row " id="container2">
 					
-					<!-- 뒤로 가기 버튼 -->
-						<div class="margin1" id="btndiv">
-							<button id="backbtn">
-								<img src="/images/Vector.png">
-							</button>
-						</div>
-						
+					
 					<!-- 상품 이미지 -->	
 						<div class=" margin1" id="imgdiv">
-							<img src="/shop/shopHome/${dto.gp_sysname }" id="img">
+							<img referrerpolicy="no-referrer" src="${dto.gp_sysname }" id="img">
 						</div>
 						
 						
@@ -827,7 +815,7 @@ $(".li").on("click", function () {
 						
 					<!-- 상품 상세 설명 -->
 						<div class="row" id="productdetail">
-							<img src="/images/Frame 940.png">
+							<div class="col-12" >${dto.g_contents }</div>
 						</div>
 
 
@@ -901,7 +889,7 @@ $(".li").on("click", function () {
 		var g_numArray =[];
 		var cartstockArray=[];
 		$(".choose").each(function(index,item){
-			g_num=$(item).find($(".hidden_g_num"));
+			g_num=$(item).find($(".hidden_g_seq"));
 			console.log(g_num.val());
 			cartstock = $(item).find($(".count"));
 			console.log(cartstock.text());
@@ -914,7 +902,7 @@ $(".li").on("click", function () {
 		
 		$.ajax({
 			url:"/cart/isGoodsExist",
-			data:{g_num:g_numArray,cartstock:cartstockArray},
+			data:{g_seq:g_numArray,cartstock:cartstockArray},
 			dataType:"json",
 			 traditional: true,
 		}).done(function(resp){

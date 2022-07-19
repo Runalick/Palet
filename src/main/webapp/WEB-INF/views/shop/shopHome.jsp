@@ -188,7 +188,7 @@
 /* 정렬기준 버튼(select option) */
 .form-select {
 	border: 1px solid #CFD4D9;
-	box-shadow: 0px 0px 0px #CBDAFC;
+/* 	box-shadow: 0px 0px 0px #CBDAFC; */
 	border-radius: 0.313rem;
 	/*        width: 15rem;  */
 	height: 3rem;
@@ -494,7 +494,7 @@
 			$(".currentExhibition").addClass("h3_2");
 			$(".category")
 					.append(
-							"<div class='button' id='1' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+							"<div class='button' id='1' style='display: inline-block;'>MMCA 이건희컬렉션 특별전: 한국 미술명작</div>");
 		}
 
 		//   전시회 버튼 기본 CSS, append (현재전시)
@@ -643,7 +643,7 @@
 						$(".button").remove();
 						$(".category")
 								.append(
-										"<div class='button active' id='1' style='display: inline-block;'>Romantic Days 어쨋든, 사랑</div>");
+										"<div class='button active' id='1' style='display: inline-block;'>MMCA 이건희컬렉션 특별전: 한국 미술명작</div>");
 						$.ajax({
 							url:"/shop/selectGoods",
 							data:{"e_num" : $(".active").attr("id"),
@@ -721,19 +721,43 @@
 						
 						$(".category")
 								.append(
-										"<div class='button active' id='2' style='display: inline-block;'>카로 악포키에르 <<분실된 그림들>></div>");
+										"<div class='button active' id='2' style='display: inline-block;'>미술로, 세계로</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='3' style='display: inline-block;'>국제미술 소장품 기획전 <<미술로, 세계로>></div>");
+										"<div class='button' id='3' style='display: inline-block;'>MMCA 과천 프로젝트</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='4' style='display: inline-block;'>아이 웨이웨이</div>");
+										"<div class='button' id='4' style='display: inline-block;'>우리 집에서, 워치 앤 칠</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='5' style='display: inline-block;'>대지의 시간</div>");
+										"<div class='button' id='5' style='display: inline-block;'>아이 웨이웨이: 인간미래</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='6' style='display: inline-block;'>창동레지던시 입주보고서 2021:풀 물 몸</div>");
+										"<div class='button' id='6' style='display: inline-block;'>박수근: 봄을 기다리는 나목</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='7' style='display: inline-block;'>최욱경, 앨리스의 고양이</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='8' style='display: inline-block;'>MMCA 현대차 시리즈 2021</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='9' style='display: inline-block;'>정상화</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='11' style='display: inline-block;'>움직임을 만드는 움직임</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='12' style='display: inline-block;'>특별수장고 <<국립현대미술관 드로잉 소장품>></div>");
+						$(".category")
+							.append(
+									"<div class='button' id='14' style='display: inline-block;'>권민호: 회색 숨</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='15' style='display: inline-block;'>개방수장고 개편</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='16' style='display: inline-block;'>MMCA 소장품 하이라이트 2020+</div>");
 						$
 								.ajax({
 									url : "/shop/selectGoods",
@@ -762,37 +786,25 @@
 					});
 
 	//   전시회 카테고리 변경 이벤트
-	$(document)
-			.on(
-					"click",
-					".button",
-					function() {
-						$(this).addClass("active");
-						$(".button").not(this).removeClass("active");
-						$(".form-select").val("sell");
-						$
-								.ajax({
-									url : "/shop/selectGoods",
-									data : {
-										"e_num" : $(".active").attr("id"),
-										"option" : $("#select_value").val(),
-										"limit" : "1"
-									}
-								})
-								.done(
-										function(resp) {
-											$(".list").empty();
-											for (i = 0; i < resp.length; i++) {
-												$(".list")
-														.append(
-																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-																		+ resp[i].g_num
-																		+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-																		+ resp[i].g_name
-																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
-																		+ resp[i].g_price
-																				.toLocaleString()
-																		+ "원</div></div>");
+	$(document).on("click", ".button",function() {
+		console.log($("#select_value").val());
+		$(this).addClass("active");
+		$(".button").not(this).removeClass("active");
+		$.ajax({url : "/shop/selectGoods",
+				data : {"e_num" : $(".active").attr("id"),
+						"option" : "sales_count desc",
+						"limit" : "1"
+						}
+					}).done(function(resp) {
+						$(".list").empty();
+						for (i = 0; i < resp.length; i++) {
+							$(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
+												+ resp[i].g_num
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
+												+ resp[i].g_name
+												+ "</div><div class='goodsPrice' style='text-align:left;'>"
+												+ resp[i].g_price.toLocaleString()
+												+ "원</div></div>");
 											}
 										})
 					});

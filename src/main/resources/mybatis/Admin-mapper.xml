@@ -51,6 +51,10 @@
 		select pro_booknumber as merchant_uid, pro_title as title, pro_cost as price, pro_buydate as pay_time, pro_category as category from proticket where pro_email = #{value}) where pay_time > sysdate-13 order by pay_time desc
   	</select>
   	
+  	<select id='getMemberAddress' resultType='Trillion.Palet.DTO.DeliveryDTO'>
+  		select * from deliveryaddress where defaultaddress = 'Y' and email = #{value}
+  	</select>
+  	
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">
@@ -63,6 +67,10 @@
   	<update id="adminGoodsUpdate">
   		update goods set g_name = #{g_name}, g_stock = #{g_stock}, g_price = #{g_price} where g_num = #{g_num}
   	</update>
+  	
+  	<select id="getGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
+  		select e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, e_name from goods g join exhibition e using(e_num) where g_seq = #{value}
+  	</select>
   	
   	<!-- Payment -->
   	
@@ -198,5 +206,47 @@
   		delete from cancel where booknumber = #{value}
   	</delete>
   	
+  	<update id='restoreExCountAndStock'>
+  		update exhibition set sales_count = sales_count - (select et_count from exticket where et_booknumber = #{value}) 
+		where e_num = (select e_num from exticket where et_booknumber = #{value})
+  	</update>
+  	
+  	<select id="checkUsedExPoint" resultType="int">
+  		select et_usedpoint from exticket where et_booknumber = #{value}
+  	</select>
+  	
+  	<update id='restoreExpoint'>
+  		update member set point = point + (select et_usedpoint from exticket where et_booknumber = #{value) 
+  		where email = (select et_email from exticket where et_booknumber = #{value})
+  	</update>
+  	
+  	<update id='restoreGoodsCountAndStock'>
+  		update goods set sales_count = sales_count-(select g_count from payment 
+		where merchant_uid=#{value}), g_stock = g_stock + (select g_count from payment where merchant_uid=#{value})
+		where g_num = (select g_num from payment where merchant_uid=#{value})
+  	</update>
+  	
+  	<select id='checkUsedGoodsPoint' resultType='int'>
+  		select usedpoint from payment where merchant_uid = #{value}
+  	</select>
+  	
+  	<update id='restoreGoodsPoint'>
+  		update member set point = point + (select usedpoint from payment where merchant_uid = #{value)
+  		where email = (select email from payment where merchant_uid = #{value})
+  	</update>
+  	
+  	<update id='restoreProCountAndStock'>
+  		update program set sales_count = sales_count - (select pro_count from proticket where pro_booknumber = #{value}) 
+		where p_num = (select p_num from proticket where pro_booknumber = #{value})
+  	</update>
+  	
+  	<select id='checkUsedProPoint' resultType='int'>
+  		select pro_usedpoint from proticket where pro_booknumber = #{value}
+  	</select>
+  	
+  	<update id='restoreProPoint'>
+  		update member set point = point + (select pro_usedpoint from proticket where pro_booknumber = #{value) 
+  		where email = (select pro_email from proticket where pro_booknumber = #{value})
+  	</update>
   	
   </mapper>

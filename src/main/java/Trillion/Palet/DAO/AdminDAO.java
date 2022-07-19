@@ -1,5 +1,6 @@
 package Trillion.Palet.DAO;
 
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -119,6 +121,10 @@ public class AdminDAO {
 	
 	public List<AdminDTO> getMemberPayment(String email) {
 		return mybatis.selectList("Admin.getMemberPayment", email);
+	}
+	
+	public DeliveryDTO getMemberAddress(String email) {
+		return mybatis.selectOne("Admin.getMemberAddress", email);
 	}
 	
 	// Exhibition Category
@@ -335,6 +341,10 @@ public class AdminDAO {
 	
 	public int adminGoodsUpdate(GoodsDTO gdto) {
 		return mybatis.update("Admin.adminGoodsUpdate", gdto);
+	}
+	
+	public GoodsDTO getGoods(int g_seq) {
+		return mybatis.selectOne("Admin.getGoods", g_seq);
 	}
 	
 	// Program Category
@@ -707,6 +717,42 @@ public class AdminDAO {
 	
 	public int cancelPaymentCheckDelete(String check) {
 		return mybatis.delete("Admin.cancelPaymentCheckDelete", check);
+	}
+	
+	public int restoreExCountAndStock(String check) {
+		return mybatis.update("Admin.restoreExCountAndStock", check);
+	}
+	
+	public int checkUsedExPoint(String check) {
+		return mybatis.selectOne("Admin.checkUsedExPoint", check);
+	}
+	
+	public int restoreExPoint(String check) {
+		return mybatis.update("Admin.restoreExPoint", check);
+	}
+	
+	public int restoreGoodsCountAndStock(String check) {
+		return mybatis.update("Admin.restoreGoodsCountAndStock", check);
+	}
+	
+	public int checkUsedGoodsPoint (String check) {
+		return mybatis.selectOne("Admin.checkUsedGoodsPoint", check);
+	}
+	
+	public int restoreGoodsPoint(String check) {
+		return mybatis.update("Admin.restoreGoodsPoint", check);
+	}
+	
+	public int restoreProCountAndStock(String check) {
+		return mybatis.update("Admin.restoreProCountAndStock", check);
+	}
+	
+	public int checkUsedProPoint(String check) {
+		return mybatis.selectOne("Admin.checkUsedProPoint", check);
+	}
+	
+	public int restoreProPoint(String check) {
+		return mybatis.update("Admin.restoreProPoint", check);
 	}
 	
 	

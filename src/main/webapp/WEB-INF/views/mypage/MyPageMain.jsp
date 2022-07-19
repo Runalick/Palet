@@ -21,6 +21,8 @@
 	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
 
+<!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 @charset "UTF-8";
 
@@ -217,10 +219,10 @@ line-height: 3.75rem;
 	max-height: 1920px; */
 	height: 0;
 	padding-bottom: calc(600/ 1920 * 100%);
-	background-image: url("/images/blackpainting.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% 100%;
+/* 	background-image: url("/images/blackpainting.png"); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center center; */
+/* 	background-size: 100% 100%; */
 }
 
 #gradegray{
@@ -229,10 +231,10 @@ line-height: 3.75rem;
 	max-height: 1920px; */
 	height: 0;
 	padding-bottom: calc(600/ 1920 * 100%);
-	background-image: url("/images/graypainting.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% 100%;
+/* 	background-image: url("/images/graypainting.png"); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center center; */
+/* 	background-size: 100% 100%; */
 }
 
 #gradewhite{
@@ -241,10 +243,10 @@ line-height: 3.75rem;
 	max-height: 1920px; */
 	height: 0;
 	padding-bottom: calc(600/ 1920 * 100%);
-	background-image: url("/images/whitepainting.png");
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100% 100%;
+/* 	background-image: url("/images/whitepainting.png"); */
+/* 	background-repeat: no-repeat; */
+/* 	background-position: center center; */
+/* 	background-size: 100% 100%; */
 }
 
 .gradetext{
@@ -320,6 +322,12 @@ line-height: 3.75rem;
 	font-size:1.875rem;
 	}
 }
+
+/*  @media ( min-width : 375px) {  */
+/*  	.title {  */
+/*  		text-align:center;  */
+/*  	}  */
+/*  }  */
  .container, .container-fluid,  .container-lg, .container-md,
    .container-sm, .container-xl, .container-xxl {
    overflow-x: hidden;
@@ -420,7 +428,7 @@ color:white;
 <body>
 		<div class="container-fluid">
 			<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -484,7 +492,7 @@ color:white;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -531,7 +539,7 @@ color:white;
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -595,8 +603,8 @@ color:white;
 						<div class="body4">My Info</div>
 						<ul>
 							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
@@ -604,149 +612,76 @@ color:white;
 				</div>
 				</div>
 				
-				
-				
-				
-				
-				
-				<div class="content">
-					<c:if test="${dto.grade == 'White'}">
-						<div id="gradewhite" class="row">
-							<div class="row gradetext">
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-							</div><br>
-							<div class="col-sm-4 H3" style=" padding-top: 1.75rem; text-align: center;"> 
-								
-								<br>
-								${dto.grade}<br>
-								매주 월요일 반영
-							</div>
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
-									<span>마일리지<br></span>
-									<span>${dto.point } point</span>
-							</div>
+				<div class="content" style="margin-top:1rem;">
+					<div class="row">
+						<div class="col-12 h2 title d-none d-md-block" style="margin-left:3.5rem; margin-bottom:1.5rem;">
+							<c:if test="${dto.name==null }"> 
+								${dto.email} 
+							</c:if> 
+							<c:if test="${dto.name!=null }"> 
+								${dto.name }
+ 							</c:if>
+								님 안녕하세요
+						</div>
+						<div class="col-12 col-md-6" style="text-align:center; margin-bottom:1.5rem;">
+							<c:choose>
+								<c:when test="${dto.grade == 'White'}">
+									<img src="/images/003.png" style=" height:300px;">
+								</c:when>
+								<c:when test="${dto.grade == 'Black'}">
+									<img src="/images/002.png" style=" height:300px;">
+								</c:when>
+								<c:when test="${dto.grade == 'Gray'}">
+									<img src="/images/001.png" style=" height:300px;">
+								</c:when>	
+							</c:choose>
+							
+						</div>
+						<div class="col-12 col-md-6">
+							<div class="row">
+								<div class="col-12" style="padding-bottom:5rem; margin-bottom:1.5rem;">
+									<div class="h3"><i class="fa-solid fa-coins"></i> 마일리지</div>
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 보유하신 포인트 잔액입니다.</div>
+		 							<div style="padding-top:1rem;">${dto.point } POINT</div>
+	 							</div>
+	 							<div class="col-12" style="margin-bottom:1.5rem;">
+		 							<div class="h3"><i class="fa-solid fa-ticket-simple"></i> 쿠폰</div>
+									<div style="border-bottom:1px solid black; padding-bottom:0.5rem;">회원님께서 보유하신 쿠폰입니다.</div>
+		 							<div class="coupon" style="padding-top:1rem;"> 
+		 							
+		 							</div>
+	 							</div>
+ 							</div>
+						</div>
+						<div class="col-12" style="margin-top:5rem;">
+							<div class="row">
+								<div class="col-12 col-md-6" style="margin-bottom:1.5rem; padding-bottom:5rem;">
+									<div class="h3"><i class="fa-solid fa-ticket"></i> 최근 예매 내역</div>
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 최근 전시 또는 프로그램 티켓을 예매하신 내역입니다.</div>
+									<div class="ticket" style="padding-top:1rem;"> 
+									
+									</div>
+								</div>
+								<div class="col-12 col-md-6" style="margin-bottom:1.5rem; padding-bottom:5rem;">
+									<div class="h3"><i class="fa-solid fa-box"></i> 최근 주문 내역</div>
+									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 최근 상품을 구매하신 내역입니다.</div>
+									<div class="goods" style="padding-top:1rem;"> 
+									
+									</div>
+								</div>
 							</div>
 						</div>
-					</c:if>
-					<c:if test="${dto.grade == 'Black'}">
-						<div id="gradegray" class="row">
-						<div class="row gradetext">
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-							</div><br>
-							<div class="col-sm-4 H3" style=" padding-top: 1.75rem; text-align: center;"> 
-								
-								<br>
-								${dto.grade}<br>
-								매주 월요일 반영
-							</div>
-							<div class="col-sm-4 H2" style=" line-height: 50px; padding-top: 2rem; text-align: center;">
-									<span>마일리지<br></span>
-									<span>${dto.point } point</span>
-							</div>
-						</div>
-						</div>
-					</c:if>
-					<c:if test="${dto.grade == 'Gray'}">
-						<div id="gradeblack" class="row">
-						<div class="row gradetext">
-							<div class="col-sm-4 H2" style="color: white; line-height: 50px; padding-top: 2rem; text-align: center;">
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-							</div><br>
-							<div class="col-sm-4 H3" style="color: white; padding-top: 1.75rem; text-align: center;"> 
-								
-								<br>
-								${dto.grade}<br>
-								매주 월요일 반영
-							</div>
-							<div class="col-sm-4 H2" style="color: white; line-height: 50px; padding-top: 2rem; text-align: center;">
-									<span>마일리지<br></span>
-									<span>${dto.point } point</span>
-							</div>
-						</div>
-						</div>
-					</c:if>
-				<div >
-						
-						
-						
-						
 					</div>
 				</div>
-				
-				
-				<%-- <div class="content">
-					<div class="row" style="border: 1px solid black; background-color: #9f9f9f70">
-						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem; text-align: center;">
-								<c:if test="${dto.name==null }">
-									${dto.email}
-								</c:if> 
-								<c:if test="${dto.name!=null }">
-									${dto.name }
-								</c:if>
-								님<br>
-								안녕하세요.
-						</div><br>
-						<div class="col-sm-4 H3" style="padding-top: 1.75rem; text-align: center;"> 
-							<c:if test="${dto.grade == 'White'}">
-								<img src="/images/white.png" class="mini">
-							</c:if>
-							<c:if test="${dto.grade == 'Gray'}">
-								<img src="/images/blackpainting.png" class="mini">
-							</c:if><c:if test="${dto.grade == 'Black'}">
-								<img src="/images/black.png" class="mini">
-							</c:if>
-							<br>
-							${dto.grade}<br>
-							매주 월요일 반영
-						</div>
-						<div class="col-sm-4 H2" style="line-height: 50px; padding-top: 2rem; text-align: center;">
-								<span>마일리지<br></span>
-								<span>${dto.point } point</span>
-						</div>
-						<div class="col-12 body4" style="border-bottom: 2px solid black;"></div>
-					</div>
-				</div> --%>
-				
-				
 			</div>
 		</div>
-	</div>
-
-
-
-
-
-
 
 		<!-- 푸터단 -->
 
 		<div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
@@ -755,8 +690,37 @@ color:white;
         </div>
 
 	</div>
-	
+	</div>
 	<script>
+	window.onload = function(){
+		$.ajax({
+			url:"/mypage/selectMyCoupon"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
+				$(".coupon").append("<div>"+resp[i].category+"</div>");
+			}
+		})
+		
+		$.ajax({
+			url:"/mypage/selectMyexhibition"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
+				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid black; border-radius:1rem;  margin-left:0.1rem; margin-right:0.1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%;'>"+resp[i].et_title+"</div><div class='col-12' style='height:50%;'>"+resp[i].et_date+"</div></div></div></a>");
+			}
+		})
+		
+		$.ajax({
+			url:"/mypage/selectMyGoods"
+		}).done(function(resp){
+			console.log(resp);
+			for(let i = 0; i < resp.length; i++){
+				$(".goods").append("<div>"+resp[i].g_name+"</div>");
+			}
+		})
+	}
+	
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});

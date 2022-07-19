@@ -9,6 +9,7 @@ import Trillion.Palet.DAO.MypageDAO;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
 
 @Service
@@ -77,6 +78,18 @@ public class MypageService {
 	public List<CancelListDTO> refundajax(String email, String btn) {
 		return mdao.refundajax(email,btn);
 	}
-
+	
+	public List<MypageUserDetailDTO> selectMyCoupon(String email) {
+		return mdao.selectMyCoupon(email);
+	}
+	
+	public List<MypageUserDetailDTO> selectMyexhibition(String email) {
+		return mdao.selectMyexhibition(email);
+	}
+	
+	public List<MypageUserDetailDTO> selectMyGoods(String email) {
+		return mdao.selectMyGoods(email);
+	}
+ 
 	
 }

@@ -22,22 +22,21 @@
 <!-- 지도api -->
 
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -58,14 +57,11 @@
 	height: 1.875rem;
 }
 
-#navparent {
-	position: fixed;
-	font-size: 0;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	height: 5rem;
-	background-color: white;
-	z-index: 5;
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .navbar {
@@ -73,9 +69,31 @@
 	padding: 0px;
 }
 
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -105,15 +123,33 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -195,7 +231,10 @@
 	padding-top: 8rem;
 	text-align: center;
 }
-
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 @media ( min-width : 992px) {
 	.border-text {
 		padding-top: 7rem;
@@ -206,13 +245,25 @@
 	.askdiv img{
 	height:13.125rem;
 	}
+	#odd1,#odd2,#odd3{
+	padding-left:1.5rem;
+	padding-right:1.5rem;
+	}
+	#even1,#even2,#even3{
+	padding-left:1rem;
+	padding-right:1.5rem;
+	}
+	.info-row{
+	padding-left:2rem;
+	}
+	
 }
 @media ( max-width : 992px) {
 .border-text, .info, .askinfo{
 	padding-top:4rem;
 }
-.askdiv img{
-
+.askinfo-row{
+padding-left:2rem;
 }
 	
 }
@@ -248,6 +299,7 @@ box-shadow: 0px 0px 0px #CBDAFC;
 border-radius: 5px;
 }
 .askbtn{
+border:0px;
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -269,63 +321,153 @@ border-radius: 20px;
 </style>
 </head>
 <body>
-	<header>
-		<div class="container-fluid" id=navparent>
+		<div class="container-fluid" >
+			<div class="container-fluid"
+			style="background-color: white; position: fixed;">
 			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
 				<div class="row" id="container1">
-					<nav class="navbar navbar-expand-sm bg-light navbar-light">
-						<div class="container" id="navparent">
-							<a class="navbar-brand" href="#" id="container"
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
-								<ul class="navbar-nav">
-									<li class="nav-item"><a id="About" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-									</li>
-									<li class="nav-item"><a id="Exhibition" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-									</li>
-									<li class="nav-item"><a id="Shop" class="nav-link"
-										href="/shop/toShop"
-										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-									<li class="nav-item"><a id="Help" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Help</a>
-									</li>
-									<li class="nav-item"><a id="Login" class="nav-link"
-										href="/member/loginPage"
-										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-									<li class="nav-item"><a id="Signup" class="nav-link"
-										href="/member/join"
-										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-									<li class="nav-item"><a id="Admin" class="nav-link"
-										href="/admin/adminMain"
-										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-									<c:choose>
-										<c:when test="${loginEmail !=null }">
-											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/cart/cartlist"
-												style="padding-left: 0px; padding-right: 0px;">cart(${totalDto.total_num })</a></li>
-										</c:when>
-									</c:choose>
-									<li class="nav-item"><a id="Mypage" class="nav-link"
-										href="/member/mypage"
-										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
 								</ul>
 							</div>
 						</div>
 					</nav>
-
 				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
-	</header>
-	<div class="container-fluid" id="goodsparent">
-		<div class="container" id="goodscontainer">
+		<div class="container">
 		<div class="row">
 		<div class="col-12 H2" style="color: #161C24;margin-top:2.5rem; margin-bottom:2.5rem;">About</div>
 		<div class="col-12" style="text-align: center">
@@ -341,14 +483,14 @@ border-radius: 20px;
 		</span>
 		</div>
 		<div class="col-12">
-			<div class="row" style="margin-top:10rem; margin-bottom:10rem;">
+			<div class="row"  id="row1" style="padding:0.8rem;margin-top:10rem; margin-bottom:10rem;">
 				<div class="col-12 col-lg-6 border">
 				<img src="/images/about_picture3.png" style="width:18.75rem">
 				</div>
 				<div class="col-12  col-lg-6 border-text  ">
-					<div class="row" >
-						<div class="col-12 h3">palette? pallet? palet!!</div>
-						<div class="col-12 body2">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
+					<div class="row info-row"  >
+						<div class="col-12 h3" style="padding-left:0.8rem;">palette? pallet? palet!!</div>
+						<div class="col-12 body2" style="padding-left:0.8rem;">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
 ‘palete’는 대형 화물을 옮길 때 사용되는 받침대입니다.
 이 두 단어를 합성하여 만들어진 ‘palet’라는 이름는 ‘여러가지 색을 가진 다양한 작품, 다채로운 즐거움을 전달하자’는 의미를 담고있습니다.</div>
 					
@@ -359,20 +501,20 @@ border-radius: 20px;
 		
 		
 		<div class="col-12">
-			<div class="row" style="margin-top:10rem; margin-bottom:10rem;">
+			<div class="row" id="row1" style="padding:0.8rem;margin-top:10rem; margin-bottom:10rem;">
 				<div class="col-12 col-lg-6 mapdiv" id="map">
 				
 				</div>
 				<div class="col-12  col-lg-6  info ">
-					<div class="row" >
+					<div class="row info-row"  >
 						
-					<div class="col-12 h3" style="margin-top:0.75rem">운영시간</div>
-						<div class="col-12 body2" style="margin-bottom:2.5rem;">화요일–일요일(월요일 휴관), 10:00–18:00<br>
+					<div class="col-12 h3" style="margin-top:0.75rem;padding-left:0.8rem;">운영시간</div>
+						<div class="col-12 body2" style="margin-bottom:2.5rem;padding-left:0.8rem;">화요일–일요일(월요일 휴관), 10:00–18:00<br>
 미술관 전시장 내 관람객이 120명이 초과될 경우 입장이 제한될 수 있습니다.</div>
-						<div class="col-12 h3">위치</div>
-						<div class="col-12 body2" style="margin-bottom:2.5rem;">지하철3호선 경복궁역 지하 1층</div>
-						<div class="col-12 h3">주차 안내</div>
-						<div class="col-12 body2">주차불가<br>
+						<div class="col-12 h3" style="padding-left:0.8rem;">위치</div>
+						<div class="col-12 body2" style="margin-bottom:2.5rem;padding-left:0.8rem;">지하철3호선 경복궁역 지하 1층</div>
+						<div class="col-12 h3" style="padding-left:0.8rem;">주차 안내</div>
+						<div class="col-12 body2" style="padding-left:0.8rem;">주차불가<br>
 인근 유료 주차장 별도 이용(국립현대미술관 서울관 지하 주차장 및 경복궁 주차장 등)</div>
 					</div>
 				</div>
@@ -383,21 +525,21 @@ border-radius: 20px;
 		<div class="col-12">
 		
 		
-		<div class="row" style="margin-top:10rem; margin-bottom:10rem;">
+		<div class="row" id="row1" style="margin-top:10rem; margin-bottom:10rem;">
 				<div class="col-12 col-lg-6 askdiv">
-				<div class="row">
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask1.png" class="odd" ></div>
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask2.png" class="even"  ></div>
-				<div class="col-4 col-lg-6">
-				<img src="/images/ask3.png" class="odd" ></div>
-				<div class="col-4 col-lg-6">
-				<img src="/images/ask4.png" class="even"></div>
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask5.png" class="odd"></div>
-				<div class="col-4 col-lg-6">
-					<img src="/images/ask6.png" class="even"></div>
+				<div class="row" >
+				<div class="col-4 col-lg-6 " id="odd1">
+					<img src="/images/ask1.png"  ></div>
+				<div class="col-4 col-lg-6 " id="even1">
+					<img src="/images/ask2.png" ></div>
+				<div class="col-4 col-lg-6 " id="odd2">
+				<img src="/images/ask3.png " ></div>
+				<div class="col-4 col-lg-6 " id="even2">
+				<img src="/images/ask4.png " ></div>
+				<div class="col-4 col-lg-6 "id="odd3">
+					<img src="/images/ask5.png" ></div>
+				<div class="col-4 col-lg-6 " id="even3">
+					<img src="/images/ask6.png" ></div>
 			
 			
 				
@@ -407,7 +549,7 @@ border-radius: 20px;
 				</div>
 				</div>
 				<div class="col-12  col-lg-6  askinfo ">
-					<div class="row" style="margin-top:1rem;">
+					<div class="row info-row askinfo-row" id="row1" style="margin-top:1rem;">
 						<div class="col-12 h3" style="margin-bottom:2.5rem; height:1.5rem;">대관 문의</div>
 						<div class="col-12 body2" >이메일</div>
 						<div class="col-12">
@@ -451,19 +593,16 @@ border-radius: 20px;
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer" style="margin-top: 12.5rem;">
-			<div class="container">
-				<div class="row" id="row1" style="margin-left: 22.5rem;">
-					<div class="col-12 h3 d-none d-sm-block"
-						style="color: #637381; margin-top: 3.75rem; padding: 0px;">(주)팔레트</div>
-					<div class="col-12 body2 d-none d-sm-block"
-						style="color: #637381; margin-top: 0.5rem; margin-bottom: 3.75rem; padding: 0px;">
-						사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 :
-						2022-서울강남-012345 <br> 3호선 경복궁역 지하 1층 | contact@palet.com
-					</div>
-				</div>
-			</div>
-		</div>
+		<div class="row" id="footer">
+            <div class="container">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 
 	</div>
 <script>

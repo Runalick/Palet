@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
+import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
@@ -55,6 +56,11 @@ public class AdminService {
 		return adao.getMemberPayment(email);
 	}
 	
+	public DeliveryDTO getMemberAddress(String email) {
+		return adao.getMemberAddress(email);
+	}
+	
+	
 	// Exhibition Category
 	
 	public List<ExhibitionDTO> exhibitionSelectByPage(int cpage, String value){
@@ -68,6 +74,7 @@ public class AdminService {
 	public void adminExhibitionUpdate(ExhibitionDTO edto) {
 		adao.adminExhibitionUpdate(edto);
 	}
+	
 	
 	// Goods Category
 	
@@ -99,6 +106,10 @@ public class AdminService {
 		adao.adminGoodsUpdate(gdto);
 	}
 	
+	public GoodsDTO getGoods(int g_seq) {
+		return adao.getGoods(g_seq);
+	}
+	
 	// Program Category
 	
 	public List<ProgramDTO> programSelectByPage(int cpage, String value){
@@ -108,7 +119,6 @@ public class AdminService {
 	public String getProgramPageNavi(int cpage) {
 		return adao.getProgramPageNavi(cpage);
 	}
-	
 	
 	// Payment Category
 	
@@ -178,6 +188,37 @@ public class AdminService {
 		return adao.cancelPaymentCheckDelete(check);	
 	}
 	
+	public void cancelExAfterWorks(String check) {
+		adao.restoreExCountAndStock(check);
+		
+		int result = adao.checkUsedExPoint(check);
+		
+		if (result != 0) {
+			adao.restoreExPoint(check);
+		}
+		
+	}
+	
+	public void cancelGoodsAfterWorks(String check) {
+		adao.restoreGoodsCountAndStock(check);
+		
+		int result = adao.checkUsedGoodsPoint(check);
+		
+		if (result != 0) {
+			adao.restoreGoodsPoint(check);
+		}
+		
+	}
+	
+	public void cancelProAfterWorks (String check)  {
+		adao.restoreProCountAndStock(check);
+		
+		int result = adao.checkUsedProPoint(check);
+		
+		if(result != 0) {
+			adao.restoreProPoint(check);
+		}
+	}
 
 	
 	// etc..
