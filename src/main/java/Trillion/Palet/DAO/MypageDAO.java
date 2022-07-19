@@ -111,6 +111,13 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.selectMyCoupon",email);
 	}
 	
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String email, String used){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("used", used);
+		return mybatis.selectList("MyPage.selectMyCouponStatus",param);
+	}
+
 	public List<MypageUserDetailDTO> selectMyexhibition(String email){
 		return mybatis.selectList("MyPage.selectMyexhibition",email);
 	}

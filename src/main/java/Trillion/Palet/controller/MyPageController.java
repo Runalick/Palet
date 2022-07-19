@@ -195,6 +195,13 @@ public class MyPageController {
 	}
 	
 	@ResponseBody
+	@RequestMapping("selectMyCouponStatus")
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String used){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyCouponStatus(email, used);
+	}
+	
+	@ResponseBody
 	@RequestMapping("selectMyexhibition")
 	public List<MypageUserDetailDTO> selectMyexhibition(){
 		String email = (String)session.getAttribute("loginEmail");

@@ -20,22 +20,21 @@
 <!-- 지도api -->
 
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -56,14 +55,11 @@
 	height: 1.875rem;
 }
 
-#navparent {
-	position: fixed;
-	font-size: 0;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	height: 5rem;
-	background-color: white;
-	z-index: 5;
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .navbar {
@@ -71,9 +67,31 @@
 	padding: 0px;
 }
 
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -97,21 +115,42 @@
 	order: 0;
 	flex-grow: 0;
 }
-
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -297,95 +336,14 @@ li div {
 	padding: 0.3rem 1rem;
 }
 
-<!--
-버튼 -->.btn1 {
-	/* padding:  1.12rem 1.5rem; */
-	gap: 0.625rem;
-	/* width: 12.5rem; */
-	width: 100%;
-	height: 3.125rem;
-	/* Gray/900 */
-	color: #FFFFFF;
-	background: #161C24;
-	border-radius: 0.313rem;
-	/* Button/Button */
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.0rem;
-	line-height: 1.2rem;
-	cursor: pointer;
+.active{
+	background-color:black;
+	color:white;
 }
 
-.btn1:disabled {
-	color: #FFFFFF;
-	background: #C4CDD5;
-	cursor: default;
-}
-
-/* join 버튼 */
-.btn2 {
-	padding: 1.125rem 1.5rem;
-	gap: 0.625rem;
-	/* width: 18.813rem; */
-	width: 10rem;
-	height: 1rem;
-	color: #FFFFFF;
-	border-radius: 1.25rem;
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.25rem;
-	line-height: 0.5rem;
-	/* identical to box height */
-	text-align: center;
-	/* Gray/900 */
-	background: #161C24;
-	cursor: pointer;
-}
-
-.btn2:disabled {
-	color: #FFFFFF;
-	background: #C4CDD5;
-	cursor: default;
-}
-
-.btn3 {
-	/* display: block; */
-	/* flex-direction: row;
-justify-content: center;
-align-items: center; */
-	padding: 1.125rem 1.5rem;
-	gap: 0.625rem;
-	width: 11.625rem;
-	height: 3.75rem;
-	background: #161C24;
-	border-radius: 1.25rem;
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.2rem;
-	line-height: 1.5rem;
-	text-align: center;
-	color: #FFFFFF;
-}
-
-.btn5 {
-	padding: 1.125rem 1.5rem;
-	gap: 0.625rem;
-	width: 18.813rem;
-	height: 3.75rem;
-	/* Gray/900 */
-	background: #161C24;
-	border-radius: 1.25rem;
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 500;
-	font-size: 1.23rem;
-	line-height: 1.5rem;
-	/* identical to box height */
-	text-align: center;
-	color: #FFFFFF;
+button {
+	background-color:white;
+	border:1px solid #DFE3E8;
 }
 
 .container, .container-fluid, .container-lg, .container-md,
@@ -395,9 +353,9 @@ align-items: center; */
 </style>
 </head>
 <body>
-<header>
-		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+		<div class="container-fluid" >
+			<div class="container-fluid"
+			style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -418,7 +376,7 @@ align-items: center; */
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -461,7 +419,7 @@ align-items: center; */
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -508,7 +466,7 @@ align-items: center; */
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -533,171 +491,149 @@ align-items: center; */
 					</nav>
 				</div>
 				</c:otherwise>
+				
+				
+				
+				
 				</c:choose>
 			</div>
+
+		</div>
+		<div class="container"  >
+			<div class="row mypage-wrap"  >
+			<div class="row" id="row1">				
+			<div class="col-12 d-block d-lg-none H1 small-navi" >
+			<button id="select" style="padding:0px;" >MY PAGE</button>
 			</div>
-	</header>
-	<div class="container-fluid" id="mypage-area">
-		<div class="container">
-			<div class="row mypage-wrap">
-
-				<div class="col-12 d-block d-lg-none H1 small-navi">
-					<button id="select">MY PAGE</button>
-				</div>
-
-
-				<div class="navi">
-					<a href="/mypage/main" style="font-size: 1.625rem;" class="main">
-						<strong class="menu-title">My Page</strong>
-					</a>
-					<div class="navi-menu">
-						<ul class="navi-ul">
-							<li>
-								<div class="body4">My Tickets</div>
-								<ul>
-									<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
-								</ul>
-							</li>
-							<li>
-								<div class="body4">My Shopping</div>
-								<ul>
-									<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-									<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
-									<li class="body3"><a href="/delivery/selectAllAddress">배송지
-											관리</a></li>
-								</ul>
-							</li>
-							<li>
-								<div class="body4">My Info</div>
-								<ul>
-									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-									<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
-									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
-								</ul>
-							</li>
+			
+			
+				<div class="navi" >
+				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
+				<strong class="menu-title">My Page</strong>
+				</a>
+				<div class="navi-menu">
+					<ul class="navi-ul">
+					<li>
+						<div class="body4">My Tickets</div>
+						<ul>
+							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
-					</div>
+					</li>
+					<li>
+						<div class="body4">My Shopping</div>
+						<ul>
+							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
+							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
+						</ul>
+					</li>
+					<li>
+						<div class="body4">My Info</div>
+						<ul>
+							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+							   <li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
+							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
+						</ul>
+					</li>
+					</ul>
 				</div>
-
-				<div class="content">
-					<div class="row" id="row1">
-						<div class="col-12">
-							<div class="h2"
-								style="text-align: center; margin-left: auto; margin-bottom: 20px; text-decoration: underline;">
-								<b>Coupon List</b>
+				</div>
+				
+				<div class="content" style="margin-top:1rem;">
+					<div class="row">
+						<div class=col-12 style="border-bottom:1px solid black;">
+							나의 쿠폰
+						</div>
+						<div class="col-12" style="border-bottom:1px solid black;">
+							<div class="col-12">쿠폰코드를 입력해 주세요.</div>
+							<input type="text" placeholder="쿠폰코트를 입력해 주세요.">
+							<button>등록</button>
+							<div>* 티켓 또는 상품 구매에 사용 가능한 쿠폰이 있으신가요? 쿠폰 사용을 위해 쿠폰 코드를 입력해 주세요.</div>
+						</div>
+						<div class="col-12" style="border-bottom:2px solid black; margin-top:1.5rem; padding-bottom:1.5rem;">
+							<div class="row">
+								<div class="col-6" style="padding-left:0rem; padding-right:0rem;">
+									<button class="notUsed" id="N" style="width:100%; height:4rem;">사용 가능 쿠폰</button>
+								</div>
+								<div class="col-6" style="padding-left:0rem; padding-right:0rem;">
+									<button class="used" id="Y" style="width:100%; height:4rem;">사용완료 쿠폰</button>
+								</div>
 							</div>
 						</div>
-						<div class="col-12" style="border-bottom: 2px solid black;"></div>
-						<div class="col-md-2 col-sm-0 body4"></div>
-						<div class="col-md-2 col-sm-4 body4">번호</div>
-						<div class="col-md-2 col-sm-4 body4">할인금</div>
-						<div class="col-md-2 col-sm-4 body4">종류</div>
-						<div class="col-md-2 d-md-block d-none body4">사용여부</div>
-						<div class="col-md-2 col-sm-0 body4"></div>
-						<div class="col-12" style="border-bottom: 2px solid black;"></div>
-						<c:forEach items="${list }" var="i">
-							<div class="col-md-2 col-sm-0 body5"></div>
-							<div class="col-md-2 col-sm-4 body5">${i.serial }</div>
-							<div class="col-md-2 col-sm-4 body5">${i.dc }</div>
-							<div class="col-md-2 col-sm-4 body5">${i.category }</div>
-							<div class="col-md-2 d-md-block d-none body5">
-								<c:if test="${(i.used == null)||(i.used=='N')||(i.used='n') }">
-								미사용 쿠폰입니다.
-							</c:if>
-								<c:if test="${(i.used=='Y')||(i.used='y') }">
-								사용한 쿠폰입니다.
-							</c:if>
-								<div class="col-md-2 col-sm-0 body5"></div>
+						<div class="col-12" style="border-bottom:1px solid black;">
+							<div class="row">
+								<div class="col-6">
+									쿠폰정보
+								</div>
+								<div class="col-6">
+									할인혜택
+								</div>
 							</div>
-							<div class="col-12 body4" style="border-bottom: 1px solid black;"></div>
-						</c:forEach>
+						</div>
+						<div class="col-12" style="border-bottom:1px solid black;margin-bottom:1rem;">
+							<div class="row list">
+
+							</div>
+						</div>
+						<div class="col-12" style="padding-left:0rem;">
+							<div class="row">
+								<div class="col-12" style="margin-bottom:1.5rem;">쿠폰 사용 안내</div>
+								<div class="col-12">-사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다.</div>
+								<div class="col-12">-쿠폰의 최소 주문금액은 배송비를 제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.</div>
+								<div class="col-12" style="color:red; font-weight:bold;">-상품을 반품하거나 주문을 취소하셨다면, 구매에 사용하신 쿠폰은 반환되지 않습니다.</div>
+							</div>
+						</div>
 					</div>
-
-
-				</div>
-				<div class="col-12 H3">쿠폰 사용 안내</div>
-				<div class="col-12 body4">
-					* 사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다. <br> * 쿠폰의 최소 주문금액은 배송비를
-					제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.<br> * 상품을 반품하거나 주문을 취소하셨다면, 구매에
-					사용하신 쿠폰은 소모됩니다.<br>
 				</div>
 			</div>
 		</div>
-
+	</div>
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer">
-			<div class="container">
-				<div class="row" id="row1">
-					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-					<br>
-					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
-						1층 | contact@palet.com</div>
-
-				</div>
-			</div>
+		<div class="row" id="footer" style="margin-top: 12.5rem;">
+			  <div class="container" style="padding-left:2.5rem;">
+                <div class="row" id="row1">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+                </div>
+            </div>
 		</div>
-
 	</div>
+	
 	<script>
-		$(window).resize(function() { //창크기 변화 감지
-			open_chatroom();
-		});
-
-		function open_chatroom() {
-			var windowWidth = $(window).width();
-			if (windowWidth < 992) { //창 가로 크기가 500 미만일 경우  
-				$(".navi-menu").css({
-					"display" : "none"
-				});
-			} else { //창 가로 크기가 500보다 클 경우  
-				$(".navi-menu").css({
-					"display" : "block"
-				});
+		window.onload = function(){
+			if(!($(".notUsed").hasClass("active"))){
+				$(".notUsed").addClass("active");
 			}
+			
+			$.ajax({
+				url:"/mypage/selectMyCouponStatus",
+				data:{"used":$(".active").attr("id")}
+			}).done(function(resp){
+				console.log(resp);
+				for(let i = 0; i < resp.length; i++){
+					$(".list").append("<div class='col-6 category'>"+resp[i].category+"</div><div class='col-6 dc'>"+resp[i].dc+"</div>")
+				}
+			})
 		}
-
-		//선택박스 화살표 방향 이미지
-		$("#registration").on(
-				"click",
-				function() {
-					window.open("/coupon/toregistration", "",
-							"top=100,left=200,width=700,height=500");
-				})
-		let click = true;
-		$("#select")
-				.on(
-						"click",
-						function() {
-							if (click == false) {
-								$("#select")
-										.css(
-												{
-													"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ",
-													"background-size" : "1.596rem"
-												});
-								$(".navi-menu").css({
-									"display" : "none"
-								});
-
-								click = true;
-							} else {
-								$("#select")
-										.css(
-												{
-													"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ",
-													"background-size" : "01.596rem"
-												});
-								$(".navi-menu").css({
-									"display" : "block"
-								});
-								click = false;
-							}
-						});
+	
+		$("button").on("click",function(){
+			$(this).addClass("active");
+			$("button").not(this).removeClass("active")
+			$(".list").empty();
+			$.ajax({
+				url:"/mypage/selectMyCouponStatus",
+				data:{"used":$(".active").attr("id")}
+			}).done(function(resp){
+				console.log(resp);
+				for(let i = 0; i < resp.length; i++){
+					$(".list").append("<div class='col-6 category'>"+resp[i].category+"</div><div class='col-6 dc'>"+resp[i].dc+"</div>")
+				}
+			})
+		})
 	</script>
 </body>
 </html>
