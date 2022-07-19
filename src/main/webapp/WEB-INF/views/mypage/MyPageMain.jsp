@@ -707,7 +707,7 @@ color:white;
 		}).done(function(resp){
 			console.log(resp);
 			for(let i = 0; i < resp.length; i++){
-				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"'><div class='row' style='border: 1px solid black; border-radius:0.5rem; height:10rem; margin-left:0.1rem; margin-right:0.1rem;'><div class='col-4'><img class='con' referrerpolicy='no-referrer' src="+resp[i].ep_sysname+"></div><div class='col-8'><div class='col-12'>"+resp[i].et_title+"</div><div class='col-12'>"+resp[i].et_date+"</div></div></div></a>");
+				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid black; border-radius:1rem;  margin-left:0.1rem; margin-right:0.1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%;'>"+resp[i].et_title+"</div><div class='col-12' style='height:50%;'>"+resp[i].et_date+"</div></div></div></a>");
 			}
 		})
 		
