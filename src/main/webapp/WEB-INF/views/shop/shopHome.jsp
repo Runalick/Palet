@@ -370,7 +370,6 @@
 
 <body>
 	<!-- navi -->
-	<div class="container-fluid">
 	<div class="container-fluid"
 			style="background-color: white; z-index:9; position:relative;">
 			<div class="container">
@@ -580,23 +579,37 @@
 	</div>
 
 	<!-- footer -->
-	<div class="row" id="footer">
-		<div class="container" style="padding-left: 2.5rem;">
-			<div class="row" id="row1">
-				<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-				<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-					123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-				<br>
-				<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
-					1층 | contact@palet.com</div>
-			</div>
-		</div>
-	</div>
-</div>
+<div class="row" id="footer" style = "margin-top:12.5rem;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+
+                </div>
+            </div>
+        </div>
 
 
 </body>
 <script>
+Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+
+function logout() {
+   
+   if (!Kakao.Auth.getAccessToken()) {
+         alert('Not logged in.')
+         return
+       }
+       Kakao.Auth.logout(function() {
+         alert('로그아웃 되었습니다.');
+         location.href="/member/logout";
+       })
+   
+
+   location.href = "/member/logout";
+   return true;
+}
 // 	$(window).resize(function() { //창크기 변화 감지
 // 		open_chatroom();
 // 	});

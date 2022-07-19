@@ -193,5 +193,22 @@ ${i.g_option }<br>
 			$($(this).siblings()[0]).text(number);
 
 		})
+			   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	   
+	   function logout() {
+	      
+	      if (!Kakao.Auth.getAccessToken()) {
+	            alert('Not logged in.')
+	            return
+	          }
+	          Kakao.Auth.logout(function() {
+	            alert('로그아웃 되었습니다.');
+	            location.href="/member/logout";
+	          })
+	      
+
+	      location.href = "/member/logout";
+	      return true;
+	   }
 	</script>
 </html>
