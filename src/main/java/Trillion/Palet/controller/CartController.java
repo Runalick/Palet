@@ -13,10 +13,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.CartListDTO;
 import Trillion.Palet.DTO.DeliveryDTO;
+import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
 import Trillion.Palet.DTO.goodsOrderDTO;
 import Trillion.Palet.service.CartService;
 import Trillion.Palet.service.DeliveryService;
+import Trillion.Palet.service.MemberService;
 
 
 
@@ -30,6 +32,8 @@ public class CartController {
 	private HttpSession session;
 	@Autowired
 	private DeliveryService dServ;
+	@Autowired
+	private MemberService mServ;
 	
 	@ResponseBody
 	@RequestMapping("/isGoodsExist")
@@ -59,17 +63,33 @@ public class CartController {
 	public String cartList(Model model,HttpServletResponse response) throws Exception {
 		String email = (String)session.getAttribute("loginEmail");
 		
+		MemberDTO mdto = mServ.getmember(email);
+		String grade = mdto.getGrade();
+		
 		//장바구니 list
 		List<CartListDTO> list = cServ.selectAll(email);
-		for(CartListDTO dto : list) {
-			System.out.println(dto.getG_price());
-		}
+		
 		//총 수량, 가격
 		TotalCartDTO totalList = cServ.total(email);
 		//옵션
-		String realpath = "/cart/cartList/";
-		
-		
+		System.out.println(grade);
+		if(grade.equals("White")) {
+			for(CartListDTO dto : list) {
+				dto.setGrade(grade);
+				dto.setPoint((int) (dto.getG_price()*0.01));
+			}
+			
+		}else if(grade.equals("Gray")) {
+			for(CartListDTO dto : list) {
+				dto.setGrade(grade);
+				dto.setPoint((int) (dto.getG_price()*0.05));
+			}
+		}else if(grade.equals("Black")) {
+			for(CartListDTO dto : list) {
+				dto.setGrade(grade);
+				dto.setPoint((int) (dto.getG_price()*0.1));
+			}
+		}
 		
 		model.addAttribute("list",list);
 		model.addAttribute("totalList",totalList);
