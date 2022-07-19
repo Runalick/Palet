@@ -479,6 +479,7 @@ background:#454F5B;
 @media ( min-width : 870px) {
 	#goodscontainer {
 	width: 80rem;
+	padding-top:6.25rem;
 }
 
 .product-area {
@@ -628,6 +629,9 @@ font-family: 'Spoqa Han Sans Neo';
 	font-size: 1.2rem;
 	line-height: 1.8rem;
 }
+.row{
+-bs-gutter-x:0rem;
+}
 /* footer */
 #footer{
 			margin-top:6.25rem;
@@ -636,7 +640,7 @@ font-family: 'Spoqa Han Sans Neo';
         }
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden">
 		<div class="container-fluid" >
 			<div class="container-fluid"
 			style="background-color: white; ">
@@ -991,7 +995,7 @@ $(".li").on("click", function () {
 	<div class="row" id="footer">
             <div class="container" >
                 <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 h3" style = "color: #637381; margin-top:3.75rem; padding:0px;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
