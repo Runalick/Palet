@@ -18,7 +18,8 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/css/event/event.css">
-
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 </head>
 <body>
@@ -107,7 +108,7 @@
 					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
 					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
 								
 								</ul>
@@ -162,15 +163,39 @@
 				</div>
 				</c:otherwise>
 				
+				
+				
+				
 				</c:choose>
 			</div>
 
 		</div>
 		<div class="container">
-			<div class="row" id="container1" style="margin-top : 70px">
-				<div class="col-12 hb1" style="margin-top: 2.5rem; text-align: left;">Event</div>
-				<div class="col-12 h2" style="margin-top: 1.5rem; margin-bottom: 3rem; text-align: left;"> - NOW</div>
+			<div class="row" style="padding-top: 60px; padding-bottom: 50px;">
+				<div class="col-4 h2 d-none d-sm-block"
+					style="margin-top: 2.5rem; text-align: left;">Program</div>
+				<ul class="col-8 ul2 h3 d-none d-sm-block"
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 5rem; padding-left: 0px;">
+					
+					<li style="width: 4.938rem; margin-left: 5.2rem;">이벤트</li>
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;">
+					<a class="exlink" href="/program/toProgram">어린이</a></li>
+
+				</ul>
 			</div>
+		
+			<div class="row ">
+				<div class="col-12 h2 d-block d-sm-none"
+					style="margin-top: 2.5rem; text-align: center;">Program</div>
+				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
+					<li style="width: 4.938rem;">이벤트</li>
+					<li style="width: 4.938rem; color: #919EAB;">
+					<a class="exlink" href="/program/toProgram">어린이</a></li>
+
+				</ul>
+			</div>
+	
 		</div>
 		<div class="row" id="background-area">
 			 <div class="container">
@@ -187,7 +212,7 @@
 
 		<div class="row" id="footer" style="margin-top: 12.5rem;">
 			<div class="container">
-				<div class="row" id="row1">
+				<div class="row">
 					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
 					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
@@ -208,6 +233,26 @@
 	$("#enjoy").on("click", function(){
 		location.href="/event/participation";
 	})
+	
+	//카카오 초기화 및 토큰 받아오기
+		Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+		//window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
+		function logout() {
+		
+			if (!Kakao.Auth.getAccessToken()) {
+			      alert('Not logged in.')
+			      return
+			    }
+			    Kakao.Auth.logout(function() {
+			      alert('로그아웃 되었습니다.');
+			      location.href="/member/logout";
+			    })
+			
+
+			location.href = "/member/logout";
+			return true;
+		}
 </script>
 
 

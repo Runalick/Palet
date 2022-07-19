@@ -99,20 +99,33 @@
 	height: 1.5rem;
 }
 
+#Mypage {
+	width: 5rem;
+	height: 1.5rem;
+}
+
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
 #Program {
-	width: 4.438rem;
+	width: 5.5rem;
 	height: 1.5rem;
 }
 
-#Shop {
-	width: 2.813rem;
-	height: 1.5rem;
-}
 
-#Login {
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
