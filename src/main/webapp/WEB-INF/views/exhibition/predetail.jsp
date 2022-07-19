@@ -452,7 +452,7 @@ a {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -849,6 +849,26 @@ a {
 		$(".price").text(finalprice.toLocaleString() + "원");
 
 	})
+	
+	//카카오 초기화 및 토큰 받아오기
+		Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+		//window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
+		function logout() {
+		
+			if (!Kakao.Auth.getAccessToken()) {
+			      alert('Not logged in.')
+			      return
+			    }
+			    Kakao.Auth.logout(function() {
+			      alert('로그아웃 되었습니다.');
+			      location.href="/member/logout";
+			    })
+			
+
+			location.href = "/member/logout";
+			return true;
+		}
 </script>
 </html>
 

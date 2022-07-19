@@ -568,7 +568,7 @@ text-align:center;
 
 		</div>
 		<div class="container">
-			<div class="row" id="container1">
+			<div class="row" id="container1" style="padding-top: 50px;">
 				<div class="col-4 h2" style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
 				<ul class="col-4 ul2 h3 offset-4"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">

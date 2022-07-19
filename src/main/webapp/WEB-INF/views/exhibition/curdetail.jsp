@@ -997,7 +997,7 @@ a {
       }
     }
   });
-  
+ }
   function logout() {
 		
 		if (!Kakao.Auth.getAccessToken()) {
@@ -1014,7 +1014,7 @@ a {
 		return true;
 	}
   
-}
+
 </script>
 </html>
 

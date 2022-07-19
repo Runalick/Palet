@@ -435,7 +435,27 @@ a {
 
 
 </style>
+<script>
+//사용할 앱의 JavaScript 키 설정
+Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 
+function logout() {
+	
+	if (!Kakao.Auth.getAccessToken()) {
+	      alert('Not logged in.')
+	      return
+	    }
+	    Kakao.Auth.logout(function() {
+	      alert('로그아웃 되었습니다.');
+	      location.href="/member/logout";
+	    })
+	
+
+	location.href = "/member/logout";
+	return true;
+}
+
+</script>
 
 </head>
 <body>
@@ -585,7 +605,27 @@ a {
 			</div>
 
 		</div>
-		<div class="container" style="margin-top: 50px;">
+		
+		
+		
+		<div class="container">
+			<div class="row " style="margin-top: 50px;">
+				<div class="col-4 h2 d-none d-sm-block"
+					style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
+				<ul class="col-8 ul2 h3 d-none d-sm-block"
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 5rem; padding-left: 0px;">
+					
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
+						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
+					
+						
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
+						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
+							<li style="width: 4.938rem; margin-left: 5.2rem;">현재 전시</li>
+
+				</ul>
+			</div>
+		
 			<div class="row ">
 				<div class="col-12 h2 d-block d-sm-none"
 					style="margin-top: 2.5rem; text-align: center;">Exhibition</div>
@@ -680,24 +720,7 @@ a {
 
 
 </body>
-<script>
-function logout() {
-	
-	if (!Kakao.Auth.getAccessToken()) {
-	      alert('Not logged in.')
-	      return
-	    }
-	    Kakao.Auth.logout(function() {
-	      alert('로그아웃 되었습니다.');
-	      location.href="/member/logout";
-	    })
-	
 
-	location.href = "/member/logout";
-	return true;
-}
-
-</script>
 
 
 </html>
