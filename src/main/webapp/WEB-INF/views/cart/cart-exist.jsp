@@ -65,7 +65,12 @@
 	padding: 0px;
 	height: 1.875rem;
 }
-
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -82,7 +87,7 @@
 }
 
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
 }
 
@@ -112,14 +117,35 @@
 	width: 5.938rem;
 	height: 1.5rem;
 }
-
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
+	height: 1.5rem;
+}
+#Logout {
+	width: 4.5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
+	height: 1.5rem;
+}
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
+
+#Signup {
+	width: 4.438rem;
 	height: 1.5rem;
 }
 
@@ -445,7 +471,7 @@ height:14.025rem;
 }
 .productInfo{
 padding:0px;
-width:10rem;
+width:25.625rem;
 }
 #payment-area{
 padding:0rem;
