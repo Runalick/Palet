@@ -643,15 +643,28 @@ button {
 			$(this).addClass("active");
 			$(".button").not(this).removeClass("active")
 			$(".list").empty();
-			$.ajax({
-				url:"/mypage/selectMyCouponStatus",
-				data:{"used":$(".active").attr("id")}
-			}).done(function(resp){
-				console.log(resp);
-				for(let i = 0; i < resp.length; i++){
-					$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
-				}
-			})
+			if($(".active").attr("id") == "N"){
+				$.ajax({
+					url:"/mypage/selectMyCouponStatus",
+					data:{"used":$(".active").attr("id")}
+				}).done(function(resp){
+					console.log(resp);
+					for(let i = 0; i < resp.length; i++){
+						$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
+					}
+				})
+			}
+			if($(".active").attr("id") == "Y"){
+				$.ajax({
+					url:"/mypage/selectMyCouponStatus",
+					data:{"used":$(".active").attr("id")}
+				}).done(function(resp){
+					console.log(resp);
+					for(let i = 0; i < resp.length; i++){
+						$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
+					}
+				})
+			}
 		})
 		
 		$("#regist").on("mouseover",function(){

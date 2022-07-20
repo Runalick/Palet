@@ -20,7 +20,21 @@
 <link rel="stylesheet" href="/css/home.css">
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<style>
+.btn1:hover{
+background:white;
+color:#161C24;
+}
+.btn2{
+border:0px;
+}
+.btn2:hover{
+background:rgba(0,0,0,0);
+color:white;
+border:1px solid white;
 
+}
+</style>
 
 
 </head>
@@ -262,25 +276,15 @@
 
 
 			<div class="row " id="row1">
+			<c:forEach var="i" items="${dto }"> 
 				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/image 21.png" class="w-100 p-5"
+				<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" class="w-100 p-5"
 						style="padding-left: 0px;">
+<!-- 					<img src="/images/image 21.png" class="w-100 p-5" -->
+<!-- 						style="padding-left: 0px;"> -->
 				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-1.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-2.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-3.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-4.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods.png" class="w-100 p-5">
-				</div>
+				</c:forEach>
+				
 			</div>
 
 		</div>
