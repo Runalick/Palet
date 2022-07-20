@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.PreExhibitionDTO;
+import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.GoodsService;
 
 @Controller
@@ -19,7 +21,8 @@ public class HomeController {
 	private HttpSession session;
 	@Autowired
 	private GoodsService gServ;
-	
+	@Autowired
+	private ExhibitionService eServ;
 	
 	@RequestMapping(value = "/")
 	public String home(Model model) {
@@ -29,6 +32,14 @@ public class HomeController {
 		//굿즈 탑6
 		List<GoodsDTO> dto = gServ.gettop6goods();
 		model.addAttribute("dto",dto);
+		//전시 최신3
+		List<PreExhibitionDTO> edto = eServ.getlatest3();
+		System.out.println(edto);
+		for(PreExhibitionDTO list : edto) {
+			System.out.println(list.getPe_artcount());
+			
+		}
+		model.addAttribute("edto",edto);
 		return "home";
 	}
 	

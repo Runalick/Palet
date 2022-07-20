@@ -190,7 +190,16 @@ width:100%;
 					</c:if>	
 					<c:forEach var="i" items="${list }">
                      <div class="row list" >
-                        <div class="col-2 body3 receiver">${i.receiver }</div>
+                        <div class="col-2 body3 receiver">
+                        	<div class="row">
+                        		<c:if test="${i.defaultaddress =='Y'}">
+                        		<div class="col-12  p-0" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
+                        		</c:if>
+                        		<div class="col-12">${i.receiver }</div>
+                        	</div>
+                        
+                        
+                        </div>
                         <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
                         <input type="hidden" value="${i.postcode }">
                         <input type="hidden" value="${i.address1 }">

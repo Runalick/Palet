@@ -34,6 +34,43 @@ color:white;
 border:1px solid white;
 
 }
+.img{
+cursor:pointer;
+}
+/* .explain{ */
+/* position: absolute; opacity: 0;  */
+/* color:black; */
+/* } */
+/* .photo:hover .explain{  */
+/* opacity: 1;  */
+/* } */
+.photoExplain,.photoExplainprice{
+width:100%;
+}
+.photo{
+position:relative;
+}
+.photoline{
+padding:1px;
+line-height:2px;
+height:1.563rem;
+width:1.563rem;
+background:black;
+color:White;
+border-radius:30px;
+position:absolute;
+top:4rem;
+left:4rem;
+}
+.prebtn{ 
+background:black; 
+color:white; 
+border-radius:1.25rem;  
+border:0px; 
+ } 
+ .preexhibition:hover{
+ cursor:pointer;
+ }
 </style>
 
 
@@ -44,7 +81,7 @@ border:1px solid white;
 
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; position: fixed; z-index:9;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -275,14 +312,22 @@ border:1px solid white;
 
 
 
-			<div class="row " id="row1">
+			<div class="row imgrow" id="row1">
 			<c:forEach var="i" items="${dto }"> 
-				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-				<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" class="w-100 p-5"
-						style="padding-left: 0px;">
+				<div class="col-xl-4 col-sm-6 photo p-5" style="text-align: center;">
+				<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" class="w-100  img"style="padding-left: 0px;" >
+				<input type="hidden" value="${i.g_num }">
+				<div class="col-xl-4 col-sm-6 body2 pt-4 photoExplain" style="text-align: center;">${i.g_name }</div>
+				<div class="col-xl-4 col-sm-6 body2  photoExplainprice" id="${i.g_seq }" style="text-align: center; font-weight:550;">${i.g_price }</div>
 <!-- 					<img src="/images/image 21.png" class="w-100 p-5" -->
 <!-- 						style="padding-left: 0px;"> -->
+				<button class="photoline">${i.line }</button>
 				</div>
+				<script>
+							price = ${i.g_price} ;
+							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+							$("#${i.g_seq}").text(price+"원");
+							</script>
 				</c:forEach>
 				
 			</div>
@@ -373,22 +418,27 @@ border:1px solid white;
 
 			<div class="container" id=" flow">
 				<div class="row overflow-auto" style="margin-top: 3.75rem;">
-					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-						<img src="/images/preex1.png" class="w-100 "
+				
+				<c:forEach var="i" items="${edto }">
+					<div class="col-xl-4 col-sm-6 preexhibition" style="text-align: center;">
+						<input type="hidden" value="${i.pe_img }">
+						<img src="${i.pe_img }"  class="w-100 "
 							style="text-align: center;">
-						<div class=h3>카로 악포키에르 «분실된 그림들»</div>
-						<div class=caption>2022-03-03~2022-03-10</div>
+						<div class="h3 pt-4">${i.pe_name }</div>
+						<div class=caption>${i.pe_date }</div>
 					</div>
-					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-						<img src="/images/preex2.png" class="w-100 ">
-						<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div>
-						<div class=caption>2022-01-20~2022-06-12</div>
-					</div>
-					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-						<img src="/images/preex3.png" class="w-100 ">
-						<div class=h3>아이 웨이웨이</div>
-						<div class=caption>2021-12-11~2022-04-17</div>
-					</div>
+					</c:forEach>
+					
+<!-- 					<div class="col-xl-4 col-sm-6 " style="text-align: center;"> -->
+<!-- 						<img src="/images/preex2.png" class="w-100 "> -->
+<!-- 						<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div> -->
+<!-- 						<div class=caption>2022-01-20~2022-06-12</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-xl-4 col-sm-6 " style="text-align: center;"> -->
+<!-- 						<img src="/images/preex3.png" class="w-100 "> -->
+<!-- 						<div class=h3>아이 웨이웨이</div> -->
+<!-- 						<div class=caption>2021-12-11~2022-04-17</div> -->
+<!-- 					</div> -->
 					<!-- <div class="col-xl-4 col-sm-6 overflow-auto " style="text-align: center; ">
                     <img src="preex1.png" class="w-100 p-3" style="padding-left: 0px;">
                 </div>
@@ -406,10 +456,8 @@ border:1px solid white;
 
 		<div class="row " style="margin-top: 2.5rem; text-align: center;"
 			id="row1">
-			<div class="col-12 h2" style="text-align: center; margin: auto;">
-				<img type=button src="/images/btn4_1.png"
-					style="margin-right: 1.25rem;"><img type=button
-					src="/images/btn4_2.png">
+			<div class="col-12 h2" style="text-align: center; margin: auto; margin-top:6.25rem;">
+				<button class="prebtn btn3">지난 전시 더보기</button>
 			</div>
 
 
@@ -453,6 +501,17 @@ border:1px solid white;
 		</div>
 	</div>
 	<script>
+	$(".prebtn").on("click",function(){
+		location.href="Exhibition/toPreExhibition";
+	})
+	$(".preexhibition").on("click",function(){
+		location.href="/Exhibition/toPredetail?pe_img="+$($(this).children()[0]).val();
+	})
+		$(".photo").on("click",function(){
+			console.log($($(this).children().siblings()[1]).val());
+			location.href="/shop/goDetail?g_num="+$($(this).children().siblings()[1]).val();
+		})
+	
 		//카카오 초기화 및 토큰 받아오기
 		Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
