@@ -369,6 +369,7 @@ background:#454F5B;
 	/* Gray/300 */
 	border: 1px solid #DFE3E8;
 	border-radius: 1.25rem;
+	position:relative;
 }
 
 #total {
@@ -381,6 +382,8 @@ background:#454F5B;
 	color: #161C24;
 	width: 12.5rem;
 	text-align: right;
+	position:absolute;
+	right:0px;
 }
 
 .h3 {
