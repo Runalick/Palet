@@ -74,5 +74,9 @@ public class GoodsService {
 	public List<GoodsDTO> getoption(int g_num) {
 		return dao.getoption(g_num);
 	}
+
+	public List<GoodsDTO> gettop6goods() {
+		return dao.gettop6goods();
+	}
 	
 }
