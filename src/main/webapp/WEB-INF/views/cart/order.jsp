@@ -962,7 +962,14 @@ text-align:left;
             </div>
         </div>
    	<script>
-   	
+		let sumPrice = 0;
+	  	let totalDc = 0;
+	  	let addPoint = 0;
+	  	let grade;
+	  	let finalPrice = 0;
+	  	let count = 0;
+	  	let title;
+	  	
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1051,41 +1058,85 @@ text-align:left;
 		let allPointUse = $(".myPoint1").text();
 		$(".pointinput1").val(allPointUse);
 		$(".pointinput2").val(allPointUse);
-		$(".discount").text(allPointUse);
+// 		$(".discount").text(allPointUse);
+		totalDc = Number($(".pointinput2").val());
+		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		if(grade == "White"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+		}else if(grade == "Gray"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+			console.log("grade : " + grade);
+			console.log("sumPrice : " + sumPrice);
+			console.log("totalDc : " + totalDc);
+			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+		}else if(grade == "Black"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+		}
 	})
 	
 	$(".allPointUse2").on("click",function(){
 		let allPointUse = $(".myPoint2").text();
 		$(".pointinput1").val(allPointUse);
 		$(".pointinput2").val(allPointUse);
-		$(".discount").text(allPointUse);
+// 		$(".discount").text(allPointUse);
+		totalDc = Number($(".pointinput2").val());
+		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		if(grade == "White"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+		}else if(grade == "Gray"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+			console.log("grade : " + grade);
+			console.log("sumPrice : " + sumPrice);
+			console.log("totalDc : " + totalDc);
+			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+		}else if(grade == "Black"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+		}
 	})
 	
-		let sumPrice = 0;
-   	  	let totalDc = 0;
-   	  	let addPoint = 0;
-   	  	let grade;
-   	  	let finalPrice = 0;
-   	  	
+
 
 		//	장바구니 쿠폰 포인트 가져오는 함수
 	    window.onload = function(){
-   			
-		
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
 	            	console.log(resp);
+	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
 	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += resp[i].totalPrice;
+	            		
+// 	            		title = resp[i].g_name;
+	            		if(resp.length == 1){
+	            			title = resp[i].g_name;	
+	            			console.log(title);
+	            		}else{
+	            			title = resp[i].g_name + "외 " + (count -1) + "개";
+	            			console.log(title);
+	            		}
 	            		console.log("sumPrice : " + sumPrice);
 	            		console.log("totalDc : " + totalDc);
 	            		console.log("finalPrice : " + finalPrice);
 	            		console.log("result : " + Number(sumPrice - totalDc + 3000));
+	            		console.log(count);
+	            		console.log(title);
 	            	}
-		            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
-		            	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+	            	
+// 	            	if(count == 1){
+// 	            		return title;
+// 	            	}else{
+// 	            		return title =  title + "외" + count + "개";
+// 	            	}
+		            	
+	            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
+		            $(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 					
 					$.ajax({
 						url:"/shop/selectMemberData"
@@ -1097,6 +1148,7 @@ text-align:left;
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" style='width:100%;'>"+resp[i].category+"</li>")
 							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+">"+resp[i].category+"</li>")
 							grade = resp[i].grade;
+							console.log("count : " + count);
 							if(grade == "White"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
 								console.log(Number(sumPrice - totalDc + 3000) * 0.01);
@@ -1120,10 +1172,7 @@ text-align:left;
 	    }
    	  	
     
-        
-   	  
-	</script>
-	<script>
+ 
 		window.addEventListener('beforeunload', (event) => {
 			  // 표준에 따라 기본 동작 방지
 			  event.preventDefault();
@@ -1300,7 +1349,7 @@ text-align:left;
 	    pg : 'kcp',
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
-	    name : '예매' , //결제창에서 보여질 이름
+	    name : title, //결제창에서 보여질 이름
 	    amount : (Number(sumPrice - totalDc + 3000)), //실제 결제되는 가격
 	    buyer_email : "iampost@siot.do",
 	    buyer_name : $(".buyer_name").val(),
