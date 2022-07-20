@@ -57,7 +57,7 @@ public class MypageDAO {
 		}
 		
 		
-		mybatis.update("MyPage.MinusSalesCnt",dto);
+//		mybatis.update("MyPage.MinusSalesCnt",dto);
 		return mybatis.update("MyPage.BeforeCancel",dto);
 	}
 

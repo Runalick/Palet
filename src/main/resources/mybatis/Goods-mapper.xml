@@ -79,4 +79,11 @@
 	<select id="getoption" resultType="Trillion.Palet.DTO.GoodsDTO">
 		select * from goods where g_num = #{value}
 	</select>
+	
+<!-- 	home top6 -->
+	<select id="gettop6goods" resultType="Trillion.Palet.DTO.GoodsDTO">
+		select * from 
+		(select row_number() over(order by sales_count desc) line, g_num, goods.g_seq, g_name, sales_count,gp_sysname 
+		from goods left outer join goodspic using(g_num)) where line between 1 and 6 
+	</select>
   </mapper>

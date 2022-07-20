@@ -6,7 +6,7 @@
 <mapper namespace="MyPage">
 <!-- 티켓 -->
 	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state in('BU','BC' )
+		select * from exticket where et_email=#{value} and et_state ='BU'
 	</select>
 	<select id="myTicketcnt" resultType="int">
 		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
