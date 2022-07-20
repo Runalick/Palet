@@ -21,18 +21,48 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-   
-   
-   
-    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' />
+
+
+
+<link
+	href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css'
+	rel='stylesheet' />
 <!--  //   <link href='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.0/main.min.css,npm/fullcalendar@5.11.0/main.min.css' rel='stylesheet' /> -->
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
-  <!--   <script src='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.0,npm/fullcalendar@5.11.0/main.min.js'></script> -->
-    			
+<script
+	src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
+<!--   <script src='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.0,npm/fullcalendar@5.11.0/main.min.js'></script> -->
+
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
-@import { Calendar } from '@fullcalendar/core';
-@import interactionPlugin from '@fullcalendar/interaction';
+
+@import
+{
+Calendar
+}
+from
+
+
+ 
+
+
+'@
+fullcalendar
+/
+
+
+
+
+core
+
+
+
+
+';
+@import
+interactionPlugin
+from
+'@fullcalendar/interaction';
+
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
@@ -544,28 +574,28 @@ input::placeholder {
 	background-color: #F4F6F8;
 }
 
- #calendar {
-  color: black !important;
-  text-color : black !important;
-}
-.fc-col-header-cell-cushion{
-color: black !important;
+#calendar {
+	color: black !important;
+	text-color: black !important;
 }
 
-.fc-daygrid-day-number{
-color: black !important;
+.fc-col-header-cell-cushion {
+	color: black !important;
 }
 
-.fc-daygrid-day-frame:hover{
-background :gray !important;
-color:gray !important;
-} 
+.fc-daygrid-day-number {
+	color: black !important;
+}
+
+.fc-daygrid-day-frame:hover {
+	/* 	background: gray !important; */
+	color: gray !important;
+}
 /* .fc-scroller {
   height: auto !important;
 } */
-
-.fc-scroller-liquid-absolute{
-position:static !important;
+.fc-scroller-liquid-absolute {
+	position: static !important;
 }
 </style>
 
@@ -693,10 +723,11 @@ position:static !important;
 							</div>
 
 						</div>
-			
-						<div class="col-lg-5 col-12" style="padding-left: 1.564rem; color :black;" id = "calendar">
-							
-				
+
+						<div class="col-lg-5 col-12"
+							style="padding-left: 1.564rem; color: black;" id="calendar">
+
+
 
 						</div>
 
@@ -725,7 +756,7 @@ position:static !important;
 						<div class="col-lg-1 col-1"></div>
 						<div class="col-lg-8 body1 col-6"
 							style="color: #161C24; margin-top: 2.325rem;">
-						키즈 워크룸:애니메이터 프로젝트
+							키즈 워크룸:애니메이터 프로젝트
 							<div class=h3
 								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
 								id=totalprice>${price}</div>
@@ -749,12 +780,14 @@ position:static !important;
 					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
 						<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
 						<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
-					
+
 						<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
-				
-						<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다. (보호자의 전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
-						<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용 부탁드립니다.</li>
-						
+
+						<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다. (보호자의
+							전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
+						<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용
+							부탁드립니다.</li>
+
 
 
 
@@ -767,13 +800,17 @@ position:static !important;
 				<div class="col-12 h3"
 					style="padding-left: 0rem; margin-top: 1.125rem;">
 
-					<select id = "selectbox" class="form-select" aria-label="Default select example"
+					<select id="selectbox" class="form-select"
+						aria-label="Default select example"
 						style="width: 23.5rem; height: 3rem;">
 
-						<option value='0' value1 ="inavailableCP" selected >쿠폰을 선택해 주세요.</option>
+						<option value='0' value1="inavailableCP" selected>쿠폰을 선택해
+							주세요.</option>
 						<c:forEach var="clist" items="${clist }">
-							<option id = option1 class = "option1" value="${clist.dc}" value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -${clist.dc}원</option>
-								
+							<option id=option1 class="option1" value="${clist.dc}"
+								value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								-${clist.dc}원</option>
+
 						</c:forEach>
 					</select>
 
@@ -802,13 +839,10 @@ position:static !important;
 
 
 		</div>
-		<div class = "row">
-		 <div class = "col" id ="calendar">
-		 
-		 
-		 </div>
-		
-		
+		<div class="row">
+			<div class="col" id="calendar"></div>
+
+
 		</div>
 
 		<div class="row w-100" id="footer"
@@ -1019,23 +1053,26 @@ calendar.render();
 document.addEventListener('DOMContentLoaded', function() {
      var calendarEl = document.getElementById('calendar');
      var calendar = new   FullCalendar.Calendar(calendarEl, {
-    	 
-    	/* 
-    	 expandRows: true, 
-    	 height:'10px;', */
+    
        initialView: 'dayGridMonth',
-       selectable: true,
-    	   dateClick: function(info) {
-    	//	   alert('Coordinates: ' + info.jsEvent.pageX + ',' + info.jsEvent.pageY);
-    	 //	    alert('Current view: ' + info.view.type);
-    		alert('Clicked on: ' + info.dateStr);
+       
+      // selectable:true,
+     //  unselectAuto: true
+     	   dateClick: function(info) {
+    
+    	let result = confirm('해당 날짜 ('+info.dateStr+')로 예약 하시겠습니까?');
      //  	    alert('Date: ' + info.dayEl);
-     
-       	 
-       	  
+   		if(result){
+   		//	selectable: true;
+   			console.log('hi');
+   		}else{
+return false;
+d
+
+   		}
       
-       	  }
-     
+       	  } 
+      
      
    
      });
