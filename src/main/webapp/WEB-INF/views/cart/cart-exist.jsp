@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -864,9 +864,10 @@ $("#paybtn").on("click",function(){
 	var cart_seq=[];
 	$("input:checkbox[class=checkbox2]:checked").each(function(e,item){
 
-					console.log($(this).siblings().val());
-					cart_seq.push($(this).siblings().val());
-			})
+					console.log($($(this).siblings()[1]).val());
+					cart_seq.push($($(this).siblings()[1]).val());			})
+
+	console.log($(this).siblings()[1]);
 	console.log(cart_seq);
 	location.href="/cart/order?cart_seq="+cart_seq;
 })
