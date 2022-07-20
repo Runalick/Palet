@@ -16,41 +16,42 @@
   	</insert> -->
     
     <select id="exhibitionSelectByPage" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
-  		select * from (select row_number() over(order by pe_seq desc) line, exhibitiontest.* from exhibitiontest) where line between #{start} and #{end}
+  		select * from (select row_number() over(order by pe_seq desc) line, preexhibition.* from preexhibition) where line between #{start} and #{end}
   		<trim prefix="order by">
   			<if test="order == 'line'">line</if>
   			<if test="order == 'pe_seq'">pe_seq</if>
 	  		<if test="order == 'pe_name'">pe_name</if>
-	  		<if test="order == 'pe_date'">pe_date</if>
+	  		<if test="order == 'pe_date'">pe_date desc</if>
 <!-- 	  		<if test="order == 'end_date'">end_date desc</if> -->
-	  		<if test="order == 'pe_price'">e_price</if>
-  			<if test="order == 'pe_period'">e_period</if>
-  			<if test="order == 'sales_count'">sales_count desc</if>
+	  		<if test="order == 'pe_price'">pe_price desc</if>
+  			<if test="order == 'pe_period'">pe_period</if>
+  			<if test="order == 'pe_salescount'">pe_salescount desc</if>
   		</trim>
   	</select>
   	
   	<select id="getExhibitionTotalCount" resultType="int">
-  		select count(*) from exhibitiontest
+  		select count(*) from preexhibition
   	</select>
   	
   	<delete id="exhibitionCheckDelete">
-  		delete from exhibition where e_num = #{value}
+  		delete from preexhibition where pe_seq = #{value}
   	</delete>
   	
   	<update id="exhibitionCheckUpdate">
-  		update exhibition set e_period = #{e_period} where e_num = #{e_num}
+  		update preexhibition set pe_period = #{pe_period} where pe_seq = #{e_num}
   	</update>
   	
-  	<select id="exhibitionSelectAll" resultType="Trillion.Palet.DTO.ExhibitionDTO">
-  		select * from exhibition
+  	<select id="exhibitionSelectAll" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from preexhibition order by pe_seq desc
   	</select>
   	
-  	<select id="exhibitionBestSeller" resultType="Trillion.Palet.DTO.ExhibitionDTO">
-  		select * from (select * from exhibition order by sales_count desc) where rownum=1
+  	
+  	<select id="exhibitionBestSeller" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from (select * from preexhibition order by pe_salescount desc) where rownum=1
   	</select>
   	
-  	<select id="getExhibition" resultType="Trillion.Palet.DTO.ExhibitionDTO">
-  		select * from exhibition where e_num = #{value}
+  	<select id="getExhibition" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from preexhibition where pe_seq = #{value}
   	</select>
   	
   	<!-- Admin Fin  -->

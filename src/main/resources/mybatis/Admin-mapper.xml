@@ -58,27 +58,31 @@
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">
-  		update exhibitiontest set pe_name = #{pe_name}, pe_date = #{pe_date}, pe_price = #{pe_price} 
+  		update preexhibition set pe_name = #{pe_name}, pe_date = #{pe_date}, pe_price = #{pe_price} 
   		where pe_seq = #{pe_seq}
   	</update>
   	
   	<insert id="newExhibitionInsert">
-  		insert into exhibitiontest values(exhibition_seq.nextval, null, #{pe_name}, #{pe_contents}, 'Palet', #{pe_date}, #{pe_price},#{pe_writer}, #{pe_artcount},#{pe_period},0)
+  		insert into preexhibition values(exhibition_seq.nextval, null, #{pe_name}, #{pe_contents}, 'Palet', #{pe_date}, #{pe_price},#{pe_writer}, #{pe_artcount},#{pe_period},0)
   		<selectKey order="AFTER" keyProperty="pe_seq" resultType="int">
-			select exhibition_seq.currval from dual
+			select preexhibition_seq.currval from dual
 		</selectKey>
   	</insert>
   	
   	<delete id="exhibitionCheckDelete">
-  		delete from exhibitiontest where pe_seq = #{value}
+  		delete from preexhibition where pe_seq = #{value}
   	</delete>
   	
   	<update id="exhibitionCheckUpdate">
-  		update exhibitiontest set pe_period = #{pe_period} where pe_seq = #{pe_seq}
+  		update preexhibition set pe_period = #{pe_period} where pe_seq = #{pe_seq}
   	</update>
   	
   	<select id="getExhibition" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
-  		select * from exhibitiontest where pe_seq = #{value}
+  		select * from preexhibition  where pe_seq = #{value}
+  	</select>
+  	
+  	<select id="exhibitionSelectTop50" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from (select row_number() over(order by pe_seq desc) line, preexhibition.* from preexhibition ) preexhibition where line between 1 and 50
   	</select>
   	
   	<!-- Goods -->
@@ -88,7 +92,7 @@
   	</update>
   	
   	<select id="getGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
-  		select e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, e_name from goods g join exhibition e using(e_num) where g_seq = #{value}
+  		select e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join exhibition e on(g.e_num = e.pe_seq) where g_seq = #{value}
   	</select>
   	
   	<!-- Payment -->
@@ -226,8 +230,8 @@
   	</delete>
   	
   	<update id='restoreExCountAndStock'>
-  		update exhibition set sales_count = sales_count - (select et_count from exticket where et_booknumber = #{value}) 
-		where e_num = (select e_num from exticket where et_booknumber = #{value})
+  		update preexhibition set pe_salescount = pe_salescount - (select et_count from exticket where et_booknumber = #{value}) 
+		where pe_seq = (select e_num from exticket where et_booknumber = #{value})
   	</update>
   	
   	<select id="checkUsedExPoint" resultType="int">

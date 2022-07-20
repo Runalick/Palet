@@ -13,7 +13,7 @@ public class GoodsDTO {
 
 	private int g_stock;
 	
-	private String e_name;
+	private String pe_name;
 
 	private int gp_seq;
 	private String gp_sysname;
@@ -21,7 +21,7 @@ public class GoodsDTO {
 	public GoodsDTO() {}
 	
 	public GoodsDTO(int g_seq, int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count,
-			String g_contents, int g_stock, String e_name, int gp_seq, String gp_sysname) {
+			String g_contents, int g_stock, String pe_name, int gp_seq, String gp_sysname) {
 		super();
 		this.g_seq = g_seq;
 		this.g_num = g_num;
@@ -32,7 +32,7 @@ public class GoodsDTO {
 		this.sales_count = sales_count;
 		this.g_contents = g_contents;
 		this.g_stock = g_stock;
-		this.e_name = e_name;
+		this.pe_name = pe_name;
 		this.gp_seq = gp_seq;
 		this.gp_sysname = gp_sysname;
 	}
@@ -40,7 +40,7 @@ public class GoodsDTO {
 	
 
 	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count,
-			String g_contents, int g_stock, String e_name) {
+			String g_contents, int g_stock, String pe_name) {
 		super();
 		this.g_seq = g_seq;
 		this.e_num = e_num;
@@ -50,7 +50,21 @@ public class GoodsDTO {
 		this.sales_count = sales_count;
 		this.g_contents = g_contents;
 		this.g_stock = g_stock;
-		this.e_name = e_name;
+		this.pe_name = pe_name;
+	}
+	
+	// Admin용 DTO
+	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count,
+			 int g_stock, String pe_name) {
+		super();
+		this.g_seq = g_seq;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.g_option = g_option;
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+		this.pe_name = pe_name;
 	}
 
 	public int getG_seq() {
@@ -107,11 +121,11 @@ public class GoodsDTO {
 	public void setG_stock(int g_stock) {
 		this.g_stock = g_stock;
 	}
-	public String getE_name() {
-		return e_name;
+	public String getPe_name() {
+		return pe_name;
 	}
-	public void setE_name(String e_name) {
-		this.e_name = e_name;
+	public void setPe_name(String pe_name) {
+		this.pe_name = pe_name;
 	}
 	public int getGp_seq() {
 		return gp_seq;

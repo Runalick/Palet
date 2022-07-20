@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import Trillion.Palet.DAO.ExhibitionDAO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.ExhibitionPicDTO;
+import Trillion.Palet.DTO.NewExhibitionDTO;
 
 @Service
 public class ExhibitionService {
@@ -49,11 +50,11 @@ public class ExhibitionService {
 		return edao.exhibitionCheckUpdate(e_num, e_period);
 	}
 	
-	public List<ExhibitionDTO> exhibitionSelectAll(){
+	public List<NewExhibitionDTO> exhibitionSelectAll(){
 		return edao.exhibitionSelectAll();
 	}
 	
-	public ExhibitionDTO exhibitionBestSeller() {
+	public NewExhibitionDTO exhibitionBestSeller() {
 		return edao.exhibitionBestSeller();
 	}
 	

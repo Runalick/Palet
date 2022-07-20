@@ -180,10 +180,10 @@
  							</div>
             				<div class="row pt-3 m-3 mb-4">
             					
-            					<div class="col-8 col-lg-4 h3" style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll"> Exhibition Name  <a href="/admin/adminExhibitionList?value=e_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-4 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Period  <a href="/admin/adminExhibitionList?value=start_date&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a><a href="/admin/adminExhibitionList?value=end_date&cpage=1" ><i class="bi bi-arrow-up-square colortext_gray900"></i></a></div>
-			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminExhibitionList?value=e_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-4 col-lg-2 h3 ">Condition  <a href="/admin/adminExhibitionList?value=e_period&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+            					<div class="col-8 col-lg-4 h3" style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll"> Exhibition Name  <a href="/admin/adminExhibitionList?value=pe_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-4 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Period  <a href="/admin/adminExhibitionList?value=pe_date&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminExhibitionList?value=pe_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-4 col-lg-2 h3 ">Condition  <a href="/admin/adminExhibitionList?value=pe_period&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
 			            		</div>

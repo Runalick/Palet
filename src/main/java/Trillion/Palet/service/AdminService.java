@@ -118,6 +118,10 @@ public class AdminService {
 		return adao.getExhibition(pe_seq);
 	}
 	
+	public List<NewExhibitionDTO> exhibitionSelectTop50(){
+		return adao.exhibitionSelectTop50();
+	}
+	
 	
 	// Goods Category
 	

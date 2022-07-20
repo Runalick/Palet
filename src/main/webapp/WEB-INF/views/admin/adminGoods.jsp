@@ -185,7 +185,7 @@
 										<div class="col-12 p-0">
 											<select id="e_num" name="e_num" class="select1"> 
 												<c:forEach var="i" items="${list}">	
-												<option value='${i.e_num}'>${i.e_name} </option>
+												<option value='${i.pe_seq}'>${i.pe_name} </option>
 												</c:forEach>
 											</select>
 										</div>

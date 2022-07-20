@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.ExhibitionPicDTO;
+import Trillion.Palet.DTO.NewExhibitionDTO;
 
 
 @Repository
@@ -33,11 +34,11 @@ public class ExhibitionDAO {
 		return mybatis.update("Exhibition.exhibitionCheckUpdate", param);	
 	}
 	
-	public List<ExhibitionDTO> exhibitionSelectAll(){
+	public List<NewExhibitionDTO> exhibitionSelectAll(){
 		return mybatis.selectList("Exhibition.exhibitionSelectAll");
 	}
 	
-	public ExhibitionDTO exhibitionBestSeller() {
+	public NewExhibitionDTO exhibitionBestSeller() {
 		return mybatis.selectOne("Exhibition.exhibitionBestSeller");
 	}
 	

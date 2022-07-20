@@ -58,7 +58,7 @@ public class AdminController {
 	
 	@RequestMapping("adminMain")
 	public String adminMain(Model model) {
-		ExhibitionDTO edto = eServ.exhibitionBestSeller();
+		NewExhibitionDTO edto = eServ.exhibitionBestSeller();
 		GoodsDTO gdto = gServ.goodsBestSeller();
 		ProgramDTO pdto = pServ.programBestSeller();
 		List<SalesDTO> sdto = aServ.getWeekSales();
@@ -247,7 +247,8 @@ public class AdminController {
 	
 	@RequestMapping("adminGoods")
 	public String adminGoods(Model model) {
-		List<ExhibitionDTO> edto = eServ.exhibitionSelectAll();
+		/* List<NewExhibitionDTO> edto = eServ.exhibitionSelectAll(); */
+		List<NewExhibitionDTO> edto = aServ.exhibitionSelectTop50(); 
 		model.addAttribute("list", edto);
 		return "/admin/adminGoods";
 	}
@@ -262,7 +263,8 @@ public class AdminController {
 	@RequestMapping("adminGoodsList")
 	public String adminGoodsList(Model model, int cpage, String value) {
 		String orderByWord;
-		List<ExhibitionDTO> edto = eServ.exhibitionSelectAll();
+//		List<NewExhibitionDTO> edto = eServ.exhibitionSelectAll();
+		List<NewExhibitionDTO> edto = aServ.exhibitionSelectTop50(); 
 //		List<GoodsDTO> gdto = aServ.goodsSelectByPage(cpage);
 		System.out.println(value);
 		if (value != null) {
@@ -273,7 +275,6 @@ public class AdminController {
 			model.addAttribute("list", gdto);
 			model.addAttribute("navi", pageNavi);
 			
-			
 		}else {
 			orderByWord = "line";
 			List<GoodsDTO> gdto = aServ.goodsJoinSelectByPage(cpage, orderByWord);
@@ -281,7 +282,7 @@ public class AdminController {
 			model.addAttribute("exhibition", edto);
 			model.addAttribute("list", gdto);
 			model.addAttribute("navi", pageNavi);
-						
+			
 		}
 		
 		return "/admin/adminGoodsList";

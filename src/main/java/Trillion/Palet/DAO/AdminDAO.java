@@ -226,6 +226,11 @@ public class AdminDAO {
 		return mybatis.selectOne("Admin.getExhibition", pe_seq);
 	}
 	
+	public List<NewExhibitionDTO> exhibitionSelectTop50(){
+		return mybatis.selectList("Admin.exhibitionSelectTop50");
+	}
+	
+	
 	// Goods Category
 	
 	public List<GoodsDTO> goodsSelectByPage (int cpage) {
