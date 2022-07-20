@@ -17,9 +17,9 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="/css/home.css">
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<link rel="stylesheet" href="/css/home.css">
 
 
 
@@ -210,17 +210,17 @@
 
 					<div class="col-12  d-none d-sm-block"
 						style="margin-bottom: 14.75rem; margin-top: 5rem; padding-left: 0.5rem;">
-						<button class="btn1">자세히 보기</button>
-						<button class="btn2">예매 하기</button>
+						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'">자세히 보기</button>
+						<button class="btn2" onclick="location.href='/Exhibition/toBook'";>예매 하기</button>
 					</div>
 					<div class="col-12 d-block d-sm-none"
 						style="margin-bottom: 14.75rem; text-align: center; margin-top: 5rem;">
 
-						<button class="btn1"
+						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'"
 							style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
 							보기</button>
 						<br>
-						<button class="btn2" style="text-align: center;">예매 하기</button>
+						<button class="btn2" onclick="location.href='/Exhibition/toBook'" style="text-align: center;">예매 하기</button>
 					</div>
 
 				</div>
@@ -290,7 +290,7 @@
 			<div class="row " style="margin-top: 3.75rem; text-align: center;"
 				id="row1">
 				<div class="col-12" style="text-align: center;">
-					<button class="btn3 btn">전시 굿즈 더보기</button>
+					<button class="btn3 btn" onclick="location.href='/shop/toShop'" >전시 굿즈 더보기</button>
 				</div>
 
 
@@ -334,7 +334,7 @@
 
 					<div class="col-12  d-none d-sm-block"
 						style="margin-top: 5rem; padding-left: 0.5rem;">
-						<button class="btn1">자세히 보기</button>
+						<button class="btn1" onclick="location.href='/Exhibition/toUpcommingExhibition'">자세히 보기</button>
 					</div>
 
 
@@ -429,14 +429,14 @@
 
 			<div class="col-12 body1"
 				style="text-align: center; margin-bottom: 12.063rem; margin-top: 3.75rem; color: #161C24;">
-				<button class="btn5">팔레트와 새로운 전시 기획하기</button>
+				<button class="btn5" onclick="location.href='/about'">팔레트와 새로운 전시 기획하기</button>
 			</div>
 		</div>
 
 
 		<div class="row" id="footer">
 			<div class="container">
-				<div class="row" id="row1">
+				<div class="row">
 					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
 					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
@@ -450,19 +450,20 @@
 	</div>
 	<script>
 		//카카오 초기화 및 토큰 받아오기
-		Kakao.init('b956cab5ef7dbe5bc1f861614a4b2061');
+		Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 		//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
-		window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage
-				.getItem('AccessKEY')));
-
+		//window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
 		function logout() {
-			if (Kakao.Auth.getAccessToken()) {
-				Kakao.Auth.logout(function() {
-					alert("로그아웃 되었습니다.");
-					location.href = "/member/logout";
-				})
-				return true;
-			}
+		
+			if (!Kakao.Auth.getAccessToken()) {
+			      alert('Not logged in.')
+			      return
+			    }
+			    Kakao.Auth.logout(function() {
+			      alert('로그아웃 되었습니다.');
+			      location.href="/member/logout";
+			    })
+			
 
 			location.href = "/member/logout";
 			return true;

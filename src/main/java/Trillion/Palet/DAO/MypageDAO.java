@@ -107,8 +107,29 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.refundajax",param);
 	}
 	
-	public List<MypageUserDetailDTO> mypageUserDetail(String email){
-		return mybatis.selectList("MyPage.mypageUserDetail",email);
+	public List<MypageUserDetailDTO> selectMyCoupon(String email){
+		return mybatis.selectList("MyPage.selectMyCoupon",email);
+	}
+	
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String email, String used){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("used", used);
+		return mybatis.selectList("MyPage.selectMyCouponStatus",param);
 	}
 
+	public List<MypageUserDetailDTO> selectMyexhibition(String email){
+		return mybatis.selectList("MyPage.selectMyexhibition",email);
+	}
+
+	public List<MypageUserDetailDTO> selectMyGoods(String email){
+		return mybatis.selectList("MyPage.selectMyGoods",email);
+	}
+	
+	public int couponRegist(String email, String serial){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("serial", serial);
+		return mybatis.update("Mypage.couponRegist", param);
+	}
 }

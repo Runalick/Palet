@@ -22,23 +22,24 @@
 	crossorigin="anonymous"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
+	<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
-
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
 	}
 	html {
 		font-size: 16px;
@@ -59,14 +60,11 @@
 	height: 1.875rem;
 }
 
-#navparent {
-	position: fixed;
-	font-size: 0;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	height: 5rem;
-	background-color: white;
-	z-index: 5;
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .navbar {
@@ -74,9 +72,32 @@
 	padding: 0px;
 }
 
+#navparent {
+	z-index:9;
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -106,20 +127,39 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
 }
+
 
 <!--
 -->
@@ -302,10 +342,6 @@ background:#454F5B;
 	flex-grow: 0;
 }
 
-#productdetail {
-	margin: auto;
-	padding: 0px;
-}
 
 
 
@@ -318,7 +354,7 @@ background:#454F5B;
 	/* Gray/300 */
 	border: 0.06rem solid #DFE3E8;
 	border-radius: 1.25rem;
-	margin-bottom:0.5rem;
+	margin-bottom:0.813rem;
 }
 
 #totaldiv {
@@ -333,6 +369,7 @@ background:#454F5B;
 	/* Gray/300 */
 	border: 1px solid #DFE3E8;
 	border-radius: 1.25rem;
+	position:relative;
 }
 
 #total {
@@ -345,6 +382,8 @@ background:#454F5B;
 	color: #161C24;
 	width: 12.5rem;
 	text-align: right;
+	position:absolute;
+	right:0px;
 }
 
 .h3 {
@@ -368,7 +407,11 @@ background:#454F5B;
 }
 
 .name {
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
 	color: #919EAB;
+	width:8.125rem;
 }
 
 .price {
@@ -418,6 +461,15 @@ background:#454F5B;
 	
 }
 
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+#productdetail>div {
+	margin: auto;
+	padding: 0px;
+}
+
 .chooseoption {
 	color: #637381;
 	flex: none;
@@ -431,17 +483,15 @@ background:#454F5B;
 @media ( min-width : 870px) {
 	#goodscontainer {
 	width: 80rem;
+	padding-top:6.25rem;
 }
+
 .product-area {
 	float: left;
 	width: 45.353rem;
 	padding: 0rem;
 }
-#imgdiv {
-	width: 34.375rem;
-	margin-left: 2.688rem;
-	margin-right: 1.5rem;
-}
+
 #container2{
 padding-left:4rem;
 }
@@ -459,9 +509,9 @@ padding-left:4rem;
 	/* identical to box height */
 	/* Gray/900 */
 	color: #161C24;
-	height: 1.5rem;
 	margin-bottom: 1rem;
 	width: 23.5rem;
+	
 }
 
 #price {
@@ -488,6 +538,11 @@ margin-bottom: 2.5rem;
 @media ( max-width : 871px) {
 		#goodscontainer {
 	width: 100%;
+}
+.g_contents{
+width:36.375rem;
+margin:auto;
+padding:0px;
 }
 #btndiv{
 padding-left:3rem;
@@ -557,73 +612,191 @@ font-size:1.8rem;
 }
 }
 
-
-
-
+.select-font {
+font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+}
+.select-font li{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	padding-left:7.2px;
+}
+.g_contents{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 1.2rem;
+	line-height: 1.8rem;
+}
+.row{
+-bs-gutter-x:0rem;
+}
 /* footer */
 #footer{
+			margin-top:6.25rem;
             background: #F4F6F8;
             height: 13.25rem;
         }
+#footer .h3{
+padding-top:0px;
+padding-bottom:0px;
+}       
 </style>
 </head>
-<body>
-	<header>
+<body style="overflow-x: hidden">
 		<div class="container-fluid" >
+			<div class="container-fluid"
+			style="background-color: white; ">
 			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
 				<div class="row" id="container1">
-					<nav class="navbar navbar-expand-sm bg-light navbar-light">
-						<div class="container" id="navparent">
-							<a class="navbar-brand" href="#" id="container"
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-							<button class="navbar-toggler" type="button"
-								data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-								<span class="navbar-toggler-icon"></span>
-							</button>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
-								<ul class="navbar-nav">
-									<li class="nav-item"><a id="About" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-									</li>
-									<li class="nav-item"><a id="Exhibition" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-									</li>
-									<li class="nav-item"><a id="Shop" class="nav-link"
-										href="/shop/toShop"
-										style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-									<li class="nav-item"><a id="Help" class="nav-link"
-										href="#" style="padding-left: 0px; padding-right: 0px;">Help</a>
-									</li>
-									<li class="nav-item"><a id="Login" class="nav-link"
-										href="/member/loginPage"
-										style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-									<li class="nav-item"><a id="Signup" class="nav-link"
-										href="/member/join"
-										style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-									<li class="nav-item"><a id="Admin" class="nav-link"
-										href="/admin/adminMain"
-										style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-									<c:choose>
-									<c:when test="${loginEmail !=null }">
-									<li class="nav-item"><a id="Mypage" class="nav-link"
-										href="/cart/cartlist"
-										style="padding-left: 0px; padding-right: 0px;">cart(${totalDto.total_num })</a></li>
-									</c:when>
-									</c:choose>	
-									<li class="nav-item"><a id="Mypage" class="nav-link"
-										href="/member/mypage"
-										style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
 								</ul>
 							</div>
 						</div>
 					</nav>
-
 				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
-	</header>
-		<div class="container-fluid" id="goodsparent">
+
 			<div class="container" id="goodscontainer">
 			
 			
@@ -646,8 +819,8 @@ font-size:1.8rem;
 
 							<!-- 옵션 리스트 -->
 							<div id="select-wrap" style="position:relative;">
-								<div id="select">상품옵션을 선택하세요</div>
-								<ul class="select-ul">
+								<div id="select" class="select-font">상품옵션을 선택하세요</div>
+								<ul class="select-ul select-font">
 									
 									<c:forEach var="i" items="${list }">
 										<li class="li" value="${i.g_seq }">${i.g_option}</li>
@@ -778,7 +951,7 @@ $(".li").on("click", function () {
 
 
 				<div class="product-area">
-					<div class="row " id="container2">
+					<div class="row " id="container2 row1">
 					
 					
 					<!-- 상품 이미지 -->	
@@ -815,7 +988,7 @@ $(".li").on("click", function () {
 						
 					<!-- 상품 상세 설명 -->
 						<div class="row" id="productdetail">
-							<div class="col-12" >${dto.g_contents }</div>
+							<div class="col-12 g_contents" >${dto.g_contents }</div>
 						</div>
 
 
@@ -829,16 +1002,17 @@ $(".li").on("click", function () {
 		<!-- 푸터단 -->
 
 	<div class="row" id="footer">
-            <div class="container" style="padding-left:2.5rem;">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+            <div class="container" >
+                <div class="row">
+                    <div class="col-12 h3" style = "color: #637381; margin-top:3.75rem;">(주)팔레트</div>
+
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
                 </div>
             </div>
         </div>
-	
+</div>
 	<script>
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
@@ -961,7 +1135,20 @@ $(document).on("click", ".delete", function(){
 	 setTotalPrice();
 });	
 	
-
+	function logout() {
+		   
+		   if (!Kakao.Auth.getAccessToken()) {
+		         alert('Not logged in.')
+		         return
+		       }
+		       Kakao.Auth.logout(function() {
+		         alert('로그아웃 되었습니다.');
+		         location.href="/member/logout";
+		       })
+		   
+		   location.href = "/member/logout";
+		   return true;
+		}
 
 	//수량
 	$(document).on("click", ".plus", function(){
@@ -1041,7 +1228,23 @@ $(document).on("click", ".delete", function(){
 		
 	}
 	
-	
+	   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	   
+	   function logout() {
+	      
+	      if (!Kakao.Auth.getAccessToken()) {
+	            alert('Not logged in.')
+	            return
+	          }
+	          Kakao.Auth.logout(function() {
+	            alert('로그아웃 되었습니다.');
+	            location.href="/member/logout";
+	          })
+	      
+
+	      location.href = "/member/logout";
+	      return true;
+	   }
 
 	
 	

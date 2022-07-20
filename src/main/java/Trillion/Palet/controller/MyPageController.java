@@ -142,8 +142,7 @@ public class MyPageController {
 	// Shopping
 	@RequestMapping("myShopping")
 	public String myShopping(Model model) {
-		//String email = (String)session.getAttribute("loginEmail");
-		String email = "maisy40@naver.com";
+		String email = (String)session.getAttribute("loginEmail");
 //		List<Object> list = mServ.myShopping(email);
 //		System.out.println(list);
 //		model.addAttribute("list",list);
@@ -166,7 +165,7 @@ public class MyPageController {
 		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
 		Object product = mServ.myShoppingProduct(merchant_uid);
 		String name = mServ.memberName(email);
-		System.out.println(name);
+		System.out.println(product);
 		
 		model.addAttribute("detail",detail);
 		model.addAttribute("product",product);
@@ -189,10 +188,38 @@ public class MyPageController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("mypageUserDetail")
-	public List<MypageUserDetailDTO> mypageUserDetail(){
+	@RequestMapping("selectMyCoupon")
+	public List<MypageUserDetailDTO> selectMyCoupon(){
 		String email = (String)session.getAttribute("loginEmail");
-		return mServ.mypageUserDetail(email);
+		return mServ.selectMyCoupon(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectMyCouponStatus")
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String used){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyCouponStatus(email, used);
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectMyexhibition")
+	public List<MypageUserDetailDTO> selectMyexhibition(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyexhibition(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectMyGoods")
+	public List<MypageUserDetailDTO> selectMyGoods(){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyGoods(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("couponRegist")
+	public int couponRegist(String serial){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.couponRegist(email, serial);
 	}
 	
 }
