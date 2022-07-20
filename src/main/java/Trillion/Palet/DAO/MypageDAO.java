@@ -125,5 +125,11 @@ public class MypageDAO {
 	public List<MypageUserDetailDTO> selectMyGoods(String email){
 		return mybatis.selectList("MyPage.selectMyGoods",email);
 	}
-
+	
+	public int couponRegist(String email, String serial){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("serial", serial);
+		return mybatis.update("Mypage.couponRegist", param);
+	}
 }

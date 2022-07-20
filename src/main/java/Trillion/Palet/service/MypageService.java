@@ -95,6 +95,8 @@ public class MypageService {
 	public List<MypageUserDetailDTO> selectMyGoods(String email) {
 		return mdao.selectMyGoods(email);
 	}
- 
-	
+
+	public int couponRegist(String email, String serial) {
+		return mdao.couponRegist(email, serial);
+	}
 }

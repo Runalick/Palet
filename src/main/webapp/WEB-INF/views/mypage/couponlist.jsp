@@ -203,6 +203,22 @@
 	display: inline-block;
 }
 
+.H4{
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.875rem;
+}
+
+.H5 {
+	font-family: 'Spoqa Han Sans Neo';
+	padding-bottom: 1.2rem;
+	font-size: 1.625rem;
+	font-weight: 700;
+	line-height: 1.875rem;
+}
+
 .body2 {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -350,6 +366,7 @@ button {
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 }
+
 </style>
 </head>
 <body>
@@ -542,26 +559,28 @@ button {
 				
 				<div class="content" style="margin-top:1rem;">
 					<div class="row">
-						<div class=col-12 style="border-bottom:1px solid black;">
+						<div class="col-12 H5" style="">
 							나의 쿠폰
 						</div>
-						<div class="col-12" style="border-bottom:1px solid black;">
-							<div class="col-12">쿠폰코드를 입력해 주세요.</div>
-							<input type="text" placeholder="쿠폰코트를 입력해 주세요.">
-							<button>등록</button>
-							<div>* 티켓 또는 상품 구매에 사용 가능한 쿠폰이 있으신가요? 쿠폰 사용을 위해 쿠폰 코드를 입력해 주세요.</div>
+						<div class="col-12" style="border-bottom:1px solid black; margin-top:1.5rem; padding-bottom:1.5rem;">
+							<div class="col-12 body1" style="padding-bottom:1rem;">쿠폰코드를 입력해 주세요.</div>
+							<div class="col-12" style="margin-bottom:0.5rem;">
+								<input class="serialInput" type="text" placeholder="쿠폰코트를 입력해 주세요." style="width:30rem; height:3em; border:1px solid #DFE3E8;">
+								<button id="regist" style="width:5rem; height:3rem;">등록</button>
+							</div>
+							<div class="col-12 body2" style="color:gray">* 티켓 또는 상품 구매에 사용 가능한 쿠폰이 있으신가요? 쿠폰 사용을 위해 쿠폰 코드를 입력해 주세요.</div>
 						</div>
 						<div class="col-12" style="border-bottom:2px solid black; margin-top:1.5rem; padding-bottom:1.5rem;">
 							<div class="row">
 								<div class="col-6" style="padding-left:0rem; padding-right:0rem;">
-									<button class="notUsed" id="N" style="width:100%; height:4rem;">사용 가능 쿠폰</button>
+									<button class="notUsed button" id="N" style="width:100%; height:4rem;">사용 가능 쿠폰</button>
 								</div>
 								<div class="col-6" style="padding-left:0rem; padding-right:0rem;">
-									<button class="used" id="Y" style="width:100%; height:4rem;">사용완료 쿠폰</button>
+									<button class="used button" id="Y" style="width:100%; height:4rem;">사용완료 쿠폰</button>
 								</div>
 							</div>
 						</div>
-						<div class="col-12" style="border-bottom:1px solid black;">
+						<div class="col-12" style=" margin-top:0.5rem; padding-bottom:0.5rem; border-bottom:1px solid #DFE3E8">
 							<div class="row">
 								<div class="col-6">
 									쿠폰정보
@@ -578,10 +597,10 @@ button {
 						</div>
 						<div class="col-12" style="padding-left:0rem;">
 							<div class="row">
-								<div class="col-12" style="margin-bottom:1.5rem;">쿠폰 사용 안내</div>
-								<div class="col-12">-사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다.</div>
-								<div class="col-12">-쿠폰의 최소 주문금액은 배송비를 제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.</div>
-								<div class="col-12" style="color:red; font-weight:bold;">-상품을 반품하거나 주문을 취소하셨다면, 구매에 사용하신 쿠폰은 반환되지 않습니다.</div>
+								<div class="col-12 H5" style="margin-top:3rem; padding-bottom:1.5rem;">쿠폰 사용 안내</div>
+								<div class="col-12 H4" style="color:gray;">-사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다.</div>
+								<div class="col-12 H4" style="color:gray">-쿠폰의 최소 주문금액은 배송비를 제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.</div>
+								<div class="col-12 H4" style="color:red; font-weight:bold;">-상품을 반품하거나 주문을 취소하셨다면, 구매에 사용하신 쿠폰은 반환되지 않습니다.</div>
 							</div>
 						</div>
 					</div>
@@ -595,7 +614,7 @@ button {
 		<div class="row" id="footer" style="margin-top: 12.5rem;">
 			  <div class="container" style="padding-left:2.5rem;">
                 <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+                    <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
                 </div>
@@ -615,14 +634,14 @@ button {
 			}).done(function(resp){
 				console.log(resp);
 				for(let i = 0; i < resp.length; i++){
-					$(".list").append("<div class='col-6 category'>"+resp[i].category+"</div><div class='col-6 dc'>"+resp[i].dc+"</div>")
+					$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 				}
 			})
 		}
 	
-		$("button").on("click",function(){
+		$(".button").on("click",function(){
 			$(this).addClass("active");
-			$("button").not(this).removeClass("active")
+			$(".button").not(this).removeClass("active")
 			$(".list").empty();
 			$.ajax({
 				url:"/mypage/selectMyCouponStatus",
@@ -630,9 +649,38 @@ button {
 			}).done(function(resp){
 				console.log(resp);
 				for(let i = 0; i < resp.length; i++){
-					$(".list").append("<div class='col-6 category'>"+resp[i].category+"</div><div class='col-6 dc'>"+resp[i].dc+"</div>")
+					$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 				}
 			})
+		})
+		
+		$("#regist").on("mouseover",function(){
+			$("#regist").css("background-color","black");
+			$("#regist").css("color","white");
+		})
+		
+		$("#regist").on("mouseout",function(){
+			$("#regist").css("background-color","white");
+			$("#regist").css("color","black");
+		})
+		
+		$("#regist").on("click",function(){
+			if($(".serialInput").val() == ""){
+				alert("쿠폰 번호를 입력해 주세요.");	
+			}else{
+				$.ajax({
+					url:"/mypage/couponRegist",
+					data:{"serial":$(".serialInput").val()}
+				}).done(function(resp){
+					console.log(resp);
+					if(resp == 1){
+						alert("쿠폰이 등록되었습니다.");
+					}else{
+						alert("쿠폰번호를 다시 확인해 주세요.");
+					}
+				})
+			}
+			
 		})
 	</script>
 </body>
