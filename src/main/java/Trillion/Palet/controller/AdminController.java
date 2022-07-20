@@ -294,7 +294,6 @@ public class AdminController {
 	public int goodsCheckDelete(@RequestParam(value="checkboxArr[]") List<String> checkboxArr) throws Exception {
 		int result = 0;
 		String checkNum = "";
-		
 		for (String str : checkboxArr) {
 			checkNum = str;
 			System.out.println(str);

@@ -399,7 +399,7 @@ cursor:pointer;
 </style>
 </head>
 <body>
-	<header>
+	
 		<div class="container-fluid" >
 			<div class="container-fluid"
 			style="background-color: white;">
@@ -541,7 +541,9 @@ cursor:pointer;
 				
 				</c:choose>
 			</div>
+		
 		</div>
+		
 		<div class="container" >
 			<div class="row mypage-wrap"  id="row1" >
 			
@@ -565,18 +567,17 @@ cursor:pointer;
 					<li>
 						<div class="body4">My Shopping</div>
 						<ul>
-							<li class="body3"><a href="#">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
+							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Info</div>
 						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
-							<li class="body3"><a href="#">나의 쿠폰</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
+							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
 					</ul>

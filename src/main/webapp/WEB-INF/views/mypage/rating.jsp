@@ -630,7 +630,6 @@ align-items: center; */
 								<div class="body4">My Info</div>
 								<ul>
 							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
 							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 								</ul>
