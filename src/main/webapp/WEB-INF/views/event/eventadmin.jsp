@@ -431,6 +431,7 @@
 	
 	<script>
 	AOS.init();
+
 	window.onload = function(){
 		$.ajax({
 			url:"/event/admincontents",
@@ -458,12 +459,12 @@
 						+		"참여자 : " + resp[i].email 
 						+	"</div>"
 						
-						+	"<div class='col-12 ellipsis' id=" + i + " style='visibility:hidden;'>"
+						/* +	"<div class='col-12 ellipsis adminok' style='visibility:hidden;'>"
 						+		resp[i].admin_ok
-						+	"</div>"
+						+	"</div>" */
 						+	"<div class='col'>"
 
-						+	"<button class='ok btn3' id=text_" + i + ">승인</button>"
+						+	"<button class='ok btn3 adminok' value='" + resp[i].admin_ok + "'>승인</button>"
 						
 						+ 	"<button class='delete btn3'>삭제</button>"
 						+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -471,28 +472,35 @@
 						+"</div>"
 						+"</div>";				
 							
-					console.log(i);
+					//console.log(i);
 			    	$("#container").append(text_html);
 					
-			    	console.log("value: " + $("#"+i).html());
-			    	console.log($("#"+i).html() == 'Y');
-			    	console.log("resp.length : " + resp.length);
-				
+			    	//console.log("value: " + $("#"+i).html());
+			    	//console.log("resp.length : " + resp.length);
+			    	//console.log($($(".adminok")[i]).html());
+			    	
+			    	/* if(($($(".adminok")[i]).html()) == 'Y'){
+			    		console.log($(this).val());
+			    	} */
+			    	
+			    	 if(($($(".adminok")[i]).val()) == 'Y'){
+				    		console.log($(this).html());
+			    	 }
 			    	
 				} 
-				for(let i=0; i<resp.length;i++){
+				/* for(let i=0; i<resp.length;i++){
 			    	if($("#"+i).html() == 'Y'){
 			    		$("#text_"+i).html('승인완료');
 			    		$("#text_"+i).attr("disabled",true);
 			    	}  
-	    		} 
-				
+	    		}  */
+	    		
 			    	
 			},//resp
 		});	
+	}
 		
-		
-	 	let limit = 12;
+	 	let limit = 13;
 		
 		
 	  	$(document).scroll(function() {
@@ -501,7 +509,7 @@
 		   
 		   
 		    if (maxHeight <= currentScroll+100) {
-		    	console.log("origin limit : " + limit);
+		    	//console.log("origin limit : " + limit);
 		    	$.ajax({
 					url:"/event/admincontents",
 					data:{limit : limit},
@@ -528,12 +536,12 @@
 								+		"참여자 : " + resp[i].email 
 								+	"</div>"
 								
-								+	"<div class='col-12 ellipsis' id=" + i + " style='visibility:hidden;'>"
+								+	"<div class='col-12 ellipsis ok' style='visibility:hidden;'>"
 								+		resp[i].admin_ok
 								+	"</div>"
 								+	"<div class='col'>"
 
-								+	"<button class='ok btn3' id=text_" + i + ">승인</button>"
+								+	"<button class='ok btn3 okbtn'>승인</button>"
 								
 								+ 	"<button class='delete btn3'>삭제</button>"
 								+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -543,24 +551,26 @@
 							
 							//console.log(text_html);
 					    	$("#container").append(text_html); 
-					    	console.log(text_html);
+					    	//console.log(text_html);
 						}
 						limit = limit + resp.length;
 				    	console.log("change limit : " + limit);	
 				    	
-				    	for(let i=0; i<resp.length;i++){
+				    	/* for(let i=0; i<resp.length;i++){
 					    	if($("#"+i).html() == 'Y'){
 					    		$("#text_"+i).html('승인완료');
 					    		$("#text_"+i).attr("disabled",true);
 					    	} 
-			    		} 
+			    		}  */
+			    		
+			    		//console.log($(".ok").html());
 					},
 					});
 		    	} 
 		      })   
 		      
 		     
-		}
+	
 	
 
 	$("#paint").on("click", function(){
@@ -578,6 +588,8 @@
 	$("#sback").on("click", function(){
 		location.href="/event/eventPage";
 	})
+	
+	
 	
 	// 동적 쿼리로 이벤트 부여해야 동작한다.
 	$("#container").on("click", ".ok", function(){
