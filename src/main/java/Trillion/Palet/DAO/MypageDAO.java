@@ -57,7 +57,7 @@ public class MypageDAO {
 		}
 		
 		
-		mybatis.update("MyPage.MinusSalesCnt",dto);
+//		mybatis.update("MyPage.MinusSalesCnt",dto);
 		return mybatis.update("MyPage.BeforeCancel",dto);
 	}
 
@@ -111,6 +111,13 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.selectMyCoupon",email);
 	}
 	
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String email, String used){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("used", used);
+		return mybatis.selectList("MyPage.selectMyCouponStatus",param);
+	}
+
 	public List<MypageUserDetailDTO> selectMyexhibition(String email){
 		return mybatis.selectList("MyPage.selectMyexhibition",email);
 	}
@@ -118,5 +125,11 @@ public class MypageDAO {
 	public List<MypageUserDetailDTO> selectMyGoods(String email){
 		return mybatis.selectList("MyPage.selectMyGoods",email);
 	}
-
+	
+	public int couponRegist(String email, String serial){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("serial", serial);
+		return mybatis.update("Mypage.couponRegist", param);
+	}
 }

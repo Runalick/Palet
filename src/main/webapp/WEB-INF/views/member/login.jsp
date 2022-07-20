@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -16,83 +16,10 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="/css/member/login.css">
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<!-- 카카오 공유하기 -->
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<link rel="stylesheet" href="/css/member/login.css">
-<style>
-.modal{
-	posision: absolute;
-	width: 100;
-	height: 100%;
-	background: rgba(0,0,0,0.6);
-	top: 0;
-	left: 0;
-	display: none;
-}
 
-.modal_content{
-  width:450px; height:250px;
-  background:#fff; border-radius:10px;
-  position:relative; top:50%; left:50%;
-  margin-top:-100px; 
-  margin-left:-200px;
-  text-align:center;
-  box-sizing:border-box; padding:20px 10px;
-  line-height:23px; 
-}
-
-#modal_header{
-	position:relative; 
-	top:0; 
-	left:0;
-}
-
-#modal_back{
-	float: right;
-	margin-right:15px;
-	padding-left: 10px;
-	padding-right: 10px;	
-}
-
-a{
-	text-decoration: none;
-}
-
-.body2_1 {
-	font-family: 'Spoqa Han Sans Neo';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 2rem;
-	line-height: 1.75rem;
-	margin-bottom: 0px;
-	color: black;
-}
-
-#copybtn{
-	gap: 0.625rem;
-    width: 8.813rem;
-    height: 2.75rem;
-	background: white;
-    border-radius: 1.25rem;
-    font-family: 'Spoqa Han Sans Neo';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.22rem;
-    line-height: 2rem;
-    text-align: center;
-	color: black;
-}
-
-
-
-.link-icon { position: relative; display: inline-block; width: auto;    font-size: 14px; font-weight: 500; color: #333; margin-right: 10px; padding-top: 50px; }
-.link-icon.twitter { background-image: url(/images/icon-twitter.png); background-repeat: no-repeat; background-position-x:center;}
-.link-icon.facebook { background-image: url(/images/icon-facebook.png); background-repeat: no-repeat; background-position-x:center;} 
-.link-icon.kakao { background-image: url(/images/icon-kakao.png); background-repeat: no-repeat; background-position-x:center;}
-
-</style>
 </head>
 <body>
 
@@ -276,7 +203,7 @@ a{
 		
 		<div class="row" id="footer">
 			<div class="container">
-				<div class="row" id="row1">
+				<div class="row">
 					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
 					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
@@ -289,43 +216,7 @@ a{
         </div>
 	
 	</div>
-		
-			<button id=modalbtn>공유하기</button>
-		
-			<div class="modal">
-				
-				<div class="modal_content" title="공유하기">
-					<div id="modal_header">
-						<div class="body2_1" style="float: left; margin-left: 20px;">공유하기</div><button id="modal_back">X</button>
-					</div>
-					<br>
-					<hr>
-					<a id="btnTwitter" class="link-icon twitter" href="javascript:shareTwitter();">트위터</a>
-					<a id="btnFacebook" class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>    
-					<a id="btnKakao" class="link-icon kakao" href="javascript:shareKakao();">카카오</a> <br>
-					<input type="text" id="text" value="http://localhost/member/loginPage" readonly style="margin-top: 10px;"/>
-					<input type="button" id="copybtn" onclick="fn_copy()" value="Copy"/> 
-				</div>
-			</div>
-			
-    
-<%-- <c:choose>
-	<c:when test="${loginEmail != null }">
-	<div class="container-fluid">
-		<div class="row" style="padding-top: 150px;">
-			<div class="container" style="max-width: 400px;">
-				<div class="row" id="row1">
-					<div class="col-12">${loginEmail }님 안녕하세요.</div>
-					<div class="col-12"><input type="button" id="logout" value="로그아웃"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	</c:when>
 
-	<c:otherwise> --%>
-<%-- 	</c:otherwise>
-</c:choose> --%>
 </body>
 <script>	
 	$("#login").on("click", function(){
@@ -352,6 +243,7 @@ a{
 	})
 	// SDK를 초기화. 사용할 앱의 JavaScript 키
       	Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	
 	    console.log(Kakao.isInitialized());
 	    
 	    //item을 localStorage에 저장하는 메소드
@@ -385,9 +277,9 @@ a{
 	        	}
 	          })
  	          console.log(authObj); //access 토큰 값
-			  Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
-			  var token = authObj.access_token;
-			  saveToDos(token);
+			  //Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
+			  //var token = authObj.access_token;
+			  //saveToDos(token);
 	        },
 	        fail: function(err) {
 	          alert(JSON.stringify(err));
@@ -396,70 +288,24 @@ a{
 	      });
 	    })
 	    
-	$("#logout").on("click", function(){
-		if (Kakao.Auth.getAccessToken()) {
-			Kakao.Auth.logout(function() {
-      			alert("로그아웃 되었습니다.");
-      			location.href="/member/logout";
-   		 	})
-		}
+	function logout() {
 		
-		location.href="/member/logout";
-	})
-	
-	//공유하기 모달창
-	$(function(){
-		$("#modalbtn").click(function(){
-			$(".modal").fadeIn();
-		});
-		
-		$("#modal_back").click(function(){
-			$(".modal").fadeOut();
-		});
-	})
+			if (!Kakao.Auth.getAccessToken()) {
+			      alert('Not logged in.')
+			      return
+			    }
+			    Kakao.Auth.logout(function() {
+			      alert('로그아웃 되었습니다.');
+			      location.href="/member/logout";
+			    })
+			
 
-	// 복사 버튼
-	function fn_copy() {
-	    alert("URL 주소가 복사되었습니다.");
-		var url = document.getElementById('text');
-		url.select(); // 복사할 text 블럭
-		document.execCommand('copy'); // 드레그된 text 클립보드에 복사
-	}
-	    
-	// 트위터 공유하기
-	function shareTwitter() {
-	    var sendText = "Palet"; // 전달할 텍스트
-	    var sendUrl = "http://localhost/member/loginPage"; // 전달할 URL
-	    window.open("https://twitter.com/intent/tweet?text=" + sendText + "&url=" + sendUrl);
-	}
+			location.href = "/member/logout";
+			return true;
+		}
 	
-	// 페이스북 공유하기
-	function shareFacebook() {
-	    var sendUrl = "http://localhost/member/loginPage"; // 전달할 URL
-	    window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
-	}
 	
-	// 카카오톡 공유하기
-	function shareKakao() {
- 
-  // 사용할 앱의 JavaScript 키 설정
-  //Kakao.init('feb50c309d28b138aefe9ddc94d76870');
- 
-  // 카카오링크 버튼 생성
-  Kakao.Link.createDefaultButton({
-    container: '#btnKakao', // 카카오공유버튼ID
-    objectType: 'feed',
-    content: {
-      title: "Palet", // 보여질 제목
-      description: "Palet 전시회 예약하기", // 보여질 설명
-      imageUrl: "http://localhost/member/loginPage", // 콘텐츠 URL
-      link: {
-         mobileWebUrl: "http://localhost/member/loginPage",
-         webUrl: "http://localhost/member/loginPage"
-      }
-    }
-  });
-}
+
 
 
 </script>

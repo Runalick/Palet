@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -259,7 +259,7 @@ padding:0px;
 .list{
 box-sizing: border-box;
 width: 49.25rem;
-height: 10rem;
+/* height: 10rem; */
 background: #FFFFFF;
 /* Gray/300 */
 border: 1px solid #DFE3E8;
@@ -505,7 +505,7 @@ margin-bottom:12.5rem;
 }
 /* select */
 
-#select {
+#select1, #select2 {
 	width: 23.5rem;
 	height: 3rem;
 	line-height: 2.35rem;
@@ -525,7 +525,8 @@ margin-bottom:12.5rem;
 	color: #666666;
 }
 
-.select-ul {
+.select-ul1 {
+	width: 23.5rem;
 	list-style-type: none;
 	overflow-x: hidden;
 	overflow-y: auto;
@@ -541,14 +542,41 @@ margin-bottom:12.5rem;
 	left: 0rem;
 }
 
-.select-ul li {
+.select-ul2{
+	width: 100%;
+	list-style-type: none;
+	overflow-x: hidden;
+	overflow-y: auto;
+	font-size: 1rem;
+	color: #666666;
+	border: 1px solid #b8b8b8;
+	display: none;
+	position: absolute;
+	top: 2.938rem;
+	background: #FFFFFF;
+	border-top: none;
+	padding: 0px;
+	left: 0rem;
+}
+
+.select-ul1 li {
 	padding: 0.625rem 0 0.625rem 1.125rem;
 	width: 23.2rem;
 }
 
-.select-ul li:hover {
+.select-ul1 li:hover {
 	background-color: #F4F6F8;
 }
+
+.select-ul2 li {
+	padding: 0.625rem 0 0.625rem 1.125rem;
+	width: 100%;
+}
+
+.select-ul2 li:hover {
+	background-color: #F4F6F8;
+}
+
 .pointinput{
 width: 15rem;
 height: 3rem;
@@ -688,7 +716,7 @@ text-align:left;
 							<span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 							<span class="H4 totalprice" id="span4"> </span>
 							<span class="H4 " id="span9" style="color:#919EAB">할인</span>
-							<span class="H4 " id="span10">-0원</span>
+							<span class="H4 discount" id="span10">0원</span>
 							
 							
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
@@ -696,7 +724,7 @@ text-align:left;
 							<span class="H3" id="span3" >총 결제 금액</span>
 							<span class="H3 finalTotalPrice" id="span6">18,800</span>
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-							<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span>
+							<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span>
 						</div>
 					</div>
 					
@@ -709,7 +737,7 @@ text-align:left;
 					<span class="span" id="payspan3">개인정보 수집 및 이용 동의 </span>
 					<span class="span1" id="payspan4" style="left:10.063rem; cursor:pointer">보기</span><br>
 					<span class="span" id="payspan5">결제 대행 서비스 이용약관</span>
-					<span class="span1" id="payspan6" style="left:9.875rem; cursor:pointer"><a href="https://www.inicis.com/terms">(주)KG이니시스</a></span>
+					<span class="span1" id="payspan6" style="left:9.875rem; cursor:pointer">(주)KG이니시스</span>
 					</div>
 				</div>
 			
@@ -784,18 +812,18 @@ text-align:left;
 				<div class="row H3" style="margin-bottom:2.188rem; padding-left:2.5rem; margin-top:3.75rem;">쿠폰 / 마일리지</div>
 				<div class="warp-pay">
 				<div class="body2" style="margin-bottom:0.5rem;">쿠폰</div>
-						<div id="select-wrap" style="position:relative">
-								<div id="select" class="body2">쿠폰을 선택하세요</div>
-								<ul class="select-ul">
+						<div id="select-wrap1" style="position:relative">
+								<div id="select1" class="body2">쿠폰을 선택하세요</div>
+								<ul class="select-ul1">
 <!-- 									<li class="li body2" >오프라인 감사 쿠폰</li> -->
 <!-- 									<li class="li body2" >이벤트 참여 쿠폰</li> -->
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-				<input class="body2 pointinput" type="text" placeholder="0">
-				<button class="H4 pointbtn">모두 사용</button><br>
+				<input class="body2 pointinput2" type="text" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
+				<button class="H4 pointbtn allPointUse2">모두 사용</button><br>
 				<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
-				<span class="Caption myPoint" style="color: #637381;"> </span>
+				<span class="Caption myPoint2" style="color: #637381;"> </span>
 				<div class="H3" style="margin-top:3.75rem;margin-bottom:1.25rem;">결제 수단</div>
 				<input type="radio" style="margin-right:0.5rem;"><span class="body2">카드 결제</span>
 				</div>
@@ -894,18 +922,18 @@ text-align:left;
 							<div class="row H3" style="margin-bottom:2.188rem; margin-top:3.75rem; margin-left:0rem;">쿠폰 / 마일리지</div>
 							<div class="warp-pay" style="margin-bottom:4.5rem; margin-left:0rem;">
 								<div class="body2" style="margin-bottom:0.5rem; ">쿠폰</div>
-								<div id="select-wrap" style="position:relative">
-									<div id="select" class="body2" style="width:100%">쿠폰을 선택하세요</div>
-									<ul class="select-ul">
+								<div id="select-wrap2" style="position:relative">
+									<div id="select2" class="body2" style="width:100%">쿠폰을 선택하세요</div>
+									<ul class="select-ul2">
 <!-- 										<li class="li body2" >오프라인 감사 쿠폰</li> -->
 <!-- 										<li class="li body2" >이벤트 참여 쿠폰</li> -->
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-								<input class="body2 pointinput" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem;">
-								<button class="H4 pointbtn" style="margin-bottom:0.5rem; ">모두 사용</button><br>
+								<input class="body2 pointinput1" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
+								<button class="H4 pointbtn allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
-								<span class="Caption myPoint" style="color: #637381;">
+								<span class="Caption myPoint1 allPointUse1" style="color: #637381;">
 									<!-- 1200p -->
 								</span>
 								<div class="H3" style="margin-top:3.75rem;margin-bottom:1.25rem;">결제 수단</div>
@@ -919,7 +947,7 @@ text-align:left;
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 										<span class="H4 totalprice" id="span4"> </span></div>
 										<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
-										<span class="H4 " id="span10">-0원</span></div>
+										<span class="H4 discount" id="span10">0원</span></div>
 										
 										
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
@@ -927,7 +955,7 @@ text-align:left;
 										<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span>
 										<span class="H3 finalTotalPrice" id="span6" > </span></div>
 										<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-										<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span></div>
+										<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
 									</div>
 								</div>
 								<div class="row">
@@ -959,7 +987,6 @@ text-align:left;
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
-
                 </div>
             </div>
         </div>
@@ -1054,39 +1081,63 @@ text-align:left;
 		window.open("/member/agreement2","개인정보 수집 및 이용", "width=700, height=500");
 	})
 	
-	$("#agreement1").on("click", function(){
-	window.open("/member/agreement1","이용약관", "width=700, height=500");
-})
+	$("#payspan6").on("click", function(){
+		let link = 'https://www.inicis.com/terms';
+		window.open(link, "결제 대행 서비스 이용약관", "width=700, height=500");
+	
+	})
+	
+	$(".allPointUse1").on("click",function(){
+		let allPointUse = $(".myPoint1").text();
+		$(".pointinput1").val(allPointUse);
+		$(".pointinput2").val(allPointUse);
+		$(".discount").text(allPointUse);
+	})
+	
+	$(".allPointUse2").on("click",function(){
+		let allPointUse = $(".myPoint2").text();
+		$(".pointinput1").val(allPointUse);
+		$(".pointinput2").val(allPointUse);
+		$(".discount").text(allPointUse);
+	})
+	
 
-// 	$("#agreement6").on("click", function(){
-// 		window.open("","결제 대행 서비스 이용약관", "width=700, height=500");
-// 	})
-   	
-   	
-		//	쿠폰 포인트 가져오는 함수
+		//	장바구니 쿠폰 포인트 가져오는 함수
 	    window.onload = function(){
    			
    		let sumPrice = 0;
    		
+				$.ajax({
+					url:"/shop/selectMemberData"
+				}).done(function(resp){
+					console.log(resp);
+					for(let i = 0; i < resp.length; i++){
+						$(".myPoint1").html(resp[i].point);
+						$(".myPoint2").html(resp[i].point);
+						$(".select-ul1").append("<li class='li1 body2' style='width:100%;'>"+resp[i].category+"</li>")
+						$(".select-ul2").append("<li class='li2 body2'>"+resp[i].category+"</li>")
+					}
+// 					if(resp[i].grade == "white"){
+// 						$(".totalPoint") = 
+// 					}else if(resp[i].grade == "gray"){
+						
+// 					}else if(resp[i]grade == "black"){
+						
+// 					}
+				})
+		
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += resp[i].totalPrice;
 	            	}
 	            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
 	            	$(".finalTotalPrice").text((sumPrice + 3000).toLocaleString()+"원")
 	            })
 	            
-	    			$.ajax({
-						url:"/shop/selectMemberData"
-					}).done(function(resp){
-						for(let i = 0; i < resp.length; i++)
-							$(".myPoint").html(resp[i].point);
-							$(".select-ul").append("<li class='li body2'>"+resp[i].cagegory+"</li>")
-					})
 	    }
    	  	
    	  
@@ -1107,9 +1158,28 @@ text-align:left;
 	<script>
 	
 	//선택박스누를 시 옵션 열기
-	$("#select").on("click", function () {
-	    $(".select-ul").toggle();
-	})
+	$("#select1").on("click", function () {
+	    $(".select-ul1").toggle();
+	    
+		$(".li1").on("click", function () {
+			let text = $(this).text();
+	    	$("#select1").text(text);
+	    	$("#select2").text(text);
+	    	$(".select-ul1").toggle();	
+		});
+	});
+	
+	$("#select2").on("click", function () {
+	    $(".select-ul2").toggle();
+	    
+		$(".li2").on("click", function () {
+			let text = $(this).text();
+	    	$("#select1").text(text);
+	    	$("#select2").text(text);
+	    	$(".select-ul2").toggle();	
+		});
+	});
+
 	
 	 function sample4_execDaumPostcode() {
         new daum.Postcode({

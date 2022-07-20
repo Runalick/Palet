@@ -62,7 +62,6 @@
 
 
 
-
 			<beans:bean
 				class="Trillion.Palet.interceptor.LoginValidator" />
 		</interceptor>

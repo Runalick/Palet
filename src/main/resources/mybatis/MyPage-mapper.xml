@@ -6,7 +6,7 @@
 <mapper namespace="MyPage">
 <!-- 티켓 -->
 	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state in('BU','BC' )
+		select * from exticket where et_email=#{value} and et_state ='BU'
 	</select>
 	<select id="myTicketcnt" resultType="int">
 		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
@@ -145,10 +145,16 @@ where et_state like '%C') where email = #{email}
 	<select id="selectMyCoupon" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select category, dc from coupon where email = #{value} and used = 'N'
 	</select>
+	<select id="selectMyCouponStatus" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
+		select category, dc from coupon where email = #{email} and used = #{used}
+	</select>
 	<select id="selectMyexhibition" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select * from (select row_number() over(order by et_buydate) line, et_title, et_date, et_buydate, exticket.e_num, exhibitionpic.ep_sysname, et_booknumber from exticket left outer join exhibitionpic on exticket.e_num = exhibitionpic.e_num where et_email = #{value} and ep_main = 'Y') where line between 1 and 3
 	</select>
 	<select id="selectMyGoods" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select * from (select row_number() over(order by pay_time) line, g_name, totalprice, pay_time from payment where email = #{value}) where line between 1 and 10
 	</select>
+	<update id="couponRegist">
+		update coupon set email = #{email} where serial = #{serial}
+	</update>
 </mapper>

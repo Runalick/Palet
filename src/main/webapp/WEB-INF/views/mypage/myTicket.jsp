@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- bootstrap -->
 <link
@@ -611,8 +611,8 @@ li div {
 				</div>
 
 			<div class="content">
-				<div class="row" style="padding: 1rem;">
-					<div class="col-12 H5">진행 중 전시 티켓</div>
+				<div class="row" id="row1" style="padding: 1rem;">
+					<div class="col-12 H5">진행 중 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${cnt !=0}"> 
 					<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
@@ -639,9 +639,10 @@ li div {
 									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
 								</div>
 							</div>
-						</div>
+					</div>
+					  </div>
 					</c:forEach>					
-			    </div>
+			  
 				<!-- 여기까지 -->
 			  </div>
 			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -652,21 +653,23 @@ li div {
 			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 			    <span class="visually-hidden">Next</span>
 			  </button>
+			  </div>
   			</c:when>
 				<c:otherwise>
 					<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>	
 		</div>
-			<div class="col-12 H5">지난 전시 티켓</div>
+			<div class="col-12 H5">지난 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${prelist ==null }">
-					
+					<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
 				</c:when>
 				<c:otherwise>
 			
 				<div class="col-12">
 					<div class="row pre-ticket-row">
+					<div class="col-12">안녕</div>
 						<!-- 반복문 -->
 						<c:forEach var="i" items="${prelist }">
 							<div class="col-6 pre-ticket">
@@ -691,9 +694,10 @@ li div {
 			</div>
 		</div>
 		</div>
+<!-- 푸터단 -->
+		
 
-		<!-- 푸터단 -->
-		<div class="row" id="footer">
+         <div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
                     <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
@@ -703,8 +707,7 @@ li div {
                 </div>
             </div>
         </div>
-	</div>
-
+        </div>
 <script>
 AOS.init();
 window.onload = function(){
@@ -759,8 +762,6 @@ window.onload = function(){
 	      }) 
 }
 
-</script>
-	<script>
 		$(window).resize(function() { //창크기 변화 감지
 			open_chatroom();
 		});

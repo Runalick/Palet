@@ -46,4 +46,9 @@ public class GoodsDAO {
 	public GoodsDTO getGoods(int g_num) {
 		return mybatis.selectOne("Goods.getGoods", g_num);
 	}
+
+	//home 판매량순 6개 가져오기
+	public List<GoodsDTO> gettop6goods() {
+		return mybatis.selectList("Goods.gettop6goods");
+	}
 }

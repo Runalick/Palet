@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -65,7 +65,12 @@
 	padding: 0px;
 	height: 1.875rem;
 }
-
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -82,7 +87,7 @@
 }
 
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
 }
 
@@ -112,14 +117,35 @@
 	width: 5.938rem;
 	height: 1.5rem;
 }
-
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
+	height: 1.5rem;
+}
+#Logout {
+	width: 4.5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
+	height: 1.5rem;
+}
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
+
+#Signup {
+	width: 4.438rem;
 	height: 1.5rem;
 }
 
@@ -129,6 +155,7 @@
 }
 /* footer */
 #footer {
+	margin-top:6.25rem;
 	background: #F4F6F8;
 	height: 13.25rem;
 }
@@ -228,11 +255,12 @@ line-height: 1.125rem;
 	padding-left: 2.5rem;
 	padding-bottom:2.5rem;
 }
-
-#mainparent {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
+#img{
+width:100%;
+height:100%;
+border-radius:1.25rem;
 }
+
 .hug{
 width:3.938rem;
 height:1.75rem;
@@ -293,6 +321,14 @@ padding:0px;
 }
 .title{
 margin-top:1.875rem;
+overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.option{
+overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 .price{
 margin-bottom:1.5rem;
@@ -332,7 +368,7 @@ width: 23.5rem;
 height: 3.75;
 background: #161C24;
 border-radius: 1.25rem;
-
+border:0px;
 font-family: 'Spoqa Han Sans Neo';
 font-style: normal;
 font-weight: 500;
@@ -439,7 +475,7 @@ height:14.025rem;
 }
 .productInfo{
 padding:0px;
-width:10rem;
+width:25.625rem;
 }
 #payment-area{
 padding:0rem;
@@ -506,57 +542,163 @@ font-size:1.325rem;
 .container{
 margin:auto;
 }
+
+#paybtn:hover{
+background:#454F5B;
+}
 </style>
-<body>
+<body style="overflow-x: hidden">
 	<!-- 네비단 -->
 	<div class="container-fluid" >
-		<div class="container">
-			<div class="row" id="container1" >
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
-					<div class="container" id="navparent">
-						<a class="navbar-brand" href="#" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-						<button class="navbar-toggler" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse justify-content-end"
-							id="collapsibleNavbar">
-							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-								</li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+		<div class="container-fluid"
+			style="background-color: white;">
+			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
+								</ul>
+							</div>
 						</div>
-					</div>
-				</nav>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
-	</div>
 	<!-- 본문단 -->
 	<div class="container-fluid" id="mainparent" style="padding:0px">
 		<div class="container" style="padding:0px">
-			<div class="row" style="padding-top: 2.5rem; text-align: center;width:100%;margin:auto;">
+			<div class="row" style="padding-top: 6.25rem; text-align: center;width:100%;margin:auto;">
 				<div class="col-12 h2" id="cart">Cart( ${totalList.total_num } )</div>
 
 
@@ -650,7 +792,8 @@ margin:auto;
 				
 				<c:forEach var="i" items="${list }">
 					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
-						<div class="col-3 p-0 productimg" style="background-color:pink;">
+						<div class="col-3 p-0 productimg">
+								<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" >
 							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_seq }" style="margin-top:0.375rem;">
 							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
@@ -721,9 +864,10 @@ $("#paybtn").on("click",function(){
 	var cart_seq=[];
 	$("input:checkbox[class=checkbox2]:checked").each(function(e,item){
 
-					console.log($(this).siblings().val());
-					cart_seq.push($(this).siblings().val());
-			})
+					console.log($($(this).siblings()[1]).val());
+					cart_seq.push($($(this).siblings()[1]).val());			})
+
+	console.log($(this).siblings()[1]);
 	console.log(cart_seq);
 	location.href="/cart/order?cart_seq="+cart_seq;
 })
@@ -803,17 +947,16 @@ function setTotalInfo() {
 	</div>
 	<!-- 푸터단 -->
 
-	<div class="row" id="footer">
-            <div class="container" style="padding-left:2.5rem;">
-                <div class="row" id="row1">
+<div class="row" id="footer" style = "margin-top:12.5rem;">
+            <div class="container">
+                <div class="row">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
                 </div>
             </div>
         </div>
-	
 	<script>
 	//쇼핑하러 가기
 	$(".btn1").on("click",function(){
@@ -823,11 +966,11 @@ function setTotalInfo() {
 	
 	$(document).on("click", ".plus", function(){
 
-			let result = $($(this).parent().siblings()[6]).text();
+			let result = $($(this).parent().siblings()[7]).text();
 			console.log("d"+result);
 			number = parseInt(result) + 1;
 			
-			$($(this).parent().siblings()[6]).text(number);
+			$($(this).parent().siblings()[7]).text(number);
 			
 			//가격변화
 			
@@ -855,13 +998,13 @@ function setTotalInfo() {
 	});
 	$(document).on("click", ".minus", function(){
 
-			let result = $($(this).parent().siblings()[5]).text();
+			let result = $($(this).parent().siblings()[6]).text();
 			number = parseInt(result) - 1;
 			if (number == 0) {
 				return false;
 			}
 			console.log(number);
-			$($(this).parent().siblings()[5]).text(number);
+			$($(this).parent().siblings()[6]).text(number);
 			
 			//가격변화
 // 			let price = $($(this).parent().siblings()[3]).val() ;
@@ -956,6 +1099,24 @@ function setTotalInfo() {
 		location.href="/cart/choosedel?g_seq="+del;
 	})
 });
+
+	   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	   
+	   function logout() {
+	      
+	      if (!Kakao.Auth.getAccessToken()) {
+	            alert('Not logged in.')
+	            return
+	          }
+	          Kakao.Auth.logout(function() {
+	            alert('로그아웃 되었습니다.');
+	            location.href="/member/logout";
+	          })
+	      
+
+	      location.href = "/member/logout";
+	      return true;
+	   }
 	</script>
 </body>
 </html>

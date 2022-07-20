@@ -83,6 +83,11 @@ public class MypageService {
 		return mdao.selectMyCoupon(email);
 	}
 	
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String email, String used) {
+		return mdao.selectMyCouponStatus(email, used);
+	}
+	
+
 	public List<MypageUserDetailDTO> selectMyexhibition(String email) {
 		return mdao.selectMyexhibition(email);
 	}
@@ -90,6 +95,8 @@ public class MypageService {
 	public List<MypageUserDetailDTO> selectMyGoods(String email) {
 		return mdao.selectMyGoods(email);
 	}
- 
-	
+
+	public int couponRegist(String email, String serial) {
+		return mdao.couponRegist(email, serial);
+	}
 }
