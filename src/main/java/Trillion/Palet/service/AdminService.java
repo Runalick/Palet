@@ -1,17 +1,22 @@
 package Trillion.Palet.service;
 
+import java.io.File;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.DeliveryDTO;
-import Trillion.Palet.DTO.ExhibitionDTO;
+import Trillion.Palet.DTO.ExhibitionPicDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.NewExhibitionDTO;
 import Trillion.Palet.DTO.ProgramDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
@@ -63,7 +68,11 @@ public class AdminService {
 	
 	// Exhibition Category
 	
-	public List<ExhibitionDTO> exhibitionSelectByPage(int cpage, String value){
+//	public List<ExhibitionDTO> exhibitionSelectByPage(int cpage, String value){
+//		return adao.exhibitionSelectByPage(cpage, value);
+//	}
+	
+	public List<NewExhibitionDTO> exhibitionSelectByPage(int cpage, String value){
 		return adao.exhibitionSelectByPage(cpage, value);
 	}
 	
@@ -71,8 +80,42 @@ public class AdminService {
 		return adao.getExhibitionPageNavi(cpage);
 	}
 	
-	public void adminExhibitionUpdate(ExhibitionDTO edto) {
+	public void adminExhibitionUpdate(NewExhibitionDTO edto) {
 		adao.adminExhibitionUpdate(edto);
+	}
+	
+	@Transactional
+	public void newExhibitionInsert (NewExhibitionDTO edto, String realPath, MultipartFile[] file) {
+		adao.newExhibitionInsert(edto);
+		int e_num = edto.getPe_seq();
+		if(file != null) {
+			File realPathFile = new File(realPath);
+			if(!realPathFile.exists())realPathFile.mkdir();
+			
+			for(MultipartFile mf : file) {
+				String ep_oriname = mf.getOriginalFilename();
+				String ep_sysname = UUID.randomUUID()+"_"+ep_oriname;
+				try {
+					mf.transferTo(new File(realPath+"/"+ep_sysname));
+				}catch (Exception e) {
+					e.printStackTrace();
+				}
+				adao.exhibitionPicinsert(new ExhibitionPicDTO(0, e_num, ep_oriname, ep_sysname));
+			}
+		}
+		
+	}
+	
+	public int exhibitionCheckDelelte (int pe_seq) {
+		return adao.exhibitionCheckDelete(pe_seq);
+	}
+	
+	public int exhibitionCheckUpdate (String pe_seq, String pe_period) {
+		return adao.exhibitionCheckUpdate(pe_seq, pe_period);
+	}
+	
+	public NewExhibitionDTO getExhibition(int pe_seq) {
+		return adao.getExhibition(pe_seq);
 	}
 	
 	

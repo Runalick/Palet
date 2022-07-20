@@ -8,29 +8,29 @@
    
    	<!-- Admin  -->
    	
-  	<insert id="exhibitionInsert">
+  <!-- 	<insert id="exhibitionInsert">
   		insert into exhibition values(exhibition_seq.nextval, #{e_name},#{start_date},#{end_date},default,#{e_price},#{e_period})
   		<selectKey order="AFTER" keyProperty="e_num" resultType="int">
 			select exhibition_seq.currval from dual
 		</selectKey>
-  	</insert>
+  	</insert> -->
     
-    <select id="exhibitionSelectByPage" resultType="Trillion.Palet.DTO.ExhibitionDTO">
-  		select * from (select row_number() over(order by e_num desc) line, exhibition.* from exhibition) where line between #{start} and #{end}
+    <select id="exhibitionSelectByPage" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from (select row_number() over(order by pe_seq desc) line, exhibitiontest.* from exhibitiontest) where line between #{start} and #{end}
   		<trim prefix="order by">
   			<if test="order == 'line'">line</if>
-  			<if test="order == 'e_num'">e_num</if>
-	  		<if test="order == 'e_name'">e_name</if>
-	  		<if test="order == 'start_date'">start_date</if>
-	  		<if test="order == 'end_date'">end_date desc</if>
-	  		<if test="order == 'e_price'">e_price</if>
-  			<if test="order == 'e_period'">e_period</if>
+  			<if test="order == 'pe_seq'">pe_seq</if>
+	  		<if test="order == 'pe_name'">pe_name</if>
+	  		<if test="order == 'pe_date'">pe_date</if>
+<!-- 	  		<if test="order == 'end_date'">end_date desc</if> -->
+	  		<if test="order == 'pe_price'">e_price</if>
+  			<if test="order == 'pe_period'">e_period</if>
   			<if test="order == 'sales_count'">sales_count desc</if>
   		</trim>
   	</select>
   	
   	<select id="getExhibitionTotalCount" resultType="int">
-  		select count(*) from exhibition
+  		select count(*) from exhibitiontest
   	</select>
   	
   	<delete id="exhibitionCheckDelete">

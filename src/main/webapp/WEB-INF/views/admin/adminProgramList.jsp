@@ -195,7 +195,7 @@
             				<div class="row pt-3 m-3 mb-4">
             					
             					<div class="col-8 col-lg-4 h3" style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll"> Programs Name  <a href="/admin/adminProgramList?value=p_name&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
-			            		<div class="col-4 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Date  <a href="/admin/adminProgramList?value=p_date&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
+			            		<div class="col-4 d-none d-lg-block h3" style="border-right : 0.125rem solid #DFE3E8">Period  <a href="/admin/adminProgramList?value=p_date&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
 			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Price  <a href="/admin/adminProgramList?value=p_price&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
 			            		<div class="col-4 col-lg-2 h3 ">Condition  <a href="/admin/adminExhibitionList?value=p_period&cpage=1" ><i class="bi bi-arrow-down-square colortext_gray900"></i></a></div>
 			            		<div class="col-12 px-3">
@@ -207,7 +207,7 @@
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
 	                            			<div class="col-8 col-lg-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.p_num}"> <a href="/admin/adminProgramDetail?p_num=${i.p_num}" class="colortext_gray900"><b>${i.p_name }</b></a> </div> 
-	                            			<div class="col-4 d-none d-lg-block px-4 body2">${i.p_date } </div> 
+	                            			<div class="col-4 d-none d-lg-block px-4 body2">${i.start_date } <b> ~ </b> ${i.end_date } </div> 
 	                            			<div class="col-2 d-none d-xl-block px-4 body2">${i.p_price } </div> 
 		                            		<c:choose> 
 		                            			<c:when test="${i.p_period eq 'N'}"> <div class="col-4 col-lg-2 px-4 body2">현재 프로그램</div></c:when> 

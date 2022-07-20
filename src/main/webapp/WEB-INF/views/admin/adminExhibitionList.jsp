@@ -187,22 +187,40 @@
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
 			            		</div>
-                        		<div class="col-12 pt-2 px-3">
+<!--                         		<div class="col-12 pt-2 px-3"> -->
+<!--                             		<div class=""> -->
+<!-- 										<hr> -->
+<%--                             			<c:forEach var="i" items="${list}"> --%>
+<!--                             			<div class="row"> -->
+<%-- 	                            			<div class="col-8 col-lg-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.e_num}"> <a href="/admin/adminExhibitionDetail?e_num=${i.e_num}" class="colortext_gray900"><b>${i.e_name }</b></a> </div>  --%>
+<%-- 	                            			<div class="col-4 d-none d-lg-block px-4 body2">${i.start_date } <b> ~ </b> ${i.end_date } </div>  --%>
+<%-- 	                            			<div class="col-2 d-none d-xl-block px-4 body2">${i.e_price } </div>  --%>
+<%-- 		                            		<c:choose>  --%>
+<%-- 		                            			<c:when test="${i.e_period eq 'N'}"> <div class="col-4 col-lg-2 px-4 body2">현재전시</div></c:when>  --%>
+<%-- 		                            			<c:when test="${i.e_period eq 'F'}"> <div class="col-4 col-lg-2 px-4 body2">예정전시</div></c:when> --%>
+<%-- 		                            			<c:when test="${i.e_period eq 'P'}"> <div class="col-4 col-lg-2 px-4 body2">지난전시</div></c:when> --%>
+<%-- 		                            		</c:choose> --%>
+<!-- 		                            	</div> -->
+<!-- 		                            	<hr> -->
+<%-- 	                            		</c:forEach> --%>
+<!--                             		</div> -->
+<!--                             	</div> -->
+                            	<div class="col-12 pt-2 px-3">
                             		<div class="">
 										<hr>
-                            			<c:forEach var="i" items="${list}">
-                            			<div class="row">
-	                            			<div class="col-8 col-lg-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.e_num}"> <a href="/admin/adminExhibitionDetail?e_num=${i.e_num}" class="colortext_gray900"><b>${i.e_name }</b></a> </div> 
-	                            			<div class="col-4 d-none d-lg-block px-4 body2">${i.start_date } <b> ~ </b> ${i.end_date } </div> 
-	                            			<div class="col-2 d-none d-xl-block px-4 body2">${i.e_price } </div> 
-		                            		<c:choose> 
-		                            			<c:when test="${i.e_period eq 'N'}"> <div class="col-4 col-lg-2 px-4 body2">현재전시</div></c:when> 
-		                            			<c:when test="${i.e_period eq 'F'}"> <div class="col-4 col-lg-2 px-4 body2">예정전시</div></c:when>
-		                            			<c:when test="${i.e_period eq 'P'}"> <div class="col-4 col-lg-2 px-4 body2">지난전시</div></c:when>
-		                            		</c:choose>
-		                            	</div>
-		                            	<hr>
-	                            		</c:forEach>
+										<c:forEach var='ii' items="${list }">
+											<div class="row">
+												<div class="col-8 col-lg-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${ii.pe_seq }"> <a href="/admin/adminExhibitionDetail?pe_seq=${ii.pe_seq }" class="colortext_gray900"><b>${ii.pe_name }</b></a> </div>
+												<div class="col-4 d-none d-lg-block px-4 body2">${ii.pe_date }</div>
+												<div class="col-2 d-none d-xl-block px-4 body2">${ii.pe_price }</div>
+												<c:choose>
+													<c:when test="${ii.pe_period eq 'N' }"><div class="col-4 col-lg-2 px-4 body2">현재전시</div></c:when>
+													<c:when test="${ii.pe_period eq 'F' }"><div class="col-4 col-lg-2 px-4 body2">예정전시</div></c:when>
+													<c:when test="${ii.pe_period eq 'P' }"><div class="col-4 col-lg-2 px-4 body2">지난전시</div></c:when>
+												</c:choose>
+											</div>
+											<hr>
+										</c:forEach>
                             		</div>
                             	</div>	
 			                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
@@ -274,7 +292,7 @@
     
     function checkboxUpdate(){
     	let checkboxArr2 = [];
-    	let e_period = $("#e_period").val();
+    	let pe_period = $("#pe_period").val();
     	$('input[name="checkbox"]:checked').each(function() {
     		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
     		console.log(checkboxArr2)
@@ -285,7 +303,7 @@
     		url : "/admin/exhibitionCheckUpdate",
     		data : {
     			checkboxArr2 : checkboxArr2,
-    			e_period : e_period
+    			pe_period : pe_period
     		},
     		success : function (result){
     			console.log(result);

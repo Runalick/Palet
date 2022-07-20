@@ -20,6 +20,7 @@ import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.NewExhibitionDTO;
 import Trillion.Palet.DTO.ProgramDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
@@ -150,9 +151,17 @@ public class AdminController {
 	
 	@RequestMapping(value="exhibitionsInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
 	public String exhibitionsInsert(ExhibitionDTO edto, MultipartFile[] file) {
-		System.out.println(edto.getE_name() +" : "+ edto.getStart_date() +" : "+ edto.getEnd_date() + " : " +edto.getE_price() + " : " + edto.getE_period());
+		
 		String realPath = session.getServletContext().getRealPath("ExhibitionPic");
 		eServ.exhibitionInsert(edto, realPath, file);
+		return "redirect:adminExhibitions";
+	}
+	
+	@RequestMapping(value="newExhibitionsInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
+	public String newExhibitionsInsert(NewExhibitionDTO edto, MultipartFile[] file) {
+		
+		String realPath = session.getServletContext().getRealPath("ExhibitionPic");
+		aServ.newExhibitionInsert(edto, realPath, file);
 		return "redirect:adminExhibitions";
 	}
 	
@@ -162,15 +171,16 @@ public class AdminController {
 		
 		if (value != null) {
 			orderByWord = value;
-			List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
+//			List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
+			List<NewExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
 			String pageNavi = aServ.getExhibitionPageNavi(cpage);
 			model.addAttribute("list", edto);
 			model.addAttribute("navi", pageNavi);
 			
-			
 		}else {
 			orderByWord = "line";
-			List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
+//			List<ExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
+			List<NewExhibitionDTO> edto = aServ.exhibitionSelectByPage(cpage, orderByWord);
 			String pageNavi = aServ.getExhibitionPageNavi(cpage);
 			model.addAttribute("list", edto);
 			model.addAttribute("navi", pageNavi);
@@ -189,16 +199,18 @@ public class AdminController {
 		for (String str : checkboxArr) {
 			checkNum = str;
 			System.out.println(str);
-			int e_num = Integer.parseInt(checkNum);
-			eServ.exhibitionCheckDelelte(e_num);
+//			int e_num = Integer.parseInt(checkNum);
+//			eServ.exhibitionCheckDelelte(e_num);
+			int pe_seq = Integer.parseInt(checkNum);
+			aServ.exhibitionCheckDelelte(pe_seq);
 		}
 		return result;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="exhibitionCheckUpdate", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public int exhibitionCheckUpdate(@RequestParam(value="checkboxArr2[]") List<String> checkboxArr2, String e_period) throws Exception {
-		System.out.println(e_period);
+	public int exhibitionCheckUpdate(@RequestParam(value="checkboxArr2[]") List<String> checkboxArr2, String pe_period) throws Exception {
+		System.out.println(pe_period);
 		int result = 0;
 		String checkNum = "";
 		
@@ -206,31 +218,29 @@ public class AdminController {
 			checkNum = str;
 			System.out.println(str);
 			
-			eServ.exhibitionCheckUpdate(checkNum, e_period);
+//			eServ.exhibitionCheckUpdate(checkNum, e_period);
+			aServ.exhibitionCheckUpdate(checkNum, pe_period);
 		}
 		return result;
 	}
 	
 	@RequestMapping(value="adminExhibitionDetail", produces="test/html;charset=utf8")
-	public String adminExhibitionDetail(Model model, int e_num) {
-		ExhibitionDTO edto = eServ.getExhibition(e_num);
-
+	public String adminExhibitionDetail(Model model, int pe_seq) {
+//		ExhibitionDTO edto = eServ.getExhibition(e_num);
+		NewExhibitionDTO edto = aServ.getExhibition(pe_seq);
+		
 		model.addAttribute("edto", edto);
 		
 		return "/admin/adminExhibitionDetail";
 	}
 	
 	@RequestMapping(value="adminExhibitionUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
-	public String adminExhibitionUpdate(ExhibitionDTO edto) {
-		
-		System.out.println("Email :"+edto.getE_num()+" / Name : "+edto.getE_name()+" / Start : "+edto.getStart_date()+" / End : "+edto.getEnd_date());
-		System.out.println("Price :"+edto.getE_price()+" / period : "+edto.getE_period());
+	public String adminExhibitionUpdate(NewExhibitionDTO edto) {
 		
 		aServ.adminExhibitionUpdate(edto);
 		
-		return "redirect:adminExhibitionDetail?e_num="+edto.getE_num();
+		return "redirect:adminExhibitionDetail?pe_seq="+edto.getPe_seq();
 	}
-	
 	
 	
 	// Goods Category 
@@ -312,7 +322,7 @@ public class AdminController {
 	@RequestMapping(value="adminGoodsDetail", produces="test/html;charset=utf8")
 	public String adminGoodsDetail(Model model, int g_seq) {
 		GoodsDTO gdto = aServ.getGoods(g_seq);
-
+		
 		model.addAttribute("gdto", gdto);
 		
 		return "/admin/adminGoodsDetail";
@@ -364,6 +374,16 @@ public class AdminController {
 		
 		return "/admin/adminProgramList";
 	}
+	
+	/*
+	 * @RequestMapping(value="adminProgramDetail",
+	 * produces="test/html;charset=utf8") public String adminProgramDetail(Model
+	 * model, int p_num) { ProgramDTO pdto = aServ.getProgram(p_num);
+	 * 
+	 * model.addAttribute("pdto", pdto);
+	 * 
+	 * return "/admin/adminGoodsDetail"; }
+	 */
 	
 	
 	// Payment Category

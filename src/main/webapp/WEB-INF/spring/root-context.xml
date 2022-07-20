@@ -24,8 +24,8 @@
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
 	<bean id="gson" class="com.google.gson.Gson"></bean>
 	
-			<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 			<constructor-arg name="dataSource" ref="dataSource"></constructor-arg>
-		</bean>	
+	</bean>	
 		
 </beans>

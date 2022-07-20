@@ -6,10 +6,10 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DAO.GoodsDAO;
-import Trillion.Palet.DAO.GoodsPicDAO;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.GoodsPicDTO;
 
@@ -23,6 +23,7 @@ public class GoodsService {
 		return dao.selectAll();
 	}
 	
+	@Transactional
 	public void goodsInsert(GoodsDTO gdto, String realPath, MultipartFile[] file) {
 
 		int seq;

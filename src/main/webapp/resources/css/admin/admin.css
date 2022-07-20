@@ -196,7 +196,7 @@
 
 	/* Exhibition input */
 	
-		#e_price, #e_name {
+		#e_price, #e_name, #pe_contents, #pe_writer, #pe_artcount{
 			padding:  1.125rem 1.5rem;
             gap: 0.625rem;
 
@@ -247,7 +247,7 @@
 		
 		/* Goods input*/
 		
-		#g_price, #g_name, #g_option1, #g_option2, #g_option3, #file {
+		#g_price, #g_name, #g_option, #g_option1, #g_option2, #g_option3, #file {
 			padding:  1.125rem 1.5rem;
             gap: 0.625rem;
 

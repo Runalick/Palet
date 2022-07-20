@@ -171,7 +171,7 @@
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
 						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Exhibitions </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 전시 정보를 등록 할 수 있는 페이지 입니다. </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 예정 전시 정보를 등록 할 수 있는 페이지 입니다. </div>
                 	</div>
                 	<div class="row pt-3 px-5">
 						<div class="col-12 mr-auto" id="exhibitionBtns">
@@ -185,7 +185,8 @@
 								<div class="h3_2">Input Exhibition</div>
 							</div>
 							<div class="row">
-                            	<form action="/admin/exhibitionsInsert" method="post" enctype="multipart/form-data">
+                            	<!-- <form action="/admin/exhibitionsInsert" method="post" enctype="multipart/form-data"> -->
+                             	<form action="/admin/newExhibitionsInsert" method="post" enctype="multipart/form-data">
 								<div class="col">
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 카테고리</div>
@@ -196,10 +197,10 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
-											<select name="e_period" id="e_period" class="select1">
+											<select name="pe_period" id="e_period" class="select1">
 												<option value='F'>예정전시 </option>
-												<option value='N'>현재전시 </option>
-												<option value='P'>지난전시 </option>
+										<!-- 		<option value='N'>현재전시 </option>
+												<option value='P'>지난전시 </option> -->
 											</select>
 										</div>
 									</div>
@@ -212,7 +213,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="e_name" id="e_name" placeholder="Input Exhibition Name" >
+											<input type="text" name="pe_name" id="e_name" placeholder="Input Exhibition Name" >
 										</div>
 									</div>
 									<div class="row">
@@ -224,7 +225,7 @@
 									</div>
 									<div class="row" style="text-align:center;">
 										<div class="col-12 p-0">
-											<input type="text" name="start_date" id="start_date" placeholder="Input Start Day">
+											<input type="text"  id="start_date" placeholder="Input Start Day">
 											<input type="hidden" id="start_date_value">
 										</div>
 									</div>
@@ -237,10 +238,11 @@
 									</div>
 									<div class="row" style="text-align:center;">
 										<div class="col-12 p-0">
-											<input type="text" name="end_date" id="end_date" placeholder="Input End Day">
+											<input type="text" id="end_date" placeholder="Input End Day">
 											<input type="hidden" id="end_date_value">
 										</div>
 									</div>
+									<input type="hidden" id="pe_date" name='pe_date'> 
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 가격</div>
 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 가격</div>
@@ -250,11 +252,50 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
-											<input type="text" name="e_price" id="e_price" 
+											<input type="text" name="pe_price" id="e_price" 
 											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Just Number">
 										</div>
 									</div>
-
+									
+									<!-- 새로 추가된 항목 -->
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 내용</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 내용</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">전시 내용</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">전시 내용</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">전시 내용</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="pe_contents" id="pe_contents" placeholder="Input Exhibition Contents" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 작가</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 작가</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">전시 작가</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">전시 작가</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">전시 작가</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="pe_writer" id="pe_writer" placeholder="Input Exhibition Writer" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">작품 수</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">작품 수</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">작품 수</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">작품 수</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">작품 수</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="pe_artcount" id="pe_artcount" placeholder="ex) 100 or 200점 등" 
+											>
+										</div>
+									</div>
+									
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 사진</div>
 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 사진</div>
@@ -323,6 +364,8 @@
 <!-- DatePicker Script -->  
  
 <script>
+
+
 let isE_name = false;
 let isE_price = false;
 let isStart_date = false;
@@ -397,6 +440,11 @@ let end_date;
 		}
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
 			$("#upload").removeAttr("disabled");
 		}
 	})
@@ -419,6 +467,11 @@ let end_date;
 		}
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -434,6 +487,11 @@ let end_date;
 		}
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -450,6 +508,11 @@ let end_date;
 		}
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
 			$("#upload").removeAttr("disabled");
 			
 		}

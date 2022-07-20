@@ -58,9 +58,28 @@
   	<!-- Exhibition -->
   	
   	<update id="adminExhibitionUpdate">
-  		update exhibition set e_name = #{e_name}, start_date = #{start_date}, end_date = #{end_date}, e_price = #{e_price} 
-  		where e_num = #{e_num}
+  		update exhibitiontest set pe_name = #{pe_name}, pe_date = #{pe_date}, pe_price = #{pe_price} 
+  		where pe_seq = #{pe_seq}
   	</update>
+  	
+  	<insert id="newExhibitionInsert">
+  		insert into exhibitiontest values(exhibition_seq.nextval, null, #{pe_name}, #{pe_contents}, 'Palet', #{pe_date}, #{pe_price},#{pe_writer}, #{pe_artcount},#{pe_period},0)
+  		<selectKey order="AFTER" keyProperty="pe_seq" resultType="int">
+			select exhibition_seq.currval from dual
+		</selectKey>
+  	</insert>
+  	
+  	<delete id="exhibitionCheckDelete">
+  		delete from exhibitiontest where pe_seq = #{value}
+  	</delete>
+  	
+  	<update id="exhibitionCheckUpdate">
+  		update exhibitiontest set pe_period = #{pe_period} where pe_seq = #{pe_seq}
+  	</update>
+  	
+  	<select id="getExhibition" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from exhibitiontest where pe_seq = #{value}
+  	</select>
   	
   	<!-- Goods -->
   	
