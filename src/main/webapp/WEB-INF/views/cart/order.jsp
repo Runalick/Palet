@@ -259,7 +259,7 @@ padding:0px;
 .list{
 box-sizing: border-box;
 width: 49.25rem;
-height: 10rem;
+/* height: 10rem; */
 background: #FFFFFF;
 /* Gray/300 */
 border: 1px solid #DFE3E8;
@@ -716,7 +716,7 @@ text-align:left;
 							<span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 							<span class="H4 totalprice" id="span4"> </span>
 							<span class="H4 " id="span9" style="color:#919EAB">할인</span>
-							<span class="H4 " id="span10">-0원</span>
+							<span class="H4 discount" id="span10">0원</span>
 							
 							
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
@@ -724,7 +724,7 @@ text-align:left;
 							<span class="H3" id="span3" >총 결제 금액</span>
 							<span class="H3 finalTotalPrice" id="span6">18,800</span>
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-							<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span>
+							<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span>
 						</div>
 					</div>
 					
@@ -820,7 +820,7 @@ text-align:left;
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-				<input class="body2 pointinput2" type="text" placeholder="0">
+				<input class="body2 pointinput2" type="text" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 				<button class="H4 pointbtn allPointUse2">모두 사용</button><br>
 				<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 				<span class="Caption myPoint2" style="color: #637381;"> </span>
@@ -930,7 +930,7 @@ text-align:left;
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-								<input class="body2 pointinput1" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem;">
+								<input class="body2 pointinput1" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 								<button class="H4 pointbtn allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 								<span class="Caption myPoint1 allPointUse1" style="color: #637381;">
@@ -947,7 +947,7 @@ text-align:left;
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 										<span class="H4 totalprice" id="span4"> </span></div>
 										<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
-										<span class="H4 " id="span10">-0원</span></div>
+										<span class="H4 discount" id="span10">0원</span></div>
 										
 										
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
@@ -955,7 +955,7 @@ text-align:left;
 										<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span>
 										<span class="H3 finalTotalPrice" id="span6" > </span></div>
 										<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-										<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span></div>
+										<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
 									</div>
 								</div>
 								<div class="row">
@@ -1091,18 +1091,22 @@ text-align:left;
 		let allPointUse = $(".myPoint1").text();
 		$(".pointinput1").val(allPointUse);
 		$(".pointinput2").val(allPointUse);
+		$(".discount").text(allPointUse);
 	})
 	
 	$(".allPointUse2").on("click",function(){
 		let allPointUse = $(".myPoint2").text();
 		$(".pointinput1").val(allPointUse);
 		$(".pointinput2").val(allPointUse);
+		$(".discount").text(allPointUse);
 	})
+	
 
 		//	장바구니 쿠폰 포인트 가져오는 함수
 	    window.onload = function(){
    			
    		let sumPrice = 0;
+   		
 				$.ajax({
 					url:"/shop/selectMemberData"
 				}).done(function(resp){
@@ -1113,6 +1117,13 @@ text-align:left;
 						$(".select-ul1").append("<li class='li1 body2' style='width:100%;'>"+resp[i].category+"</li>")
 						$(".select-ul2").append("<li class='li2 body2'>"+resp[i].category+"</li>")
 					}
+// 					if(resp[i].grade == "white"){
+// 						$(".totalPoint") = 
+// 					}else if(resp[i].grade == "gray"){
+						
+// 					}else if(resp[i]grade == "black"){
+						
+// 					}
 				})
 		
 	    		$.ajax({
@@ -1120,14 +1131,13 @@ text-align:left;
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src="+resp[i].gp_sysname+"></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += resp[i].totalPrice;
 	            	}
 	            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
 	            	$(".finalTotalPrice").text((sumPrice + 3000).toLocaleString()+"원")
 	            })
 	            
-
 	    }
    	  	
    	  
