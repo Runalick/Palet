@@ -95,9 +95,6 @@ public class ExhibitionController {
 	
 	@RequestMapping("toCurdetail")
 	public String toCurdetail() {
-	
-		
-		
 		return "/exhibition/curdetail";
 	}
 	
