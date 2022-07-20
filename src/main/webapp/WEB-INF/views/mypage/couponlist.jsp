@@ -565,7 +565,7 @@ button {
 						<div class="col-12" style="border-bottom:1px solid black; margin-top:1.5rem; padding-bottom:1.5rem;">
 							<div class="col-12 body1" style="padding-bottom:1rem;">쿠폰코드를 입력해 주세요.</div>
 							<div class="col-12" style="margin-bottom:0.5rem;">
-								<input class="serialInput" type="text" placeholder="쿠폰코트를 입력해 주세요." style="width:30rem; height:3em; border:1px solid #DFE3E8;">
+								<input class="serialInput" type="text" placeholder="쿠폰코드를 입력해 주세요." style="width:30rem; height:3em; border:1px solid #DFE3E8;">
 								<button id="regist" style="width:5rem; height:3rem;">등록</button>
 							</div>
 							<div class="col-12 body2" style="color:gray">* 티켓 또는 상품 구매에 사용 가능한 쿠폰이 있으신가요? 쿠폰 사용을 위해 쿠폰 코드를 입력해 주세요.</div>
@@ -669,14 +669,28 @@ button {
 				alert("쿠폰 번호를 입력해 주세요.");	
 			}else{
 				$.ajax({
-					url:"/mypage/couponRegist",
+					url:"/coupon/Registration",
 					data:{"serial":$(".serialInput").val()}
 				}).done(function(resp){
 					console.log(resp);
-					if(resp == 1){
+					if(resp=="false"){
+						alert("쿠폰번호를 다시 확인해주세요")
+						$(".serialInput").val("");
+						return false;
+					}
+					if(resp=="use"){
+						alert("사용이 완료된 쿠폰입니다.")
+						$(".serialInput").val("");
+						return false;
+					}
+					if(resp=="noregistration"){
+						alert("이미 등록된 쿠폰입니다.")
+						$(".serialInput").val("");
+						return false;
+					}
+					if(resp=="registration"){
 						alert("쿠폰이 등록되었습니다.");
-					}else{
-						alert("쿠폰번호를 다시 확인해 주세요.");
+						$(".serialInput").val("");
 					}
 				})
 			}
