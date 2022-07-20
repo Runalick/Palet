@@ -255,7 +255,11 @@ line-height: 1.125rem;
 	padding-left: 2.5rem;
 	padding-bottom:2.5rem;
 }
-
+#img{
+width:100%;
+height:100%;
+border-radius:1.25rem;
+}
 
 .hug{
 width:3.938rem;
@@ -788,7 +792,8 @@ background:#454F5B;
 				
 				<c:forEach var="i" items="${list }">
 					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
-						<div class="col-3 p-0 productimg" style="background-color:pink;">
+						<div class="col-3 p-0 productimg">
+								<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" >
 							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_seq }" style="margin-top:0.375rem;">
 							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
