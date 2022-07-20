@@ -452,19 +452,10 @@ padding:1.75rem;
 margin-left:2rem;
 background: #FFFFFF;
 /* Gray/300 */
-display:none;
 border: 1px solid #DFE3E8;
 border-radius: 1.25rem;
 }
-.delivery-area-info{
-padding:1.75rem;
-margin-left:2rem;
-background: #FFFFFF;
-/* Gray/300 */
 
-border: 1px solid #DFE3E8;
-border-radius: 1.25rem;
-}
 #deliveryinfo{
 font-family: 'Spoqa Han Sans Neo';
 font-style: normal;
@@ -596,7 +587,6 @@ color:white;
 text-align:center;
 }
 .choosedeliverybtn{
-margin-left:1rem;
 width: 7.5rem;
 height: 2.5rem;
 background: #161C24;
@@ -697,10 +687,7 @@ text-align:left;
 						<div class="col-md-3 col-12 H3 info">배송정보</div>
 					</div>
 					<div class="row choose-area body2" style="padding-left:2.5rem;">
-						<div class="col-2" style="line-height:2.5rem;">배송지 선택</div>
 						<div class="col-10" style="text-align:left;">
-						<input type="radio" name="chooseaddress-lg" class="default" checked="checked"><span class="default">기본 배송지</span>
-						<input type="radio" name="chooseaddress-lg" class="new"><span class="new">신규 배송지</span>
 						<button class="choosedeliverybtn">배송지 선택</button>
 					</div>
 				</div>
@@ -748,31 +735,23 @@ text-align:left;
 				
 				<div id="product-area" style=" width:49.25rem; text-align:left;">
 <!-- 				배송지 부분 -->
-				<div class="row delivery-area-info body2" style=" display:inline-block; width:100%">
-					<div class="col-12">${dto.receiver }</div>
-					<div class="col-12">${dto.phone }</div>
-						<span>${dto.postcode }</span>
-						
-						<span>${dto.address1 }</span>
-						<span>${dto.address2 }</span>
-						
-					</div>
+			
 				</div>
 				<!-- 배송 주소 입력 부분 -->
 				<div class="row delivery-area" style="height:34.875rem; width:49.25rem;">
 					<div class="col-md-4 col-12" style="text-align:left; width:18.75rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." >
+						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." value="${dto.receiver }" >
 					</div>
 					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input buyer_tel1" id="buyer_tel1" placeholder="전화번호를 입력해 주세요." >
+						<input type="text" class="body2input buyer_tel1" id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-					<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" > 
+					<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" > 
 					
-					<input type="text" class="body2 inputaddress buyer_addr1 address1" id="sample4_roadAddress"  placeholder="주소: 우편번호를 먼저 검색해 주세요." disabled>
-					<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" >
+					<input type="text" class="body2 inputaddress buyer_addr1 address1" id="sample4_roadAddress"  placeholder="주소: 우편번호를 먼저 검색해 주세요." disabled value="${dto.address1 }">
+					<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress"  value="${dto.address2 }">
 					<div class="body2 delivery_text" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
 					<input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF;" placeholder="배송메세지를 입력해주세요.">
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
@@ -874,38 +853,26 @@ text-align:left;
 				<div id="product-area" style="width:100%">
 <!-- 				배송 주소 부분 -->
 				<div class="row choose-area body2">
-					<div class="col-2" style="line-height:2.5rem;">배송지 선택</div>
 					<div class="col-10">
-						<input type="radio" name="chooseaddress" class="default" checked="checked"><span class="default">기본 배송지</span>
-						<input type="radio" name="chooseaddress" class="new"><span class="new">신규 배송지</span>
 						<button class="choosedeliverybtn">배송지 선택</button>
 					</div>
 				</div>
-				<div class="row delivery-area-info body2" style="margin-left:0rem; display:inline-block; width:100%">
-					<div class="col-12">${dto.receiver }</div>
-					<div class="col-12">${dto.phone }</div>
-					<div class="col-12">
-						<span>(${dto.postcode })</span>
-						<span>${dto.address1 }</span>
-						<span>${dto.address2 }</span>
-						
-					</div>
-				</div>
+				
 				<!-- 배송 주소 입력 부분 -->
 				<div class="row delivery-area" style="margin-left:0rem; width:100%">
 					<div class="col-12" >
 						<div class="col-12 body2" style="margin-bottom:0.5rem;">수령인</div>
-						<div class="col-12"><input type="text" class="body2input buyer_name" id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;"  ></div>
+						<div class="col-12"><input type="text" class="body2input buyer_name" id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;" value="${dto.receiver }" ></div>
 					</div>
 					<div class="col-12 phone" >
 						<div class="body2 col-12" style="margin-bottom:0.5rem;">전화 번호</div>
-						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." style="width:100%" ></div>
+						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." style="width:100%" value="${dto.phone }" ></div>
 					</div>
 					<div class="body2 col-12" style="margin-bottom:0.5rem;">배송지</div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" contenteditable=false></div> 
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" value="${dto.postcode }" contenteditable=false></div> 
 					
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr address" id="sample5_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요."  style="width:17.5rem; margin-left:0rem; width:100%" disabled></div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" ></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr address" id="sample5_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요."  style="width:17.5rem; margin-left:0rem; width:100%" value="${dto.address1 }" disabled></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" value="${dto.address2 }"></div>
 					<div class="body2 delivery_text" style="margin-bottom:0.5rem;">배송 메시지</div>
 					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지를 입력해주세요."></div>
 					<div id="deliveryinfo" class="col-12" style="margin-bottom:0.5rem;">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
@@ -1039,21 +1006,10 @@ text-align:left;
    	  	//배송지 선택
    	$(".choosedeliverybtn").on("click",function(){
    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
-   		$(".new").prop("checked", true );
-   		$(".delivery-area").css("display","flex");
-   		$(".delivery-area-info").css("display","none");
-   	})
+
    	
-   	$(".default").on("click",function(){
-   		$(".default").prop("checked", true );
-   		$(".delivery-area").css("display","none");
-   		$(".delivery-area-info").css("display","inline-block");
    	})
-   	$(".new").on("click",function(){
-   		$(".new").prop("checked", true );
-   		$(".delivery-area").css("display","flex");
-   		$(".delivery-area-info").css("display","none");
-   	})
+
    	
    	//배송 메세지 연동
    	$(".delivery_text").on("keyup",function(){
