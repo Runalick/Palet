@@ -597,6 +597,16 @@ input::placeholder {
 .fc-scroller-liquid-absolute {
 	position: static !important;
 }
+.fc-toolbar-title{
+	font-family: 'Spoqa Han Sans Neo'!important;
+	font-style: normal !important;
+	font-weight: 700 !important;
+	font-size: 1.25rem !important;
+	line-height: 1.5rem !important;
+	/* identical to box height */
+	/* Gray/900 */
+	color: #161C24 !important;
+}
 </style>
 
 
@@ -658,15 +668,12 @@ input::placeholder {
 				<div class="col-11">
 					<div class="col h2" style="text-align: left;">Order / Payment</div>
 				</div>
-
+<!-- 
 				<div class="col-12" style="margin-top: 2.5rem; text-align: left;">
-
 
 					<div class="col h3" style="padding: 0px;">신청자 정보</div>
 
-
-
-				</div>
+				</div> -->
 
 
 
@@ -679,7 +686,8 @@ input::placeholder {
 					<div class=row>
 						<div class="col-lg-7 col-12 d-none d-sm-block"
 							style="padding-left: 1.564rem;">
-							<div class="row rec1">
+								<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
+							<div class="row rec1"  style="margin-top: 2rem;" >
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
@@ -727,8 +735,6 @@ input::placeholder {
 						<div class="col-lg-5 col-12"
 							style="padding-left: 1.564rem; color: black;" id="calendar">
 
-
-
 						</div>
 
 					</div>
@@ -736,7 +742,7 @@ input::placeholder {
 			</div>
 		</div>
 
-		<div class=container style="margin-top: 3.75rem;">
+		<div class=container style="margin-top:11rem;">
 			<div class=row>
 
 				<div class="col-12 h3 d-none d-sm-block">프로그램 정보</div>
@@ -746,7 +752,7 @@ input::placeholder {
 			<div class=row
 				style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
 
-				<div class="col-lg-3 col-12 rec1"
+				<div class="col-lg-6 col-12 rec1"
 					style="padding-left: 0rem; height: 12rem; width: 42rem;">
 					<div class=row id=row1>
 						<div class="col-lg-3 col-5">
@@ -769,7 +775,7 @@ input::placeholder {
 
 					</div>
 				</div>
-				<div class="col-lg-5 col-12" style="height: 2rem;"></div>
+				<div class="col-lg-6 col-12" style="height: 2rem;"></div>
 			</div>
 
 
