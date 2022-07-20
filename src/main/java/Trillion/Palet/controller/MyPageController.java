@@ -215,4 +215,11 @@ public class MyPageController {
 		return mServ.selectMyGoods(email);
 	}
 	
+	@ResponseBody
+	@RequestMapping("couponRegist")
+	public int couponRegist(String serial){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.couponRegist(email, serial);
+	}
+	
 }
