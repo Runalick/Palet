@@ -20,6 +20,8 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);

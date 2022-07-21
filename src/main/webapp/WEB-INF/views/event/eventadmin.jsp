@@ -479,13 +479,12 @@
 			    	//console.log("resp.length : " + resp.length);
 			    	//console.log($($(".adminok")[i]).html());
 			    	
-			    	/* if(($($(".adminok")[i]).html()) == 'Y'){
-			    		console.log($(this).val());
-			    	} */
+			    	if(($($(".adminok")[i]).val()) == 'Y'){
+			    		$(this).text("승인완료");
+			    		
+			    	} 
 			    	
-			    	 if(($($(".adminok")[i]).val()) == 'Y'){
-				    		console.log($(this).html());
-			    	 }
+			    	 
 			    	
 				} 
 				/* for(let i=0; i<resp.length;i++){

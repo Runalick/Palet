@@ -466,12 +466,12 @@ padding: 0.3rem 1rem;
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
-			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
 			$(".navi-menu").toggle();
 			
 			click = true;
 		}else{
-			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
+			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
 			$(".navi-menu").toggle();
 			click = false;
 		}

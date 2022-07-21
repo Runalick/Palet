@@ -17,6 +17,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 	crossorigin="anonymous"></script>
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <!-- 지도api -->
 
 <style>
@@ -478,7 +480,7 @@ align-items: center; */
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -490,8 +492,8 @@ align-items: center; */
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -521,7 +523,7 @@ align-items: center; */
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -536,8 +538,8 @@ align-items: center; */
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -568,7 +570,7 @@ align-items: center; */
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -753,16 +755,32 @@ align-items: center; */
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
-			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
 			$(".navi-menu").css({"display":"none"});
 			
 			click = true;
 		}else{
-			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
+			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
 			$(".navi-menu").css({"display":"block"});
 			click = false;
 		}
 	});
+	
+	$(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
 	
 	</script>
 </body>

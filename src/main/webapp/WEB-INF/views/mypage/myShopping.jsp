@@ -19,6 +19,8 @@
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <!-- <link rel="stylesheet" href="/css/member/join.css">  -->
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
 @charset "UTF-8";
 
@@ -439,18 +441,19 @@ a {
 		font-size: 1.625rem;
 	}
 	.main-area .body4{
-font-weight:550;
-font-size:1.1rem;
-}
-.sm-btn{
-width: 6.375rem;
-height: 0.675rem;
-margin-right:0.25rem;
-}
-#insert{
-	width:13.375rem;
-	height:2.7rem;
-}
+	font-weight:550;
+	font-size:1.1rem;
+	}
+	.sm-btn{
+	width: 6.375rem;
+	height: 0.675rem;
+	margin-right:0.25rem;
+	}
+	#insert{
+		width:13.375rem;
+		height:2.7rem;
+	}
+	
 }
 
 @media ( max-width : 991px) {
@@ -481,7 +484,7 @@ margin-right:0.25rem;
 	font-family: 'Spoqa Han Sans Neo';
 	font-weight:550;
 	font-size:1.625rem;
-}
+	}
 	.sm-btn{
 	margin-top:0.3rem;
 	width:10.375rem;
@@ -490,9 +493,14 @@ margin-right:0.25rem;
 	#insert{
 	width:16.375rem;
 	height:3.3rem;
+	
+	.smwidth{
+		width: 300px;
+	}
 }
 	
 }
+
 .main-info{
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
@@ -601,6 +609,18 @@ color:white;
 }
 
 
+/* .pre-ticket{
+	width:44.5rem;
+	height:14.5rem;
+	}
+	.pre-title{
+	font-size:1.625rem;
+	line-height:1.875rem;
+	padding-bottom:1.25rem;
+	}
+	.body6{
+	font-size:1.625rem;
+	} */
 
 
 </style>
@@ -629,7 +649,7 @@ color:white;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -641,8 +661,8 @@ color:white;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -672,7 +692,7 @@ color:white;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -687,8 +707,8 @@ color:white;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -719,7 +739,7 @@ color:white;
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -806,11 +826,11 @@ color:white;
 						
 						<div class="col-12" style="margin-top:2.5rem;">
 							<div class="row main-area">
-								<div class="col-2 px-3 body4" >주문일</div>
-								<div class="col-5 px-3 body4">주문정보</div>
-								<div class="col-1 px-3 body4">수량</div>
-								<div class="col-2 px-3 body4">가격</div>
-								<div class="col-2 px-3 body4">배송상태</div>
+								<div class="col-2 d-none d-md-block px-3 body4" >주문일</div>
+								<div class="col-5 d-none d-md-block px-3 body4">주문정보</div>
+								<div class="col-1 d-none d-md-block px-3 body4">수량</div>
+								<div class="col-2 d-none d-md-block px-3 body4">가격</div>
+								<div class="col-2 d-none d-md-block px-3 body4">배송상태</div>
 							</div>
 							<div id="contents_area">
 							</div>
@@ -901,21 +921,24 @@ color:white;
 					let text_html=
 							//"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
 							"<div class='row main-area' id='detailView" + i +"'>"
-							+"<div class='col-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
-							+"<div class='col-5 px-3 ellipsis body4'>"
+							+"<div class='col-12 col-md-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
+							+"<div class='col-12 col-md-5 p-0 ellipsis body4'>"
 							+	"<div class='row'>"
-							+		"<div class='col-5 px-3'>"
-							+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
+							+		"<div class='col-5 d-none d-md-block px-3'>"
+							+			"<img class='con' src='"+ resp[i].gp_sysname + "' style='width: 120px;'>"
 							+		"</div>"
-							+		"<div class='col-7 px-3'>"
-							+			"<div class='col-12 px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
-							+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
+							+		"<div class='col-12 col-md-7 p-0'>"
+							+			"<div class='col-12 ellipsis px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
+							+			"<div class='col-12 d-md-none ellipsis py-3'>"
+							+			"<img class='con' src='"+ resp[i].gp_sysname + "' style='width: 250px;'>"
+							+			"</div>"
+							+			"<div class='col-12 ellipsis px-3'>" + resp[i].G_NAME + "</div>"
+							+			"<div class='col-12 ellipsis px-3'>" + resp[i].pe_name + "</div>"
+							+			"<div class='col-12 ellipsis px-3'>" + resp[i].G_OPTION + "</div>"
 							+		"</div>"	
 							+	"</div>"
 							+"</div>"
-							+ "<div class='col-1 px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
+							+ "<div class='col-1 d-none d-md-block px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
 							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
 							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
 							+"<div id='state_text"+i+"'></div>"
@@ -1039,10 +1062,10 @@ color:white;
 									+			"<img class='con' src='/shop/shopHome/"+ resp[i].gp_sysname + "'>"
 									+		"</div>"
 									+		"<div class='col-7 px-3'>"
-									+			"<div class='col-12 px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
-									+			"<div class='col-12 px-3'>" + resp[i].e_name + "</div>"
-									+			"<div class='col-12 px-3'>" + resp[i].G_NAME + "</div>"
-									+			"<div class='col-12 px-3'>" + resp[i].G_OPTION + "</div>"
+									+			"<div class='col-12 ellipsis px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
+									+			"<div class='col-12 ellipsis px-3'>" + resp[i].e_name + "</div>"
+									+			"<div class='col-12 ellipsis px-3'>" + resp[i].G_NAME + "</div>"
+									+			"<div class='col-12 ellipsis px-3'>" + resp[i].G_OPTION + "</div>"
 									+		"</div>"	
 									+	"</div>"
 									+"</div>"
@@ -1150,16 +1173,33 @@ color:white;
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
-			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
 			$(".navi-menu").css({"display":"none"});
 			
 			click = true;
 		}else{
-			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
+			$("#select").css({"background":"url('/images/downarrowuparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
 			$(".navi-menu").css({"display":"block"});
 			click = false;
 		}
 	});
+	
+	$(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
+	
 // 		$("#make").on("click",function(){
 // 			$.ajax({
 // 				url:"/coupon/make",
