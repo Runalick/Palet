@@ -91,6 +91,7 @@ public class PayController {
 		System.out.println(	dto.getPro_title());
 		System.out.println(	dto.getPro_place());
 		System.out.println( dto.getPro_date());
+		System.out.println( dto.getPro_pickdate());
 		System.out.println(	dto.getPro_booknumber());
 		System.out.println(	dto.getPro_state());
 		System.out.println(	dto.getPro_username());
