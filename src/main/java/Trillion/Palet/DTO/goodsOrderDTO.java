@@ -12,12 +12,16 @@ public class goodsOrderDTO {
 	private int g_stock;
 	private String gp_sysname;
 	
+	private int g_num;
+	
+	private String g_option;
+	
 	public goodsOrderDTO() {
 		super();
 	}
 
 	public goodsOrderDTO(int cart_seq, String email, int g_seq, int cartstock, String g_name, int g_price,
-			int totalPrice, int g_stock, String gp_sysname) {
+			int totalPrice, int g_stock, String gp_sysname, int g_num, String g_option) {
 		super();
 		this.cart_seq = cart_seq;
 		this.email = email;
@@ -28,6 +32,8 @@ public class goodsOrderDTO {
 		this.totalPrice = totalPrice;
 		this.g_stock = g_stock;
 		this.gp_sysname = gp_sysname;
+		this.g_num = g_num;
+		this.g_option = g_option;
 	}
 
 	public int getCart_seq() {
@@ -102,7 +108,22 @@ public class goodsOrderDTO {
 		this.gp_sysname = gp_sysname;
 	}
 
-	
+	public int getG_num() {
+		return g_num;
+	}
+
+	public void setG_num(int g_num) {
+		this.g_num = g_num;
+	}
+
+	public String getG_option() {
+		return g_option;
+	}
+
+	public void setG_option(String g_option) {
+		this.g_option = g_option;
+	}
+
 	
 
 	
