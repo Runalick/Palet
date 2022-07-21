@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- bootstrap -->
 <link
@@ -600,7 +600,6 @@ input {
 								<div class="body4">My Info</div>
 								<ul>
 									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
-									<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
 									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 								</ul>
@@ -803,9 +802,6 @@ input {
 					<!-- 		</div> -->
 				</div>
 			</div>
-
-
-
 		</div>
 
 
@@ -879,15 +875,15 @@ input {
 		let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 		let phoneResult = phoneRegex.test(phone);
 		if (!phoneResult) {
-			$("#phone").css("border", "1px solid red");
-			$("#phoneck").css("color", "red");
+			$("#phone").css("border", "1px solid #FF4842");
+			$("#phoneck").css("color", "#FF4842");
 			$("#phoneck").css("display", "inline");
 			$("#phoneokbtn").attr("disabled", "true");
 			$("#phoneck").text("올바른 핸드폰번호를 입력해주세요.");
 		}
 		if (phoneResult) {
-			$("#phone").css("border", "1px solid blue");
-			$("#phoneck").css("color", "blue");
+			$("#phone").css("border", "1px solid #1890FF");
+			$("#phoneck").css("color", "#1890FF");
 			$("#phoneck").css("display", "inline");
 			$("#phoneck").text("사용할수 있는 번호입니다.");
 			$("#phoneokbtn").removeAttr("disabled");
@@ -903,15 +899,15 @@ input {
 			let pwResult = pwRegex.test(pw);
 
 			if (!pwResult) {
-				$("#newpw").css("border", "1px solid red");
-				$("#pwck").css("color", "red");
+				$("#newpw").css("border", "1px solid #FF4842");
+				$("#pwck").css("color", "#FF4842");
 				$("#pwck").css("display", "inline");
 				$("#pwck").text("영문 소문자, 대문자, 숫자를 조합하여 8~12자로 작성");
 				isPwOk = false;
 			}
 			if (pwResult) {
-				$("#newpw").css("border", "1px solid blue");
-				$("#pwck").css("color", "blue");
+				$("#newpw").css("border", "1px solid #1890FF");
+				$("#pwck").css("color", "#1890FF");
 				$("#pwck").css("display", "inline");
 				$("#pwck").text("사용할수 있는 비밀번호 입니다.");
 				isPwOk = true;
@@ -924,14 +920,14 @@ input {
 				isPwOk2 = false;
 			}
 			if (!isPwOk2) {
-				$("#newpwck").css("border", "1px solid red");
-				$("#pwck2").css("color", "red");
+				$("#newpwck").css("border", "1px solid #FF4842");
+				$("#pwck2").css("color", "#FF4842");
 				$("#pwck2").css("display", "inline");
 				$("#pwck2").text("비밀번호가 다릅니다.");
 			}
 			if (isPwOk2) {
-				$("#newpwck").css("border", "1px solid blue");
-				$("#pwck2").css("color", "blue");
+				$("#newpwck").css("border", "1px solid #1890FF");
+				$("#pwck2").css("color", "#1890FF");
 				$("#pwck2").css("display", "inline");
 				$("#pwck2").text("비밀번호가 같습니다.");
 			}
@@ -952,14 +948,14 @@ input {
 				isPwOk2 = false;
 			}
 			if (!isPwOk2) {
-				$("#newpwck").css("border", "1px solid red");
-				$("#pwck2").css("color", "red");
+				$("#newpwck").css("border", "1px solid #FF4842");
+				$("#pwck2").css("color", "#FF4842");
 				$("#pwck2").css("display", "inline");
 				$("#pwck2").text("비밀번호가 다릅니다.");
 			}
 			if (isPwOk2) {
-				$("#newpwck").css("border", "1px solid blue");
-				$("#pwck2").css("color", "blue");
+				$("#newpwck").css("border", "1px solid #1890FF");
+				$("#pwck2").css("color", "#1890FF");
 				$("#pwck2").css("display", "inline");
 				$("#pwck2").text("비밀번호가 같습니다.");
 			}

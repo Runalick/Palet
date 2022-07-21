@@ -44,8 +44,8 @@ public class ExhibitionController {
 	
 	@RequestMapping("toPreExhibition")
 	public String toPreExhibition(Model model) {
-		List<PreExhibitionDTO> list = ServPe.selectAll();
-		model.addAttribute("list", list);
+//		List<PreExhibitionDTO> list = ServPe.selectAll();
+//		model.addAttribute("list", list);
 			
 		
 		
@@ -60,6 +60,11 @@ public class ExhibitionController {
 	public List<PreExhibitionDTO> list(int limit) throws Exception {
 	
 		List<PreExhibitionDTO> list =  ServPe.chooseAll(limit);
+		System.out.println("dmd");
+		for (PreExhibitionDTO p : list) {
+		
+			System.out.println(p.getPe_seq());
+		}
 
 		// 디스패처는 리턴타임 몇개없음 그래서 gson 써야 list 리턴 가능
 //		String result = g.toJson(list);
@@ -95,9 +100,6 @@ public class ExhibitionController {
 	
 	@RequestMapping("toCurdetail")
 	public String toCurdetail() {
-	
-		
-		
 		return "/exhibition/curdetail";
 	}
 	

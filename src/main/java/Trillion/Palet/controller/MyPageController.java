@@ -1,5 +1,6 @@
 package Trillion.Palet.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -13,10 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
@@ -37,6 +40,9 @@ public class MyPageController {
 	@Autowired
 	private CouponService cServ;
 	
+	@Autowired
+	private QRController qServ;
+	
 	@RequestMapping("outline")
 	public String outline() {
 		
@@ -53,12 +59,19 @@ public class MyPageController {
 	@RequestMapping("myTicket")
 	public String myTicket(Model model) {
 		String email = (String)session.getAttribute("loginEmail");
+	
 //		String email = "i2376@naver.com";
-		String url = "http://14.39.252.82/Exhibition/toCurdetail";
+		
+		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
-		List<ExticketDTO> list =mServ.myTicket(email);
-		
+
+		List<ExProticketDTO> list =mServ.ExProTicket(email);
+//		List<String> qrlist = new ArrayList<>();
+//		for(int i=0;i<list.size();i++) {
+//			qrlist.add("http://14.39.252.82/qr/useticket?et_booknumber="+list.get(i).getEt_booknumber());
+//		}
+
 		int precnt = mServ.premyTicketcnt(email);
 		
 		//현재전시
@@ -67,7 +80,7 @@ public class MyPageController {
 		//지난전시
 		model.addAttribute("cnt",cnt);
 		model.addAttribute("precnt",precnt);
-		model.addAttribute("url",url);
+		model.addAttribute("url", url);
 		return "/mypage/myTicket";
 	}
 	@ResponseBody
@@ -82,14 +95,16 @@ public class MyPageController {
 	@RequestMapping("myTicketDetailview")
 	public String myTicketDetailview(String et_booknumber,Model model) {
 		
-		String url = "http://14.39.252.82/Exhibition/toCurdetail";
-		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
+
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
-		
+
 		if(dto.getEt_cpserial()!=null) {
 		CouponDTO cdto = cServ.getCouponName(dto.getEt_cpserial());
 		model.addAttribute("cdto",cdto);
 		}
+//		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
+		String url = "http://14.39.252.82/qr/useticket?et_booknumber="+dto.getEt_booknumber();
+		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		model.addAttribute("url",url);
 		model.addAttribute("dto",dto);
 		
@@ -195,6 +210,13 @@ public class MyPageController {
 	}
 	
 	@ResponseBody
+	@RequestMapping("selectMyCouponStatus")
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String used){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.selectMyCouponStatus(email, used);
+	}
+	
+	@ResponseBody
 	@RequestMapping("selectMyexhibition")
 	public List<MypageUserDetailDTO> selectMyexhibition(){
 		String email = (String)session.getAttribute("loginEmail");
@@ -206,6 +228,13 @@ public class MyPageController {
 	public List<MypageUserDetailDTO> selectMyGoods(){
 		String email = (String)session.getAttribute("loginEmail");
 		return mServ.selectMyGoods(email);
+	}
+	
+	@ResponseBody
+	@RequestMapping("couponRegist")
+	public int couponRegist(String serial){
+		String email = (String)session.getAttribute("loginEmail");
+		return mServ.couponRegist(email, serial);
 	}
 	
 }

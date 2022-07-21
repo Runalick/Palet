@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -259,7 +259,7 @@ padding:0px;
 .list{
 box-sizing: border-box;
 width: 49.25rem;
-height: 10rem;
+/* height: 10rem; */
 background: #FFFFFF;
 /* Gray/300 */
 border: 1px solid #DFE3E8;
@@ -452,19 +452,10 @@ padding:1.75rem;
 margin-left:2rem;
 background: #FFFFFF;
 /* Gray/300 */
-display:none;
 border: 1px solid #DFE3E8;
 border-radius: 1.25rem;
 }
-.delivery-area-info{
-padding:1.75rem;
-margin-left:2rem;
-background: #FFFFFF;
-/* Gray/300 */
 
-border: 1px solid #DFE3E8;
-border-radius: 1.25rem;
-}
 #deliveryinfo{
 font-family: 'Spoqa Han Sans Neo';
 font-style: normal;
@@ -596,7 +587,6 @@ color:white;
 text-align:center;
 }
 .choosedeliverybtn{
-margin-left:1rem;
 width: 7.5rem;
 height: 2.5rem;
 background: #161C24;
@@ -697,10 +687,7 @@ text-align:left;
 						<div class="col-md-3 col-12 H3 info">배송정보</div>
 					</div>
 					<div class="row choose-area body2" style="padding-left:2.5rem;">
-						<div class="col-2" style="line-height:2.5rem;">배송지 선택</div>
 						<div class="col-10" style="text-align:left;">
-						<input type="radio" name="chooseaddress-lg" class="default" checked="checked"><span class="default">기본 배송지</span>
-						<input type="radio" name="chooseaddress-lg" class="new"><span class="new">신규 배송지</span>
 						<button class="choosedeliverybtn">배송지 선택</button>
 					</div>
 				</div>
@@ -716,7 +703,7 @@ text-align:left;
 							<span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 							<span class="H4 totalprice" id="span4"> </span>
 							<span class="H4 " id="span9" style="color:#919EAB">할인</span>
-							<span class="H4 " id="span10">-0원</span>
+							<span class="H4 discount" id="span10">0원</span>
 							
 							
 							<span class="H4" id="span2" style="color:#919EAB">배송비</span>
@@ -724,7 +711,7 @@ text-align:left;
 							<span class="H3" id="span3" >총 결제 금액</span>
 							<span class="H3 finalTotalPrice" id="span6">18,800</span>
 							<span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-							<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span>
+							<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span>
 						</div>
 					</div>
 					
@@ -748,31 +735,23 @@ text-align:left;
 				
 				<div id="product-area" style=" width:49.25rem; text-align:left;">
 <!-- 				배송지 부분 -->
-				<div class="row delivery-area-info body2" style=" display:inline-block; width:100%">
-					<div class="col-12">${dto.receiver }</div>
-					<div class="col-12">${dto.phone }</div>
-						<span>${dto.postcode }</span>
-						
-						<span>${dto.address1 }</span>
-						<span>${dto.address2 }</span>
-						
-					</div>
+			
 				</div>
 				<!-- 배송 주소 입력 부분 -->
 				<div class="row delivery-area" style="height:34.875rem; width:49.25rem;">
 					<div class="col-md-4 col-12" style="text-align:left; width:18.75rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." >
+						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." value="${dto.receiver }" >
 					</div>
 					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input buyer_tel1" id="buyer_tel1" placeholder="전화번호를 입력해 주세요." >
+						<input type="text" class="body2input buyer_tel1" id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-					<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" > 
+					<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" > 
 					
-					<input type="text" class="body2 inputaddress buyer_addr1 address1" id="sample4_roadAddress"  placeholder="주소: 우편번호를 먼저 검색해 주세요." disabled>
-					<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" >
+					<input type="text" class="body2 inputaddress buyer_addr1 address1" id="sample4_roadAddress"  placeholder="주소: 우편번호를 먼저 검색해 주세요." disabled value="${dto.address1 }">
+					<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress"  value="${dto.address2 }">
 					<div class="body2 delivery_text" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
 					<input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF;" placeholder="배송메세지를 입력해주세요.">
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
@@ -820,7 +799,7 @@ text-align:left;
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-				<input class="body2 pointinput2" type="text" placeholder="0">
+				<input class="body2 pointinput2" type="number" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 				<button class="H4 pointbtn allPointUse2">모두 사용</button><br>
 				<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 				<span class="Caption myPoint2" style="color: #637381;"> </span>
@@ -874,38 +853,26 @@ text-align:left;
 				<div id="product-area" style="width:100%">
 <!-- 				배송 주소 부분 -->
 				<div class="row choose-area body2">
-					<div class="col-2" style="line-height:2.5rem;">배송지 선택</div>
 					<div class="col-10">
-						<input type="radio" name="chooseaddress" class="default" checked="checked"><span class="default">기본 배송지</span>
-						<input type="radio" name="chooseaddress" class="new"><span class="new">신규 배송지</span>
 						<button class="choosedeliverybtn">배송지 선택</button>
 					</div>
 				</div>
-				<div class="row delivery-area-info body2" style="margin-left:0rem; display:inline-block; width:100%">
-					<div class="col-12">${dto.receiver }</div>
-					<div class="col-12">${dto.phone }</div>
-					<div class="col-12">
-						<span>(${dto.postcode })</span>
-						<span>${dto.address1 }</span>
-						<span>${dto.address2 }</span>
-						
-					</div>
-				</div>
+				
 				<!-- 배송 주소 입력 부분 -->
 				<div class="row delivery-area" style="margin-left:0rem; width:100%">
 					<div class="col-12" >
 						<div class="col-12 body2" style="margin-bottom:0.5rem;">수령인</div>
-						<div class="col-12"><input type="text" class="body2input buyer_name" id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;"  ></div>
+						<div class="col-12"><input type="text" class="body2input buyer_name" id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;" value="${dto.receiver }" ></div>
 					</div>
 					<div class="col-12 phone" >
 						<div class="body2 col-12" style="margin-bottom:0.5rem;">전화 번호</div>
-						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." style="width:100%" ></div>
+						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." style="width:100%" value="${dto.phone }" ></div>
 					</div>
 					<div class="body2 col-12" style="margin-bottom:0.5rem;">배송지</div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" contenteditable=false></div> 
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" value="${dto.postcode }" contenteditable=false></div> 
 					
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr address" id="sample5_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요."  style="width:17.5rem; margin-left:0rem; width:100%" disabled></div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" ></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr address" id="sample5_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요."  style="width:17.5rem; margin-left:0rem; width:100%" value="${dto.address1 }" disabled></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" value="${dto.address2 }"></div>
 					<div class="body2 delivery_text" style="margin-bottom:0.5rem;">배송 메시지</div>
 					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지를 입력해주세요."></div>
 					<div id="deliveryinfo" class="col-12" style="margin-bottom:0.5rem;">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
@@ -930,7 +897,7 @@ text-align:left;
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-								<input class="body2 pointinput1" type="text" placeholder="0" style="width:100%; margin-bottom:0.5rem;">
+								<input class="body2 pointinput1" type="number" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 								<button class="H4 pointbtn allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 								<span class="Caption myPoint1 allPointUse1" style="color: #637381;">
@@ -947,7 +914,7 @@ text-align:left;
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
 										<span class="H4 totalprice" id="span4"> </span></div>
 										<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
-										<span class="H4 " id="span10">-0원</span></div>
+										<span class="H4 discount" id="span10">0원</span></div>
 										
 										
 										<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
@@ -955,7 +922,7 @@ text-align:left;
 										<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span>
 										<span class="H3 finalTotalPrice" id="span6" > </span></div>
 										<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-										<span class="Caption totalPoint" id="span8" style="color: #919EAB;">50p</span></div>
+										<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
 									</div>
 								</div>
 								<div class="row">
@@ -980,6 +947,10 @@ text-align:left;
 		</div>
 	</div>
 	</div>
+<!-- 	<input type="hidden" class="hiddenTotalprice" value="0"> -->
+<!-- 	<input type="hidden" class="hiddenDc" value="0"> -->
+<!-- 	<input type="hidden" class="hiddenFinalprice" value="0"> -->
+<!-- 	<input type="hidden" class="hiddenPoint" value="0"> -->
 	<!-- 푸터단 -->
 	<div class="row" id="footer">
             <div class="container" style="padding-left:2.5rem;">
@@ -991,7 +962,14 @@ text-align:left;
             </div>
         </div>
    	<script>
-   	
+		let sumPrice = 0;
+	  	let totalDc = 0;
+	  	let addPoint = 0;
+	  	let grade;
+	  	let finalPrice = 0;
+	  	let count = 0;
+	  	let title;
+	  	
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1039,21 +1017,10 @@ text-align:left;
    	  	//배송지 선택
    	$(".choosedeliverybtn").on("click",function(){
    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
-   		$(".new").prop("checked", true );
-   		$(".delivery-area").css("display","flex");
-   		$(".delivery-area-info").css("display","none");
-   	})
+
    	
-   	$(".default").on("click",function(){
-   		$(".default").prop("checked", true );
-   		$(".delivery-area").css("display","none");
-   		$(".delivery-area-info").css("display","inline-block");
    	})
-   	$(".new").on("click",function(){
-   		$(".new").prop("checked", true );
-   		$(".delivery-area").css("display","flex");
-   		$(".delivery-area-info").css("display","none");
-   	})
+
    	
    	//배송 메세지 연동
    	$(".delivery_text").on("keyup",function(){
@@ -1091,49 +1058,121 @@ text-align:left;
 		let allPointUse = $(".myPoint1").text();
 		$(".pointinput1").val(allPointUse);
 		$(".pointinput2").val(allPointUse);
+// 		$(".discount").text(allPointUse);
+		totalDc = Number($(".pointinput2").val());
+		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		if(grade == "White"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+		}else if(grade == "Gray"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+			console.log("grade : " + grade);
+			console.log("sumPrice : " + sumPrice);
+			console.log("totalDc : " + totalDc);
+			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+		}else if(grade == "Black"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+		}
 	})
 	
 	$(".allPointUse2").on("click",function(){
 		let allPointUse = $(".myPoint2").text();
 		$(".pointinput1").val(allPointUse);
 		$(".pointinput2").val(allPointUse);
+// 		$(".discount").text(allPointUse);
+		totalDc = Number($(".pointinput2").val());
+		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		if(grade == "White"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+		}else if(grade == "Gray"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+			console.log("grade : " + grade);
+			console.log("sumPrice : " + sumPrice);
+			console.log("totalDc : " + totalDc);
+			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+		}else if(grade == "Black"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+		}
 	})
+	
+
 
 		//	장바구니 쿠폰 포인트 가져오는 함수
 	    window.onload = function(){
-   			
-   		let sumPrice = 0;
-				$.ajax({
-					url:"/shop/selectMemberData"
-				}).done(function(resp){
-					console.log(resp);
-					for(let i = 0; i < resp.length; i++){
-						$(".myPoint1").html(resp[i].point);
-						$(".myPoint2").html(resp[i].point);
-						$(".select-ul1").append("<li class='li1 body2' style='width:100%;'>"+resp[i].category+"</li>")
-						$(".select-ul2").append("<li class='li2 body2'>"+resp[i].category+"</li>")
-					}
-				})
-		
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
 	            	console.log(resp);
+	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' style='background-color:pink;'><img class='con' src="+resp[i].gp_sysname+"></div><div class='col-9 productInfo' style='width:10rem; '><div class='body1 title'>"+resp[i].g_name+"</div><div class='H3 price' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 ' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += resp[i].totalPrice;
+	            		
+// 	            		title = resp[i].g_name;
+	            		if(resp.length == 1){
+	            			title = resp[i].g_name;	
+	            			console.log(title);
+	            		}else{
+	            			title = resp[i].g_name + "외 " + (count -1) + "개";
+	            			console.log(title);
+	            		}
+	            		console.log("sumPrice : " + sumPrice);
+	            		console.log("totalDc : " + totalDc);
+	            		console.log("finalPrice : " + finalPrice);
+	            		console.log("result : " + Number(sumPrice - totalDc + 3000));
+	            		console.log(count);
+	            		console.log(title);
 	            	}
+	            	
+// 	            	if(count == 1){
+// 	            		return title;
+// 	            	}else{
+// 	            		return title =  title + "외" + count + "개";
+// 	            	}
+		            	
 	            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
-	            	$(".finalTotalPrice").text((sumPrice + 3000).toLocaleString()+"원")
-	            })
-	            
+		            $(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+					
+					$.ajax({
+						url:"/shop/selectMemberData"
+					}).done(function(resp){
+						console.log(resp);
+						for(let i = 0; i < resp.length; i++){
+							$(".myPoint1").html(resp[i].point);
+							$(".myPoint2").html(resp[i].point);
+							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" style='width:100%;'>"+resp[i].category+"</li>")
+							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+">"+resp[i].category+"</li>")
+							grade = resp[i].grade;
+							console.log("count : " + count);
+							if(grade == "White"){
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+								console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+							}else if(grade == "Gray"){
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+								console.log("grade : " + grade);
+								console.log("sumPrice : " + sumPrice);
+								console.log("totalDc : " + totalDc);
+								console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+							}else if(grade == "Black"){
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+								console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+							}
+						}
+						
+					})
+	            });
+				
+
 
 	    }
    	  	
-   	  
-   	  
-	</script>
-	<script>
+    
+ 
 		window.addEventListener('beforeunload', (event) => {
 			  // 표준에 따라 기본 동작 방지
 			  event.preventDefault();
@@ -1144,9 +1183,7 @@ text-align:left;
 // 		            async: false
 		        });
 			});
-	</script>
-	<script>
-	
+
 	//선택박스누를 시 옵션 열기
 	$("#select1").on("click", function () {
 	    $(".select-ul1").toggle();
@@ -1155,7 +1192,20 @@ text-align:left;
 			let text = $(this).text();
 	    	$("#select1").text(text);
 	    	$("#select2").text(text);
-	    	$(".select-ul1").toggle();	
+	    	$(".select-ul1").toggle();
+	    	totalDc = Number($(this).attr("id"));
+	    	$(".discount").text((totalDc).toLocaleString()+"원");
+	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			if(grade == "White"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			}else if(grade == "Gray"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			}else if(grade == "Black"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			}
 		});
 	});
 	
@@ -1166,10 +1216,64 @@ text-align:left;
 			let text = $(this).text();
 	    	$("#select1").text(text);
 	    	$("#select2").text(text);
-	    	$(".select-ul2").toggle();	
+	    	$(".select-ul2").toggle();
+	    	totalDc = Number($(this).attr("id"));
+	    	$(".discount").text((totalDc).toLocaleString()+"원");
+	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			if(grade == "White"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			}else if(grade == "Gray"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			}else if(grade == "Black"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			}
 		});
 	});
 
+	$(".pointinput1").on("change",function(){
+		totalDc = Number($(".pointinput1").val());
+		$(".pointinput2").val() == $(".pointinput1").val();
+		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		console.log($(".pointinput2").val());
+		console.log($(".pointinput1").val());
+		if(grade == "White"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+		}else if(grade == "Gray"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+			console.log("grade : " + grade);
+			console.log("sumPrice : " + sumPrice);
+			console.log("totalDc : " + totalDc);
+			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+		}else if(grade == "Black"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+		}
+	})
+	
+	$(".pointinput2").on("change",function(){
+		totalDc = Number($(".pointinput2").val());
+		$(".pointinput1").val() == $(".pointinput2").val();
+		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		if(grade == "White"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+		}else if(grade == "Gray"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
+			console.log("grade : " + grade);
+			console.log("sumPrice : " + sumPrice);
+			console.log("totalDc : " + totalDc);
+			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+		}else if(grade == "Black"){
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
+			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+		}
+	})
 	
 	 function sample4_execDaumPostcode() {
         new daum.Postcode({
@@ -1238,8 +1342,6 @@ text-align:left;
 	        }).open();
 	    }
 	
-	</script>
-	<script>
 	function iamport(){
         //가맹점 식별코드
         IMP.init('imp48062056');
@@ -1247,8 +1349,8 @@ text-align:left;
 	    pg : 'kcp',
 	    pay_method : 'card',
 	    merchant_uid : 'merchant_' + new Date().getTime(),
-	    name : '예매' , //결제창에서 보여질 이름
-	    amount : '100', //실제 결제되는 가격
+	    name : title, //결제창에서 보여질 이름
+	    amount : (Number(sumPrice - totalDc + 3000)), //실제 결제되는 가격
 	    buyer_email : "iampost@siot.do",
 	    buyer_name : $(".buyer_name").val(),
 	    buyer_tel : $(".buyer_tel").val(),

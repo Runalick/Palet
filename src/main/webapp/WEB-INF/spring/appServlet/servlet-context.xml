@@ -52,12 +52,11 @@
 				path="/Exhibition/toUpcommingExhibition" />
 			<exclude-mapping path="/member/**" />
 			<exclude-mapping path="/shop/goDetail" />
-		
+			<exclude-mapping path="/qr/**" />
 
 			<exclude-mapping path="/images/*.*" />
 			<exclude-mapping path="/js/*.*" />
 			<exclude-mapping path="/css/**/*.*" />
-
 
 
 

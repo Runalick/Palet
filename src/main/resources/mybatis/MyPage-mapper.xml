@@ -6,17 +6,32 @@
 <mapper namespace="MyPage">
 <!-- 티켓 -->
 	<select id="myTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from exticket where et_email=#{value} and et_state in('BU','BC' )
+		select * from exticket where et_email=#{value} and et_state ='BU'
 	</select>
 	<select id="myTicketcnt" resultType="int">
 		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
 	</select>
-	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from (select row_number() over(order by et_buydate) line, exticket.* 
-		from exticket where et_state ='AU' and et_email=#{email}) where  line between #{limit} and #{limit}+9
+	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
+with total1 as
+(select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)),
+total2 as (
+select row_number () over(order by datee) line, booknumber,state, email, title, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate,state, category, pickdate, sysname from total2 where  line between #{limit} and #{limit}+9 and email =#{email} 
 	</select>
 	<select id="premyTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state in('AU' , 'AC')
+		select count(*) from (with total1 as
+(select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)),
+total2 as (
+select row_number () over(order by datee) line, booknumber, email, title,state, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2 where  email=#{value} and state = 'AU')
 	</select>
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}
@@ -150,10 +165,25 @@ where et_state like '%C') where email = #{email}
 	<select id="selectMyCoupon" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select category, dc from coupon where email = #{value} and used = 'N'
 	</select>
+	<select id="selectMyCouponStatus" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
+		select category, dc from coupon where email = #{email} and used = #{used}
+	</select>
 	<select id="selectMyexhibition" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select * from (select row_number() over(order by et_buydate) line, et_title, et_date, et_buydate, exticket.e_num, exhibitionpic.ep_sysname, et_booknumber from exticket left outer join exhibitionpic on exticket.e_num = exhibitionpic.e_num where et_email = #{value} and ep_main = 'Y') where line between 1 and 3
 	</select>
 	<select id="selectMyGoods" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select * from (select row_number() over(order by pay_time) line, g_name, totalprice, pay_time from payment where email = #{value}) where line between 1 and 10
+	</select>
+	<update id="couponRegist">
+		update coupon set email = #{email} where serial = #{serial}
+	</update>
+	
+<!-- 	프로그램 -->
+	<select id="ExProTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
+	select * from (select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)) where state = 'BU' and email = #{value} order by buydate desc
 	</select>
 </mapper>

@@ -464,7 +464,11 @@
 						+	"</div>" */
 						+	"<div class='col'>"
 
+<<<<<<< HEAD
 						+	"<button class='ok btn3 adminok' value='" + resp[i].admin_ok + "'>승인</button>"
+=======
+						+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"
+>>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
 						
 						+ 	"<button class='delete btn3'>삭제</button>"
 						+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -472,6 +476,7 @@
 						+"</div>"
 						+"</div>";				
 							
+<<<<<<< HEAD
 					//console.log(i);
 			    	$("#container").append(text_html);
 					
@@ -500,6 +505,35 @@
 	}
 		
 	 	let limit = 13;
+=======
+// 					console.log(i);
+			    	$("#container").append(text_html);
+					
+// 			    	console.log("value: " + $("#"+i).html());
+// 			    	console.log($("#"+i).html() == 'Y');
+// 			    	console.log("resp.length : " + resp.length);
+				
+			    	
+				} 
+// 				for(let i=0; i<resp.length;i++){
+// 			    	if($("#"+i).html() == 'Y'){
+// 			    		$("#text_"+i).html('승인완료');
+// 			    		$("#text_"+i).attr("disabled",true);
+// 			    	}  
+// 	    		} 
+				
+			    	
+			},//resp
+		});	
+		for(let i=0;i<$(".adminbtn").length;i++){
+			if($($(".adminbtn")[i]).val()=='Y'){
+				$($(".adminbtn")[i]).text("승인완료");
+				$($(".adminbtn")[i]).attr("disabled","true");
+			}
+		}
+		
+	 	let limit = 12;
+>>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
 		
 		
 	  	$(document).scroll(function() {
@@ -508,7 +542,10 @@
 		   
 		   
 		    if (maxHeight <= currentScroll+100) {
+<<<<<<< HEAD
 		    	//console.log("origin limit : " + limit);
+=======
+>>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
 		    	$.ajax({
 					url:"/event/admincontents",
 					data:{limit : limit},
@@ -540,7 +577,11 @@
 								+	"</div>"
 								+	"<div class='col'>"
 
+<<<<<<< HEAD
 								+	"<button class='ok btn3 okbtn'>승인</button>"
+=======
+								+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"
+>>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
 								
 								+ 	"<button class='delete btn3'>삭제</button>"
 								+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -550,10 +591,12 @@
 							
 							//console.log(text_html);
 					    	$("#container").append(text_html); 
+<<<<<<< HEAD
 					    	//console.log(text_html);
+=======
+>>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
 						}
 						limit = limit + resp.length;
-				    	console.log("change limit : " + limit);	
 				    	
 				    	/* for(let i=0; i<resp.length;i++){
 					    	if($("#"+i).html() == 'Y'){
@@ -565,7 +608,13 @@
 			    		//console.log($(".ok").html());
 					},
 					});
-		    	} 
+		    	}
+			for(let i=0;i<$(".adminbtn").length;i++){
+				if($($(".adminbtn")[i]).val()=='Y'){
+					$($(".adminbtn")[i]).text("승인완료");
+					$($(".adminbtn")[i]).attr("disabled","true");
+				}
+			}
 		      })   
 		      
 		     
@@ -592,7 +641,7 @@
 	
 	// 동적 쿼리로 이벤트 부여해야 동작한다.
 	$("#container").on("click", ".ok", function(){
-		console.log($(this).siblings().eq(1).val());
+// 		console.log($(this).siblings().eq(1).val());
 		$.ajax({
 			url:"/event/confirmation",
 			data: {draw_seq:$(this).siblings().eq(1).val()}
@@ -603,7 +652,9 @@
 	})
 	
 	$("#container").on("click", ".delete", function(){
-		console.log($(this).siblings("input").val())
+// 		console.log($(this).siblings("input").val())
+		let result = confirm("정말 삭제하시겟습니까?");
+		if(result){
 		$.ajax({
 			url:"/event/deleteDraw",
 			data: {draw_seq:$(this).siblings("input").val()}
@@ -611,6 +662,7 @@
 			alert(resp);
 			location.reload();
 		})
+		}
 	})
 	
 	
@@ -639,9 +691,6 @@
 			location.reload();
 		})
 	}) */
-	
-	
-	
 	
 	
 	</script>

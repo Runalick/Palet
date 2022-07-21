@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Insert title here</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -937,20 +937,19 @@ a:hover{
 							</ul>
 						</li>
 						<li>
-							<div class="body4">My Shopping</a></div>
+							<div class="body4">My Shopping</div>
 							<ul>
 								<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
-								<li class="body3"><a href="#">취소/반품 내역</a></li>
+								<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 								<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 							</ul>
 						</li>
 						<li>
 							<div class="body4">My Info</div>
 							<ul>
-								<li class="body3"><a href="#">나의 회원등급</a></li>
-								<li class="body3"><a href="#">나의 쿠폰</a></li>
-								<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-								<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
+								<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+								<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+								<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 							</ul>
 						</li>
 						</ul>

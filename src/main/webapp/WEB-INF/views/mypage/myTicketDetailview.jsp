@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- bootstrap -->
 <link
@@ -710,18 +710,17 @@ top:4rem;
 					<li>
 						<div class="body4">My Shopping</div>
 						<ul>
-							<li class="body3"><a href="#">주문내역</a></li>
-							<li class="body3"><a href="#">취소/반품 내역</a></li>
+							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
+							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
 							<li class="body3"><a href="/delivery/selectAllAddress">배송지 관리</a></li>
 						</ul>
 					</li>
 					<li>
 						<div class="body4">My Info</div>
 						<ul>
-							<li class="body3"><a href="#">나의 회원등급</a></li>
-							<li class="body3"><a href="#">나의 쿠폰</a></li>
-							<li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
-							<li class="body3"><a href="#">개인정보 변경/탈퇴</a></li>
+							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
+							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
+							<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 						</ul>
 					</li>
 					</ul>
@@ -839,10 +838,10 @@ top:4rem;
       <div class="modal-body" style="padding-right:0px;">
 			<div class="row">
 		
-			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
+			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem ; margin-left:1.563rem; ">
 				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
-					<div class="col-8" style="margin-bottom:3rem; width:30rem;">
+					<div class="col-8" style="margin-bottom:3rem; width:28rem;">
 						<div class="row modal-ticket-row" >
 							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.et_title }</div>
 							<div class="col-12 paymodal-title2">${dto.et_booknumber }</div>

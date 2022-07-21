@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -67,7 +67,12 @@
 	padding: 0px;
 	height: 1.875rem;
 }
-
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -84,7 +89,7 @@
 }
 
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
 }
 
@@ -114,14 +119,35 @@
 	width: 5.938rem;
 	height: 1.5rem;
 }
-
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
+	height: 1.5rem;
+}
+#Logout {
+	width: 4.5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
+	height: 1.5rem;
+}
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
+
+#Signup {
+	width: 4.438rem;
 	height: 1.5rem;
 }
 
@@ -231,7 +257,11 @@ line-height: 1.125rem;
 	padding-left: 2.5rem;
 	padding-bottom:2.5rem;
 }
-
+#img{
+width:100%;
+height:100%;
+border-radius:1.25rem;
+}
 
 .hug{
 width:3.938rem;
@@ -405,7 +435,9 @@ margin-top:1rem;
 	box-sizing: border-box;
 	border-radius: 50%;
 }
-
+.cntbtn:hover{
+background:#F4F6F8;
+}
 .cntbtn>img {
 	width: 0.656rem;
 }
@@ -447,7 +479,7 @@ height:14.025rem;
 }
 .productInfo{
 padding:0px;
-width:10rem;
+width:25.625rem;
 }
 #payment-area{
 padding:0rem;
@@ -764,7 +796,8 @@ background:#454F5B;
 				
 				<c:forEach var="i" items="${list }">
 					<div class="row list" style="padding:0px; margin-bottom:1.25rem">
-						<div class="col-3 p-0 productimg" style="background-color:pink;">
+						<div class="col-3 p-0 productimg">
+								<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" >
 							<input type="checkbox" class="checkbox2" checked="checked" id="check1" value="${i.g_seq }" style="margin-top:0.375rem;">
 							<input type="hidden" class="hidden-cart_seq" value="${i.cart_seq }">
 						</div>
@@ -835,9 +868,10 @@ $("#paybtn").on("click",function(){
 	var cart_seq=[];
 	$("input:checkbox[class=checkbox2]:checked").each(function(e,item){
 
-					console.log($(this).siblings().val());
-					cart_seq.push($(this).siblings().val());
-			})
+					console.log($($(this).siblings()[1]).val());
+					cart_seq.push($($(this).siblings()[1]).val());			})
+
+	console.log($(this).siblings()[1]);
 	console.log(cart_seq);
 	location.href="/cart/order?cart_seq="+cart_seq;
 })
@@ -889,7 +923,7 @@ function setTotalInfo() {
 						$(".deliveryprice").text("+"+deliveryPrice+"원");
 						// 최종 가격(총 가격 + 배송비)
 						$(".finalTotalPrice").text(
-								finalTotalPrice.toLocaleString());
+								finalTotalPrice.toLocaleString()+"원");
 
 					});
 

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -370,23 +370,21 @@ text-align: center;
       "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
     });
     
-	   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-	   
-	   function logout() {
-	      
-	      if (!Kakao.Auth.getAccessToken()) {
-	            alert('Not logged in.')
-	            return
-	          }
-	          Kakao.Auth.logout(function() {
-	            alert('로그아웃 되었습니다.');
-	            location.href="/member/logout";
-	          })
-	      
-
-	      location.href = "/member/logout";
-	      return true;
-	   }
+    $(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
   </script>
   <!-- End Channel Plugin -->
 </body>

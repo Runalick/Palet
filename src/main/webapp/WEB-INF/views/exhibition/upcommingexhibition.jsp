@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<title>예정 전시</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -411,7 +411,7 @@ html {
 							id="collapsibleNavbar">
 							<ul class="navbar-nav">
 					<li class="nav-item"><a id="About" class="nav-link"
-						href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+						href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 					</li>
 					<li class="nav-item"><a id="Exhibition" class="nav-link"
 						href="/Exhibition/toCurExhibition"

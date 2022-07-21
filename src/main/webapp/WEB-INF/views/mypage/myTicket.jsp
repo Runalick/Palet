@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- bootstrap -->
 <link
@@ -370,7 +370,14 @@ li div {
 	border-radius:0.375rem;
 	cursor:pointer;
 }
-
+.pticket{
+width: 44.5rem;
+	height: 14.5rem;
+	background: #637381;
+	margin-bottom: 3.75rem;
+	border-radius:0.375rem;
+	cursor:pointer;
+}
 .pre-ticket, .a {
 	width: 24.5rem;
 	height: 10.5rem;
@@ -604,7 +611,6 @@ li div {
 								<ul>
 									<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
 									<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
-									   <li class="body3"><a href="#" id="registration">쿠폰등록</a></li>
 									<li class="body3"><a href="/member/mypage">개인정보 변경/탈퇴</a></li>
 								</ul>
 							</li>
@@ -613,8 +619,8 @@ li div {
 				</div>
 
 			<div class="content">
-				<div class="row" style="padding: 1rem;">
-					<div class="col-12 H5">진행 중 전시 티켓</div>
+				<div class="row" id="row1" style="padding: 1rem;">
+					<div class="col-12 H5">진행 중 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${cnt !=0}"> 
 					<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
@@ -628,22 +634,44 @@ li div {
 					<c:if test="${!status.first }">
 						<div class="carousel-item ">
 					</c:if>
+					
+					
+					<c:if test="${i.category =='P' }">
+			     	<div class="col-12 pticket">
+			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
+							<div class="row" style="height: 100%">
+								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
+									<img src="${i.sysname }" class="w-100 h-100">
+								</div>
+								<div class="col-9" style="position: relative">
+									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
+										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3" style="color: white;">${i.datee }</div>
+									
+								</div>
+							</div>
+					</div>
+					</c:if>
+							<c:if test="${i.category =='E' }">
 			     	<div class="col-12 ticket">
-			     	<input type="hidden" value="${i.et_booknumber }">
+			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
 								</div>
 								<div class="col-9" style="position: relative">
-									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.et_title }</div>
-										<div class="body3" style="color: white" >예매번호 : ${i.et_booknumber }</div>
-									<div class="body3" style="color: white;">${i.et_date }</div>
+									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
+										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3" style="color: white;">${i.datee }</div>
 									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
 								</div>
 							</div>
-						</div>
+					</div>
+					</c:if>
+					
+					  </div>
 					</c:forEach>					
-			    </div>
+			  
 				<!-- 여기까지 -->
 			  </div>
 			  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
@@ -654,36 +682,37 @@ li div {
 			    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 			    <span class="visually-hidden">Next</span>
 			  </button>
+			  </div>
   			</c:when>
 				<c:otherwise>
 					<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>	
 		</div>
-			<div class="col-12 H5">지난 전시 티켓</div>
+			<div class="col-12 H5">지난 전시/클래스 티켓</div>
 			<c:choose>
-				<c:when test="${prelist ==null }">
-					
+				<c:when test="${precnt ==0 }">
+					<div class="H2" style="margin:10rem 25rem; width:25rem;">예매 내역이 없습니다.</div>
 				</c:when>
 				<c:otherwise>
 			
 				<div class="col-12">
 					<div class="row pre-ticket-row">
 						<!-- 반복문 -->
-						<c:forEach var="i" items="${prelist }">
-							<div class="col-6 pre-ticket">
-								<input type="hidden" value="${i.et_booknumber }">
-									<div class="row" style="height: 100%">
-										<div class="col-3" style="padding: 1rem;">
-											<img src="/images/anywayloveS.png" class="w-100 h-100">
-										</div>
-										<div class="col-9" style="position: relative">
-											<div class="pre-title" style="color: #637381;">${i.et_title }</div>
-											<div class="body6" style="color: #637381;">${i.et_date }</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
+<%-- 						<c:forEach var="i" items="${prelist }"> --%>
+<!-- 							<div class="col-6 pre-ticket"> -->
+<%-- 								<input type="hidden" value="${i.booknumber }"> --%>
+<!-- 									<div class="row" style="height: 100%"> -->
+<!-- 										<div class="col-3" style="padding: 1rem;"> -->
+<!-- 											<img src="/images/anywayloveS.png" class="w-100 h-100"> -->
+<!-- 										</div> -->
+<!-- 										<div class="col-9" style="position: relative"> -->
+<%-- 											<div class="pre-title" style="color: #637381;">${i.title }</div> --%>
+<%-- 											<div class="body6" style="color: #637381;">${i.datee }</div> --%>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<%-- 							</c:forEach> --%>
 						</div>
 					</div>
 					
@@ -693,9 +722,10 @@ li div {
 			</div>
 		</div>
 		</div>
+<!-- 푸터단 -->
+		
 
-		<!-- 푸터단 -->
-		<div class="row" id="footer">
+         <div class="row" id="footer">
             <div class="container">
                 <div class="row" id="row1">
                     <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
@@ -705,8 +735,7 @@ li div {
                 </div>
             </div>
         </div>
-	</div>
-
+        </div>
 <script>
 AOS.init();
 window.onload = function(){
@@ -717,10 +746,10 @@ window.onload = function(){
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
 			for(let i = 0 ; i < resp.length; i++) {
-		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
-						+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 		    	
 		    	  console.log("resp.length : " + resp.length);
@@ -746,10 +775,10 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
-								+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
 				    	  console.log("resp.length : " + resp.length);
 					}
@@ -761,8 +790,6 @@ window.onload = function(){
 	      }) 
 }
 
-</script>
-	<script>
 		$(window).resize(function() { //창크기 변화 감지
 			open_chatroom();
 		});
@@ -808,6 +835,7 @@ window.onload = function(){
 				}
 		});
 		
+
         var qrcode = new QRCode(document.getElementById("qr"), {
             text: "${url}",
             width: 90,
@@ -832,6 +860,28 @@ window.onload = function(){
                 });
             return true;
          });
+
+		for(let i=0;i<$(".qr").length;i++){
+			console.log($(".booknumber")[i]);
+			console.log($(".booknumber")[i].value);
+			var qrcode = new QRCode($(".qr")[i], {
+	            text: "http://localhost/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
+	            width: 90,
+	            height: 90,
+	            colorDark : "#000000",
+	            colorLight : "#ffffff",
+	            correctLevel : QRCode.CorrectLevel.H
+	        });
+		}
+//         var qrcode = new QRCode(document.getElementById("qr"), {
+//             text: "${url}",
+//             width: 90,
+//             height: 90,
+//             colorDark : "#000000",
+//             colorLight : "#ffffff",
+//             correctLevel : QRCode.CorrectLevel.H
+//         });
+
 	</script>
 </body>
 </html>

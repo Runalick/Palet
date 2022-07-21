@@ -10,9 +10,11 @@ import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 
 @Component
 public class MypageDAO {
@@ -57,7 +59,7 @@ public class MypageDAO {
 		}
 		
 		
-		mybatis.update("MyPage.MinusSalesCnt",dto);
+//		mybatis.update("MyPage.MinusSalesCnt",dto);
 		return mybatis.update("MyPage.BeforeCancel",dto);
 	}
 
@@ -111,6 +113,13 @@ public class MypageDAO {
 		return mybatis.selectList("MyPage.selectMyCoupon",email);
 	}
 	
+	public List<MypageUserDetailDTO> selectMyCouponStatus(String email, String used){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("used", used);
+		return mybatis.selectList("MyPage.selectMyCouponStatus",param);
+	}
+
 	public List<MypageUserDetailDTO> selectMyexhibition(String email){
 		return mybatis.selectList("MyPage.selectMyexhibition",email);
 	}
@@ -118,5 +127,17 @@ public class MypageDAO {
 	public List<MypageUserDetailDTO> selectMyGoods(String email){
 		return mybatis.selectList("MyPage.selectMyGoods",email);
 	}
+	
+	public int couponRegist(String email, String serial){
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("serial", serial);
+		return mybatis.update("MyPage.couponRegist", param);
+	}
 
+	
+
+	public List<ExProticketDTO> ExProTicket(String email) {
+		return mybatis.selectList("MyPage.ExProTicket",email);
+	}
 }

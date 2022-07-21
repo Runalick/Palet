@@ -20,7 +20,65 @@
 <link rel="stylesheet" href="/css/home.css">
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<style>
+.btn1:hover{
+background:white;
+color:#161C24;
+}
+.btn2{
+border:0px;
+}
+.btn2:hover{
+background:rgba(0,0,0,0);
+color:white;
+border:1px solid white;
 
+}
+.img{
+cursor:pointer;
+}
+/* .explain{ */
+/* position: absolute; opacity: 0;  */
+/* color:black; */
+/* } */
+/* .photo:hover .explain{  */
+/* opacity: 1;  */
+/* } */
+.photoExplain,.photoExplainprice{
+width:100%;
+}
+.photo{
+position:relative;
+}
+.photoline{
+padding:1px;
+line-height:2px;
+height:1.563rem;
+width:1.563rem;
+background:black;
+color:White;
+border-radius:30px;
+position:absolute;
+top:4rem;
+left:4rem;
+}
+.prebtn{ 
+background:black; 
+color:white; 
+border-radius:1.25rem;  
+border:0px; 
+ } 
+ .preexhibition:hover{
+ cursor:pointer;
+ }
+ .prebtn:hover, .btn5:hover, .btngodds:hover{
+ background: #454F5B;
+ border:0px ;
+ }
+ .prebtn, .btn5, .btngodds{
+ border:0px;
+ }
+</style>
 
 
 
@@ -31,7 +89,7 @@
 
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; position: fixed; z-index:9;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -262,26 +320,24 @@
 
 
 
-			<div class="row " id="row1">
-				<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-					<img src="/images/image 21.png" class="w-100 p-5"
-						style="padding-left: 0px;">
+			<div class="row imgrow" id="row1">
+			<c:forEach var="i" items="${dto }"> 
+				<div class="col-xl-4 col-sm-6 photo p-5" style="text-align: center;">
+				<img referrerpolicy="no-referrer" src="${i.gp_sysname }" id="img" class="w-100  img"style="padding-left: 0px;" >
+				<input type="hidden" value="${i.g_num }">
+				<div class="col-xl-4 col-sm-6 body2 pt-4 photoExplain" style="text-align: center;">${i.g_name }</div>
+				<div class="col-xl-4 col-sm-6 body2  photoExplainprice" id="${i.g_seq }" style="text-align: center; font-weight:550;">${i.g_price }</div>
+<!-- 					<img src="/images/image 21.png" class="w-100 p-5" -->
+<!-- 						style="padding-left: 0px;"> -->
+				<button class="photoline">${i.line }</button>
 				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-1.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-2.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-3.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods-4.png" class="w-100 p-5">
-				</div>
-				<div class="col-xl-4 col-sm-6" style="text-align: center;">
-					<img src="/images/BestGoods.png" class="w-100 p-5">
-				</div>
+				<script>
+							price = ${i.g_price} ;
+							price = price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+							$("#${i.g_seq}").text(price+"원");
+							</script>
+				</c:forEach>
+				
 			</div>
 
 		</div>
@@ -291,7 +347,7 @@
 			<div class="row " style="margin-top: 3.75rem; text-align: center;"
 				id="row1">
 				<div class="col-12" style="text-align: center;">
-					<button class="btn3 btn" onclick="location.href='/shop/toShop'" >전시 굿즈 더보기</button>
+					<button class="btn3 btngodds" onclick="location.href='/shop/toShop'" >전시 굿즈 더보기</button>
 				</div>
 
 
@@ -370,22 +426,27 @@
 
 			<div class="container" id=" flow">
 				<div class="row overflow-auto" style="margin-top: 3.75rem;">
-					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-						<img src="/images/preex1.png" class="w-100 "
+				
+				<c:forEach var="i" items="${edto }">
+					<div class="col-xl-4 col-sm-6 preexhibition" style="text-align: center;">
+						<input type="hidden" value="${i.pe_img }">
+						<img src="${i.pe_img }"  class="w-100 "
 							style="text-align: center;">
-						<div class=h3>카로 악포키에르 «분실된 그림들»</div>
-						<div class=caption>2022-03-03~2022-03-10</div>
+						<div class="h3 pt-4">${i.pe_name }</div>
+						<div class=caption>${i.pe_date }</div>
 					</div>
-					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-						<img src="/images/preex2.png" class="w-100 ">
-						<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div>
-						<div class=caption>2022-01-20~2022-06-12</div>
-					</div>
-					<div class="col-xl-4 col-sm-6 " style="text-align: center;">
-						<img src="/images/preex3.png" class="w-100 ">
-						<div class=h3>아이 웨이웨이</div>
-						<div class=caption>2021-12-11~2022-04-17</div>
-					</div>
+					</c:forEach>
+					
+<!-- 					<div class="col-xl-4 col-sm-6 " style="text-align: center;"> -->
+<!-- 						<img src="/images/preex2.png" class="w-100 "> -->
+<!-- 						<div class=h3>MMCA 국제미술 소장품 기획전 «미술로, 세계로»</div> -->
+<!-- 						<div class=caption>2022-01-20~2022-06-12</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-xl-4 col-sm-6 " style="text-align: center;"> -->
+<!-- 						<img src="/images/preex3.png" class="w-100 "> -->
+<!-- 						<div class=h3>아이 웨이웨이</div> -->
+<!-- 						<div class=caption>2021-12-11~2022-04-17</div> -->
+<!-- 					</div> -->
 					<!-- <div class="col-xl-4 col-sm-6 overflow-auto " style="text-align: center; ">
                     <img src="preex1.png" class="w-100 p-3" style="padding-left: 0px;">
                 </div>
@@ -403,10 +464,8 @@
 
 		<div class="row " style="margin-top: 2.5rem; text-align: center;"
 			id="row1">
-			<div class="col-12 h2" style="text-align: center; margin: auto;">
-				<img type=button src="/images/btn4_1.png"
-					style="margin-right: 1.25rem;"><img type=button
-					src="/images/btn4_2.png">
+			<div class="col-12 h2" style="text-align: center; margin: auto; margin-top:6.25rem;">
+				<button class="prebtn btn3">지난 전시 더보기</button>
 			</div>
 
 
@@ -450,23 +509,33 @@
 		</div>
 	</div>
 	<script>
-		
+
+	$(".prebtn").on("click",function(){
+		location.href="Exhibition/toPreExhibition";
+	})
+	$(".preexhibition").on("click",function(){
+		location.href="/Exhibition/toPredetail?pe_img="+$($(this).children()[0]).val();
+	})
+		$(".photo").on("click",function(){
+			console.log($($(this).children().siblings()[1]).val());
+			location.href="/shop/goDetail?g_num="+$($(this).children().siblings()[1]).val();
+		})
+	
 		$(".logout").on("click", function(){
-			Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-			Kakao.isInitialized();
-			if (!Kakao.Auth.getAccessToken()) {
-				console.log('Not logged in.');
-				location.href="/member/logout";
-			    return ;
-			}
-			
-			 Kakao.Auth.logout(function() {
-			      console.log(Kakao.Auth.getAccessToken());
-			      location.href="/member/logout";
-			    });
-			return true;
-		});
-		
+         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+         Kakao.isInitialized();
+         if (!Kakao.Auth.getAccessToken()) {
+            console.log('Not logged in.');
+            location.href="/member/logout";
+             return ;
+         }
+         
+          Kakao.Auth.logout(function() {
+               console.log(Kakao.Auth.getAccessToken());
+               location.href="/member/logout";
+             });
+         return true;
+      });
 	</script>
 </body>
 </html>
