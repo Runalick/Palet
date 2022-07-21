@@ -1536,7 +1536,7 @@ text-align:left;
                			address1 : rsp.buyer_addr,
                        	address2 : $(".buyer_address2").val(),
                        	zipcode : rsp.buyer_postcode,
-                       	g_name : rsp.name,
+                       	g_name : arrG_name[i],
                        	card_name : rsp.card_name,
                        	card_number : rsp.card_number,
                        	card_quota : rsp.card_quota,
