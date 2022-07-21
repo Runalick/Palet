@@ -42,7 +42,9 @@ Calendar
 from
 
 
+
  
+
 
 
 '@
@@ -52,7 +54,11 @@ fullcalendar
 
 
 
+
+
 core
+
+
 
 
 
@@ -597,8 +603,9 @@ input::placeholder {
 .fc-scroller-liquid-absolute {
 	position: static !important;
 }
-.fc-toolbar-title{
-	font-family: 'Spoqa Han Sans Neo'!important;
+
+.fc-toolbar-title {
+	font-family: 'Spoqa Han Sans Neo' !important;
 	font-style: normal !important;
 	font-weight: 700 !important;
 	font-size: 1.25rem !important;
@@ -668,7 +675,7 @@ input::placeholder {
 				<div class="col-11">
 					<div class="col h2" style="text-align: left;">Order / Payment</div>
 				</div>
-<!-- 
+				<!-- 
 				<div class="col-12" style="margin-top: 2.5rem; text-align: left;">
 
 					<div class="col h3" style="padding: 0px;">신청자 정보</div>
@@ -684,10 +691,10 @@ input::placeholder {
 			<div class=row>
 				<div class="col-12">
 					<div class=row>
-						<div class="col-lg-7 col-12 d-none d-sm-block"
+						<div class="col-lg-6 col-12 d-none d-sm-block"
 							style="padding-left: 1.564rem;">
-								<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
-							<div class="row rec1"  style="margin-top: 2rem;" >
+							<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
+							<div class="row rec1" style="margin-top: 2rem;">
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
@@ -703,6 +710,13 @@ input::placeholder {
 									<input type=text class="input1 email"
 										style="text-align: center;" value="${loginEmail}" readonly>
 								</div>
+								
+								<div class=col-12 style="margin-top: 1.5rem;">날짜</div>
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+									<input type=text class="input1 date"
+										style="text-align: center;" readonly>
+								</div>
+								
 
 							</div>
 
@@ -732,7 +746,7 @@ input::placeholder {
 
 						</div>
 
-						<div class="col-lg-5 col-12"
+						<div class="col-lg-6 col-12"
 							style="padding-left: 1.564rem; color: black;" id="calendar">
 
 						</div>
@@ -741,110 +755,195 @@ input::placeholder {
 				</div>
 			</div>
 		</div>
-
-		<div class=container style="margin-top:11rem;">
+		<div class="container mt-5">
 			<div class=row>
+				
+						<div class="col-lg-7 col-12 d-none d-sm-block">
+							<div class=row>
 
-				<div class="col-12 h3 d-none d-sm-block">프로그램 정보</div>
-				<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">프로그램
-					정보</div>
-			</div>
-			<div class=row
-				style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
+								<div class="col-12 h3 d-none d-sm-block">프로그램 정보</div>
+								<div class="col-12 h3 d-block d-sm-none"
+									style="text-align: center;">프로그램 정보</div>
+							</div>
+							<div class=row
+								style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
 
-				<div class="col-lg-6 col-12 rec1"
-					style="padding-left: 0rem; height: 12rem; width: 42rem;">
-					<div class=row id=row1>
-						<div class="col-lg-3 col-5">
-							<img src="/images/kidclass.png"
-								style="width: 10rem; height: 12rem;">
+								<div class="col-lg-6 col-12 rec1"
+									style="padding-left: 0rem; height: 12rem; width: 42rem;">
+									<div class=row id=row1>
+										<div class="col-lg-3 col-5">
+											<img src="/images/kidclass.png"
+												style="width: 10rem; height: 12rem;">
+										</div>
+										<div class="col-lg-1 col-1"></div>
+										<div class="col-lg-8 body1 col-6"
+											style="color: #161C24; margin-top: 2.325rem;">
+											키즈 워크룸:애니메이터 프로젝트
+											<div class=h3
+												style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
+												id=totalprice>${price}</div>
+											<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
+												id=count>${count}매</div>
+
+										</div>
+
+
+
+									</div>
+								</div>
+								<div class="col-lg-5 col-12" style="height: 2rem;"></div>
+							</div>
+
+
+
+							<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
+
+								<div class="col-12" style="padding-left: 0rem;">
+									<ul class="info body2"
+										style="color: #637381; padding-left: 0rem;">
+										<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
+										<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
+
+										<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
+
+										<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다.
+											(보호자의 전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
+										<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용
+											부탁드립니다.</li>
+
+
+
+
+									</ul>
+								</div>
+								<div class="col-12 h3"
+									style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+								<div class="col-12 body2"
+									style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
+								<div class="col-12 h3"
+									style="padding-left: 0rem; margin-top: 1.125rem;">
+
+									<select id="selectbox" class="form-select"
+										aria-label="Default select example"
+										style="width: 23.5rem; height: 3rem;">
+
+										<option value='0' value1="inavailableCP" selected>쿠폰을
+											선택해 주세요.</option>
+										<c:forEach var="clist" items="${clist }">
+											<option id=option1 class="option1" value="${clist.dc}"
+												value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+												-${clist.dc}원</option>
+
+										</c:forEach>
+									</select>
+
+								</div>
+								<div class="col-12 body2"
+									style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+
+								<div class="col-12 body2"
+									style="padding-left: 0rem; margin-top: 1.125em;">
+
+									<input type=text class="body2 usedpoint"
+										style="width: 15rem; height: 3rem;">
+									<button class="h4 usedbutton"
+										style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+										사용</button>
+								</div>
+								<div class="col-12 h5"
+									style="padding-left: 0rem; margin-top: 2.188em;">
+									남은마일리지 <span class=h5_1>${mdto.point }</span>
+								</div>
+
+							</div>
+
+
+
+
 						</div>
-						<div class="col-lg-1 col-1"></div>
-						<div class="col-lg-8 body1 col-6"
-							style="color: #161C24; margin-top: 2.325rem;">
-							키즈 워크룸:애니메이터 프로젝트
-							<div class=h3
-								style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-								id=totalprice>${price}</div>
-							<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-								id=count>${count}매</div>
+
+
+						<div class="col-lg-7 col-12 d-block d-sm-none"
+							style="padding-left: 1.564rem; text-align: center;"></div>
+						<div class="col-lg-1 col-12" style="height: 2rem;"></div>
+						<div class="col-lg-4 col-12" style="padding-left: 1.564rem;">
+							<div class="row  rec1 h-70" id=row2>
+								<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
+								<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
+								<div class="col-6 caption" style="text-align: center;">적립예정
+									포인트</div>
+								<div class="col-6 caption" style="text-align: center;" id=point></div>
+								<div class="col-6 caption" style="text-align: center;">포인트
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=usedpoint>0p</div>
+								<div class="col-6 caption" style="text-align: center;">쿠폰
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=coupondc>0p</div>
+							</div>
+							<div class=row id=row1>
+								<div class="col-12"
+									style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
+									<button class="btn1_1" id=pay onclick="iamport()"
+										style="width: 100%;">결제하기</button>
+								</div>
+
+
+
+
+								<div class="col-12 h4 d-none d-sm-block"
+									style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불
+									규정을 확인하였으며 결제에 동의합니다.</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									이용약관 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									결제 대행 서비스 이용약관<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-none d-sm-block"
+									style="margin-top: 0.4rem;">
+									취소 환불 규정<a class=policy>보기</a>
+								</div>
+
+
+
+
+								<div class="col-12 h4 d-block d-sm-none"
+									style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불
+									규정을 확인하였으며 결제에 동의합니다.</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									이용약관 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									결제 대행 서비스 이용약관<a class=policy>보기</a>
+								</div>
+								<div class="col-12 caption d-block d-sm-none"
+									style="margin-top: 0.4rem;">
+									취소 환불 규정<a class=policy>보기</a>
+								</div>
+
+							</div>
 
 						</div>
 
-
-
-					</div>
-				</div>
-				<div class="col-lg-6 col-12" style="height: 2rem;"></div>
+			
 			</div>
-
-
-
-			<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
-
-				<div class="col-12" style="padding-left: 0rem;">
-					<ul class="info body2" style="color: #637381; padding-left: 0rem;">
-						<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
-						<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
-
-						<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
-
-						<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다. (보호자의
-							전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
-						<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용
-							부탁드립니다.</li>
-
-
-
-
-					</ul>
-				</div>
-				<div class="col-12 h3"
-					style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
-				<div class="col-12 body2"
-					style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
-				<div class="col-12 h3"
-					style="padding-left: 0rem; margin-top: 1.125rem;">
-
-					<select id="selectbox" class="form-select"
-						aria-label="Default select example"
-						style="width: 23.5rem; height: 3rem;">
-
-						<option value='0' value1="inavailableCP" selected>쿠폰을 선택해
-							주세요.</option>
-						<c:forEach var="clist" items="${clist }">
-							<option id=option1 class="option1" value="${clist.dc}"
-								value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								-${clist.dc}원</option>
-
-						</c:forEach>
-					</select>
-
-				</div>
-				<div class="col-12 body2"
-					style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
-
-				<div class="col-12 body2"
-					style="padding-left: 0rem; margin-top: 1.125em;">
-
-					<input type=text class="body2 usedpoint"
-						style="width: 15rem; height: 3rem;">
-					<button class="h4 usedbutton"
-						style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
-						사용</button>
-				</div>
-				<div class="col-12 h5"
-					style="padding-left: 0rem; margin-top: 2.188em;">
-					남은마일리지 <span class=h5_1>${mdto.point }</span>
-				</div>
-
-			</div>
-
-
-
-
-
 		</div>
+
+		<div class=container style="margin-top: 11rem;"></div>
 		<div class="row">
 			<div class="col" id="calendar"></div>
 
@@ -1065,15 +1164,18 @@ document.addEventListener('DOMContentLoaded', function() {
       // selectable:true,
      //  unselectAuto: true
      	   dateClick: function(info) {
+     		
     
     	let result = confirm('해당 날짜 ('+info.dateStr+')로 예약 하시겠습니까?');
      //  	    alert('Date: ' + info.dayEl);
    		if(result){
+   			$(".date").val(info.dateStr);
+   		
    		//	selectable: true;
    			console.log('hi');
    		}else{
 return false;
-d
+
 
    		}
       
@@ -1167,6 +1269,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 						pro_title : "키즈 워크룸:애니메이터 프로젝트",
 						pro_place : "지하철 3호선 경복궁역 지하 2층",
 						pro_date : "2022.03.16 ~ 2022.10.30",
+						pro_pickdate : $(".date").val(),
 						pro_booknumber : rsp.merchant_uid,
 						pro_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
 						pro_username : $(".username").val(),
@@ -1181,7 +1284,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 						pro_cpdiscount : parseInt($(".form-select option:selected").val()),
 						pro_cpserial :  $(".form-select option:selected").attr('value1'),
 						pro_category : 'P',
-						p_num : 101
+						p_num : 102
 					},
 
 					type : "post",
