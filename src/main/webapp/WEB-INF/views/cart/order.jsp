@@ -1118,7 +1118,12 @@ text-align:left;
 	  	let finalPrice = 0;
 	  	let count = 0;
 	  	let title;
-	  	
+	  	let serial;
+	  	let arrG_name = [];
+	  	let arrSales_count = [];
+	  	let arrTotalPrice = [];
+	  	let arrEmail = [];
+	  	let arrG_seq = [];
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1209,20 +1214,20 @@ text-align:left;
 		$(".pointinput2").val(allPointUse);
 // 		$(".discount").text(allPointUse);
 		totalDc = Number($(".pointinput2").val());
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 			console.log("grade : " + grade);
+// 			console.log("sumPrice : " + sumPrice);
+// 			console.log("totalDc : " + totalDc);
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 		}
 	})
 	
@@ -1232,20 +1237,20 @@ text-align:left;
 		$(".pointinput2").val(allPointUse);
 // 		$(".discount").text(allPointUse);
 		totalDc = Number($(".pointinput2").val());
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" +(totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 			console.log("grade : " + grade);
+// 			console.log("sumPrice : " + sumPrice);
+// 			console.log("totalDc : " + totalDc);
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 		}
 	})
 	
@@ -1261,21 +1266,21 @@ text-align:left;
 	            	for(i=0; i < resp.length; i++){
 	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += resp[i].totalPrice;
-	            		
+	            		arrG_name[i] = resp[i].g_name;
+	            		arrSales_count[i] = resp[i].cartstock;
+	            		arrTotalPrice[i] = resp[i].totalPrice;
+	            		arrG_seq[i] = resp[i].g_seq;
+	            		arrEmail = resp[i].email;
+	            		console.log(arrG_name);
+	            		console.log(arrSales_count);
 // 	            		title = resp[i].g_name;
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
-	            			console.log(title);
+// 	            			console.log(title);
 	            		}else{
-	            			title = resp[i].g_name + "외 " + (count -1) + "개";
-	            			console.log(title);
+	            			title = resp[i].g_name + "외 " + (count - 1) + "개";
+// 	            			console.log(title);
 	            		}
-	            		console.log("sumPrice : " + sumPrice);
-	            		console.log("totalDc : " + totalDc);
-	            		console.log("finalPrice : " + finalPrice);
-	            		console.log("result : " + Number(sumPrice - totalDc + 3000));
-	            		console.log(count);
-	            		console.log(title);
 	            	}
 	            	
 // 	            	if(count == 1){
@@ -1294,22 +1299,22 @@ text-align:left;
 						for(let i = 0; i < resp.length; i++){
 							$(".myPoint1").html(resp[i].point);
 							$(".myPoint2").html(resp[i].point);
-							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" style='width:100%;'>"+resp[i].category+"</li>")
-							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+">"+resp[i].category+"</li>")
+							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
+							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							grade = resp[i].grade;
-							console.log("count : " + count);
+// 							console.log("count : " + count);
 							if(grade == "White"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-								console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 								console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 							}else if(grade == "Gray"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-								console.log("grade : " + grade);
-								console.log("sumPrice : " + sumPrice);
-								console.log("totalDc : " + totalDc);
-								console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 								console.log("grade : " + grade);
+// 								console.log("sumPrice : " + sumPrice);
+// 								console.log("totalDc : " + totalDc);
+// 								console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 							}else if(grade == "Black"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-								console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 								console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 							}
 						}
 						
@@ -1339,21 +1344,23 @@ text-align:left;
 	    
 		$(".li1").on("click", function () {
 			let text = $(this).text();
+			serial = $(this).children().val();
+			console.log(serial);
 	    	$("#select1").text(text);
 	    	$("#select2").text(text);
 	    	$(".select-ul1").toggle();
 	    	totalDc = Number($(this).attr("id"));
-	    	$(".discount").text((totalDc).toLocaleString()+"원");
+	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 			}
 		});
 	});
@@ -1363,21 +1370,22 @@ text-align:left;
 	    
 		$(".li2").on("click", function () {
 			let text = $(this).text();
+			serial = $(this).children().val();
 	    	$("#select1").text(text);
 	    	$("#select2").text(text);
 	    	$(".select-ul2").toggle();
 	    	totalDc = Number($(this).attr("id"));
-	    	$(".discount").text((totalDc).toLocaleString()+"원");
+	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 			}
 		});
 	});
@@ -1385,42 +1393,42 @@ text-align:left;
 	$(".pointinput1").on("change",function(){
 		totalDc = Number($(".pointinput1").val());
 		$(".pointinput2").val() == $(".pointinput1").val();
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
-		console.log($(".pointinput2").val());
-		console.log($(".pointinput1").val());
+// 		console.log($(".pointinput2").val());
+// 		console.log($(".pointinput1").val());
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 			console.log("grade : " + grade);
+// 			console.log("sumPrice : " + sumPrice);
+// 			console.log("totalDc : " + totalDc);
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 		}
 	})
 	
 	$(".pointinput2").on("change",function(){
 		totalDc = Number($(".pointinput2").val());
 		$(".pointinput1").val() == $(".pointinput2").val();
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+// 			console.log("grade : " + grade);
+// 			console.log("sumPrice : " + sumPrice);
+// 			console.log("totalDc : " + totalDc);
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
 		}
 	})
 	
@@ -1524,12 +1532,53 @@ text-align:left;
                 	card_quota : rsp.card_quota,
                     totalprice : rsp.paid_amount,
                     delivery_text : $(".delivery_text").val()
+
                     },
                 type:"post",
                 dataType:"json"
             }).done(function(resp){
                console.log(resp)
-            });
+               for(let i = 0; i < arrG_name.length; i++){
+                   $.ajax({
+               		url:"/pay/myGoods",
+               		data:{
+               			email : arrEmail[i],
+               			merchant_uid : rsp.merchant_uid,
+               			state : "BU",
+               			name : rsp.buyer_name,
+               			phone : rsp.buyer_tel,
+               			address1 : rsp.buyer_addr,
+                       	address2 : $(".buyer_address2").val(),
+                       	zipcode : rsp.buyer_postcode,
+                       	g_name : rsp.name,
+                       	card_name : rsp.card_name,
+                       	card_number : rsp.card_number,
+                       	card_quota : rsp.card_quota,
+                        totalprice : arrTotalPrice[i],
+                        sales_count : arrSales_count[i],
+                        addpoint : addPoint,
+                        usedpoint : totalDc,
+                        serial : serial,
+                        category : "G",
+                        g_num : 0,
+                        g_seq : arrG_seq[i],
+                        cp_discount : totalDc
+               		}
+               	}).done(function(resp){
+               		console.log("myGoods insert 성공");
+               		$.ajax({
+               			url:"/pay/point",
+               			data:{usedPoint:$(".pointinput1").val(),
+               				addPoint : addpoint}
+               		}).done(function(resp){
+               			console.log("point 정산 성공");
+               		})
+               	})
+               }
+
+            })
+            
+			location.href="/shop/success";
 
 	    } else {
 	    	 var msg = '결제에 실패하였습니다.';

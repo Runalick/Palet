@@ -9,6 +9,8 @@ import Trillion.Palet.DAO.ExticketDAO;
 import Trillion.Palet.DAO.PayDAO;
 import Trillion.Palet.DAO.ProticketDAO;
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MyGoodsDTO;
+import Trillion.Palet.DTO.MyPointDTO;
 import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.ProticketDTO;
 
@@ -29,9 +31,6 @@ public class PayService {
 		return list;
 	}
 	
-	
-	
-	
 	public int insertEx(ExticketDTO dto) {
 		int result = daoex.exticketInsert(dto);
 		return result;
@@ -41,5 +40,13 @@ public class PayService {
 	public int insertPro(ProticketDTO dto) {
 		int result = daopro.proticketInsert(dto);
 		return result;
+	}
+	
+	public int myGoods(MyGoodsDTO dto) {
+		return dao.myGoods(dto);
+	}
+	
+	public int point(MyPointDTO dto) {
+		return dao.point(dto);
 	}
 }
