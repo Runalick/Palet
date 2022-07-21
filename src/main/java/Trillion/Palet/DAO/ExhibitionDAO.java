@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.ExhibitionPicDTO;
+import Trillion.Palet.DTO.PreExhibitionDTO;
 
 
 @Repository
@@ -60,5 +61,9 @@ public int updateSalesCount(String et_title, int et_count) {
 		return mybatis.update("Exhibition.updateSalesCount", param);
 		
 	}
+
+public List<PreExhibitionDTO> getlatest3() {
+	return mybatis.selectList("Exhibition.getlatest3");
+}
 	
 }

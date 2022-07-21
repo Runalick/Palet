@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import Trillion.Palet.DAO.ExhibitionDAO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.ExhibitionPicDTO;
+import Trillion.Palet.DTO.PreExhibitionDTO;
 
 @Service
 public class ExhibitionService {
@@ -65,6 +66,10 @@ public class ExhibitionService {
 		
 		return edao.updateSalesCount(et_title, et_count+1);
 		
+	}
+
+	public List<PreExhibitionDTO> getlatest3() {
+		return edao.getlatest3();
 	}
 	
 

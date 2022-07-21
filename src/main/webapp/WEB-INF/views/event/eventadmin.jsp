@@ -463,7 +463,7 @@
 						+	"</div>"
 						+	"<div class='col'>"
 
-						+	"<button class='ok btn3' id=text_" + i + ">승인</button>"
+						+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"
 						
 						+ 	"<button class='delete btn3'>삭제</button>"
 						+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -471,26 +471,33 @@
 						+"</div>"
 						+"</div>";				
 							
-					console.log(i);
+// 					console.log(i);
 			    	$("#container").append(text_html);
 					
-			    	console.log("value: " + $("#"+i).html());
-			    	console.log($("#"+i).html() == 'Y');
-			    	console.log("resp.length : " + resp.length);
+// 			    	console.log("value: " + $("#"+i).html());
+// 			    	console.log($("#"+i).html() == 'Y');
+// 			    	console.log("resp.length : " + resp.length);
 				
 			    	
 				} 
-				for(let i=0; i<resp.length;i++){
-			    	if($("#"+i).html() == 'Y'){
-			    		$("#text_"+i).html('승인완료');
-			    		$("#text_"+i).attr("disabled",true);
-			    	}  
-	    		} 
+// 				for(let i=0; i<resp.length;i++){
+// 			    	if($("#"+i).html() == 'Y'){
+// 			    		$("#text_"+i).html('승인완료');
+// 			    		$("#text_"+i).attr("disabled",true);
+// 			    	}  
+// 	    		} 
 				
 			    	
 			},//resp
 		});	
-		
+		for(let i=0;i<$(".adminbtn").length;i++){
+			console.log($($(".adminbtn")[i]).val());
+			if($($(".adminbtn")[i]).val()=='Y'){
+				console.log($($(".adminbtn")[i]).text());
+				console.log("123");
+				$($(".adminbtn")[i]).text("승인완료");
+			}
+		}
 		
 	 	let limit = 12;
 		
