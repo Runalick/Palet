@@ -491,11 +491,9 @@
 			},//resp
 		});	
 		for(let i=0;i<$(".adminbtn").length;i++){
-			console.log($($(".adminbtn")[i]).val());
 			if($($(".adminbtn")[i]).val()=='Y'){
-				console.log($($(".adminbtn")[i]).text());
-				console.log("123");
 				$($(".adminbtn")[i]).text("승인완료");
+				$($(".adminbtn")[i]).attr("disabled","true");
 			}
 		}
 		
@@ -508,7 +506,6 @@
 		   
 		   
 		    if (maxHeight <= currentScroll+100) {
-		    	console.log("origin limit : " + limit);
 		    	$.ajax({
 					url:"/event/admincontents",
 					data:{limit : limit},
@@ -540,7 +537,7 @@
 								+	"</div>"
 								+	"<div class='col'>"
 
-								+	"<button class='ok btn3' id=text_" + i + ">승인</button>"
+								+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"
 								
 								+ 	"<button class='delete btn3'>삭제</button>"
 								+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -550,10 +547,8 @@
 							
 							//console.log(text_html);
 					    	$("#container").append(text_html); 
-					    	console.log(text_html);
 						}
 						limit = limit + resp.length;
-				    	console.log("change limit : " + limit);	
 				    	
 				    	for(let i=0; i<resp.length;i++){
 					    	if($("#"+i).html() == 'Y'){
@@ -563,7 +558,13 @@
 			    		} 
 					},
 					});
-		    	} 
+		    	}
+			for(let i=0;i<$(".adminbtn").length;i++){
+				if($($(".adminbtn")[i]).val()=='Y'){
+					$($(".adminbtn")[i]).text("승인완료");
+					$($(".adminbtn")[i]).attr("disabled","true");
+				}
+			}
 		      })   
 		      
 		     
@@ -588,7 +589,7 @@
 	
 	// 동적 쿼리로 이벤트 부여해야 동작한다.
 	$("#container").on("click", ".ok", function(){
-		console.log($(this).siblings().eq(1).val());
+// 		console.log($(this).siblings().eq(1).val());
 		$.ajax({
 			url:"/event/confirmation",
 			data: {draw_seq:$(this).siblings().eq(1).val()}
@@ -599,7 +600,9 @@
 	})
 	
 	$("#container").on("click", ".delete", function(){
-		console.log($(this).siblings("input").val())
+// 		console.log($(this).siblings("input").val())
+		let result = confirm("정말 삭제하시겟습니까?");
+		if(result){
 		$.ajax({
 			url:"/event/deleteDraw",
 			data: {draw_seq:$(this).siblings("input").val()}
@@ -607,6 +610,7 @@
 			alert(resp);
 			location.reload();
 		})
+		}
 	})
 	
 	
@@ -635,9 +639,6 @@
 			location.reload();
 		})
 	}) */
-	
-	
-	
 	
 	
 	</script>

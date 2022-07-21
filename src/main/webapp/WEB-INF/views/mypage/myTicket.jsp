@@ -626,7 +626,7 @@ li div {
 						<div class="carousel-item ">
 					</c:if>
 			     	<div class="col-12 ticket">
-			     	<input type="hidden" value="${i.et_booknumber }">
+			     	<input type="hidden" class="booknumber" value="${i.et_booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
@@ -806,14 +806,26 @@ window.onload = function(){
 				}
 		});
 		
-        var qrcode = new QRCode(document.getElementById("qr"), {
-            text: "${url}",
-            width: 90,
-            height: 90,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
+		for(let i=0;i<$(".qr").length;i++){
+			console.log($(".booknumber")[i]);
+			console.log($(".booknumber")[i].value);
+			var qrcode = new QRCode($(".qr")[i], {
+	            text: "http://localhost/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
+	            width: 90,
+	            height: 90,
+	            colorDark : "#000000",
+	            colorLight : "#ffffff",
+	            correctLevel : QRCode.CorrectLevel.H
+	        });
+		}
+//         var qrcode = new QRCode(document.getElementById("qr"), {
+//             text: "${url}",
+//             width: 90,
+//             height: 90,
+//             colorDark : "#000000",
+//             colorLight : "#ffffff",
+//             correctLevel : QRCode.CorrectLevel.H
+//         });
 	</script>
 </body>
 </html>
