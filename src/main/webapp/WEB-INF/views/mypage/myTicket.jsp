@@ -431,7 +431,9 @@ width: 44.5rem;
 	font-size:1.625rem;
 	}
 }
-
+.imgimg{
+border-radius:0.625rem;
+}
 </style>
 </head>
 <body>
@@ -641,7 +643,7 @@ width: 44.5rem;
 			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
-									<img src="${i.sysname }" class="w-100 h-100">
+									<img src="${i.sysname }" class="w-100 h-100 imgimg">
 								</div>
 								<div class="col-9" style="position: relative">
 									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
@@ -746,12 +748,20 @@ window.onload = function(){
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
 			for(let i = 0 ; i < resp.length; i++) {
+				
+				if(resp[i].category =='E'){
 		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
 						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
-		    	
+			} if(resp[i].category == 'P'){
+				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
+		    			  +"<div class='col-3' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
+					+"</div></div></div></a>"); 
+			}
 		    	  console.log("resp.length : " + resp.length);
 			}
 		},
@@ -775,11 +785,19 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
+						if(resp[i].category =='E'){
 						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
 								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
 								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
+						} if(resp[i].category == 'P'){
+							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
+					    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100 imgimg'>"
+									+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
+								+"</div></div></div></a>"); 
+						}
 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit + resp.length;
@@ -811,7 +829,10 @@ window.onload = function(){
 			cnt = $($(this).children()[0]).val();
 			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
 		})	
-		
+			$(".pticket").on("click",function(){
+			cnt = $($(this).children()[0]).val();
+			location.href="/mypage/proTicketDetailview?pro_booknumber="+cnt;
+		})	
 		$(".pre-ticket").on("click",function(){
 			cnt = $($(this).children()[0]).val();
 			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
