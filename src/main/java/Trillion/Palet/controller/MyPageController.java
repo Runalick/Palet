@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
@@ -62,11 +64,14 @@ public class MyPageController {
 		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
-		List<ExticketDTO> list =mServ.myTicket(email);
+
+		List<ExProticketDTO> list =mServ.ExProTicket(email);
+
 //		List<String> qrlist = new ArrayList<>();
 //		for(int i=0;i<list.size();i++) {
 //			qrlist.add("http://14.39.252.82/qr/useticket?et_booknumber="+list.get(i).getEt_booknumber());
 //		}
+
 		int precnt = mServ.premyTicketcnt(email);
 		
 		//현재전시
