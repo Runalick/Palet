@@ -59,6 +59,7 @@ public class MyPageController {
 	@RequestMapping("myTicket")
 	public String myTicket(Model model) {
 		String email = (String)session.getAttribute("loginEmail");
+	
 //		String email = "i2376@naver.com";
 		
 		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
@@ -66,7 +67,6 @@ public class MyPageController {
 		int cnt = mServ.myTicketcnt(email);
 
 		List<ExProticketDTO> list =mServ.ExProTicket(email);
-
 //		List<String> qrlist = new ArrayList<>();
 //		for(int i=0;i<list.size();i++) {
 //			qrlist.add("http://14.39.252.82/qr/useticket?et_booknumber="+list.get(i).getEt_booknumber());
