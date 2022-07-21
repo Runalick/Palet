@@ -91,6 +91,17 @@ public class MyPageController {
 		return prelist;
 	}
 	
+	@RequestMapping("proTicketDetailview")
+	public String proTicketDetailview(String pro_booknumber,Model model) {
+		ProticketDTO dto = mServ.proTicketDetailview(pro_booknumber);
+		System.out.println(dto.getPro_cost());
+		model.addAttribute("dto",dto);
+		if(dto.getPro_cpserial()!=null) {
+		CouponDTO cdto = cServ.getCouponName(dto.getPro_cpserial());
+		model.addAttribute("cdto",cdto);
+		}
+		return "/mypage/proTicketDetailview";
+	}
 	
 	@RequestMapping("myTicketDetailview")
 	public String myTicketDetailview(String et_booknumber,Model model) {

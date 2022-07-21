@@ -219,8 +219,8 @@
 }
 
 /*    가로 스크롤 방지 */
-.row { -
-	-bs-gutter-x: 0rem;
+.row {
+	--bs-gutter-x: 0;
 }
 /* 정렬기준 버튼(select option) */
 .form-select {

@@ -122,6 +122,8 @@ public class PayController {
 	@ResponseBody
 	@RequestMapping("myGoods")
 	public int myGoods(MyGoodsDTO dto) {
+		String email = (String)session.getAttribute("loginEmail");
+		dto.setEmail(email);
 		return pServ.myGoods(dto);
 	}
 	
