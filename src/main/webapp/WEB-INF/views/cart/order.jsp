@@ -1114,11 +1114,12 @@ text-align:left;
 		let sumPrice = 0;
 	  	let totalDc = 0;
 	  	let addPoint = 0;
+	  	let usedPoint = 0;
 	  	let grade;
 	  	let finalPrice = 0;
 	  	let count = 0;
 	  	let title;
-	  	let serial;
+	  	let serial = "inavailableCP";
 	  	let arrG_name = [];
 	  	let arrSales_count = [];
 	  	let arrTotalPrice = [];
@@ -1218,16 +1219,14 @@ text-align:left;
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 // 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 			console.log("grade : " + grade);
-// 			console.log("sumPrice : " + sumPrice);
-// 			console.log("totalDc : " + totalDc);
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1241,16 +1240,13 @@ text-align:left;
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 			console.log("grade : " + grade);
-// 			console.log("sumPrice : " + sumPrice);
-// 			console.log("totalDc : " + totalDc);
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1305,16 +1301,13 @@ text-align:left;
 // 							console.log("count : " + count);
 							if(grade == "White"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-// 								console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+								addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 							}else if(grade == "Gray"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 								console.log("grade : " + grade);
-// 								console.log("sumPrice : " + sumPrice);
-// 								console.log("totalDc : " + totalDc);
-// 								console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+								addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 							}else if(grade == "Black"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 								console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+								addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 							}
 						}
 						
@@ -1354,13 +1347,13 @@ text-align:left;
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-// 				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 			}else if(grade == "Gray"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 			}else if(grade == "Black"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		});
 	});
@@ -1379,13 +1372,13 @@ text-align:left;
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-// 				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 			}else if(grade == "Gray"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 			}else if(grade == "Black"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		});
 	});
@@ -1399,16 +1392,13 @@ text-align:left;
 // 		console.log($(".pointinput1").val());
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 			console.log("grade : " + grade);
-// 			console.log("sumPrice : " + sumPrice);
-// 			console.log("totalDc : " + totalDc);
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1419,16 +1409,13 @@ text-align:left;
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-// 			console.log("grade : " + grade);
-// 			console.log("sumPrice : " + sumPrice);
-// 			console.log("totalDc : " + totalDc);
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1542,7 +1529,6 @@ text-align:left;
                    $.ajax({
                		url:"/pay/myGoods",
                		data:{
-               			email : arrEmail[i],
                			merchant_uid : rsp.merchant_uid,
                			state : "BU",
                			name : rsp.buyer_name,
