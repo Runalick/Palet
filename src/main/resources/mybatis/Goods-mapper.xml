@@ -12,16 +12,16 @@
   	<!-- Admin  -->
   	
   	<insert id="goodsInsert1">
-  		insert into goods values(goods_seq.nextval, #{e_num}, #{g_name}, #{g_price}, #{g_option}, default, #{g_stock})
-  		<selectKey order="AFTER" keyProperty="g_num" resultType="int">
-			select goods_seq.currval from dual
+  		insert into goods values(g_seq.nextval, #{e_num}, #{g_name}, #{g_price}, #{g_option}, default, #{g_stock})
+  		<selectKey order="AFTER" keyProperty="g_seq" resultType="int">
+			select g_seq.currval from dual
 		</selectKey>
   	</insert>
   	
   	<insert id="goodsInsert2">
-  		insert into goods(g_num, e_num, g_name, g_price, sales_count, g_stock) values(goods_seq.nextval, #{e_num}, #{g_name}, #{g_price}, default, #{g_stock})
-  		<selectKey order="AFTER" keyProperty="g_num" resultType="int">
-			select goods_seq.currval from dual
+  		insert into goods(g_num, e_num, g_name, g_price, sales_count, g_stock) values(g_seq.nextval, #{e_num}, #{g_name}, #{g_price}, default, #{g_stock})
+  		<selectKey order="AFTER" keyProperty="g_seq" resultType="int">
+			select g_seq.currval from dual
 		</selectKey>
   	</insert>
   	
@@ -34,7 +34,7 @@
   	</select>
   	
   	<select id="goodsJoinSelectByPage" resultType="Trillion.Palet.DTO.GoodsDTO">
-  		select * from (select row_number() over(order by g_seq desc) line, e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, e_name from goods g join exhibition e using(e_num)) where line between #{start} and #{end}
+  		select * from (select row_number() over(order by g_seq desc) line, e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join preexhibition e on(g.e_num = e.pe_seq)) where line between #{start} and #{end}
   		<trim prefix="order by">
   			<if test="order == 'line'">line</if>
 	  		<if test="order == 'e_num'">e_num</if>
@@ -43,7 +43,7 @@
 	  		<if test="order == 'g_name'">g_name</if>
 	  		<if test="order == 'g_num'">g_num</if>
 	  		<if test="order == 'g_stock'">g_stock</if>
-	  		<if test="order == 'e_name'">e_name</if>
+	  		<if test="order == 'pe_name'">pe_name</if>
   		</trim>	
   	</select>
   	
@@ -53,7 +53,7 @@
   	
   	<select id="getGoodsJoinTotalCount" resultType="int">
   		select count(*) from 
-  		(select e_num, g_num, g_name, g_price, g_option, g.sales_count, g_stock, e_name from goods g join exhibition e using(e_num))
+  		(select e_num, g_num, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join preexhibition e on(g.e_num =  e.pe_seq))
   	</select>
   	
   	<delete id="goodsCheckDelete">
@@ -65,7 +65,7 @@
   	</update>
   	
   	<select id="getGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
-  		select e_num, g_num, g_name, g_price, g_option, g.sales_count, g_stock, e_name from goods g join exhibition e using(e_num) where g_num = #{value}
+  		select e_num, g_num, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join exhibition e on(g.e_num = e.pe_seq) where g_num = #{value}
   	</select>
   	
   	<!-- Admin Fin  -->
