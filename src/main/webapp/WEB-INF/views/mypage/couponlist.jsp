@@ -18,6 +18,8 @@
 	integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
 	crossorigin="anonymous"></script>
 <!-- 지도api -->
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <style>
 @charset "UTF-8";
@@ -405,8 +407,8 @@ button {
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -451,8 +453,8 @@ button {
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -652,6 +654,54 @@ button {
 						$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 					}
 				})
+
+		let click = true;
+		$("#select")
+				.on(
+						"click",
+						function() {
+							if (click == false) {
+								$("#select")
+										.css(
+												{
+													"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ",
+													"background-size" : "1.596rem"
+												});
+								$(".navi-menu").css({
+									"display" : "none"
+								});
+
+								click = true;
+							} else {
+								$("#select")
+										.css(
+												{
+													"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ",
+													"background-size" : "01.596rem"
+												});
+								$(".navi-menu").css({
+									"display" : "block"
+								});
+								click = false;
+							}
+						});
+		
+		$(".logout").on("click", function(){
+	         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	         Kakao.isInitialized();
+	         if (!Kakao.Auth.getAccessToken()) {
+	            console.log('Not logged in.');
+	            location.href="/member/logout";
+	             return ;
+	         }
+	         
+	          Kakao.Auth.logout(function() {
+	               console.log(Kakao.Auth.getAccessToken());
+	               location.href="/member/logout";
+	             });
+	         return true;
+	      });
+
 			}
 			if($(".active").attr("id") == "Y"){
 				$.ajax({
@@ -702,12 +752,13 @@ button {
 					}
 					if(resp=="registration"){
 						alert("쿠폰이 등록되었습니다.");
+						location.reload();
 						$(".serialInput").val("");
 					}
 				})
 			}
-			
 		})
+
 	</script>
 </body>
 </html>

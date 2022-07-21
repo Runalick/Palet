@@ -134,7 +134,7 @@ public class MypageDAO {
 		Map<String,String> param = new HashMap<>();
 		param.put("email", email);
 		param.put("serial", serial);
-		return mybatis.update("Mypage.couponRegist", param);
+		return mybatis.update("MyPage.couponRegist", param);
 	}
 
 	

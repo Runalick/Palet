@@ -105,23 +105,25 @@ where et_state like '%C') where email = #{email}
 		<result property="line" column="line"/>
 		<result property="merchant_uid" column="merchant_uid"/>
 		<result property="pay_time" column="pay_time"/>
-		<result property="merchant_uid" column="merchant_uid"/>
 		<result property="g_name" column="p.g_name"/>
-		<result property="g_num" column="g_num"/>
-		<result property="e_name" column="e_name"/>
-		<result property="gp_sysname" column="gp_sysname"/>
+		<result property="g_num" column="p.g_num"/>
 		<result property="g_option" column="p.g_option"/>
 		<result property="g_count" column="g_count"/>
 		<result property="totalprice" column="totalprice"/>
 		<result property="state" column="state"/>
+		<result property="pe_name" column="pe_name"/>
+		<result property="g_seq" column="g_seq"/>
+		<result property="gp_sysname" column="gp_sysname"/>
 	</resultMap>
 
 	<select id="myShopping" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-		select * from (select row_number() over(order by merchant_uid) line, merchant_uid, TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time, p.g_name, g_num, e_name, gp_sysname, p.g_option, g_count, totalprice, state
-		from payment p join goods g using (g_num)
-		left join exhibition e using (e_num)
-		join goodspic gp using (g_num)
-		where email = #{email}) where line between #{limit} and #{limit}+9
+		select * from (select row_number() over(order by merchant_uid) line, merchant_uid, 
+		TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time, 
+		p.g_name, p.g_num, p.g_option, g_count, totalprice, state, g_seq, pe_name, gp_sysname
+		from payment p join goods g using (g_seq)
+		join preexhibition e on (g.e_num = e.pe_seq)
+		join goodspic gp on (g.g_num = gp.g_num)
+		where email = #{email})where line between #{limit} and #{limit}+9
 	</select>
 	
 	
@@ -130,8 +132,9 @@ where et_state like '%C') where email = #{email}
 	</select>
 	
 	<resultMap type="HashMap" id="productMap">
-		<result property="e_name" column="e_name"/>
-		<result property="g_name" column="g_name"/>
+		<result property="pe_name" column="pe_name"/>
+		<result property="g_num" column="g.g_num"/>
+		<result property="g_name" column="p.g_name"/>
 		<result property="g_count" column="g_count"/>
 		<result property="g_option" column="p.g_option"/>
 		<result property="gp_sysname" column="gp_sysname"/>
@@ -140,12 +143,14 @@ where et_state like '%C') where email = #{email}
 		<result property="usedpoint" column="usedpoint"/>
 		<result property="cpdiscount" column="cpdiscount"/>
 		<result property="cpserial" column="cpserial"/>
+		<result property="pe_img" column="pe_img"/>
 	</resultMap>
 	
 	<select id="myShoppingProduct" parameterType="HashMap" resultType="HashMap" resultMap="productMap">
-		select e_name, g_name, g_count, p.g_option, gp_sysname, totalprice, point, usedpoint, cpdiscount, cpserial              
+		select pe_name, g.g_num, p.g_name, g_count, p.g_option, gp_sysname, totalprice, point, usedpoint, cpdiscount, cpserial, pe_img              
 		from goodspic gp join payment p using (g_num)
-		join exhibition e using (e_num)
+		join goods g on(g.g_seq = p.g_seq)
+		join preexhibition e on (g.e_num = e.pe_seq)
 		where merchant_uid=#{merchant_uid}
 	</select>
 	

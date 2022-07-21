@@ -43,7 +43,7 @@
 	<select id="selectAll" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
 	   select * from(select row_number() over(order by draw_seq desc) as num, 
 		draw_seq, d_title, painter, d_file, email, admin_ok from drawing order by admin_ok ASC, draw_seq) 
-		where num between #{limit} and #{limit}+10
+		where num between #{limit} and #{limit}+11
 	</select>
 	
 	<select id="selectTitle" resultType="String">
