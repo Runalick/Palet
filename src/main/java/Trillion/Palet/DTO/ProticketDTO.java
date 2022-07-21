@@ -23,15 +23,18 @@ public class ProticketDTO {
 	private String pro_cpserial;
 	private Timestamp pro_buydate;
 	private String pro_category;
+	private int p_num;
 	
 	
 	public ProticketDTO() {}
+	
+	
 
 
 	public ProticketDTO(String pro_email, String pro_title, String pro_place, String pro_date, String pro_pickdate,
 			String pro_booknumber, String pro_state, String pro_username, String pro_phone, String pro_paymethod,
 			String pro_cardnumber, String pro_cardquota, int pro_cost, int pro_count, int pro_point, int pro_usedpoint,
-			int pro_cpdiscount, String pro_cpserial, Timestamp pro_buydate, String pro_category) {
+			int pro_cpdiscount, String pro_cpserial, Timestamp pro_buydate, String pro_category, int p_num) {
 		super();
 		this.pro_email = pro_email;
 		this.pro_title = pro_title;
@@ -53,6 +56,7 @@ public class ProticketDTO {
 		this.pro_cpserial = pro_cpserial;
 		this.pro_buydate = pro_buydate;
 		this.pro_category = pro_category;
+		this.p_num = p_num;
 	}
 
 
@@ -63,11 +67,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_email(String pro_email) {
 		this.pro_email = pro_email;
 	}
-
 
 
 	public String getPro_title() {
@@ -75,11 +77,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_title(String pro_title) {
 		this.pro_title = pro_title;
 	}
-
 
 
 	public String getPro_place() {
@@ -87,11 +87,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_place(String pro_place) {
 		this.pro_place = pro_place;
 	}
-
 
 
 	public String getPro_date() {
@@ -99,11 +97,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_date(String pro_date) {
 		this.pro_date = pro_date;
 	}
-
 
 
 	public String getPro_pickdate() {
@@ -111,11 +107,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_pickdate(String pro_pickdate) {
 		this.pro_pickdate = pro_pickdate;
 	}
-
 
 
 	public String getPro_booknumber() {
@@ -123,11 +117,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_booknumber(String pro_booknumber) {
 		this.pro_booknumber = pro_booknumber;
 	}
-
 
 
 	public String getPro_state() {
@@ -135,11 +127,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_state(String pro_state) {
 		this.pro_state = pro_state;
 	}
-
 
 
 	public String getPro_username() {
@@ -147,11 +137,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_username(String pro_username) {
 		this.pro_username = pro_username;
 	}
-
 
 
 	public String getPro_phone() {
@@ -159,11 +147,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_phone(String pro_phone) {
 		this.pro_phone = pro_phone;
 	}
-
 
 
 	public String getPro_paymethod() {
@@ -171,11 +157,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_paymethod(String pro_paymethod) {
 		this.pro_paymethod = pro_paymethod;
 	}
-
 
 
 	public String getPro_cardnumber() {
@@ -183,11 +167,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_cardnumber(String pro_cardnumber) {
 		this.pro_cardnumber = pro_cardnumber;
 	}
-
 
 
 	public String getPro_cardquota() {
@@ -195,11 +177,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_cardquota(String pro_cardquota) {
 		this.pro_cardquota = pro_cardquota;
 	}
-
 
 
 	public int getPro_cost() {
@@ -207,11 +187,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_cost(int pro_cost) {
 		this.pro_cost = pro_cost;
 	}
-
 
 
 	public int getPro_count() {
@@ -219,11 +197,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_count(int pro_count) {
 		this.pro_count = pro_count;
 	}
-
 
 
 	public int getPro_point() {
@@ -231,11 +207,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_point(int pro_point) {
 		this.pro_point = pro_point;
 	}
-
 
 
 	public int getPro_usedpoint() {
@@ -243,11 +217,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_usedpoint(int pro_usedpoint) {
 		this.pro_usedpoint = pro_usedpoint;
 	}
-
 
 
 	public int getPro_cpdiscount() {
@@ -255,11 +227,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_cpdiscount(int pro_cpdiscount) {
 		this.pro_cpdiscount = pro_cpdiscount;
 	}
-
 
 
 	public String getPro_cpserial() {
@@ -267,11 +237,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_cpserial(String pro_cpserial) {
 		this.pro_cpserial = pro_cpserial;
 	}
-
 
 
 	public Timestamp getPro_buydate() {
@@ -279,11 +247,9 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_buydate(Timestamp pro_buydate) {
 		this.pro_buydate = pro_buydate;
 	}
-
 
 
 	public String getPro_category() {
@@ -291,12 +257,22 @@ public class ProticketDTO {
 	}
 
 
-
 	public void setPro_category(String pro_category) {
 		this.pro_category = pro_category;
 	}
-	
-	
+
+
+	public int getP_num() {
+		return p_num;
+	}
+
+
+	public void setP_num(int p_num) {
+		this.p_num = p_num;
+	}
+
+
+
 	
 	
 	

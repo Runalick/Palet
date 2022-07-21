@@ -624,20 +624,36 @@ a {
 
 						<div class="col h2" id=po
 							style="text-align: left; margin-top: 5.781rem;">
-							<span class="h2 price">9,000원</span> <img
+							<span class="h2 price">9,000원</span>
+							
+							
+							 <img
 								src="/images/minusbutton.png" type="button"
 								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
-								class="minusbutton"> <span class="body1 count"
-								style="color: #161C24; margin-left: 1rem;">1</span> <img
+								class="minusbutton">
+								
+								 <span class="body1 count"
+								style="color: #161C24; margin-left: 1rem;">1</span>
+								
+								 <img
 								type="button" class=plusbutton src="/images/plusbutton.png"
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
+							
+							
 							<ul style="float: right; list-style: none;">
 								<li style="float: left"><img src="/images/share.png"
 									class="modalbtn share">
 								<li style="float: right; margin-left: 15px;"><button
 										class=bookbutton>예매하기</button>
 							</ul>
+							
+							
+							
 							<!-- <button class=bookbutton style="position: absolute; right: 0px;">예매하기</button> -->
+							
+						<!-- 		$(this).parent().next().val($($(this).parent().siblings()[2]).text());//개수
+		$(this).parent().next().next().val($($(this).parent().siblings()[0]).text());//가격 -->
+							
 							<input type=hidden name=count class=count1> <input
 								type=hidden name=price class=price1>
 
@@ -647,6 +663,9 @@ a {
 					</form>
 				</div>
 
+
+	<!-- 	$(this).parent().next().val($($(this).siblings()[2]).text());
+		$(this).parent().next().next().val($($(this).siblings()[0]).text()); -->
 
 
 
@@ -800,9 +819,14 @@ a {
 </body>
 <script>
 	$(".bookbutton").on("click", function() {
+		console.log('hi11');
+		
+		//console.log($(this).parent().siblings()[2]).text());
+	
 
-		$(this).next().val($($(this).siblings()[2]).text());
-		$(this).next().next().val($($(this).siblings()[0]).text());
+
+	 	$(this).parent().parent().next().val($($(this).parent().parent().siblings()[2]).text());//개수
+		$(this).parent().parent().next().next().val($($(this).parent().parent().siblings()[0]).text());//가격 */
 
 		location.href = "/Exhibition/toBook";
 	})
