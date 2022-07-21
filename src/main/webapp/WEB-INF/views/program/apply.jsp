@@ -41,7 +41,7 @@
 		max-width: 1280px;
 	}
 	html {
-		font-size: 12px;
+		font-size: 16px;
 	}
 }
 
@@ -575,6 +575,7 @@ input::placeholder {
 }
 
 #calendar {
+height:33rem;
 	color: black !important;
 	text-color: black !important;
 }
@@ -609,6 +610,10 @@ input::placeholder {
 	color: #161C24 !important;
 }
 
+/* .container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+} */
 /* #calendar{
 border-radius: 20px !important;
 }
@@ -628,347 +633,353 @@ border-radius: 20px !important;
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container">
-			<c:choose>
-				<c:when test="${loginEmail =='admin@palet.com'}">
-					<div class="row" id="container1">
-						<nav class="navbar navbar-expand-md bg-light navbar-light">
-							<div class="container" id="navparent"
-								style="overflow: visible; position: fixed; background: white; z-index: 9;">
-								<a class="navbar-brand" href="/" id="container"
-									style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+		<div class="container-fluid">
+			<div class="container">
+				<c:choose>
+					<c:when test="${loginEmail =='admin@palet.com'}">
+						<div class="row" id="container1">
+							<nav class="navbar navbar-expand-md bg-light navbar-light">
+								<div class="container" id="navparent"
+									style="overflow: visible; position: fixed; background: white; z-index: 9;">
+									<a class="navbar-brand" href="/" id="container"
+										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-								<div style="height: 5rem;">
-									<button class="navbar-toggler" type="button"
-										data-bs-toggle="collapse" style="margin-top: 15px;"
-										data-bs-target="#collapsibleNavbar">
-										<span class="navbar-toggler-icon"></span>
-									</button>
+									<div style="height: 5rem;">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse" style="margin-top: 15px;"
+											data-bs-target="#collapsibleNavbar">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
+
+									<div class="collapse navbar-collapse justify-content-end"
+										id="collapsibleNavbar">
+										<ul class="navbar-nav" style="background: white;">
+											<li class="nav-item"><a id="About" class="nav-link"
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+											</li>
+
+											<li class="nav-item"><a id="Exhibition" class="nav-link"
+												href="/Exhibition/toCurExhibition"
+												style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+											</li>
+
+											<li class="nav-item"><a id="Program" class="nav-link"
+												href="/program/toProgram"
+												style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+
+											<li class="nav-item"><a id="Shop" class="nav-link"
+												href="/shop/toShop"
+												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+
+											<li class="nav-item"><a id="Logout" class="nav-link"
+												href="/member/loginPage" onclick="return logout();"
+												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+
+											<li class="nav-item"><a id="Admin" class="nav-link"
+												href="/admin/adminMain"
+												style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+
+										</ul>
+									</div>
 								</div>
+							</nav>
+						</div>
+					</c:when>
 
-								<div class="collapse navbar-collapse justify-content-end"
-									id="collapsibleNavbar">
-									<ul class="navbar-nav" style="background: white;">
-										<li class="nav-item"><a id="About" class="nav-link"
-											href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-										</li>
+					<c:when test="${loginEmail != null}">
+						<div class="row" id="container1">
+							<nav class="navbar navbar-expand-md bg-light navbar-light">
+								<div class="container" id="navparent" style="overflow: visible;">
+									<a class="navbar-brand" href="/" id="container"
+										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-										<li class="nav-item"><a id="Exhibition" class="nav-link"
-											href="/Exhibition/toCurExhibition"
-											style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-										</li>
+									<div style="height: 5rem;">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse" style="margin-top: 15px;"
+											data-bs-target="#collapsibleNavbar">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
 
-										<li class="nav-item"><a id="Program" class="nav-link"
-											href="/program/toProgram"
-											style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+									<div class="collapse navbar-collapse justify-content-end"
+										id="collapsibleNavbar">
+										<ul class="navbar-nav" style="background: white;">
+											<li class="nav-item"><a id="About" class="nav-link"
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+											</li>
 
-										<li class="nav-item"><a id="Shop" class="nav-link"
-											href="/shop/toShop"
-											style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+											<li class="nav-item"><a id="Exhibition" class="nav-link"
+												href="/Exhibition/toCurExhibition"
+												style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+											</li>
 
-										<li class="nav-item"><a id="Logout" class="nav-link"
-											href="/member/loginPage" onclick="return logout();"
-											style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+											<li class="nav-item"><a id="Program" class="nav-link"
+												href="/program/toProgram"
+												style="padding-left: 0px; padding-right: 0px;">Program</a></li>
 
-										<li class="nav-item"><a id="Admin" class="nav-link"
-											href="/admin/adminMain"
-											style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
+											<li class="nav-item"><a id="Shop" class="nav-link"
+												href="/shop/toShop"
+												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
-									</ul>
+											<li class="nav-item"><a id="Cart" class="nav-link"
+												href="/cart/cartlist"
+												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
+
+											<li class="nav-item"><a id="Logout" class="nav-link"
+												href="/member/loginPage" onclick="return logout();"
+												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+
+											<li class="nav-item"><a id="Mypage" class="nav-link"
+												href="/mypage/main"
+												style="padding-left: 0px; padding-right: 0px;">Mypage</a></li>
+
+										</ul>
+									</div>
 								</div>
-							</div>
-						</nav>
-					</div>
-				</c:when>
+							</nav>
+						</div>
+					</c:when>
 
-				<c:when test="${loginEmail != null}">
-					<div class="row" id="container1">
-						<nav class="navbar navbar-expand-md bg-light navbar-light">
-							<div class="container" id="navparent" style="overflow: visible;">
-								<a class="navbar-brand" href="/" id="container"
-									style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+					<c:otherwise>
+						<div class="row" id="container1">
+							<nav class="navbar navbar-expand-md bg-light navbar-light">
+								<div class="container" id="navparent" style="overflow: visible;">
+									<a class="navbar-brand" href="/" id="container"
+										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
-								<div style="height: 5rem;">
-									<button class="navbar-toggler" type="button"
-										data-bs-toggle="collapse" style="margin-top: 15px;"
-										data-bs-target="#collapsibleNavbar">
-										<span class="navbar-toggler-icon"></span>
-									</button>
+									<div style="height: 5rem;">
+										<button class="navbar-toggler" type="button"
+											data-bs-toggle="collapse" style="margin-top: 15px;"
+											data-bs-target="#collapsibleNavbar">
+											<span class="navbar-toggler-icon"></span>
+										</button>
+									</div>
+
+									<div class="collapse navbar-collapse justify-content-end"
+										id="collapsibleNavbar">
+										<ul class="navbar-nav" style="background: white;">
+											<li class="nav-item"><a id="About" class="nav-link"
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+											</li>
+
+											<li class="nav-item"><a id="Exhibition" class="nav-link"
+												href="/Exhibition/toCurExhibition"
+												style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
+											</li>
+
+											<li class="nav-item"><a id="Program" class="nav-link"
+												href="/program/toProgram"
+												style="padding-left: 0px; padding-right: 0px;">Program</a></li>
+
+											<li class="nav-item"><a id="Shop" class="nav-link"
+												href="/shop/toShop"
+												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
+
+											<li class="nav-item"><a id="Login" class="nav-link"
+												href="/member/loginPage"
+												style="padding-left: 0px; padding-right: 0px;">Login</a></li>
+
+											<li class="nav-item"><a id="Signup" class="nav-link"
+												href="/member/join"
+												style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
+
+										</ul>
+									</div>
 								</div>
-
-								<div class="collapse navbar-collapse justify-content-end"
-									id="collapsibleNavbar">
-									<ul class="navbar-nav" style="background: white;">
-										<li class="nav-item"><a id="About" class="nav-link"
-											href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-										</li>
-
-										<li class="nav-item"><a id="Exhibition" class="nav-link"
-											href="/Exhibition/toCurExhibition"
-											style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-										</li>
-
-										<li class="nav-item"><a id="Program" class="nav-link"
-											href="/program/toProgram"
-											style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-
-										<li class="nav-item"><a id="Shop" class="nav-link"
-											href="/shop/toShop"
-											style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-
-										<li class="nav-item"><a id="Cart" class="nav-link"
-											href="/cart/cartlist"
-											style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
-
-										<li class="nav-item"><a id="Logout" class="nav-link"
-											href="/member/loginPage" onclick="return logout();"
-											style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
-
-										<li class="nav-item"><a id="Mypage" class="nav-link"
-											href="/mypage/main"
-											style="padding-left: 0px; padding-right: 0px;">Mypage</a></li>
-
-									</ul>
-								</div>
-							</div>
-						</nav>
-					</div>
-				</c:when>
-
-				<c:otherwise>
-					<div class="row" id="container1">
-						<nav class="navbar navbar-expand-md bg-light navbar-light">
-							<div class="container" id="navparent" style="overflow: visible;">
-								<a class="navbar-brand" href="/" id="container"
-									style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-
-								<div style="height: 5rem;">
-									<button class="navbar-toggler" type="button"
-										data-bs-toggle="collapse" style="margin-top: 15px;"
-										data-bs-target="#collapsibleNavbar">
-										<span class="navbar-toggler-icon"></span>
-									</button>
-								</div>
-
-								<div class="collapse navbar-collapse justify-content-end"
-									id="collapsibleNavbar">
-									<ul class="navbar-nav" style="background: white;">
-										<li class="nav-item"><a id="About" class="nav-link"
-											href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-										</li>
-
-										<li class="nav-item"><a id="Exhibition" class="nav-link"
-											href="/Exhibition/toCurExhibition"
-											style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-										</li>
-
-										<li class="nav-item"><a id="Program" class="nav-link"
-											href="/program/toProgram"
-											style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-
-										<li class="nav-item"><a id="Shop" class="nav-link"
-											href="/shop/toShop"
-											style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-
-										<li class="nav-item"><a id="Login" class="nav-link"
-											href="/member/loginPage"
-											style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-
-										<li class="nav-item"><a id="Signup" class="nav-link"
-											href="/member/join"
-											style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-
-									</ul>
-								</div>
-							</div>
-						</nav>
-					</div>
-				</c:otherwise>
+							</nav>
+						</div>
+					</c:otherwise>
 
 
 
 
-			</c:choose>
+				</c:choose>
+			</div>
+
 		</div>
+		<!-- 큰 화면 신청자 -->
+		<div class="container mt-3">
+			<div class=row>
+				<div class="col-12">
+					<div class=row>
+						<div class="col-lg-7 col-12 d-none d-sm-block"
+							style="padding-left: 1.564rem;">
+							<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
+							<div class="row rec1" style="margin-top: 2rem;">
+								<div class="col-12 mt-3">이름</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 username"
+										placeholder="신청자 이름을 입력해 주세요." style = "text-align:center" required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 phone" style = "text-align:center"
+										placeholder="전화번호를 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+									<input type=text class="input1 email"
+										style="text-align: center;" value="${loginEmail}" readonly>
+								</div>
 
-	</div>
-	<!-- 큰 화면 신청자 -->
-	<div class="container mt-3">
-		<div class=row>
-			<div class="col-12">
-				<div class=row>
-					<div class="col-lg-7 col-12 d-none d-sm-block"
-						style="padding-left: 1.564rem;">
-						<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
-						<div class="row rec1" style="margin-top: 2rem;">
-							<div class="col-12 mt-3">이름</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 username"
-									placeholder="신청자 이름을 입력해 주세요." required>
-							</div>
-							<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 phone"
-									placeholder="전화번호를 입력해 주세요." required>
-							</div>
-							<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-							<div class="col-12 mb-4" style="margin-top: 0.5rem;">
-								<input type=text class="input1 email"
-									style="text-align: center;" value="${loginEmail}" readonly>
+								<div class=col-12 style="margin-top: 1.5rem;">날짜</div>
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+									<input type=text class="input1 date"
+										style="text-align: center; color:#ff4842; font-weight :bold;'" readonly>
+								</div>
+
+
 							</div>
 
-							<div class=col-12 style="margin-top: 1.5rem;">날짜</div>
-							<div class="col-12 mb-4" style="margin-top: 0.5rem;">
-								<input type=text class="input1 date" style="text-align: center;"
-									readonly>
-							</div>
+						</div>
+						<div class="col-lg-1 col-12"></div>
+						<!-- 작은 화면 신청자 -->
 
+						<div class="col-lg-7 col-12 d-block d-sm-none"
+							style="padding-left: 1.564rem; text-align: center;">
+							<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
+							<div class="row rec1 mb-5">
+								<div class="col-12 mt-3">이름</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 username" style = "text-align:center"
+										placeholder="신청자 이름을 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
+								<div class=col-12 style="margin-top: 0.5rem;">
+									<input type=text class="input1 phone" style = "text-align:center"
+										placeholder="전화번호를 입력해 주세요." required>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
+								<div class="col-12 mb-5" style="margin-top: 0.5rem;">
+									<input type=text class="input1 email" 
+										style="text-align: center;" value="${loginEmail}" readonly>
+								</div>
+								<div class=col-12 style="margin-top: 1.5rem;">날짜</div>
+								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+									<input type=text class="input1 date"
+										style="text-align: center; color:#ff4842; font-weight :bold;'" readonly>
+								</div>
+							</div>
+						</div>
+						<!-- 달력-->
+						<div class="col-lg-4 col-12"
+							style="padding-left: 1.564rem; color: black;" id="calendar">
 
 						</div>
 
 					</div>
-					<div class="col-lg-1 col-12"></div>
-					<!-- 작은 화면 신청자 -->
-
-					<div class="col-lg-7 col-12 d-block d-sm-none"
-						style="padding-left: 1.564rem; text-align: center;">
-						<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
-						<div class="row rec1 mb-5">
-							<div class="col-12 mt-3">이름</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 username"
-									placeholder="신청자 이름을 입력해 주세요." required>
-							</div>
-							<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 phone"
-									placeholder="전화번호를 입력해 주세요." required>
-							</div>
-							<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-							<div class="col-12 mb-5" style="margin-top: 0.5rem;">
-								<input type=text class="input1 email"
-									style="text-align: center;" value="${loginEmail}" readonly>
-							</div>
-						</div>
-					</div>
-					<!-- 달력-->
-					<div class="col-lg-4 col-12"
-						style="padding-left: 1.564rem; color: black;" id="calendar">
-
-					</div>
-
 				</div>
 			</div>
 		</div>
-	</div>
 
 
 
 
-	<!-- 큰 화면 프로그램 -->
-	<div class="container mt-5">
-		<div class=row>
-			<div class="col-12">
-				<div class=row>
-					<div class="col-lg-7 col-12 d-none d-sm-block"
-						style="padding-left: 1.564rem;">
-						<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
+		<!-- 큰 화면 프로그램 -->
+		<div class="container mt-5">
+			<div class=row>
+				<div class="col-12">
+					<div class=row>
+						<div class="col-lg-7 col-12 d-none d-sm-block"
+							style="padding-left: 1.564rem;">
+							<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
 
 
-						<div class="row rec1"
-							style="margin-top: 2rem; height: 12rem; position: relative;">
+							<div class="row rec1"
+								style="margin-top: 2rem; height: 12rem; position: relative;">
 
 
-							<div class="col-lg-3 col-5">
-								<img src="/images/kidclass.png"
-									style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
+								<div class="col-lg-3 col-5">
+									<img src="/images/kidclass.png"
+										style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
+								</div>
+
+								<div class="col-lg-12 body1 col-6"
+									style="color: #161C24; margin-top: 2.325rem; position: absolute; left: 10.5rem;">
+									키즈 워크룸:애니 메이터 프로젝트
+									<div class=h3
+										style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
+										id=totalprice>${price}</div>
+									<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
+										id=count>${count}매</div>
+
+								</div>
+							</div>
+							<div class="col-12" style="padding-left: 0rem;">
+								<ul class="info body2"
+									style="color: #637381; padding-left: 0rem;">
+									<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
+									<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
+
+									<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
+
+									<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다.
+										(보호자의 전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
+									<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용
+										부탁드립니다.</li>
+
+								</ul>
 							</div>
 
-							<div class="col-lg-12 body1 col-6"
-								style="color: #161C24; margin-top: 2.325rem; position: absolute; left: 10.5rem;">
-								키즈 워크룸:애니 메이터 프로젝트
-								<div class=h3
-									style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-									id=totalprice>${price}</div>
-								<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-									id=count>${count}매</div>
 
+
+						</div>
+
+
+
+
+						<!-- 큰 화면 결제-->
+						<div class="col-lg-1 col-12"></div>
+						<div class="col-lg-4 col-12"
+							style="margin: auto; text-align: center; padding-left: 1.564rem;">
+							<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
+								상세</div>
+							<div class="row  rec1" id=row2
+								style="margin-top: 2rem; height: 12rem;">
+								<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
+								<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
+								<div class="col-6 caption" style="text-align: center;">적립예정
+									포인트</div>
+								<div class="col-6 caption" style="text-align: center;" id=point></div>
+								<div class="col-6 caption" style="text-align: center;">포인트
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=usedpoint>0p</div>
+								<div class="col-6 caption" style="text-align: center;">쿠폰
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=coupondc>0p</div>
 							</div>
+							<div class="col-12"
+								style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
+								<button class="btn1_1" id=pay onclick="iamport()"
+									style="width: 100%;">결제하기</button>
+							</div>
+
+
+							<div class="col-12 h4 d-none d-sm-block"
+								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
+								및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
+							<div class="col-12 caption d-none d-sm-block"
+								style="margin-top: 0.4rem; text-align: left;">
+								이용약관 동의<a class=policy>보기</a>
+							</div>
+							<div class="col-12 caption d-none d-sm-block"
+								style="margin-top: 0.4rem; text-align: left;">
+								개인정보 수집 및 이용 동의<a class=policy>보기</a>
+							</div>
+							<div class="col-12 caption d-none d-sm-block"
+								style="margin-top: 0.4rem; text-align: left;">
+								결제 대행 서비스 이용약관<a class=policy>보기</a>
+							</div>
+							<div class="col-12 caption d-none d-sm-block"
+								style="margin-top: 0.4rem; text-align: left;">
+								취소 환불 규정<a class=policy>보기</a>
+							</div>
+
+
 						</div>
-						<div class="col-12" style="padding-left: 0rem;">
-							<ul class="info body2"
-								style="color: #637381; padding-left: 0rem;">
-								<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
-								<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
-
-								<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
-
-								<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다.
-									(보호자의 전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
-								<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용
-									부탁드립니다.</li>
-
-							</ul>
-						</div>
-
-
-
-					</div>
-
-
-
-
-					<!-- 큰 화면 결제-->
-					<div class="col-lg-1 col-12"></div>
-					<div class="col-lg-4 col-12"
-						style="margin: auto; text-align: center; padding-left: 1.564rem;">
-						<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
-							상세</div>
-						<div class="row  rec1" id=row2
-							style="margin-top: 2rem; height: 12rem;">
-							<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
-							<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
-							<div class="col-6 caption" style="text-align: center;">적립예정
-								포인트</div>
-							<div class="col-6 caption" style="text-align: center;" id=point></div>
-							<div class="col-6 caption" style="text-align: center;">포인트
-								할인 금액</div>
-							<div class="col-6 caption" style="text-align: center;"
-								id=usedpoint>0p</div>
-							<div class="col-6 caption" style="text-align: center;">쿠폰
-								할인 금액</div>
-							<div class="col-6 caption" style="text-align: center;"
-								id=coupondc>0p</div>
-						</div>
-						<div class="col-12"
-							style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
-							<button class="btn1_1" id=pay onclick="iamport()"
-								style="width: 100%;">결제하기</button>
-						</div>
-
-
-						<div class="col-12 h4 d-none d-sm-block"
-							style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
-							및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							이용약관 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							개인정보 수집 및 이용 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							결제 대행 서비스 이용약관<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							취소 환불 규정<a class=policy>보기</a>
-						</div>
-
-
-					</div>
 
 						<!-- 
 						<div class="col-12 h4 d-block d-sm-none"
@@ -992,192 +1003,115 @@ border-radius: 20px !important;
 						</div>
 						 -->
 
-			
-	<!-- 큰화면 쿠폰 마일리지 사용 -->
-					<div class="col-12 h3 d-none d-sm-block"
-						style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
-					<div class="col-12 body2 d-none d-sm-block"
-						style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
-					<div class="col-12 h3 d-none d-sm-block"
-						style="padding-left: 0rem; margin-top: 1.125rem;">
 
-						<select id="selectbox" class="form-select d-none d-sm-block"
-							aria-label="Default select example"
-							style="width: 23.5rem; height: 3rem;">
+						<!-- 큰화면 쿠폰 마일리지 사용 -->
+						<div class="col-12 h3 d-none d-sm-block"
+							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+						<div class="col-12 body2 d-none d-sm-block"
+							style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
+						<div class="col-12 h3 d-none d-sm-block"
+							style="padding-left: 0rem; margin-top: 1.125rem;">
 
-							<option value='0' value1="inavailableCP" selected>쿠폰을
-								선택해 주세요.</option>
-							<c:forEach var="clist" items="${clist }">
-								<option id=option1 class="option1" value="${clist.dc}"
-									value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									-${clist.dc}원</option>
+							<select id="selectbox1" class="form-select d-none d-sm-block form-select1"
+								aria-label="Default select example"
+								style="width: 23.5rem; height: 3rem;">
 
-							</c:forEach>
-						</select>
+								<option value='0' value1="inavailableCP" selected>쿠폰을 선택해 주세요.</option>
+								<c:forEach var="clist" items="${clist }">
+									<option id=option1 class="option1" value="${clist.dc}"
+										value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										-${clist.dc}원</option>
 
-					</div>
-					<div class="col-12 body2 d-none d-sm-block"
-						style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+								</c:forEach>
+							</select>
 
-					<div class="col-12 body2 d-none d-sm-block"
-						style="padding-left: 0rem; margin-top: 1.125em;">
+						</div>
+						<div class="col-12 body2 d-none d-sm-block"
+							style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
 
-						<input type=text class="body2 usedpoint"
-							style="width: 15rem; height: 3rem;">
-						<button class="h4 usedbutton"
-							style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
-							사용</button>
-					</div>
-					<div class="col-12 h5 d-none d-sm-block"
-						style="padding-left: 0rem; margin-top: 2.188em;">
-						남은마일리지 <span class=h5_1>${mdto.point }</span>
-					</div>
-				
-				
-				
-					<!--작은 면 쿠폰 마일리지 사용 -->
-					<div class="col-12 h3 d-block d-sm-none"
-						style="padding-left: 0rem; margin-top: 3.75rem; text-align:center;">쿠폰/마일리지</div>
-					<div class="col-12 body2 d-block d-sm-none"
-						style="padding-left: 0rem; margin-top: 2.188em; text-align:center;">쿠폰</div>
-					<div class="col-12 h3 d-block d-sm-none"
-						style="padding-left: 0rem; margin-top: 1.125rem; text-align:center;">
+						<div class="col-12 body2 d-none d-sm-block"
+							style="padding-left: 0rem; margin-top: 1.125em;">
 
-						<select id="selectbox" class="form-select d-block d-sm-none"
-							aria-label="Default select example"
-							style="width: 23.5rem; height: 3rem; text-align:center; margin:auto;">
-
-							<option value='0' value1="inavailableCP" class ="d-block d-sm-none" selected style="text-align:center;">쿠폰을 선택해 주세요.</option>
-							<c:forEach var="clist" items="${clist }">
-								<option id=option1 class="option1 d-block d-sm-none" value="${clist.dc}" style="text-align:center;"
-									value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									-${clist.dc}원</option>
-
-							</c:forEach>
-						</select>
-
-					</div>
-					<div class="col-12 body2 d-block d-sm-none"
-						style="padding-left: 0rem; margin-top: 2.188em; text-align:center; ">마일리지</div>
-
-					<div class="col-12 body2 d-block d-sm-none"
-						style="padding-left: 0rem; margin-top: 1.125em; text-align:center;">
-
-						<input type=text class="body2 usedpoint d-block d-sm-none"
-							style="width: 15rem; height: 3rem; text-align:center; margin:auto;">
-						<button class="h4 usedbutton d-block d-sm-none mt-4"
-							style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; margin:auto; text-align:center;">모두
-							사용</button>
-					</div>
-					<div class="col-12 h5 d-block d-sm-none"
-						style="padding-left: 0rem; margin-top: 2.188em; text-align:center;">
-						남은마일리지 <span class=h5_1>${mdto.point }</span>
-					</div>
-					
-
-
-
-
-
-
-
-
-
-					<!-- 작은 화면 프로그램 -->
-					<div class="col-lg-6 col-12 d-block d-sm-none"
-						style="padding-left: 1.564rem; margin-top: 3rem;">
-						<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
-
-
-						<div class="row rec1"
-							style="margin-top: 2rem; height: 12rem; position: relative;">
-
-
-							<div class="col-lg-3 col-5">
-								<img src="/images/kidclass.png"
-									style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
-							</div>
-
-							<div class="col-lg-12 body1 col-6"
-								style="color: #161C24; margin-top: 2.325rem; position: absolute; left: 10.5rem;">
-								키즈 워크룸:애니 메이터 프로젝트
-								<div class=h3
-									style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-									id=totalprice>${price}</div>
-								<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-									id=count>${count}매</div>
-
-							</div>
-
-
+							<input type=text class="body2 usedpoint"
+								style="width: 15rem; height: 3rem;">
+							<button class="h4 usedbutton"
+								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+								사용</button>
+						</div>
+						<div class="col-12 h5 d-none d-sm-block"
+							style="padding-left: 0rem; margin-top: 2.188em;">
+							남은마일리지 <span class="h5_1 h5_1_1" >${mdto.point }</span>
 						</div>
 
 
-					</div>
 
-
-					<!-- 작은 화면 프로그램 -->
-
-					<%-- 	 <div class="col-lg-6 col-12 d-block d-sm-none mt-5"
-							style="padding-left: 1.564rem; text-align: center;">
-							<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
-							<div class="row rec1">
-								<div class="col-12 mt-3">이름</div>
-								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." required>
-								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
-								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone"
-										placeholder="전화번호를 입력해 주세요." required>
-								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
-									<input type=text class="input1 email"
-										style="text-align: center;" value="${loginEmail}" readonly>
-								</div>
-
-							</div>
-
-						</div>
-
-						<div class="col-lg-6 col-12 mb-5"
-							style="padding-left: 1.564rem; color: black;" id="calendar">
-
-						</div> --%>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-
-
-
-	<%-- <div class="container mt-5">
-			<div class=row>
-				<div class="col-lg-7 col-12 d-none d-sm-block">
-					<div class=row id=row1>
-						<div class="col-12 h3 d-none d-sm-block">프로그램 정보</div>
+						<!--작은 면 쿠폰 마일리지 사용 -->
 						<div class="col-12 h3 d-block d-sm-none"
-							style="text-align: center;">프로그램 정보</div>
-					</div>
+							style="padding-left: 0rem; margin-top: 3.75rem; text-align: center;">쿠폰/마일리지</div>
+						<div class="col-12 body2 d-block d-sm-none"
+							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">쿠폰</div>
+						<div class="col-12 h3 d-block d-sm-none"
+							style="padding-left: 0rem; margin-top: 1.125rem; text-align: center;">
 
-					<div class=row
-						style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
+							<select id="selectbox" class="form-select d-block d-sm-none form-select2"
+								aria-label="Default select example"
+								style="width: 23.5rem; height: 3rem; text-align: center; margin: auto;">
 
-						<div class="col-lg-6 col-12 rec1"
-							style="padding-left: 0rem; height: 12rem; width: 42rem;">
-							<div class=row id=row1>
+								<option value='0' value1="inavailableCP"
+									class="d-block d-sm-none" selected style="text-align: center;">쿠폰을 선택해 주세요.</option>
+								<c:forEach var="clist" items="${clist }">
+									<option id=option2 class="option2 d-block d-sm-none"
+										value="${clist.dc}" style="text-align: center;"
+										value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										-${clist.dc}원</option>
+
+								</c:forEach>
+							</select>
+
+						</div>
+						<div class="col-12 body2 d-block d-sm-none"
+							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">마일리지</div>
+
+						<div class="col-12 body2 d-block d-sm-none"
+							style="padding-left: 0rem; margin-top: 1.125em; text-align: center;">
+
+							<input type=text class="body2 usedpoint d-block d-sm-none"
+								style="width: 15rem; height: 3rem; text-align: center; margin: auto;">
+							<button class="h4 usedbutton d-block d-sm-none mt-4"
+								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; margin: auto; text-align: center;">모두
+								사용</button>
+						</div>
+						<div class="col-12 h5 d-block d-sm-none"
+							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">
+							남은마일리지 <span class="h5_1 h5_1_2" >${mdto.point }</span>
+						</div>
+
+
+
+
+
+
+
+
+
+
+						<!-- 작은 화면 프로그램 -->
+						<div class="col-lg-6 col-12 d-block d-sm-none"
+							style="padding-left: 1.564rem; margin-top: 3rem;">
+							<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
+
+
+							<div class="row rec1"
+								style="margin-top: 2rem; height: 12rem; position: relative;">
+
+
 								<div class="col-lg-3 col-5">
 									<img src="/images/kidclass.png"
-										style="width: 10rem; height: 12rem;">
+										style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
 								</div>
-								<div class="col-lg-1 col-1"></div>
-								<div class="col-lg-8 body1 col-6"
-									style="color: #161C24; margin-top: 2.325rem;">
+
+								<div class="col-lg-12 body1 col-6"
+									style="color: #161C24; margin-top:1em; position: absolute; left: 10.5rem;">
 									키즈 워크룸:애니 메이터 프로젝트
 									<div class=h3
 										style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
@@ -1188,211 +1122,103 @@ border-radius: 20px !important;
 								</div>
 
 
-
 							</div>
+
+
 						</div>
-						<div class="col-lg-5 col-12" style="height: 2rem;"></div>
+
+
+						
+					
 					</div>
-
-
-
-					<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
-
-						<div class="col-12" style="padding-left: 0rem;">
-							<ul class="info body2"
-								style="color: #637381; padding-left: 0rem;">
-								<li>키즈워크룸은 8세~13세 어린이를 대상으로 합니다.</li>
-								<li>수업은 에듀케이터와 보조강사까지 2~3명의 전문 인력이 진행합니다.</li>
-
-								<li>수업은 120분 동안 진행되며, 학부모와 함께하는 발표 시간이 포함되어 있습니다.</li>
-
-								<li>교육실 입장은 수업 시작 20분 전부터 가능하며, 신청 아동만 수업에 참여할 수 있습니다.
-									(보호자의 전시 관람은 현장에서 안내 드릴 예정입니다.)</li>
-								<li>별도의 준비물은 필요하지 않으며 아이들이 즐겁게 수업에 참여할 수 있도록 편한 복장과 신발 착용
-									부탁드립니다.</li>
-
-
-
-
-							</ul>
-						</div>
-						<div class="col-12 h3"
-							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
-						<div class="col-12 body2"
-							style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
-						<div class="col-12 h3"
-							style="padding-left: 0rem; margin-top: 1.125rem;">
-
-							<select id="selectbox" class="form-select"
-								aria-label="Default select example"
-								style="width: 23.5rem; height: 3rem;">
-
-								<option value='0' value1="inavailableCP" selected>쿠폰을
-									선택해 주세요.</option>
-								<c:forEach var="clist" items="${clist }">
-									<option id=option1 class="option1" value="${clist.dc}"
-										value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										-${clist.dc}원</option>
-
-								</c:forEach>
-							</select>
-
-						</div>
-						<div class="col-12 body2"
-							style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
-
-						<div class="col-12 body2"
-							style="padding-left: 0rem; margin-top: 1.125em;">
-
-							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;">
-							<button class="h4 usedbutton"
-								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
-								사용</button>
-						</div>
-						<div class="col-12 h5"
-							style="padding-left: 0rem; margin-top: 2.188em;">
-							남은마일리지 <span class=h5_1>${mdto.point }</span>
-						</div>
-
-					</div>
-
-
-
-
 				</div>
-
-
-				<div class="col-lg-7 col-12 d-block d-sm-none"
-					style="padding-left: 1.564rem; text-align: center;"></div>
-				<div class="col-lg-1 col-12" style="height: 2rem;"></div>
-				<div class="col-lg-4 col-12" style="padding-left: 1.564rem;">
-					<div class="row  rec1 h-70" id=row2>
-						<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
-						<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
-						<div class="col-6 caption" style="text-align: center;">적립예정
-							포인트</div>
-						<div class="col-6 caption" style="text-align: center;" id=point></div>
-						<div class="col-6 caption" style="text-align: center;">포인트
-							할인 금액</div>
-						<div class="col-6 caption" style="text-align: center;"
-							id=usedpoint>0p</div>
-						<div class="col-6 caption" style="text-align: center;">쿠폰 할인
-							금액</div>
-						<div class="col-6 caption" style="text-align: center;" id=coupondc>0p</div>
-					</div>
-					<div class=row id=row1>
-						<div class="col-12"
-							style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
-							<button class="btn1_1" id=pay onclick="iamport()"
-								style="width: 100%;">결제하기</button>
-						</div>
-
-
-
-
-						<div class="col-12 h4 d-none d-sm-block"
-							style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불 규정을
-							확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem;">
-							이용약관 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem;">
-							개인정보 수집 및 이용 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem;">
-							결제 대행 서비스 이용약관<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem;">
-							취소 환불 규정<a class=policy>보기</a>
-						</div>
-
-
-
-
-						<div class="col-12 h4 d-block d-sm-none"
-							style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불 규정을
-							확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							이용약관 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							개인정보 수집 및 이용 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							결제 대행 서비스 이용약관<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							취소 환불 규정<a class=policy>보기</a>
-						</div>
-
-					</div>
-
-				</div>
-
-
 			</div>
-		</div> --%>
+		</div>
 
 
-	<!-- 	<div class="row">
+
+
+		<!-- 	<div class="row">
 			<div class="col" id="calendar"></div>
 
 
 		</div> -->
 
-	<div class="row w-100" id="footer"
-		style="margin-top: 12.5rem; padding: 0px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-				<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-					123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-				<br>
-				<div class="col-12 body2"
-					style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
-					1층 | contact@palet.com</div>
+		<div class="row w-100" id="footer"
+			style="margin-top: 12.5rem; padding: 0px; margin-left:0px; margin-right:0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2"
+						style="color: #637381;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
 
+				</div>
 			</div>
 		</div>
-	</div>
 	</div>
 
 
 </body>
 <script>
 
-$(".form-select").on('change',function(){
- if(${mdto.point}!=$(".h5_1").text())
+//큰화면 마일리지 사용
+$(".form-select1").on('change',function(){
+	console.log($(".h5_1").text());
+	//나한테 있는 마일리지가 사용되었다면
+ if(${mdto.point}!=$(".h5_1_1").text())
  
  {
-	 
-	 
 	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
 	return false;
  }
 
-	if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
+	if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 		$("#finalprice").text('${price}');
-		 let coupondc =  $(".form-select option:selected").val();
+		 let coupondc =  $(".form-select1 option:selected").val();
 			$('#coupondc').text(coupondc+'p');
 	}
 	else{
-   let coupondc =  $(".form-select option:selected").text();
+   let coupondc =  $(".form-select1 option:selected").text();
 	$('#coupondc').text(coupondc);
 	let price = '${price}';
 	let price1 = price.replace(",", "");
 	let price2 = price1.replace("원", "");
 	
-	$("#finalprice").text((price2-$(".form-select option:selected").val()).toLocaleString()+"원");
+	$("#finalprice").text((price2-$(".form-select1 option:selected").val()).toLocaleString()+"원");
+}
+})
+
+
+
+
+//작은화면 마일리지 사용
+$(".form-select2").on('change',function(){
+	console.log($(".h5_1_2").text());
+	//나한테 있는 마일리지가 사용되었다면
+ if(${mdto.point}!=$(".h5_1_2").text())
+ 
+ {
+	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
+	return false;
+ }
+
+	if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
+		$("#finalprice").text('${price}');
+		 let coupondc =  $(".form-select2 option:selected").val();
+			$('#coupondc').text(coupondc+'p');
+	}
+	else{
+   let coupondc =  $(".form-select2 option:selected").text();
+	$('#coupondc').text(coupondc);
+	let price = '${price}';
+	let price1 = price.replace(",", "");
+	let price2 = price1.replace("원", "");
+	
+	$("#finalprice").text((price2-$(".form-select2 option:selected").val()).toLocaleString()+"원");
 }
 })
 
@@ -1402,7 +1228,7 @@ $(".form-select").on('change',function(){
 
 
 
-
+//뒤로가기
 	$(".leftbutton").on("click", function() {
 
 		location.href = "/Exhibition/toCurExhibition";
@@ -1413,21 +1239,17 @@ $(".form-select").on('change',function(){
 	
 	
 	
-	//모두사용
+	//모두사용 큰화
 	
 	$(".usedbutton").on("click", function() {
-/* 	let p =	$(".form-select option:selected").val();
-	let a =	$(".form-select option:selected").attr('value1');
-	
-	console.log(p+'d');
-	console.log(a+'abbbbb'); */
-		if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
+console.log($(".form-select1 option:selected").text() );
+		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 			console.log('hihddi');
 			
 
 		
 		
-		if($(".h5_1").text()==0){
+		if($(".h5_1_1").text()==0){
 			
 			alert('사용 가능한 마일리지가 없습니다.');
 		return false;	
@@ -1437,7 +1259,7 @@ $(".form-select").on('change',function(){
 		let price1 = price.replace(",", "");
 		let price2 = price1.replace("원", "");
 		
-		$(".h5_1").text(0);
+		$(".h5_1_1").text(0);
 		$("#usedpoint").text('-'+${mdto.point}+"p");
 		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
 		
@@ -1447,6 +1269,38 @@ $(".form-select").on('change',function(){
 		}
 
 	})
+	
+	//모두사용 작은화면
+	
+		$(".usedbutton").on("click", function() {
+console.log($(".form-select2 option:selected").text() );
+		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
+			console.log('hihddi');
+			
+
+		
+		
+		if($(".h5_1_2").text()==0){
+			
+			alert('사용 가능한 마일리지가 없습니다.');
+		return false;	
+		}
+
+		let price = '${price}';
+		let price1 = price.replace(",", "");
+		let price2 = price1.replace("원", "");
+		
+		$(".h5_1_2").text(0);
+		$("#usedpoint").text('-'+${mdto.point}+"p");
+		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
+		
+		}else{
+			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			return false;
+		}
+
+	})
+
 
 	
 	
@@ -1459,15 +1313,15 @@ $(".form-select").on('change',function(){
 	
 	
 	$(".usedpoint").keypress(function(e) {
-		if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
+		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 		if (e.keyCode == 13) {
-			let mypoint = parseInt($(".h5_1").text());
+			let mypoint = parseInt($(".h5_1_1").text());
 			
 			let price = $("#finalprice").text();
 			let price1 = price.replace(",", "");
 			let price2 = price1.replace("원", "");
 			
-		let ipusedpoint =	$(".usedpoint").val();
+		let ipusedpoint =	$(this).val();
 		let ipusedpoint1 =	parseInt(ipusedpoint);
 		
 		let opusedpoint =	$("#usedpoint").text();
@@ -1481,19 +1335,19 @@ $(".form-select").on('change',function(){
 
 			
 			
-			if ($(".usedpoint").val() <= mypoint) {
+			if ($(this).val() <= mypoint) {
 				
-				(mypoint - $(".usedpoint").val())
+				(mypoint - $(this).val())
 
-				$(".h5_1").text(mypoint - $(".usedpoint").val());
+				$(".h5_1_1").text(mypoint - $(this).val());
 				${mdto.point }
 				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
-			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(".usedpoint").val())+'p'));
-				$("#finalprice").text((price2-$(".usedpoint").val()).toLocaleString()+"원");
-				$(".usedpoint").val('');
+			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
+				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
+				$(this).val('');
 			} else {
 				alert('사용 가능한 point를 초과하였습니다.');
-				$(".usedpoint").val('');
+				$(this).val('');
 			}
 		}
 		}else{
@@ -1502,6 +1356,58 @@ $(".form-select").on('change',function(){
 		}
 
 	})
+	
+	
+	
+	//일부마일리지 작은화면
+	
+	
+	
+	$(".usedpoint").keypress(function(e) {
+		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
+		if (e.keyCode == 13) {
+			let mypoint = parseInt($(".h5_1_2").text());
+			
+			let price = $("#finalprice").text();
+			let price1 = price.replace(",", "");
+			let price2 = price1.replace("원", "");
+			
+		let ipusedpoint =	$(this).val();
+		let ipusedpoint1 =	parseInt(ipusedpoint);
+		
+		let opusedpoint =	$("#usedpoint").text();
+		let opusedpoint1 = opusedpoint.replace('p','');
+		let opusedpoint2 = parseInt(opusedpoint1);
+		
+		console.log(ipusedpoint);
+		console.log(opusedpoint2);
+		
+		
+
+			
+			
+			if ($(this).val() <= mypoint) {
+				
+				(mypoint - $(this).val())
+
+				$(".h5_1_2").text(mypoint - $(this).val());
+				${mdto.point }
+				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
+			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
+				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
+				$(this).val('');
+			} else {
+				alert('사용 가능한 point를 초과하였습니다.');
+				$(this).val('');
+			}
+		}
+		}else{
+			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			return false;
+		}
+
+	})
+	
 	
 
 
@@ -1560,7 +1466,7 @@ document.addEventListener('DOMContentLoaded', function() {
      var calendar = new   FullCalendar.Calendar(calendarEl, {
     
        initialView: 'dayGridMonth',
-       height:390,
+ 
       // selectable:true,
      //  unselectAuto: true
      	   dateClick: function(info) {
