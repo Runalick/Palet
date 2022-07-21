@@ -1,47 +1,38 @@
 package Trillion.Palet.DTO;
 
-import java.sql.Timestamp;
-
 public class CancelListDTO {
-	private int g_seq;
+	
 	private String email;
 	private String title;
-	private int totalprice;
-	private Timestamp pay_time;
+	private String datee;
+	private String booknumber;
 	private String state;
-	private String category;
-	private String options;
+	private int cost;
+	private String buydate;
+	private String pickdate;
 	private String sysname;
-	private String mained;
-	private String uids;
+	private String category;
+	private int num;
 	
 	public CancelListDTO() {}
 
 	
-	public CancelListDTO(int g_seq, String email, String title, int totalprice, Timestamp pay_time, String state,
-			String category, String options, String sysname, String mained, String uids) {
+	public CancelListDTO(String email, String title, String datee, String booknumber, String state, int cost,
+			String buydate, String pickdate, String sysname, String category, int num) {
 		super();
-		this.g_seq = g_seq;
 		this.email = email;
 		this.title = title;
-		this.totalprice = totalprice;
-		this.pay_time = pay_time;
+		this.datee = datee;
+		this.booknumber = booknumber;
 		this.state = state;
-		this.category = category;
-		this.options = options;
+		this.cost = cost;
+		this.buydate = buydate;
+		this.pickdate = pickdate;
 		this.sysname = sysname;
-		this.mained = mained;
-		this.uids = uids;
+		this.category = category;
+		this.num = num;
 	}
 
-
-	public int getG_seq() {
-		return g_seq;
-	}
-
-	public void setG_seq(int g_seq) {
-		this.g_seq = g_seq;
-	}
 
 	public String getEmail() {
 		return email;
@@ -59,20 +50,20 @@ public class CancelListDTO {
 		this.title = title;
 	}
 
-	public int getTotalprice() {
-		return totalprice;
+	public String getDatee() {
+		return datee;
 	}
 
-	public void setTotalprice(int totalprice) {
-		this.totalprice = totalprice;
+	public void setDatee(String datee) {
+		this.datee = datee;
 	}
 
-	public Timestamp getPay_time() {
-		return pay_time;
+	public String getBooknumber() {
+		return booknumber;
 	}
 
-	public void setPay_time(Timestamp pay_time) {
-		this.pay_time = pay_time;
+	public void setBooknumber(String booknumber) {
+		this.booknumber = booknumber;
 	}
 
 	public String getState() {
@@ -83,20 +74,28 @@ public class CancelListDTO {
 		this.state = state;
 	}
 
-	public String getCategory() {
-		return category;
+	public int getCost() {
+		return cost;
 	}
 
-	public void setCategory(String category) {
-		this.category = category;
+	public void setCost(int cost) {
+		this.cost = cost;
 	}
 
-	public String getOptions() {
-		return options;
+	public String getBuydate() {
+		return buydate;
 	}
 
-	public void setOptions(String options) {
-		this.options = options;
+	public void setBuydate(String buydate) {
+		this.buydate = buydate;
+	}
+
+	public String getPickdate() {
+		return pickdate;
+	}
+
+	public void setPickdate(String pickdate) {
+		this.pickdate = pickdate;
 	}
 
 	public String getSysname() {
@@ -107,25 +106,22 @@ public class CancelListDTO {
 		this.sysname = sysname;
 	}
 
-	public String getMained() {
-		return mained;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setMained(String mained) {
-		this.mained = mained;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
-	public String getUids() {
-		return uids;
+	public int getNum() {
+		return num;
 	}
 
-	public void setUids(String uids) {
-		this.uids = uids;
+	public void setNum(int num) {
+		this.num = num;
 	}
 
-	
-	
-	
 	
 	
 }
