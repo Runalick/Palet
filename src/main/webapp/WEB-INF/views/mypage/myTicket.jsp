@@ -626,7 +626,7 @@ li div {
 						<div class="carousel-item ">
 					</c:if>
 			     	<div class="col-12 ticket">
-			     	<input type="hidden" value="${i.booknumber }">
+			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
@@ -717,10 +717,10 @@ window.onload = function(){
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
 			for(let i = 0 ; i < resp.length; i++) {
-		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
-						+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].date+"</div>"
 					+"</div></div></div></a>"); 
 		    	
 		    	  console.log("resp.length : " + resp.length);
@@ -746,10 +746,10 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
-								+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+								+"	<div class='body6' style='color: #637381;'>"+resp[i].date+"</div>"
 							+"</div></div></div></a>"); 
 				    	  console.log("resp.length : " + resp.length);
 					}
@@ -806,14 +806,26 @@ window.onload = function(){
 				}
 		});
 		
-        var qrcode = new QRCode(document.getElementById("qr"), {
-            text: "${url}",
-            width: 90,
-            height: 90,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
+		for(let i=0;i<$(".qr").length;i++){
+			console.log($(".booknumber")[i]);
+			console.log($(".booknumber")[i].value);
+			var qrcode = new QRCode($(".qr")[i], {
+	            text: "http://localhost/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
+	            width: 90,
+	            height: 90,
+	            colorDark : "#000000",
+	            colorLight : "#ffffff",
+	            correctLevel : QRCode.CorrectLevel.H
+	        });
+		}
+//         var qrcode = new QRCode(document.getElementById("qr"), {
+//             text: "${url}",
+//             width: 90,
+//             height: 90,
+//             colorDark : "#000000",
+//             colorLight : "#ffffff",
+//             correctLevel : QRCode.CorrectLevel.H
+//         });
 	</script>
 </body>
 </html>

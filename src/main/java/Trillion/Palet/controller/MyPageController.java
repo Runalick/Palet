@@ -1,5 +1,6 @@
 package Trillion.Palet.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -39,6 +40,9 @@ public class MyPageController {
 	@Autowired
 	private CouponService cServ;
 	
+	@Autowired
+	private QRController qServ;
+	
 	@RequestMapping("outline")
 	public String outline() {
 		
@@ -56,10 +60,18 @@ public class MyPageController {
 	public String myTicket(Model model) {
 		String email = (String)session.getAttribute("loginEmail");
 //		String email = "i2376@naver.com";
-		String url = "http://14.39.252.82/Exhibition/toCurdetail";
+		
+		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
+
 		List<ExProticketDTO> list =mServ.ExProTicket(email);
+
+//		List<String> qrlist = new ArrayList<>();
+//		for(int i=0;i<list.size();i++) {
+//			qrlist.add("http://14.39.252.82/qr/useticket?et_booknumber="+list.get(i).getEt_booknumber());
+//		}
+
 		int precnt = mServ.premyTicketcnt(email);
 		
 		//현재전시
@@ -68,7 +80,7 @@ public class MyPageController {
 		//지난전시
 		model.addAttribute("cnt",cnt);
 		model.addAttribute("precnt",precnt);
-		model.addAttribute("url",url);
+		model.addAttribute("url", url);
 		return "/mypage/myTicket";
 	}
 	@ResponseBody
@@ -83,14 +95,16 @@ public class MyPageController {
 	@RequestMapping("myTicketDetailview")
 	public String myTicketDetailview(String et_booknumber,Model model) {
 		
-		String url = "http://14.39.252.82/Exhibition/toCurdetail";
-		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
+
 		ExticketDTO dto = mServ.myTicketDetailview(et_booknumber);
-		
+
 		if(dto.getEt_cpserial()!=null) {
 		CouponDTO cdto = cServ.getCouponName(dto.getEt_cpserial());
 		model.addAttribute("cdto",cdto);
 		}
+//		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
+		String url = "http://14.39.252.82/qr/useticket?et_booknumber="+dto.getEt_booknumber();
+		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		model.addAttribute("url",url);
 		model.addAttribute("dto",dto);
 		
