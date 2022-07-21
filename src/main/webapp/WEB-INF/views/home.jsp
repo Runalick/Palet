@@ -71,6 +71,13 @@ border:0px;
  .preexhibition:hover{
  cursor:pointer;
  }
+ .prebtn:hover, .btn5:hover, .btngodds:hover{
+ background: #454F5B;
+ border:0px ;
+ }
+ .prebtn, .btn5, .btngodds{
+ border:0px;
+ }
 </style>
 
 
@@ -339,7 +346,7 @@ border:0px;
 			<div class="row " style="margin-top: 3.75rem; text-align: center;"
 				id="row1">
 				<div class="col-12" style="text-align: center;">
-					<button class="btn3 btn" onclick="location.href='/shop/toShop'" >전시 굿즈 더보기</button>
+					<button class="btn3 btngodds" onclick="location.href='/shop/toShop'" >전시 굿즈 더보기</button>
 				</div>
 
 
