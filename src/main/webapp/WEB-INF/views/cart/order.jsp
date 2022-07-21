@@ -1121,10 +1121,12 @@ text-align:left;
 	  	let title;
 	  	let serial = "inavailableCP";
 	  	let arrG_name = [];
+	  	let arrG_num = [];
 	  	let arrSales_count = [];
 	  	let arrTotalPrice = [];
 	  	let arrEmail = [];
 	  	let arrG_seq = [];
+	  	let arrG_option = [];
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1257,6 +1259,7 @@ text-align:left;
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
+	            	console.log("test : ");
 	            	console.log(resp);
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
@@ -1267,8 +1270,12 @@ text-align:left;
 	            		arrTotalPrice[i] = resp[i].totalPrice;
 	            		arrG_seq[i] = resp[i].g_seq;
 	            		arrEmail = resp[i].email;
+	            		arrG_num = resp[i].g_num;
+	            		arrG_option.push(resp[i].g_option);
 	            		console.log(arrG_name);
 	            		console.log(arrSales_count);
+	            		console.log("g_option");
+	            		console.log(arrG_option);
 // 	            		title = resp[i].g_name;
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
@@ -1546,9 +1553,10 @@ text-align:left;
                         usedpoint : totalDc,
                         serial : serial,
                         category : "G",
-                        g_num : 0,
+                        g_num : arrG_num[i],
                         g_seq : arrG_seq[i],
-                        cp_discount : totalDc
+                        cp_discount : totalDc,
+                        g_option : arrG_option[i]
                		}
                	}).done(function(resp){
                		console.log("myGoods insert 성공");
