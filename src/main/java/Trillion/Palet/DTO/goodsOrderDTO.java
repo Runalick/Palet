@@ -1,10 +1,9 @@
 package Trillion.Palet.DTO;
 
 public class goodsOrderDTO {
-	private int line;
 	private int cart_seq;
 	private String email;
-	private int g_num;
+	private int g_seq;
 	private int cartstock;
 	
 	private String g_name;
@@ -17,27 +16,18 @@ public class goodsOrderDTO {
 		super();
 	}
 
-	public goodsOrderDTO(int line, int cart_seq, String email, int g_num, int cartstock, String g_name, int g_price,
+	public goodsOrderDTO(int cart_seq, String email, int g_seq, int cartstock, String g_name, int g_price,
 			int totalPrice, int g_stock, String gp_sysname) {
 		super();
-		this.line = line;
 		this.cart_seq = cart_seq;
 		this.email = email;
-		this.g_num = g_num;
+		this.g_seq = g_seq;
 		this.cartstock = cartstock;
 		this.g_name = g_name;
 		this.g_price = g_price;
 		this.totalPrice = totalPrice;
 		this.g_stock = g_stock;
 		this.gp_sysname = gp_sysname;
-	}
-
-	public int getLine() {
-		return line;
-	}
-
-	public void setLine(int line) {
-		this.line = line;
 	}
 
 	public int getCart_seq() {
@@ -56,12 +46,12 @@ public class goodsOrderDTO {
 		this.email = email;
 	}
 
-	public int getG_num() {
-		return g_num;
+	public int getG_seq() {
+		return g_seq;
 	}
 
-	public void setG_num(int g_num) {
-		this.g_num = g_num;
+	public void setG_seq(int g_seq) {
+		this.g_seq = g_seq;
 	}
 
 	public int getCartstock() {
@@ -112,6 +102,7 @@ public class goodsOrderDTO {
 		this.gp_sysname = gp_sysname;
 	}
 
+	
 	
 
 	
