@@ -437,23 +437,21 @@ a {
 </style>
 <script>
 //사용할 앱의 JavaScript 키 설정
-Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-
-function logout() {
-	
-	if (!Kakao.Auth.getAccessToken()) {
-	      alert('Not logged in.')
-	      return
-	    }
-	    Kakao.Auth.logout(function() {
-	      alert('로그아웃 되었습니다.');
-	      location.href="/member/logout";
-	    })
-	
-
-	location.href = "/member/logout";
-	return true;
-}
+$(".logout").on("click", function(){
+         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+         Kakao.isInitialized();
+         if (!Kakao.Auth.getAccessToken()) {
+            console.log('Not logged in.');
+            location.href="/member/logout";
+             return ;
+         }
+         
+          Kakao.Auth.logout(function() {
+               console.log(Kakao.Auth.getAccessToken());
+               location.href="/member/logout";
+             });
+         return true;
+      });
 
 </script>
 
@@ -494,8 +492,8 @@ function logout() {
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -540,8 +538,8 @@ function logout() {
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
