@@ -339,8 +339,7 @@ $(function () {
         } else {
         	$("#agree1").prop("checked", false);
             $("#agree2").prop("checked", false);
-            $("#agree3").prop("checked", false);
-            
+            $("#agree3").prop("checked", false);      
             $("#join").attr("disabled","true");
         }
 		 

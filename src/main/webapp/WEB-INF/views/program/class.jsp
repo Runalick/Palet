@@ -76,6 +76,18 @@
 	background-color: white;
 }
 
+.navbar {
+	height: 5rem;
+	padding: 0px;
+}
+
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
+
+
+
 .nav-item {
 	margin: auoto;
 	padding-right: 20px;
@@ -430,8 +442,7 @@ padding:0px;
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container-fluid"
-			style="background-color: white;">
+		<div class="container-fluid" style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">

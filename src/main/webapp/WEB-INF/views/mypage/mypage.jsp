@@ -876,8 +876,8 @@ input {
 		let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 		let phoneResult = phoneRegex.test(phone);
 		if (!phoneResult) {
-			$("#phone").css("border", "1px solid red");
-			$("#phoneck").css("color", "red");
+			$("#phone").css("border", "1px solid #FF4842");
+			$("#phoneck").css("color", "#FF4842");
 			$("#phoneck").css("display", "inline");
 			$("#phoneokbtn").attr("disabled", "true");
 			$("#phoneck").text("올바른 핸드폰번호를 입력해주세요.");
