@@ -58,30 +58,32 @@ public class QRController {
 	}
 	
 	@RequestMapping("useticket")
-	@ResponseBody
-	public String useticket(String et_booknumber) throws Exception{
+	public String useticket(Model model,String et_booknumber) throws Exception{
 		String email= (String)session.getAttribute("loginEmail");
-		if(email.equals("admin@palet.com")) {
+		String result = "loginplz";
+		if(email==null) {
+			result="loginplz";
+		}else if(email.equals("admin@palet.com")) {
 			ExticketDTO tdto = tser.isuseticket(et_booknumber);
 			String et_state = tdto.getEt_state();
+			
 			if(et_state.equals("BU")) {
 				tser.useticket(et_booknumber);
-				return"bu";
+				result="bu";
 			}else if(et_state.equals("BC")) {
-				return"bc";
+				result="bc";
 			}else if(et_state.equals("AU")) {
-				return"au";
+				result="au";
 			}else if(et_state.equals("AC")) {
-				return"ac";
+				result="ac";
 			}
-			return "error";
 		}else if(!email.equals("admin@palet.com")) {
-			return "adminOnly";
+			result= "adminOnly";
 		}else{
-			return "loginplz";
+			result= "loginplz";
 		}
+		model.addAttribute("result",result);
+		return "/qr/result";
 	}
 	
-//	@RequestMapping()
-//	public String maketicketqr(Model model,)
 }
