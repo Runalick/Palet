@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import Trillion.Palet.DAO.ProgramDAO;
@@ -27,6 +28,7 @@ public int updateSalesCount(String pro_title, int pro_count) {
 		return pdao.programBestSeller();
 	}
 	
+	@Transactional
 	public void programInsert (ProgramDTO pdto, String realPath, MultipartFile[] file) {
 		pdao.programInsert(pdto);
 		int p_num = pdto.getP_num();

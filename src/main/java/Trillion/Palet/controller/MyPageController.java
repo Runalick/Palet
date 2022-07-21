@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
 import Trillion.Palet.DTO.CouponDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.MypageService;
@@ -57,16 +59,19 @@ public class MyPageController {
 	@RequestMapping("myTicket")
 	public String myTicket(Model model) {
 		String email = (String)session.getAttribute("loginEmail");
+	
 //		String email = "i2376@naver.com";
 		
 		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
-		List<ExticketDTO> list =mServ.myTicket(email);
+
+		List<ExProticketDTO> list =mServ.ExProTicket(email);
 //		List<String> qrlist = new ArrayList<>();
 //		for(int i=0;i<list.size();i++) {
 //			qrlist.add("http://14.39.252.82/qr/useticket?et_booknumber="+list.get(i).getEt_booknumber());
 //		}
+
 		int precnt = mServ.premyTicketcnt(email);
 		
 		//현재전시
@@ -86,6 +91,17 @@ public class MyPageController {
 		return prelist;
 	}
 	
+	@RequestMapping("proTicketDetailview")
+	public String proTicketDetailview(String pro_booknumber,Model model) {
+		ProticketDTO dto = mServ.proTicketDetailview(pro_booknumber);
+		System.out.println(dto.getPro_cost());
+		model.addAttribute("dto",dto);
+		if(dto.getPro_cpserial()!=null) {
+		CouponDTO cdto = cServ.getCouponName(dto.getPro_cpserial());
+		model.addAttribute("cdto",cdto);
+		}
+		return "/mypage/proTicketDetailview";
+	}
 	
 	@RequestMapping("myTicketDetailview")
 	public String myTicketDetailview(String et_booknumber,Model model) {

@@ -31,24 +31,25 @@
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <!-- iamport.payment.js -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-  @media ( min-width : 375px) {  
-  	.container {  
- 		max-width: 1280px;  
-  		min-width: 390px;  
-  	}  
-  	html {  
-  		font-size: 12px;  
-  	}  
-  }  
 
-@media ( min-width : 1035px) {
+@media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-		min-width: 390px;
+	}html{
+		font-size: 12px;
+	}
+}
+@media ( min-width : 1650px) {
+	.container {
+		max-width: 1280px;
 	}
 	html {
 		font-size: 16px;
@@ -69,14 +70,11 @@
 	height: 1.875rem;
 }
 
-#navparent {
-	position: fixed;
-	font-size: 0;
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-	height: 5rem;
-	background-color: white;
-	z-index: 5;
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
 .navbar {
@@ -84,9 +82,31 @@
 	padding: 0px;
 }
 
+#navparent {
+	position: fixed;
+	font-size: 0;
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+	height: 5rem;
+	background-color: white;
+}
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
+}
+
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
 }
 
 .nav-link {
@@ -116,15 +136,33 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -624,61 +662,167 @@ text-align:left;
 .default, .new{
 	cursor:pointer;
 }
+
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 </style>
 <body>
 	<!-- 네비단 -->
 	<div class="container-fluid">
-		<div class="container">
-			<div class="row" id="container1">
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
-					<div class="container" id="navparent">
-						<a class="navbar-brand" href="#" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-						<button class="navbar-toggler" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse justify-content-end"
-							id="collapsibleNavbar">
-							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="#" style="padding-left: 0px; padding-right: 0px;">Exhibition</a>
-								</li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Help" class="nav-link" href="#"
-									style="padding-left: 0px; padding-right: 0px;">Help</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
+		<div class="container-fluid"
+			style="background-color: white; position: fixed; z-index:9;">
+			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
+								</ul>
+							</div>
 						</div>
-					</div>
-				</nav>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" 
+					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				
+				
+				
+				</c:choose>
 			</div>
+
 		</div>
-	</div>
+	
 	<!-- 본문단 -->
-	<div class="container-fluid d-none d-lg-block" id="mainparent">
+	<div class="container-fluid d-none d-lg-block" id="mainparent" style="padding-top: 50px;">
 		<div class="container">
-			<div class="row" style="padding-top: 2.5rem; text-align: center;">
+			<div class="row" id="row1" style="padding-top: 2.5rem; text-align: center;">
 				<div class="col-1 margin1" id="cart">
-					<button id="backbtn">
-						<img src="/images/Vector.png">
-					</button>
+					
 				</div>
 				<div class="col-11 h2" id="ordertitle">Order / Payment</div> 
 
@@ -696,7 +840,7 @@ text-align:left;
 			<!-- 결제 부분 -->
 			
 			<div class="container" style="min-width:80rem; min-height:40rem;">	
-				<div  id="payment-area" style="position:relative">
+				<div  id="payment-area" style="position:relative; margin-right: 10px;}">
 					<div class="H3 payinfo">결제 상세</div>
 					<div class="row" id="total-area">
 						<div class="col-12" style="padding:1.75rem;">
@@ -813,7 +957,7 @@ text-align:left;
 					
 				</div>
 
-</div>
+		</div>
 				
 				
 				
@@ -828,12 +972,12 @@ text-align:left;
 				
 			</div>
 		</div>
-	</div>
+	
 	
 		<!-- 반응형 본문단 -->
 	<div class="container-fluid d-block d-lg-none" id="mainparent" style="margin-bottom:4.5rem">
 		<div class="container">
-			<div class="row" style="padding-top: 2.5rem; width:100%">
+			<div class="row" style="padding-top: 50px; width:100%">
 <!-- 				<div class="col-1 margin1" id="cart" style="width:100%"> -->
 <!-- 					<button id="backbtn"> -->
 <!-- 						<img src="/images/Vector.png"> -->
@@ -952,24 +1096,37 @@ text-align:left;
 <!-- 	<input type="hidden" class="hiddenFinalprice" value="0"> -->
 <!-- 	<input type="hidden" class="hiddenPoint" value="0"> -->
 	<!-- 푸터단 -->
-	<div class="row" id="footer">
-            <div class="container" style="padding-left:2.5rem;">
-                <div class="row" id="row1">
-                    <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
-                </div>
-            </div>
-        </div>
+		<div class="row" id="footer">
+			<div class="container">
+				<div class="row" >
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
+
+				</div>
+			</div>
+		</div>
+    </div>
    	<script>
 		let sumPrice = 0;
 	  	let totalDc = 0;
 	  	let addPoint = 0;
+	  	let usedPoint = 0;
 	  	let grade;
 	  	let finalPrice = 0;
 	  	let count = 0;
 	  	let title;
-	  	
+	  	let serial = "inavailableCP";
+	  	let arrG_name = [];
+	  	let arrG_num = [];
+	  	let arrSales_count = [];
+	  	let arrTotalPrice = [];
+	  	let arrEmail = [];
+	  	let arrG_seq = [];
+	  	let arrG_option = [];
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1060,20 +1217,18 @@ text-align:left;
 		$(".pointinput2").val(allPointUse);
 // 		$(".discount").text(allPointUse);
 		totalDc = Number($(".pointinput2").val());
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1083,20 +1238,17 @@ text-align:left;
 		$(".pointinput2").val(allPointUse);
 // 		$(".discount").text(allPointUse);
 		totalDc = Number($(".pointinput2").val());
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" +(totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1107,26 +1259,31 @@ text-align:left;
 	    		$.ajax({
 	            	url:"/cart/select_cart",
 	            }).done(function(resp){
+	            	console.log("test : ");
 	            	console.log(resp);
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
 	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += resp[i].totalPrice;
-	            		
+	            		arrG_name[i] = resp[i].g_name;
+	            		arrSales_count[i] = resp[i].cartstock;
+	            		arrTotalPrice[i] = resp[i].totalPrice;
+	            		arrG_seq[i] = resp[i].g_seq;
+	            		arrEmail = resp[i].email;
+	            		arrG_num = resp[i].g_num;
+	            		arrG_option.push(resp[i].g_option);
+	            		console.log(arrG_name);
+	            		console.log(arrSales_count);
+	            		console.log("g_option");
+	            		console.log(arrG_option);
 // 	            		title = resp[i].g_name;
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
-	            			console.log(title);
+// 	            			console.log(title);
 	            		}else{
-	            			title = resp[i].g_name + "외 " + (count -1) + "개";
-	            			console.log(title);
+	            			title = resp[i].g_name + "외 " + (count - 1) + "개";
+// 	            			console.log(title);
 	            		}
-	            		console.log("sumPrice : " + sumPrice);
-	            		console.log("totalDc : " + totalDc);
-	            		console.log("finalPrice : " + finalPrice);
-	            		console.log("result : " + Number(sumPrice - totalDc + 3000));
-	            		console.log(count);
-	            		console.log(title);
 	            	}
 	            	
 // 	            	if(count == 1){
@@ -1145,22 +1302,19 @@ text-align:left;
 						for(let i = 0; i < resp.length; i++){
 							$(".myPoint1").html(resp[i].point);
 							$(".myPoint2").html(resp[i].point);
-							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" style='width:100%;'>"+resp[i].category+"</li>")
-							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+">"+resp[i].category+"</li>")
+							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
+							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							grade = resp[i].grade;
-							console.log("count : " + count);
+// 							console.log("count : " + count);
 							if(grade == "White"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-								console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+								addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 							}else if(grade == "Gray"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-								console.log("grade : " + grade);
-								console.log("sumPrice : " + sumPrice);
-								console.log("totalDc : " + totalDc);
-								console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+								addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 							}else if(grade == "Black"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-								console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+								addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 							}
 						}
 						
@@ -1190,21 +1344,23 @@ text-align:left;
 	    
 		$(".li1").on("click", function () {
 			let text = $(this).text();
+			serial = $(this).children().val();
+			console.log(serial);
 	    	$("#select1").text(text);
 	    	$("#select2").text(text);
 	    	$(".select-ul1").toggle();
 	    	totalDc = Number($(this).attr("id"));
-	    	$(".discount").text((totalDc).toLocaleString()+"원");
+	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		});
 	});
@@ -1214,21 +1370,22 @@ text-align:left;
 	    
 		$(".li2").on("click", function () {
 			let text = $(this).text();
+			serial = $(this).children().val();
 	    	$("#select1").text(text);
 	    	$("#select2").text(text);
 	    	$(".select-ul2").toggle();
 	    	totalDc = Number($(this).attr("id"));
-	    	$(".discount").text((totalDc).toLocaleString()+"원");
+	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-				console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+				addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		});
 	});
@@ -1236,42 +1393,36 @@ text-align:left;
 	$(".pointinput1").on("change",function(){
 		totalDc = Number($(".pointinput1").val());
 		$(".pointinput2").val() == $(".pointinput1").val();
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
-		console.log($(".pointinput2").val());
-		console.log($(".pointinput1").val());
+// 		console.log($(".pointinput2").val());
+// 		console.log($(".pointinput1").val());
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
 	$(".pointinput2").on("change",function(){
 		totalDc = Number($(".pointinput2").val());
 		$(".pointinput1").val() == $(".pointinput2").val();
-		$(".discount").text((totalDc).toLocaleString()+"원");
+		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05));
-			console.log("grade : " + grade);
-			console.log("sumPrice : " + sumPrice);
-			console.log("totalDc : " + totalDc);
-			console.log(Number(sumPrice - totalDc + 3000) * 0.05);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1));
-			console.log(Number(sumPrice - totalDc + 3000) * 0.1);
+			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1375,12 +1526,53 @@ text-align:left;
                 	card_quota : rsp.card_quota,
                     totalprice : rsp.paid_amount,
                     delivery_text : $(".delivery_text").val()
+
                     },
                 type:"post",
                 dataType:"json"
             }).done(function(resp){
                console.log(resp)
-            });
+               for(let i = 0; i < arrG_name.length; i++){
+                   $.ajax({
+               		url:"/pay/myGoods",
+               		data:{
+               			merchant_uid : rsp.merchant_uid,
+               			state : "BU",
+               			name : rsp.buyer_name,
+               			phone : rsp.buyer_tel,
+               			address1 : rsp.buyer_addr,
+                       	address2 : $(".buyer_address2").val(),
+                       	zipcode : rsp.buyer_postcode,
+                       	g_name : arrG_name[i],
+                       	card_name : rsp.card_name,
+                       	card_number : rsp.card_number,
+                       	card_quota : rsp.card_quota,
+                        totalprice : arrTotalPrice[i],
+                        sales_count : arrSales_count[i],
+                        addpoint : addPoint,
+                        usedpoint : totalDc,
+                        serial : serial,
+                        category : "G",
+                        g_num : arrG_num[i],
+                        g_seq : arrG_seq[i],
+                        cp_discount : totalDc,
+                        g_option : arrG_option[i]
+               		}
+               	}).done(function(resp){
+               		console.log("myGoods insert 성공");
+               		$.ajax({
+               			url:"/pay/point",
+               			data:{usedPoint:$(".pointinput1").val(),
+               				addPoint : addpoint}
+               		}).done(function(resp){
+               			console.log("point 정산 성공");
+               		})
+               	})
+               }
+
+            })
+            
+			location.href="/shop/success";
 
 	    } else {
 	    	 var msg = '결제에 실패하였습니다.';

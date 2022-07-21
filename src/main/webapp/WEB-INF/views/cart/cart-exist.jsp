@@ -28,6 +28,10 @@
 <!--폰트어썸 최신 CDN-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- 카카오 로그인 -->
+
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 </head>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
@@ -433,7 +437,9 @@ margin-top:1rem;
 	box-sizing: border-box;
 	border-radius: 50%;
 }
-
+.cntbtn:hover{
+background:#F4F6F8;
+}
 .cntbtn>img {
 	width: 0.656rem;
 }
@@ -584,8 +590,8 @@ background:#454F5B;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -630,8 +636,8 @@ background:#454F5B;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -919,7 +925,7 @@ function setTotalInfo() {
 						$(".deliveryprice").text("+"+deliveryPrice+"원");
 						// 최종 가격(총 가격 + 배송비)
 						$(".finalTotalPrice").text(
-								finalTotalPrice.toLocaleString());
+								finalTotalPrice.toLocaleString()+"원");
 
 					});
 
@@ -1100,23 +1106,21 @@ function setTotalInfo() {
 	})
 });
 
-	   Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-	   
-	   function logout() {
-	      
-	      if (!Kakao.Auth.getAccessToken()) {
-	            alert('Not logged in.')
-	            return
-	          }
-	          Kakao.Auth.logout(function() {
-	            alert('로그아웃 되었습니다.');
-	            location.href="/member/logout";
-	          })
-	      
-
-	      location.href = "/member/logout";
-	      return true;
-	   }
+	$(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
 	</script>
 </body>
 </html>

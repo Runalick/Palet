@@ -157,7 +157,7 @@
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
                 		<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Exhibition Detail </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : '${edto.e_name}' 상세 페이지 입니다. </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : '${edto.pe_name}' 상세 페이지 입니다. </div>
                 	</div>   
             		<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">
@@ -171,8 +171,8 @@
 			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
 			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
 			            			<div class="row">
-			            				<div class="col-12 d-none d-lg-block body1 m-auto" style="width:60%" >- ${edto.e_name }</div>
-			            				<div class="col-12 d-lg-none body1 m-auto" style="width:85%" >- ${edto.e_name }</div>
+			            				<div class="col-12 d-none d-lg-block body1 m-auto" style="width:60%" >- ${edto.pe_name }</div>
+			            				<div class="col-12 d-lg-none body1 m-auto" style="width:85%" >- ${edto.pe_name }</div>
 			            			</div>
 			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" >
 			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button>
@@ -188,50 +188,50 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='e_name' value='${edto.e_name }' class='edit' disabled style="width:50%; text-align:center" ></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='e_name' value='${edto.e_name }' class='editable' disabled style="width:70%; text-align:center" ></div>
-			           			<input type="hidden" name="e_num" value="${edto.e_num }">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='edit' disabled style="width:50%; text-align:center" ></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='editable' disabled style="width:70%; text-align:center" ></div>
+			           			<input type="hidden" name="pe_seq" value="${edto.pe_seq }">
 			           		</div>
-			            	<div class="row" >
-			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Start Date </div>
-			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Start Date</div>
-			            	</div>	
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='start_date' class='edit' value='${edto.start_date }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='start_date' class='editable' value='${edto.start_date }' disabled style="width:70%; text-align:center"></div>			           			
-			           		</div>
-			           		<div class="row">
-			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">End Date</div>
-			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">End Date</div>
-			           		</div>
-			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='end_date' class='edit' value='${edto.end_date }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='end_date' class='editable' value='${edto.end_date }' disabled style="width:70%; text-align:center"></div>
-			           		</div>
+			            	<div class="row" > 
+ 			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Date </div> 
+ 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Date</div> 
+ 			            	</div>	 
+ 			           		<div class="row" style="text-align:center"> 
+ 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='pe_date' class='edit' value='${edto.pe_date }' disabled style="width:50%; text-align:center"></div> 
+ 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='pe_date' class='editable' value='${edto.pe_date }' disabled style="width:70%; text-align:center"></div>
+ 			           		</div> 
+<!-- 			           		<div class="row"> -->
+<!-- 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">End Date</div> -->
+<!-- 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">End Date</div> -->
+<!-- 			           		</div> -->
+<!-- 			           		<div class="row" style="text-align:center"> -->
+<%-- 			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='end_date' class='edit' value='${edto.end_date }' disabled style="width:50%; text-align:center"></div> --%>
+<%-- 			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='end_date' class='editable' value='${edto.end_date }' disabled style="width:70%; text-align:center"></div> --%>
+<!-- 			           		</div> -->
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Total Sales </div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Total Sales </div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${edto.sales_count }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${edto.sales_count }' disabled style="width:70%; text-align:center"></div>
-			           			<input type='hidden' name='sales_count' value="${edto.sales_count }">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${edto.pe_salescount }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${edto.pe_salescount }' disabled style="width:70%; text-align:center"></div>
+			           			<input type='hidden' name='pe_salescount' value="${edto.pe_salescount }">
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Price</div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Price</div>  
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='e_price' class='edit' value='${edto.e_price }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='e_price' class='editable' value='${edto.e_price }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='pe_price' class='edit' value='${edto.pe_price }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='pe_price' class='editable' value='${edto.pe_price }' disabled style="width:70%; text-align:center"></div>
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" >Condition</div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" >Condition</div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='e_period'  value='${edto.e_period }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='e_period'  value='${edto.e_period}' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='pe_period'  value='${edto.pe_period }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='pe_period'  value='${edto.pe_period}' disabled style="width:70%; text-align:center"></div>
 			           		</div>
 			           		</form>		  
 			           		

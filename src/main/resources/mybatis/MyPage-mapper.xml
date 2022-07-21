@@ -11,12 +11,27 @@
 	<select id="myTicketcnt" resultType="int">
 		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
 	</select>
-	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from (select row_number() over(order by et_buydate) line, exticket.* 
-		from exticket where et_state ='AU' and et_email=#{email}) where  line between #{limit} and #{limit}+9
+	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
+with total1 as
+(select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)),
+total2 as (
+select row_number () over(order by datee) line, booknumber, email, title,state, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2 where  email=#{email} and state = 'AU'
 	</select>
 	<select id="premyTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state in('AU' , 'AC')
+		select count(*) from (with total1 as
+(select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)),
+total2 as (
+select row_number () over(order by datee) line, booknumber, email, title,state, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2 where  email=#{value} and state = 'AU')
 	</select>
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}
@@ -48,6 +63,9 @@
 		</if>
 		<if test='category=="G"'>
 		payment set state='BC' where merchant_uid
+		</if>
+		<if test='category=="P"'>
+		proticket set pro_state='BC' where pro_booknumber
 		</if>
 		 =#{booknumber}
 	</update>
@@ -87,23 +105,25 @@ where et_state like '%C') where email = #{email}
 		<result property="line" column="line"/>
 		<result property="merchant_uid" column="merchant_uid"/>
 		<result property="pay_time" column="pay_time"/>
-		<result property="merchant_uid" column="merchant_uid"/>
 		<result property="g_name" column="p.g_name"/>
-		<result property="g_num" column="g_num"/>
-		<result property="e_name" column="e_name"/>
-		<result property="gp_sysname" column="gp_sysname"/>
+		<result property="g_num" column="p.g_num"/>
 		<result property="g_option" column="p.g_option"/>
 		<result property="g_count" column="g_count"/>
 		<result property="totalprice" column="totalprice"/>
 		<result property="state" column="state"/>
+		<result property="pe_name" column="pe_name"/>
+		<result property="g_seq" column="g_seq"/>
+		<result property="gp_sysname" column="gp_sysname"/>
 	</resultMap>
 
 	<select id="myShopping" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-		select * from (select row_number() over(order by merchant_uid) line, merchant_uid, TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time, p.g_name, g_num, e_name, gp_sysname, p.g_option, g_count, totalprice, state
-		from payment p join goods g using (g_num)
-		left join exhibition e using (e_num)
-		join goodspic gp using (g_num)
-		where email = #{email}) where line between #{limit} and #{limit}+9
+		select * from (select row_number() over(order by merchant_uid) line, merchant_uid, 
+		TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time, 
+		p.g_name, p.g_num, p.g_option, g_count, totalprice, state, g_seq, pe_name, gp_sysname
+		from payment p join goods g using (g_seq)
+		join preexhibition e on (g.e_num = e.pe_seq)
+		join goodspic gp on (g.g_num = gp.g_num)
+		where email = #{email})where line between #{limit} and #{limit}+9
 	</select>
 	
 	
@@ -112,8 +132,9 @@ where et_state like '%C') where email = #{email}
 	</select>
 	
 	<resultMap type="HashMap" id="productMap">
-		<result property="e_name" column="e_name"/>
-		<result property="g_name" column="g_name"/>
+		<result property="pe_name" column="pe_name"/>
+		<result property="g_num" column="g.g_num"/>
+		<result property="g_name" column="p.g_name"/>
 		<result property="g_count" column="g_count"/>
 		<result property="g_option" column="p.g_option"/>
 		<result property="gp_sysname" column="gp_sysname"/>
@@ -122,12 +143,14 @@ where et_state like '%C') where email = #{email}
 		<result property="usedpoint" column="usedpoint"/>
 		<result property="cpdiscount" column="cpdiscount"/>
 		<result property="cpserial" column="cpserial"/>
+		<result property="pe_img" column="pe_img"/>
 	</resultMap>
 	
 	<select id="myShoppingProduct" parameterType="HashMap" resultType="HashMap" resultMap="productMap">
-		select e_name, g_name, g_count, p.g_option, gp_sysname, totalprice, point, usedpoint, cpdiscount, cpserial              
+		select pe_name, g.g_num, p.g_name, g_count, p.g_option, gp_sysname, totalprice, point, usedpoint, cpdiscount, cpserial, pe_img              
 		from goodspic gp join payment p using (g_num)
-		join exhibition e using (e_num)
+		join goods g on(g.g_seq = p.g_seq)
+		join preexhibition e on (g.e_num = e.pe_seq)
 		where merchant_uid=#{merchant_uid}
 	</select>
 	
@@ -157,4 +180,16 @@ where et_state like '%C') where email = #{email}
 	<update id="couponRegist">
 		update coupon set email = #{email} where serial = #{serial}
 	</update>
+	
+<!-- 	프로그램 -->
+	<select id="ExProTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
+	select * from (select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)) where state = 'BU' and email = #{value} order by buydate desc
+	</select>
+	<select id="proTicketDetailview" resultType="Trillion.Palet.DTO.ProticketDTO">
+		select * from proticket left join programpic using (p_num) where pro_booknumber = #{value}
+	</select>
 </mapper>

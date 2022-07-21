@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MyGoodsDTO;
+import Trillion.Palet.DTO.MyPointDTO;
 import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.ProticketDTO;
 import Trillion.Palet.service.ExhibitionService;
@@ -115,5 +117,19 @@ public class PayController {
 		return list;
 		
 		
+	}
+	
+	@ResponseBody
+	@RequestMapping("myGoods")
+	public int myGoods(MyGoodsDTO dto) {
+		String email = (String)session.getAttribute("loginEmail");
+		dto.setEmail(email);
+		return pServ.myGoods(dto);
+	}
+	
+	@ResponseBody
+	@RequestMapping("point")
+	public int point(MyPointDTO dto) {
+		return pServ.point(dto);
 	}
 }

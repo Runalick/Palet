@@ -171,7 +171,7 @@
             	<div class="col-xl-10 col-lg-9 col-md-8 ml-auto" id="dashMain"> <!-- 추후CSS작업 시 바뀔이름 -->
             		<div class="row" style="margin-top: 5rem">
 						<div class="col-12 h3_1 px-5" style="text-align:left"> <img src="/images/minus.png"> Register Exhibitions </div>
-                		<div class="col-12 body2 colortext_gray600 px-5" >  : 전시 정보를 등록 할 수 있는 페이지 입니다. </div>
+                		<div class="col-12 body2 colortext_gray600 px-5" >  : 예정 전시 정보를 등록 할 수 있는 페이지 입니다. </div>
                 	</div>
                 	<div class="row pt-3 px-5">
 						<div class="col-12 mr-auto" id="exhibitionBtns">
@@ -185,7 +185,8 @@
 								<div class="h3_2">Input Exhibition</div>
 							</div>
 							<div class="row">
-                            	<form action="/admin/exhibitionsInsert" method="post" enctype="multipart/form-data">
+                            	<!-- <form action="/admin/exhibitionsInsert" method="post" enctype="multipart/form-data"> -->
+                             	<form action="/admin/newExhibitionsInsert" method="post" enctype="multipart/form-data">
 								<div class="col">
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 카테고리</div>
@@ -196,10 +197,10 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
-											<select name="e_period" id="e_period" class="select1">
+											<select name="pe_period" id="e_period" class="select1">
 												<option value='F'>예정전시 </option>
-												<option value='N'>현재전시 </option>
-												<option value='P'>지난전시 </option>
+										<!-- 		<option value='N'>현재전시 </option>
+												<option value='P'>지난전시 </option> -->
 											</select>
 										</div>
 									</div>
@@ -212,7 +213,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="e_name" id="e_name" placeholder="Input Exhibition Name" >
+											<input type="text" name="pe_name" id="e_name" placeholder="Input Exhibition Name" >
 										</div>
 									</div>
 									<div class="row">
@@ -224,7 +225,7 @@
 									</div>
 									<div class="row" style="text-align:center;">
 										<div class="col-12 p-0">
-											<input type="text" name="start_date" id="start_date" placeholder="Input Start Day">
+											<input type="text"  id="start_date" placeholder="Input Start Day">
 											<input type="hidden" id="start_date_value">
 										</div>
 									</div>
@@ -237,10 +238,11 @@
 									</div>
 									<div class="row" style="text-align:center;">
 										<div class="col-12 p-0">
-											<input type="text" name="end_date" id="end_date" placeholder="Input End Day">
+											<input type="text" id="end_date" placeholder="Input End Day">
 											<input type="hidden" id="end_date_value">
 										</div>
 									</div>
+									<input type="hidden" id="pe_date" name='pe_date'> 
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 가격</div>
 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 가격</div>
@@ -250,11 +252,50 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
-											<input type="text" name="e_price" id="e_price" 
+											<input type="text" name="pe_price" id="e_price" 
 											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" placeholder="Just Number">
 										</div>
 									</div>
-
+									
+									<!-- 새로 추가된 항목 -->
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 내용</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 내용</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">전시 내용</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">전시 내용</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">전시 내용</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="pe_contents" id="pe_contents" placeholder="Input Exhibition Contents" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 작가</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 작가</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">전시 작가</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">전시 작가</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">전시 작가</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="pe_writer" id="pe_writer" placeholder="Input Exhibition Writer" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">작품 수</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">작품 수</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">작품 수</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">작품 수</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">작품 수</div>
+									</div>
+									<div class="row" style="text-align:center">
+										<div class="col-12 p-0" style="text-align:center">
+											<input type="text" name="pe_artcount" id="pe_artcount" placeholder="ex) 100 or 200점 등" 
+											>
+										</div>
+									</div>
+									
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 사진</div>
 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">전시 사진</div>
@@ -264,7 +305,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 ">
-											<input class="upload_view" value="첨부파일" placeholder="Input Exhibition Images">
+											<input class="upload_view" id="pe_img" value="" placeholder="Input Exhibition Images" readonly>
 											<span>	
 												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>	
 												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
@@ -323,10 +364,16 @@
 <!-- DatePicker Script -->  
  
 <script>
+
+
 let isE_name = false;
 let isE_price = false;
 let isStart_date = false;
 let isEnd_date = false;
+let isContents = false;
+let isWriter = false;
+let isArtcount = false;
+let isExhibitionPic = false;
 let start_date;
 let end_date;
 
@@ -350,7 +397,7 @@ let end_date;
 				onClose: function( selectedDate ) {	//시작일(startDate) datepicker가 닫힐때, 종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
 					$("#end_date").datepicker( "option", "minDate", selectedDate );
 					
-					let date =  $.datepicker.formatDate("yymmdd", $(this).datepicker('getDate'));
+					let date =  $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
 					$('input[name="start_date"]').attr('value', date);
 					
 					$("#start_date_value").val(date);
@@ -374,86 +421,14 @@ let end_date;
 			    maxDate: 365, // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
 			    onClose: function( selectedDate ) { // 종료일(endDate) datepicker가 닫힐때, 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
 					$("#start_date").datepicker( "option", "maxDate", selectedDate );
-					let date =  $.datepicker.formatDate("yymmdd", $(this).datepicker('getDate'));
+					let date =  $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
 					$("#end_date_value").val(date);
 					end_date = this.date;
 				}
 			});
  		});	
 	
-	
-	
 
-
-	
-	$("#e_name").on("keyup",function(){
-		let e_name = $("#e_name").val();
-		console.log(e_name);
-		if(e_name == ""){
-			isE_name = false;
-			
-		}else {
-			isE_name = true;
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
-			$("#upload").removeAttr("disabled");
-		}
-	})
-	
-// 	console.log($("#start_date").val());
-// 	console.log($("#end_date").val());
-// 	if(start_date == $("#start_date_value").val()) {
-// 		alert("!!");
-// 	}
-	
-// 	console.log($("#start_date_value").val());
-// 	console.log($("#end_date_value").val());
-	$("#start_date").on("focusout", function(){
-		let start_date_value = $("#start_date_value").val();
-		console.log(start_date_value);
-		if (start_date_value == null){
-			isStart_date = false;
-		}else {
-			isStart_date = true;
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-	
-	$("#end_date").on("focusout", function(){
-		let end_date_value = $("#end_date_value").val();
-		console.log(end_date_value);
-		if (end_date_value == null ){
-			isEnd_date = false;
-		}else {
-			isEnd_date = true;
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-
-	$("#e_price").on("keyup",function(){
-		let e_price = $("#e_price").val();
-		console.log(e_price);
-		if(e_price == ""){
-			isE_price = false;
-			
-		}else {
-			isE_price = true;
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
 	
 
 	$("#return").on("click", ()=>{
@@ -468,6 +443,7 @@ let end_date;
 	 $("#file").on('change',function(){
   		let fileName = $("#file").val();
  	 	$(".upload_view").val(fileName);
+ 	 	
 	});
 	
  	const reader = new FileReader();
@@ -500,6 +476,224 @@ let end_date;
     	$(".upload_view").val("");
     	$("#cancel_Btn").css("display","none");
     }
+    
+ 	
+	
+
+	$("#e_name").on("keyup",function(){
+		let e_name = $("#e_name").val();
+		console.log(e_name);
+		if(e_name == ""){
+			isE_name = false;
+			
+		}else {
+			isE_name = true;
+			console.log("e_namePass")
+		}
+		
+		console.log(isE_name);
+		
+		if (isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic ){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+		}
+	})
+	
+// 	console.log($("#start_date").val());
+// 	console.log($("#end_date").val());
+// 	if(start_date == $("#start_date_value").val()) {
+// 		alert("!!");
+// 	}
+	
+// 	console.log($("#start_date_value").val());
+// 	console.log($("#end_date_value").val());
+	$("#start_date").on("focusout", function(){
+		let start_date_value = $("#start_date_value").val();
+		console.log(start_date_value);
+		if (start_date_value == null){
+			isStart_date = false;
+		}else {
+			isStart_date = true;
+			console.log("startdatePass")
+		}
+		
+		console.log(isStart_date);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#end_date").on("focusout", function(){
+		let end_date_value = $("#end_date_value").val();
+		console.log(end_date_value);
+		if (end_date_value == null ){
+			isEnd_date = false;
+		}else {
+			isEnd_date = true;
+			console.log("enddatePass")
+		}
+		
+		console.log(isEnd_date);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+
+	$("#e_price").on("keyup",function(){
+		let e_price = $("#e_price").val();
+		console.log(e_price);
+		if(e_price == ""){
+			isE_price = false;
+			
+		}else {
+			isE_price = true;
+			console.log("e_pricePass")
+		}
+		
+		console.log(isE_price);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_contents").on("keyup",function(){
+		let pe_contents = $("#pe_contents").val();
+		console.log(pe_contents);
+		if(pe_contents == ""){
+			isContents = false;
+			
+		}else {
+			isContents = true;
+			console.log("ContentsPass")
+		}
+		
+		console.log(isContents);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_writer").on("keyup",function(){
+		let pe_writer = $("#pe_writer").val();
+		console.log(pe_writer);
+		if(pe_writer == ""){
+			isWriter = false;
+			
+		}else {
+			isWriter = true;
+			console.log("writerPass")
+		}
+		
+		console.log(isWriter);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_artcount").on("keyup",function(){
+		
+		let pe_artcount = $("#pe_artcount").val();
+		console.log(pe_artcount);
+		if(pe_artcount == ""){
+			isArtcount = false;
+			
+		}else {
+			isArtcount = true;
+			console.log("artcountPass")
+		}
+		
+		console.log(isArtcount);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#file").on("change",function(){
+		let pe_img = $("#pe_img").val();
+		console.log(pe_img);
+		if(pe_img == ""){
+			isExhibitionPic = false;
+			
+		}else {
+			isExhibitionPic = true;
+			console.log("expicPass")
+		}
+		console.log(isExhibitionPic);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	}) 
+	
 
     let cnt =0;
     $(".navbar-toggler").on("click",function(){

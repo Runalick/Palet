@@ -173,8 +173,8 @@
                                        <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
                                             <div class="h3" style="text-align:right">BestExhibition</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
-                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.sales_count}</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.pe_name}</div>
+                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.pe_salescount}</div>
                                         </div>
                                     </div>
                                 </div>

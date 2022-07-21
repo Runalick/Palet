@@ -30,6 +30,8 @@
 <script src="/js/qrmaker.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
 @charset "UTF-8";
 
@@ -368,7 +370,14 @@ li div {
 	border-radius:0.375rem;
 	cursor:pointer;
 }
-
+.pticket{
+width: 44.5rem;
+	height: 14.5rem;
+	background: #637381;
+	margin-bottom: 3.75rem;
+	border-radius:0.375rem;
+	cursor:pointer;
+}
 .pre-ticket, .a {
 	width: 24.5rem;
 	height: 10.5rem;
@@ -422,7 +431,9 @@ li div {
 	font-size:1.625rem;
 	}
 }
-
+.imgimg{
+border-radius:0.625rem;
+}
 </style>
 </head>
 <body>
@@ -461,8 +472,8 @@ li div {
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -492,7 +503,7 @@ li div {
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="/about" class="nav-link" href="about"
+									<li class="nav-item"> <a id="/about" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -507,8 +518,8 @@ li div {
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -539,7 +550,7 @@ li div {
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="/about" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -625,20 +636,41 @@ li div {
 					<c:if test="${!status.first }">
 						<div class="carousel-item ">
 					</c:if>
+					
+					
+					<c:if test="${i.category =='P' }">
+			     	<div class="col-12 pticket">
+			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
+							<div class="row" style="height: 100%">
+								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
+									<img src="${i.sysname }" class="w-100 h-100 imgimg">
+								</div>
+								<div class="col-9" style="position: relative">
+									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
+										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3" style="color: white;">${i.datee }</div>
+									
+								</div>
+							</div>
+					</div>
+					</c:if>
+							<c:if test="${i.category =='E' }">
 			     	<div class="col-12 ticket">
-			     	<input type="hidden" class="booknumber" value="${i.et_booknumber }">
+			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
 								</div>
 								<div class="col-9" style="position: relative">
-									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.et_title }</div>
-										<div class="body3" style="color: white" >예매번호 : ${i.et_booknumber }</div>
-									<div class="body3" style="color: white;">${i.et_date }</div>
+									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
+										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3" style="color: white;">${i.datee }</div>
 									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
 								</div>
 							</div>
 					</div>
+					</c:if>
+					
 					  </div>
 					</c:forEach>					
 			  
@@ -661,29 +693,28 @@ li div {
 		</div>
 			<div class="col-12 H5">지난 전시/클래스 티켓</div>
 			<c:choose>
-				<c:when test="${prelist ==null }">
-					<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
+				<c:when test="${precnt ==0 }">
+					<div class="H2" style="margin:10rem 25rem; width:25rem;">예매 내역이 없습니다.</div>
 				</c:when>
 				<c:otherwise>
 			
 				<div class="col-12">
 					<div class="row pre-ticket-row">
-					<div class="col-12">안녕</div>
 						<!-- 반복문 -->
-						<c:forEach var="i" items="${prelist }">
-							<div class="col-6 pre-ticket">
-								<input type="hidden" value="${i.et_booknumber }">
-									<div class="row" style="height: 100%">
-										<div class="col-3" style="padding: 1rem;">
-											<img src="/images/anywayloveS.png" class="w-100 h-100">
-										</div>
-										<div class="col-9" style="position: relative">
-											<div class="pre-title" style="color: #637381;">${i.et_title }</div>
-											<div class="body6" style="color: #637381;">${i.et_date }</div>
-										</div>
-									</div>
-								</div>
-							</c:forEach>
+<%-- 						<c:forEach var="i" items="${prelist }"> --%>
+<!-- 							<div class="col-6 pre-ticket"> -->
+<%-- 								<input type="hidden" value="${i.booknumber }"> --%>
+<!-- 									<div class="row" style="height: 100%"> -->
+<!-- 										<div class="col-3" style="padding: 1rem;"> -->
+<!-- 											<img src="/images/anywayloveS.png" class="w-100 h-100"> -->
+<!-- 										</div> -->
+<!-- 										<div class="col-9" style="position: relative"> -->
+<%-- 											<div class="pre-title" style="color: #637381;">${i.title }</div> --%>
+<%-- 											<div class="body6" style="color: #637381;">${i.datee }</div> --%>
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 								</div> -->
+<%-- 							</c:forEach> --%>
 						</div>
 					</div>
 					
@@ -717,12 +748,20 @@ window.onload = function(){
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
 			for(let i = 0 ; i < resp.length; i++) {
-		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+				
+				if(resp[i].category =='E'){
+		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
-						+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
-		    	
+			} if(resp[i].category == 'P'){
+				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
+		    			  +"<div class='col-3' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
+					+"</div></div></div></a>"); 
+			}
 		    	  console.log("resp.length : " + resp.length);
 			}
 		},
@@ -746,11 +785,19 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].et_booknumber+"><div class='row' style='height: 100%'>"
+						if(resp[i].category =='E'){
+						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].et_title+"</div>"
-								+"	<div class='body6' style='color: #637381;'>"+resp[i].et_date+"</div>"
+								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
+						} if(resp[i].category == 'P'){
+							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
+					    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100 imgimg'>"
+									+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
+								+"</div></div></div></a>"); 
+						}
 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit + resp.length;
@@ -782,7 +829,10 @@ window.onload = function(){
 			cnt = $($(this).children()[0]).val();
 			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
 		})	
-		
+			$(".pticket").on("click",function(){
+			cnt = $($(this).children()[0]).val();
+			location.href="/mypage/proTicketDetailview?pro_booknumber="+cnt;
+		})	
 		$(".pre-ticket").on("click",function(){
 			cnt = $($(this).children()[0]).val();
 			location.href="/mypage/myTicketDetailview?et_booknumber="+cnt;
@@ -797,15 +847,41 @@ window.onload = function(){
 		let click = true;
 		$("#select").on("click",function() {
 				if (click == false) {
-					$("#select").css({"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size" : "1.596rem"});
+					$("#select").css({"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size" : "1.596rem"});
 					$(".navi-menu").toggle();		
 					click = true;
-				} else {$("#select").css({"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size" : "01.596rem"});
+				} else {$("#select").css({"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size" : "01.596rem"});
 					$(".navi-menu").toggle();
 					click = false;
 				}
 		});
 		
+
+//         var qrcode = new QRCode(document.getElementById("qr"), {
+//             text: "${url}",
+//             width: 90,
+//             height: 90,
+//             colorDark : "#000000",
+//             colorLight : "#ffffff",
+//             correctLevel : QRCode.CorrectLevel.H
+//         });
+        
+        $(".logout").on("click", function(){
+            Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+            Kakao.isInitialized();
+            if (!Kakao.Auth.getAccessToken()) {
+               console.log('Not logged in.');
+               location.href="/member/logout";
+                return ;
+            }
+            
+             Kakao.Auth.logout(function() {
+                  console.log(Kakao.Auth.getAccessToken());
+                  location.href="/member/logout";
+                });
+            return true;
+         });
+
 		for(let i=0;i<$(".qr").length;i++){
 			console.log($(".booknumber")[i]);
 			console.log($(".booknumber")[i].value);
@@ -826,6 +902,7 @@ window.onload = function(){
 //             colorLight : "#ffffff",
 //             correctLevel : QRCode.CorrectLevel.H
 //         });
+
 	</script>
 </body>
 </html>

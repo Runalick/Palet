@@ -10,9 +10,11 @@ import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 
 @Component
 public class MypageDAO {
@@ -53,6 +55,8 @@ public class MypageDAO {
 		if(dto.getCategory().equals("E")) {
 			return mybatis.update("MyPage.BeforeCancel",dto);
 		}else if(dto.getCategory().equals("G")){
+			return mybatis.update("MyPage.BeforeCancel", dto);
+		}else if(dto.getCategory().equals("P")) {
 			return mybatis.update("MyPage.BeforeCancel", dto);
 		}
 		
@@ -130,6 +134,16 @@ public class MypageDAO {
 		Map<String,String> param = new HashMap<>();
 		param.put("email", email);
 		param.put("serial", serial);
-		return mybatis.update("Mypage.couponRegist", param);
+		return mybatis.update("MyPage.couponRegist", param);
+	}
+
+	
+
+	public List<ExProticketDTO> ExProTicket(String email) {
+		return mybatis.selectList("MyPage.ExProTicket",email);
+	}
+
+	public ProticketDTO proTicketDetailview(String pro_booknumber) {
+		return mybatis.selectOne("MyPage.proTicketDetailview",pro_booknumber);
 	}
 }
