@@ -836,14 +836,14 @@ window.onload = function(){
 		});
 		
 
-        var qrcode = new QRCode(document.getElementById("qr"), {
-            text: "${url}",
-            width: 90,
-            height: 90,
-            colorDark : "#000000",
-            colorLight : "#ffffff",
-            correctLevel : QRCode.CorrectLevel.H
-        });
+//         var qrcode = new QRCode(document.getElementById("qr"), {
+//             text: "${url}",
+//             width: 90,
+//             height: 90,
+//             colorDark : "#000000",
+//             colorLight : "#ffffff",
+//             correctLevel : QRCode.CorrectLevel.H
+//         });
         
         $(".logout").on("click", function(){
             Kakao.init('feb50c309d28b138aefe9ddc94d76870');
