@@ -7,4 +7,10 @@
   	<insert id="insert">
   		insert into payment values (#{merchant_uid}, #{name}, #{email}, #{phone}, #{address1}, #{address2}, #{zipcode}, #{g_name}, #{card_name}, #{card_number}, #{card_quota}, #{totalprice}, #{delivery_text}, sysdate)
   	</insert>
+  	<insert id="myGoods">
+  		insert into myGoods values (#{email}, #{merchant_uid}, #{state}, #{name}, #{phone}, #{address1}, #{address2}, #{zipcode}, #{g_name}, #{card_name}, #{card_number}, #{card_quota}, #{totalprice}, #{sales_count}, #{addpoint}, #{usedpoint}, #{serial}, sysdate, #{category}, #{g_num}, #{g_seq}, #{cp_discount})
+  	</insert>
+  	<update id="point">
+  		update member set point = (- #{usedpoint} + #{addpoint}) where email = #{email}
+  	</update>
   </mapper>

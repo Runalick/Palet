@@ -15,7 +15,6 @@ public class EventService {
 	@Autowired
 	private DrawingDAO dao;
 
-	@Transactional
 	public int add(DrawingDTO dto) throws Exception {
 
 		/*

@@ -1126,6 +1126,24 @@ $(".logout").on("click", function(){
        alert(msg);
    });
     }
-      
+     
+ 	// SDK를 초기화. 사용할 앱의 JavaScript 키
+  	Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+    
+    function logout() {
+		
+		if (!Kakao.Auth.getAccessToken()) {
+		      alert('Not logged in.')
+		      return
+		    }
+		    Kakao.Auth.logout(function() {
+		      alert('로그아웃 되었습니다.');
+		      location.href="/member/logout";
+		    })
+		
+
+		location.href = "/member/logout";
+		return true;
+	}
     </script>
 </html>
