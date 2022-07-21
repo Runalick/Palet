@@ -827,8 +827,7 @@ input::placeholder {
 										aria-label="Default select example"
 										style="width: 23.5rem; height: 3rem;">
 
-										<option value='0' value1="inavailableCP" selected>쿠폰을
-											선택해 주세요.</option>
+										<option value='0' value1="inavailableCP" selected>쿠폰을 선택해 주세요.</option>
 										<c:forEach var="clist" items="${clist }">
 											<option id=option1 class="option1" value="${clist.dc}"
 												value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
