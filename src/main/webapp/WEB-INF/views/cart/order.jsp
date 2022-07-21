@@ -1270,12 +1270,8 @@ text-align:left;
 	            		arrTotalPrice[i] = resp[i].totalPrice;
 	            		arrG_seq[i] = resp[i].g_seq;
 	            		arrEmail = resp[i].email;
-	            		arrG_num = resp[i].g_num;
+	            		arrG_num.push(resp[i].g_num);
 	            		arrG_option.push(resp[i].g_option);
-	            		console.log(arrG_name);
-	            		console.log(arrSales_count);
-	            		console.log("g_option");
-	            		console.log(arrG_option);
 // 	            		title = resp[i].g_name;
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
