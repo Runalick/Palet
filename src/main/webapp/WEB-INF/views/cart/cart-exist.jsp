@@ -433,7 +433,9 @@ margin-top:1rem;
 	box-sizing: border-box;
 	border-radius: 50%;
 }
-
+.cntbtn:hover{
+background:#F4F6F8;
+}
 .cntbtn>img {
 	width: 0.656rem;
 }
@@ -919,7 +921,7 @@ function setTotalInfo() {
 						$(".deliveryprice").text("+"+deliveryPrice+"원");
 						// 최종 가격(총 가격 + 배송비)
 						$(".finalTotalPrice").text(
-								finalTotalPrice.toLocaleString());
+								finalTotalPrice.toLocaleString()+"원");
 
 					});
 
