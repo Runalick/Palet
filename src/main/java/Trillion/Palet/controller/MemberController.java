@@ -92,10 +92,10 @@ public class MemberController {
 	}
 	
 	@RequestMapping("logout")
-	public void logout() throws Exception{
+	public String logout() throws Exception{
 		session.invalidate();
 		//session.removeAttribute(null);
-		//return "redirect:/";
+		return "redirect:/";
 	}
 	
 	@RequestMapping("changepw")
