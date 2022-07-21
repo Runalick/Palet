@@ -1,6 +1,7 @@
 package Trillion.Palet.DTO;
 
 public class GoodsDTO {
+	private int line;
 	private int g_seq;
 	private int g_num;
 	private int e_num;
@@ -19,10 +20,12 @@ public class GoodsDTO {
 	private String gp_sysname;
 	//goodspic 테이블
 	public GoodsDTO() {}
-	
-	public GoodsDTO(int g_seq, int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count,
-			String g_contents, int g_stock, String pe_name, int gp_seq, String gp_sysname) {
+
+	public GoodsDTO(int line, int g_seq, int g_num, int e_num, String g_name, int g_price, String g_option,
+			int sales_count, String g_contents, int g_stock, String pe_name, int gp_seq, String gp_sysname) {
+
 		super();
+		this.line = line;
 		this.g_seq = g_seq;
 		this.g_num = g_num;
 		this.e_num = e_num;
@@ -36,8 +39,7 @@ public class GoodsDTO {
 		this.gp_seq = gp_seq;
 		this.gp_sysname = gp_sysname;
 	}
-	
-	
+		
 
 	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count,
 			String g_contents, int g_stock, String pe_name) {
@@ -66,7 +68,13 @@ public class GoodsDTO {
 		this.g_stock = g_stock;
 		this.pe_name = pe_name;
 	}
-
+		
+	public int getLine() {
+		return line;
+	}
+	public void setLine(int line) {
+		this.line = line;
+	}
 	public int getG_seq() {
 		return g_seq;
 	}
@@ -139,6 +147,7 @@ public class GoodsDTO {
 	public void setGp_sysname(String gp_sysname) {
 		this.gp_sysname = gp_sysname;
 	}
+	
 	
 	
 	

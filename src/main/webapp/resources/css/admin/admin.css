@@ -982,6 +982,10 @@
 
             /* Inside auto layout */
         }
+        .btn2_1:hover {
+        	background : #454F5B;
+        }
+        
         
         .btn3 {	
 			/* display: block; */

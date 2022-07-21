@@ -305,7 +305,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 ">
-											<input class="upload_view" value="첨부파일" placeholder="Input Exhibition Images">
+											<input class="upload_view" id="pe_img" value="" placeholder="Input Exhibition Images" readonly>
 											<span>	
 												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>	
 												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
@@ -370,6 +370,10 @@ let isE_name = false;
 let isE_price = false;
 let isStart_date = false;
 let isEnd_date = false;
+let isContents = false;
+let isWriter = false;
+let isArtcount = false;
+let isExhibitionPic = false;
 let start_date;
 let end_date;
 
@@ -437,9 +441,10 @@ let end_date;
 			
 		}else {
 			isE_name = true;
+			console.log("e_namePass")
 		}
 		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
@@ -464,9 +469,10 @@ let end_date;
 			isStart_date = false;
 		}else {
 			isStart_date = true;
+			console.log("startdatePass")
 		}
 		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
@@ -484,9 +490,10 @@ let end_date;
 			isEnd_date = false;
 		}else {
 			isEnd_date = true;
+			console.log("enddatePass")
 		}
 		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
@@ -505,9 +512,10 @@ let end_date;
 			
 		}else {
 			isE_price = true;
+			console.log("e_pricePass")
 		}
 		
-		if(isE_name && isE_price && isStart_date && isEnd_date){
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
@@ -517,6 +525,74 @@ let end_date;
 			
 		}
 	})
+	
+	$("#pe_contents").on("keyup",function(){
+		let pe_contents = $("#pe_contents").val();
+		console.log(pe_contents);
+		if(pe_contents == ""){
+			isContents = false;
+			
+		}else {
+			isContents = true;
+			console.log("ContentsPass")
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_writer").on("keyup",function(){
+		let pe_writer = $("#pe_writer").val();
+		console.log(pe_writer);
+		if(pe_writer == ""){
+			isWriter = false;
+			
+		}else {
+			isWriter = true;
+			console.log("writerPass")
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_artcount").on("keyup",function(){
+		let pe_artcount = $("#pe_artcount").val();
+		console.log(pe_artcount);
+		if(pe_artcount == ""){
+			isArtCount = false;
+			
+		}else {
+			isArtCount = true;
+			console.log("artcountPass")
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+
 	
 
 	$("#return").on("click", ()=>{
@@ -531,6 +607,8 @@ let end_date;
 	 $("#file").on('change',function(){
   		let fileName = $("#file").val();
  	 	$(".upload_view").val(fileName);
+ 	 	isExhibitionPic = true;
+ 	 	console.log("expicPass!!!")
 	});
 	
  	const reader = new FileReader();
@@ -563,6 +641,28 @@ let end_date;
     	$(".upload_view").val("");
     	$("#cancel_Btn").css("display","none");
     }
+    
+	$("#pe_img").on("keyup",function(){
+		let pe_img = $("#pe_img").val();
+		console.log(pe_img);
+		if(pe_img == ""){
+			isExhibitionPic = false;
+			
+		}else {
+			isExhibitionPic = true;
+			console.log("expicPass")
+		}
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
 
     let cnt =0;
     $(".navbar-toggler").on("click",function(){

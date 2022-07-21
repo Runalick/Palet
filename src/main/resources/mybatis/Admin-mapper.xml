@@ -92,7 +92,7 @@
   	</update>
   	
   	<select id="getGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
-  		select e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join exhibition e on(g.e_num = e.pe_seq) where g_seq = #{value}
+  		select e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join preexhibition e on(g.e_num = e.pe_seq) where g_seq = #{value}
   	</select>
   	
   	<!-- Payment -->

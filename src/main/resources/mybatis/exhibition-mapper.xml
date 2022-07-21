@@ -64,6 +64,9 @@
   	update exhibition set sales_count=#{et_count} where e_name = #{et_title}
   </update>
   
-  
+<!--   	home -->
+  	<select id="getlatest3" resultType="Trillion.Palet.DTO.PreExhibitionDTO">
+  		select * from (select row_number() over(order by pe_date desc) line,preexhibition.* from preexhibition) where  line between 1 and 3
+  	</select>
   	
   </mapper>

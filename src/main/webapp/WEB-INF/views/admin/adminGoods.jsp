@@ -238,7 +238,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 filebox">
-											<input class="upload_view" value="" placeholder="Input Goods Images">
+											<input class="upload_view" id="g_img" value="" placeholder="Input Goods Images" readonly>
 											<span>
 												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>
 												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
@@ -255,7 +255,7 @@
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
-												<input class="btn2_1" type="submit" id="upload" value="등록">
+												<input class="btn2_1" type="submit" id="upload" value="등록" disabled>
 										</div>
 									</div>
                 				</div>
@@ -291,6 +291,13 @@
     
     
 <script>
+let isE_num = false;
+let isG_name = false;
+let isG_price = false;
+let isG_option = false;
+let isGoodsPic = false;
+
+
 	$("#goodsAdded").on("click", ()=>{
  		location.href = "/admin/adminGoods";
  	})
@@ -303,6 +310,8 @@
  	$("#file").on('change',function(){
   		let fileName = $("#file").val();
  	 	$(".upload_view").val(fileName);
+ 	 	isGoodsPic = true;
+ 	 	console.log("goodsPicPass!")
 	});
 	
  	const reader = new FileReader();
@@ -336,6 +345,67 @@
     	$("#cancel_Btn").css("display","none");
     }
 	
+    $("#e_num").on("keyup", ()=>{
+    	let e_num = $("#e_num").val();
+		console.log(e_num);
+		if(e_num == "") {
+			isE_num = false;
+		}else {
+			isE_num = true;
+			console.log("e_numPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_name").on("keyup", ()=>{
+    	let g_name = $("#g_name").val();
+		console.log(g_name);
+		if(g_name == "") {
+			isG_name = false;
+		}else {
+			isG_name = true;
+			console.log("g_namePass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_price").on("keyup", ()=>{
+    	let g_price = $("#g_price").val();
+		console.log(g_price);
+		if(g_price == "") {
+			isG_price = false;
+		}else {
+			isG_price = true;
+			console.log("g_pricePass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_option").on("keyup", ()=>{
+    	let g_option = $("#g_option").val();
+		console.log(g_option);
+		if(g_option == "") {
+			isG_option = false;
+		}else {
+			isG_option = true;
+			console.log("g_optionPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    
     let cnt =0;
     $(".navbar-toggler").on("click",function(){
        cnt ++;
