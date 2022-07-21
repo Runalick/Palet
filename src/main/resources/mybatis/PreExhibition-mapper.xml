@@ -7,7 +7,33 @@
 
 	<select id="selectAll"
 		resultType="Trillion.Palet.DTO.PreExhibitionDTO">
-		select * from preexhibition
+		select * from preexhibition order by pe_seq desc
+	</select>
+	
+	<select id="chooseAll"
+		resultType="Trillion.Palet.DTO.PreExhibitionDTO">
+		select * from preexhibition where pe_seq between #{limit}-20 and #{limit} order by pe_seq desc
+	</select>
+	
+		<select id="preDetail"
+		resultType="Trillion.Palet.DTO.PreExhibitionDTO">
+		select * from preexhibition where pe_img = #{pe_img}
+	</select>
+	
+
+
+</mapper>
+
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PreExhibition">
+
+	<select id="selectAll"
+		resultType="Trillion.Palet.DTO.PreExhibitionDTO">
+		select * from preexhibition order by pe_seq desc
 	</select>
 	
 	<select id="chooseAll"
@@ -22,4 +48,4 @@
 	
 
 
-</mapper>
+</mapper> -->

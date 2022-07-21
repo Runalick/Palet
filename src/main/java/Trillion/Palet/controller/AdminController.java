@@ -517,6 +517,4 @@ public class AdminController {
 		return "/admin/adminCoupon";
 	}
 	
-	
-	
 }

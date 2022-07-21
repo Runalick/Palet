@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import Trillion.Palet.DTO.ExhibitionDTO;
+import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.TicketDTO;
 import Trillion.Palet.service.QrcordService;
 import Trillion.Palet.service.TicketService;
@@ -53,4 +54,34 @@ public class QRController {
 		String url = "http://14.39.252.82/Exhibition/toCurdetail";
 		return "/qr/now";
 	}
+	
+	@RequestMapping("useticket")
+	public String useticket(Model model,String et_booknumber) throws Exception{
+		String email= (String)session.getAttribute("loginEmail");
+		String result = "loginplz";
+		if(email==null) {
+			result="loginplz";
+		}else if(email.equals("admin@palet.com")) {
+			ExticketDTO tdto = tser.isuseticket(et_booknumber);
+			String et_state = tdto.getEt_state();
+			
+			if(et_state.equals("BU")) {
+				tser.useticket(et_booknumber);
+				result="bu";
+			}else if(et_state.equals("BC")) {
+				result="bc";
+			}else if(et_state.equals("AU")) {
+				result="au";
+			}else if(et_state.equals("AC")) {
+				result="ac";
+			}
+		}else if(!email.equals("admin@palet.com")) {
+			result= "adminOnly";
+		}else{
+			result= "loginplz";
+		}
+		model.addAttribute("result",result);
+		return "/qr/result";
+	}
+
 }
