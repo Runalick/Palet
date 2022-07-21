@@ -9,6 +9,10 @@
 <insert id="insert">
 		insert into exticket values(#{et_email}, #{et_title}, #{et_place}, #{et_date}, #{et_booknumber}, #{et_state}, #{et_username}, #{et_phone}, #{et_paymethod},#{et_cardnumber},#{et_cardquota}, #{et_cost}, #{et_count}, #{et_point},#{et_usedpoint},#{et_cpdiscount},#{et_cpserial}, sysdate, #{et_category}, #{e_num})	
 	</insert>
-
-
+  	<select id="isuseticket" resultType="Trillion.Palet.DTO.ExticketDTO">
+  		select * from exticket where et_booknumber=#{et_booknumber}
+  	</select>
+	<update id="useticket">
+		update exticket set et_state = 'AU' where et_booknumber=#{et_booknumber}
+	</update>
 </mapper>

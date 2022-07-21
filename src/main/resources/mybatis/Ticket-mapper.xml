@@ -8,4 +8,7 @@
   	<select id="myticket" resultType="Trillion.Palet.DTO.TicketDTO">
   		select * from myticket where email=#{email}
   	</select>
+  	  	<select id="isuseticket" resultType="Trillion.Palet.DTO.TicketDTO">
+  		select * from myticket where et_booknumber=#{et_booknumber}
+  	</select>
   </mapper>
