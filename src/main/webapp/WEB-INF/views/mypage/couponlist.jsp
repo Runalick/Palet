@@ -702,11 +702,11 @@ button {
 					}
 					if(resp=="registration"){
 						alert("쿠폰이 등록되었습니다.");
+						location.reload();
 						$(".serialInput").val("");
 					}
 				})
 			}
-			
 		})
 	</script>
 </body>
