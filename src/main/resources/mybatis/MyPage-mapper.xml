@@ -11,12 +11,27 @@
 	<select id="myTicketcnt" resultType="int">
 		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
 	</select>
-	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExticketDTO">
-		select * from (select row_number() over(order by et_buydate) line, exticket.* 
-		from exticket where et_state ='AU' and et_email=#{email}) where  line between #{limit} and #{limit}+9
+	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
+with total1 as
+(select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)),
+total2 as (
+select row_number () over(order by datee) line, booknumber,state, email, title, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate,state, category, pickdate, sysname from total2 where  line between #{limit} and #{limit}+9 and email =#{email} 
 	</select>
 	<select id="premyTicketcnt" resultType="int">
-		select count(*) from exticket where et_email=#{value} and et_state in('AU' , 'AC')
+		select count(*) from (with total1 as
+(select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
+from exticket left outer join exhibitionpic using(e_num) 
+union all
+select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
+from proticket left outer join programpic using(p_num)),
+total2 as (
+select row_number () over(order by datee) line, booknumber, email, title,state, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2 where  email=#{value} and state = 'AU')
 	</select>
 	<select id="myTicketDetailview" resultType="Trillion.Palet.DTO.ExticketDTO">
 		select * from exticket where et_booknumber = #{value}

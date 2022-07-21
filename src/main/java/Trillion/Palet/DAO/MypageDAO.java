@@ -138,6 +138,6 @@ public class MypageDAO {
 	
 
 	public List<ExProticketDTO> ExProTicket(String email) {
-		return mybatis.selectList("Mypage.ExProTicket",email);
+		return mybatis.selectList("MyPage.ExProTicket",email);
 	}
 }

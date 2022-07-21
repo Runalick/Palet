@@ -836,10 +836,10 @@ top:4rem;
       <div class="modal-body" style="padding-right:0px;">
 			<div class="row">
 		
-			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
+			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem ; margin-left:1.563rem; ">
 				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
-					<div class="col-8" style="margin-bottom:3rem; width:30rem;">
+					<div class="col-8" style="margin-bottom:3rem; width:28rem;">
 						<div class="row modal-ticket-row" >
 							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.et_title }</div>
 							<div class="col-12 paymodal-title2">${dto.et_booknumber }</div>

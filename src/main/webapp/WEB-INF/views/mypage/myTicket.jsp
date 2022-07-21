@@ -368,7 +368,14 @@ li div {
 	border-radius:0.375rem;
 	cursor:pointer;
 }
-
+.pticket{
+width: 44.5rem;
+	height: 14.5rem;
+	background: #637381;
+	margin-bottom: 3.75rem;
+	border-radius:0.375rem;
+	cursor:pointer;
+}
 .pre-ticket, .a {
 	width: 24.5rem;
 	height: 10.5rem;
@@ -625,6 +632,25 @@ li div {
 					<c:if test="${!status.first }">
 						<div class="carousel-item ">
 					</c:if>
+					
+					
+					<c:if test="${i.category =='P' }">
+			     	<div class="col-12 pticket">
+			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
+							<div class="row" style="height: 100%">
+								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
+									<img src="${i.sysname }" class="w-100 h-100">
+								</div>
+								<div class="col-9" style="position: relative">
+									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
+										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3" style="color: white;">${i.datee }</div>
+									
+								</div>
+							</div>
+					</div>
+					</c:if>
+							<c:if test="${i.category =='E' }">
 			     	<div class="col-12 ticket">
 			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
@@ -639,6 +665,8 @@ li div {
 								</div>
 							</div>
 					</div>
+					</c:if>
+					
 					  </div>
 					</c:forEach>					
 			  
@@ -661,14 +689,13 @@ li div {
 		</div>
 			<div class="col-12 H5">지난 전시/클래스 티켓</div>
 			<c:choose>
-				<c:when test="${prelist ==null }">
+				<c:when test="${precnt ==0 }">
 					<div class="H2" style="margin:10rem 25rem; width:25rem;">예매 내역이 없습니다.</div>
 				</c:when>
 				<c:otherwise>
 			
 				<div class="col-12">
 					<div class="row pre-ticket-row">
-					<div class="col-12">안녕</div>
 						<!-- 반복문 -->
 <%-- 						<c:forEach var="i" items="${prelist }"> --%>
 <!-- 							<div class="col-6 pre-ticket"> -->
@@ -720,7 +747,7 @@ window.onload = function(){
 		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
 						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
-						+"	<div class='body6' style='color: #637381;'>"+resp[i].date+"</div>"
+						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 		    	
 		    	  console.log("resp.length : " + resp.length);
@@ -749,7 +776,7 @@ window.onload = function(){
 						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
 								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
-								+"	<div class='body6' style='color: #637381;'>"+resp[i].date+"</div>"
+								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
 				    	  console.log("resp.length : " + resp.length);
 					}
