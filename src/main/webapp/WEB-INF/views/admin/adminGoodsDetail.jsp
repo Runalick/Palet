@@ -220,7 +220,7 @@
 			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='g_price' class='edit' value='${gdto.g_price }' disabled style="width:50%; text-align:center"></div>
 			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='g_price' class='editable' value='${gdto.g_price }' disabled style="width:70%; text-align:center"></div>
 			           		</div>
-			           		<div class="row">
+			           		<%-- <div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Option</div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Option</div>  
 			           		</div>
@@ -228,7 +228,7 @@
 			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${gdto.g_option }' disabled style="width:50%; text-align:center"></div>
 			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${gdto.g_option }' disabled style="width:70%; text-align:center"></div>
 			           			<input type='hidden' name='g_option' value="${gdto.g_option }">
-			           		</div>			           		
+			           		</div> --%>			           		
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Total Sales </div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Total Sales </div>

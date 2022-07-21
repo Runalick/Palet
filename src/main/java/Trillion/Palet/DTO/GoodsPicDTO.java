@@ -18,6 +18,16 @@ public class GoodsPicDTO {
 		this.gp_oriname = gp_oriname;
 		this.gp_sysname = gp_sysname;
 	}
+	
+	
+	public GoodsPicDTO(int gp_seq, int g_num, int e_num, String gp_sysname) {
+		super();
+		this.gp_seq = gp_seq;
+		this.g_num = g_num;
+		this.e_num = e_num;
+		this.gp_sysname = gp_sysname;
+	}
+	
 	public int getGp_seq() {
 		return gp_seq;
 	}

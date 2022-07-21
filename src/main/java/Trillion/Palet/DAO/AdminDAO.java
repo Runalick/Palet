@@ -15,6 +15,7 @@ import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
 import Trillion.Palet.DTO.ExhibitionPicDTO;
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.GoodsPicDTO;
 import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.NewExhibitionDTO;
 import Trillion.Palet.DTO.ProgramDTO;
@@ -230,6 +231,10 @@ public class AdminDAO {
 		return mybatis.selectList("Admin.exhibitionSelectTop50");
 	}
 	
+	public List<NewExhibitionDTO> exhibitionSelectFixed(){
+		return mybatis.selectList("Admin.exhibitionSelectFixed");
+	}
+	
 	
 	// Goods Category
 	
@@ -375,6 +380,22 @@ public class AdminDAO {
 	
 	public GoodsDTO getGoods(int g_seq) {
 		return mybatis.selectOne("Admin.getGoods", g_seq);
+	}
+	
+	public int goodsPicInsert(GoodsPicDTO dto) {
+		return mybatis.insert("File.goodsPicInsert", dto);
+	}
+	
+	public int goodsInsertInto(GoodsDTO gdto) {
+		return mybatis.insert("Admin.goodsInsertInto", gdto);
+	}
+	
+	public int goodsInsertOption1 (GoodsDTO gdto) {
+		return mybatis.insert("Admin.goodsInsertIntoOption1", gdto);
+	}
+	
+	public int goodsInsertOption2 (GoodsDTO gdto) {
+		return mybatis.insert("Admin.goodsInsertIntoOption2", gdto);
 	}
 	
 	// Program Category

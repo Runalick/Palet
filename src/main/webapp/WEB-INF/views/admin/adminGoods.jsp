@@ -172,7 +172,7 @@
 								<div class="h3_2">Input Goods</div>
 							</div>
 							<div class="row">
-							<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">		
+							<form action="/admin/newGoodsInsert" method="post" enctype="multipart/form-data">		
 								<div class="col">
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 카테고리</div>
@@ -218,15 +218,29 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 옵션</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 옵션</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 옵션</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 옵션</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 옵션</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 내용</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 내용</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 내용</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 내용</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 내용</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
-											<input type="text" name="g_option" id="g_option" placeholder="Input Goods Options" >
+											<input type="text" name="g_contents" id="g_contents" placeholder="Input Goods Contents" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 재고</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 재고</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 재고</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 재고</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 재고</div>
+									</div>
+									<div class="row" style="text-align:center;">
+										<div class="col-12 p-0">
+											<input type="text" name="g_stock" id="g_stock" 
+											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"
+											placeholder="Input Goods Stock">
 										</div>
 									</div>
 									<div class="row">
@@ -291,10 +305,11 @@
     
     
 <script>
-let isE_num = false;
+let isE_num = true;
 let isG_name = false;
 let isG_price = false;
-let isG_option = false;
+let isG_contents = false;
+let isG_stock = false;
 let isGoodsPic = false;
 
 
@@ -345,7 +360,7 @@ let isGoodsPic = false;
     	$("#cancel_Btn").css("display","none");
     }
 	
-    $("#e_num").on("keyup", ()=>{
+/*     $("#e_num").on("keyup", ()=>{
     	let e_num = $("#e_num").val();
 		console.log(e_num);
 		if(e_num == "") {
@@ -355,10 +370,10 @@ let isGoodsPic = false;
 			console.log("e_numPass");
 		}
 		
-		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
 			$("#upload").removeAttr("disabled");
 		}
-    })
+    }) */
     
     $("#g_name").on("keyup", ()=>{
     	let g_name = $("#g_name").val();
@@ -370,7 +385,7 @@ let isGoodsPic = false;
 			console.log("g_namePass");
 		}
 		
-		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
 			$("#upload").removeAttr("disabled");
 		}
     })
@@ -385,22 +400,52 @@ let isGoodsPic = false;
 			console.log("g_pricePass");
 		}
 		
-		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
 			$("#upload").removeAttr("disabled");
 		}
     })
     
-    $("#g_option").on("keyup", ()=>{
-    	let g_option = $("#g_option").val();
-		console.log(g_option);
-		if(g_option == "") {
-			isG_option = false;
+    $("#g_contents").on("keyup", ()=>{
+    	let g_contents = $("#g_contents").val();
+		console.log(g_contents);
+		if(g_contents == "") {
+			isG_contents = false;
 		}else {
-			isG_option = true;
-			console.log("g_optionPass");
+			isG_contents = true;
+			console.log("g_contentsPass");
 		}
 		
-		if(isE_num && isG_name && isG_price && isG_option && isGoodsPic){
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_stock").on("keyup", ()=>{
+    	let g_stock = $("#g_stock").val();
+		console.log(g_stock);
+		if(g_stock == "") {
+			isG_stock = false;
+		}else {
+			isG_stock = true;
+			console.log("g_stockPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#file").on("change", ()=>{
+    	let g_img = $("#file").val();
+		console.log(g_img);
+		if(g_img == "") {
+			isGoodsPic = false;
+		}else {
+			isGoodsPic = true;
+			console.log("g_IMGPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
 			$("#upload").removeAttr("disabled");
 		}
     })

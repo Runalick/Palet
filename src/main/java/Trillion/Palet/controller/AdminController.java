@@ -260,6 +260,13 @@ public class AdminController {
 		return "redirect:adminGoods";
 	}
 	
+	@RequestMapping(value="newGoodsInsert", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+	public String newGoodsInsert(GoodsDTO gdto, MultipartFile[] file) {
+		String realPath = session.getServletContext().getRealPath("GoodsPic");
+		aServ.newGoodsInsert(gdto, realPath, file);
+		return "redirect:adminGoods";
+	}
+	
 	@RequestMapping("adminGoodsList")
 	public String adminGoodsList(Model model, int cpage, String value) {
 		String orderByWord;

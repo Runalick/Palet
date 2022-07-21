@@ -101,6 +101,36 @@ public class AdminDTO {
 		
 	}
 	
+	public AdminDTO(String merchant_uid, String name, String email, String phone, String address1, String address2,
+			int zipcode, String title, String card_name, String card_number, int card_quota, String state,
+			String category, int price, Timestamp pay_time, int count, int point, int usedpoint,
+			int cpdiscount, String cpserial) {
+		super();
+		this.merchant_uid = merchant_uid;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.zipcode = zipcode;
+		this.title = title;
+		this.card_name = card_name;
+		this.card_number = card_number;
+		this.card_quota = card_quota;
+		this.state = state;
+		this.category = category;
+		this.price = price;
+		this.pay_time = pay_time;
+		
+		this.count = count;
+		this.point = point;
+		this.usedpoint = usedpoint;
+		this.cpdiscount = cpdiscount;
+		this.cpserial = cpserial;
+		
+		
+	}
+	
 	// Exticket / proticket용 생성자
 
 	public AdminDTO(String merchant_uid, String name, String email, String phone, String title, String place,

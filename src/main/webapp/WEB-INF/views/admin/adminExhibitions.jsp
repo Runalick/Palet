@@ -397,7 +397,7 @@ let end_date;
 				onClose: function( selectedDate ) {	//시작일(startDate) datepicker가 닫힐때, 종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
 					$("#end_date").datepicker( "option", "minDate", selectedDate );
 					
-					let date =  $.datepicker.formatDate("yymmdd", $(this).datepicker('getDate'));
+					let date =  $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
 					$('input[name="start_date"]').attr('value', date);
 					
 					$("#start_date_value").val(date);
@@ -421,176 +421,12 @@ let end_date;
 			    maxDate: 365, // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
 			    onClose: function( selectedDate ) { // 종료일(endDate) datepicker가 닫힐때, 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
 					$("#start_date").datepicker( "option", "maxDate", selectedDate );
-					let date =  $.datepicker.formatDate("yymmdd", $(this).datepicker('getDate'));
+					let date =  $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
 					$("#end_date_value").val(date);
 					end_date = this.date;
 				}
 			});
  		});	
-	
-	
-	
-
-
-	
-	$("#e_name").on("keyup",function(){
-		let e_name = $("#e_name").val();
-		console.log(e_name);
-		if(e_name == ""){
-			isE_name = false;
-			
-		}else {
-			isE_name = true;
-			console.log("e_namePass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-		}
-	})
-	
-// 	console.log($("#start_date").val());
-// 	console.log($("#end_date").val());
-// 	if(start_date == $("#start_date_value").val()) {
-// 		alert("!!");
-// 	}
-	
-// 	console.log($("#start_date_value").val());
-// 	console.log($("#end_date_value").val());
-	$("#start_date").on("focusout", function(){
-		let start_date_value = $("#start_date_value").val();
-		console.log(start_date_value);
-		if (start_date_value == null){
-			isStart_date = false;
-		}else {
-			isStart_date = true;
-			console.log("startdatePass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-	
-	$("#end_date").on("focusout", function(){
-		let end_date_value = $("#end_date_value").val();
-		console.log(end_date_value);
-		if (end_date_value == null ){
-			isEnd_date = false;
-		}else {
-			isEnd_date = true;
-			console.log("enddatePass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-
-	$("#e_price").on("keyup",function(){
-		let e_price = $("#e_price").val();
-		console.log(e_price);
-		if(e_price == ""){
-			isE_price = false;
-			
-		}else {
-			isE_price = true;
-			console.log("e_pricePass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-	
-	$("#pe_contents").on("keyup",function(){
-		let pe_contents = $("#pe_contents").val();
-		console.log(pe_contents);
-		if(pe_contents == ""){
-			isContents = false;
-			
-		}else {
-			isContents = true;
-			console.log("ContentsPass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-	
-	$("#pe_writer").on("keyup",function(){
-		let pe_writer = $("#pe_writer").val();
-		console.log(pe_writer);
-		if(pe_writer == ""){
-			isWriter = false;
-			
-		}else {
-			isWriter = true;
-			console.log("writerPass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
-	
-	$("#pe_artcount").on("keyup",function(){
-		let pe_artcount = $("#pe_artcount").val();
-		console.log(pe_artcount);
-		if(pe_artcount == ""){
-			isArtCount = false;
-			
-		}else {
-			isArtCount = true;
-			console.log("artcountPass")
-		}
-		
-		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			let start_date_value = $("#start_date_value").val();
-			let end_date_value = $("#end_date_value").val();
-			let pe_date = start_date_value + " ~ " + end_date_value;
-			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
-			$("#upload").removeAttr("disabled");
-			
-		}
-	})
 	
 
 	
@@ -607,8 +443,7 @@ let end_date;
 	 $("#file").on('change',function(){
   		let fileName = $("#file").val();
  	 	$(".upload_view").val(fileName);
- 	 	isExhibitionPic = true;
- 	 	console.log("expicPass!!!")
+ 	 	
 	});
 	
  	const reader = new FileReader();
@@ -642,7 +477,199 @@ let end_date;
     	$("#cancel_Btn").css("display","none");
     }
     
-	$("#pe_img").on("keyup",function(){
+ 	
+	
+
+	$("#e_name").on("keyup",function(){
+		let e_name = $("#e_name").val();
+		console.log(e_name);
+		if(e_name == ""){
+			isE_name = false;
+			
+		}else {
+			isE_name = true;
+			console.log("e_namePass")
+		}
+		
+		console.log(isE_name);
+		
+		if (isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic ){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+		}
+	})
+	
+// 	console.log($("#start_date").val());
+// 	console.log($("#end_date").val());
+// 	if(start_date == $("#start_date_value").val()) {
+// 		alert("!!");
+// 	}
+	
+// 	console.log($("#start_date_value").val());
+// 	console.log($("#end_date_value").val());
+	$("#start_date").on("focusout", function(){
+		let start_date_value = $("#start_date_value").val();
+		console.log(start_date_value);
+		if (start_date_value == null){
+			isStart_date = false;
+		}else {
+			isStart_date = true;
+			console.log("startdatePass")
+		}
+		
+		console.log(isStart_date);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#end_date").on("focusout", function(){
+		let end_date_value = $("#end_date_value").val();
+		console.log(end_date_value);
+		if (end_date_value == null ){
+			isEnd_date = false;
+		}else {
+			isEnd_date = true;
+			console.log("enddatePass")
+		}
+		
+		console.log(isEnd_date);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+
+	$("#e_price").on("keyup",function(){
+		let e_price = $("#e_price").val();
+		console.log(e_price);
+		if(e_price == ""){
+			isE_price = false;
+			
+		}else {
+			isE_price = true;
+			console.log("e_pricePass")
+		}
+		
+		console.log(isE_price);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_contents").on("keyup",function(){
+		let pe_contents = $("#pe_contents").val();
+		console.log(pe_contents);
+		if(pe_contents == ""){
+			isContents = false;
+			
+		}else {
+			isContents = true;
+			console.log("ContentsPass")
+		}
+		
+		console.log(isContents);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_writer").on("keyup",function(){
+		let pe_writer = $("#pe_writer").val();
+		console.log(pe_writer);
+		if(pe_writer == ""){
+			isWriter = false;
+			
+		}else {
+			isWriter = true;
+			console.log("writerPass")
+		}
+		
+		console.log(isWriter);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#pe_artcount").on("keyup",function(){
+		
+		let pe_artcount = $("#pe_artcount").val();
+		console.log(pe_artcount);
+		if(pe_artcount == ""){
+			isArtcount = false;
+			
+		}else {
+			isArtcount = true;
+			console.log("artcountPass")
+		}
+		
+		console.log(isArtcount);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			
+			console.log("&&을 패스 했습니까?")
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
+	$("#file").on("change",function(){
 		let pe_img = $("#pe_img").val();
 		console.log(pe_img);
 		if(pe_img == ""){
@@ -652,17 +679,21 @@ let end_date;
 			isExhibitionPic = true;
 			console.log("expicPass")
 		}
+		console.log(isExhibitionPic);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
+			$("#upload").css("color", "red");
 			$("#upload").removeAttr("disabled");
 			
 		}
-	})
+	}) 
+	
 
     let cnt =0;
     $(".navbar-toggler").on("click",function(){

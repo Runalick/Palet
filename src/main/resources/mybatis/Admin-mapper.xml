@@ -10,7 +10,7 @@
   
   	<select id="getWeekSales" resultType="Trillion.Palet.DTO.SalesDTO">
 		select sum(totalprice)as salessum , payday as salesdate from (
-		select totalprice, to_char(pay_time, 'YY/MM/DD')as payday from payment 
+		select totalprice, to_char(buydate, 'YY/MM/DD')as payday from mygoods 
 		UNION ALL
 		select et_cost as totalprice, to_char(et_buydate, 'YY/MM/DD') as payday from exticket
 		UNION ALL
@@ -20,7 +20,7 @@
   	
   	<select id="getWeekCount" resultType="Trillion.Palet.DTO.SalesDTO">
   		select sum(salescount)as salescount , payday as salesdate from (
-		select g_count as salescount, to_char(pay_time, 'YY/MM/DD')as payday from payment 
+		select sales_count as salescount, to_char(buydate, 'YY/MM/DD')as payday from mygoods 
 		UNION ALL
 		select et_count as salescount, to_char(et_buydate, 'YY/MM/DD') as payday from exticket
 		UNION ALL
@@ -44,7 +44,7 @@
   	
   	<select id="getMemberPayment" resultType='Trillion.Palet.DTO.AdminDTO'>
   		select * from (
-		select merchant_uid, g_name as title, totalprice as price, pay_time, category from payment where email = #{value}
+		select merchant_uid, g_name as title, totalprice as price, buydate as pay_time, category from mygoods where email = #{value}
 		UNION ALL
 		select et_booknumber as merchant_uid, et_title as title, et_cost as price, et_buydate as pay_time, et_category as category from exticket where et_email = #{value}
 		UNION ALL
@@ -63,7 +63,7 @@
   	</update>
   	
   	<insert id="newExhibitionInsert">
-  		insert into preexhibition values(exhibition_seq.nextval, null, #{pe_name}, #{pe_contents}, 'Palet', #{pe_date}, #{pe_price},#{pe_writer}, #{pe_artcount},#{pe_period},0)
+  		insert into preexhibition values(preexhibition_seq.nextval, null, #{pe_name}, #{pe_contents}, 'Palet', #{pe_date}, #{pe_price},#{pe_writer}, #{pe_artcount},#{pe_period},0)
   		<selectKey order="AFTER" keyProperty="pe_seq" resultType="int">
 			select preexhibition_seq.currval from dual
 		</selectKey>
@@ -85,6 +85,11 @@
   		select * from (select row_number() over(order by pe_seq desc) line, preexhibition.* from preexhibition ) preexhibition where line between 1 and 50
   	</select>
   	
+  	<select id="exhibitionSelectFixed" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
+  		select * from preexhibition 
+		where pe_seq in (1070,1071,1077,1079,1080,1085,1087,1091,1092,1100,1101,1102,1103,1104,1105,1106)
+  	</select>
+  	
   	<!-- Goods -->
   	
   	<update id="adminGoodsUpdate">
@@ -95,11 +100,26 @@
   		select e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join preexhibition e on(g.e_num = e.pe_seq) where g_seq = #{value}
   	</select>
   	
+  	<insert id="goodsInsertInto">
+  		insert into goods values(g_seq.nextval, goods_seq.nextval, #{e_num}, #{g_name}, #{g_price}, '선물포장 (포장_블랙 로고)' , #{g_contents}, default, #{g_stock})
+  		<selectKey order="AFTER" keyProperty="g_num" resultType="int">
+			select goods_seq.currval from dual
+		</selectKey>
+  	</insert>
+  	
+  	<insert id="goodsInsertIntoOption1">
+  		insert into goods values(g_seq.nextval, #{g_num}, #{e_num}, #{g_name}, #{g_price}, '선물포장 (포장_그레이 로고)' , #{g_contents}, default, #{g_stock})
+  	</insert>
+  	
+  	<insert id="goodsInsertIntoOption2">
+  		insert into goods values(g_seq.nextval, #{g_num}, #{e_num}, #{g_name}, #{g_price}, '선물포장 (포장_화이트 로고)' , #{g_contents}, default, #{g_stock})
+  	</insert>
+  	
   	<!-- Payment -->
   	
   	<select id="paymentSelectByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">
   		with total1 as (
-		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
+		select merchant_uid, name, email, phone, totalprice, buydate as pay_time, state, category from mygoods
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
 		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
@@ -114,7 +134,7 @@
   	
   	<select id="getPaymentTotalCount" resultType="int">
   		select count(*)
-		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
+		from (select merchant_uid, name, email, phone, totalprice, buydate as pay_time, state, category from mygoods
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
 		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
@@ -125,7 +145,7 @@
   	  	
   	<select id="paymentSelectUIDByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">
   		with total1 as (
-		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment where merchant_uid like '%'||#{uid}||'%'
+		select merchant_uid, name, email, phone, totalprice, buydate as pay_time, state, category from mygoods where merchant_uid like '%'||#{uid}||'%'
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
 		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket where et_booknumber like '%'||#{uid}||'%'
@@ -140,7 +160,7 @@
   	
   	<select id="getPaymentUIDTotalCount" resultType="int">
   		select count(*)
-		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
+		from (select merchant_uid, name, email, phone, totalprice, buydate as pay_time, state, category from mygoods
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
 		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
@@ -151,7 +171,7 @@
   	
   	<select id="paymentSelectNameByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">
   		with total1 as (
-		select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment where name like '%'||#{name}||'%'
+		select merchant_uid, name, email, phone, totalprice, buydate as pay_time, state, category from mygoods where name like '%'||#{name}||'%'
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
 		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket where et_username like '%'||#{name}||'%'
@@ -166,19 +186,19 @@
   	
   	<select id="getPaymentNameTotalCount" resultType="int">
   		select count(*)
-		from (select merchant_uid, name, email, phone, totalprice, pay_time, state, category from payment
+		from (select merchant_uid, name, email, phone, totalprice, buydate as pay_time, state, category from mygoods
 		UNION ALL
 		select et_booknumber as merchant_uid, et_username as name, et_email as email, et_phone as phone, 
 		et_cost as totalprice, et_buydate as pay_time, et_state as state, et_category as category from exticket
 		UNION ALL
         select pro_booknumber as merchant_uid, pro_username as name, pro_email as email, pro_phone as phone,
-        pro_cost as totalprice, pro_buydate as pay_time, pro_state as state, pro_category as category from proticket) where name like '%'||#{search}||'%'
+        pro_cost as totalprice, pro_buydate as buydate, pro_state as state, pro_category as category from proticket) where name like '%'||#{search}||'%'
   	</select>
   	
   	<select id="getAdminPayDetail" resultType="Trillion.Palet.DTO.AdminDTO">
   		select merchant_uid, name, email, phone, address1, address2, zipcode, g_name as title,
-  		 card_name, card_number, card_quota, state, category, totalprice as price, pay_time, delivery_text, 
-  		 g_option as options, g_count as count, point, usedpoint, cpdiscount, cpserial from payment 
+  		 card_name, card_number, card_quota, state, category, totalprice as price, buydate as pay_time, 
+  		  sales_count as count, addpoint as point, usedpoint, cp_discount as cpdiscount, serial as cpserial from mygoods 
   		 where merchant_uid = #{value}
   	</select>
   	
@@ -207,7 +227,7 @@
   	<!-- Cancel Logic -->
   	
   	<select id="categoryCheck" resultType="String">
-  		select category from (select category, merchant_uid from payment 
+  		select category from (select category, merchant_uid from mygoods 
   		UNION ALL select et_category as category, et_booknumber as merchant_uid from exticket
   		UNION ALL select pro_category as category, pro_booknumber as merchant_uid from proticket) 
   		where merchant_uid = #{value}
@@ -218,7 +238,7 @@
   	</update>
   	
   	<update id="cancelGoodsUpdate">
-  		update payment set state = 'AC' where merchant_uid = #{value}
+  		update mygoods set state = 'AC' where merchant_uid = #{value}
   	</update>
   	
   	<update id="cancelProticketUpdate">
@@ -244,18 +264,18 @@
   	</update>
   	
   	<update id='restoreGoodsCountAndStock'>
-  		update goods set sales_count = sales_count-(select g_count from payment 
-		where merchant_uid=#{value}), g_stock = g_stock + (select g_count from payment where merchant_uid=#{value})
-		where g_num = (select g_num from payment where merchant_uid=#{value})
+  		update goods set sales_count = sales_count-(select sales_count from mygoods 
+		where merchant_uid=#{value}), g_stock = g_stock + (select sales_count from mygoods where merchant_uid=#{value})
+		where g_num = (select g_num from mygoods where merchant_uid=#{value})
   	</update>
   	
   	<select id='checkUsedGoodsPoint' resultType='int'>
-  		select usedpoint from payment where merchant_uid = #{value}
+  		select usedpoint from mygoods where merchant_uid = #{value}
   	</select>
   	
   	<update id='restoreGoodsPoint'>
-  		update member set point = point + (select usedpoint from payment where merchant_uid = #{value)
-  		where email = (select email from payment where merchant_uid = #{value})
+  		update member set point = point + (select usedpoint from mygoods where merchant_uid = #{value)
+  		where email = (select email from mygoods where merchant_uid = #{value})
   	</update>
   	
   	<update id='restoreProCountAndStock'>

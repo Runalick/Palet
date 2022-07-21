@@ -203,7 +203,7 @@
 		                            	<hr>
 	                            		</c:forEach>
                             		</div>
-                            	</div>	
+                            	</div>
 			                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
 			                    	${navi}
 			                    </div>

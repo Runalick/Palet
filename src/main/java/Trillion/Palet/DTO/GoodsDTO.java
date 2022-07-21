@@ -56,8 +56,23 @@ public class GoodsDTO {
 	}
 	
 	// Admin용 DTO
-	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count,
+	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, int sales_count,
 			 int g_stock, String pe_name) {
+		super();
+		this.g_seq = g_seq;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+		this.pe_name = pe_name;
+	}
+	
+	// Admin 2
+		
+	public GoodsDTO(int g_seq, int e_num, String g_name, int g_price, String g_option, int sales_count, int g_stock,
+			String pe_name) {
 		super();
 		this.g_seq = g_seq;
 		this.e_num = e_num;
@@ -68,7 +83,23 @@ public class GoodsDTO {
 		this.g_stock = g_stock;
 		this.pe_name = pe_name;
 	}
-		
+	
+	// GoodsTable 
+
+	public GoodsDTO(int g_seq, int g_num, int e_num, String g_name, int g_price, String g_option, int sales_count,
+			String g_contents, int g_stock) {
+		super();
+		this.g_seq = g_seq;
+		this.g_num = g_num;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.g_option = g_option;
+		this.sales_count = sales_count;
+		this.g_contents = g_contents;
+		this.g_stock = g_stock;
+	}
+
 	public int getLine() {
 		return line;
 	}
