@@ -106,4 +106,8 @@ public class MypageService {
 	public List<ExProticketDTO> ExProTicket(String email) {
 		return mdao.ExProTicket(email);
 	}
+
+	public ProticketDTO proTicketDetailview(String pro_booknumber) {
+		return mdao.proTicketDetailview(pro_booknumber);
+	}
 }

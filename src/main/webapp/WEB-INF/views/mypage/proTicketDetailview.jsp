@@ -429,15 +429,7 @@ color:white;
 	background: black;
 	border-radius:0.375rem;
 }
-.qr {
-	width: 100px;
-	height: 100px;
-	background: white;
-	position: absolute;
-	bottom: 1.5rem;
-	right:2rem;
 
-}
 .H5 {
 	font-family: 'Spoqa Han Sans Neo';
 	padding-bottom: 1.2rem;
@@ -533,6 +525,9 @@ top:4rem;
 
 .select-ul li:hover {
 	background-color: #F4F6F8;
+}
+.imgimg{
+border-radius:0.625rem;
 }
 </style>
 </head>
@@ -738,48 +733,48 @@ top:4rem;
 				
 				
 					<div class="col-3 col-md-3 body4" style="margin-top:1.25rem;">주문번호</div>
-					<div class="col-9 col-md-9 body4" style="margin-top:1.25rem;">${dto.et_booknumber }</div>
+					<div class="col-9 col-md-9 body4" style="margin-top:1.25rem;">${dto.pro_booknumber }</div>
 					<div class="col-3 col-md-3 body4">주문일자</div>
-					<div class="col-9 col-md-9 body4">${dto.et_buydate }</div>
+					<div class="col-9 col-md-9 body4">${dto.pro_buydate }</div>
 					<div class="col-3 col-md-3 body4">주문자</div>
-					<div class="col-9 col-md-9 body4">${dto.et_username }</div>
+					<div class="col-9 col-md-9 body4">${dto.pro_username }</div>
 					<div class="col-3 col-md-3 body4">주문처리상태</div>
 					<div class="col-9 col-md-9 body4" id="state"></div>
 					<div class="col-3 col-md-3 body4" style="margin-bottom:2rem;">결제수단</div>
-					<div class="col-9 col-md-9 body4" style="margin-bottom:2rem;">${dto.et_paymethod }</div>
+					<div class="col-9 col-md-9 body4" style="margin-bottom:2rem;">${dto.pro_paymethod }</div>
 				
 				<div class="col-12 info"><strong>예매자 정보</strong></div>
 				<div class="col-3 col-md-3 body5" style="margin-top:1.25rem;">이름</div>
-					<div class="col-9 col-md-9 body5" style="margin-top:1.25rem;">${dto.et_username }</div>
+					<div class="col-9 col-md-9 body5" style="margin-top:1.25rem;">${dto.pro_username }</div>
 					<div class="col-3 col-md-3 body5">전화번호</div>
-					<div class="col-9 col-md-9 body5">${dto.et_phone }</div>
+					<div class="col-9 col-md-9 body5">${dto.pro_phone }</div>
 					<div class="col-3 col-md-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
-					<div class="col-9 col-md-9 body5" style="margin-bottom:3rem;">${dto.et_email }</div>
+					<div class="col-9 col-md-9 body5" style="margin-bottom:3rem;">${dto.pro_email }</div>
 				
 				<div class="col-2" style="height:12.5rem;margin-bottom:5.5rem;  ">
-				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
+				<img src="${dto.pp_sysname }" class="h-100 imgimg" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
 					<div class="col-9" style="margin-bottom:5.5rem;">
 						<div class="row ticket-row" >
-							<div class="col-12 body4" style="padding-top:1rem;">${dto.et_title }</div>
-							<div class="col-12 body4">${dto.et_booknumber }</div>
-							<div class="col-12 body4" id="price">${dto.et_cost/ dto.et_count  }원</div>
+							<div class="col-12 body4" style="padding-top:1rem;">${dto.pro_title }</div>
+							<div class="col-12 body4">${dto.pro_booknumber }</div>
+							<div class="col-12 body4" id="price">${dto.pro_cost/ dto.pro_count  }원</div>
 						</div>
 					</div>
 				<script>
-				price = ${(dto.et_cost+dto.et_usedpoint+dto.et_cpdiscount)/dto.et_count  };
+				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };
 				$("#price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 				<div class="col-4 total" style="margin-bottom:1rem">총 수량</div>
-				<div class="col-8 total" style="margin-bottom:1rem">${dto.et_count }개</div>
+				<div class="col-8 total" style="margin-bottom:1rem">${dto.pro_count }개</div>
 				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
-				<div class="col-8 total-price" style="margin-bottom:10rem">${dto.et_cost }원</div>
+				<div class="col-8 total-price" style="margin-bottom:10rem">${dto.pro_cost }원</div>
 				<script>
-				price = ${dto.et_cost  };
+				price = ${dto.pro_cost  };
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 				
-				<c:if test="${dto.et_state == 'BU' }">
+				<c:if test="${dto.pro_state == 'BU' }">
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
 				</c:if>
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
@@ -797,20 +792,17 @@ top:4rem;
       </div>
       <div class="modal-body" >
 								<div class="col-12 ticket">
-									<input type="hidden" value="${dto.et_booknumber }">
+									<input type="hidden" value="${dto.pro_booknumber }">
 									<div class="row" style="height: 100%">
 										<div class="col-3"
 											style="padding: 1rem; padding-left: 1.5rem;">
-											<img src="/images/anywayloveS.png" class="w-100 h-100">
+											<img src="${dto.pp_sysname }" class="w-100 h-100 imgimg">
 										</div>
 										<div class="col-9" style="position: relative">
-											<div class="H5" style="color: white; padding: 1.25rem 0px;">${dto.et_title }</div>
+											<div class="H5" style="color: white; padding: 1.25rem 0px;">${dto.pro_title }</div>
 											<div class="body3" style="color: white">예매번호 :
-												${dto.et_booknumber }</div>
-											<div class="body3" style="color: white;">${dto.et_date }</div>
-											<c:if test="${dto.et_state =='BU' }">
-											<div class="qr" id="qr" style="border: 5px solid white;"></div>
-											</c:if>
+												${dto.pro_booknumber }</div>
+											<div class="body3" style="color: white;">${dto.pro_date }</div>
 										</div>
 
 									</div>
@@ -837,15 +829,15 @@ top:4rem;
 			<div class="row">
 		
 			<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem ; margin-left:1.563rem; ">
-				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
+				<img src="${dto.pp_sysname }" class="h-100 imgimg" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
 					<div class="col-8" style="margin-bottom:3rem; width:28rem;">
 						<div class="row modal-ticket-row" >
-							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.et_title }</div>
-							<div class="col-12 paymodal-title2">${dto.et_booknumber }</div>
-							<div class="col-12 paymodal-title2" id="modal-price">${dto.et_cost/ dto.et_count  }원</div>
+							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.pro_title }</div>
+							<div class="col-12 paymodal-title2">${dto.pro_booknumber }</div>
+							<div class="col-12 paymodal-title2" id="modal-price">${dto.pro_cost/ dto.pro_count  }원</div>
 						<script>
-				price = ${(dto.et_cost+dto.et_usedpoint+dto.et_cpdiscount)/dto.et_count  };
+				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };
 				$("#modal-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 						</div>
@@ -872,7 +864,7 @@ top:4rem;
 							<div class="col-5 total" style="margin-bottom:1rem">상품금액</div>
 							<div class="col-7 total real-price" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">총 수량</div>
-							<div class="col-7 total" style="margin-bottom:1rem">${dto.et_count }장</div>
+							<div class="col-7 total" style="margin-bottom:1rem">${dto.pro_count }장</div>
 							<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
 							<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
 							<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
@@ -895,11 +887,11 @@ top:4rem;
 							<div class="col-5 total" >최종 환불금액</div>
 							<div class="col-7 total-price" style="color:red;"></div>
 							<script>
-							price=${dto.et_cost} + ${dto.et_usedpoint}+ ${dto.et_cpdiscount}
-							coupon=${dto.et_cpdiscount}
-							usedpoint=${dto.et_usedpoint }
-							getpoint=${dto.et_point }
-							total_price=${dto.et_cost }
+							price=${dto.pro_cost} + ${dto.pro_usedpoint}+ ${dto.pro_cpdiscount}
+							coupon=${dto.pro_cpdiscount}
+							usedpoint=${dto.pro_usedpoint }
+							getpoint=${dto.pro_point }
+							total_price=${dto.pro_cost }
 							$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 							$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 							$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -939,7 +931,7 @@ top:4rem;
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
-        <button class="btn btn-dark total pay-cancel" value=${dto.et_booknumber } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
+        <button class="btn btn-dark total pay-cancel" value=${dto.pro_booknumber } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
       </div>
     </div>
   </div>
@@ -998,7 +990,7 @@ top:4rem;
 		console.log($(".input").val());
 		$.ajax({
 			url:"/mypage/payCancel",
-			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
+			data:{content:$(".input").val(),booknumber:$(this).val(),category:'P'}
 		}).done(function(resp){
 			console.log("성공");
 			location.reload();
@@ -1055,20 +1047,20 @@ $("body").on("click", function(e){
 		state();
 	});
 	function state(){
-		if(${dto.et_state =='BU'}){
+		if(${dto.pro_state =='BU'}){
 			console.log("hi")
 			$("#state").text("구매완료");
 			$("#state").css("font-weight","700");
-		}else if(${dto.et_state =='AU'}){
+		}else if(${dto.pro_state =='AU'}){
 			console.log("bte")
 			$("#state").text("사용완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
-		}else if(${dto.et_state =='BC'}){
+		}else if(${dto.pro_state =='BC'}){
 			$("#state").text("취소 처리중");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
-		}else if(${dto.et_state =='AC'}){
+		}else if(${dto.pro_state =='AC'}){
 			$("#state").text("취소완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
@@ -1109,14 +1101,7 @@ $("body").on("click", function(e){
 			click = false;
 		}
 	});
-    var qrcode = new QRCode(document.getElementById("qr"), {
-        text: "${url}",
-        width: 90,
-        height: 90,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
-    });
+    
 	</script>
 </body>
 </html>

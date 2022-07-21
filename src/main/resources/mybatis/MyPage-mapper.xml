@@ -19,8 +19,8 @@ union all
 select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
 from proticket left outer join programpic using(p_num)),
 total2 as (
-select row_number () over(order by datee) line, booknumber,state, email, title, place, datee, buydate, category, pickdate, sysname from total1)
-select line, booknumber, email, title, place, datee, buydate,state, category, pickdate, sysname from total2 where  line between #{limit} and #{limit}+9 and email =#{email} 
+select row_number () over(order by datee) line, booknumber, email, title,state, place, datee, buydate, category, pickdate, sysname from total1)
+select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2 where  email=#{email} and state = 'AU'
 	</select>
 	<select id="premyTicketcnt" resultType="int">
 		select count(*) from (with total1 as
@@ -63,6 +63,9 @@ select line, booknumber, email, title, place, datee, buydate, category, pickdate
 		</if>
 		<if test='category=="G"'>
 		payment set state='BC' where merchant_uid
+		</if>
+		<if test='category=="P"'>
+		proticket set pro_state='BC' where pro_booknumber
 		</if>
 		 =#{booknumber}
 	</update>
@@ -180,5 +183,8 @@ from exticket left outer join exhibitionpic using(e_num)
 union all
 select pro_email as email, pro_title as title, pro_place as place, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_buydate as buydate, pro_category as category, pro_pickdate as pickdate, pp_sysname as sysname  
 from proticket left outer join programpic using(p_num)) where state = 'BU' and email = #{value} order by buydate desc
+	</select>
+	<select id="proTicketDetailview" resultType="Trillion.Palet.DTO.ProticketDTO">
+		select * from proticket left join programpic using (p_num) where pro_booknumber = #{value}
 	</select>
 </mapper>

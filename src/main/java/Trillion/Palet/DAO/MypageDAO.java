@@ -56,6 +56,8 @@ public class MypageDAO {
 			return mybatis.update("MyPage.BeforeCancel",dto);
 		}else if(dto.getCategory().equals("G")){
 			return mybatis.update("MyPage.BeforeCancel", dto);
+		}else if(dto.getCategory().equals("P")) {
+			return mybatis.update("MyPage.BeforeCancel", dto);
 		}
 		
 		
@@ -139,5 +141,9 @@ public class MypageDAO {
 
 	public List<ExProticketDTO> ExProTicket(String email) {
 		return mybatis.selectList("MyPage.ExProTicket",email);
+	}
+
+	public ProticketDTO proTicketDetailview(String pro_booknumber) {
+		return mybatis.selectOne("MyPage.proTicketDetailview",pro_booknumber);
 	}
 }
