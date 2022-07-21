@@ -8,9 +8,11 @@ import org.springframework.stereotype.Service;
 import Trillion.Palet.DAO.MypageDAO;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 
 @Service
 public class MypageService {
@@ -98,5 +100,10 @@ public class MypageService {
 
 	public int couponRegist(String email, String serial) {
 		return mdao.couponRegist(email, serial);
+	}
+
+
+	public List<ExProticketDTO> ExProTicket(String email) {
+		return mdao.ExProTicket(email);
 	}
 }

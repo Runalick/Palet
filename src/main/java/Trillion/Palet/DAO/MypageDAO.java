@@ -10,9 +10,11 @@ import org.springframework.stereotype.Component;
 
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.CancelListDTO;
+import Trillion.Palet.DTO.ExProticketDTO;
 import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
+import Trillion.Palet.DTO.ProticketDTO;
 
 @Component
 public class MypageDAO {
@@ -131,5 +133,11 @@ public class MypageDAO {
 		param.put("email", email);
 		param.put("serial", serial);
 		return mybatis.update("Mypage.couponRegist", param);
+	}
+
+	
+
+	public List<ExProticketDTO> ExProTicket(String email) {
+		return mybatis.selectList("Mypage.ExProTicket",email);
 	}
 }
