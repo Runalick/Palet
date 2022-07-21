@@ -21,7 +21,7 @@
   	</select>
   	
   	<insert id="programInsert">
-  		insert into program values(program_seq.nextval, #{p_name},#{p_date},default,#{p_price},#{p_period})
+  		insert into program values(program_seq.nextval, #{p_name},#{start_date}, #{end_date},default,#{p_price},#{p_period})
   		<selectKey order="AFTER" keyProperty="p_num" resultType="int">
 			select program_seq.currval from dual
 		</selectKey>
@@ -33,8 +33,8 @@
   			<if test="order == 'line'">line</if>
   			<if test="order == 'p_num'">p_num</if>
 	  		<if test="order == 'p_name'">p_name</if>
-<!-- 	  		<if test="order == 'start_date'">start_date</if>
-	  		<if test="order == 'end_date'">end_date desc</if> -->
+ 	  		<if test="order == 'start_date'">start_date</if>
+	  		<if test="order == 'end_date'">end_date desc</if> 
 	  		<if test="order == 'p_price'">p_price</if>
   			<if test="order == 'p_period'">p_period</if>
   			<if test="order == 'sales_count'">sales_count desc</if>

@@ -13,8 +13,11 @@ import Trillion.Palet.DTO.AdminDTO;
 import Trillion.Palet.DTO.CancelDTO;
 import Trillion.Palet.DTO.DeliveryDTO;
 import Trillion.Palet.DTO.ExhibitionDTO;
+import Trillion.Palet.DTO.ExhibitionPicDTO;
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.GoodsPicDTO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.NewExhibitionDTO;
 import Trillion.Palet.DTO.ProgramDTO;
 import Trillion.Palet.DTO.SalesDTO;
 import Trillion.Palet.DTO.TotalPaymentDTO;
@@ -129,7 +132,7 @@ public class AdminDAO {
 	
 	// Exhibition Category
 	
-	public List<ExhibitionDTO> exhibitionSelectByPage (int cpage, String order) {
+	public List<NewExhibitionDTO> exhibitionSelectByPage (int cpage, String order) {
 		String start = String.valueOf(cpage * 10 - 9);
 		String end = String.valueOf(cpage * 10);
 		Map<String, String> param = new HashMap<>();
@@ -197,9 +200,41 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
-	public int adminExhibitionUpdate(ExhibitionDTO edto) {
+	public int adminExhibitionUpdate(NewExhibitionDTO edto) {
 		return mybatis.update("Admin.adminExhibitionUpdate", edto);
 	}
+	
+	public int exhibitionPicinsert(ExhibitionPicDTO dto) {
+		return mybatis.insert("File.exhibitionPicInsert", dto);
+	}
+	
+	public int newExhibitionInsert(NewExhibitionDTO dto) {
+		return mybatis.insert("Admin.newExhibitionInsert", dto);
+	}
+	
+	public int exhibitionCheckDelete(int pe_seq) {
+		return mybatis.delete("Admin.exhibitionCheckDelete", pe_seq);
+	}
+	
+	public int exhibitionCheckUpdate(String pe_seq, String pe_period) {
+		Map<String, String> param = new HashMap<>();
+		param.put("pe_seq", pe_seq);
+		param.put("pe_period", pe_period);
+		return mybatis.update("Admin.exhibitionCheckUpdate", param);	
+	}
+	
+	public NewExhibitionDTO getExhibition(int pe_seq) {
+		return mybatis.selectOne("Admin.getExhibition", pe_seq);
+	}
+	
+	public List<NewExhibitionDTO> exhibitionSelectTop50(){
+		return mybatis.selectList("Admin.exhibitionSelectTop50");
+	}
+	
+	public List<NewExhibitionDTO> exhibitionSelectFixed(){
+		return mybatis.selectList("Admin.exhibitionSelectFixed");
+	}
+	
 	
 	// Goods Category
 	
@@ -345,6 +380,22 @@ public class AdminDAO {
 	
 	public GoodsDTO getGoods(int g_seq) {
 		return mybatis.selectOne("Admin.getGoods", g_seq);
+	}
+	
+	public int goodsPicInsert(GoodsPicDTO dto) {
+		return mybatis.insert("File.goodsPicInsert", dto);
+	}
+	
+	public int goodsInsertInto(GoodsDTO gdto) {
+		return mybatis.insert("Admin.goodsInsertInto", gdto);
+	}
+	
+	public int goodsInsertOption1 (GoodsDTO gdto) {
+		return mybatis.insert("Admin.goodsInsertIntoOption1", gdto);
+	}
+	
+	public int goodsInsertOption2 (GoodsDTO gdto) {
+		return mybatis.insert("Admin.goodsInsertIntoOption2", gdto);
 	}
 	
 	// Program Category

@@ -172,7 +172,7 @@
 								<div class="h3_2">Input Goods</div>
 							</div>
 							<div class="row">
-							<form action="/admin/goodsInsert" method="post" enctype="multipart/form-data">		
+							<form action="/admin/newGoodsInsert" method="post" enctype="multipart/form-data">		
 								<div class="col">
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">전시 카테고리</div>
@@ -185,7 +185,7 @@
 										<div class="col-12 p-0">
 											<select id="e_num" name="e_num" class="select1"> 
 												<c:forEach var="i" items="${list}">	
-												<option value='${i.e_num}'>${i.e_name} </option>
+												<option value='${i.pe_seq}'>${i.pe_name} </option>
 												</c:forEach>
 											</select>
 										</div>
@@ -218,15 +218,29 @@
 										</div>
 									</div>
 									<div class="row">
-										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 옵션</div>
-										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 옵션</div>
-										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 옵션</div>
-										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 옵션</div>
-										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 옵션</div>
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 내용</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 내용</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 내용</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 내용</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 내용</div>
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
-											<input type="text" name="g_option" id="g_option" placeholder="Input Goods Options" >
+											<input type="text" name="g_contents" id="g_contents" placeholder="Input Goods Contents" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">제품 재고</div>
+										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">제품 재고</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">제품 재고</div>
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">제품 재고</div>
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">제품 재고</div>
+									</div>
+									<div class="row" style="text-align:center;">
+										<div class="col-12 p-0">
+											<input type="text" name="g_stock" id="g_stock" 
+											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"
+											placeholder="Input Goods Stock">
 										</div>
 									</div>
 									<div class="row">
@@ -238,7 +252,7 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 filebox">
-											<input class="upload_view" value="" placeholder="Input Goods Images">
+											<input class="upload_view" id="g_img" value="" placeholder="Input Goods Images" readonly>
 											<span>
 												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>
 												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
@@ -255,7 +269,7 @@
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
-												<input class="btn2_1" type="submit" id="upload" value="등록">
+												<input class="btn2_1" type="submit" id="upload" value="등록" disabled>
 										</div>
 									</div>
                 				</div>
@@ -291,6 +305,14 @@
     
     
 <script>
+let isE_num = true;
+let isG_name = false;
+let isG_price = false;
+let isG_contents = false;
+let isG_stock = false;
+let isGoodsPic = false;
+
+
 	$("#goodsAdded").on("click", ()=>{
  		location.href = "/admin/adminGoods";
  	})
@@ -303,6 +325,8 @@
  	$("#file").on('change',function(){
   		let fileName = $("#file").val();
  	 	$(".upload_view").val(fileName);
+ 	 	isGoodsPic = true;
+ 	 	console.log("goodsPicPass!")
 	});
 	
  	const reader = new FileReader();
@@ -336,6 +360,97 @@
     	$("#cancel_Btn").css("display","none");
     }
 	
+/*     $("#e_num").on("keyup", ()=>{
+    	let e_num = $("#e_num").val();
+		console.log(e_num);
+		if(e_num == "") {
+			isE_num = false;
+		}else {
+			isE_num = true;
+			console.log("e_numPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    }) */
+    
+    $("#g_name").on("keyup", ()=>{
+    	let g_name = $("#g_name").val();
+		console.log(g_name);
+		if(g_name == "") {
+			isG_name = false;
+		}else {
+			isG_name = true;
+			console.log("g_namePass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_price").on("keyup", ()=>{
+    	let g_price = $("#g_price").val();
+		console.log(g_price);
+		if(g_price == "") {
+			isG_price = false;
+		}else {
+			isG_price = true;
+			console.log("g_pricePass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_contents").on("keyup", ()=>{
+    	let g_contents = $("#g_contents").val();
+		console.log(g_contents);
+		if(g_contents == "") {
+			isG_contents = false;
+		}else {
+			isG_contents = true;
+			console.log("g_contentsPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#g_stock").on("keyup", ()=>{
+    	let g_stock = $("#g_stock").val();
+		console.log(g_stock);
+		if(g_stock == "") {
+			isG_stock = false;
+		}else {
+			isG_stock = true;
+			console.log("g_stockPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    $("#file").on("change", ()=>{
+    	let g_img = $("#file").val();
+		console.log(g_img);
+		if(g_img == "") {
+			isGoodsPic = false;
+		}else {
+			isGoodsPic = true;
+			console.log("g_IMGPass");
+		}
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").removeAttr("disabled");
+		}
+    })
+    
+    
     let cnt =0;
     $(".navbar-toggler").on("click",function(){
        cnt ++;

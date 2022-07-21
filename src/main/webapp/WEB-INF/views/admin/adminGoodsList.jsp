@@ -170,9 +170,9 @@
                 	    	<div class="row pt-4 p-4" style="text-align:right">
  								<div id="checkbtns">
  									<!-- 추후 join을 통해 받아오는 값으로 꾸려질 예정 (전시이름) 일괄수정 -->
- 									<select class="body2 select0 color_gray100" name="e_num" id="e_num">
+ 									<select class="body2 select0 color_gray100" name="pe_seq" id="e_num">
 										<c:forEach var="i" items="${exhibition}">	
-										<option value='${i.e_num}'>${i.e_name} </option>
+										<option value='${i.pe_seq}'>${i.pe_name} </option>
 										</c:forEach>
 									</select>
                             		<button class="btn0_1 color_yellow2" onclick="checkboxUpdate()">전시 수정</button>
@@ -195,7 +195,7 @@
                             			<c:forEach var="i" items="${list}">
                             			<div class="row">
 	                            			<div class="col-5 col-lg-4 col-xl-3 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.g_seq}"> <a href="/admin/adminGoodsDetail?g_seq=${i.g_seq}" class="colortext_gray900"> <b>${i.g_name }</b> </a></div>
-	                            			<div class="col-4 col-xl-3 px-4 body2">${i.e_name }</div>
+	                            			<div class="col-4 col-xl-3 px-4 body2 elilpsis">${i.pe_name }</div>
 				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.g_price } </div>
 				                        	<div class="col-2 d-none d-lg-block px-4 body2" >${i.sales_count } </div>
 			                            	<div class="col-3 col-lg-2 px-4 body2" >${i.g_stock } </div>
@@ -203,7 +203,7 @@
 		                            	<hr>
 	                            		</c:forEach>
                             		</div>
-                            	</div>	
+                            	</div>
 			                    <div class="col-12 p-3 colortext_gray200" style="text-align:center">
 			                    	${navi}
 			                    </div>
