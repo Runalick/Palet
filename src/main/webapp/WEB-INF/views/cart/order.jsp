@@ -1293,6 +1293,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	    window.onload = function(){
 	    		$.ajax({
 	            	url:"/cart/select_cart",
+	            	async:false
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	count = resp.length;
