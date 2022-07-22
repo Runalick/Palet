@@ -395,7 +395,9 @@ align-items: center; */
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 }
-
+.row {
+	--bs-gutter-x: 0;
+}
 input {
 	min-width: 200px;
 	text-align: center;
@@ -565,7 +567,7 @@ input {
 	</header>
 	<div class="container" >
 		<div class="row" style="margin-top: 100px; text-align: center;">
-			<div class="col-12 H2" style="margin-bottom: 20px;">스캔결과입니다</div>
+			<div class="col-12 H2" style="margin-bottom: 20px;">스캔 결과</div>
 			<c:if test="${result == 'bu'}">
 				<div class="col-12 H3">정상 사용되었습니다.</div>
 			</c:if>
@@ -579,17 +581,17 @@ input {
 				<div class="col-12 H3">취소대기중인 티켓입니다.</div>
 			</c:if>
 			<c:if test="${result == 'adminOnly' }">
-				<div class="col-12 H4">관리자만 쿠폰 스캔사용이 가능합니다.</div>
-				<div class="col-12 body4">잘못된 스캔사용을 방지하기위해서 관리자 로그인이 필요합니다.</div>
-				<div class="col-12 body4">관리자 로그인 중이라면 문의해주시기 바랍니다.</div> 
+				<div class="col-12 H3">관리자만 티켓 스캔사용이 가능합니다.</div>
+				<div class="col-12 H4">잘못된 스캔사용을 방지하기위해서 관리자 로그인이 필요합니다.</div>
+				<div class="col-12 H4">관리자 계정 로그인중이라면 개발팀에게 문의해주시기 바랍니다.</div> 
 			</c:if>
 			<c:if test="${result == 'loginplz'}">
-				<div class="col-12 H4">관리자 로그인이 필요한 기능입니다.</div>
-				<div class="col-12 body4"><a href="member/login">로그인</a></div> 
+				<div class="col-12 H3">관리자 로그인이 필요한 기능입니다.</div>
+				<div class="col-12 H4"><a href="/member/loginPage"><button type="button" class="btn2" style="height: 2.75rem; width: 15rem; text-align: center;">로그인</button></a></div> 
 			</c:if>
 	</div>
 	</div>
-	<div class="row" id="footer">
+	<div class="row" id="footer" style="margin-top: 2rem;">
 			<div class="container">
 				<div class="row" id="row1">
 					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
