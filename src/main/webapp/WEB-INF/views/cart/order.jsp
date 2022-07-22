@@ -1334,10 +1334,11 @@ input[type="number"]::-webkit-inner-spin-button {
 					$.ajax({
 						url:"/shop/selectMemberData"
 					}).done(function(resp){
+						console.log("멤버정보");
 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
-							$(".myPoint1").html(resp[i].point);
-							$(".myPoint2").html(resp[i].point);
+							$(".myPoint1").text(resp[i].point);
+							$(".myPoint2").text(resp[i].point);
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							grade = resp[i].grade;
@@ -1599,17 +1600,18 @@ input[type="number"]::-webkit-inner-spin-button {
 	       			console.log("point 정산 성공");
 	       				
 	       		});
-       			
+
 	       	 	if(!(serial == "inavailableCP")){
 		       	 	$.ajax({
-		       			url:"/pay/coupon",
-		       			data:{email : arrUserEmail[1],
-							"serial" : serial
+		       	 	url:"/pay/coupon",
+		       			ddata:{email : arrUserEmail[1],
+							"serial" : serial}
 		       		}).done(function(resp){
 		       			console.log("coupon 정산 성공");
 		       				
 		       		});
 	       	 	}
+		       	 	
 	       	 	$.ajax({
 	       			url:"/pay/point",
 	       			data:{email : arrUserEmail[1],
