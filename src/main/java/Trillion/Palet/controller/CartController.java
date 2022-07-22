@@ -107,8 +107,12 @@ public class CartController {
 	@ResponseBody
 	@RequestMapping("cartModi")
 	public String cartModi(int g_seq,int cartstock) {
+		System.out.println("g_seq : " + g_seq);
 		String email = (String)session.getAttribute("loginEmail");
-		cServ.selectModiOne(g_seq,cartstock,email);
+		int i =  cServ.selectModiOne(g_seq,cartstock,email);
+		System.out.println(cartstock);
+		System.out.println(email);
+		System.out.println("결과입니다 : " + i);
 		return "success";
 	}
 	

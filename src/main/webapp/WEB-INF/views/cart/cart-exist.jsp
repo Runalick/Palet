@@ -1005,13 +1005,14 @@ function setTotalInfo() {
 	
 			setTotalInfo();
 			
-			g_seq=$($(this).parent().siblings()[8]).children().val();
+			g_seq=$($(this).parent().siblings()[9]).children().val();
+			console.log(g_seq);
 			$.ajax({
 				url:"/cart/cartModi",
 				dataType:"json",
 				data:{g_seq:g_seq,cartstock:number}
 			}).done(function(resp){
-				console.log(resp)
+				console.log(resp);
 			})
 	
 	
@@ -1040,7 +1041,8 @@ function setTotalInfo() {
 
 			setTotalInfo();
 	
-			g_seq=$($(this).parent().siblings()[8]).children().val();
+			g_seq=$($(this).parent().siblings()[9]).children().val();
+			console.log(g_seq);
 			$.ajax({
 				url:"/cart/cartModi",
 				dataType:"json",
