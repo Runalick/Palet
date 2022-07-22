@@ -13,12 +13,12 @@ public class CancelListDTO {
 	private String sysname;
 	private String category;
 	private int num;
+	private String option1;
 	
 	public CancelListDTO() {}
 
-	
 	public CancelListDTO(String email, String title, String datee, String booknumber, String state, int cost,
-			String buydate, String pickdate, String sysname, String category, int num) {
+			String buydate, String pickdate, String sysname, String category, int num, String option1) {
 		super();
 		this.email = email;
 		this.title = title;
@@ -31,8 +31,8 @@ public class CancelListDTO {
 		this.sysname = sysname;
 		this.category = category;
 		this.num = num;
+		this.option1 = option1;
 	}
-
 
 	public String getEmail() {
 		return email;
@@ -120,6 +120,14 @@ public class CancelListDTO {
 
 	public void setNum(int num) {
 		this.num = num;
+	}
+
+	public String getOption1() {
+		return option1;
+	}
+
+	public void setOption1(String option1) {
+		this.option1 = option1;
 	}
 
 	

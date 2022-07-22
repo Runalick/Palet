@@ -873,9 +873,18 @@ $("#paybtn").on("click",function(){
 					console.log($($(this).siblings()[1]).val());
 					cart_seq.push($($(this).siblings()[1]).val());			})
 
-	console.log($(this).siblings()[1]);
+	
 	console.log(cart_seq);
-	location.href="/cart/order?cart_seq="+cart_seq;
+
+	$.ajax({
+		url:"/cart/order",
+		traditional : true,
+		data:{cart_seq:cart_seq},
+		type:"post"
+	}).done(function(resp){
+		location.href="/cart/Toorder";	
+	})
+	
 })
 
 
