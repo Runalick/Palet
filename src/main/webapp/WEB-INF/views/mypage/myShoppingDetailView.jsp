@@ -969,63 +969,65 @@ a:hover{
 							<div class="row main-area">
 								<div class="col-12 h3">주문정보</div>
 								<div class="col-3 body2_1">주문번호</div>
-								<div class="col-9 body2_1">${detail.merchant_uid }</div>
+								<div class="col-9 body2_1">${payment.merchant_uid }</div>
 								<div class="col-3 body2_1">주문일자</div>
-								<div class="col-9 body2_1">${detail.pay_time }</div>
+								<div class="col-9 body2_1">${payment.pay_time }</div>
 								<div class="col-3 body2_1">주문자</div>
 								<div class="col-9 body2_1">${name }</div>
 								<div class="col-3 body2_1">주문자ID</div>
-								<div class="col-9 body2_1">${detail.email }</div>
+								<div class="col-9 body2_1">${payment.email }</div>
 								<div class="col-3 body2_1">주문처리상태</div>
-								<div class="col-9 body2_1" id="state">${detail.state }</div>
+								<div class="col-9 body2_1" id="state">${product[0].state }</div>
 								<div class="col-3 body2_1">결제수단</div>
-								<div class="col-9 body2_1">${detail.card_name } - ${detail.card_number } </div>
+								<div class="col-9 body2_1" id="card_name">${payment.card_name }</div>
+								<div class="col-3 body2_1">카드번호</div>
+								<div class="col-9 body2_1" id="quota">${payment.card_number }</div>
 								<div class="col-3 body2_1">할부기간</div>
-								<div class="col-9 body2_1" id="quota">${detail.card_quota }개월</div>
+								<div class="col-9 body2_1" id="quota">${payment.card_quota }개월</div>
 							</div>	
 							<div class="row main-area">	
 								<div class="col-12 h3">배송지정보</div>
 								<div class="col-3 body2_1">수령인</div>
-								<div class="col-9 body2_1">${detail.name }</div>
+								<div class="col-9 body2_1">${payment.name }</div>
 								<div class="col-3 body2_1">우편번호</div>
-								<div class="col-9 body2_1">${detail.zipcode }</div>
+								<div class="col-9 body2_1">${payment.zipcode }</div>
 								<div class="col-3 body2_1">주소</div>
-								<div class="col-9 body2_1">${detail.address1 }</div>
-								<div class="col-3 body2_1"></div>
-								<div class="col-9 body2_1">${detail.address2 }</div>
+								<div class="col-9 body2_1">${payment.address1 }</div>
+								<div class="col-3 body2_1">상세주소</div>
+								<div class="col-9 body2_1">${payment.address2 }</div>
 								<div class="col-3 body2_1">휴대전화</div>
-								<div class="col-9 body2_1">${detail.phone }</div>
+								<div class="col-9 body2_1">${payment.phone }</div>
 								<div class="col-3 body2_1">배송메시지</div>
-								<div class="col-9 body2_1">${detail.delivery_text }</div>
+								<div class="col-9 body2_1" id="delivery_text">${payment.delivery_text }</div>
 							</div>
-							<div class="row main-area">	
+						<div class="row main-area">	
 								<div class="col-12 h3">상품정보</div>
-								
+								<c:forEach var="i" items="product"> 
 								<div class="row">
 									<div class="col-5 p-0">
-										<a href="/shop/goDetail?g_num=${product.G_NUM }"><img src="${product.gp_sysname }" class="w-100 h-100" style="max-width: 300px; min-width: 120px; padding: 10px;"></a>
-										<%-- <img class='con' src='/shop/shopHome/"+ ${gp_sysname }+"'> --%>
+										<a href="/shop/goDetail?g_num=${product[i].G_NUM }"><img src="${product[i].gp_sysname }" class="w-100 h-100" style="max-width: 300px; min-width: 120px; padding: 10px;"></a>
+										<img class='con' src='/shop/shopHome/"+ ${gp_sysname }+"'>
 									</div>
 									<div class="col-7">
 										<div class="row">
-											<%-- <div class="col-12 px-3 body2_1">${product.e_name }</div>
+											<div class="col-12 px-3 body2_1">${product.e_name }</div>
 											<div class="col-12 px-3 body2_1">${product.g_name }</div>
 											<div class="col-12 px-3 body2_1">${product.G_OPTION }</div>
-											<div class="col-12 px-3 body2_1">${product.g_count }</div> --%>
+											<div class="col-12 px-3 body2_1">${product.g_count }</div>
 											
 											<div class="col-12 px-3 body1_1" style="padding-top: 1.5rem; padding-bottom: 1.5rem">
-												<a href="/shop/goDetail?g_num=${product.G_NUM }">${product.G_NAME }</a>
+												<a href="/shop/goDetail?g_num=${i.G_NUM }">${i.G_NAME }</a>
 											</div>
 											<div class="col-12 px-3 body2_1" style="padding-bottom: 1rem">
-												<a href="/Exhibition/toPredetail?pe_img=${product.pe_img}">${product.pe_name}</a>
+												<a href="/Exhibition/toPredetail?pe_img=${product[i].pe_img}">${i.pe_name}</a>
 											</div>
-											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">옵션 : ${product.G_OPTION} </div>
-											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">수량 : ${product.g_count} </div>
+											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">옵션 : ${i.G_OPTION} </div>
+											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">수량 : ${i.g_count} </div>
 										</div>
 									</div>
 								</div>
-								
-							</div>
+								</c:forEach>
+							</div> 
 							<div class="row main-area">
 								<div class="col-12 h3">결제정보</div>
 								<div class="col-3 total">적립 포인트</div>
@@ -1042,11 +1044,11 @@ a:hover{
 								<div class="col-9 total total-price"></div>
 								
 								<script>
-								price=${detail.totalprice} + ${detail.usedpoint }+ ${detail.cpdiscount }-3000
-								coupon=${detail.cpdiscount }
-								usedpoint=${detail.usedpoint }
-								getpoint=${detail.point }
-								total_price=${detail.totalprice}
+								price=${product[0].totalprice} + ${product[0].usedpoint }+ ${product[0].cp_discount }-3000
+								coupon=${product[0].cp_discount }
+								usedpoint=${product[0].usedpoint }
+								getpoint=${product[0].addpoint }
+								total_price=${payment.totalprice}
 								deltax = 3000
 								$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 								$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -1057,7 +1059,7 @@ a:hover{
 								</script>
 								
 								
-							</div>
+							</div> 
 							<button class='ok btnbtn' id="cancel" style="margin: 2.5rem;" data-bs-toggle='modal' data-bs-target='#exampleModa2'>
 								주문취소
 							</button>
@@ -1070,7 +1072,7 @@ a:hover{
 			</div>
 		</div>
 		
-		<!-- 구매 취소 모달 -->
+		<%-- <!-- 구매 취소 모달 -->
 				<div class="modal fade" id="exampleModa2" tabindex="-1" >
 				  <div class="modal-dialog modal-dialog-centered">
 				    <div class="modal-content">
@@ -1206,7 +1208,7 @@ a:hover{
 				  </div>
 				</div>
 
-
+ --%>
 
 		<!-- 푸터단 -->
 
@@ -1301,7 +1303,17 @@ if($(".select-ul").css("display") == "block"){
 		let price = ( ${detail.totalprice } + ${detail.usedpoint } + ${detail.cpdiscount } - 3000 );
 		$("#price").text(price);
 		
-		if(${detail.card_quota } == 0){
+		if($("#card_name").text() == ""){
+			$("#card_name").text("간편결제(모바일)")
+		}
+		
+		if($("#delivery_text").text() == ""){
+			$("#delivery_text").text("작성한 배송메세지가 없습니다.")
+		}
+		
+		delivery_text
+		
+		if(${payment.card_quota } == 0){
 			$("#quota").text("일시불"); 
 		}
 	

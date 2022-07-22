@@ -102,54 +102,64 @@ where et_state like '%C') where email = #{email}
 <!-- TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time jdbcType="TIMESTAMP"  javaType="java.util.Date -->
 	<resultMap type="HashMap" id="selectMap">
 		<result property="line" column="line"/>
-		<result property="merchant_uid" column="merchant_uid"/>
-		<result property="pay_time" column="pay_time"/>
+		<result property="merchant_uid" column="p.merchant_uid"/>
+		<result property="totalprice" column="p.totalprice"/>
 		<result property="g_name" column="p.g_name"/>
-		<result property="g_num" column="p.g_num"/>
-		<result property="g_option" column="p.g_option"/>
-		<result property="g_count" column="g_count"/>
-		<result property="totalprice" column="totalprice"/>
-		<result property="state" column="state"/>
-		<result property="pe_name" column="pe_name"/>
-		<result property="g_seq" column="g_seq"/>
-		<result property="gp_sysname" column="gp_sysname"/>
+		<result property="pay_time" column="pay_time"/>
+		<result property="state" column="mg.state"/>
 	</resultMap>
 
 	<select id="myShopping" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-		select * from (select row_number() over(order by merchant_uid) line, merchant_uid, 
-		TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time, 
-		p.g_name, p.g_num, p.g_option, g_count, totalprice, state, g_seq, pe_name, gp_sysname
-		from payment p join goods g using (g_seq)
-		join preexhibition e on (g.e_num = e.pe_seq)
-		join goodspic gp on (g.g_num = gp.g_num)
-		where email = #{email})where line between #{limit} and #{limit}+9
+		
+		select * from (select row_number() over(order by p.merchant_uid) line,
+		p.merchant_uid, p.totalprice, p.g_name,
+		TO_CHAR(pay_time, 'YYYY-MM-DD') AS pay_time,
+		mg.state
+		from payment p join mygoods mg on(p.merchant_uid = mg.merchant_uid)
+		where p.email=#{email}
+		group by p.merchant_uid, p.totalprice, p.g_name,
+		pay_time,mg.state) where line between #{limit} and #{limit}+9
 	</select>
-	
+
 	
 	<select id="myShoppingDetailView" resultType="Trillion.Palet.DTO.PayDTO">
 		select * from payment where merchant_uid = #{merchant_uid}
 	</select>
 	
 	<resultMap type="HashMap" id="productMap">
-		<result property="pe_name" column="pe_name"/>
-		<result property="g_num" column="g.g_num"/>
-		<result property="g_name" column="p.g_name"/>
-		<result property="g_count" column="g_count"/>
-		<result property="g_option" column="p.g_option"/>
 		<result property="gp_sysname" column="gp_sysname"/>
+		<result property="email" column="mg.email"/>
+		<result property="merchant_uid" column="mg.merchant_uid"/>
+		<result property="state" column="state"/>
+		<result property="name" column="mg.name"/>
+		<result property="phone" column="mg.phone"/>
+		<result property="address1" column="mg.address1"/>
+		<result property="address2" column="mg.address2"/>
+		<result property="zipcode" column="zipcode"/>
+		<result property="g_name" column="g_name"/>
+		<result property="card_name" column="card_name"/>
+		<result property="card_number" column="card_number"/>
+		<result property="card_quota" column="card_quota"/>
 		<result property="totalprice" column="totalprice"/>
-		<result property="point" column="point"/>
+		<result property="sales_count" column="sales_count"/>
+		<result property="addpoint" column="addpoint"/>
 		<result property="usedpoint" column="usedpoint"/>
-		<result property="cpdiscount" column="cpdiscount"/>
-		<result property="cpserial" column="cpserial"/>
+		<result property="serial" column="serial"/>
+		<result property="buydate" column="buydate"/>
+		<result property="cp_discount" column="cp_discount"/>
+		<result property="g_option" column="g_option"/>
+		<result property="pe_name" column="pe_name"/>
 		<result property="pe_img" column="pe_img"/>
+		<result property="g_num" column="mg.g_num"/>
 	</resultMap>
 	
 	<select id="myShoppingProduct" parameterType="HashMap" resultType="HashMap" resultMap="productMap">
-		select pe_name, g.g_num, p.g_name, g_count, p.g_option, gp_sysname, totalprice, point, usedpoint, cpdiscount, cpserial, pe_img              
-		from goodspic gp join payment p using (g_num)
-		join goods g on(g.g_seq = p.g_seq)
-		join preexhibition e on (g.e_num = e.pe_seq)
+		select gp_sysname, mg.email, mg.merchant_uid, state, 
+		mg.name, mg.phone, mg.address1, mg.address2, zipcode, g_name, card_name, 
+		card_number, card_quota, totalprice, sales_count, addpoint, usedpoint, 
+		serial, buydate, cp_discount, g_option, pe_name, pe_img, mg.g_num
+		from mygoods mg join goodspic gp on(mg.g_num = gp.g_num) 
+		join preexhibition pe on (pe.pe_seq = mg.g_seq)
 		where merchant_uid=#{merchant_uid}
 	</select>
 	
@@ -179,11 +189,7 @@ where et_state like '%C') where email = #{email}
 	<update id="couponRegist">
 		update coupon set email = #{email} where serial = #{serial}
 	</update>
-	
-	<!-- 굿즈 구매 개수 가져오기 -->
-	<select id="countgoods" resultType="int">
-		select count(*) from mygoods where merchant_uid=#{merchant_uid}
-	</select>
+
 	
 	
 <!-- 	프로그램 -->

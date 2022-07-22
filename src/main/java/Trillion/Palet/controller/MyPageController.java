@@ -1,6 +1,5 @@
 package Trillion.Palet.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -169,9 +168,6 @@ public class MyPageController {
 	@RequestMapping("myShopping")
 	public String myShopping(Model model) {
 		String email = (String)session.getAttribute("loginEmail");
-//		List<Object> list = mServ.myShopping(email);
-//		System.out.println(list);
-//		model.addAttribute("list",list);
 		model.addAttribute("email",email);
 		return "/mypage/myShopping";
 	}
@@ -188,12 +184,13 @@ public class MyPageController {
 	public String myShoppingDetail(String merchant_uid, Model model) {
 		System.out.println(merchant_uid);
 		String email = (String)session.getAttribute("loginEmail");
-		PayDTO detail = mServ.myShoppingDetailView(merchant_uid);
-		Object product = mServ.myShoppingProduct(merchant_uid);
+		PayDTO payment = mServ.myShoppingDetailView(merchant_uid);
+		List<Object> product = mServ.myShoppingProduct(merchant_uid);
 		String name = mServ.memberName(email);
-		System.out.println(product);
+		System.out.println("payment--" + payment);
+		System.out.println("product--" + product);
 		
-		model.addAttribute("detail",detail);
+		model.addAttribute("payment",payment);
 		model.addAttribute("product",product);
 		model.addAttribute("name",name);
 		return "/mypage/myShoppingDetailView";
