@@ -818,4 +818,17 @@ public class AdminDAO {
 		return mybatis.selectList("Admin.getWeekCount");
 	}
 	
+	public List<SalesDTO> getWeekCountGoods(){
+		return mybatis.selectList("Admin.getWeekCountGoods");
+	}
+	
+	public List<SalesDTO> getWeekCountExhibition(){
+		return mybatis.selectList("Admin.getWeekCountExhibition");
+	}
+	
+	public List<SalesDTO> getWeekCountProgram(){
+		return mybatis.selectList("Admin.getWeekCountProgram");
+	}
+	
+	
 }

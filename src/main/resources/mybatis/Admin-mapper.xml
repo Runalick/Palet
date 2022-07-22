@@ -28,6 +28,21 @@
 		) where payday >= to_char(sysdate-6, 'YY/MM/DD') group by payday order by payday desc
   	</select>
   	
+  	<select id="getWeekCountGoods" resultType="Trillion.Palet.DTO.SalesDTO">
+  		select sum(salescount)as salescount , payday as salesdate from ( select sales_count as salescount, to_char(buydate, 'YY/MM/DD')as payday from mygoods)
+  		 where payday >= to_char(sysdate-6, 'YY/MM/DD')group by payday order by payday desc
+  	</select>
+  	
+  	<select id="getWeekCountExhibition" resultType="Trillion.Palet.DTO.SalesDTO">
+  		select sum(salescount)as salescount , payday as salesdate from ( select et_count as salescount, to_char(et_buydate, 'YY/MM/DD')as payday from exticket)
+  		 where payday >= to_char(sysdate-6, 'YY/MM/DD') group by payday order by payday desc
+  	</select>
+  	
+  	<select id="getWeekCountProgram" resultType="Trillion.Palet.DTO.SalesDTO">
+  		select sum(salescount)as salescount , payday as salesdate from ( select pro_count as salescount, to_char(pro_buydate, 'YY/MM/DD')as payday from proticket)
+  		 where payday >= to_char(sysdate-6, 'YY/MM/DD') group by payday order by payday desc
+  	</select>
+  	
   	<!-- Member -->
   	
   	<update id="adminMemberModi">
@@ -196,10 +211,16 @@
   	</select>
   	
   	<select id="getAdminPayDetail" resultType="Trillion.Palet.DTO.AdminDTO">
-  		select merchant_uid, name, email, phone, address1, address2, zipcode, g_name as title,
-  		 card_name, card_number, card_quota, state, category, totalprice as price, buydate as pay_time, 
-  		  sales_count as count, addpoint as point, usedpoint, cp_discount as cpdiscount, serial as cpserial from mygoods 
-  		 where merchant_uid = #{value}
+<!--   		select merchant_uid, name, email, phone, address1, address2, zipcode, g_name as title, -->
+<!--   		 card_name, card_number, card_quota, state, category, totalprice as price, buydate as pay_time,  -->
+<!--   		  sales_count as count, addpoint as point, usedpoint, cp_discount as cpdiscount, serial as cpserial from mygoods  -->
+<!--   		 where merchant_uid = #{value} -->
+		select * from (
+		select g.merchant_uid, g.name, g.email, g.phone, g.address1, g.address2, g.zipcode, p.g_name as title,
+  		g.card_name, g.card_number, g.card_quota, g.state, g.category, p.totalprice as price, g.buydate as pay_time, 
+  		(select sum(sales_count) from mygoods where merchant_uid = #{value} )as count, g.addpoint as point, g.usedpoint, g.cp_discount as cpdiscount, g.serial as cpserial from mygoods g full join payment p on(g.merchant_uid = p.merchant_uid)
+  		)where merchant_uid = #{value} and rownum=1
+
   	</select>
   	
   	<select id="getAdminExticketDetail" resultType="Trillion.Palet.DTO.AdminDTO">

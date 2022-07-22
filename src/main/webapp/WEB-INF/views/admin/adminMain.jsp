@@ -340,7 +340,19 @@
 			<c:forEach var="i" items="${weekCount }" varStatus="status">
 				<input type="hidden" id="countsum${status.count}" value="${i.salescount }">		
 				<input type="hidden" id="countdate${status.count}" value="${i.salesdate }">
-			</c:forEach>      
+			</c:forEach> 
+			<c:forEach var="i" items="${weekCountGoods }" varStatus="status">
+				<input type="hidden" id="countsumGoods${status.count}" value="${i.salescount }">
+				<input type="hidden" id="countdateGoods${status.count}" value="${i.salesdate }">
+			</c:forEach>
+			<c:forEach var="i" items="${weekCountExhibition }" varStatus="status">
+				<input type="hidden" id="countsumExhibition${status.count}" value="${i.salescount }">
+				<input type="hidden" id="countdateExhibition${status.count}" value="${i.salesdate }">
+			</c:forEach>
+			<c:forEach var="i" items="${weekCountProgram }" varStatus="status">
+				<input type="hidden" id="countsumProgram${status.count}" value="${i.salescount }">
+				<input type="hidden" id="countdateProgram${status.count}" value="${i.salesdate }">
+			</c:forEach>  
     	</div>
     </section>
     <!-- Graph section close-->
@@ -404,15 +416,16 @@
 		console.log(dayList);
 		
 		new Chart(document.getElementById("myChart"), {
-			type: 'line',
+			type: 'bar',
 			data: {
 				responsive : true,
 				labels: dayList,
 				datasets: [{
 					data: sumList,
 					label: "판매 금액 추이",
-					borderColor: "#FFC107",
+					backgroundColor: "#FFC107",
 					fill : false,
+					borderColor : "#FFC107",
 					borderWidth : 5
 					
 				  }
@@ -460,16 +473,67 @@
 		console.log(cntList);
 		console.log(dayList);
 		
+		let cntListG = [];
+		let dayListG = [];
+		for (let i = 7; i > 0; i--){
+			cntListG.push($("#countsumGoods"+i).val());
+			dayListG.push($("#countdateGoods"+i).val());
+		}
+		console.log(cntListG);
+		console.log(dayListG);
+		
+		let cntListE = [];
+		let dayListE = [];
+		for (let i = 7; i > 0; i--){
+			cntListE.push($("#countsumExhibition"+i).val());
+			dayListE.push($("#countdateExhibition"+i).val());
+		}
+		console.log(cntListE);
+		console.log(dayListE);
+		
+		let cntListP = [];
+		let dayListP = [];
+		for (let i = 7; i > 0; i--){
+			cntListP.push($("#countsumProgram"+i).val());
+			dayListP.push($("#countdateProgram"+i).val());
+		}
+		console.log(cntListP);
+		console.log(dayListP);
+		
+		
 		new Chart(document.getElementById("myChart2"), {
-			type: 'bar',
+			type: 'line',
 			data: {
 				labels: dayList,
 				datasets: [{
 					data: cntList,
-					label: "판매 갯수 추이",
-					backgroundColor: "#B72136",
-
-					fill : false
+					label: "총 판매 갯수",
+					borderColor : "#B72136",
+					fill : false,
+					borderWidth : 5
+				  },
+				  {
+					data: cntListG,
+					label: "굿즈 판매 갯수",
+					borderColor : "#229A16",
+					fill : false,
+					borderWidth : 3
+					  
+				  },
+				  {
+					data: cntListE,
+					label: "전시 판매 갯수",
+					borderColor : "#0C53B7",
+					fill : false,
+					borderWidth : 3  
+					  
+				  },
+				  {
+					data: cntListP,
+					label: "클래스 판매 갯수",
+					borderColor : "#C4CDD5",
+					fill : false,
+					borderWidth : 3
 				  }
 				]
 			},
