@@ -1301,11 +1301,11 @@ input[type="number"]::-webkit-inner-spin-button {
 	            		
 	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += Number(resp[i].totalPrice * resp[i].cartstock);
-	            		arrG_name[i] = resp[i].g_name;
-	            		arrSales_count[i] = resp[i].cartstock;
-	            		arrTotalPrice[i] = resp[i].totalPrice;
-	            		arrG_seq[i] = resp[i].g_seq;
-	            		arrEmail = resp[i].email;
+	            		arrG_name.push(resp[i].g_name);
+	            		arrSales_count.push(resp[i].cartstock);
+	            		arrTotalPrice.push(resp[i].totalPrice);
+	            		arrG_seq.push(resp[i].g_seq);
+	            		arrEmail.push(resp[i].email);
 	            		arrG_num.push(resp[i].g_num);
 	            		arrG_option.push(resp[i].g_option);
 	            		arrCart_seq.push(resp[i].cart_seq);
@@ -1531,7 +1531,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : title, //결제창에서 보여질 이름
 	    amount : (Number(sumPrice - totalDc + 3000)), //실제 결제되는 가격
-	    buyer_email : arrUserEmail[1],
+	    buyer_email : arrUserEmail[0],
 	    buyer_name : $(".buyer_name").val(),
 	    buyer_tel : $(".buyer_tel").val(),
 	    buyer_addr : $(".buyer_addr").val(),
@@ -1557,6 +1557,7 @@ input[type="number"]::-webkit-inner-spin-button {
                     delivery_text : $(".delivery_text").val()
 
                     },
+                    async : false,
                 type:"post",
                 dataType:"json"
             }).done(function(resp){
@@ -1586,7 +1587,8 @@ input[type="number"]::-webkit-inner-spin-button {
                         g_seq : arrG_seq[i],
                         cp_discount : totalDc,
                         g_option : arrG_option[i]
-               		}
+               		},
+               		async : false
                	}).done(function(resp){
 					console.log($(".pointinput1").val())
                	})
@@ -1594,9 +1596,10 @@ input[type="number"]::-webkit-inner-spin-button {
                };
 	       	 	$.ajax({
 	       			url:"/pay/point",
-	       			data:{email : arrUserEmail[1],
+	       			data:{email : arrUserEmail[0],
 	       				usedPoint:$(".pointinput1").val(),
-	       				addPoint : LetaddPoint}
+	       				addPoint : LetaddPoint},
+	       				async:false
 	       		}).done(function(resp){
 	       			console.log("point 정산 성공");
 	       				
@@ -1605,8 +1608,9 @@ input[type="number"]::-webkit-inner-spin-button {
 	       	 	if(!(serial == "inavailableCP")){
 		       	 	$.ajax({
 		       	 	url:"/pay/coupon",
-		       			ddata:{email : arrUserEmail[1],
-							"serial" : serial}
+		       			data:{email : arrUserEmail[0],
+							"serial" : serial},
+							async : false
 		       		}).done(function(resp){
 		       			console.log("coupon 정산 성공");
 		       				
@@ -1615,9 +1619,10 @@ input[type="number"]::-webkit-inner-spin-button {
 		       	 	
 	       	 	$.ajax({
 	       			url:"/pay/point",
-	       			data:{email : arrUserEmail[1],
-	       				usedPoint:$(".pointinput1").val(),
-	       				addPoint : LetaddPoint}
+	       			data:{email : arrUserEmail[0],
+	       				usedpoint : Number($(".pointinput1").val()),
+	       				addpoint : LetaddPoint},
+	       				async : false
 	       		}).done(function(resp){
 	       			console.log("point 정산 성공");
 	       				
@@ -1626,7 +1631,8 @@ input[type="number"]::-webkit-inner-spin-button {
                for(let i = 0; i < arrCart_seq.length; i++){
            		$.ajax({
        				url:"/pay/deleteCart",
-       				data:{cart_seq : arrCart_seq[i]}
+       				data:{cart_seq : arrCart_seq[i]},
+       				async : false
        			}).done(function(resp){
        				console.log("cart 삭제성공");
        			})
