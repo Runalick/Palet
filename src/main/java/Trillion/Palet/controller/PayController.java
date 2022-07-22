@@ -132,4 +132,11 @@ public class PayController {
 	public int point(MyPointDTO dto) {
 		return pServ.point(dto);
 	}
+	
+	@ResponseBody
+	@RequestMapping("deleteCart")
+	public int deleteCart(String cart_seq) {
+		String email = (String)session.getAttribute("loginEmail");
+		return pServ.deleteCart(cart_seq, email);
+	}
 }

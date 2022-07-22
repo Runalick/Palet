@@ -49,4 +49,8 @@ public class PayService {
 	public int point(MyPointDTO dto) {
 		return dao.point(dto);
 	}
+	
+	public int deleteCart(String cart_seq, String email) {
+		return dao.deleteCart(cart_seq, email);
+	}
 }
