@@ -667,6 +667,11 @@ text-align:left;
 	padding-left: 0px;
 	padding-right: 0px;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 </style>
 <body>
 	<!-- 네비단 -->
@@ -889,7 +894,7 @@ text-align:left;
 					</div>
 					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input buyer_tel1" id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
+						<input type="text" class="body2input buyer_tel1"  id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
 					<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" > 
@@ -943,7 +948,7 @@ text-align:left;
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-				<input class="body2 pointinput2" type="number" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
+				<input class="body2 pointinput2" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 				<button class="H4 pointbtn allPointUse2">모두 사용</button><br>
 				<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 				<span class="Caption myPoint2" style="color: #637381;"> </span>
@@ -1041,7 +1046,7 @@ text-align:left;
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-								<input class="body2 pointinput1" type="number" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
+								<input class="body2 pointinput1" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 								<button class="H4 pointbtn allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 								<span class="Caption myPoint1 allPointUse1" style="color: #637381;">
@@ -1113,7 +1118,7 @@ text-align:left;
    	<script>
 		let sumPrice = 0;
 	  	let totalDc = 0;
-	  	let addPoint = 0;
+	  	let LetaddPoint = 0;
 	  	let usedPoint = 0;
 	  	let grade;
 	  	let finalPrice = 0;
@@ -1127,6 +1132,36 @@ text-align:left;
 	  	let arrEmail = [];
 	  	let arrG_seq = [];
 	  	let arrG_option = [];
+	  	let arrCart_seq = [];
+	  	let arrUserEmail = [];
+	  	
+// 		window.addEventListener('beforeunload', (event) => {
+// 			  // 표준에 따라 기본 동작 방지
+// 			  event.preventDefault();
+// 			  // Chrome에서는 returnValue 설정이 필요함
+// 			  event.returnValue = '';
+			  
+// 			  $.ajax({
+// 		            url: "/cart/beforeunload"
+// //		            async: false
+// 		        });
+// 			});
+		
+		
+// 		$(document).ready(function () {
+// 		    // Warning
+// 		    $(window).on('beforeunload', function(){
+// 		        //do something
+// 		        return "Any changes will be lost";
+// 		    });
+// 		    // Form Submit
+// 		    $(document).on("submit", "form", function(event){
+// 		        // disable warning
+// 		        $(window).off('beforeunload');
+// 		    });
+// 		}
+
+		
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1221,14 +1256,14 @@ text-align:left;
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 // 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1242,13 +1277,13 @@ text-align:left;
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1258,13 +1293,14 @@ text-align:left;
 	    window.onload = function(){
 	    		$.ajax({
 	            	url:"/cart/select_cart",
+	            	async:false
 	            }).done(function(resp){
-	            	console.log("test : ");
 	            	console.log(resp);
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
+	            		
 	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
-	            		sumPrice += resp[i].totalPrice;
+	            		sumPrice += Number(resp[i].totalPrice * resp[i].cartstock);
 	            		arrG_name[i] = resp[i].g_name;
 	            		arrSales_count[i] = resp[i].cartstock;
 	            		arrTotalPrice[i] = resp[i].totalPrice;
@@ -1272,6 +1308,11 @@ text-align:left;
 	            		arrEmail = resp[i].email;
 	            		arrG_num.push(resp[i].g_num);
 	            		arrG_option.push(resp[i].g_option);
+	            		arrCart_seq.push(resp[i].cart_seq);
+	            		arrUserEmail.push(resp[i].email);
+	            		console.log("email : " + arrUserEmail[1]);
+	            		console.log("arr_cartseq");
+	            		console.log(arrCart_seq);
 // 	            		title = resp[i].g_name;
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
@@ -1294,23 +1335,24 @@ text-align:left;
 					$.ajax({
 						url:"/shop/selectMemberData"
 					}).done(function(resp){
+						console.log("멤버정보");
 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
-							$(".myPoint1").html(resp[i].point);
-							$(".myPoint2").html(resp[i].point);
+							$(".myPoint1").text(resp[i].point);
+							$(".myPoint2").text(resp[i].point);
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							grade = resp[i].grade;
 // 							console.log("count : " + count);
 							if(grade == "White"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-								addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+								LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 							}else if(grade == "Gray"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-								addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+								LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 							}else if(grade == "Black"){
 								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-								addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+								LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 							}
 						}
 						
@@ -1323,16 +1365,7 @@ text-align:left;
    	  	
     
  
-		window.addEventListener('beforeunload', (event) => {
-			  // 표준에 따라 기본 동작 방지
-			  event.preventDefault();
-			  // Chrome에서는 returnValue 설정이 필요함
-			  event.returnValue = '1';
-			  $.ajax({
-		            url: "/cart/beforeunload"
-// 		            async: false
-		        });
-			});
+
 
 	//선택박스누를 시 옵션 열기
 	$("#select1").on("click", function () {
@@ -1350,13 +1383,13 @@ text-align:left;
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 			}else if(grade == "Gray"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 			}else if(grade == "Black"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		});
 	});
@@ -1375,13 +1408,13 @@ text-align:left;
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 			}else if(grade == "Gray"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 			}else if(grade == "Black"){
 				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		});
 	});
@@ -1395,13 +1428,13 @@ text-align:left;
 // 		console.log($(".pointinput1").val());
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1412,13 +1445,13 @@ text-align:left;
 		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 		if(grade == "White"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
 		}else if(grade == "Gray"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
 		}else if(grade == "Black"){
 			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-			addPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 		}
 	})
 	
@@ -1498,7 +1531,7 @@ text-align:left;
 	    merchant_uid : 'merchant_' + new Date().getTime(),
 	    name : title, //결제창에서 보여질 이름
 	    amount : (Number(sumPrice - totalDc + 3000)), //실제 결제되는 가격
-	    buyer_email : "iampost@siot.do",
+	    buyer_email : arrUserEmail[1],
 	    buyer_name : $(".buyer_name").val(),
 	    buyer_tel : $(".buyer_tel").val(),
 	    buyer_addr : $(".buyer_addr").val(),
@@ -1545,7 +1578,7 @@ text-align:left;
                        	card_quota : rsp.card_quota,
                         totalprice : arrTotalPrice[i],
                         sales_count : arrSales_count[i],
-                        addpoint : addPoint,
+                        addpoint : LetaddPoint,
                         usedpoint : totalDc,
                         serial : serial,
                         category : "G",
@@ -1555,27 +1588,65 @@ text-align:left;
                         g_option : arrG_option[i]
                		}
                	}).done(function(resp){
-               		console.log("myGoods insert 성공");
-               		$.ajax({
-               			url:"/pay/point",
-               			data:{usedPoint:$(".pointinput1").val(),
-               				addPoint : addpoint}
-               		}).done(function(resp){
-               			console.log("point 정산 성공");
-               		})
+					console.log($(".pointinput1").val())
                	})
+ 
+               };
+	       	 	$.ajax({
+	       			url:"/pay/point",
+	       			data:{email : arrUserEmail[1],
+	       				usedPoint:$(".pointinput1").val(),
+	       				addPoint : LetaddPoint}
+	       		}).done(function(resp){
+	       			console.log("point 정산 성공");
+	       				
+	       		});
+
+	       	 	if(!(serial == "inavailableCP")){
+		       	 	$.ajax({
+		       	 	url:"/pay/coupon",
+		       			ddata:{email : arrUserEmail[1],
+							"serial" : serial}
+		       		}).done(function(resp){
+		       			console.log("coupon 정산 성공");
+		       				
+		       		});
+	       	 	}
+		       	 	
+	       	 	$.ajax({
+	       			url:"/pay/point",
+	       			data:{email : arrUserEmail[1],
+	       				usedPoint:$(".pointinput1").val(),
+	       				addPoint : LetaddPoint}
+	       		}).done(function(resp){
+	       			console.log("point 정산 성공");
+	       				
+	       		});
+	       	 	
+               for(let i = 0; i < arrCart_seq.length; i++){
+           		$.ajax({
+       				url:"/pay/deleteCart",
+       				data:{cart_seq : arrCart_seq[i]}
+       			}).done(function(resp){
+       				console.log("cart 삭제성공");
+       			})
                }
-
+               
+ 
             })
+            // 동일한 DOM에 걸린 이벤트를 막습니다.    
+            	
+  	location.href="/shop/success";
             
-			location.href="/shop/success";
-
 	    } else {
 	    	 var msg = '결제에 실패하였습니다.';
 	         msg += '에러내용 : ' + rsp.error_msg;
 	    }
 	});
     }
+	
+	
+	
 	</script>
 </body>
 </html>

@@ -213,4 +213,11 @@ ${i.g_option }<br>
 	         return true;
 	      });
 	</script>
+	<script>
+	window.onload = function(){
+		$.ajax({
+			url:"/cart/beforeunload";
+		})
+	}
+	</script>
 </html>
