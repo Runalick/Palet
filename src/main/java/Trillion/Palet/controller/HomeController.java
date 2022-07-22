@@ -34,9 +34,9 @@ public class HomeController {
 		model.addAttribute("dto",dto);
 		//전시 최신3
 		List<PreExhibitionDTO> edto = eServ.getlatest3();
-		System.out.println(edto);
+		// System.out.println(edto);
 		for(PreExhibitionDTO list : edto) {
-			System.out.println(list.getPe_artcount());
+			// System.out.println(list.getPe_artcount());
 			
 		}
 		model.addAttribute("edto",edto);

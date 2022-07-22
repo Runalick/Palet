@@ -762,6 +762,10 @@ public class AdminDAO {
 		return mybatis.update("Admin.cancelGoodsUpdate", check);
 	}
 	
+	public int cancelGoodsUpdate2(String check)  {
+		return mybatis.update("Admin.cancelGoodsUpdate2", check);
+	}
+	
 	public int cancelProticketUpdate(String check) {
 		return mybatis.update("Admin.cancelProticketUpdate", check);
 	}

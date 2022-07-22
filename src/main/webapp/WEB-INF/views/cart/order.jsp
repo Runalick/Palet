@@ -1116,6 +1116,9 @@ input[type="number"]::-webkit-inner-spin-button {
 		</div>
     </div>
    	<script>
+   	console.log($("#buyer_name2").val());
+   	console.log($(".buyer_name1").val());
+   	
 		let sumPrice = 0;
 	  	let totalDc = 0;
 	  	let LetaddPoint = 0;
@@ -1164,6 +1167,7 @@ input[type="number"]::-webkit-inner-spin-button {
 		
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
+   		open_chatroom2();
 	});
 	
 	function open_chatroom(){ 
@@ -1180,9 +1184,12 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".buyer_address21").val($(".buyer_address2").val());
 			$(".buyer_address2").val($(".buyer_address21").val());
 			
-			
-			
-		} else if(windowWidth > 992) {      //창 가로 크기가 500보다 클 경우  
+		} 
+		}
+	
+	function open_chatroom2(){ 
+		var windowWidth = $( window ).width();
+		if(windowWidth > 992) {      //창 가로 크기가 500보다 클 경우  
 			$(".buyer_postcode").val($(".buyer_postcode1").val());
 			$(".buyer_postcode1").val($(".buyer_postcode").val());
 			$(".address").val($(".address1").val());
@@ -1195,6 +1202,7 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".buyer_address21").val($(".buyer_address2").val());
 		}
 		}
+	 
 
 // 	$("#text").on("propertychange change keyup paste input", function() {
 // 	    var currentVal = $(this).val();
@@ -1215,21 +1223,25 @@ input[type="number"]::-webkit-inner-spin-button {
 
    	
    	//배송 메세지 연동
-   	$(".delivery_text").on("keyup",function(){
+   	$(".delivery_text").on("change",function(){
    		$(".delivery_text").val($(this).val());
+   		console.log($(".delivery_text").val());
    	})
    	//수령인 연동
-   	$(".buyer_name").on("keyup",function(){
+   	$(".buyer_name").on("change",function(){
    		$(".buyer_name").val($(this).val());
+   		console.log($(".buyer_name").val());
    	})
    	//전화번호 연동
-	$(".buyer_tel").on("keyup",function(){
+	$(".buyer_tel").on("change",function(){
    		$(".buyer_tel").val($(this).val());
+   		console.log($(".buyer_tel").val());
    	})
    	
    	//상세 주소 연동
-   	$(".buyer_address2").on("keyup",function(){
+   	$(".buyer_address2").on("change",function(){
    		$(".buyer_address2").val($(this).val());
+   		console.log($(".buyer_address2").val());
    	})
    	
    	$("#payspan2").on("click", function(){
@@ -1522,6 +1534,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	        }).open();
 	    }
 	
+	 
+	 
 	function iamport(){
         //가맹점 식별코드
         IMP.init('imp48062056');

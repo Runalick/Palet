@@ -251,7 +251,7 @@
   		select category from (select category, merchant_uid from mygoods 
   		UNION ALL select et_category as category, et_booknumber as merchant_uid from exticket
   		UNION ALL select pro_category as category, pro_booknumber as merchant_uid from proticket) 
-  		where merchant_uid = #{value}
+  		where merchant_uid = #{value} and rownum=1
   	</select>
   	
   	<update id="cancelExticketUpdate">
@@ -260,6 +260,10 @@
   	
   	<update id="cancelGoodsUpdate">
   		update mygoods set state = 'AC' where merchant_uid = #{value}
+  	</update>
+  	
+  	<update id="cancelGoodsUpdate2">
+  		update payment set state = 'AC' where merchant_uid = #{value}
   	</update>
   	
   	<update id="cancelProticketUpdate">
@@ -285,18 +289,18 @@
   	</update>
   	
   	<update id='restoreGoodsCountAndStock'>
-  		update goods set sales_count = sales_count-(select sales_count from mygoods 
-		where merchant_uid=#{value}), g_stock = g_stock + (select sales_count from mygoods where merchant_uid=#{value})
-		where g_num = (select g_num from mygoods where merchant_uid=#{value})
+  		update goods set sales_count = sales_count-(select sum(sales_count) from mygoods 
+		where merchant_uid=#{value}), g_stock = g_stock + (select sum(sales_count) from mygoods where merchant_uid=#{value})
+		where g_seq = (select g_seq from mygoods where merchant_uid=#{value})
   	</update>
   	
   	<select id='checkUsedGoodsPoint' resultType='int'>
-  		select usedpoint from mygoods where merchant_uid = #{value}
+  		select usedpoint from mygoods where merchant_uid = #{value} and rownum=1
   	</select>
   	
   	<update id='restoreGoodsPoint'>
-  		update member set point = point + (select usedpoint from mygoods where merchant_uid = #{value)
-  		where email = (select email from mygoods where merchant_uid = #{value})
+  		update member set point = point + (select usedpoint from mygoods where merchant_uid = #{value} and rownum=1 )
+  		where email = (select email from mygoods where merchant_uid = #{value} and rownum =1)
   	</update>
   	
   	<update id='restoreProCountAndStock'>

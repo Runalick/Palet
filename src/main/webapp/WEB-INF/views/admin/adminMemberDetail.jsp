@@ -198,8 +198,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${mdto.name }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${mdto.name }' disabled style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='name' class='edit' value='${mdto.name }' disabled style="width:50%; text-align:center" maxlength="8"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='name' class='editable' value='${mdto.name }' disabled style="width:70%; text-align:center" maxlength="8"></div>			           			
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Grade </div>
@@ -208,14 +208,16 @@
 			           		<div class="row" style="text-align:center">
 			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='grade'  value='${mdto.grade }' disabled style="width:50%; text-align:center"></div>
 			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='grade'  value='${mdto.grade }' disabled style="width:70%; text-align:center"></div>
+			           			<input type='hidden' name='grade' value='${mdto.grade }'>
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Points </div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Points </div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='point' class='edit' value='${mdto.point }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='point' class='editable' value='${mdto.point }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='point' class='edit' value='${mdto.point }' disabled style="width:50%; text-align:center" maxlength="10"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='point' class='editable' value='${mdto.point }' disabled style="width:70%; text-align:center" maxlength="10"></div>
+			           			<input type="hidden" name="point" value='${mdto.point }'>
 			           		</div>
 			           		<c:if test='${mdto.phone != null}'>
 			           			<div class="row">
@@ -373,6 +375,7 @@
 		ok.attr("class","btn0_1 color_yellow2");
 		ok.attr("type", "submit");
 		
+		
 		let cancel = $("<button>");
 		cancel.text("취소");
 		cancel.attr("type","button");
@@ -385,6 +388,8 @@
 		$(".memberBtns").append(cancel);
 		
 	});
+	
+	
 	
 	$(".leftbutton").on("click", function() {
 

@@ -188,8 +188,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='edit' disabled style="width:50%; text-align:center" ></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='editable' disabled style="width:70%; text-align:center" ></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='edit' disabled style="width:50%; text-align:center" maxlength="30"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='editable' disabled style="width:70%; text-align:center" maxlength="30"></div>
 			           			<input type="hidden" name="pe_seq" value="${edto.pe_seq }">
 			           		</div>
 			            	<div class="row" > 
@@ -197,8 +197,8 @@
  			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Date</div> 
  			            	</div>	 
  			           		<div class="row" style="text-align:center"> 
- 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='pe_date' class='edit' value='${edto.pe_date }' disabled style="width:50%; text-align:center"></div> 
- 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='pe_date' class='editable' value='${edto.pe_date }' disabled style="width:70%; text-align:center"></div>
+ 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='pe_date' class='edit' value='${edto.pe_date }' disabled style="width:50%; text-align:center" maxlength="30"></div> 
+ 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='pe_date' class='editable' value='${edto.pe_date }' disabled style="width:70%; text-align:center" maxlength="30"></div>
  			           		</div> 
 <!-- 			           		<div class="row"> -->
 <!-- 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">End Date</div> -->

@@ -25,8 +25,14 @@
 		</selectKey>
   	</insert>
   	
-  	<select id="goodsBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">
+  	<!-- <select id="goodsBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">
   		select * from (select * from goods order by sales_count desc) where rownum=1
+  	</select>
+  	 -->
+  	<select id="goodsBestSeller" resultType="Trillion.Palet.DTO.GoodsDTO">
+  		select g_seq, g_num, e_num, g_name, g_price, g_option, g_contents, g.sales_count, g_stock from 
+  		(select count(sales_count) as sales_count , g_seq from mygoods group by g_seq) g 
+  		full join goods s using (g_seq) where g.sales_count >= 0 and rownum=1 order by g.sales_count desc
   	</select>
   	
   	<select id="goodsSelectByPage" resultType="Trillion.Palet.DTO.GoodsDTO">
@@ -57,11 +63,11 @@
   	</select>
   	
   	<delete id="goodsCheckDelete">
-  		delete from goods where g_num = #{value}
+  		delete from goods where g_seq = #{value}
   	</delete>
   	
   	<update id="goodsCheckUpdate">
-  		update goods set e_num = #{e_num} where g_num = #{g_num}
+  		update goods set e_num = #{e_num} where g_seq = #{g_num}
   	</update>
   	
   	<select id="getGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
