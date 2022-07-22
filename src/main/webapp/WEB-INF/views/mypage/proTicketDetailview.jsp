@@ -529,6 +529,9 @@ top:4rem;
 .imgimg{
 border-radius:0.625rem;
 }
+.total-info{
+margin-bottom:0.5rem;
+}
 </style>
 </head>
 <body>
@@ -758,17 +761,32 @@ border-radius:0.625rem;
 						<div class="row ticket-row" >
 							<div class="col-12 body4" style="padding-top:1rem;">${dto.pro_title }</div>
 							<div class="col-12 body4">${dto.pro_booknumber }</div>
-							<div class="col-12 body4" id="price">${dto.pro_cost/ dto.pro_count  }원</div>
+							<div class="col-12 body4 price" id="">${dto.pro_cost/ dto.pro_count  }원</div>
 						</div>
 					</div>
 				<script>
 				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };
-				$("#price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+				$(".price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
-				<div class="col-4 total" style="margin-bottom:1rem">총 수량</div>
-				<div class="col-8 total" style="margin-bottom:1rem">${dto.pro_count }개</div>
-				<div class="col-4 total" style="margin-bottom:10rem">총 주문금액</div>
-				<div class="col-8 total-price" style="margin-bottom:10rem">${dto.pro_cost }원</div>
+				<div class="col-4 total total-info">상품 금액</div>
+				<div class="col-8 total price total-info"></div>
+				<div class="col-4 total total-info">총 수량</div>
+				<div class="col-8 total total-info" >${dto.pro_count }개</div>
+				<div class="col-4 total total-info">적립 포인트</div>
+				<div class="col-8 total getpoint total-info"></div>
+				<div class="col-4 total total-info">쿠폰할인</div>
+				<div class="col-8 total coupon total-info"></div>
+				<div class="col-4 total total-info">배송비</div>
+				<div class="col-8 total total-info">3000</div>
+				<div class="col-4 total "  style="margin-bottom:1.25rem">포인트 사용</div>
+				<div class="col-8 total usedpoint " style="margin-bottom:1.25rem"></div>
+				<div class="col-4 total "  style="margin-bottom:10rem">총 주문금액</div>
+				<div class="col-8 total-price" style="margin-bottom:10rem"></div>	
+								
+						
+						
+				
+				
 				<script>
 				price = ${dto.pro_cost  };
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
