@@ -331,6 +331,10 @@ text-align: center;
         
         <!-- Channel Plugin Scripts -->
 <script>
+	window.onload = function(){
+	    location.href = "/cart/beforeunload";
+	}
+
     (function() {
       var w = window;
       if (w.ChannelIO) {
