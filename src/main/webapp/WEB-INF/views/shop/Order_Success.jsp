@@ -328,13 +328,25 @@ text-align: center;
         </div>
 	</div>
 
-        
-        <!-- Channel Plugin Scripts -->
 <script>
-	window.onload = function(){
-	    location.href = "/cart/beforeunload";
-	}
+window.onload = function(){
+	$.ajax({
+		url:"/cart/beforeunload"
+	})
+}
 
+
+
+$(".btn2").on("click",function(){
+	location.href="/shop/toShop";
+})
+
+$(".btn3").on("click",function(){
+	location.href="/mypage/myShopping";
+})
+</script>
+<!-- Channel Plugin Scripts -->
+<script>
     (function() {
       var w = window;
       if (w.ChannelIO) {
@@ -373,23 +385,7 @@ text-align: center;
     ChannelIO('boot', {
       "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
     });
-    
-    $(".logout").on("click", function(){
-        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-        Kakao.isInitialized();
-        if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
-           location.href="/member/logout";
-            return ;
-        }
-        
-         Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
-              location.href="/member/logout";
-            });
-        return true;
-     });
   </script>
-  <!-- End Channel Plugin -->
+<!-- End Channel Plugin -->
 </body>
 </html>

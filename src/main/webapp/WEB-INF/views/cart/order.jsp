@@ -1305,6 +1305,7 @@ text-align:left;
 	            		arrG_option.push(resp[i].g_option);
 	            		arrCart_seq.push(resp[i].cart_seq);
 	            		arrUserEmail.push(resp[i].email);
+	            		console.log("email : " + arrUserEmail[1]);
 	            		console.log("arr_cartseq");
 	            		console.log(arrCart_seq);
 // 	            		title = resp[i].g_name;
@@ -1582,7 +1583,14 @@ text-align:left;
                		}
                	}).done(function(resp){
 					console.log("myGoods insert 성공")
-
+	        	 	$.ajax({
+	           			url:"/pay/point",
+	           			data:{usedPoint:$(".pointinput1").val(),
+	           				addPoint : LetaddPoint}
+	           		}).done(function(resp){
+	           			console.log("point 정산 성공");
+	           				
+	           		})
                	})
  
                }
@@ -1595,14 +1603,7 @@ text-align:left;
        			})
                }
                
-         	 	$.ajax({
-           			url:"/pay/point",
-           			data:{usedPoint:$(".pointinput1").val(),
-           				addPoint : LetaddPoint}
-           		}).done(function(resp){
-           			console.log("point 정산 성공");
-           				
-           		})
+ 
             })
             // 동일한 DOM에 걸린 이벤트를 막습니다.    
             	

@@ -72,7 +72,7 @@ public class ShopController {
 
 	@RequestMapping("success")
 	public String success() {
-		return"/cart/shop-order-success";
+		return"/shop/Order_Success";
 	}
 	
 	@ResponseBody
