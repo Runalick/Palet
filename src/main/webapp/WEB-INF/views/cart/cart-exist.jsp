@@ -873,9 +873,18 @@ $("#paybtn").on("click",function(){
 					console.log($($(this).siblings()[1]).val());
 					cart_seq.push($($(this).siblings()[1]).val());			})
 
-	console.log($(this).siblings()[1]);
+	
 	console.log(cart_seq);
-	location.href="/cart/order?cart_seq="+cart_seq;
+
+	$.ajax({
+		url:"/cart/order",
+		traditional : true,
+		data:{cart_seq:cart_seq},
+		type:"post"
+	}).done(function(resp){
+		location.href="/cart/Toorder";	
+	})
+	
 })
 
 
@@ -894,7 +903,7 @@ function setTotalInfo() {
 			let totalPoint = 0; // 총 포인트
 			let deliveryPrice = 3000; // 배송비
 			let finalTotalPrice = 0; // 최종 가격(총 가격 + 배송비)
-
+			let point; //배송비 포인트
 			$(".list").each(
 					function(index, element) {
 
@@ -911,6 +920,20 @@ function setTotalInfo() {
 							// 총 포인트
 							totalPoint += parseInt($(element).find(
 									".hidden-point").val()*cnt);
+							let grade = "${grade}";
+							if(grade=="White") {
+								point = 3000*0.01;
+								
+							}else if(grade=="Gray") {
+								point = 3000*0.05;
+							}else if(grade=="Black") {
+								point = 3000*0.1;
+							}
+							
+							
+							
+							
+							
 
 							finalTotalPrice = totalPrice + deliveryPrice;
 						}
@@ -920,7 +943,7 @@ function setTotalInfo() {
 						// 총 갯수
 // 						$(".totalCount").text(totalCount);
 						// 총 포인트
-						$(".totalPoint").text(totalPoint.toLocaleString()+"p");
+						$(".totalPoint").text((totalPoint+point).toLocaleString()+"p");
 						// 배송비
 						$(".deliveryprice").text("+"+deliveryPrice+"원");
 						// 최종 가격(총 가격 + 배송비)
@@ -964,6 +987,11 @@ function setTotalInfo() {
             </div>
         </div>
 	<script>
+	window.onload = function(){
+		$.ajax({
+			url:"/cart/beforeunload"
+		})
+	}
 	//쇼핑하러 가기
 	$(".btn1").on("click",function(){
 		location.href="/shop/toShop";
@@ -991,13 +1019,14 @@ function setTotalInfo() {
 	
 			setTotalInfo();
 			
-			g_seq=$($(this).parent().siblings()[8]).children().val();
+			g_seq=$($(this).parent().siblings()[9]).children().val();
+			console.log(g_seq);
 			$.ajax({
 				url:"/cart/cartModi",
 				dataType:"json",
 				data:{g_seq:g_seq,cartstock:number}
 			}).done(function(resp){
-				console.log(resp)
+				console.log(resp);
 			})
 	
 	
@@ -1026,7 +1055,8 @@ function setTotalInfo() {
 
 			setTotalInfo();
 	
-			g_seq=$($(this).parent().siblings()[8]).children().val();
+			g_seq=$($(this).parent().siblings()[9]).children().val();
+			console.log(g_seq);
 			$.ajax({
 				url:"/cart/cartModi",
 				dataType:"json",

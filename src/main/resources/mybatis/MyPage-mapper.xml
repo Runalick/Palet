@@ -12,7 +12,7 @@
 		select count(*) from exticket where et_email=#{value} and et_state in('BU','BC' )
 	</select>
 	<select id="premyTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
-with total1 as
+select row_number()over(order by datee) line, email,title,place,datee,booknumber,state,buydate,category,pickdate,sysname from (with total1 as
 (select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
 from exticket left outer join exhibitionpic using(e_num) 
 union all
@@ -20,7 +20,7 @@ select pro_email as email, pro_title as title, pro_place as place, pro_date as d
 from proticket left outer join programpic using(p_num)),
 total2 as (
 select row_number () over(order by datee) line, booknumber, email, title,state, place, datee, buydate, category, pickdate, sysname from total1)
-select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2 where  email=#{email} and state = 'AU'
+select line, booknumber, email, title, place, datee, buydate, category, pickdate,state, sysname from total2) where  email=#{email} and state = 'AU' and line between #{limit} and #{limit}+9
 	</select>
 	<select id="premyTicketcnt" resultType="int">
 		select count(*) from (with total1 as
@@ -73,28 +73,33 @@ select line, booknumber, email, title, place, datee, buydate, category, pickdate
 <!-- 	취소리스트 -->
 	<select id="CancelList" resultType="Trillion.Palet.DTO.CancelListDTO">
 		select * from (
-select e_num as num, et_email as email, et_title as title, et_date as datee, et_booknumber as booknumber, et_state as state, et_cost as cost, et_category as category, et_buydate as buydate,et_username as pickdate, et_paymethod as sysname  from exticket left outer join exhibitionpic using(e_num)
+select et_cpserial as option1,e_num as num, et_email as email, et_title as title, et_date as datee, et_booknumber as booknumber, et_state as state, et_cost as cost, et_category as category, et_buydate as buydate,et_username as pickdate, et_paymethod as sysname  from exticket left outer join exhibitionpic using(e_num)
 union all
-select p_num as num, pro_Email as email, pro_title as title, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_cost as cost, pro_category as category, pro_buydate as buydate,pro_pickdate as pickdate, pp_sysname as sysname  from proticket left outer join programpic using(p_num)
+select pro_cardnumber as option1, p_num as num, pro_Email as email, pro_title as title, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_cost as cost, pro_category as category, pro_buydate as buydate,pro_pickdate as pickdate, pp_sysname as sysname  from proticket left outer join programpic using(p_num)
 union all
-select g_num as num, email as email, g_name as title, address2 as datee, merchant_uid as booknumber, state as state, totalprice as cost, category as category, buydate as buydate, address1 as pickdate, gp_sysname as sysname   from mygoods left outer join goodspic using(g_num)
+select g_option as option1, g_num as num, email as email, g_name as title, address2 as datee, merchant_uid as booknumber, state as state, totalprice as cost, category as category, buydate as buydate, address1 as pickdate, gp_sysname as sysname   from mygoods left outer join goodspic using(g_num)
 ) where email = #{value} and state in ('AC','BC') order by buydate desc
 		
 	</select>
 <!-- 	취소리스트 기간 ajax -->
 	<select id="refundajax" resultType="Trillion.Palet.DTO.CancelListDTO">
 	select * from (
-		select g_num as nums, email, g_name as title, totalprice, pay_time, state, category, g_option as options, merchant_uid as uids,
-goodspic.gp_sysname as sysname from payment left outer join goodspic using(g_num) 
-where state like '%C' 
-UNION ALL
-select e_num as nums, et_email as email, et_title as title, et_cost as totalprice, et_buydate as pay_time, et_state as state, 
-et_category as category, et_username as options ,et_booknumber as uids, exhibitionpic.ep_sysname as sysname from exticket left outer join exhibitionpic using(e_num)
-where et_state like '%C') where email = #{email} 
-	<if test='#{btn}=="week"'>
-	where pay_time between add_months(sysdate,-1) and sysdate order by pay_time
+select et_cpserial as option1,e_num as num, et_email as email, et_title as title, et_date as datee, et_booknumber as booknumber, et_state as state, et_cost as cost, et_category as category, et_buydate as buydate,et_username as pickdate, et_paymethod as sysname  from exticket left outer join exhibitionpic using(e_num)
+union all
+select pro_cardnumber as option1, p_num as num, pro_Email as email, pro_title as title, pro_date as datee, pro_booknumber as booknumber, pro_state as state, pro_cost as cost, pro_category as category, pro_buydate as buydate,pro_pickdate as pickdate, pp_sysname as sysname  from proticket left outer join programpic using(p_num)
+union all
+select g_option as option1, g_num as num, email as email, g_name as title, address2 as datee, merchant_uid as booknumber, state as state, totalprice as cost, category as category, buydate as buydate, address1 as pickdate, gp_sysname as sysname   from mygoods left outer join goodspic using(g_num)
+) where email = #{email} and state in ('AC','BC')
+	
+	<if test='btn=="week"'>
+	and buydate between (sysdate-7) and sysdate order by buydate desc
 	</if>	
-		
+	<if test='btn=="month"'>
+	and buydate between add_months(sysdate,-1) and sysdate order by buydate desc
+	</if>	
+	<if test='btn=="3month"'>
+	and buydate between add_months(sysdate,-3) and sysdate order by buydate desc
+	</if>	
 	</select>
 
 

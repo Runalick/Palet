@@ -152,12 +152,13 @@ public class MyPageController {
 	@ResponseBody
 	@RequestMapping("refundajax")
 	public List<CancelListDTO> refundajax(Model model,String btn) {
+		System.out.println("버튼"+btn);
+
 		String email = (String)session.getAttribute("loginEmail");
 		List<CancelListDTO> list = mServ.refundajax(email,btn);
 		for(CancelListDTO dto : list){
 			System.out.println(dto.getTitle());
-			System.out.println(dto.getState());
-			System.out.println(dto.getCategory());
+		
 		}
 		model.addAttribute("list",list);
 		return list;

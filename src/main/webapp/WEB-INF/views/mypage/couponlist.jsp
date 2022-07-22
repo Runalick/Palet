@@ -600,7 +600,7 @@ button {
 							<div class="row">
 								<div class="col-12 H5" style="margin-top:3rem; padding-bottom:1.5rem;">쿠폰 사용 안내</div>
 								<div class="col-12 H4" style="color:gray;">-사용기간이 만료된 쿠폰은 사전 공지 없이 자동 삭제됩니다.</div>
-								<div class="col-12 H4" style="color:gray">-쿠폰의 최소 주문금액은 배송비를 제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.</div>
+								<div class="col-12 H4" style="color:gray;">-쿠폰의 최소 주문금액은 배송비를 제외한 금액입니다. 결제 시 총 금액을 확인해 주세요.</div>
 								<div class="col-12 H4" style="color:red; font-weight:bold;">-상품을 반품하거나 주문을 취소하셨다면, 구매에 사용하신 쿠폰은 반환되지 않습니다.</div>
 							</div>
 						</div>
@@ -758,7 +758,6 @@ button {
 				})
 			}
 		})
-
 	</script>
 </body>
 </html>
