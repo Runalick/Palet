@@ -1314,7 +1314,7 @@ if($(".select-ul").css("display") == "block"){
 			$("#state").text("배송완료");
 			$("#cancel").attr('style',"display:none;");
 		} else if (($("#state").html())=='BC'){
-			$("#state").text("취소 중");
+			$("#state").text("취소 처리 중");
 			$("#cancel").attr('style',"display:none;");
 		} else if (($("#state").html())=='AC'){
 			$("#state").text("취소완료");

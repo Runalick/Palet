@@ -863,13 +863,64 @@ input {
 					}
 				}).open();
 	}//다음 주소찾기
-	$("#delbtn").on("click", function() {
+	/* $("#delbtn").on("click", function() {
 		let resurt = confirm("정말회원을 탈퇴하시겟습니까? 모든 정보가 삭제됩니다.");
 		if (resurt) {
+			
 			location.href = "/member/delmember";
 		}
 
+	}) */
+	
+	$("#delbtn").on("click", function() {
+		let resurt = confirm("정말회원을 탈퇴하시겟습니까? 모든 정보가 삭제됩니다.");
+		if (resurt) {
+			if(sessionStorage.getItem('AccessKEY') == null) {
+				location.href = "/member/delmember";
+	    	} else {
+	    		alert("사용자의 계정이 탈퇴 되었습니다.")
+	    		Kakao.API.request({
+	                url: '/v1/user/unlink',
+	                success: function(response) {
+	                    console.log(response);
+	                    //callback(); //연결끊기(탈퇴)성공시 서버에서 처리할 함수
+	                    Kakao.Auth.logout();
+	                    location.href = "/member/delmember";
+	                },
+	                fail: function(error) {
+	                    console.log('탈퇴 미완료')
+	                    console.log(error);
+	                },
+	            })
+	    		
+	    	}
+		}
+
 	})
+	
+	
+				if(sessionStorage.getItem('AccessKEY') == null) {
+					location.href = "/member/delmember";
+		    	} else {
+		    		alert("사용자의 계정이 탈퇴 되었습니다.")
+		    		Kakao.API.request({
+		                url: '/v1/user/unlink',
+		                success: function(response) {
+		                    console.log(response);
+		                    //callback(); //연결끊기(탈퇴)성공시 서버에서 처리할 함수
+		                    Kakao.Auth.logout();
+		                    location.href = "/member/delmember";
+		                },
+		                fail: function(error) {
+		                    console.log('탈퇴 미완료')
+		                    console.log(error);
+		                },
+		            })
+		    		
+		    	}
+	
+	
+	
 	$("#phone").on("keyup", function() {
 		let phone = $("#phone").val();
 		let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;

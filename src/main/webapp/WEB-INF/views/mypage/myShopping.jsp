@@ -964,7 +964,7 @@ color:white;
 				    		$("#state_text" + i).text("배송완료");
 				    		$("#cancel" + i).attr('style',"display:none;");
 				    	} else if($("#state"+i).val()=='BC'){
-				    		$("#state_text" + i).text("취소 중");
+				    		$("#state_text" + i).text("취소 처리 중");
 				    		$("#cancel" + i).attr('style',"display:none;");
 				    	} else if($("#state"+i).val()=='AC'){
 				    		$("#state_text" + i).text("취소완료");

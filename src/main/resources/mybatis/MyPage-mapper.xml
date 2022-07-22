@@ -181,6 +181,12 @@ where et_state like '%C') where email = #{email}
 		update coupon set email = #{email} where serial = #{serial}
 	</update>
 	
+	<!-- 굿즈 구매 개수 가져오기 -->
+	<select id="countgoods" resultType="int">
+		select count(*) from mygoods where merchant_uid=#{merchant_uid}
+	</select>
+	
+	
 <!-- 	프로그램 -->
 	<select id="ExProTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
 	select * from (select et_email as email, et_title as title, et_place as place, et_date as datee, et_booknumber as booknumber, et_state as state, et_buydate as buydate, et_category as category, et_username as pickdate, ep_sysname as sysname
