@@ -315,5 +315,17 @@ public class AdminService {
 		return adao.getWeekCount();
 	}
 	
+	public List<SalesDTO> getWeekCountGoods(){
+		return adao.getWeekCountGoods();
+	}
+	
+	public List<SalesDTO> getWeekCountExhibition(){
+		return adao.getWeekCountExhibition();
+	}
+	
+	public List<SalesDTO> getWeekCountProgram(){
+		return adao.getWeekCountProgram();
+	}
+	
 }
 

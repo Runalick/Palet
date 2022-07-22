@@ -500,7 +500,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
 	})
@@ -532,7 +532,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -557,7 +557,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -583,7 +583,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -609,7 +609,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -635,7 +635,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -663,7 +663,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}
@@ -688,7 +688,7 @@ let end_date;
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
 			console.log($("#pe_date").val());
-			$("#upload").css("color", "red");
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
 		}

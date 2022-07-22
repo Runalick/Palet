@@ -386,6 +386,7 @@ let isGoodsPic = false;
 		}
 		
 		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
     })
@@ -401,6 +402,7 @@ let isGoodsPic = false;
 		}
 		
 		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
     })
@@ -416,6 +418,7 @@ let isGoodsPic = false;
 		}
 		
 		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
     })
@@ -431,6 +434,7 @@ let isGoodsPic = false;
 		}
 		
 		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
     })
@@ -446,6 +450,7 @@ let isGoodsPic = false;
 		}
 		
 		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
     })
