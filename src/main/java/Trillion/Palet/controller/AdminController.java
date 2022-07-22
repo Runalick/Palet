@@ -62,10 +62,16 @@ public class AdminController {
 		GoodsDTO gdto = gServ.goodsBestSeller();
 		ProgramDTO pdto = pServ.programBestSeller();
 		List<SalesDTO> sdto = aServ.getWeekSales();
+		List<SalesDTO> cgdto = aServ.getWeekCountGoods();
+		List<SalesDTO> cedto = aServ.getWeekCountExhibition();
+		List<SalesDTO> cpdto = aServ.getWeekCountProgram();
 		List<SalesDTO> cdto = aServ.getWeekCount();
 		int members = aServ.getMemberTotalCount();
 		model.addAttribute("weekCount", cdto);
 		model.addAttribute("weekSales", sdto);
+		model.addAttribute("weekCountGoods", cgdto);
+		model.addAttribute("weekCountExhibition", cedto);
+		model.addAttribute("weekCountProgram", cpdto);
 		model.addAttribute("totalMembers", members);
 		model.addAttribute("ExhibitionBestSeller", edto);
 		model.addAttribute("GoodsBestSeller", gdto);

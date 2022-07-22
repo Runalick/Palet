@@ -55,4 +55,7 @@
 		left outer join goodspic on goods.g_num = goodspic.g_num
 		where select_cart.email = #{value}
   	</select>
+  	<delete id="deleteCart">
+  		delete from cart where cart_seq = #{cart_seq} and email = #{email}
+  	</delete>
   </mapper>
