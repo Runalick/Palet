@@ -90,7 +90,7 @@ public class CartController {
 				dto.setPoint((int) (dto.getG_price()*0.1));
 			}
 		}
-		
+		model.addAttribute("grade",grade);
 		model.addAttribute("list",list);
 		model.addAttribute("totalList",totalList);
 		return"cart/cart-exist";
