@@ -119,6 +119,7 @@
 	flex-grow: 0;
 }
 
+
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
@@ -392,8 +393,22 @@ align-items: center; */
 	background: #F4F6F8;
 	height: 13.25rem;
 }
-
 .ul2 {
+	list-style: none;
+}
+
+.ul2>li {
+	padding: 0px;
+
+	float: right;
+	
+}
+.ul2_1>li{
+display:inline-block;
+margin:2rem;
+
+}
+/* .ul2 {
 	list-style: none;
 }
 
@@ -401,7 +416,7 @@ align-items: center; */
 	padding: 0px;
 	float: left;
 }
-
+ */
 .curimage {
 	width: 100%;
 	height: 100%;
@@ -416,6 +431,17 @@ align-items: center; */
 text-align:center;
 
 }
+
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+} 
 </style>
 
 
@@ -568,19 +594,37 @@ text-align:center;
 
 		</div>
 		<div class="container">
-			<div class="row" id="container1" style="padding-top: 50px;">
-				<div class="col-4 h2" style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
-				<ul class="col-4 ul2 h3 offset-4"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
+		<div class="row " style="margin-top: 70px;">
+				<div class="col-4 h2 d-none d-sm-block"
+					style="margin-top: 4rem; text-align: left;">Exhibition</div>
+				<ul class="col-8 ul2 h3 d-none d-sm-block"
+					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 4rem; padding-left: 0px;">
+					
+					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
+						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
+					
+						
+					<li style="width: 4.938rem;  margin-left: 5.2rem;">
+						과거 전시</li>
+							<li style="width: 4.938rem;  color: #919EAB; margin-left: 5.2rem;"><a
 						class="exlink" href="/Exhibition/toCurExhibition">현재 전시</a></li>
 
-					<li style="width: 4.938rem; margin-left: 3.1rem;">과거 전시</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
+				</ul>
+			</div>
+				<div class="row ">
+				<div class="col-12 h2 d-block d-sm-none"
+					style="margin-top: 2.5rem; text-align: center;">Exhibition</div>
+				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
+					<li style="width: 4.938rem; text-align:center; color: #919EAB;"><a
+						class="exlink" href="/Exhibition/toCurExhibition">현재 전시</a></li>
+					<li style="width: 4.938rem;  text-align:center; ">과거 전시</li>
+					<li style="width: 4.938rem;   text-align:center; color: #919EAB; "><a
 						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
 
 				</ul>
 			</div>
+			
 			<div class="row" id="container2">
 				<%-- <c:forEach var="list" items="${list }">
 					<div class="col-4">
@@ -610,7 +654,7 @@ text-align:center;
 							123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
 						<br>
 						<div class="col-12 body2"
-							style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
+							style="color: #637381;">3호선 경복궁역 지하
 							1층 | contact@palet.com</div>
 
 					</div>

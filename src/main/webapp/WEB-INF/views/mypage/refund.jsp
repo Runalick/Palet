@@ -394,7 +394,7 @@ color:red;
 padding-bottom:1rem;
 margin-bottom:0.5rem; 
 }
-.Elist, .Glist{
+.Elist, .Glist,.Plist{
 cursor:pointer;
 
 }
@@ -610,7 +610,7 @@ cursor:pointer;
 					<div class="row Elist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 						<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
-								<img src="/images/image 21.png" style="width:100px; height:100px;">
+								<img src="/images/anywayloveS.png" style="width:100px; height:100px;">
 						</div>
 						<div class="col-8 col-md-9" >
 							<div class="row">
@@ -641,7 +641,7 @@ cursor:pointer;
 					<div class="row Glist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
-								<img src="${i.sysname }" style="width:100px; height:100px;">
+								<img src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
 						</div>
 						<div class="col-8 col-md-9" >
 							<div class="row">
@@ -758,19 +758,29 @@ cursor:pointer;
 	</div>
 	
 	<script>
-	$(".Plist").on("click",function(){
+	
+// 		$(".Plist").on("click",function(){
+// 			location.href="/mypage/proTicketDetailview?pro_booknumber="+$($(this).children()[0]).val();
+// 		})
+// 		$(".Glist").on("click",function(){
+			
+// 			location.href="/mypage/myShoppingDetail?merchant_uid="+$($(this).children()[0]).val();
+// 		})
+// 		$(".Elist").on("click",function(){
+// 			console.log($($(this).children()[0]).val());
+// 			location.href="/mypage/myTicketDetailview?et_booknumber="+$($(this).children()[0]).val();
+// 		})
+
+	
+	$(document).on('click', '.Plist', function() {
 		location.href="/mypage/proTicketDetailview?pro_booknumber="+$($(this).children()[0]).val();
-	})
-	$(".Glist").on("click",function(){
-		
-		location.href="/mypage/myShoppingDetail?merchant_uid="+$($(this).children()[0]).val();
-	})
-	$(".Elist").on("click",function(){
-		console.log($($(this).children()[0]).val());
+		});
+	$(document).on('click', '.Elist', function() {
 		location.href="/mypage/myTicketDetailview?et_booknumber="+$($(this).children()[0]).val();
-	})
-	
-	
+		});
+	$(document).on('click', '.Glist', function() {
+		location.href="/mypage/myShoppingDetail?merchant_uid="+$($(this).children()[0]).val();
+		});
 	
 	
 	$(".btnbtn").on("click",function(){
@@ -801,10 +811,10 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
-								+"				<img src='/images/image 21.png' style='width:100px; height:100px;'></div>"
+								+"				<img src='/images/anywayloveS.png' style='width:100px; height:100px;'></div>"
 								+"		<div class='col-8 col-md-9' >"
 								+"			<div class='row'>"
 								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
@@ -825,10 +835,10 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
-									+"				<img src='/images/image 21.png' style='width:100px; height:100px;'></div>"
+									+"				<img src='/images/anywayloveS.png' style='width:100px; height:100px;'></div>"
 									+"		<div class='col-8 col-md-9' >"
 									+"			<div class='row'>"
 									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
@@ -854,7 +864,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+								"	<div class='row Plist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -878,7 +888,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+									"	<div class='row Plist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -907,7 +917,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+								"	<div class='row Glist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -931,7 +941,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+									"	<div class='row Glist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"

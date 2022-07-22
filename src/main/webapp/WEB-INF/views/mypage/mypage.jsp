@@ -664,7 +664,7 @@ input {
 											<div class="modal-footer">
 												<button type="submit" class="btn2" id="pwbtn"
 													disabled="disabled">확인</button>
-												<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
+												<button type="button" class="btn2 cancel" data-bs-dismiss="modal">닫기</button>
 											</div>
 										</div>
 									</div>
@@ -702,8 +702,8 @@ input {
 												최대 5글자까지 입니다.</span>
 										</div>
 										<div class="modal-footer">
-											<button type="submit" class="btn2">확인</button>
-											<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
+											<button type="submit" id="namebtn" class="btn2" disabled="disabled">확인</button>
+											<button type="button" class="btn2 cancel" data-bs-dismiss="modal">닫기</button>
 										</div>
 									</div>
 								</div>
@@ -738,14 +738,14 @@ input {
 										<div class="modal-body">
 											<input type="text" id="phone" maxlength="11" name="phone"
 												placeholder="전화번호를 숫자만 작성해주세요"
-												pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"><br>
+												oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ><br>
 											<span style="display: none;" id="phoneck">핸드폰번호를
 												숫자만입력해주세요</span>
 										</div>
 										<div class="modal-footer">
 											<button type="submit" class="btn2" disabled="disabled"
 												id="phoneokbtn">확인</button>
-											<button type="button" class="btn2" data-bs-dismiss="modal">닫기</button>
+											<button type="button" class="btn2 cancel" data-bs-dismiss="modal">닫기</button>
 										</div>
 									</div>
 								</div>
@@ -963,12 +963,34 @@ input {
 				$("#pwck").text("사용할수 있는 비밀번호 입니다.");
 				isPwOk = true;
 			}
+			if($("#newpw").val() == ''||$("#newpwck").val()==''){
+				return false;
+			}
+			if ($("#newpw").val() == $("#newpwck").val()) {
+				isPwOk2 = true;
+			} else {
+				isPwOk2 = false;
+			}
+			if (isPwOk2) {
+				$("#newpwck").css("border", "1px solid #1890FF");
+				$("#pwck2").css("color", "#1890FF");
+				$("#pwck2").css("display", "inline");
+				$("#pwck2").text("비밀번호가 같습니다.");
+			}
+			if (isPwOk2 && isPwOk) {
+				$("#pwbtn").removeAttr("disabled");
+			} else if ((!isPwOk2) || (!isPwOk)) {
+				$("#pwbtn").attr("disabled", "true");
+			}
 		},
 		focusout : function() {
 			if ($("#newpw").val() == $("#newpwck").val()) {
 				isPwOk2 = true;
 			} else {
 				isPwOk2 = false;
+			}
+			if($("#newpw").val() == ''||$("#newpwck").val()==''){
+				return false;
 			}
 			if (!isPwOk2) {
 				$("#newpwck").css("border", "1px solid #FF4842");
@@ -982,7 +1004,7 @@ input {
 				$("#pwck2").css("display", "inline");
 				$("#pwck2").text("비밀번호가 같습니다.");
 			}
-			if (isPwOk2 && isPwOk && inok) {
+			if (isPwOk2 && isPwOk) {
 				$("#pwbtn").removeAttr("disabled");
 			} else if ((!isPwOk2) || (!isPwOk)) {
 				$("#pwbtn").attr("disabled", "true");
@@ -1009,6 +1031,16 @@ input {
 				$("#pwck2").css("color", "#1890FF");
 				$("#pwck2").css("display", "inline");
 				$("#pwck2").text("비밀번호가 같습니다.");
+			}
+			if (isPwOk2 && isPwOk) {
+				$("#pwbtn").removeAttr("disabled");
+			} else if ((!isPwOk2) || (!isPwOk)) {
+				$("#pwbtn").attr("disabled", "true");
+			}
+			if ($("#newpw").val() == $("#newpwck").val()) {
+				isPwOk2 = true;
+			} else {
+				isPwOk2 = false;
 			}
 		},
 		focusout : function() {
@@ -1040,6 +1072,27 @@ input {
              });
          return true;
       });
+	//취소 버튼 클릭시 내용 초기화
+	$(".cancel").on("click",function(){
+		$("#newpw").val('');
+		$("#newpw").css("border", "1px solid black");
+		$("#pwck").css("display", "none");
+		
+		$("#newpwck").css("border", "1px solid black");
+		$("#newpwck").val('');
+		$("#pwck2").css("display", "none");
+		
+		$("#phone").val('');
+		$("#phoneck").css("display", "none");
+		$("#name").val('');
+	})
+	$("#name").on("keyup",function(){
+		if(!$("#name").val()==''){
+			$("#namebtn").removeAttr("disabled");
+		}else if($("#name").val()==''){
+			$("#namebtn").attr("disabled", "true");
+		}
+	})
 	</script>
 </body>
 </html>

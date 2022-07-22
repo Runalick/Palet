@@ -410,7 +410,8 @@ border:0px;
 color:white;
 /* Gray/900 */
 background: #161C24;
-border-radius: 1rem;
+border-radius: 0.75rem;
+margin-bottom:0.5rem;
 }
 .btnbtn:hover{
 background: #454F5B;

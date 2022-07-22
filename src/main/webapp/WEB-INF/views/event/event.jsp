@@ -20,7 +20,23 @@
 <link rel="stylesheet" href="/css/event/event.css">
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-
+<style>
+@media ( min-width : 375px) {
+	.container {
+		max-width: 1280px;
+	}html{
+		font-size: 16px;
+	}
+}
+@media ( min-width : 1650px) {
+	.container {
+		max-width: 1280px;
+	}
+	html {
+		font-size: 16px;
+	}
+}
+</style>
 </head>
 <body>
 	
@@ -171,11 +187,11 @@
 
 		</div>
 		<div class="container">
-			<div class="row" style="padding-top: 60px; padding-bottom: 50px;">
+			<div class="row" style="padding-top: 70px; ">
 				<div class="col-4 h2 d-none d-sm-block"
-					style="margin-top: 2.5rem; text-align: left;">Program</div>
+					style="margin-top: 4rem; text-align: left;">Program</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 5rem; padding-left: 0px;">
+					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 4rem; padding-left: 0px;">
 					
 					<li style="width: 4.938rem; margin-left: 5.2rem;">이벤트</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;">
@@ -200,7 +216,7 @@
 		<div class="row" id="background-area">
 			 <div class="container">
                 <div class="row" id="row1">
-                	<div class="col-12 h1" style="margin-top : 13.5rem;">오늘의 상상일기</div>
+                	<div class="col-12 h1" style="margin-top : 8rem;">오늘의 상상일기</div>
                 	<div class="col-12 h2_1">: 평범한 오늘이 특별하게 변하는 시간.</div>
                 	<div class="col-12 body1" style="margin-top : 3.5rem;">본 이벤트는 1계정 당 1번만 참여 가능합니다.<br>
                 	그림은 관리자 승인 후 업데이트 됩니다.<br>
