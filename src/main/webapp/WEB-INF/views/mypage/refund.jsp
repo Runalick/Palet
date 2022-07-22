@@ -600,9 +600,13 @@ cursor:pointer;
 							<button class="btnbtn" value="3month">3개월</button>
 						</div>
 					</div>
+					<div class="row">
+					<div class="col-12 content2"></div>
+					</div>
 <!-- 				전시회	반복 -->
 <c:forEach var="i" items="${list }">
 	<c:if test="${i.category == 'E'}">
+	
 					<div class="row Elist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 						<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
@@ -776,65 +780,192 @@ cursor:pointer;
 		
 		$(this).css("background","black");
 		$(this).css("color","white");
-		
+		$(".Elist").remove();
+		$(".Glist").remove();
+		$(".Plist").remove();
 		val = $(this).val();
-// 		$.ajax({
-// 			url:"/mypage/refundajax",
-// 			data:{"btn":val},
-// 			dataType:"json"
-// 		}).done(function(resp){
-// 			$(".Elist").remove();
-// 			$(".Glist").remove();
-// 			$(".Plist").remove();
-// 			console.log("iia");
-// 			for(let i=0; i<resp.length; i++){
-// 					console.log("ii");
-// 					console.log(resp[i].category);
+		console.log("ddd"+val);
+		$.ajax({
+			url:"/mypage/refundajax",
+			data:{"btn":val},
+			dataType:"json"
+		}).done(function(resp){
+			console.log(resp);
+			console.log("iia");
+			for(let i=0; i<resp.length; i++){
+				
 					
-// 					if(resp[i].category == 'E'){
-						
-// 						let Elist = $("<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>");
-// 						let div1 = $("<input type='hidden' value="+resp[i].uids+">")
-// 						Elist.append(div1);
-						
-// 						let div2 = $("<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >")
-// 						let img = $("<img src=''/images/image 21.png' style='width:100px; height:100px;'>")
-// 						Elist.append(div2);
-// 						div2.append(img);
-// 						let div3 = $("<div class='col-8 col-md-9' >");
-// 						let row1 = $("<div class='row'>");
-// 						div3.append(row1);
-// 						let div4 = $("<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>");
-// 						row1.append(div4);
-// 						let div5 = $("<div class='col-12' ><span class='body5-price'> 결제 금액 "+resp[i].totalprice 
-// 								+"					<input type='hidden' class="+resp[i].nums+ ">	</span>");
-// 						let span = $("<span class='body5-date'>"+resp[i].pay_time+ "</span>");
-// 						div5.append(span);
-// 						row1.append(div5);
-						
-// 						let div6 = $("<div class='col-12 body5-state body5' >취소 처리중</div>");
-// 						row1.append(div6);
-// 						let div7 = $("<div class='col-12 body5-state body5-info'>취소처리가 진행중입니다.</div>");
-// 						row1.append(div7);
-						
-// 						let div8 =$("<div class='col-12 body5-state body5' >결제취소</div>"
-						
-// 						+"				<div class='col-12 body5-state body5-info'>결제가 취소되었습니다.</div>");
-// 						row1.append(div8);
+					
+					if(resp[i].category == 'E'){
 						
 						
-// 						$(".content").append(Elist );
+						if(resp[i].state=='BC'){
+						$(".content2").append(
+								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+								+"		<input type='hidden' value="+resp[i].booknumber+">"
+								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
+								+"				<img src='/images/image 21.png' style='width:100px; height:100px;'></div>"
+								+"		<div class='col-8 col-md-9' >"
+								+"			<div class='row'>"
+								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+								+"				<div class='col-12' >"
+								+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
+								+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+											
+								+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+											
+											
+								+"				<div class='col-12 body5-state body5' >취소 처리중</div>"
+												
+								+"				<div class='col-12 body5-state body5-info'>취소처리가 진행중입니다.</div>"
+								
+							
+								+"			</div>		</div></div>" );
 							
 								
-// 					}
-					
+					}else if(resp[i].state=='AC'){
+							$(".content2").append(
+									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+									+"		<input type='hidden' value="+resp[i].booknumber+">"
+									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
+									+"				<img src='/images/image 21.png' style='width:100px; height:100px;'></div>"
+									+"		<div class='col-8 col-md-9' >"
+									+"			<div class='row'>"
+									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+									+"				<div class='col-12' >"
+									+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
+									+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+												
+									+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+												
+												
+								
+									+"				<div class='col-12 body5-state body5' >결제취소</div>"
+													
+									+"				<div class='col-12 body5-state body5-info'>결제가 취소되었습니다.</div>"
+								
+									+"			</div>		</div></div>" );
+								
+									
+						}
+				
+					}else if(resp[i].category == 'P'){
+						
+						
+						if(resp[i].state=='BC'){
+						$(".content2").append(
+								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+								+"		<input type='hidden' value="+resp[i].booknumber+">"
+								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
+								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px;'></div>"
+								+"		<div class='col-8 col-md-9' >"
+								+"			<div class='row'>"
+								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+								+"				<div class='col-12' >"
+								+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
+								+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+											
+								+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+											
+											
+								+"				<div class='col-12 body5-state body5' >취소 처리중</div>"
+												
+								+"				<div class='col-12 body5-state body5-info'>취소처리가 진행중입니다.</div>"
+								
+							
+								+"			</div>		</div></div>" );
+							
+								
+					}else if(resp[i].state=='AC'){
+							$(".content2").append(
+									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+									+"		<input type='hidden' value="+resp[i].booknumber+">"
+									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
+									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px;'></div>"
+									+"		<div class='col-8 col-md-9' >"
+									+"			<div class='row'>"
+									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+									+"				<div class='col-12' >"
+									+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
+									+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+												
+									+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+												
+												
+								
+									+"				<div class='col-12 body5-state body5' >결제취소</div>"
+													
+									+"				<div class='col-12 body5-state body5-info'>결제가 취소되었습니다.</div>"
+								
+									+"			</div>		</div></div>" );
+								
+									
+						}
+				
+					}else if(resp[i].category == 'G'){
+						
+						
+						if(resp[i].state=='BC'){
+						$(".content2").append(
+								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+								+"		<input type='hidden' value="+resp[i].booknumber+">"
+								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
+								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px;'></div>"
+								+"		<div class='col-8 col-md-9' >"
+								+"			<div class='row'>"
+								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+								+"				<div class='col-12' >"
+								+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
+								+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+											
+								+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+											
+											
+								+"				<div class='col-12 body5-state body5' >취소 처리중</div>"
+												
+								+"				<div class='col-12 body5-state body5-info'>취소처리가 진행중입니다.</div>"
+								
+							
+								+"			</div>		</div></div>" );
+							
+								
+					}else if(resp[i].state=='AC'){
+							$(".content2").append(
+									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
+									+"		<input type='hidden' value="+resp[i].booknumber+">"
+									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
+									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px;'></div>"
+									+"		<div class='col-8 col-md-9' >"
+									+"			<div class='row'>"
+									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+									+"				<div class='col-12' >"
+									+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
+									+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+												
+									+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+												
+												
+								
+									+"				<div class='col-12 body5-state body5' >결제취소</div>"
+													
+									+"				<div class='col-12 body5-state body5-info'>결제가 취소되었습니다.</div>"
+								
+									+"			</div>		</div></div>" );
+								
+									
+						}
+				
+					}	
+
+						
+						
 				
 					
 					
 					
-// 			}
+			}
 			
-// 		})
+		})
 	})
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
