@@ -30,7 +30,7 @@
 		max-width: 1280px;
 	}
 	html {
-		font-size: 16px;
+		font-size: 12px;
 	}
 }
 
@@ -1554,9 +1554,7 @@ console.log($(".form-select1 option:selected").text() );
 console.log($(".form-select2 option:selected").text() );
 		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
 			console.log('hihddi');
-			
 
-		
 		
 		if($(".h5_1_2").text()==0){
 			

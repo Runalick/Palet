@@ -1210,7 +1210,6 @@ input[type="number"]::-webkit-inner-spin-button {
    	$(".choosedeliverybtn").on("click",function(){
    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
 
-   	
    	})
 
    	

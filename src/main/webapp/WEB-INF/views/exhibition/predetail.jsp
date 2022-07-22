@@ -30,7 +30,7 @@
 	.container {
 		max-width: 1280px;
 	}html{
-		font-size: 16px;
+		font-size: 12px;
 	}
 }
 @media ( min-width : 1650px) {
