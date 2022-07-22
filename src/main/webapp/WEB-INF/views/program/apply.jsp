@@ -94,6 +94,9 @@
 	padding-right: 2.5rem;
 }
 
+
+
+
 .nav-link {
 	padding: 0px;
 	padding-right: 0px;
@@ -120,6 +123,8 @@
 	margin: auoto;
 	padding-right: 20px;
 }
+
+
 
 #Exhibition {
 	width: 5.938rem;
@@ -421,9 +426,14 @@ align-items: center; */
 
 .ul2>li {
 	padding: 0px;
-	float: left;
+	float: right;
 }
 
+.ul2_1>li{
+display:inline-block;
+margin:2rem;
+
+}
 .curimage {
 	width: 23.5rem;
 	height: 32.5rem;
@@ -798,6 +808,24 @@ border-radius: 20px !important;
 			</div>
 
 		</div>
+				<!--Booking /Payment-->
+	<div class="container mt-3">
+			<div class="row mt-4">
+
+
+				<div class="col-1">
+					<img class=leftbutton src="/images/leftbutton.png"
+						style="margin-left: 0px;">
+				</div>
+				<div class="col-11 align-middle " style = "vertical-align:middle;">
+					<div class="col h2 align-middle" style="text-align: left; vertical-align:middle; line-height:3.75rem;">Booking / Payment</div>
+				</div>
+
+				
+
+			</div>
+
+		</div>
 		<!-- 큰 화면 신청자 -->
 		<div class="container mt-3">
 			<div class=row>
@@ -872,7 +900,6 @@ border-radius: 20px !important;
 				</div>
 			</div>
 		</div>
-
 
 
 
@@ -1165,6 +1192,30 @@ border-radius: 20px !important;
 </body>
 <script>
 
+
+//로딩시 데이터
+window.onload = function() {
+	let point = '${price}';
+	let point1 = point.replace(",", "");
+	let point2 = point1.replace("원", "");
+	
+	if('${mdto.grade}'=='White'){
+	finalpoint = parseInt(point2) * 0.01;
+	
+	}else if('${mdto.grade}'=='Gray'){
+		finalpoint = parseInt(point2) * 0.05;
+
+	}else if('${mdto.grade}'=='Black'){
+		finalpoint = parseInt(point2) * 0.1;
+	}
+	
+	$("#point").text(finalpoint + "p");
+	
+	
+
+}
+
+
 //큰화면 마일리지 사용
 $(".form-select1").on('change',function(){
 	console.log($(".h5_1").text());
@@ -1410,67 +1461,29 @@ console.log($(".form-select2 option:selected").text() );
 	
 	
 
+	//캘린
 
-	window.onload = function() {
-		let point = '${price}';
-		let point1 = point.replace(",", "");
-		let point2 = point1.replace("원", "");
-		
-		if('${mdto.grade}'=='White'){
-		finalpoint = parseInt(point2) * 0.01;
-		
-		}else if('${mdto.grade}'=='Gray'){
-			finalpoint = parseInt(point2) * 0.05;
 	
-		}else if('${mdto.grade}'=='Black'){
-			finalpoint = parseInt(point2) * 0.1;
-		}
-		
-		$("#point").text(finalpoint + "p");
-		
-		
-		
-
-
-	}
-	
-
-
-/* var calendar = null;
-
-var caledarEl = document.getElementById('calendar');
-if(calendar){
-	calendar.destory();
-	
-}
-calendar = new FullCalendar.Calendar(caledarEl,{
-	
-	events:[],
-	plugins:['interaction','dayGrid','timeGrid','list'],
-	header:{
-		left:'prev, next today',
-		center:'title',
-		right:'dayGridMonth, timeGridWeek, timeGridDay'
-		
-	},
-	dateClick:function(info){
-		alert("click here" + info.dateStr);
-	}
-});
-calendar.render();
- */
 
 
 document.addEventListener('DOMContentLoaded', function() {
      var calendarEl = document.getElementById('calendar');
+     var today = new Date();
+     var year = today.getFullYear();
+     var month = ('0' + (today.getMonth() + 1)).slice(-2);
+     var day = ('0' + today.getDate()).slice(-2);
+
+     var dateString = year + '-' + month  + '-' + day;
      var calendar = new   FullCalendar.Calendar(calendarEl, {
     
        initialView: 'dayGridMonth',
  
       // selectable:true,
      //  unselectAuto: true
+ 
      	   dateClick: function(info) {
-     		
+     		    console.log(info.dateStr);
+     		    console.log(dateString);
     
     	let result = confirm('해당 날짜 ('+info.dateStr+')로 예약 하시겠습니까?');
      //  	    alert('Date: ' + info.dayEl);

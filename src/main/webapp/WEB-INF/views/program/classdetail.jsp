@@ -49,6 +49,12 @@
 .container-fluid {
 	padding: 0px;
 }
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 
 .navbar-brand {
 	margin: 0px;
@@ -75,10 +81,12 @@
 	padding-right: 2.5rem;
 }
 
+
 .nav-item {
-	padding-left: 20px;
+	margin: auoto;
 	padding-right: 20px;
 }
+
 
 .nav-link {
 	padding: 0px;
@@ -107,15 +115,33 @@
 	height: 1.5rem;
 }
 
-#Help {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Logout {
+	width: 4.5rem;
+	height: 1.5rem;
+}
+
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -423,51 +449,149 @@ a {
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container">
-			<div class="row">
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
-					<div class="container" id="navparent">
-						<a class="navbar-brand" href="/" id="container"
-							style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
-						<button class="navbar-toggler" type="button"
-							data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-						<div class="collapse navbar-collapse justify-content-end"
-							id="collapsibleNavbar">
-							<ul class="navbar-nav">
-								<li class="nav-item"><a id="About" class="nav-link"
-									href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
-								</li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/Exhibition/toCurExhibition"
-									style="padding-left: 0px; padding-right: 0px;">Exhibition</a></li>
-								<li class="nav-item"><a id="Exhibition" class="nav-link"
-									href="/program/toProgram"
-									style="padding-left: 0px; padding-right: 0px;">Program</a></li>
-								<li class="nav-item"><a id="Shop" class="nav-link"
-									href="/shop/toShop"
-									style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
-								<li class="nav-item"><a id="Login" class="nav-link"
-									href="/member/loginPage"
-									style="padding-left: 0px; padding-right: 0px;">Login</a></li>
-								<li class="nav-item"><a id="Signup" class="nav-link"
-									href="/member/join"
-									style="padding-left: 0px; padding-right: 0px;">Sign up</a></li>
-								<li class="nav-item"><a id="Admin" class="nav-link"
-									href="/admin/adminMain"
-									style="padding-left: 0px; padding-right: 0px;">Admin</a></li>
-								<li class="nav-item"><a id="Mypage" class="nav-link"
-									href="/member/mypage"
-									style="padding-left: 0px; padding-right: 0px;">mypage</a></li>
-							</ul>
-						</div>
-					</div>
-				</nav>
+			<div class="container-fluid" style="background-color: white;">
+			<div class="container">
+				<c:choose>
+				<c:when test="${loginEmail =='admin@palet.com'}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
+				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
+					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:when test="${loginEmail != null}">
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
+			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
+					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
+						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                        
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:when>
+				
+				<c:otherwise>
+				<div class="row" id="container1">
+					<nav class="navbar navbar-expand-md bg-light navbar-light">
+						<div class="container" id="navparent" style = "overflow:visible;">
+							<a class="navbar-brand" href="/" id="container"
+								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
+
+							<div style="height: 5rem;">
+								<button class="navbar-toggler" type="button"
+									data-bs-toggle="collapse" style="margin-top: 15px;"
+									data-bs-target="#collapsibleNavbar">
+									<span class="navbar-toggler-icon"></span>
+								</button>
+							</div>
+
+							<div class="collapse navbar-collapse justify-content-end"
+								id="collapsibleNavbar">
+								<ul class="navbar-nav" style="background: white;">
+									<li class="nav-item"><a id="About" class="nav-link"
+										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+									</li>
+								
+					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
+					                href="/Exhibition/toCurExhibition"
+					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
+					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                           
+					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
+					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
+					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    
+					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
+					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+								
+								</ul>
+							</div>
+						</div>
+					</nav>
+				</div>
+				</c:otherwise>
+				
+				</c:choose>
 			</div>
 
 		</div>
+		
+		
 
 		<div class="container d-none d-sm-block"
 			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
