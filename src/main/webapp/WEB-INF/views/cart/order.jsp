@@ -1127,6 +1127,8 @@ text-align:left;
 	  	let arrEmail = [];
 	  	let arrG_seq = [];
 	  	let arrG_option = [];
+	  	let arrCart_seq = [];
+	  	
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -1272,6 +1274,9 @@ text-align:left;
 	            		arrEmail = resp[i].email;
 	            		arrG_num.push(resp[i].g_num);
 	            		arrG_option.push(resp[i].g_option);
+	            		arrCart_seq.push(resp[i].cart_seq);
+	            		console.log("arr_cartseq");
+	            		console.log(arrCart_seq);
 // 	            		title = resp[i].g_name;
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
@@ -1555,17 +1560,28 @@ text-align:left;
                         g_option : arrG_option[i]
                		}
                	}).done(function(resp){
-               		console.log("myGoods insert 성공");
-               		$.ajax({
-               			url:"/pay/point",
-               			data:{usedPoint:$(".pointinput1").val(),
-               				addPoint : addpoint}
-               		}).done(function(resp){
-               			console.log("point 정산 성공");
-               		})
-               	})
-               }
+					console.log("myGoods insert 성공")
 
+               	})
+ 
+               }
+               for(let i = 0; i < arrCart_seq.length; i++){
+           		$.ajax({
+       				url:"/pay/deleteCart",
+       				data:{cart_seq : arrCart_seq[i]}
+       			}).done(function(resp){
+       				console.log("cart 삭제성공");
+       			})
+               }
+               
+         	 	$.ajax({
+           			url:"/pay/point",
+           			data:{usedPoint:$(".pointinput1").val(),
+           				addPoint : addpoint}
+           		}).done(function(resp){
+           			console.log("point 정산 성공");
+           			
+           		})
             })
             
 			location.href="/shop/success";

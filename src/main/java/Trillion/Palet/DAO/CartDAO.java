@@ -98,4 +98,6 @@ public class CartDAO {
 	public List<goodsOrderDTO> select_cart(String email){
 		return mybatis.selectList("Cart.select_cart", email);
 	}
+	
+
 }
