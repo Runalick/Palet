@@ -62,11 +62,6 @@
 	padding-bottom: 1rem;
 }
 
-.navbar {
-	height: 5rem;
-	padding: 0px;
-}
-
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -81,30 +76,12 @@
 	padding: 0px;
 }
 
+
 .row>div {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 }
 
-
-
-.nav-item {
-	margin: auoto;
-	padding-right: 20px;
-}
-
-/*         오른쪽 여백 없애기
-		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
-			overflow: hidden;
-		}
-		
-		.overflow-auto{
-			overflow: hidden;
-		} */
-.row>div {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-}
 
 .nav-link {
 	padding: 0px;
@@ -127,6 +104,19 @@
 	order: 0;
 	flex-grow: 0;
 }
+
+
+
+
+
+.nav-item {
+	margin: auoto;
+	padding-right: 20px;
+}
+
+
+
+
 
 #Exhibition {
 	width: 5.938rem;
@@ -447,7 +437,7 @@ padding:0px;
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container-fluid" style="background-color: white;">
+		<div class="container-fluid" style="background-color: white; position: fixed;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -591,11 +581,11 @@ padding:0px;
 		
 		<div class="container">
 			
-			<div class="row">
+			<div class="row" style="margin-top: 70px;">
 				<div class="col-4 h2 d-none d-sm-block"
-					style="margin-top: 2.5rem; text-align: left;">Program</div>
+					style="margin-top: 4rem; text-align: left;">Program</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 5rem; padding-left: 0px;">
+					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 4rem; padding-left: 0px;">
 					
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
 						class="exlink" href="/event/eventPage">이벤트</a></li>

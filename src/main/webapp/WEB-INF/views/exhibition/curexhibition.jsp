@@ -607,11 +607,11 @@ $(".logout").on("click", function(){
 		
 		
 		<div class="container">
-			<div class="row " style="margin-top: 50px;">
+			<div class="row " style="margin-top: 70px;">
 				<div class="col-4 h2 d-none d-sm-block"
-					style="margin-top: 2.5rem; text-align: left;">Exhibition</div>
+					style="margin-top: 4rem; text-align: left;">Exhibition</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 5rem; padding-left: 0px;">
+					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 4rem; padding-left: 0px;">
 					
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
 						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
