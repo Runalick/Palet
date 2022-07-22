@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MyCouponDTO;
 import Trillion.Palet.DTO.MyGoodsDTO;
 import Trillion.Palet.DTO.MyPointDTO;
 import Trillion.Palet.DTO.PayDTO;
@@ -131,6 +132,12 @@ public class PayController {
 	@RequestMapping("point")
 	public int point(MyPointDTO dto) {
 		return pServ.point(dto);
+	}
+	
+	@ResponseBody
+	@RequestMapping("coupon")
+	public int coupon(MyCouponDTO dto) {
+		return pServ.coupon(dto);
 	}
 	
 	@ResponseBody
