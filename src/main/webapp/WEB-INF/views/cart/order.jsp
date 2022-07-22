@@ -1299,8 +1299,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
 	            		
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
-	            		sumPrice += Number(resp[i].totalPrice * resp[i].cartstock);
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].g_price.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		sumPrice += Number(resp[i].g_price * resp[i].cartstock);
 	            		arrG_name.push(resp[i].g_name);
 	            		arrSales_count.push(resp[i].cartstock);
 	            		arrTotalPrice.push(resp[i].totalPrice);
@@ -1642,7 +1642,7 @@ input[type="number"]::-webkit-inner-spin-button {
             })
             // 동일한 DOM에 걸린 이벤트를 막습니다.    
             	
-  	location.href="/shop/success";
+//   	location.href="/shop/success";
             
 	    } else {
 	    	 var msg = '결제에 실패하였습니다.';
