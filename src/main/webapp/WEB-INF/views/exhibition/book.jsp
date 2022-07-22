@@ -30,7 +30,7 @@
 		max-width: 1280px;
 	}
 	html {
-		font-size: 12px;
+		font-size: 16px;
 	}
 }
 
@@ -623,10 +623,12 @@ input::placeholder {
 									<input type=text class="input1 username"
 										placeholder="예매자 이름을 입력해 주세요." required>
 								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
+								<div class="col-12" style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone"
-										placeholder="전화번호를 입력해 주세요." required>
+									<input type=text class="input1 phone" maxlength="11"
+										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+										placeholder="전화번호를 입력해 주세요." required><br> <span
+										style="display: none;" class="phoneck">핸드폰번호를 숫자만입력해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
@@ -645,12 +647,15 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="예매자 이름을 입력해 주세요." required>
+										id="phone2'
+										placeholder=" 예매자 이름을 입력해 주세요." required>
 								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
+								<div class="col-12 " style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone"
-										placeholder="전화번호를 입력해 주세요." required>
+									<input type=text class="input1 phone" maxlength="11"
+										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+										placeholder="전화번호를 입력해 주세요." required><br> <span
+										style="display: none;" class="phoneck">핸드폰번호를 숫자만입력해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
@@ -805,13 +810,16 @@ input::placeholder {
 				<div class="col-12 h3"
 					style="padding-left: 0rem; margin-top: 1.125rem;">
 
-					<select id = "selectbox" class="form-select" aria-label="Default select example"
+					<select id="selectbox" class="form-select"
+						aria-label="Default select example"
 						style="width: 23.5rem; height: 3rem;">
 
-						<option value='0' value1 ="inavailableCP" selected >쿠폰을 선택해 주세요.</option>
+						<option value='0' value1="inavailableCP" selected>쿠폰을 선택해 주세요.</option>
 						<c:forEach var="clist" items="${clist }">
-							<option id = option1 class = "option1" value="${clist.dc}" value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  -${clist.dc}원</option>
-								
+							<option id=option1 class="option1" value="${clist.dc}"
+								value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								-${clist.dc}원</option>
+
 						</c:forEach>
 					</select>
 
@@ -860,13 +868,51 @@ input::placeholder {
 	</div>
 </body>
 <script>
+$(".phone").on("keyup", function() {
+	let phone = $(".phone").val();
+	let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	let phoneResult = phoneRegex.test(phone);
+	
+
+if (phoneResult) {
+		$(".phone").css("border", "1px solid #1890FF ");
+		$(".phoneck").css("color", "#1890FF");
+		$(".phoneck").css("display", "inline");
+		$(".phoneck").text("사용할수 있는 번호입니다.");
+	
+	}
+
+else if (phone=='') {
+	$(".phone").css("border", "1px solid #1890FF ");
+	$(".phoneck").css("color", "#1890FF");
+	$(".phoneck").css("display", "inline");
+	$(".phoneck").text("");
+
+}
+
+else if (!phoneResult) {
+	$(".phone").css("border", "1px solid #FF4842");	
+	$(".phoneck").css("color", "#FF4842");
+	$(".phoneck").css("display", "inline");
+	$(".phoneck").text("올바른 핸드폰번호를 입력해주세요.");
+}
+
+
+})
+
+	
+	
+	
+	
+	
+	
+	
+	
 
 $(".form-select").on('change',function(){
  if(${mdto.point}!=$(".h5_1").text())
  
  {
-	 
-	 
 	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
 	return false;
  }
@@ -886,12 +932,6 @@ $(".form-select").on('change',function(){
 	$("#finalprice").text((price2-$(".form-select option:selected").val()).toLocaleString()+"원");
 }
 })
-
-
-
-
-
-
 
 
 	$(".leftbutton").on("click", function() {
@@ -916,8 +956,6 @@ $(".form-select").on('change',function(){
 			console.log('hihddi');
 			
 
-		
-		
 		if($(".h5_1").text()==0){
 			
 			alert('사용 가능한 마일리지가 없습니다.');
@@ -950,6 +988,7 @@ $(".form-select").on('change',function(){
 	
 	
 	$(".usedpoint").keypress(function(e) {
+		console.log($(".form-select option:selected").text());
 		if($(".form-select option:selected").text() == '쿠폰을 선택해 주세요.'){
 		if (e.keyCode == 13) {
 			let mypoint = parseInt($(".h5_1").text());
@@ -969,9 +1008,6 @@ $(".form-select").on('change',function(){
 		console.log(opusedpoint2);
 		
 		
-
-			
-			
 			if ($(".usedpoint").val() <= mypoint) {
 				
 				(mypoint - $(".usedpoint").val())
