@@ -973,6 +973,11 @@ function setTotalInfo() {
             </div>
         </div>
 	<script>
+	window.onload = function(){
+		$.ajax({
+			url:"/cart/beforeunload"
+		})
+	}
 	//쇼핑하러 가기
 	$(".btn1").on("click",function(){
 		location.href="/shop/toShop";

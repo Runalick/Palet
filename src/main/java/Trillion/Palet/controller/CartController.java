@@ -192,7 +192,30 @@ public class CartController {
 	}
 	
 	@RequestMapping("Toorder")
-	public String Toorder() {
+	public String Toorder(Model model) {
+		//default주소 가져오기
+	      String email = (String)session.getAttribute("loginEmail");
+	      //배송지 등록 안해논 사람 null 포인터 에러나니까 고치기
+	      
+	      DeliveryDTO dto = dServ.selectDefaultAddress(email);
+	      System.out.println(dto);
+	      
+	      //배송지 없어서 나는 에러 방지
+	      if(dto==null) {
+	         dto = new DeliveryDTO();
+	         dto.setReceiver("");
+	         dto.setPhone("");
+	         dto.setPostcode("");
+	         dto.setAddress1("");
+	         dto.setAddress2("");
+	      }
+	      
+	      System.out.println("receiver"+dto.getReceiver());
+	      
+	      System.out.println(dto.getEmail());
+	      System.out.println(dto.getReceiver());
+	      System.out.println(dto.getAddress1());
+	      model.addAttribute("dto",dto);
 		return "/cart/order";
 	}
 }
