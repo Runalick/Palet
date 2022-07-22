@@ -31,6 +31,7 @@ public class MyPointDTO {
 	public void setAddPoint(int addPoint) {
 		this.addPoint = addPoint;
 	}
+
 	
 	
 }

@@ -667,6 +667,11 @@ text-align:left;
 	padding-left: 0px;
 	padding-right: 0px;
 }
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 </style>
 <body>
 	<!-- 네비단 -->
@@ -889,7 +894,7 @@ text-align:left;
 					</div>
 					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input buyer_tel1" id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
+						<input type="text" class="body2input buyer_tel1"  id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
 					<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" > 
@@ -943,7 +948,7 @@ text-align:left;
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-				<input class="body2 pointinput2" type="number" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
+				<input class="body2 pointinput2" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="0" style="border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 				<button class="H4 pointbtn allPointUse2">모두 사용</button><br>
 				<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 				<span class="Caption myPoint2" style="color: #637381;"> </span>
@@ -1041,7 +1046,7 @@ text-align:left;
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
-								<input class="body2 pointinput1" type="number" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
+								<input class="body2 pointinput1" type="number" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="0" style="width:100%; margin-bottom:0.5rem; border: 1px solid #DFE3E8; border-radius: 0.313rem; height:3rem;">
 								<button class="H4 pointbtn allPointUse1" style="margin-bottom:0.5rem; ">모두 사용</button><br>
 								<span class="Caption" style="font-weight: 400;color: #637381;">보유 포인트</span>
 								<span class="Caption myPoint1 allPointUse1" style="color: #637381;">
@@ -1291,11 +1296,10 @@ text-align:left;
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	count = resp.length;
-	            	$(".select_list").empty();
 	            	for(i=0; i < resp.length; i++){
 	            		
 	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].totalPrice.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
-	            		sumPrice += resp[i].totalPrice;
+	            		sumPrice += Number(resp[i].totalPrice * resp[i].cartstock);
 	            		arrG_name[i] = resp[i].g_name;
 	            		arrSales_count[i] = resp[i].cartstock;
 	            		arrTotalPrice[i] = resp[i].totalPrice;
@@ -1330,10 +1334,11 @@ text-align:left;
 					$.ajax({
 						url:"/shop/selectMemberData"
 					}).done(function(resp){
+						console.log("멤버정보");
 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
-							$(".myPoint1").html(resp[i].point);
-							$(".myPoint2").html(resp[i].point);
+							$(".myPoint1").text(resp[i].point);
+							$(".myPoint2").text(resp[i].point);
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
 							grade = resp[i].grade;
@@ -1582,18 +1587,41 @@ text-align:left;
                         g_option : arrG_option[i]
                		}
                	}).done(function(resp){
-					console.log("myGoods insert 성공")
-	        	 	$.ajax({
-	           			url:"/pay/point",
-	           			data:{usedPoint:$(".pointinput1").val(),
-	           				addPoint : LetaddPoint}
-	           		}).done(function(resp){
-	           			console.log("point 정산 성공");
-	           				
-	           		})
+					console.log($(".pointinput1").val())
                	})
  
-               }
+               };
+	       	 	$.ajax({
+	       			url:"/pay/point",
+	       			data:{email : arrUserEmail[1],
+	       				usedPoint:$(".pointinput1").val(),
+	       				addPoint : LetaddPoint}
+	       		}).done(function(resp){
+	       			console.log("point 정산 성공");
+	       				
+	       		});
+
+	       	 	if(!(serial == "inavailableCP")){
+		       	 	$.ajax({
+		       	 	url:"/pay/coupon",
+		       			ddata:{email : arrUserEmail[1],
+							"serial" : serial}
+		       		}).done(function(resp){
+		       			console.log("coupon 정산 성공");
+		       				
+		       		});
+	       	 	}
+		       	 	
+	       	 	$.ajax({
+	       			url:"/pay/point",
+	       			data:{email : arrUserEmail[1],
+	       				usedPoint:$(".pointinput1").val(),
+	       				addPoint : LetaddPoint}
+	       		}).done(function(resp){
+	       			console.log("point 정산 성공");
+	       				
+	       		});
+	       	 	
                for(let i = 0; i < arrCart_seq.length; i++){
            		$.ajax({
        				url:"/pay/deleteCart",
