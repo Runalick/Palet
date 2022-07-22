@@ -91,9 +91,8 @@ union all
 select g_option as option1, g_num as num, email as email, g_name as title, address2 as datee, merchant_uid as booknumber, state as state, totalprice as cost, category as category, buydate as buydate, address1 as pickdate, gp_sysname as sysname   from mygoods left outer join goodspic using(g_num)
 ) where email = #{email} and state in ('AC','BC')
 	<if test='#{btn}=="week"'>
-	where buydate between add_months(sysdate,-1) and sysdate order by buydate desc
+	buydate between (sysdate-7) and sysdate order by buydate desc
 	</if>	
-		
 	</select>
 
 

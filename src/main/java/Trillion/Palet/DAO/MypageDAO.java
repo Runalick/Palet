@@ -104,6 +104,7 @@ public class MypageDAO {
 	}
 	//
 	public List<CancelListDTO> refundajax(String email, String btn) {
+		System.out.println("dao :" + btn);
 		Map<String,String> param = new HashMap<>();
 		param.put("email", email);
 		param.put("btn", btn);
