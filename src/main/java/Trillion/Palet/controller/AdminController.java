@@ -400,15 +400,16 @@ public class AdminController {
 		return "/admin/adminProgramList";
 	}
 	
-	/*
-	 * @RequestMapping(value="adminProgramDetail",
-	 * produces="test/html;charset=utf8") public String adminProgramDetail(Model
-	 * model, int p_num) { ProgramDTO pdto = aServ.getProgram(p_num);
-	 * 
-	 * model.addAttribute("pdto", pdto);
-	 * 
-	 * return "/admin/adminGoodsDetail"; }
-	 */
+	
+	@RequestMapping(value="adminProgramDetail",	produces="test/html;charset=utf8") 
+	public String adminProgramDetail(Model model, int p_num) { 
+		ProgramDTO pdto = aServ.getProgram(p_num);
+	
+		model.addAttribute("pdto", pdto);
+	 
+		return "/admin/adminGoodsDetail"; 
+	}
+	 
 	
 	
 	// Payment Category

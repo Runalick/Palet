@@ -1117,7 +1117,8 @@ input[type="number"]::-webkit-inner-spin-button {
     </div>
    	<script>
    	console.log($("#buyer_name2").val());
-   	console.log($(".buyer_name1").val());
+   
+   	console.log($("#buyer_name").val());
    	
 		let sumPrice = 0;
 	  	let totalDc = 0;

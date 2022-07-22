@@ -130,6 +130,12 @@
   		insert into goods values(g_seq.nextval, #{g_num}, #{e_num}, #{g_name}, #{g_price}, '선물포장 (포장_화이트 로고)' , #{g_contents}, default, #{g_stock})
   	</insert>
   	
+  	<!-- Program -->
+  	
+  	<select id="getProgram" resultType="Trillion.Palet.DTO.ProgramDTO">
+  		select * from program where p_num = #{value}
+  	</select>
+  	
   	<!-- Payment -->
   	
   	<select id="paymentSelectByPage" resultType="Trillion.Palet.DTO.TotalPaymentDTO">

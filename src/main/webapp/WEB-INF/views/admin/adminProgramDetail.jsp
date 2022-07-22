@@ -176,8 +176,88 @@
  
                 	<div class="row" style="margin-top: 1rem" id="roundboxParent">
                 		<div class="col-12" id="roundbox">  
- 							
-            				</div>
+        					<div class="row pt-3">
+                				<div class="col-12">
+                					<img type='button' class='leftbutton' src="/images/leftbutton.png">
+                				</div>
+							</div>                			
+			            	<form action="/admin/adminExhibitionUpdate" method="post">
+			            	<div class="row pt-4 m-3 mb-4">
+			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
+			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
+			            			<div class="row">
+			            				<div class="col-12 d-none d-lg-block body1 m-auto" style="width:60%" >- ${pdto.p_name }</div>
+			            				<div class="col-12 d-lg-none body1 m-auto" style="width:85%" >- ${pdto.p_name }</div>
+			            			</div>
+			            		<div class="col-12 d-none d-lg-block body2 m-auto memberBtns" style="width:60%; text-align:right" >
+			            			<button class='btn0_1 color_yellow2' type="button" id='modifyMember' >수정</button>
+<!-- 			            			<button class='btn0_1 color_red2' type="button" id='deleteMember' >삭제</button> -->
+			            		</div>
+			            		<div class="col-12 d-lg-none body2 m-auto memberBtns" style="width:85%; text-align:right" >
+			            			<button class='btn0_2 color_yellow2' type="button" id='modifyMember2' >수정</button>
+<!-- 			            			<button class='btn0_2 color_red2' type="button" id='deleteMember2' >삭제</button> -->
+			            		</div>
+			            	</div>
+			            	<div class="row">
+			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Name</div>
+			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
+			            	</div>	
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='p_name' value='${pdto.p_name }' class='edit' disabled style="width:50%; text-align:center" maxlength="30"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='p_name' value='${pdto.p_name }' class='editable' disabled style="width:70%; text-align:center" maxlength="30"></div>
+			           			<input type="hidden" name="p_num" value="${pdto.p_num }">
+			           		</div>
+			            	<div class="row" > 
+ 			            		<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Date </div> 
+ 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Date</div> 
+ 			            	</div>	 
+ 			           		<div class="row" style="text-align:center"> 
+ 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='p_date'  value='${pdto.start_date } ~ ${pdto.end_date}' disabled style="width:50%; text-align:center" maxlength="30"></div> 
+ 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='p_date'  value='${pdto.start_date } ~ ${pdto.end_date}' disabled style="width:70%; text-align:center" maxlength="30"></div>
+ 			           			<input type="hidden" name='start_date' value='${pdto.start_date }'>
+ 			           			<input type="hidden" name='end_date' value='${pdto.end_date }'>
+ 			           		</div> 
+<!-- 			           		<div class="row"> -->
+<!-- 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">End Date</div> -->
+<!-- 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">End Date</div> -->
+<!-- 			           		</div> -->
+<!-- 			           		<div class="row" style="text-align:center"> -->
+<%-- 			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='end_date' class='edit' value='${edto.end_date }' disabled style="width:50%; text-align:center"></div> --%>
+<%-- 			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='end_date' class='editable' value='${edto.end_date }' disabled style="width:70%; text-align:center"></div> --%>
+<!-- 			           		</div> -->
+			           		<div class="row">
+			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Total Sales </div>
+			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Total Sales </div>
+			           		</div>
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' value='${pdto.sales_count }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' value='${pdto.sales_count }' disabled style="width:70%; text-align:center"></div>
+			           			<input type='hidden' name='pe_salescount' value="${pdto.sales_count }">
+			           		</div>
+			           		<div class="row">
+			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Price</div>
+			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Price</div>  
+			           		</div>
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='p_price' class='edit' value='${pdto.p_price }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='p_price' class='editable' value='${pdto.p_price }' disabled style="width:70%; text-align:center"></div>
+			           		</div>
+			           		<div class="row">
+			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" >Condition</div>
+			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left" >Condition</div>
+			           		</div>
+			           		<div class="row" style="text-align:center">
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='p_period'  value='${pdto.p_period }' disabled style="width:50%; text-align:center"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='p_period'  value='${pdto.p_period}' disabled style="width:70%; text-align:center"></div>
+			           		</div>
+			           		</form>		  
+			           		
+			           		<div class="row">
+				           		<div class="col-12 p-3">
+				                	<div class="">
+				                	</div>	
+				                </div>            	
+			            	</div>
             			</div>
             		</div>
             	</div>
@@ -205,6 +285,19 @@
 	
 	<!-- footer close -->
     
+<script>
+	$(".leftbutton").on("click", function() {
+	
+		location.href = "/admin/adminProgramList?cpage=1";
+	})
 
+    let cnt =0;
+    $(".navbar-toggler").on("click",function(){
+       cnt ++;
+       if(cnt>1){
+       $(".navbar-collapse").toggle();
+       }
+    })
+</script>
 </body>
 </html>

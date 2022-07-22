@@ -468,6 +468,10 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
+	public ProgramDTO getProgram (int p_num) {
+		return mybatis.selectOne("Admin.getProgram", p_num);
+	}
+	
 	
 	// Payment Category
 	
