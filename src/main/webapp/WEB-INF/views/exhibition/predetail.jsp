@@ -445,6 +445,11 @@ a {
 #po {
 	position: relative;
 }
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+} 
+
 </style>
 
 
