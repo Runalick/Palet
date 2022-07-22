@@ -623,9 +623,9 @@ cursor:pointer;
 								<div class="col-12 body5-state body5-info">취소처리가 진행중입니다.</div>
 								</c:if>
 									<c:if test="${i.state == 'AC' }">
-								<div class="col-12 body5-state body5" >결제취소</div>
+								<div class="col-12 body5-state body5"style="font-weight:500" >취소완료</div>
 								
-								<div class="col-12 body5-state body5-info">결제가 취소되었습니다.</div>
+								<div class="col-12 body5-state body5-info">결제 취소가 완료되었습니다.</div>
 								</c:if>
 							</div>
 						</div>
@@ -637,12 +637,12 @@ cursor:pointer;
 					<div class="row Glist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
-								<img src="/images/image 21.png" style="width:100px; height:100px;">
+								<img src="${i.sysname }" style="width:100px; height:100px;">
 						</div>
 						<div class="col-8 col-md-9" >
 							<div class="row">
 								<div class="col-12 body5-title">[Shop]${i.title }</div>
-								<div class="col-12 body5-date">옵션:넣을까<span></span></div>
+								<div class="col-12 body5-date">옵션:${i.option1 }<span></span></div>
 								<div class="col-12" >
 									<span class="body5-price">결제 금액 ${i.cost }
 									<input type="hidden" class="${i.num }">
@@ -655,9 +655,9 @@ cursor:pointer;
 								<div class="col-12 body5-state body5-info">취소처리가 진행중입니다.</div>
 								</c:if>
 									<c:if test="${i.state == 'AC' }">
-								<div class="col-12 body5-state body5" >결제취소</div>
+								<div class="col-12 body5-state body5" style="font-weight:500">취소완료</div>
 								
-								<div class="col-12 body5-state body5-info">결제가 취소되었습니다.</div>
+								<div class="col-12 body5-state body5-info">결제 취소가 완료되었습니다.</div>
 								</c:if>
 								
 								
@@ -667,7 +667,47 @@ cursor:pointer;
 						</div>
 					</div>
 		</c:if>
-		
+<!-- 	여기까지	 -->
+<!-- 프로그램 반복 -->
+<c:if test="${i.category == 'P'}">
+					<div class="row Plist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
+						<input type="hidden" value="${i.booknumber }">
+						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
+							
+							<c:choose>
+							<c:when test="${i.num == 102 }">
+								<img src="${i.sysname }" style="width:100px; height:100px; border-radius:10px">
+							</c:when>
+							<c:otherwise>
+								<img src=""style="width:100px; height:100px;">
+							</c:otherwise>
+							</c:choose>
+						</div>
+						<div class="col-8 col-md-9" >
+							<div class="row">
+								<div class="col-12 body5-title">[Program]${i.title }</div>
+								<div class="col-12 body5-date">선택 날짜:${i.pickdate}<span></span></div>
+								<div class="col-12" >
+									<span class="body5-price"> 결제 금액 ${i.cost }
+									<input type="hidden" class="${i.num }">
+									</span>
+									<span class="body5-date">${i.buydate }</span>
+								</div>
+								<c:if test="${i.state == 'BC' }">
+								<div class="col-12 body5-state body5" >취소 처리중</div>
+								
+								<div class="col-12 body5-state body5-info">취소처리가 진행중입니다.</div>
+								</c:if>
+									<c:if test="${i.state == 'AC' }">
+								<div class="col-12 body5-state body5" style="font-weight:500" >취소완료</div>
+								
+								<div class="col-12 body5-state body5-info">결제 취소가 완료되었습니다.</div>
+								</c:if>
+							</div>
+						</div>
+					</div>
+	</c:if>
+<!-- 	여기까지 -->
 			<script>
 							price=${i.cost }
 						
@@ -714,6 +754,9 @@ cursor:pointer;
 	</div>
 	
 	<script>
+	$(".Plist").on("click",function(){
+		location.href="/mypage/proTicketDetailview?pro_booknumber="+$($(this).children()[0]).val();
+	})
 	$(".Glist").on("click",function(){
 		
 		location.href="/mypage/myShoppingDetail?merchant_uid="+$($(this).children()[0]).val();
@@ -726,15 +769,15 @@ cursor:pointer;
 	
 	
 	
-// 	$(".btnbtn").on("click",function(){
-// 		$(".btnbtn").css("background","#F4F6F8");
-// 		$(".btnbtn").css("color","black");
+	$(".btnbtn").on("click",function(){
+		$(".btnbtn").css("background","#F4F6F8");
+		$(".btnbtn").css("color","black");
 
 		
-// 		$(this).css("background","black");
-// 		$(this).css("color","white");
+		$(this).css("background","black");
+		$(this).css("color","white");
 		
-// 		val = $(this).val();
+		val = $(this).val();
 // 		$.ajax({
 // 			url:"/mypage/refundajax",
 // 			data:{"btn":val},
@@ -742,37 +785,45 @@ cursor:pointer;
 // 		}).done(function(resp){
 // 			$(".Elist").remove();
 // 			$(".Glist").remove();
+// 			$(".Plist").remove();
 // 			console.log("iia");
 // 			for(let i=0; i<resp.length; i++){
 // 					console.log("ii");
 // 					console.log(resp[i].category);
 					
 // 					if(resp[i].category == 'E'){
-// 						$(".content").append(
-// 								+"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>"
-// 								+"		<input type='hidden' value="+resp[i].uids+">"
-// 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
-// 								+"				<img src=''/images/image 21.png' style='width:100px; height:100px;'></div>"
-// 								+"		<div class='col-8 col-md-9' >"
-// 								+"			<div class='row'>"
-// 								+"				<div class='col-12 body5-title'>[Exhibition]"+reap[i].title+" </div>"
-// 								+"				<div class='col-12' >"
-// 								+"					<span class='body5-price'> 결제 금액 "+reap[i].totalprice 
-// 								+"					<input type='hidden' class="+resp[i].nums+ ">	</span>"
-											
-// 								+"					<span class='body5-date'>"+resp[i].pay_time+ "</span>	</div>"
-											
-											
-// 								+"				<div class='col-12 body5-state body5' >취소 처리중</div>"
-												
-// 								+"				<div class='col-12 body5-state body5-info'>취소처리가 진행중입니다.</div>"
-								
-							
-// 								+"				<div class='col-12 body5-state body5' >결제취소</div>"
-												
-// 								+"				<div class='col-12 body5-state body5-info'>결제가 취소되었습니다.</div>"
-							
-// 								+"			</div>		</div></div>" );
+						
+// 						let Elist = $("<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;>");
+// 						let div1 = $("<input type='hidden' value="+resp[i].uids+">")
+// 						Elist.append(div1);
+						
+// 						let div2 = $("<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >")
+// 						let img = $("<img src=''/images/image 21.png' style='width:100px; height:100px;'>")
+// 						Elist.append(div2);
+// 						div2.append(img);
+// 						let div3 = $("<div class='col-8 col-md-9' >");
+// 						let row1 = $("<div class='row'>");
+// 						div3.append(row1);
+// 						let div4 = $("<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>");
+// 						row1.append(div4);
+// 						let div5 = $("<div class='col-12' ><span class='body5-price'> 결제 금액 "+resp[i].totalprice 
+// 								+"					<input type='hidden' class="+resp[i].nums+ ">	</span>");
+// 						let span = $("<span class='body5-date'>"+resp[i].pay_time+ "</span>");
+// 						div5.append(span);
+// 						row1.append(div5);
+						
+// 						let div6 = $("<div class='col-12 body5-state body5' >취소 처리중</div>");
+// 						row1.append(div6);
+// 						let div7 = $("<div class='col-12 body5-state body5-info'>취소처리가 진행중입니다.</div>");
+// 						row1.append(div7);
+						
+// 						let div8 =$("<div class='col-12 body5-state body5' >결제취소</div>"
+						
+// 						+"				<div class='col-12 body5-state body5-info'>결제가 취소되었습니다.</div>");
+// 						row1.append(div8);
+						
+						
+// 						$(".content").append(Elist );
 							
 								
 // 					}
@@ -784,7 +835,7 @@ cursor:pointer;
 // 			}
 			
 // 		})
-// 	})
+	})
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});

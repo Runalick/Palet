@@ -133,35 +133,39 @@ public class CartController {
 		return "redirect:cartlist";
 	}
 	
+	@ResponseBody
 	@RequestMapping("order")
-	public String order(int[] cart_seq, Model model) {
+	public String order(int[] cart_seq,String a, Model model) {
+		System.out.println(a);
+		System.out.println("카트입니다"+cart_seq);
 		for(int i=0; i<cart_seq.length;i++) {
+			System.out.println(cart_seq[i]);
 			cServ.insertSelect_Cart(cart_seq[i]);
 		}
-		//default주소 가져오기
-		String email = (String)session.getAttribute("loginEmail");
-		//배송지 등록 안해논 사람 null 포인터 에러나니까 고치기
-		
-		DeliveryDTO dto = dServ.selectDefaultAddress(email);
-		System.out.println(dto);
-		
-		//배송지 없어서 나는 에러 방지
-		if(dto==null) {
-			dto = new DeliveryDTO();
-			dto.setReceiver("");
-			dto.setPhone("");
-			dto.setPostcode("");
-			dto.setAddress1("");
-			dto.setAddress2("");
-		}
-		
-		System.out.println("receiver"+dto.getReceiver());
-		
-		System.out.println(dto.getEmail());
-		System.out.println(dto.getReceiver());
-		System.out.println(dto.getAddress1());
-		model.addAttribute("dto",dto);
-		return "/cart/order";
+//		//default주소 가져오기
+//		String email = (String)session.getAttribute("loginEmail");
+//		//배송지 등록 안해논 사람 null 포인터 에러나니까 고치기
+//		
+//		DeliveryDTO dto = dServ.selectDefaultAddress(email);
+//		System.out.println(dto);
+//		
+//		//배송지 없어서 나는 에러 방지
+//		if(dto==null) {
+//			dto = new DeliveryDTO();
+//			dto.setReceiver("");
+//			dto.setPhone("");
+//			dto.setPostcode("");
+//			dto.setAddress1("");
+//			dto.setAddress2("");
+//		}
+//		
+//		System.out.println("receiver"+dto.getReceiver());
+//		
+//		System.out.println(dto.getEmail());
+//		System.out.println(dto.getReceiver());
+//		System.out.println(dto.getAddress1());
+//		model.addAttribute("dto",dto);
+		return "성공";
 	}
 	//주소 선택 창으로 가기
 	@RequestMapping("choosedeliverybtn")
@@ -187,5 +191,9 @@ public class CartController {
 		return list;
 	}
 	
+	@RequestMapping("Toorder")
+	public String Toorder() {
+		return "/cart/order";
+	}
 }
 
