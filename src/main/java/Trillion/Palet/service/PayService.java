@@ -9,6 +9,7 @@ import Trillion.Palet.DAO.ExticketDAO;
 import Trillion.Palet.DAO.PayDAO;
 import Trillion.Palet.DAO.ProticketDAO;
 import Trillion.Palet.DTO.ExticketDTO;
+import Trillion.Palet.DTO.MyCouponDTO;
 import Trillion.Palet.DTO.MyGoodsDTO;
 import Trillion.Palet.DTO.MyPointDTO;
 import Trillion.Palet.DTO.PayDTO;
@@ -48,6 +49,10 @@ public class PayService {
 	
 	public int point(MyPointDTO dto) {
 		return dao.point(dto);
+	}
+	
+	public int coupon(MyCouponDTO dto) {
+		return dao.coupon(dto);
 	}
 	
 	public int deleteCart(String cart_seq, String email) {
