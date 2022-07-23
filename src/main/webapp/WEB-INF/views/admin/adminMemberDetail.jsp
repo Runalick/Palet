@@ -215,9 +215,10 @@
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Points </div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='point' class='edit' value='${mdto.point }' disabled style="width:50%; text-align:center" maxlength="10"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='point' class='editable' value='${mdto.point }' disabled style="width:70%; text-align:center" maxlength="10"></div>
-			           			<input type="hidden" name="point" value='${mdto.point }'>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='point' id="point1" class='edit' value='${mdto.point}' disabled style="width:50%; text-align:center" maxlength="10"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" ></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='point' id="point2" class='editable' value='${mdto.point }' disabled style="width:70%; text-align:center" maxlength="10"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" ></div>
 			           		</div>
 			           		<c:if test='${mdto.phone != null}'>
 			           			<div class="row">
@@ -344,6 +345,7 @@
 	
 	<!-- footer close -->
 <script>
+
 	$("#modifyMember").on("click", ()=>{
 		$(".edit").removeAttr("disabled");
 		$("#modifyMember").css("display", "none");
@@ -351,6 +353,8 @@
 		let ok = $("<button>");
 		ok.text("수정완료");
 		ok.attr("class","btn0_1 color_yellow2");
+		ok.attr("id", "ookk2");
+		$("#ookk").attr("disabled");
 		ok.attr("type", "submit");
 		
 		let cancel = $("<button>");
@@ -373,6 +377,8 @@
 		let ok = $("<button>");
 		ok.text("수정완료");
 		ok.attr("class","btn0_1 color_yellow2");
+		ok.attr("id", "ookk");
+		$("#ookk").attr("disabled");
 		ok.attr("type", "submit");
 		
 		
@@ -388,6 +394,31 @@
 		$(".memberBtns").append(cancel);
 		
 	});
+	
+	let point1val = $("#point1").val();
+	
+	$("#point1").on("change", ()=>{
+		let text = $("#point1").val();
+		if (text.length == 0){
+			alert("내용을 입력해주세요.")
+			$("#point1").val(point1val);
+			$("#point1").focus();
+			
+		}
+	})
+	
+	let point2val = $("#point2").val();
+	
+	$("#point2").on("change", ()=>{
+		let text = $("#point2").val();
+		if (text.length == 0){
+			alert("내용을 입력해주세요.")
+			$("#point2").val(point2val);
+			$("#point2").focus();
+			
+		}
+	})
+
 	
 	
 	

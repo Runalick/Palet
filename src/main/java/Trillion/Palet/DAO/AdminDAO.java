@@ -472,6 +472,10 @@ public class AdminDAO {
 		return mybatis.selectOne("Admin.getProgram", p_num);
 	}
 	
+	public int adminProgramUpdate(ProgramDTO pdto) {
+		return mybatis.update("Admin.adminProgramUpdate", pdto);
+	}
+	
 	
 	// Payment Category
 	

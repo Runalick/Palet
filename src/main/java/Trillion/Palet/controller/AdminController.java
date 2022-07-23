@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -106,6 +107,7 @@ public class AdminController {
 	@RequestMapping(value="adminMemberUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
 	public String adminMemberUpdate(MemberDTO dto) {
 		
+//		System.out.println("넘어온 이름" + name);
 		/*
 		 * System.out.println("Email :"+dto.getEmail()+" / Name : "+dto.getName()
 		 * +" / Grade : "+dto.getGrade()+" / Point : "+dto.getPoint());
@@ -115,8 +117,13 @@ public class AdminController {
 		if (dto.getName().equals("")) {
 			dto.setName("Noname");
 		}
-		System.out.println(dto.getName());
-		System.out.println("asdasd"+ dto.getPoint()+"asdasd");
+//		Integer check = (Integer)dto.getPoint();
+//		
+//		if (check == null) {
+//			dto.setPoint(0);
+//		}
+		
+		
 
 		
 		aServ.adminMemberModi(dto);
@@ -254,8 +261,10 @@ public class AdminController {
 	
 	@RequestMapping(value="adminExhibitionUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
 	public String adminExhibitionUpdate(NewExhibitionDTO edto) {
+		if (edto.getPe_name().equals("")) {
+			edto.setPe_name("Noname");
+		}
 		
-		aServ.adminExhibitionUpdate(edto);
 		
 		return "redirect:adminExhibitionDetail?pe_seq="+edto.getPe_seq();
 	}
@@ -355,7 +364,9 @@ public class AdminController {
 	
 	@RequestMapping(value="adminGoodsUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
 	public String adminGoodsUpdate(GoodsDTO gdto) {
-		
+		if (gdto.getG_name().equals("")) {
+			gdto.setG_name("Noname");
+		}
 		aServ.adminGoodsUpdate(gdto);
 		
 		return "redirect:adminGoodsDetail?g_num="+gdto.getG_num();
@@ -407,9 +418,20 @@ public class AdminController {
 	
 		model.addAttribute("pdto", pdto);
 	 
-		return "/admin/adminGoodsDetail"; 
+		return "/admin/adminProgramDetail"; 
 	}
-	 
+	
+	@RequestMapping(value="adminProgramUpdate", produces="test/html;charset=utf8", method = RequestMethod.POST)
+	public String adminProgramUpdate(ProgramDTO pdto) {
+		if (pdto.getP_name().equals("")) {
+			pdto.setP_name("Noname");
+		}
+		
+		
+		aServ.adminProgramUpdate(pdto);
+		
+		return "redirect:adminProgramDetail?p_num="+pdto.getP_num();
+	}
 	
 	
 	// Payment Category
@@ -541,6 +563,12 @@ public class AdminController {
 		model.addAttribute("list", list);
 		model.addAttribute("navi", navi);
 		return "/admin/adminCoupon";
+	}
+	
+	@ExceptionHandler
+	public String exceptionHandler(Exception e) {
+		e.printStackTrace();
+		return "error";
 	}
 	
 }

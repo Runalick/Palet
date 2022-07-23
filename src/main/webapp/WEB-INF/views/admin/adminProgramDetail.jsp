@@ -181,7 +181,7 @@
                 					<img type='button' class='leftbutton' src="/images/leftbutton.png">
                 				</div>
 							</div>                			
-			            	<form action="/admin/adminExhibitionUpdate" method="post">
+			            	<form action="/admin/adminProgramUpdate" method="post">
 			            	<div class="row pt-4 m-3 mb-4">
 			            		<div class="col-12 d-none d-lg-block h3_1 m-auto" style="width:60%" >Information</div>
 			            		<div class="col-12 d-lg-none h3_1 m-auto" style="width:85%" >Information</div>
@@ -286,6 +286,51 @@
 	<!-- footer close -->
     
 <script>
+
+$("#modifyMember").on("click", ()=>{
+	$(".edit").removeAttr("disabled");
+	$("#modifyMember").css("display", "none");
+	$("#deleteMember").css("display", "none");
+	let ok = $("<button>");
+	ok.text("수정완료");
+	ok.attr("class","btn0_1 color_yellow2");
+	ok.attr("type", "submit");
+	
+	let cancel = $("<button>");
+	cancel.text("취소");
+	cancel.attr("type","button");
+	cancel.attr("class","btn0_1 colre_gray400");
+	cancel.on("click", ()=>{
+		location.reload();
+	})
+	
+	$(".memberBtns").append(ok);
+	$(".memberBtns").append(cancel);
+	
+});
+
+$("#modifyMember2").on("click", ()=>{
+	$(".editable").removeAttr("disabled");
+	$("#modifyMember2").css("display", "none");
+	$("#deleteMember2").css("display", "none");
+	let ok = $("<button>");
+	ok.text("수정완료");
+	ok.attr("class","btn0_1 color_yellow2");
+	ok.attr("type", "submit");
+	
+	let cancel = $("<button>");
+	cancel.text("취소");
+	cancel.attr("type","button");
+	cancel.attr("class","btn0_1 colre_gray400");
+	cancel.on("click", ()=>{
+		location.reload();
+	})
+	
+	$(".memberBtns").append(ok);
+	$(".memberBtns").append(cancel);
+	
+});
+
 	$(".leftbutton").on("click", function() {
 	
 		location.href = "/admin/adminProgramList?cpage=1";

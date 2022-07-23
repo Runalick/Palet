@@ -1115,11 +1115,7 @@ input[type="number"]::-webkit-inner-spin-button {
 			</div>
 		</div>
     </div>
-   	<script>
-   	console.log($("#buyer_name2").val());
-   
-   	console.log($("#buyer_name").val());
-   	
+   	<script>   	
 		let sumPrice = 0;
 	  	let totalDc = 0;
 	  	let LetaddPoint = 0;
@@ -1168,7 +1164,7 @@ input[type="number"]::-webkit-inner-spin-button {
 		
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
-   		open_chatroom2();
+   		
 	});
 	
 	function open_chatroom(){ 
@@ -1185,12 +1181,7 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".buyer_address21").val($(".buyer_address2").val());
 			$(".buyer_address2").val($(".buyer_address21").val());
 			
-		} 
-		}
-	
-	function open_chatroom2(){ 
-		var windowWidth = $( window ).width();
-		if(windowWidth > 992) {      //창 가로 크기가 500보다 클 경우  
+		}else if(windowWidth > 992) {      //창 가로 크기가 500보다 클 경우  
 			$(".buyer_postcode").val($(".buyer_postcode1").val());
 			$(".buyer_postcode1").val($(".buyer_postcode").val());
 			$(".address").val($(".address1").val());
@@ -1201,8 +1192,10 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".buyer_tel1").val($(".buyer_tel").val());
 			$(".buyer_address2").val($(".buyer_address21").val());
 			$(".buyer_address21").val($(".buyer_address2").val());
+		} 
 		}
-		}
+	
+
 	 
 
 // 	$("#text").on("propertychange change keyup paste input", function() {
@@ -1219,7 +1212,6 @@ input[type="number"]::-webkit-inner-spin-button {
    	$(".choosedeliverybtn").on("click",function(){
    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
 
-   	
    	})
 
    	
@@ -1229,21 +1221,39 @@ input[type="number"]::-webkit-inner-spin-button {
    		console.log($(".delivery_text").val());
    	})
    	//수령인 연동
-   	$(".buyer_name").on("change",function(){
-   		$(".buyer_name").val($(this).val());
-   		console.log($(".buyer_name").val());
-   	})
-   	//전화번호 연동
-	$(".buyer_tel").on("change",function(){
-   		$(".buyer_tel").val($(this).val());
-   		console.log($(".buyer_tel").val());
-   	})
+      $(".buyer_name").on("keyup",function(){
+         
+         $(".buyer_name1").val($(this).val());
+      });
+      $(".buyer_name1").on("keyup",function(){
+         
+         $(".buyer_name").val($(this).val());
+      })
+      //전화번호 연동
+   	  $(".buyer_tel").on("keyup",function(){
+         $(".buyer_tel1").val($(this).val());
+      });
+      $(".buyer_tel1").on("keyup",function(){
+         $(".buyer_tel").val($(this).val());
+      })
    	
    	//상세 주소 연동
-   	$(".buyer_address2").on("change",function(){
+   	$(".buyer_address2").on("keyup",function(){
+   		$(".buyer_address21").val($(this).val());
+   	});
+   	$(".buyer_address21").on("keyup",function(){
    		$(".buyer_address2").val($(this).val());
-   		console.log($(".buyer_address2").val());
    	})
+   	
+   	//집코드 연동
+   	$(".buyer_postcode").on("change keyup paste",function(){
+   		$(".buyer_postcode1").val($(this).val());
+   	})
+   	$(".buyer_postcode1").on("change keyup paste",function(){
+   		$(".buyer_postcode").val($(this).val());
+   	})
+   	
+   	
    	
    	$("#payspan2").on("click", function(){
 	window.open("/member/agreement1","이용약관", "width=700, height=500");
@@ -1538,6 +1548,15 @@ input[type="number"]::-webkit-inner-spin-button {
 	 
 	 
 	function iamport(){
+		let buyer_postcode = $(".buyer_postcode").val();
+		if(buyer_postcode == ''){
+			buyer_postcode = $(".buyer_postcode1").val();
+		}
+		
+		let buyer_addr = $(".buyer_addr").val();
+		if(buyer_addr == ''){
+			buyer_addr = $(".buyer_addr1").val();
+		}
         //가맹점 식별코드
         IMP.init('imp48062056');
 	IMP.request_pay({
@@ -1549,8 +1568,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	    buyer_email : arrUserEmail[0],
 	    buyer_name : $(".buyer_name").val(),
 	    buyer_tel : $(".buyer_tel").val(),
-	    buyer_addr : $(".buyer_addr").val(),
-	    buyer_postcode : $(".buyer_postcode").val(),
+	    buyer_addr : buyer_addr,
+	    buyer_postcode : buyer_postcode,
 	    delivery_text : $(".delivery_text").val()
 	}, function(rsp) {
 		console.log(rsp);
