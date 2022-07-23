@@ -662,11 +662,11 @@ $(".logout").on("click", function(){
 					for(let i = 0 ; i < resp.length; i++) {
 						$(".list")
 						.append(
-								"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+								"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 										+ resp[i].g_num
-										+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+										+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 										+ resp[i].g_name
-										+ "</div><div class='goodsPrice' >"
+										+ "</div><div class='goodsPrice' style='text-align:center;'>"
 										+ resp[i].g_price
 												.toLocaleString()
 										+ "원</div></div>"); 
@@ -698,11 +698,11 @@ $(".logout").on("click", function(){
 							for(let i = 0 ; i < resp.length; i++) {
 								$(".list")
 								.append(
-										"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+										"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 												+ resp[i].g_num
-												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 												+ resp[i].g_name
-												+ "</div><div class='goodsPrice' >"
+												+ "</div><div class='goodsPrice' style='text-align:center;'>"
 												+ resp[i].g_price
 														.toLocaleString()
 												+ "원</div></div>"); 
@@ -743,14 +743,14 @@ $(".logout").on("click", function(){
 								for(let i = 0 ; i < resp.length; i++) {
 									$(".list")
 									.append(
-											"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+											"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 													+ resp[i].g_num
-													+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+													+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 													+ resp[i].g_name
-													+ "</div><div class='goodsPrice' >"
+													+ "</div><div class='goodsPrice' style='text-align:center;'>"
 													+ resp[i].g_price
 															.toLocaleString()
-													+ "원</div></div>"); 
+													+ "원</div></div>");  
 							    	
 							    	  console.log("resp.length : " + resp.length);
 								}
@@ -779,14 +779,14 @@ $(".logout").on("click", function(){
 										for(let i = 0 ; i < resp.length; i++) {
 											$(".list")
 											.append(
-													"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+													"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 															+ resp[i].g_num
-															+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+															+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 															+ resp[i].g_name
-															+ "</div><div class='goodsPrice' >"
+															+ "</div><div class='goodsPrice' style='text-align:center;'>"
 															+ resp[i].g_price
 																	.toLocaleString()
-															+ "원</div></div>"); 
+															+ "원</div></div>");  
 									    	  console.log("resp.length : " + resp.length);
 										}
 										limit = limit + resp.length;
@@ -860,11 +860,11 @@ $(".logout").on("click", function(){
 											for (i = 0; i < resp.length; i++) {
 												$(".list")
 												.append(
-														"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+														"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 																+ resp[i].g_num
-																+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+																+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 																+ resp[i].g_name
-																+ "</div><div class='goodsPrice' >"
+																+ "</div><div class='goodsPrice' style='text-align:center;'>"
 																+ resp[i].g_price
 																		.toLocaleString()
 																+ "원</div></div>"); 
@@ -887,11 +887,11 @@ $(".logout").on("click", function(){
 						for (i = 0; i < resp.length; i++) {
 							$(".list")
 							.append(
-									"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+									"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 											+ resp[i].g_num
-											+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+											+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 											+ resp[i].g_name
-											+ "</div><div class='goodsPrice' >"
+											+ "</div><div class='goodsPrice' style='text-align:center;'>"
 											+ resp[i].g_price
 													.toLocaleString()
 											+ "원</div></div>"); 
@@ -918,11 +918,11 @@ $(".logout").on("click", function(){
 							for (i = 0; i < resp.length; i++) {
 								$(".list")
 								.append(
-										"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+										"<div class='col-12 col-md-4 col-lg-3' style='margin-bottom:3rem;'><div class='t'><a href='/shop/goDetail?g_num="
 												+ resp[i].g_num
-												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:center'>"
 												+ resp[i].g_name
-												+ "</div><div class='goodsPrice' >"
+												+ "</div><div class='goodsPrice' style='text-align:center;'>"
 												+ resp[i].g_price
 														.toLocaleString()
 												+ "원</div></div>"); 
@@ -933,13 +933,13 @@ $(".logout").on("click", function(){
 // 	우측버튼 클릭시 우측스크롤 기능
 	$("#pre").on("click",function(){
 		let category = $('.category').scrollLeft();
-		$(".category").animate({scrollLeft: category + 200}, 800)
+		$(".category").animate({scrollLeft: category + 300}, 800)
 	})
 	
 // 	좌측버튼 클릭시 좌측스크롤 기능
 	$("#before").on("click",function(){
 		let category = $('.category').scrollLeft();
-		$(".category").animate({scrollLeft: category - 200}, 800)
+		$(".category").animate({scrollLeft: category - 300}, 800)
 	})
 
 </script>
