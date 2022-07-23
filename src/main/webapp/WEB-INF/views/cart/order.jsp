@@ -1418,35 +1418,37 @@ input[type="number"]::-webkit-inner-spin-button {
 
 	//선택박스누를 시 옵션 열기
 	$("#select1").on("click", function () {
-	    $(".select-ul1").toggle();
 	    
-		$(".li1").on("click", function () {
-			let text = $(this).text();
-			serial = $(this).children().val();
-			console.log(serial);
-	    	$("#select1").text(text);
-	    	$("#select2").text(text);
-	    	$(".select-ul1").toggle();
-	    	totalDc = Number($(this).attr("id"));
-	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
-	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
-			if(grade == "White"){
-				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.01) + "p");
-				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
-			}else if(grade == "Gray"){
-				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.05) + "p");
-				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
-			}else if(grade == "Black"){
-				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.1) + "p");
-				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
-			}
-		});
+		$(".select-ul1").toggle();
 	});
 	
-	$("#select2").on("click", function () {
-	    $(".select-ul2").toggle();
-	    
-		$(".li2").on("click", function () {
+	$(document).on("click", ".li1", function(){ // on 이벤트로 변경
+		
+				$(".select-ul1").toggle();
+				let text = $(this).text();
+				serial = $(this).children().val();
+				console.log(serial);
+		    	$("#select1").text(text);
+		    	$("#select2").text(text);
+		    	
+		    	totalDc = Number($(this).attr("id"));
+		    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
+		    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+				if(grade == "White"){
+					$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.01) + "p");
+					LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
+				}else if(grade == "Gray"){
+					$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.05) + "p");
+					LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
+				}else if(grade == "Black"){
+					$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.1) + "p");
+					LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
+				}
+				
+		
+      });
+	$(document).on("click", ".li2", function(){ // on 이벤트로 변경
+		
 			let text = $(this).text();
 			serial = $(this).children().val();
 	    	$("#select1").text(text);
@@ -1466,7 +1468,14 @@ input[type="number"]::-webkit-inner-spin-button {
 				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		});
+		
+	
+	
+	$("#select2").on("click", function () {
+	    $(".select-ul2").toggle();
 	});
+		
+	
 	
 
 	
