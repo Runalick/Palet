@@ -77,6 +77,7 @@
 
 #navparent {
 	position: fixed;
+	top:0;
 	font-size: 0;
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
@@ -645,7 +646,7 @@ border-radius: 20px !important;
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container-fluid" style="position: fixed; background: white; z-index: 9; ">
+		<div class="container-fluid" style="position: fixed; background: white; z-index: 9; top:0">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -811,7 +812,7 @@ border-radius: 20px !important;
 
 		</div>
 				<!--Booking /Payment-->
-	<div class="container mt-3">
+	<div class="container" style = margin-top:120px;>
 			<div class="row mt-4">
 
 
@@ -833,22 +834,25 @@ border-radius: 20px !important;
 			<div class=row>
 				<div class="col-12">
 					<div class=row>
-						<div class="col-lg-7 col-12 d-none d-sm-block"
-							style="padding-left: 1.564rem;">
+						<div class="col-lg-7 col-12"
+							style="padding-left: 1.564rem; padding-right: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
-							<div class="row rec1" style="margin-top: 2rem;">
+							<div class="row rec1 mb-5" style="margin-top: 2rem; ">
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." style = "text-align:center" required>
+										placeholder="신청자 이름을 입력해 주세요." maxlength="4" required style = "text-align:center" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone" style = "text-align:center"
-										placeholder="전화번호를 입력해 주세요." required>
+									<input type=text class="input1 phone" maxlength="11"
+										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+										placeholder="전화번호를 입력해 주세요." style="text-align: center"
+										required><br> <span
+										style="display: none; text-align: center;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
+								<div class="col-12" style="margin-top: 0.5rem;">
 									<input type=text class="input1 email"
 										style="text-align: center;" value="${loginEmail}" readonly>
 								</div>
@@ -866,35 +870,10 @@ border-radius: 20px !important;
 						<div class="col-lg-1 col-12"></div>
 						<!-- 작은 화면 신청자 -->
 
-						<div class="col-lg-7 col-12 d-block d-sm-none"
-							style="padding-left: 1.564rem; text-align: center;">
-							<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
-							<div class="row rec1 mb-5">
-								<div class="col-12 mt-3">이름</div>
-								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 username" style = "text-align:center"
-										placeholder="신청자 이름을 입력해 주세요." required>
-								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
-								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone" style = "text-align:center"
-										placeholder="전화번호를 입력해 주세요." required>
-								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-								<div class="col-12 mb-5" style="margin-top: 0.5rem;">
-									<input type=text class="input1 email" 
-										style="text-align: center;" value="${loginEmail}" readonly>
-								</div>
-								<div class=col-12 style="margin-top: 1.5rem;">날짜</div>
-								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
-									<input type=text class="input1 date"
-										style="text-align: center; color:#ff4842; font-weight :bold;'" readonly>
-								</div>
-							</div>
-						</div>
+					
 						<!-- 달력-->
-						<div class="col-lg-4 col-12"
-							style="padding-left: 1.564rem; color: black;" id="calendar">
+						<div class="col-lg-4 col-12 mb-5"
+							style="padding-left: 1.564rem; padding-right: 1.564rem;color: black; " id="calendar">
 
 						</div>
 
@@ -906,12 +885,12 @@ border-radius: 20px !important;
 
 
 		<!-- 큰 화면 프로그램 -->
-		<div class="container mt-5">
+		<div class="container mt-1">
 			<div class=row>
 				<div class="col-12">
 					<div class=row>
-						<div class="col-lg-7 col-12 d-none d-sm-block"
-							style="padding-left: 1.564rem;">
+						<div class="col-lg-7 col-12"
+							style="padding-left: 1.564rem; padding-right: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
 
 
@@ -959,9 +938,9 @@ border-radius: 20px !important;
 
 
 						<!-- 큰 화면 결제-->
-						<div class="col-lg-1 col-12"></div>
+						<div class="col-lg-1 col-12 mb-5"></div>
 						<div class="col-lg-4 col-12"
-							style="margin: auto; text-align: center; padding-left: 1.564rem;">
+							style="margin: auto; text-align: center; padding-left: 1.564rem; padding-right: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
 								상세</div>
 							<div class="row  rec1" id=row2
@@ -987,22 +966,22 @@ border-radius: 20px !important;
 							</div>
 
 
-							<div class="col-12 h4 d-none d-sm-block"
+							<div class="col-12 h4 "
 								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
 								및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
-							<div class="col-12 caption d-none d-sm-block"
+							<div class="col-12 caption"
 								style="margin-top: 0.4rem; text-align: left;">
 								이용약관 동의<a class=policy>보기</a>
 							</div>
-							<div class="col-12 caption d-none d-sm-block"
+							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
 								개인정보 수집 및 이용 동의<a class=policy>보기</a>
 							</div>
-							<div class="col-12 caption d-none d-sm-block"
+							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
 								결제 대행 서비스 이용약관<a class=policy>보기</a>
 							</div>
-							<div class="col-12 caption d-none d-sm-block"
+							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
 								취소 환불 규정<a class=policy>보기</a>
 							</div>
@@ -1034,14 +1013,14 @@ border-radius: 20px !important;
 
 
 						<!-- 큰화면 쿠폰 마일리지 사용 -->
-						<div class="col-12 h3 d-none d-sm-block"
-							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
-						<div class="col-12 body2 d-none d-sm-block"
-							style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
-						<div class="col-12 h3 d-none d-sm-block"
-							style="padding-left: 0rem; margin-top: 1.125rem;">
+						<div class="col-12 h3 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+						<div class="col-12 body2 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">쿠폰</div>
+						<div class="col-12 h3 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 1.125rem;">
 
-							<select id="selectbox1" class="form-select d-none d-sm-block form-select1"
+							<select id="selectbox1" class="form-select form-select1"
 								aria-label="Default select example"
 								style="width: 23.5rem; height: 3rem;">
 
@@ -1055,11 +1034,11 @@ border-radius: 20px !important;
 							</select>
 
 						</div>
-						<div class="col-12 body2 d-none d-sm-block"
-							style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+						<div class="col-12 body2 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">마일리지</div>
 
-						<div class="col-12 body2 d-none d-sm-block"
-							style="padding-left: 0rem; margin-top: 1.125em;">
+						<div class="col-12 body2 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
 								style="width: 15rem; height: 3rem;">
@@ -1067,54 +1046,15 @@ border-radius: 20px !important;
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
 								사용</button>
 						</div>
-						<div class="col-12 h5 d-none d-sm-block"
-							style="padding-left: 0rem; margin-top: 2.188em;">
+						<div class="col-12 h5 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">
 							남은마일리지 <span class="h5_1 h5_1_1" >${mdto.point }</span>
 						</div>
 
 
 
 						<!--작은 면 쿠폰 마일리지 사용 -->
-						<div class="col-12 h3 d-block d-sm-none"
-							style="padding-left: 0rem; margin-top: 3.75rem; text-align: center;">쿠폰/마일리지</div>
-						<div class="col-12 body2 d-block d-sm-none"
-							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">쿠폰</div>
-						<div class="col-12 h3 d-block d-sm-none"
-							style="padding-left: 0rem; margin-top: 1.125rem; text-align: center;">
-
-							<select id="selectbox" class="form-select d-block d-sm-none form-select2"
-								aria-label="Default select example"
-								style="width: 23.5rem; height: 3rem; text-align: center; margin: auto;">
-
-								<option value='0' value1="inavailableCP"
-									class="d-block d-sm-none" selected style="text-align: center;">쿠폰을 선택해 주세요.</option>
-								<c:forEach var="clist" items="${clist }">
-									<option id=option2 class="option2 d-block d-sm-none"
-										value="${clist.dc}" style="text-align: center;"
-										value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-										-${clist.dc}원</option>
-
-								</c:forEach>
-							</select>
-
-						</div>
-						<div class="col-12 body2 d-block d-sm-none"
-							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">마일리지</div>
-
-						<div class="col-12 body2 d-block d-sm-none"
-							style="padding-left: 0rem; margin-top: 1.125em; text-align: center;">
-
-							<input type=text class="body2 usedpoint d-block d-sm-none"
-								style="width: 15rem; height: 3rem; text-align: center; margin: auto;">
-							<button class="h4 usedbutton d-block d-sm-none mt-4"
-								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; margin: auto; text-align: center;">모두
-								사용</button>
-						</div>
-						<div class="col-12 h5 d-block d-sm-none"
-							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">
-							남은마일리지 <span class="h5_1 h5_1_2" >${mdto.point }</span>
-						</div>
-
+					
 
 
 
@@ -1125,36 +1065,7 @@ border-radius: 20px !important;
 
 
 						<!-- 작은 화면 프로그램 -->
-						<div class="col-lg-6 col-12 d-block d-sm-none"
-							style="padding-left: 1.564rem; margin-top: 3rem;">
-							<div class="col h3 mt-2" style="padding: 0px;">프로그램 정보</div>
-
-
-							<div class="row rec1"
-								style="margin-top: 2rem; height: 12rem; position: relative;">
-
-
-								<div class="col-lg-3 col-5">
-									<img src="/images/kidclass.png"
-										style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
-								</div>
-
-								<div class="col-lg-12 body1 col-6"
-									style="color: #161C24; margin-top:1em; position: absolute; left: 10.5rem;">
-									키즈 워크룸:애니 메이터 프로젝트
-									<div class=h3
-										style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-										id=totalprice>${price}</div>
-									<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-										id=count>${count}매</div>
-
-								</div>
-
-
-							</div>
-
-
-						</div>
+					
 
 
 						
@@ -1216,9 +1127,52 @@ window.onload = function() {
 	
 
 }
+$(".phone").on("keyup", function() {
+	let phone = $(this).val();
+	let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
+	let phoneResult = phoneRegex.test(phone);
+	
+
+if (phoneResult) {
+		$(".phone").css("border", "1px solid #1890FF ");
+		$(".phoneck").css("color", "#1890FF");
+		$(".phoneck").css("display", "inline");
+		$(".phoneck").text("사용할수 있는 번호입니다.");
+		$(".phone2").css("border", "1px solid #1890FF ");
+		$(".phoneck2").css("color", "#1890FF");
+		$(".phoneck2").css("display", "inline");
+		$(".phoneck2").text("사용할수 있는 번호입니다.");
+	
+	}
+
+else if (phone=='') {
+	$(".phone").css("border", "1px solid #1890FF ");
+	$(".phoneck").css("color", "#1890FF");
+	$(".phoneck").css("display", "inline");
+	$(".phoneck").text("");
+	$(".phone2").css("border", "1px solid #1890FF ");
+	$(".phoneck2").css("color", "#1890FF");
+	$(".phoneck2").css("display", "inline");
+	$(".phoneck2").text("");
+
+}
+
+else if (!phoneResult) {
+	$(".phone").css("border", "1px solid #FF4842");	
+	$(".phoneck").css("color", "#FF4842");
+	$(".phoneck").css("display", "inline");
+	$(".phoneck").text("올바른 핸드폰번호를 입력해주세요.");
+	$(".phone2").css("border", "1px solid #FF4842");	
+	$(".phoneck2").css("color", "#FF4842");
+	$(".phoneck2").css("display", "inline");
+	$(".phoneck2").text("올바른 핸드폰번호를 입력해주세요.");
+}
 
 
-//큰화면 마일리지 사용
+})
+
+
+//큰화면 쿠폰 사용
 $(".form-select1").on('change',function(){
 	console.log($(".h5_1").text());
 	//나한테 있는 마일리지가 사용되었다면
@@ -1249,31 +1203,6 @@ $(".form-select1").on('change',function(){
 
 
 //작은화면 마일리지 사용
-$(".form-select2").on('change',function(){
-	console.log($(".h5_1_2").text());
-	//나한테 있는 마일리지가 사용되었다면
- if(${mdto.point}!=$(".h5_1_2").text())
- 
- {
-	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
-	return false;
- }
-
-	if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
-		$("#finalprice").text('${price}');
-		 let coupondc =  $(".form-select2 option:selected").val();
-			$('#coupondc').text(coupondc+'p');
-	}
-	else{
-   let coupondc =  $(".form-select2 option:selected").text();
-	$('#coupondc').text(coupondc);
-	let price = '${price}';
-	let price1 = price.replace(",", "");
-	let price2 = price1.replace("원", "");
-	
-	$("#finalprice").text((price2-$(".form-select2 option:selected").val()).toLocaleString()+"원");
-}
-})
 
 
 
@@ -1308,64 +1237,43 @@ console.log($(".form-select1 option:selected").text() );
 		return false;	
 		}
 
-		let price = '${price}';
-		let price1 = price.replace(",", "");
-		let price2 = price1.replace("원", "");
-		
-		$(".h5_1_1").text(0);
-		$("#usedpoint").text('-'+${mdto.point}+"p");
-		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
-		
-		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
-			return false;
-		}
+		if($(".h5_1_1").text()==0){
+				
+				alert('사용 가능한 마일리지가 없습니다.');
+			return false;	
+			}else if($(".h5_1_1").text()>5000){
+				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
+			
+				let price = '${price}';
+				let price1 = price.replace(",", "");
+				let price2 = price1.replace("원", "");
+				
+				$(".h5_1_1").text(${mdto.point}-5000);
+				$("#usedpoint").text('-'+5000+"p");
+				$("#finalprice").text((price2-5000).toLocaleString()+"원");
+				
+				
+				
+				return false;
+			}
+
+			let price = '${price}';
+			let price1 = price.replace(",", "");
+			let price2 = price1.replace("원", "");
+			
+			$(".h5_1_1").text(0);
+			$("#usedpoint").text('-'+${mdto.point}+"p");
+			$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
+			
+			}else{
+				alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+				return false;
+			}
 
 	})
-	
-	//모두사용 작은화면
-	
-		$(".usedbutton").on("click", function() {
-console.log($(".form-select2 option:selected").text() );
-		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
-			console.log('hihddi');
-			
-
-		
-		
-		if($(".h5_1_2").text()==0){
-			
-			alert('사용 가능한 마일리지가 없습니다.');
-		return false;	
-		}
-
-		let price = '${price}';
-		let price1 = price.replace(",", "");
-		let price2 = price1.replace("원", "");
-		
-		$(".h5_1_2").text(0);
-		$("#usedpoint").text('-'+${mdto.point}+"p");
-		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
-		
-		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
-			return false;
-		}
-
-	})
-
-
-	
-	
-	
-	
-	
-	
-	
-	//일부 마일리지 사용엔터
-	
 	
 	$(".usedpoint").keypress(function(e) {
+		console.log('여기5');
 		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 		if (e.keyCode == 13) {
 			let mypoint = parseInt($(".h5_1_1").text());
@@ -1381,76 +1289,46 @@ console.log($(".form-select2 option:selected").text() );
 		let opusedpoint1 = opusedpoint.replace('p','');
 		let opusedpoint2 = parseInt(opusedpoint1);
 		
+		let price3 = '${price}';
+		let price4 = price3.replace(",", "");
+		let price5 = price4.replace("원", "");
+		let price6 = parseInt(price5);
 		console.log(ipusedpoint);
 		console.log(opusedpoint2);
 		
 		
 
-			
-			
-			if ($(this).val() <= mypoint) {
-				
-				(mypoint - $(this).val())
+		console.log(price5);
 
+		let check = /^[0-9]+$/; 
+	
+			
+			if (($(this).val() <= mypoint)&&($(this).val()<=5000)) {
+			
+			
+				
+				 if(parseInt($(".h5_1_1").text())<${mdto.point}-5000){
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+					$(this).val('');
+					return false;
+				}else  if(parseInt($(".h5_1_1").text())-$(this).val()>=${mdto.point}-5000){
 				$(".h5_1_1").text(mypoint - $(this).val());
-				${mdto.point }
-				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
+				console.log('ddddaa');
+		
 			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
 				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
 				$(this).val('');
-			} else {
-				alert('사용 가능한 point를 초과하였습니다.');
+				}else{
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+				}
+			}else if(!check.test($(this).val())){
+				alert('숫자만 입력할 수 있습니다.');
 				$(this).val('');
-			}
-		}
-		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
-			return false;
-		}
-
-	})
-	
-	
-	
-	//일부마일리지 작은화면
-	
-	
-	
-	$(".usedpoint").keypress(function(e) {
-		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
-		if (e.keyCode == 13) {
-			let mypoint = parseInt($(".h5_1_2").text());
-			
-			let price = $("#finalprice").text();
-			let price1 = price.replace(",", "");
-			let price2 = price1.replace("원", "");
-			
-		let ipusedpoint =	$(this).val();
-		let ipusedpoint1 =	parseInt(ipusedpoint);
-		
-		let opusedpoint =	$("#usedpoint").text();
-		let opusedpoint1 = opusedpoint.replace('p','');
-		let opusedpoint2 = parseInt(opusedpoint1);
-		
-		console.log(ipusedpoint);
-		console.log(opusedpoint2);
-		
-		
-
-			
-			
-			if ($(this).val() <= mypoint) {
+				return false;
 				
-				(mypoint - $(this).val())
-
-				$(".h5_1_2").text(mypoint - $(this).val());
-				${mdto.point }
-				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
-			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
-				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
-				$(this).val('');
-			} else {
-				alert('사용 가능한 point를 초과하였습니다.');
+			}
+			 else {
+				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
 				$(this).val('');
 			}
 		}
@@ -1460,6 +1338,22 @@ console.log($(".form-select2 option:selected").text() );
 		}
 
 	})
+	
+	
+	//모두사용 작은화면
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	//일부 마일리지 사용엔터
+	
+	
 	
 	
 
@@ -1477,15 +1371,48 @@ document.addEventListener('DOMContentLoaded', function() {
 
      var dateString = year + '-' + month  + '-' + day;
      var calendar = new   FullCalendar.Calendar(calendarEl, {
-    
+    height:450,
        initialView: 'dayGridMonth',
  
-      // selectable:true,
-     //  unselectAuto: true
+  
+     
+       
  
      	   dateClick: function(info) {
      		    console.log(info.dateStr);
      		    console.log(dateString);
+     		    
+     		    
+     		   var todayTime = new Date(dateString); //시작기간 셋팅
+     		   var pickTime = new Date(info.dateStr); //종료기간 셋팅
+     		   var endTime = new Date('2022-10-30'); //종료기간 셋팅
+     		   
+     		   if (pickTime > todayTime && endTime >= pickTime ) { //현재기간이 시작기간보다 지나거나 종료기간이 안될때  
+     			   let result =  confirm('해당 날짜 ('+info.dateStr+')로 예약 하시겠습니까?');
+     			      if(result){
+     		   			$(".date").val(info.dateStr);
+     		      		
+     		      		//	selectable: true;
+     		      			console.log('hi');
+     		      		}else{
+     		   return false;
+
+
+     		      		}
+     			   
+     			   return false; 
+     			   
+     		   
+     		   }
+     		   else {
+     		          alert('지난 날짜이거나 프로그램 개최 기간이 아닙니다.');
+     		          return false;
+     		     }
+     		     
+     		       
+     		    
+     		    
+     		    
     
     	let result = confirm('해당 날짜 ('+info.dateStr+')로 예약 하시겠습니까?');
      //  	    alert('Date: ' + info.dayEl);
@@ -1548,6 +1475,40 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 
 
 	function iamport() {
+    	 console.log($(".username").val());
+ 		let price = $("#finalprice2").text();
+ 		let price1 = price.replace(",", "");
+ 		let price2 = price1.replace("원", "");
+
+ 		let count = $("#count").text();
+ 		let count1 = count.replace("매", "");
+
+ 		let point = $("#point2").text();
+ 		let point1 = point.replace("p", "");
+ 		let point2 = parseInt(point1);
+ 		
+ 		
+ 		let usedpoint = $("#usedpoint").text();
+ 		let usedpoint1 = usedpoint.replace("p","");
+ 		let usedpoint2 = usedpoint1.replace("-","");
+ 		let usedpoint3 = parseInt(usedpoint2);
+ 	
+ 		
+ 	   if($(".username").val()==""){
+ 			alert('이름을 입력해주세요.');
+ 			return false;
+ 		}
+ 	   if($(".phoneck").text()=="올바른 핸드폰번호를 입력해주세요."){
+ 			alert('올바른 핸드폰번호를 입력해주세요.');
+ 			return false;
+ 		}
+ 	   if($(".phone").val()==''){
+ 			alert('올바른 핸드폰번호를 입력해주세요.');
+ 			return false;
+ 		}
+    	 
+    	 
+    	 
 		//가맹점 식별코드
 		IMP.init('imp48062056');
 		IMP.request_pay({
