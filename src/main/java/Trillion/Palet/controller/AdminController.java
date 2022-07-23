@@ -264,7 +264,7 @@ public class AdminController {
 		if (edto.getPe_name().equals("")) {
 			edto.setPe_name("Noname");
 		}
-		
+		aServ.adminExhibitionUpdate(edto);
 		
 		return "redirect:adminExhibitionDetail?pe_seq="+edto.getPe_seq();
 	}

@@ -209,16 +209,20 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Stock</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='g_stock' class='edit' value='${gdto.g_stock }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='g_stock' class='editable' value='${gdto.g_stock }' disabled style="width:70%; text-align:center"></div>			           			
+			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='g_stock' id="gstock1" class='edit' value='${gdto.g_stock }' disabled style="width:50%; text-align:center" maxlength="7"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='g_stock' id="gstock2" class='editable' value='${gdto.g_stock }' disabled style="width:70%; text-align:center" maxlength="7"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></div>			           			
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">Price</div>
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Price</div>
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='g_price' class='edit' value='${gdto.g_price }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='g_price' class='editable' value='${gdto.g_price }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='g_price' id="gprice1" class='edit' value='${gdto.g_price }' disabled style="width:50%; text-align:center" maxlength="10"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='g_price' id="gprice2 "class='editable' value='${gdto.g_price }' disabled style="width:70%; text-align:center" maxlength="10"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></div>
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left"> Option</div>
@@ -312,6 +316,57 @@ $("#modifyMember2").on("click", ()=>{
 	$(".memberBtns").append(cancel);
 	
 });
+
+	let price1val = $("#gprice1").val();
+	
+	$("#gprice1").on("change", ()=>{
+		let text = $("#gprice1").val();
+		if (text.length == 0){
+			alert("내용을 입력해주세요.")
+			$("#gprice1").val(price1val);
+			$("#gprice1").focus();
+			
+		}
+	})
+	
+	let price2val = $("#gprice2").val();
+	
+	$("#gprice2").on("change", ()=>{
+		let text = $("#gprice2").val();
+		if (text.length == 0){
+			alert("내용을 입력해주세요.")
+			$("#gprice2").val(price2val);
+			$("#gprice2").focus();
+			
+		}
+	})
+
+
+	let stock1val = $("#gstock1").val();
+	
+	$("#gstock1").on("change", ()=>{
+		let text = $("#gstock1").val();
+		if (text.length == 0){
+			alert("내용을 입력해주세요.")
+			$("#gstock1").val(stock1val);
+			$("#gstock1").focus();
+			
+		}
+	})
+	
+	let stock2val = $("#gstock2").val();
+	
+	$("#gstock2").on("change", ()=>{
+		let text = $("#gstock2").val();
+		if (text.length == 0){
+			alert("내용을 입력해주세요.")
+			$("#gstock2").val(stock2val);
+			$("#gstock2").focus();
+			
+		}
+	})
+
+
 
 $(".leftbutton").on("click", function() {
 
