@@ -98,6 +98,11 @@ public class CartDAO {
 	public List<goodsOrderDTO> select_cart(String email){
 		return mybatis.selectList("Cart.select_cart", email);
 	}
+
+	public int deleteSelectcart(String email) {
+		return mybatis.delete("Cart.deleteSelectcart", email);
+	}
+
 	
 
 }
