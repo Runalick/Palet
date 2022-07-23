@@ -35,7 +35,7 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+@media ( min-width : 1000px) {
 	.container {
 		max-width: 1280px;
 	}
