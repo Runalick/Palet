@@ -169,7 +169,7 @@
                 		<div class="col-12" id="roundbox">  
  							<div class="row pt-4 p-4" style="text-align:right">
  								<div id="checkbtns">
- 									<select class="body2 select0 color_gray100" name="e_period" id="e_period">
+ 									<select class="body2 select0 color_gray100" name="pe_period" id="pe_period">
 										<option value='F'>예정전시 </option>
 										<option value='N'>현재전시 </option>
 										<option value='P'>지난전시 </option>

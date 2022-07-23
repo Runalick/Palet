@@ -43,6 +43,10 @@ public class ExhibitionDAO {
 		return mybatis.selectOne("Exhibition.exhibitionBestSeller");
 	}
 	
+	public ExhibitionDTO NewExhibitionBestSeller() {
+		return mybatis.selectOne("Exhibition.newExhibitionBestSeller");
+	}
+	
 	public int exhibitionPicinsert(ExhibitionPicDTO dto) {
 		return mybatis.insert("File.exhibitionPicInsert", dto);
 	}

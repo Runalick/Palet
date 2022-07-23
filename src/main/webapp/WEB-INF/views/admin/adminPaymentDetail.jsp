@@ -450,8 +450,8 @@
 	
 <script>
 $(".leftbutton").on("click", function() {
-
-	location.href = "/admin/adminPayment?cpage=1";
+	window.history.back();
+	/* location.href = "/admin/adminPayment?cpage=1"; */
 })
 
 let cnt =0;
