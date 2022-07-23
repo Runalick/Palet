@@ -1238,43 +1238,78 @@ input[type="number"]::-webkit-inner-spin-button {
 	})
 	
 	$(".allPointUse1").on("click",function(){
-		let allPointUse = $(".myPoint1").text();
-		$(".pointinput1").val(allPointUse);
-		$(".pointinput2").val(allPointUse);
-// 		$(".discount").text(allPointUse);
-		totalDc = Number($(".pointinput2").val());
-		$(".discount").text("-" + (totalDc).toLocaleString()+"원");
-		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
-		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
-// 			console.log(Number(sumPrice - totalDc + 3000) * 0.01);
-		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
-		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+		if(myPoint > sumPrice){
+			let allPointUse = sumPrice;	
+			$(".pointinput1").val(allPointUse);
+			$(".pointinput2").val(allPointUse);
+			totalDc = sumPrice;
+			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			if(grade == "White"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			}else if(grade == "Gray"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			}else if(grade == "Black"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			}
+		}else{
+			let allPointUse = $(".myPoint1").text();
+			$(".pointinput1").val(allPointUse);
+			$(".pointinput2").val(allPointUse);
+			totalDc = Number($(".pointinput1").val());
+			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			if(grade == "White"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			}else if(grade == "Gray"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			}else if(grade == "Black"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			}
 		}
 	})
 	
 	$(".allPointUse2").on("click",function(){
-		let allPointUse = $(".myPoint2").text();
-		$(".pointinput1").val(allPointUse);
-		$(".pointinput2").val(allPointUse);
-// 		$(".discount").text(allPointUse);
-		totalDc = Number($(".pointinput2").val());
-		$(".discount").text("-" +(totalDc).toLocaleString()+"원");
-		$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
-		if(grade == "White"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
-		}else if(grade == "Gray"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
-		}else if(grade == "Black"){
-			$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-			LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+		if(myPoint > sumPrice){
+			let allPointUse = sumPrice;	
+			$(".pointinput1").val(allPointUse);
+			$(".pointinput2").val(allPointUse);
+			totalDc = sumPrice;
+			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			if(grade == "White"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			}else if(grade == "Gray"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			}else if(grade == "Black"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			}
+		}else{
+			let allPointUse = $(".myPoint2").text();
+			$(".pointinput1").val(allPointUse);
+			$(".pointinput2").val(allPointUse);
+			totalDc = Number($(".pointinput2").val());
+			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			if(grade == "White"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+			}else if(grade == "Gray"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+			}else if(grade == "Black"){
+				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
+				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+			}
 		}
 	})
 	
@@ -1410,17 +1445,7 @@ input[type="number"]::-webkit-inner-spin-button {
 		});
 	});
 	
-	$(".pointinput1").on("input",function(){
-		if($(".pointinput1").val() > sumPrice + 3000){
-			alert(1);
-		}
-	})
-	
-	$(".pointinput2").on("input",function(){
-		if($(".pointinput1").val() > sumPrice + 3000){
-			alert(1);
-		}
-	})
+
 	
 	
 	
@@ -1428,11 +1453,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	
 	$(".pointinput1").on("change",function(){
 		if($(".pointinput1").val() > sumPrice){
-			totalDc = sumPrice + 3000;
-			$(".pointinput1").val() == sumPrice + 3000;
-			$(".pointinput2").val() == sumPrice + 3000;
-			
-			$(".pointinput2").val() == $(".pointinput1").val();
+			alert("상품금액보다 높습니다");
+			totalDc = 0;
+			$(".pointinput1").val(0);
+			$(".pointinput2").val(0);
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
@@ -1465,11 +1489,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	
 	$(".pointinput2").on("change",function(){
 		if($(".pointinput2").val() > sumPrice){
-			totalDc = sumPrice + 3000;
-			$(".pointinput1").val() == sumPrice + 3000;
-			$(".pointinput2").val() == sumPrice + 3000;
-			
-			$(".pointinput2").val() == $(".pointinput1").val();
+			alert("상품금액보다 높습니다");
+			totalDc = 0;
+			$(".pointinput1").val(0);
+			$(".pointinput2").val(0);
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
@@ -1498,7 +1521,6 @@ input[type="number"]::-webkit-inner-spin-button {
 				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
 			}
 		}
-
 	})
 	
 	 function sample4_execDaumPostcode() {
@@ -1569,6 +1591,20 @@ input[type="number"]::-webkit-inner-spin-button {
 	    }
 	
 	function iamport(){
+		var windowWidth = $( window ).width();
+	      let buyer_postcode = $(".buyer_postcode").val();
+	      if(buyer_postcode == ''){
+	         buyer_postcode = $(".buyer_postcode1").val();
+	      }else if(windowWidth > 992){
+	         buyer_postcode = $(".buyer_postcode1").val();
+	      }
+	      
+	      let buyer_addr = $(".buyer_addr").val();
+	      if(buyer_addr == ''){
+	         buyer_addr = $(".buyer_addr1").val();
+	      }else if(windowWidth > 992){
+	         buyer_addr = $(".buyer_addr1").val();
+	      }
         //가맹점 식별코드
         IMP.init('imp48062056');
 	IMP.request_pay({
