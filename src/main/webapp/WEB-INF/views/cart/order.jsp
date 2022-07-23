@@ -893,21 +893,21 @@ input[type="number"]::-webkit-inner-spin-button {
 				<div class="row delivery-area" style="height:34.875rem; width:49.25rem;">
 					<div class="col-md-4 col-12" style="text-align:left; width:18.75rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." value="${dto.receiver }" >
+						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." value="${dto.receiver }" maxlength="10"oninput="this.value= this.value.replace(/[^ㄱ-힣a-zA-Z]/gi,'')" >
 					</div>
 					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input buyer_tel1"  id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
+						<input type="text" class="body2input buyer_tel1"  id="buyer_tel1" placeholder="전화번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"  value="${dto.phone }"maxlength="11" >
 					</div>
 					<div class="col-12" style="text-align:left;">
 						<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-						<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" > 
+						<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" readonly > 
 						<input type="text" class="body2 inputaddress buyer_addr1 address1" id="sample4_roadAddress"  placeholder="주소: 우편번호를 먼저 검색해 주세요." disabled value="${dto.address1 }">
-						<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress"  value="${dto.address2 }">
+						<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress"  value="${dto.address2 }"  maxlength="20">
 					</div>
 					<div class="col-12" style="text-align:left;">	
 						<div class="body2 delivery_text" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
-						<input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF;" placeholder="배송메세지를 입력해주세요.">
+						<input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF;" placeholder="배송메세지를 입력해주세요." maxlength="200">
 						<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
 					</div>
 				</div>
@@ -1016,20 +1016,20 @@ input[type="number"]::-webkit-inner-spin-button {
 				<!-- 배송 주소 입력 부분 -->
 				<div class="row delivery-area" style="margin-left:0rem; width:100%">
 					<div class="col-12" >
-						<div class="col-12 body2" style="margin-bottom:0.5rem;">수령인</div>
-						<div class="col-12"><input type="text" class="body2input buyer_name" id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;" value="${dto.receiver }" ></div>
+						<div class="col-12 body2" style="margin-bottom:0.5rem;" >수령인</div>
+						<div class="col-12"><input type="text" class="body2input buyer_name"  maxlength="10"id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;" value="${dto.receiver }" oninput="this.value= this.value.replace(/[^ㄱ-힣a-zA-Z]/gi,'')"maxlength="10"></div>
 					</div>
 					<div class="col-12 phone" >
 						<div class="body2 col-12" style="margin-bottom:0.5rem;">전화 번호</div>
-						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." style="width:100%" value="${dto.phone }" ></div>
+						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="11" style="width:100%" value="${dto.phone }" ></div>
 					</div>
 					<div class="body2 col-12" style="margin-bottom:0.5rem;">배송지</div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" value="${dto.postcode }" contenteditable=false></div> 
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" value="${dto.postcode }" readonly></div> 
 					
 					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr address" id="sample5_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요."  style="width:17.5rem; margin-left:0rem; width:100%" value="${dto.address1 }" disabled></div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" value="${dto.address2 }"></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" value="${dto.address2 }"  maxlength="20"></div>
 					<div class="body2 delivery_text" style="margin-bottom:0.5rem;">배송 메시지</div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지를 입력해주세요."></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지를 입력해주세요." maxlength="200"></div>
 					<div id="deliveryinfo" class="col-12" style="margin-bottom:0.5rem;">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
 				</div>
 				
