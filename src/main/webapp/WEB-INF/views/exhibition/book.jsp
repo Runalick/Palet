@@ -30,7 +30,7 @@
 		max-width: 1280px;
 	}
 	html {
-		font-size: 16px;
+		font-size: 12px;
 	}
 }
 
@@ -762,14 +762,15 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." style="text-align: center"
+										placeholder="신청자 이름을 입력해 주세요." style="text-align: center" maxlength="4"
 										required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone"
-										style="text-align: center" placeholder="전화번호를 입력해 주세요."
-										required>
+										<input type=text class="input1 phone" maxlength="11"
+									pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+									placeholder="전화번호를 입력해 주세요."  style="text-align: center"  required><br> <span
+									style="display: none; text-align: center;" class="phoneck"  >전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
@@ -796,9 +797,10 @@ input::placeholder {
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone"
-										style="text-align: center" placeholder="전화번호를 입력해 주세요."
-										required>
+									<input type=text class="input1 phone" maxlength="11"
+									pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"  style="text-align: center;" 
+									placeholder="전화번호를 입력해 주세요." required><br> <span
+									style="display: none; text-align: center;" class="phoneck" >전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-5" style="margin-top: 0.5rem;">
@@ -1074,9 +1076,9 @@ input::placeholder {
 						<div class="col-12 body2 d-block d-sm-none"
 							style="padding-left: 0rem; margin-top: 1.125em; text-align: center;">
 
-							<input type=text class="body2 usedpoint d-block d-sm-none"
+							<input type=text class="body2 usedpoint2 d-block d-sm-none"
 								style="width: 15rem; height: 3rem; text-align: center; margin: auto;">
-							<button class="h4 usedbutton d-block d-sm-none mt-4"
+							<button class="h4 usedbutton2 d-block d-sm-none mt-4"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; margin: auto; text-align: center;">모두
 								사용</button>
 						</div>
@@ -1411,7 +1413,7 @@ input::placeholder {
 </body>
 <script>
 $(".phone").on("keyup", function() {
-	let phone = $(".phone").val();
+	let phone = $(this).val();
 	let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 	let phoneResult = phoneRegex.test(phone);
 	
@@ -1443,9 +1445,10 @@ else if (!phoneResult) {
 })
 
 	
-//큰화면 마일리지 사용
+//큰화면 쿠폰사용
 $(".form-select1").on('change',function(){
 	console.log($(".h5_1").text());
+console.log('여기1');
 	//나한테 있는 마일리지가 사용되었다면
  if(${mdto.point}!=$(".h5_1_1").text())
  
@@ -1473,8 +1476,9 @@ $(".form-select1").on('change',function(){
 
 
 
-//작은화면 마일리지 사용
+//작은화면 쿠폰 사용
 $(".form-select2").on('change',function(){
+	console.log('여기2');
 	console.log($(".h5_1_2").text());
 	//나한테 있는 마일리지가 사용되었다면
  if(${mdto.point}!=$(".h5_1_2").text())
@@ -1520,6 +1524,7 @@ $(".form-select2").on('change',function(){
 	//모두사용 큰화
 	
 	$(".usedbutton").on("click", function() {
+		console.log('여기3');
 console.log($(".form-select1 option:selected").text() );
 		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 			console.log('hihddi');
@@ -1531,6 +1536,27 @@ console.log($(".form-select1 option:selected").text() );
 			
 			alert('사용 가능한 마일리지가 없습니다.');
 		return false;	
+		}
+		
+		
+	if($(".h5_1_1").text()==0){
+			
+			alert('사용 가능한 마일리지가 없습니다.');
+		return false;	
+		}else if($(".h5_1_1").text()>5000){
+			alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
+		
+			let price = '${price}';
+			let price1 = price.replace(",", "");
+			let price2 = price1.replace("원", "");
+			
+			$(".h5_1_1").text(${mdto.point}-5000);
+			$("#usedpoint").text('-'+5000+"p");
+			$("#finalprice").text((price2-5000).toLocaleString()+"원");
+			
+			
+			
+			return false;
 		}
 
 		let price = '${price}';
@@ -1550,18 +1576,31 @@ console.log($(".form-select1 option:selected").text() );
 	
 	//모두사용 작은화면
 	
-		$(".usedbutton").on("click", function() {
+		$(".usedbutton2").on("click", function() {
+			console.log('여기4');
 console.log($(".form-select2 option:selected").text() );
 		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
 			console.log('hihddi');
-			
 
-		
 		
 		if($(".h5_1_2").text()==0){
 			
 			alert('사용 가능한 마일리지가 없습니다.');
 		return false;	
+		}else if($(".h5_1_2").text()>5000){
+			alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
+		
+			let price = '${price}';
+			let price1 = price.replace(",", "");
+			let price2 = price1.replace("원", "");
+			
+			$(".h5_1_2").text(${mdto.point}-5000);
+			$("#usedpoint").text('-'+5000+"p");
+			$("#finalprice").text((price2-5000).toLocaleString()+"원");
+			
+			
+			
+			return false;
 		}
 
 		let price = '${price}';
@@ -1587,10 +1626,11 @@ console.log($(".form-select2 option:selected").text() );
 	
 	
 	
-	//일부 마일리지 사용엔터
+	// 큰 화면 일부 마일리지 사용엔터
 	
 	
 	$(".usedpoint").keypress(function(e) {
+		console.log('여기5');
 		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 		if (e.keyCode == 13) {
 			let mypoint = parseInt($(".h5_1_1").text());
@@ -1606,25 +1646,46 @@ console.log($(".form-select2 option:selected").text() );
 		let opusedpoint1 = opusedpoint.replace('p','');
 		let opusedpoint2 = parseInt(opusedpoint1);
 		
+		let price3 = '${price}';
+		let price4 = price3.replace(",", "");
+		let price5 = price4.replace("원", "");
+		let price6 = parseInt(price5);
 		console.log(ipusedpoint);
 		console.log(opusedpoint2);
 		
 		
 
-			
-			
-			if ($(this).val() <= mypoint) {
-				
-				(mypoint - $(this).val())
+		console.log(price5);
 
+		let check = /^[0-9]+$/; 
+	
+			
+			if (($(this).val() <= mypoint)&&($(this).val()<=5000)) {
+			
+			
+				
+				 if(parseInt($(".h5_1_1").text())<${mdto.point}-5000){
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+					$(this).val('');
+					return false;
+				}else  if(parseInt($(".h5_1_1").text())-$(this).val()>=${mdto.point}-5000){
 				$(".h5_1_1").text(mypoint - $(this).val());
-				${mdto.point }
-				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
+				console.log('ddddaa');
+		
 			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
 				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
 				$(this).val('');
-			} else {
-				alert('사용 가능한 point를 초과하였습니다.');
+				}else{
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+				}
+			}else if(!check.test($(this).val())){
+				alert('숫자만 입력할 수 있습니다.');
+				$(this).val('');
+				return false;
+				
+			}
+			 else {
+				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
 				$(this).val('');
 			}
 		}
@@ -1641,41 +1702,63 @@ console.log($(".form-select2 option:selected").text() );
 	
 	
 	
-	$(".usedpoint").keypress(function(e) {
+	$(".usedpoint2").keypress(function(e) {
+		console.log('여기6');
 		if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
-		if (e.keyCode == 13) {
-			let mypoint = parseInt($(".h5_1_2").text());
-			
-			let price = $("#finalprice").text();
-			let price1 = price.replace(",", "");
-			let price2 = price1.replace("원", "");
-			
-		let ipusedpoint =	$(this).val();
-		let ipusedpoint1 =	parseInt(ipusedpoint);
-		
-		let opusedpoint =	$("#usedpoint").text();
-		let opusedpoint1 = opusedpoint.replace('p','');
-		let opusedpoint2 = parseInt(opusedpoint1);
-		
-		console.log(ipusedpoint);
-		console.log(opusedpoint2);
-		
-		
-
-			
-			
-			if ($(this).val() <= mypoint) {
+			if (e.keyCode == 13) {
+				let mypoint = parseInt($(".h5_1_2").text());
 				
-				(mypoint - $(this).val())
+				let price = $("#finalprice").text();
+				let price1 = price.replace(",", "");
+				let price2 = price1.replace("원", "");
+				
+			let ipusedpoint =	$(this).val();
+			let ipusedpoint1 =	parseInt(ipusedpoint);
+			
+			let opusedpoint =	$("#usedpoint").text();
+			let opusedpoint1 = opusedpoint.replace('p','');
+			let opusedpoint2 = parseInt(opusedpoint1);
+			
+			let price3 = '${price}';
+			let price4 = price3.replace(",", "");
+			let price5 = price4.replace("원", "");
+			let price6 = parseInt(price5);
+			console.log(ipusedpoint);
+			console.log(opusedpoint2);
+			
+			
 
+			console.log(price5);
+
+			let check = /^[0-9]+$/; 
+		
+				
+			if (($(this).val() <= mypoint)&&($(this).val()<=5000)) {
+				
+				
+				
+				 if(parseInt($(".h5_1_2").text())<${mdto.point}-5000){
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+					$(this).val('');
+					return false;
+				}else  if(parseInt($(".h5_1_2").text())-$(this).val()>=${mdto.point}-5000){
 				$(".h5_1_2").text(mypoint - $(this).val());
-				${mdto.point }
-				//$("#usedpoint").text('-'+(opusedpoint2+ipusedpoint1)+'p');
+				console.log('ddddaa');
+		
 			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
 				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
 				$(this).val('');
-			} else {
-				alert('사용 가능한 point를 초과하였습니다.');
+				}else{
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+				}
+			}else if(!check.test($(this).val())){
+				alert('숫자만 입력할 수 있습니다.');
+				$(this).val('');
+				return false;
+				
+			}
+			 else {
+				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
 				$(this).val('');
 			}
 		}

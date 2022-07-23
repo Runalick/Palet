@@ -58,4 +58,7 @@
   	<delete id="deleteCart">
   		delete from cart where cart_seq = #{cart_seq} and email = #{email}
   	</delete>
+  	<delete id="deleteSelectcart">
+  		delete from select_cart where email = #{value}
+  	</delete>
   </mapper>

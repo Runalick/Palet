@@ -41,7 +41,7 @@
 		max-width: 1280px;
 	}
 	html {
-		font-size: 16px;
+		font-size: 12px;
 	}
 }
 
@@ -400,14 +400,16 @@ align-items: center; */
 	padding-right: 0px;
 }
 
-#row2>div {
-	padding: 0.75rem;
-}
-
 .hcon {
 	margin-top: 0.938rem;
 	height: 3.75rem;
 }
+
+#row2>div {
+	padding: 0.75rem;
+}
+
+
 
 #main3 {
 	height: 42.375rem;
@@ -643,14 +645,14 @@ border-radius: 20px !important;
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container-fluid">
+		<div class="container-fluid" style="position: fixed; background: white; z-index: 9; ">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
 						<div class="row" id="container1">
 							<nav class="navbar navbar-expand-md bg-light navbar-light">
 								<div class="container" id="navparent"
-									style="overflow: visible; position: fixed; background: white; z-index: 9;">
+									style="overflow: visible; ">
 									<a class="navbar-brand" href="/" id="container"
 										style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
