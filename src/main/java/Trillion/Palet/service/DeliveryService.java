@@ -46,7 +46,23 @@ public class DeliveryService {
 	}
 
 	public boolean checkdefaultAddress(String email) {
+		int count = dao.checkaddresscnt(email);
+		
+		boolean defaultaddress=	dao.checkdefaultAddress(email);
+		if(count == 1 && defaultaddress==true) {
+			return false;
+		}else {
+			return true;
+		}
+				 
+	}
+
+	public boolean newcheckdefaultAddress(String email) {
 		return dao.checkdefaultAddress(email);
+	}
+
+	public int checkcount(String email) {
+		return dao.checkaddresscnt(email);
 	}
 
 	
