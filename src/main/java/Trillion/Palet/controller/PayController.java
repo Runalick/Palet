@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -16,6 +17,7 @@ import Trillion.Palet.DTO.MyGoodsDTO;
 import Trillion.Palet.DTO.MyPointDTO;
 import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.ProticketDTO;
+import Trillion.Palet.service.CouponService;
 import Trillion.Palet.service.ExhibitionService;
 import Trillion.Palet.service.MemberService;
 import Trillion.Palet.service.PayService;
@@ -40,6 +42,9 @@ public class PayController {
 	@Autowired
 	private MemberService mServ;
 	
+	@Autowired
+	private CouponService cServ;
+	
 
 	@ResponseBody
 	@RequestMapping("insert")
@@ -53,7 +58,7 @@ public class PayController {
 	
 	@ResponseBody
 	@RequestMapping("insertEx")
-	public List<ExticketDTO> insertEx (ExticketDTO dto) {
+	public List<ExticketDTO> insertEx (ExticketDTO dto) throws Exception {
 	
 		
 		System.out.println(	dto.getEt_email());
@@ -76,6 +81,8 @@ public class PayController {
 	    int result = pServ.insertEx(dto);
 	    int result1 = eServ.updateSalesCount(dto.getEt_title(),dto.getEt_count());
 	    int result2 = mServ.updatePoint(dto.getEt_point(),dto.getEt_usedpoint(),dto.getEt_email());
+//	    int result3 = mServ.updateCoupon(dto.getEt_cpserial(),dto.getEt_email());
+	    int result3 = cServ.updateCoupon(dto.getEt_cpserial(),dto.getEt_email());
 	
 		 List<ExticketDTO> list = new ArrayList<ExticketDTO>();
 		
@@ -87,7 +94,7 @@ public class PayController {
 	
 	@ResponseBody
 	@RequestMapping("insertPro")
-	public List<ProticketDTO> insertPro(ProticketDTO dto) {
+	public List<ProticketDTO> insertPro(ProticketDTO dto) throws Exception {
 	
 		
 		System.out.println(	dto.getPro_email());
@@ -110,8 +117,8 @@ public class PayController {
 		System.out.println(	dto.getPro_category());
 	    int result = pServ.insertPro(dto);
 	    int result1 = proServ.updateSalesCount(dto.getPro_title(),dto.getPro_count());
-	    int result2 = mServ.updatePoint(dto.getPro_point(),dto.getPro_usedpoint(),dto.getPro_email());
-	
+	    int result2 = mServ.updatePoint(dto.getPro_point(),dto.getPro_usedpoint(),dto.getPro_email()); 
+	    int result3 = cServ.updateCoupon(dto.getPro_cpserial(),dto.getPro_email());
 		 List<ProticketDTO> list = new ArrayList<ProticketDTO>();
 		
 		
@@ -145,5 +152,12 @@ public class PayController {
 	public int deleteCart(String cart_seq) {
 		String email = (String)session.getAttribute("loginEmail");
 		return pServ.deleteCart(cart_seq, email);
+	}
+	
+	
+	@ExceptionHandler
+	public String exceptionHandler(Exception e) {
+		e.printStackTrace();
+		return "error";
 	}
 }

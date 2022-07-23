@@ -906,79 +906,6 @@ input::placeholder {
 
 
 
-						<!-- 큰 화면 결제-->
-						<%-- <div class="col-lg-1 col-12"></div>
-					<div class="col-lg-4 col-12"
-						style="margin: auto; text-align: center; padding-left: 1.564rem;">
-						<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
-							상세</div>
-						<div class="row  rec1" id=row2
-							style="margin-top: 2rem; height: 12rem;">
-							<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
-							<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
-							<div class="col-6 caption" style="text-align: center;">적립예정
-								포인트</div>
-							<div class="col-6 caption" style="text-align: center;" id=point></div>
-							<div class="col-6 caption" style="text-align: center;">포인트
-								할인 금액</div>
-							<div class="col-6 caption" style="text-align: center;"
-								id=usedpoint>0p</div>
-							<div class="col-6 caption" style="text-align: center;">쿠폰
-								할인 금액</div>
-							<div class="col-6 caption" style="text-align: center;"
-								id=coupondc>0p</div>
-						</div>
-						<div class="col-12"
-							style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
-							<button class="btn1_1" id=pay onclick="iamport()"
-								style="width: 100%;">결제하기</button>
-						</div>
-
-
-						<div class="col-12 h4 d-none d-sm-block"
-							style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
-							및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							이용약관 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							개인정보 수집 및 이용 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							결제 대행 서비스 이용약관<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-none d-sm-block"
-							style="margin-top: 0.4rem; text-align: left;">
-							취소 환불 규정<a class=policy>보기</a>
-						</div>
-
-
-					</div> --%>
-
-						<!-- 
-						<div class="col-12 h4 d-block d-sm-none"
-							style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불 규정을
-							확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							이용약관 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							개인정보 수집 및 이용 동의<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							결제 대행 서비스 이용약관<a class=policy>보기</a>
-						</div>
-						<div class="col-12 caption d-block d-sm-none"
-							style="margin-top: 0.4rem;">
-							취소 환불 규정<a class=policy>보기</a>
-						</div>
-						 -->
 
 
 						<!-- 큰화면 쿠폰 마일리지 사용 -->
@@ -1012,7 +939,7 @@ input::placeholder {
 							style="padding-left: 0rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;">
+								style="width: 15rem; height: 3rem;   " oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
 								사용</button>
@@ -1034,246 +961,7 @@ input::placeholder {
 				</div>
 			</div>
 		</div>
-		<%-- <div class="container mt-3">
-		<div class=row>
-			<div class="col-12">
-				<div class=row>
-					<div class="col-lg-7 col-12 d-none d-sm-block"
-						style="padding-left: 1.564rem;">
-						<div class="col h3 mt-2" style="padding: 0px;">신청자 정보</div>
-						<div class="row rec1">
-							<div class="col-12 mt-3">이름</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 username"
-									placeholder="예매자 이름을 입력해 주세요." required>
-							</div>
-							<div class="col-12" style="margin-top: 1.5rem;">전화 번호</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 phone" maxlength="11"
-									pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
-									placeholder="전화번호를 입력해 주세요." required><br> <span
-									style="display: none;" class="phoneck">핸드폰번호를 숫자만입력해주세요</span>
-							</div>
-							<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-							<div class="col-12 mb-4" style="margin-top: 0.5rem;">
-								<input type=text class="input1 email"
-									style="text-align: center;" value="${loginEmail}" readonly>
-							</div>
-
-						</div>
-
-					</div>
-
-
-					<div class="col-lg-7 col-12 d-block d-sm-none"
-						style="padding-left: 1.564rem; text-align: center;">
-						<div class="row rec1">
-							<div class="col-12 mt-3">이름</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 username"
-									id="phone2'
-										placeholder=" 예매자 이름을 입력해 주세요." required>
-							</div>
-							<div class="col-12 " style="margin-top: 1.5rem;">전화 번호</div>
-							<div class=col-12 style="margin-top: 0.5rem;">
-								<input type=text class="input1 phone" maxlength="11"
-									pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
-									placeholder="전화번호를 입력해 주세요." required><br> <span
-									style="display: none;" class="phoneck">핸드폰번호를 숫자만입력해주세요</span>
-							</div>
-							<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
-							<div class="col-12 mb-4" style="margin-top: 0.5rem;">
-								<input type=text class="input1 email"
-									style="text-align: center;" value="${loginEmail}" readonly>
-							</div>
-
-						</div>
-
-					</div>
-					<div class="col-lg-1 col-12" style="height: 2rem;"></div>
-					<div class="col-lg-4 col-12" style="padding-left: 1.564rem;">
-						<div class="row  rec1 h-70" id=row2>
-							<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
-							<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
-							<div class="col-6 caption" style="text-align: center;">적립예정
-								포인트</div>
-							<div class="col-6 caption" style="text-align: center;" id=point></div>
-							<div class="col-6 caption" style="text-align: center;">포인트
-								할인 금액</div>
-							<div class="col-6 caption" style="text-align: center;"
-								id=usedpoint>0p</div>
-							<div class="col-6 caption" style="text-align: center;">쿠폰
-								할인 금액</div>
-							<div class="col-6 caption" style="text-align: center;"
-								id=coupondc>0p</div>
-						</div>
-						<div class=row id=row1>
-							<div class="col-12"
-								style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
-								<button class="btn1_1" id=pay onclick="iamport()"
-									style="width: 100%;">결제하기</button>
-							</div>
-
-
-
-
-							<div class="col-12 h4 d-none d-sm-block"
-								style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불
-								규정을 확인하였으며 결제에 동의합니다.</div>
-							<div class="col-12 caption d-none d-sm-block"
-								style="margin-top: 0.4rem;">
-								이용약관 동의<a class=policy>보기</a>
-							</div>
-							<div class="col-12 caption d-none d-sm-block"
-								style="margin-top: 0.4rem;">
-								개인정보 수집 및 이용 동의<a class=policy>보기</a>
-							</div>
-							<div class="col-12 caption d-none d-sm-block"
-								style="margin-top: 0.4rem;">
-								결제 대행 서비스 이용약관<a class=policy>보기</a>
-							</div>
-							<div class="col-12 caption d-none d-sm-block"
-								style="margin-top: 0.4rem;">
-								취소 환불 규정<a class=policy>보기</a>
-							</div>
-
-
-
-
-							<div class="col-12 h4 d-block d-sm-none"
-								style="color: #637381; margin-top: 1.75rem;">약관 및 취소 환불
-								규정을 확인하였으며 결제에 동의합니다.</div>
-							<div class="col-12 caption d-block d-sm-none"
-								style="margin-top: 0.4rem;">
-								이용약관 동의<a class=policy>보기</a>
-							</div>
-							<div class="col-12 caption d-block d-sm-none"
-								style="margin-top: 0.4rem;">
-								개인정보 수집 및 이용 동의<a class=policy>보기</a>
-							</div>
-							<div class="col-12 caption d-block d-sm-none"
-								style="margin-top: 0.4rem;">
-								결제 대행 서비스 이용약관<a class=policy>보기</a>
-							</div>
-							<div class="col-12 caption d-block d-sm-none"
-								style="margin-top: 0.4rem;">
-								취소 환불 규정<a class=policy>보기</a>
-							</div>
-
-						</div>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class=container style="margin-top: 3.75rem;">
-		<div class=row>
-
-			<div class="col-12 h3 d-none d-sm-block">전시 정보</div>
-			<div class="col-12 h3 d-block d-sm-none" style="text-align: center;">전시
-				정보</div>
-		</div>
-		<div class=row
-			style="margin-top: 1.25rem; padding-left: 3.25rem; padding-right: 3.25rem;">
-
-			<div class="col-lg-7 col-12 rec1"
-				style="padding-left: 0rem; height: 12rem; width: 42rem;">
-				<div class=row id=row1>
-					<div class="col-lg-3 col-5">
-						<img src="/images/anywayloveSM.png"
-							style="width: 10rem; height: 12rem;">
-					</div>
-					<div class="col-lg-1 col-1"></div>
-					<div class="col-lg-8 body1 col-6"
-						style="color: #161C24; margin-top: 2.325rem;">
-						Romantic Days 어쨌든, 사랑
-
-						<div class=h3
-							style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-							id=totalprice>${price}</div>
-						<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-							id=count>${count}매</div>
-
-					</div>
-
-
-
-				</div>
-			</div>
-			<div class="col-lg-5 col-12" style="height: 2rem;"></div>
-		</div>
-
-
-
-		<div class=row style="margin-top: 1.25rem; padding-left: 3.5rem;">
-
-			<div class="col-12" style="padding-left: 0rem;">
-				<ul class="info body2" style="color: #637381; padding-left: 0rem;">
-					<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
-					<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
-					<li style="list-style-type: none;">*오후 6시 *매월 첫째 주 월요일 휴관
-						*(대체)공휴일 정상 운영</li>
-					<li>관람 가능 연령 : 전체 관람가</li>
-					<li style="list-style-type: none;">*영유아는 보호자 동반 하에만 입장 및 관람이
-						가능합니다.</li>
-					<li>매월 첫째 주 월요일은 휴관입니다.</li>
-					<li>(대체)공휴일 정상 운영합니다.</li>
-
-
-
-
-				</ul>
-			</div>
-			<div class="col-12 h3"
-				style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
-			<div class="col-12 body2"
-				style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
-			<div class="col-12 h3"
-				style="padding-left: 0rem; margin-top: 1.125rem;">
-
-				<select id="selectbox" class="form-select"
-					aria-label="Default select example"
-					style="width: 23.5rem; height: 3rem;">
-
-					<option value='0' value1="inavailableCP" selected>쿠폰을 선택해
-						주세요.</option>
-					<c:forEach var="clist" items="${clist }">
-						<option id=option1 class="option1" value="${clist.dc}"
-							value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							-${clist.dc}원</option>
-
-					</c:forEach>
-				</select>
-
-			</div>
-			<div class="col-12 body2"
-				style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
-
-			<div class="col-12 body2"
-				style="padding-left: 0rem; margin-top: 1.125em;">
-
-				<input type=text class="body2 usedpoint"
-					style="width: 15rem; height: 3rem;">
-				<button class="h4 usedbutton"
-					style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
-					사용</button>
-			</div>
-			<div class="col-12 h5"
-				style="padding-left: 0rem; margin-top: 2.188em;">
-				남은마일리지 <span class=h5_1>${mdto.point }</span>
-			</div>
-
-		</div>
-
-
-
-
-
-	</div> --%>
-
+		
 		<div class="row " id="footer"
 			style="margin-top: 12.5rem; padding: 0px; margin-left: 0px; margin-right: 0px;">
 			<div class="container">
@@ -1293,126 +981,7 @@ input::placeholder {
 </body>
 <script>
 
-/* 
-	$( window ).resize(function() {   //창크기 변화 감지
-	open_chatroom();
-});
-	
-	
-	function open_chatroom(){ 
-		var windowWidth = $( window ).width();
-		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
-		 	$(".username").val($(".username2").val());
-			$(".username2").val($(".username").val());
-			$(".username").text($(".username2").text());
-			$(".username2").text($(".username").text());
-			
-			$(".phone").val($(".phone2").val());
-			$(".phone2").val($(".phone").val());
-			$(".phone").text($(".phone2").text());
-			$(".phone2").text($(".phone").text());
-			
-			$(".form-select1").val($(".form-select2").val());
-			$(".form-select2").val($(".form-select1").val());
-			$(".form-select1").text($(".form-select2").text());
-			$(".form-select2").text($(".form-select1").text()); 
-		 
-			$(".usedpoint").val($(".usedpoint2").val());
-			$(".usedpoint2").val($(".usedpoint").val());
-			$(".usedpoint").text($(".usedpoint2").text());
-			$(".usedpoint2").text($(".usedpoint").text());
-			
-			
-			$(".h5_1_1").val($(".h5_1_2").val());
-			$(".h5_1_2").val($(".h5_1_1").val());
-			$(".h5_1_1").text($(".h5_1_2").text());
-			$(".h5_1_2").text($(".h5_1_1").text());
-		
-			$("#finalprice").val($("#finalprice2").val());
-			$("#finalprice2").val($("#finalprice").val());
-			$("#finalprice").text($("#finalprice2").text());
-			$("#finalprice2").text($("#finalprice").text());
-			
-			$("#point").val($("#point2").val());
-			$("#point2").val($("#point").val());
-			$("#point").text($("#point2").text());
-			$("#point2").text($("#point").text());
-			
-			$("#usedpoint").val($("#usedpoint2").val());
-			$("#usedpoint2").val($("#usedpoint").val());
-			$("#usedpoint").text($("#usedpoint2").text());
-			$("#usedpoint2").text($("#usedpoint").text());
-			
-			$("#coupondc").val($("#coupondc2").val());
-			$("#coupondc2").val($("#coupondc").val());
-			$("#coupondc").text($("#coupondc2").text());
-			$("#coupondc2").text($("#coupondc").text());
-			
-			$("#coupondc").val($("#coupondc2").val());
-			$("#coupondc2").val($("#coupondc").val());
-			$("#coupondc").text($("#coupondc2").text());
-			$("#coupondc2").text($("#coupondc").text());
-			
-			
-			
 
-			
-			
-			
-		} else if(windowWidth > 992) {      //창 가로 크기가 500보다 클 경우  
-	 		$(".username").val($(".username2").val());
-			$(".username2").val($(".username").val());
-			$(".username").text($(".username2").text());
-			$(".username2").text($(".username").text());
-			
-			$(".phone").val($(".phone2").val());
-			$(".phone2").val($(".phone").val());
-			$(".phone").text($(".phone2").text());
-			$(".phone2").text($(".phone").text());
-			
-			$(".form-select1").val($(".form-select2").val());
-			$(".form-select2").val($(".form-select1").val());
-			$(".form-select1").text($(".form-select2").text());
-			$(".form-select2").text($(".form-select1").text()); 
-		
-			$(".usedpoint").val($(".usedpoint2").val());
-			$(".usedpoint2").val($(".usedpoint").val());
-			$(".usedpoint").text($(".usedpoint2").text());
-			$(".usedpoint2").text($(".usedpoint").text());
-			
-			
-			$(".h5_1_1").val($(".h5_1_2").val());
-			$(".h5_1_2").val($(".h5_1_1").val());
-			$(".h5_1_1").text($(".h5_1_2").text());
-			$(".h5_1_2").text($(".h5_1_1").text());
-		
-			$("#finalprice").val($("#finalprice2").val());
-			$("#finalprice2").val($("#finalprice").val());
-			$("#finalprice").text($("#finalprice2").text());
-			$("#finalprice2").text($("#finalprice").text());
-			
-			$("#point").val($("#point2").val());
-			$("#point2").val($("#point").val());
-			$("#point").text($("#point2").text());
-			$("#point2").text($("#point").text());
-			
-			$("#usedpoint").val($("#usedpoint2").val());
-			$("#usedpoint2").val($("#usedpoint").val());
-			$("#usedpoint").text($("#usedpoint2").text());
-			$("#usedpoint2").text($("#usedpoint").text());
-			
-			$("#coupondc").val($("#coupondc2").val());
-			$("#coupondc2").val($("#coupondc").val());
-			$("#coupondc").text($("#coupondc2").text());
-			$("#coupondc2").text($("#coupondc").text());
-			
-			$("#coupondc").val($("#coupondc2").val());
-			$("#coupondc2").val($("#coupondc").val());
-			$("#coupondc").text($("#coupondc2").text());
-			$("#coupondc2").text($("#coupondc").text());
-		}
-		} 
-	 */
 	
 	
 
@@ -1427,10 +996,7 @@ if (phoneResult) {
 		$(".phoneck").css("color", "#1890FF");
 		$(".phoneck").css("display", "inline");
 		$(".phoneck").text("사용할수 있는 번호입니다.");
-		$(".phone2").css("border", "1px solid #1890FF ");
-		$(".phoneck2").css("color", "#1890FF");
-		$(".phoneck2").css("display", "inline");
-		$(".phoneck2").text("사용할수 있는 번호입니다.");
+	
 	
 	}
 
@@ -1439,10 +1005,7 @@ else if (phone=='') {
 	$(".phoneck").css("color", "#1890FF");
 	$(".phoneck").css("display", "inline");
 	$(".phoneck").text("");
-	$(".phone2").css("border", "1px solid #1890FF ");
-	$(".phoneck2").css("color", "#1890FF");
-	$(".phoneck2").css("display", "inline");
-	$(".phoneck2").text("");
+
 
 }
 
@@ -1451,10 +1014,7 @@ else if (!phoneResult) {
 	$(".phoneck").css("color", "#FF4842");
 	$(".phoneck").css("display", "inline");
 	$(".phoneck").text("올바른 핸드폰번호를 입력해주세요.");
-	$(".phone2").css("border", "1px solid #FF4842");	
-	$(".phoneck2").css("color", "#FF4842");
-	$(".phoneck2").css("display", "inline");
-	$(".phoneck2").text("올바른 핸드폰번호를 입력해주세요.");
+	
 }
 
 
@@ -1490,35 +1050,6 @@ console.log('여기1');
 })
 
 
-
-
-//작은화면 쿠폰 사용
-$(".form-select2").on('change',function(){
-	console.log('여기2');
-	console.log($(".h5_1_2").text());
-	//나한테 있는 마일리지가 사용되었다면
- if(${mdto.point}!=$(".h5_1_2").text())
- 
- {
-	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
-	return false;
- }
-
-	if($(".form-select2 option:selected").text() == '쿠폰을 선택해 주세요.'){
-		$("#finalprice").text('${price}');
-		 let coupondc =  $(".form-select2 option:selected").val();
-			$('#coupondc').text(coupondc+'p');
-	}
-	else{
-   let coupondc =  $(".form-select2 option:selected").text();
-	$('#coupondc').text(coupondc);
-	let price = '${price}';
-	let price1 = price.replace(",", "");
-	let price2 = price1.replace("원", "");
-	
-	$("#finalprice").text((price2-$(".form-select2 option:selected").val()).toLocaleString()+"원");
-}
-})
 
 
 
@@ -1590,14 +1121,7 @@ console.log($(".form-select1 option:selected").text());
 
 	})
 	
-	//모두사용 작은화면
-	
 
-	
-	
-	
-	
-	
 	
 	
 	// 큰 화면 일부 마일리지 사용엔터
@@ -1705,16 +1229,20 @@ console.log($(".form-select1 option:selected").text());
 
 	}
 
+
+
+
 	function iamport() {
 		console.log($(".username").val());
-		let price = $("#finalprice2").text();
+		let price = $("#finalprice").text();
 		let price1 = price.replace(",", "");
 		let price2 = price1.replace("원", "");
-
+		let price3 = parseInt(price2);
+		
 		let count = $("#count").text();
 		let count1 = count.replace("매", "");
 
-		let point = $("#point2").text();
+		let point = $("#point").text();
 		let point1 = point.replace("p", "");
 		let point2 = parseInt(point1);
 		
@@ -1771,7 +1299,7 @@ console.log($(".form-select1 option:selected").text());
 						et_paymethod : rsp.card_name,
 						et_cardnumber : rsp.card_number,
 						et_cardquota : rsp.card_quota,
-						et_cost : price2,
+						et_cost : price3,
 						et_count : count1,
 						et_point : point2,
 						et_usedpoint : usedpoint3,

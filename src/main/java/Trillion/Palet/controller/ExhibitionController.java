@@ -96,6 +96,7 @@ public class ExhibitionController {
 		model.addAttribute("clist",clist);
 		
 		return "/exhibition/book";
+		
 	}
 	
 	@RequestMapping("toCurdetail")
