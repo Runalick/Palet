@@ -641,7 +641,7 @@ cursor:pointer;
 					<div class="row Glist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
-								<img src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
+								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
 						</div>
 						<div class="col-8 col-md-9" >
 							<div class="row">
@@ -680,7 +680,7 @@ cursor:pointer;
 							
 							<c:choose>
 							<c:when test="${i.num == 102 }">
-								<img src="${i.sysname }" style="width:100px; height:100px; border-radius:10px">
+								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px">
 							</c:when>
 							<c:otherwise>
 								<img src=""style="width:100px; height:100px;">
