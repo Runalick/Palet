@@ -77,7 +77,7 @@
 }
 
 .nav-item {
-margin: auoto;
+	margin: auoto;
 	padding-right: 20px;
 }
 
@@ -123,18 +123,15 @@ margin: auoto;
 	height: 1.5rem;
 }
 
-
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
 
-
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
 }
-
 
 #Signup {
 	width: 4.438rem;
@@ -564,7 +561,8 @@ input::placeholder {
 </head>
 <body>
 	<div class="container-fluid">
-		<div class="container-fluid" style="background-color: white; z-index :50;" >
+		<div class="container-fluid"
+			style="background-color: white; z-index: 50;">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -754,23 +752,24 @@ input::placeholder {
 		<div class="container mt-3">
 			<div class=row>
 				<div class="col-12">
-					<div class=row >
-						<div class ="col-lg-7 col-12 d-none d-sm-block"
+					<div class=row>
+						<div class="col-lg-7 col-12 d-none d-sm-block"
 							style="padding-left: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px;">예매 정보</div>
 							<div class="row rec1" style="margin-top: 2rem;">
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." style="text-align: center" maxlength="4"
-										required>
+										placeholder="신청자 이름을 입력해 주세요." style="text-align: center"
+										maxlength="4" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-										<input type=text class="input1 phone" maxlength="11"
-									pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
-									placeholder="전화번호를 입력해 주세요."  style="text-align: center"  required><br> <span
-									style="display: none; text-align: center;" class="phoneck"  >전화번호를 숫자만 입력 해주세요</span>
+									<input type=text class="input1 phone" maxlength="11"
+										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+										placeholder="전화번호를 입력해 주세요." style="text-align: center"
+										required><br> <span
+										style="display: none; text-align: center;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
@@ -791,35 +790,36 @@ input::placeholder {
 							<div class="row rec1 mb-5">
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 username"
+									<input type=text class="input1 username2"
 										style="text-align: center" placeholder="신청자 이름을 입력해 주세요."
 										required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
-									<input type=text class="input1 phone" maxlength="11"
-									pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"  style="text-align: center;" 
-									placeholder="전화번호를 입력해 주세요." required><br> <span
-									style="display: none; text-align: center;" class="phoneck" >전화번호를 숫자만 입력 해주세요</span>
+									<input type=text class="input1 phone2" maxlength="11"
+										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+										style="text-align: center;" placeholder="전화번호를 입력해 주세요."
+										required><br> <span
+										style="display: none; text-align: center;" class="phoneck2">전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-5" style="margin-top: 0.5rem;">
-									<input type=text class="input1 email"
+									<input type=text class="input1 email2"
 										style="text-align: center;" value="${loginEmail}" readonly>
 								</div>
 
 							</div>
 						</div>
-<!-- 큰화면 결제 -->
-				
-						<div class="col-lg-4 col-12 "
+						<!-- 큰화면 결제 -->
+
+						<div class="col-lg-4 col-12 d-none d-sm-block"
 							style="padding-left: 1.564rem; margin: auto; text-align: center;">
 							<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
 								상세</div>
 							<div class="row  rec1" id=row2
 								style="margin-top: 2rem; height: 14.5rem;">
 								<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
-								<div class="col-6 h3" style="text-align: center;" id=finalprice>${price }</div>
+								<div class="col-6 h3" style="text-align: center;" id=finalprice>${price}</div>
 								<div class="col-6 caption" style="text-align: center;">적립예정
 									포인트</div>
 								<div class="col-6 caption" style="text-align: center;" id=point></div>
@@ -860,20 +860,70 @@ input::placeholder {
 							</div>
 
 						</div>
-						
-						
-						
+
+
+						<!--작은 화면 결제 -->
+						<div class="col-lg-4 col-12 d-block d-sm-none"
+							style="padding-left: 1.564rem; margin: auto; text-align: center;">
+							<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
+								상세</div>
+							<div class="row  rec1" id=row2
+								style="margin-top: 2rem; height: 14.5rem;">
+								<div class="col-6 h3" style="text-align: center;">총 결제 금액</div>
+								<div class="col-6 h3" style="text-align: center;" id=finalprice2>${price}</div>
+								<div class="col-6 caption" style="text-align: center;">적립예정
+									포인트</div>
+								<div class="col-6 caption" style="text-align: center;" id=point2></div>
+								<div class="col-6 caption" style="text-align: center;">포인트
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=usedpoint2>0p</div>
+								<div class="col-6 caption" style="text-align: center;">쿠폰
+									할인 금액</div>
+								<div class="col-6 caption" style="text-align: center;"
+									id=coupondc2>0p</div>
+							</div>
+							<div class="col-12"
+								style="margin-top: 2.5rem; padding: 0px; text-align: center; height: 3.75rem;">
+								<button class="btn1_1" id=pay2 onclick="iamport2()"
+									style="width: 100%;">결제하기</button>
+							</div>
+
+
+							<div class="col-12 h4 d-block d-sm-none"
+								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
+								및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
+							<div class="col-12 caption d-none d-sm-block"
+								style="margin-top: 0.4rem; text-align: left;">
+								이용약관 동의<a class=policy>보기</a>
+							</div>
+							<div class="col-12 caption d-block d-sm-none"
+								style="margin-top: 0.4rem; text-align: left;">
+								개인정보 수집 및 이용 동의<a class=policy>보기</a>
+							</div>
+							<div class="col-12 caption d-block d-sm-none"
+								style="margin-top: 0.4rem; text-align: left;">
+								결제 대행 서비스 이용약관<a class=policy>보기</a>
+							</div>
+							<div class="col-12 caption d-block d-sm-none"
+								style="margin-top: 0.4rem; text-align: left;">
+								취소 환불 규정<a class=policy>보기</a>
+							</div>
+
+						</div>
+
+
 						<!-- 작은화 결제 -->
-						
-						
+
+
 
 					</div>
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- 큰화면 전시정보 -->
-		<div class="container" style = "margin-top : -8rem;" >
+		<div class="container" style="margin-top: -8rem;">
 			<div class=row>
 				<div class="col-12">
 					<div class=row>
@@ -1013,11 +1063,13 @@ input::placeholder {
 						<div class="col-12 h3 d-none d-sm-block"
 							style="padding-left: 0rem; margin-top: 1.125rem;">
 
-							<select id="selectbox1" class="form-select d-none d-sm-block form-select1"
+							<select id="selectbox1"
+								class="form-select d-none d-sm-block form-select1"
 								aria-label="Default select example"
 								style="width: 23.5rem; height: 3rem;">
 
-								<option value='0' value1="inavailableCP" selected>쿠폰을 선택해 주세요.</option>
+								<option value='0' value1="inavailableCP" selected>쿠폰을
+									선택해 주세요.</option>
 								<c:forEach var="clist" items="${clist }">
 									<option id=option1 class="option1" value="${clist.dc}"
 										value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -1041,7 +1093,7 @@ input::placeholder {
 						</div>
 						<div class="col-12 h5 d-none d-sm-block"
 							style="padding-left: 0rem; margin-top: 2.188em;">
-							남은마일리지 <span class="h5_1 h5_1_1" >${mdto.point }</span>
+							남은마일리지 <span class="h5_1 h5_1_1">${mdto.point }</span>
 						</div>
 
 
@@ -1054,7 +1106,8 @@ input::placeholder {
 						<div class="col-12 h3 d-block d-sm-none"
 							style="padding-left: 0rem; margin-top: 1.125rem; text-align: center;">
 
-							<select id="selectbox" class="form-select d-block d-sm-none form-select2"
+							<select id="selectbox"
+								class="form-select d-block d-sm-none form-select2"
 								aria-label="Default select example"
 								style="width: 23.5rem; height: 3rem; text-align: center; margin: auto;">
 
@@ -1084,7 +1137,7 @@ input::placeholder {
 						</div>
 						<div class="col-12 h5 d-block d-sm-none"
 							style="padding-left: 0rem; margin-top: 2.188em; text-align: center;">
-							남은마일리지 <span class="h5_1 h5_1_2" >${mdto.point }</span>
+							남은마일리지 <span class="h5_1 h5_1_2">${mdto.point }</span>
 						</div>
 
 
@@ -1412,6 +1465,43 @@ input::placeholder {
 	</div>
 </body>
 <script>
+
+
+	$( window ).resize(function() {   //창크기 변화 감지
+	open_chatroom();
+});
+	
+	
+	function open_chatroom(){ 
+		var windowWidth = $( window ).width();
+		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
+			$(".buyer_postcode1").val($(".buyer_postcode").val());
+			$(".buyer_postcode").val($(".buyer_postcode1").val());
+			$(".address1").val($(".address").val());
+			$(".address").val($(".address1").val());
+			$(".buyer_name1").val($(".buyer_name").val());
+			$(".buyer_name").val($(".buyer_name1").val());
+			$(".buyer_tel1").val($(".buyer_tel").val());
+			$(".buyer_tel").val($(".buyer_tel1").val());
+			$(".buyer_address21").val($(".buyer_address2").val());
+			$(".buyer_address2").val($(".buyer_address21").val());
+			
+			
+			
+		} else if(windowWidth > 992) {      //창 가로 크기가 500보다 클 경우  
+			$(".buyer_postcode").val($(".buyer_postcode1").val());
+			$(".buyer_postcode1").val($(".buyer_postcode").val());
+			$(".address").val($(".address1").val());
+			$(".address1").val($(".address").val());
+			$(".buyer_name").val($(".buyer_name1").val());
+			$(".buyer_name1").val($(".buyer_name").val());
+			$(".buyer_tel").val($(".buyer_tel1").val());
+			$(".buyer_tel1").val($(".buyer_tel").val());
+			$(".buyer_address2").val($(".buyer_address21").val());
+			$(".buyer_address21").val($(".buyer_address2").val());
+		}
+		}
+
 $(".phone").on("keyup", function() {
 	let phone = $(this).val();
 	let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
@@ -1423,6 +1513,10 @@ if (phoneResult) {
 		$(".phoneck").css("color", "#1890FF");
 		$(".phoneck").css("display", "inline");
 		$(".phoneck").text("사용할수 있는 번호입니다.");
+		$(".phone2").css("border", "1px solid #1890FF ");
+		$(".phoneck2").css("color", "#1890FF");
+		$(".phoneck2").css("display", "inline");
+		$(".phoneck2").text("사용할수 있는 번호입니다.");
 	
 	}
 
@@ -1431,6 +1525,10 @@ else if (phone=='') {
 	$(".phoneck").css("color", "#1890FF");
 	$(".phoneck").css("display", "inline");
 	$(".phoneck").text("");
+	$(".phone2").css("border", "1px solid #1890FF ");
+	$(".phoneck2").css("color", "#1890FF");
+	$(".phoneck2").css("display", "inline");
+	$(".phoneck2").text("");
 
 }
 
@@ -1439,6 +1537,10 @@ else if (!phoneResult) {
 	$(".phoneck").css("color", "#FF4842");
 	$(".phoneck").css("display", "inline");
 	$(".phoneck").text("올바른 핸드폰번호를 입력해주세요.");
+	$(".phone2").css("border", "1px solid #FF4842");	
+	$(".phoneck2").css("color", "#FF4842");
+	$(".phoneck2").css("display", "inline");
+	$(".phoneck2").text("올바른 핸드폰번호를 입력해주세요.");
 }
 
 
@@ -1792,10 +1894,43 @@ console.log($(".form-select2 option:selected").text() );
 		}
 		
 		$("#point").text(finalpoint + "p");
+		$("#point2").text(finalpoint + "p");
 
 	}
 
 	function iamport() {
+		console.log($(".username").val());
+		let price = $("#finalprice2").text();
+		let price1 = price.replace(",", "");
+		let price2 = price1.replace("원", "");
+
+		let count = $("#count").text();
+		let count1 = count.replace("매", "");
+
+		let point = $("#point2").text();
+		let point1 = point.replace("p", "");
+		let point2 = parseInt(point1);
+		
+		
+		let usedpoint = $("#usedpoint").text();
+		let usedpoint1 = usedpoint.replace("p","");
+		let usedpoint2 = usedpoint1.replace("-","");
+		let usedpoint3 = parseInt(usedpoint2);
+	
+		
+	   if($(".username").val()==""){
+			alert('이름을 입력해주세요.');
+			return false;
+		}
+	   if($(".phoneck").text()=="올바른 핸드폰번호를 입력해주세요."){
+			alert('올바른 핸드폰번호를 입력해주세요.');
+			return false;
+		}
+	   if($(".phone").val()==''){
+			alert('올바른 핸드폰번호를 입력해주세요.');
+			return false;
+		}
+		
 		//가맹점 식별코드
 		IMP.init('imp48062056');
 		IMP.request_pay({
@@ -1813,22 +1948,6 @@ console.log($(".form-select2 option:selected").text() );
 		}, function(rsp) {
 			console.log(rsp);
 			if (rsp.success) {
-				let price = $("#finalprice").text();
-				let price1 = price.replace(",", "");
-				let price2 = price1.replace("원", "");
-
-				let count = $("#count").text();
-				let count1 = count.replace("매", "");
-
-				let point = $("#point").text();
-				let point1 = point.replace("p", "");
-				let point2 = parseInt(point1);
-				
-				
-				let usedpoint = $("#usedpoint").text();
-				let usedpoint1 = usedpoint.replace("p","");
-				let usedpoint2 = usedpoint1.replace("-","");
-				let usedpoint3 = parseInt(usedpoint2);
 				
 				$.ajax({
 					url : "/pay/insertEx",
@@ -1849,8 +1968,8 @@ console.log($(".form-select2 option:selected").text() );
 						et_count : count1,
 						et_point : point2,
 						et_usedpoint : usedpoint3,
-						et_cpdiscount : parseInt($(".form-select option:selected").val()),
-						et_cpserial :  $(".form-select option:selected").attr('value1'),
+						et_cpdiscount : parseInt($(".form-select2 option:selected").val()),
+						et_cpserial :  $(".form-select2 option:selected").attr('value1'),
 						et_category : 'E',
 						e_num : 1020
 					},
@@ -1878,7 +1997,111 @@ console.log($(".form-select2 option:selected").text() );
 			alert(msg);
 		});
 		
+	}
+	
+
+	function iamport2() {
 		
+		
+		 if($(".username2").val()==""){
+				alert('이름을 입력해주세요.');
+				return false;
+			}
+		   if($(".phoneck2").text()=="올바른 핸드폰번호를 입력해주세요."){
+				alert('올바른 핸드폰번호를 입력해주세요.');
+				return false;
+			}
+		   if($(".phone2").val()==''){
+				alert('올바른 핸드폰번호를 입력해주세요.');
+				return false;
+			}
+			
+		
+		
+		
+		//가맹점 식별코드
+		IMP.init('imp48062056');
+		IMP.request_pay({
+			pg : 'kcp',
+			pay_method : 'card',
+			merchant_uid : 'merchant_' + new Date().getTime(),
+			name : '예매', //결제창에서 보여질 이름
+			amount : 100, //실제 결제되는 가격
+			buyer_email : $(".email2").val(),
+			buyer_name : $(".username2").val(),
+			buyer_tel : $(".phone2").val(),
+			buyer_addr : '서울 강남구 도곡동',
+			buyer_postcode : '123-456'
+
+		}, function(rsp) {
+			console.log(rsp);
+			if (rsp.success) {
+				let price = $("#finalprice2").text();
+				let price1 = price.replace(",", "");
+				let price2 = price1.replace("원", "");
+
+				let count = $("#count").text();
+				let count1 = count.replace("매", "");
+
+				let point = $("#point2").text();
+				let point1 = point.replace("p", "");
+				let point2 = parseInt(point1);
+				
+				
+				let usedpoint = $("#usedpoint2").text();
+				let usedpoint1 = usedpoint.replace("p","");
+				let usedpoint2 = usedpoint1.replace("-","");
+				let usedpoint3 = parseInt(usedpoint2);
+				
+				$.ajax({
+					url : "/pay/insertEx",
+					data : {
+
+						et_email : $(".email2").val(),
+						et_title : "Romantic Days 어쨋든 사랑",
+						et_place : "지하철 3호선 경복궁역 지하 1층",
+						et_date : "2022.03.16 ~ 2022.10.30",
+						et_booknumber : rsp.merchant_uid,
+						et_state : "BU", //이거 사용되면 N으로 바꾸는 로직 필요(qr연계?)
+						et_username : $(".username2").val(),
+						et_phone : $(".phone2").val(),
+						et_paymethod : rsp.card_name,
+						et_cardnumber : rsp.card_number,
+						et_cardquota : rsp.card_quota,
+						et_cost : price2,
+						et_count : count1,
+						et_point : point2,
+						et_usedpoint : usedpoint3,
+						et_cpdiscount : parseInt($(".form-select2 option:selected").val()),
+						et_cpserial :  $(".form-select2 option:selected").attr('value1'),
+						et_category : 'E',
+						e_num : 1020
+					},
+
+					type : "post",
+					dataType : "json"
+				}).done(function(resp) {
+					alert(resp);
+				});
+				var msg = '결제가 완료되었습니다.';
+				msg += '고유ID : ' + rsp.imp_uid;
+				console.log(msg);
+				msg += '상점 거래ID : ' + rsp.merchant_uid;
+				console.log(msg);
+				msg += '결제 금액 : ' + rsp.paid_amount;
+				console.log(msg);
+				msg += '카드 승인번호 : ' + rsp.apply_num;
+				
+				
+			console.log(msg);
+			} else {
+				var msg = '결제에 실패하였습니다.';
+				msg += '에러내용 : ' + rsp.error_msg;
+			}
+			alert(msg);
+		});
+		
+	}
 		
 		 //공유하기 모달창
 		$(function(){
@@ -1951,7 +2174,7 @@ console.log($(".form-select2 option:selected").text() );
 			return true;
 		}
 	  
-	}
+	
 </script>
 </html>
 
