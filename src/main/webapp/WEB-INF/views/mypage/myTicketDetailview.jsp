@@ -1126,7 +1126,7 @@ $("body").on("click", function(e){
 		console.log($(".booknumber")[i]);
 		console.log($(".booknumber")[i].value);
 		var qrcode = new QRCode($(".qr")[i], {
-            text: "http://localhost/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
+            text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
             width: 90,
             height: 90,
             colorDark : "#000000",
