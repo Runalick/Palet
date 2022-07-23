@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import Trillion.Palet.DAO.AdminDAO;
 import Trillion.Palet.DAO.MemberDAO;
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.MyGoodsDTO;
 import Trillion.Palet.utiles.EncryptUtils;
 
 @Service
@@ -76,6 +77,44 @@ public class MemberService {
 		
 		return dao.updatePoint(et_point, et_usedpoint, et_email);
 		
+	}
+	
+	
+	// memberout시 삭제 로직
+	public List<String> selectmygoods(String email) {
+		return dao.selectmygoods(email);
+	}
+
+	public List<String> selectpayment(String email) {
+		return dao.selectpayment(email);
+	}
+
+	public List<String> selectproticket(String email) {
+		return dao.selectproticket(email);
+	}
+
+	public List<String> selectexticket(String email) {
+		return dao.selectexticket(email);
+	}
+
+	public int deletecancel(String uid) {
+		return dao.deleteCancel(uid);
+	}
+
+	public int deleteMygoods(String email) {
+		return dao.deleteMygoods(email);
+	}
+	
+	public int deletePayment(String email) {
+		return dao.deletePayment(email);
+	}
+	
+	public int deleteProticket(String email) {
+		return dao.deleteProticket(email);
+	}
+	
+	public int deleteExticket(String email) {
+		return dao.deleteExticket(email);
 	}
 	
 }

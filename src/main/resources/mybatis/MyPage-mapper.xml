@@ -194,8 +194,12 @@ select g_option as option1, g_num as num, email as email, g_name as title, addre
 	<update id="couponRegist">
 		update coupon set email = #{email} where serial = #{serial}
 	</update>
+	
+	
 
 	
+
+
 	
 <!-- 	프로그램 -->
 	<select id="ExProTicket" resultType="Trillion.Palet.DTO.ExProticketDTO">
