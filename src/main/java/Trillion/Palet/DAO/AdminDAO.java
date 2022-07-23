@@ -468,6 +468,14 @@ public class AdminDAO {
 		return sb.toString();
 	}
 	
+	public ProgramDTO getProgram (int p_num) {
+		return mybatis.selectOne("Admin.getProgram", p_num);
+	}
+	
+	public int adminProgramUpdate(ProgramDTO pdto) {
+		return mybatis.update("Admin.adminProgramUpdate", pdto);
+	}
+	
 	
 	// Payment Category
 	
@@ -760,6 +768,10 @@ public class AdminDAO {
 	
 	public int cancelGoodsUpdate(String check) {
 		return mybatis.update("Admin.cancelGoodsUpdate", check);
+	}
+	
+	public int cancelGoodsUpdate2(String check)  {
+		return mybatis.update("Admin.cancelGoodsUpdate2", check);
 	}
 	
 	public int cancelProticketUpdate(String check) {

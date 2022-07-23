@@ -188,8 +188,8 @@
 			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Name</div>
 			            	</div>	
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='edit' disabled style="width:50%; text-align:center" ></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='editable' disabled style="width:70%; text-align:center" ></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='edit' disabled style="width:50%; text-align:center" maxlength="30"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='pe_name' value='${edto.pe_name }' class='editable' disabled style="width:70%; text-align:center" maxlength="30"></div>
 			           			<input type="hidden" name="pe_seq" value="${edto.pe_seq }">
 			           		</div>
 			            	<div class="row" > 
@@ -197,8 +197,9 @@
  			            		<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left">Date</div> 
  			            	</div>	 
  			           		<div class="row" style="text-align:center"> 
- 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='pe_date' class='edit' value='${edto.pe_date }' disabled style="width:50%; text-align:center"></div> 
- 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='pe_date' class='editable' value='${edto.pe_date }' disabled style="width:70%; text-align:center"></div>
+ 			           			<div class="col-12 d-none d-lg-block mt-3 body1" ><input type='text' name='pe_date'  value='${edto.pe_date }' disabled style="width:50%; text-align:center" maxlength="30"></div> 
+ 			           			<div class="col-12 d-lg-none mt-3 body1" ><input type='text' name='pe_date'  value='${edto.pe_date }' disabled style="width:70%; text-align:center" maxlength="30"></div>
+ 			           			<input type="hidden" name='pe_date' value='${edto.pe_date }'>
  			           		</div> 
 <!-- 			           		<div class="row"> -->
 <!-- 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left">End Date</div> -->
@@ -222,8 +223,10 @@
 			           			<div class="col-12 d-lg-none h3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:70%; text-align:left"> Price</div>  
 			           		</div>
 			           		<div class="row" style="text-align:center">
-			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='pe_price' class='edit' value='${edto.pe_price }' disabled style="width:50%; text-align:center"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='pe_price' class='editable' value='${edto.pe_price }' disabled style="width:70%; text-align:center"></div>
+			           			<div class="col-12 d-none d-lg-block mt-3 body1"><input type='text' name='pe_price' id="eprice1" class='edit' value='${edto.pe_price }' disabled style="width:50%; text-align:center" maxlength="10"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1"><input type='text' name='pe_price' id="eprice2" class='editable' value='${edto.pe_price }' disabled style="width:70%; text-align:center"maxlength="10"
+			           			oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"></div>
 			           		</div>
 			           		<div class="row">
 			           			<div class="col-12 d-none d-lg-block h3_3 m-auto" style="border-bottom : 0.125rem solid #161C24; width:50%; text-align:left" >Condition</div>
@@ -307,6 +310,30 @@ $("#modifyMember2").on("click", ()=>{
 	$(".memberBtns").append(cancel);
 	
 });
+
+let price1val = $("#eprice1").val();
+
+$("#eprice1").on("change", ()=>{
+	let text = $("#eprice1").val();
+	if (text.length == 0){
+		alert("내용을 입력해주세요.")
+		$("#eprice1").val(price1val);
+		$("#eprice1").focus();
+		
+	}
+})
+
+let price2val = $("#eprice2").val();
+
+$("#eprice2").on("change", ()=>{
+	let text = $("#eprice2").val();
+	if (text.length == 0){
+		alert("내용을 입력해주세요.")
+		$("#eprice2").val(price1val);
+		$("#eprice2").focus();
+		
+	}
+})
 
 $(".leftbutton").on("click", function() {
 
