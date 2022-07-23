@@ -824,6 +824,12 @@ input {
 	</div>
 
 	<script>
+	Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+    Kakao.isInitialized();
+    
+  	//sessionStorage에 저장된 사용자 엑세스 토큰 받아온다.
+	window.Kakao.Auth.setAccessToken(JSON.parse(sessionStorage.getItem('AccessKEY')));
+	
 	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
 	});
@@ -863,13 +869,45 @@ input {
 					}
 				}).open();
 	}//다음 주소찾기
-	$("#delbtn").on("click", function() {
+	/* $("#delbtn").on("click", function() {
 		let resurt = confirm("정말회원을 탈퇴하시겟습니까? 모든 정보가 삭제됩니다.");
 		if (resurt) {
+			
 			location.href = "/member/delmember";
 		}
 
+	}) */
+	
+	$("#delbtn").on("click", function() {
+		let result = confirm("정말회원을 탈퇴하시겟습니까? 모든 정보가 삭제됩니다.");
+		if (result) {
+			if(sessionStorage.getItem('AccessKEY') == null) {
+				location.href = "/member/delmember";
+	    	} else {
+	    		alert("사용자의 계정이 탈퇴 되었습니다.");
+	    		Kakao.API.request({
+	                url: '/v1/user/unlink',
+	                success: function(response) {
+	                    console.log(response);
+	                    //callback(); //연결끊기(탈퇴)성공시 서버에서 처리할 함수
+	                    Kakao.Auth.logout();
+	                    location.href = "/member/delmember";
+	                },
+	                fail: function(error) {
+	                    console.log('탈퇴 미완료')
+	                    console.log(error);
+	                }
+	            })
+	    		
+	    	}
+		}
+
 	})
+	
+	
+				
+	
+	
 	$("#phone").on("keyup", function() {
 		let phone = $("#phone").val();
 		let phoneRegex = /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
@@ -1006,21 +1044,6 @@ input {
 		}
 	})
 	
-	$(".logout").on("click", function(){
-         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-         Kakao.isInitialized();
-         if (!Kakao.Auth.getAccessToken()) {
-            console.log('Not logged in.');
-            location.href="/member/logout";
-             return ;
-         }
-         
-          Kakao.Auth.logout(function() {
-               console.log(Kakao.Auth.getAccessToken());
-               location.href="/member/logout";
-             });
-         return true;
-      });
 	//취소 버튼 클릭시 내용 초기화
 	$(".cancel").on("click",function(){
 		$("#newpw").val('');
@@ -1042,6 +1065,23 @@ input {
 			$("#namebtn").attr("disabled", "true");
 		}
 	})
+	
+	
+	
+	$(".logout").on("click", function(){
+         
+         if (!Kakao.Auth.getAccessToken()) {
+            console.log('Not logged in.');
+            location.href="/member/logout";
+             return ;
+         }
+         
+          Kakao.Auth.logout(function() {
+               console.log(Kakao.Auth.getAccessToken());
+               location.href="/member/logout";
+             });
+         return true;
+      });
 	</script>
 	<!-- Channel Plugin Scripts -->
 <script>

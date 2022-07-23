@@ -83,8 +83,8 @@ public class MypageDAO {
 		return mybatis.selectOne("MyPage.myShoppingDetailView", merchant_uid);
 	}
 
-	public Object myShoppingProduct(String merchant_uid) {
-		return mybatis.selectOne("MyPage.myShoppingProduct", merchant_uid);
+	public List<Object> myShoppingProduct(String merchant_uid) {
+		return mybatis.selectList("MyPage.myShoppingProduct", merchant_uid);
 	}
 
 	public String memberName(String email) {

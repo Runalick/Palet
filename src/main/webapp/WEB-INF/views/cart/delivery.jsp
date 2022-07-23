@@ -230,14 +230,14 @@ width:100%;
 	
 	<script>
 	$(".choose").on("click",function(){
-		console.log($(this).parent().siblings()[0])
+		console.log($($(this).parent().siblings()[0]).children().children().text())
 		console.log($(this).parent().siblings()[5])
 		console.log($(this).parent().siblings()[2])
 		console.log($(this).parent().siblings()[3])
 		console.log($(this).parent().siblings()[4])
 		//수령인
-		window.opener.document.getElementById("buyer_name").value = $($(this).parent().siblings()[0]).text();
-		window.opener.document.getElementById("buyer_name2").value = $($(this).parent().siblings()[0]).text();
+		window.opener.document.getElementById("buyer_name").value = $($(this).parent().siblings()[0]).children().children().text();
+		window.opener.document.getElementById("buyer_name2").value = $($(this).parent().siblings()[0]).children().children().text();
  		//전화번호
 		window.opener.document.getElementById("buyer_tel1").value = $($(this).parent().siblings()[5]).text();
 		window.opener.document.getElementById("buyer_tel2").value = $($(this).parent().siblings()[5]).text();

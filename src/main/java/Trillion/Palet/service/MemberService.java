@@ -78,4 +78,10 @@ public class MemberService {
 		
 	}
 	
+public int updateCoupon(String et_cpserial, String et_email) {
+		
+		return dao.updateCoupon(et_cpserial, et_email);
+		
+	}
+	
 }

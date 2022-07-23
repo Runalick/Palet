@@ -444,7 +444,8 @@
 						"<div class='col-12 col-md-6 col-lg-3'>"
 						+ "<div class='row' align=center style='padding-top: 50px;'>"
 						+	"<div class='col-12 p-0' style='align-items: center;'>"
-						+		"<img src=" + resp[i].d_file + " style='width:200px; height:200px;'>"
+						+		"<img src=" + resp[i].d_file + " class='imgopen' style='width:200px; height:200px;'>"
+						+		"<input type='hidden' value="+ resp[i].d_file +">"
 						+	"</div>"
 						+	"<div class='col-12 ellipsis'>"
 						+		"글번호 : " + resp[i].draw_seq 
@@ -464,11 +465,7 @@
 						+	"</div>" */
 						+	"<div class='col'>"
 
-<<<<<<< HEAD
-						+	"<button class='ok btn3 adminok' value='" + resp[i].admin_ok + "'>승인</button>"
-=======
 						+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"
->>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
 						
 						+ 	"<button class='delete btn3'>삭제</button>"
 						+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
@@ -476,65 +473,20 @@
 						+"</div>"
 						+"</div>";				
 							
-<<<<<<< HEAD
-					//console.log(i);
 			    	$("#container").append(text_html);
-					
-			    	//console.log("value: " + $("#"+i).html());
-			    	//console.log("resp.length : " + resp.length);
-			    	//console.log($($(".adminok")[i]).html());
-			    	
-			    	if(($($(".adminok")[i]).val()) == 'Y'){
-			    		$(this).text("승인완료");
-			    		
-			    	} 
-			    	
-			    	 
-			    	
 				} 
-				/* for(let i=0; i<resp.length;i++){
-			    	if($("#"+i).html() == 'Y'){
-			    		$("#text_"+i).html('승인완료');
-			    		$("#text_"+i).attr("disabled",true);
-			    	}  
-	    		}  */
-	    		
-			    	
 			},//resp
 		});	
-	}
-		
-	 	let limit = 13;
-=======
-// 					console.log(i);
-			    	$("#container").append(text_html);
-					
-// 			    	console.log("value: " + $("#"+i).html());
-// 			    	console.log($("#"+i).html() == 'Y');
-// 			    	console.log("resp.length : " + resp.length);
-				
-			    	
-				} 
-// 				for(let i=0; i<resp.length;i++){
-// 			    	if($("#"+i).html() == 'Y'){
-// 			    		$("#text_"+i).html('승인완료');
-// 			    		$("#text_"+i).attr("disabled",true);
-// 			    	}  
-// 	    		} 
-				
-			    	
-			},//resp
-		});	
+	
 		for(let i=0;i<$(".adminbtn").length;i++){
 			if($($(".adminbtn")[i]).val()=='Y'){
 				$($(".adminbtn")[i]).text("승인완료");
 				$($(".adminbtn")[i]).attr("disabled","true");
 			}
 		}
-		
+	}
 	 	let limit = 12;
->>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
-		
+
 		
 	  	$(document).scroll(function() {
 	    let maxHeight = $(document).height();
@@ -542,10 +494,7 @@
 		   
 		   
 		    if (maxHeight <= currentScroll+100) {
-<<<<<<< HEAD
-		    	//console.log("origin limit : " + limit);
-=======
->>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
+
 		    	$.ajax({
 					url:"/event/admincontents",
 					data:{limit : limit},
@@ -576,13 +525,7 @@
 								+		resp[i].admin_ok
 								+	"</div>"
 								+	"<div class='col'>"
-
-<<<<<<< HEAD
-								+	"<button class='ok btn3 okbtn'>승인</button>"
-=======
-								+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"
->>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
-								
+								+	"<button class='ok btn3 adminbtn' value='"+resp[i].admin_ok+"'>승인</button>"								
 								+ 	"<button class='delete btn3'>삭제</button>"
 								+	"<input type='hidden' name='draw_seq' value=" + resp[i].draw_seq  + ">"
 								+"</div>"
@@ -591,30 +534,19 @@
 							
 							//console.log(text_html);
 					    	$("#container").append(text_html); 
-<<<<<<< HEAD
-					    	//console.log(text_html);
-=======
->>>>>>> 34e98bde07971bef9d38b3e4da45ec25dc3f8cb5
+
 						}
 						limit = limit + resp.length;
 				    	
-				    	/* for(let i=0; i<resp.length;i++){
-					    	if($("#"+i).html() == 'Y'){
-					    		$("#text_"+i).html('승인완료');
-					    		$("#text_"+i).attr("disabled",true);
-					    	} 
-			    		}  */
-			    		
-			    		//console.log($(".ok").html());
 					},
 					});
 		    	}
-			for(let i=0;i<$(".adminbtn").length;i++){
-				if($($(".adminbtn")[i]).val()=='Y'){
-					$($(".adminbtn")[i]).text("승인완료");
-					$($(".adminbtn")[i]).attr("disabled","true");
-				}
-			}
+					for(let i=0;i<$(".adminbtn").length;i++){
+						if($($(".adminbtn")[i]).val()=='Y'){
+							$($(".adminbtn")[i]).text("승인완료");
+							$($(".adminbtn")[i]).attr("disabled","true");
+						}
+					}
 		      })   
 		      
 		     
@@ -665,32 +597,12 @@
 		}
 	})
 	
-	
-	
-	/* $(".ok").on("click", function(){
-		console.log("123");
-		console.log($(this).siblings().eq(1).val());
-		$.ajax({
-			url:"/event/confirmation",
-			data: {draw_seq:$(this).siblings().eq(1).val()}
-		}).done(function(resp){
-			alert(resp);
-			location.reload();
-		})
-	}) */
-	
-	
-	/* $(".delete").on("click", function(){
-		console.log("123");
-		console.log($(this).siblings("input").val())
-		$.ajax({
-			url:"/event/deleteDraw",
-			data: {draw_seq:$(this).siblings("input").val()}
-		}).done(function(resp){
-			alert(resp);
-			location.reload();
-		})
-	}) */
+	$("#container").on("click", ".imgopen", function(){
+	  	alert("click");
+	  	let imgurl = $(this).siblings().val();
+	  	let bigimg = window.open("",'Palet',"_blank");
+	  	bigimg.document.write("<img src='" + imgurl + "'>");
+	})
 	
 	
 	</script>
