@@ -31,7 +31,7 @@
 	.container {
 		max-width: 1280px;
 	}html{
-		font-size: 12px;
+		font-size: 16px;
 	}
 }
 @media ( min-width : 1650px) {
@@ -123,20 +123,33 @@
 	height: 1.5rem;
 }
 
-#Class {
-	width: 2.813rem;
+#Mypage {
+	width: 5rem;
 	height: 1.5rem;
 }
 
-#Shop {
-	width: 2.813rem;
+#Logout {
+	width: 4.5rem;
 	height: 1.5rem;
 }
 
-#Login {
+#Program {
+	width: 5.5rem;
+	height: 1.5rem;
+}
+
+
+#Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
+
+#Cart {
+	width: 3rem;
+	height: 1.5rem;
+}
+
 
 #Signup {
 	width: 4.438rem;
@@ -682,6 +695,13 @@ font-family: 'Spoqa Han Sans Neo';
 	line-height: 1.875rem;
 }
 
+.paymodal-title2_1{
+font-family: 'Spoqa Han Sans Neo';
+	font-size: 1.0rem;
+	font-weight: 400;
+	line-height: 1.875rem;
+}
+
 
 #selectcancel {
 	width: 23.5rem;
@@ -777,7 +797,7 @@ a:hover{
 <body>
 <div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -1022,6 +1042,7 @@ a:hover{
 											<div class="col-12 px-3 body2_1" style="padding-bottom: 1rem">
 												<a href="/Exhibition/toPredetail?pe_img=${i.pe_img}">${i.pe_name}</a>
 											</div>
+											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">가격 : ${i.totalprice} </div>
 											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">옵션 : ${i.g_option} </div>
 											<div class="col-12 px-3 caption" style="padding-bottom: 1rem">수량 : ${i.sales_count} </div>
 										</div>
@@ -1031,37 +1052,36 @@ a:hover{
 							</div> 
 							<div class="row main-area">
 								<div class="col-12 h3">결제정보</div>
-								<div class="col-4 total">적립 포인트</div>
-								<div class="col-8 total getpoint"></div>
-								<div class="col-4 total">상품 금액</div>
-								<div class="col-8 total real-price"></div>
-								<div class="col-4 total">배송비</div>
-								<div class="col-8 total deltax"></div>
-								<div class="col-4 total">쿠폰할인</div>
-								<div class="col-8 total coupon"></div>
-								<div class="col-4 total">포인트 사용</div>
-								<div class="col-8 total usedpoint"></div>
-								<div class="col-4 total">총 주문 금액</div>
-								<div class="col-8 total total-price"></div>
+								<div class="col-6 col-md-4 total">적립 포인트</div>
+								<div class="col-6 col-md-8 p-0 total getpoint"></div>
+								<div class="col-6 col-md-4 total">상품 금액</div>
+								<div class="col-6 col-md-8 p-0 total real-price"></div>
+								<div class="col-6 col-md-4 total">배송비</div>
+								<div class="col-6 col-md-8 p-0 total deltax"></div>
+								<div class="col-6 col-md-4 total">쿠폰할인</div>
+								<div class="col-6 col-md-8 p-0 total coupon"></div>
+								<div class="col-6 col-md-4 total">포인트 사용</div>
+								<div class="col-6 col-md-8 p-0 total usedpoint"></div>
+								<div class="col-6 col-md-4 total">총 주문 금액</div>
+								<div class="col-6 col-md-8 p-0 total total-price"></div>
 								
 								<script>
-								
-								
-								price=${product[0].totalprice} + ${product[0].usedpoint }+ ${product[0].cp_discount }-3000
-								coupon=0
-								usedpoint=0
-								getpoint=${product[0].addpoint }
-								total_price=${payment.totalprice}
-								deltax = 3000;
+								let price=0;
+								let total=0;
+								let coupon=0;
+								let usedpoint=0;
+								let getpoint=${product[0].addpoint };
+								let total_price=${payment.totalprice};
+								let deltax = 3000;
 								
 								if(${product[0].serial == 'inavailableCP'}){
-									usedpoint = ${product[0].usedpoint}
+									usedpoint = ${product[0].usedpoint};
 								} else {
-									coupon = ${product[0].cp_discount }
+									coupon = ${product[0].cp_discount };
 								}
+								price = ${payment.totalprice} + usedpoint + coupon - 3000;
+								console.log(price);
 								
-								console.log(coupon);
-								console.log(usedpoint);
 								
 								$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 								$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -1086,7 +1106,7 @@ a:hover{
 			</div>
 		</div>
 		
-		<%-- <!-- 구매 취소 모달 -->
+		<!-- 구매 취소 모달 -->
 				<div class="modal fade" id="exampleModa2" tabindex="-1" >
 				  <div class="modal-dialog modal-dialog-centered">
 				    <div class="modal-content">
@@ -1097,22 +1117,14 @@ a:hover{
 				      <div class="modal-body" style="padding-right:0px;">
 							<div class="row">
 						
-							<div class="col-3" style="height:12.5rem;margin-bottom:3rem;width:9.5rem  ">
-								<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem; margin-left: 1.563rem;">
+							<div class="col-4 p-0" style="height:12.5rem;margin-bottom:3rem; width:9.5rem  ">
+								<img src="${product[0].gp_sysname }" class="h-100" style="margin-bottom:5.5rem; margin-left: 2.5rem;">
 								</div>
-									<div class="col-9" style="margin-bottom:3rem; width:30rem;">
+									<div class="col-8" style="margin-bottom:3rem; margin-left: 3rem;">
 										<div class="row modal-ticket-row" >
-											<div class="col-12 paymodal-title2" style="padding-top:1rem;">${product.g_name }</div>
-											<div class="col-12 paymodal-title2">${detail.merchant_uid }</div>
-											<div class="col-12 caption">${product.G_OPTION }</div>
-											<div class="col-12 caption">${product.g_count }</div>
-											<div class="col-12 paymodal-title2" id="modal-price">${detail.totalprice/ detail.g_count  }원</div>
-										<script>
-								
-										
-								price = ${(detail.totalprice+detail.usedpoint+detail.cpdiscount)/detail.g_count  };
-								$("#modal-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-								</script>
+											<div class="col-12 paymodal-title2_1">${payment.merchant_uid }</div>
+											<div class="col-12 paymodal-title2" style="padding-top:0.5rem;">${payment.g_name }</div>
+											<div class="col-12 paymodal-title2 real-price"></div>
 										</div>
 									
 									</div>
@@ -1135,12 +1147,10 @@ a:hover{
 											<div class="col-12 pay paymodal-title" style="margin-bottom:1rem;">결제/환불 금액</div>
 											<div class="col-5 total" style="margin-bottom:1rem">상품금액</div>
 											<div class="col-7 total real-price" style="margin-bottom:1rem"></div>
-											<div class="col-5 total" style="margin-bottom:1rem">상품 개수</div>
-											<div class="col-7 total" style="margin-bottom:1rem">${detail.g_count }개</div>
 											<div class="col-5 total" style="margin-bottom:1rem">쿠폰할인</div>
 											<div class="col-7 total coupon" style="margin-bottom:1rem"></div>
 											<div class="col-5 total" style="margin-bottom:1rem">사용쿠폰</div>
-											<div class="col-7 total" style="margin-bottom:1rem">${detail.cpserial }</div>
+											<div class="col-7 total" style="margin-bottom:1rem" id=serial></div>
 											<div class="col-5 total" style="margin-bottom:1rem">포인트 사용</div>
 											<div class="col-7 total usedpoint" style="margin-bottom:1rem"></div>
 											<div class="col-5 total" style="margin-bottom:1rem">포인트 적립</div>
@@ -1151,23 +1161,37 @@ a:hover{
 											<div class="col-5 total" >최종 환불금액</div>
 											<div class="col-7 total-price" style="color:red;"></div>
 											<script>
-											price=${detail.totalprice} + ${detail.usedpoint }+ ${detail.cpdiscount }-3000
-											coupon=${detail.cpdiscount }
-											usedpoint=${detail.usedpoint }
-											getpoint=${detail.point }
-											total_price=${detail.totalprice}
-											deltax = 3000
-											$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-											$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-											$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-											$(".getpoint").text("+"+getpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-											$(".deltax").text("+"+deltax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-											$(".total-price").text(total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+												price=0;
+												total=0;
+												coupon=0;
+												usedpoint=0;
+												getpoint=${product[0].addpoint };
+												total_price=${payment.totalprice};
+												deltax = 3000;
+												
+												if(${product[0].serial == 'inavailableCP'}){
+													usedpoint = ${product[0].usedpoint};
+													$("#serial").text("없음");
+												} else {
+													coupon = ${product[0].cp_discount };
+													$("#serical").text("${product[0].serial }");
+												}
+												price = ${payment.totalprice} + usedpoint + coupon - 3000;
+												console.log(price);
+												
+												
+												$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+												$(".coupon").text("-"+coupon.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+												$(".usedpoint").text("-"+usedpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+												$(".getpoint").text("+"+getpoint.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+												$(".deltax").text("+"+deltax.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+												$(".total-price").text(total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원"); 
+											
 											</script>
 										</div>
 										<div class="row">
 											<div class="col-12 cancel-div" style="color:#919EAB;">
-											-주문취소 승인 후 적립금과 사용 쿠폰은 즉시 반환되며 다시 사용하실 수 있습니다.
+											-주문취소 승인 후 적립금과 사용 쿠폰은 반환되지 않습니다.
 											</div>
 											<div class="col-12 cancel-div" style="color:#919EAB;">
 											-전체 환불만 가능합니다.
@@ -1197,7 +1221,7 @@ a:hover{
 				      </div>
 				      <div class="modal-footer">
 				        <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
-				        <button class="btn btn-dark total pay-cancel" value=${detail.merchant_uid } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
+				        <button class="btn btn-dark total pay-cancel" value=${payment.merchant_uid } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
 				      </div>
 				    </div>
 				  </div>
@@ -1221,8 +1245,9 @@ a:hover{
 				    </div>
 				  </div>
 				</div>
+		</div>
 
- --%>
+
 
 		<!-- 푸터단 -->
 
@@ -1236,7 +1261,6 @@ a:hover{
                 </div>
             </div>
         </div>
-	</div>
 </div>	
 	
 	

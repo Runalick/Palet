@@ -62,7 +62,7 @@ select line, booknumber, email, title, place, datee, buydate, category, pickdate
 		exticket set et_state ='BC' where et_booknumber
 		</if>
 		<if test='category=="G"'>
-		payment set state='BC' where merchant_uid
+		mygoods set state='BC' where merchant_uid
 		</if>
 		<if test='category=="P"'>
 		proticket set pro_state='BC' where pro_booknumber
@@ -173,11 +173,11 @@ select g_option as option1, g_num as num, email as email, g_name as title, addre
 	</select>
 	
 	<update id="changeStateCU">
-		update payment set state='CU' where merchant_uid=#{merchant_uid}
+		update mygoods set state='CU' where merchant_uid=#{merchant_uid}
 	</update>
 	
 	<update id="changeStateAU">
-		update payment set state='AU' where merchant_uid=#{merchant_uid}
+		update mygoods set state='AU' where merchant_uid=#{merchant_uid}
 	</update>
 	<select id="selectMyCoupon" resultType="Trillion.Palet.DTO.MypageUserDetailDTO">
 		select category, dc from coupon where email = #{value} and used = 'N'

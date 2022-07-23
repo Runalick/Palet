@@ -93,7 +93,7 @@ public class MyPageController {
 	@RequestMapping("proTicketDetailview")
 	public String proTicketDetailview(String pro_booknumber,Model model) {
 		ProticketDTO dto = mServ.proTicketDetailview(pro_booknumber);
-		System.out.println(dto.getPro_cost());
+		//System.out.println(dto.getPro_cost());
 		model.addAttribute("dto",dto);
 		if(dto.getPro_cpserial()!=null) {
 		CouponDTO cdto = cServ.getCouponName(dto.getPro_cpserial());
@@ -141,9 +141,9 @@ public class MyPageController {
 		String email = (String)session.getAttribute("loginEmail");
 		List<CancelListDTO> list = mServ.CancelList(email);
 		for(CancelListDTO dto : list){
-			System.out.println(dto.getTitle());
-			System.out.println(dto.getState());
-			System.out.println(dto.getCategory());
+			//System.out.println(dto.getTitle());
+			//System.out.println(dto.getState());
+			//System.out.println(dto.getCategory());
 		}
 		model.addAttribute("list",list);
 		return "/mypage/refund";
@@ -152,12 +152,12 @@ public class MyPageController {
 	@ResponseBody
 	@RequestMapping("refundajax")
 	public List<CancelListDTO> refundajax(Model model,String btn) {
-		System.out.println("버튼"+btn);
+		//System.out.println("버튼"+btn);
 
 		String email = (String)session.getAttribute("loginEmail");
 		List<CancelListDTO> list = mServ.refundajax(email,btn);
 		for(CancelListDTO dto : list){
-			System.out.println(dto.getTitle());
+			//System.out.println(dto.getTitle());
 		
 		}
 		model.addAttribute("list",list);
@@ -183,13 +183,10 @@ public class MyPageController {
 	
 	@RequestMapping("myShoppingDetail")
 	public String myShoppingDetail(String merchant_uid, Model model) {
-		System.out.println(merchant_uid);
 		String email = (String)session.getAttribute("loginEmail");
 		PayDTO payment = mServ.myShoppingDetailView(merchant_uid);
 		List<Object> product = mServ.myShoppingProduct(merchant_uid);
 		String name = mServ.memberName(email);
-		System.out.println("payment--" + payment);
-		System.out.println("product--" + product);
 		
 		model.addAttribute("payment",payment);
 		model.addAttribute("product",product);
@@ -208,6 +205,7 @@ public class MyPageController {
 	@ResponseBody
 	@RequestMapping("changeStateAU")
 	public void changeStateAU(String merchant_uid) {
+		System.out.println(merchant_uid);
 		mServ.changeStateAU(merchant_uid);
 	}
 	
