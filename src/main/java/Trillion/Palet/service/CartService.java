@@ -62,4 +62,10 @@ public class CartService {
 	public List<goodsOrderDTO> select_cart(String email){
 		return cdao.select_cart(email);
 	}
+
+	public int deleteSelectcart(String email) {
+		return cdao.deleteSelectcart(email);
+	}
+
+	
 }
