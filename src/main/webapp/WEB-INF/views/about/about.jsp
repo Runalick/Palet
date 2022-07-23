@@ -491,7 +491,7 @@ border-radius: 20px;
 					<div class="row info-row"  >
 						<div class="col-12 h3" style="padding-left:0.8rem;">palette? pallet? palet!!</div>
 						<div class="col-12 body2" style="padding-left:0.8rem;">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
-‘palete’는 대형 화물을 옮길 때 사용되는 받침대입니다.
+‘pallet’는 대형 화물을 옮길 때 사용되는 받침대입니다.
 이 두 단어를 합성하여 만들어진 ‘palet’라는 이름는 ‘여러가지 색을 가진 다양한 작품, 다채로운 즐거움을 전달하자’는 의미를 담고있습니다.</div>
 					
 					</div>
@@ -649,6 +649,48 @@ $(".askbtn").on("click",function(){
 	
 })
 </script>
+<!-- Channel Plugin Scripts -->
+<script>
+    (function() {
+      var w = window;
+      if (w.ChannelIO) {
+        return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+      }
+      var ch = function() {
+        ch.c(arguments);
+      };
+      ch.q = [];
+      ch.c = function(args) {
+        ch.q.push(args);
+      };
+      w.ChannelIO = ch;
+      function l() {
+        if (w.ChannelIOInitialized) {
+          return;
+        }
+        w.ChannelIOInitialized = true;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+        s.charset = 'UTF-8';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (document.readyState === 'complete') {
+        l();
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', l);
+      } else {
+        window.addEventListener('DOMContentLoaded', l, false);
+        window.addEventListener('load', l, false);
+      }
+    })();
+    ChannelIO('boot', {
+      "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
+    });
+  </script>
+<!-- End Channel Plugin -->
 
 </body>
 

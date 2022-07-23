@@ -17,23 +17,13 @@ public class PayDTO {
 	private int totalprice;
 	private String delivery_text;
 	private Timestamp pay_time;
-	private String category;
-	private String state;
-	private int g_count;
-	private String g_option;
-	private int point;
-	private int usedpoint;
-	private int cpdiscount;
-	private String cpserial;
-	private int g_num;
 	
 	public PayDTO() {
 	}
 
 	public PayDTO(String merchant_uid, String name, String email, String phone, String address1, String address2,
 			int zipcode, String g_name, String card_name, String card_number, int card_quota, int totalprice,
-			String delivery_text, Timestamp pay_time, String category, String state, int g_count, String g_option,
-			int point, int usedpoint, int cpdiscount, String cpserial, int g_num) {
+			String delivery_text, Timestamp pay_time) {
 		super();
 		this.merchant_uid = merchant_uid;
 		this.name = name;
@@ -49,15 +39,6 @@ public class PayDTO {
 		this.totalprice = totalprice;
 		this.delivery_text = delivery_text;
 		this.pay_time = pay_time;
-		this.category = category;
-		this.state = state;
-		this.g_count = g_count;
-		this.g_option = g_option;
-		this.point = point;
-		this.usedpoint = usedpoint;
-		this.cpdiscount = cpdiscount;
-		this.cpserial = cpserial;
-		this.g_num = g_num;
 	}
 
 	public String getMerchant_uid() {
@@ -171,80 +152,8 @@ public class PayDTO {
 	public void setPay_time(Timestamp pay_time) {
 		this.pay_time = pay_time;
 	}
-
-	public String getCategory() {
-		return category;
-	}
-
-	public void setCategory(String category) {
-		this.category = category;
-	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public int getG_count() {
-		return g_count;
-	}
-
-	public void setG_count(int g_count) {
-		this.g_count = g_count;
-	}
-
-	public String getG_option() {
-		return g_option;
-	}
-
-	public void setG_option(String g_option) {
-		this.g_option = g_option;
-	}
-
-	public int getPoint() {
-		return point;
-	}
-
-	public void setPoint(int point) {
-		this.point = point;
-	}
-
-	public int getUsedpoint() {
-		return usedpoint;
-	}
-
-	public void setUsedpoint(int usedpoint) {
-		this.usedpoint = usedpoint;
-	}
-
-	public int getCpdiscount() {
-		return cpdiscount;
-	}
-
-	public void setCpdiscount(int cpdiscount) {
-		this.cpdiscount = cpdiscount;
-	}
-
-	public String getCpserial() {
-		return cpserial;
-	}
-
-	public void setCpserial(String cpserial) {
-		this.cpserial = cpserial;
-	}
-
-	public int getG_num() {
-		return g_num;
-	}
-
-	public void setG_num(int g_num) {
-		this.g_num = g_num;
-	}
 	
 	
 	
 	
-}
+}	

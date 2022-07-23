@@ -467,7 +467,7 @@ a {
 
 .modal_content {
 	width: 300px;
-	height: 250px;
+	height: 220px;
 	background: #fff;
 	border-radius: 10px;
 	text-align: center;
@@ -560,7 +560,7 @@ a {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; position: fixed; z-index: 9;">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -873,7 +873,6 @@ a {
 					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
 						class="exlink">전시굿즈</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">SNS후기</li>
 
 				</ul>
 				<ul class="col-12 ul2_1 h3 offset d-block d-sm-none"
@@ -881,7 +880,6 @@ a {
 					<li style="width: 4.938rem; text-align: center;">전시소개</li>
 					<li style="width: 4.938rem; text-align: center; color: #919EAB;"><a
 						class="exlink">전시굿즈</a></li>
-					<li style="width: 4.938rem; color: #919EAB; text-align: center;">SNS후기</li>
 
 				</ul>
 			</div>
@@ -1071,5 +1069,47 @@ a {
 		return true;
 	}
 </script>
+<!-- Channel Plugin Scripts -->
+<script>
+    (function() {
+      var w = window;
+      if (w.ChannelIO) {
+        return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+      }
+      var ch = function() {
+        ch.c(arguments);
+      };
+      ch.q = [];
+      ch.c = function(args) {
+        ch.q.push(args);
+      };
+      w.ChannelIO = ch;
+      function l() {
+        if (w.ChannelIOInitialized) {
+          return;
+        }
+        w.ChannelIOInitialized = true;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+        s.charset = 'UTF-8';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (document.readyState === 'complete') {
+        l();
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', l);
+      } else {
+        window.addEventListener('DOMContentLoaded', l, false);
+        window.addEventListener('load', l, false);
+      }
+    })();
+    ChannelIO('boot', {
+      "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
+    });
+  </script>
+<!-- End Channel Plugin -->
 </html>
 
