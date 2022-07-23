@@ -1409,7 +1409,23 @@ input[type="number"]::-webkit-inner-spin-button {
 			}
 		});
 	});
-
+	
+	$(".pointinput1").on("input",function(){
+		if($(".pointinput1").val() > sumPrice + 3000){
+			alert(1);
+		}
+	})
+	
+	$(".pointinput2").on("input",function(){
+		if($(".pointinput1").val() > sumPrice + 3000){
+			alert(1);
+		}
+	})
+	
+	
+	
+	
+	
 	$(".pointinput1").on("change",function(){
 		if($(".pointinput1").val() > sumPrice){
 			totalDc = sumPrice + 3000;

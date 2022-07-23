@@ -705,7 +705,7 @@ $(".logout").on("click", function(){
 												+ "</div><div class='goodsPrice' >"
 												+ resp[i].g_price
 														.toLocaleString()
-												+ "원</div></div>");
+												+ "원</div></div>"); 
 						    	  console.log("resp.length : " + resp.length);
 							}
 							limit = limit + resp.length;
@@ -786,7 +786,7 @@ $(".logout").on("click", function(){
 															+ "</div><div class='goodsPrice' >"
 															+ resp[i].g_price
 																	.toLocaleString()
-															+ "원</div></div>");
+															+ "원</div></div>"); 
 									    	  console.log("resp.length : " + resp.length);
 										}
 										limit = limit + resp.length;
@@ -859,15 +859,15 @@ $(".logout").on("click", function(){
 											$(".list").empty();
 											for (i = 0; i < resp.length; i++) {
 												$(".list")
-														.append(
-																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-																		+ resp[i].g_num
-																		+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-																		+ resp[i].g_name
-																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
-																		+ resp[i].g_price
-																				.toLocaleString()
-																		+ "원</div></div>");
+												.append(
+														"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+																+ resp[i].g_num
+																+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+																+ resp[i].g_name
+																+ "</div><div class='goodsPrice' >"
+																+ resp[i].g_price
+																		.toLocaleString()
+																+ "원</div></div>"); 
 											}
 										})
 					});
@@ -885,13 +885,16 @@ $(".logout").on("click", function(){
 					}).done(function(resp) {
 						$(".list").empty();
 						for (i = 0; i < resp.length; i++) {
-							$(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-												+ resp[i].g_num
-												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-												+ resp[i].g_name
-												+ "</div><div class='goodsPrice' style='text-align:left;'>"
-												+ resp[i].g_price.toLocaleString()
-												+ "원</div></div>");
+							$(".list")
+							.append(
+									"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+											+ resp[i].g_num
+											+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+											+ resp[i].g_name
+											+ "</div><div class='goodsPrice' >"
+											+ resp[i].g_price
+													.toLocaleString()
+											+ "원</div></div>"); 
 											}
 										})
 					});
@@ -914,15 +917,15 @@ $(".logout").on("click", function(){
 							$(".list").empty();
 							for (i = 0; i < resp.length; i++) {
 								$(".list")
-										.append(
-												"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-														+ resp[i].g_num
-														+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-														+ resp[i].g_name
-														+ "</div><div class='goodsPrice' style='text-align:left;'>"
-														+ resp[i].g_price
-																.toLocaleString()
-														+ "원</div></div>");
+								.append(
+										"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+												+ resp[i].g_num
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+												+ resp[i].g_name
+												+ "</div><div class='goodsPrice' >"
+												+ resp[i].g_price
+														.toLocaleString()
+												+ "원</div></div>"); 
 							}
 						})
 	}
