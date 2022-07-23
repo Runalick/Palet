@@ -35,7 +35,8 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1000px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -593,7 +594,7 @@ text-align:center;
 			</div>
 
 		</div>
-		<div class="container">
+		<div class="container" style = "overflow-y: hidden;">
 		<div class="row " style="margin-top: 70px;">
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Exhibition</div>
@@ -626,7 +627,7 @@ text-align:center;
 			</div>
 			
 			<div class="row" id="container2">
-				<%-- <c:forEach var="list" items="${list }">
+				<c:forEach var="list" items="${list }">
 					<div class="col-4">
 						<div class="col-12" style="margin-top: 5.313rem;">
 						<a><img class="curimage" src="${list.pe_img} "></a>	
@@ -637,7 +638,7 @@ text-align:center;
 					</div>
 				
 				</c:forEach> 
-			</div> --%>
+			</div> 
 
 
 			</div>

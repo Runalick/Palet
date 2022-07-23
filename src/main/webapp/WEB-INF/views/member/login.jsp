@@ -20,6 +20,23 @@
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
+<style>
+@media ( min-width : 375px) {
+	.container {
+		max-width: 1280px;
+	}html{
+		font-size: 12px;
+	}
+}
+@media ( min-width : 1280px) {
+	.container {
+		max-width: 1280px;
+	}
+	html {
+		font-size: 16px;
+	}
+}
+</style>
 </head>
 <body>
 
