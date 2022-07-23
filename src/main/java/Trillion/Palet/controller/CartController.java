@@ -139,9 +139,11 @@ public class CartController {
 	
 	@ResponseBody
 	@RequestMapping("order")
-	public String order(int[] cart_seq,String a, Model model) {
-		System.out.println(a);
-		System.out.println("카트입니다"+cart_seq);
+	public String order(int[] cart_seq, Model model) {
+		
+		String email = (String)session.getAttribute("loginEmail");
+		cServ.deleteSelectcart(email);
+		
 		for(int i=0; i<cart_seq.length;i++) {
 			System.out.println(cart_seq[i]);
 			cServ.insertSelect_Cart(cart_seq[i]);
@@ -222,5 +224,6 @@ public class CartController {
 	      model.addAttribute("dto",dto);
 		return "/cart/order";
 	}
+	
 }
 

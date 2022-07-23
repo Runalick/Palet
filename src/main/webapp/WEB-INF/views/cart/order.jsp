@@ -1187,7 +1187,6 @@ input[type="number"]::-webkit-inner-spin-button {
    	$(".choosedeliverybtn").on("click",function(){
    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
 
-   	
    	})
 
    	
@@ -1196,18 +1195,39 @@ input[type="number"]::-webkit-inner-spin-button {
    		$(".delivery_text").val($(this).val());
    	})
    	//수령인 연동
-   	$(".buyer_name").on("keyup",function(){
-   		$(".buyer_name").val($(this).val());
-   	})
-   	//전화번호 연동
-	$(".buyer_tel").on("keyup",function(){
-   		$(".buyer_tel").val($(this).val());
-   	})
+      $(".buyer_name").on("keyup",function(){
+         
+         $(".buyer_name1").val($(this).val());
+      });
+      $(".buyer_name1").on("keyup",function(){
+         
+         $(".buyer_name").val($(this).val());
+      })
+      //전화번호 연동
+   	  $(".buyer_tel").on("keyup",function(){
+         $(".buyer_tel1").val($(this).val());
+      });
+      $(".buyer_tel1").on("keyup",function(){
+         $(".buyer_tel").val($(this).val());
+      })
    	
    	//상세 주소 연동
    	$(".buyer_address2").on("keyup",function(){
+   		$(".buyer_address21").val($(this).val());
+   	});
+   	$(".buyer_address21").on("keyup",function(){
    		$(".buyer_address2").val($(this).val());
    	})
+   	
+   	//집코드 연동
+   	$(".buyer_postcode").on("change keyup paste",function(){
+   		$(".buyer_postcode1").val($(this).val());
+   	})
+   	$(".buyer_postcode1").on("change keyup paste",function(){
+   		$(".buyer_postcode").val($(this).val());
+   	})
+   	
+   	
    	
    	$("#payspan2").on("click", function(){
 	window.open("/member/agreement1","이용약관", "width=700, height=500");
@@ -1591,6 +1611,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	    }
 	
 	function iamport(){
+
 		var windowWidth = $( window ).width();
 	      let buyer_postcode = $(".buyer_postcode").val();
 	      if(buyer_postcode == ''){
@@ -1605,6 +1626,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	      }else if(windowWidth > 992){
 	         buyer_addr = $(".buyer_addr1").val();
 	      }
+
         //가맹점 식별코드
         IMP.init('imp48062056');
 	IMP.request_pay({
@@ -1616,8 +1638,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	    buyer_email : arrUserEmail[0],
 	    buyer_name : $(".buyer_name").val(),
 	    buyer_tel : $(".buyer_tel").val(),
-	    buyer_addr : $(".buyer_addr").val(),
-	    buyer_postcode : $(".buyer_postcode").val(),
+	    buyer_addr : buyer_addr,
+	    buyer_postcode : buyer_postcode,
 	    delivery_text : $(".delivery_text").val()
 	}, function(rsp) {
 		console.log(rsp);

@@ -30,7 +30,7 @@
 	.container {
 		max-width: 1280px;
 	}html{
-		font-size: 16px;
+		font-size: 12px;
 	}
 }
 @media ( min-width : 1650px) {
@@ -445,6 +445,11 @@ a {
 #po {
 	position: relative;
 }
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+} 
+
 </style>
 
 
