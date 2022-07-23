@@ -6,10 +6,18 @@
   <mapper namespace="Shop">
 
   	<select id="selectGoods" resultType="Trillion.Palet.DTO.GoodsDTO">
-		select * from 
-		(select row_number() over(order by ${option}) line, goods.g_name, g_price, goods.g_num, gp_sysname, goods.g_option 
-		from goods left outer join goodspic on goods.g_num = goodspic.g_num 
-		where goods.e_num = #{e_num} ) where line between #{limit} and #{limit}+20
+<!-- 		select * from  -->
+<!-- 		(select row_number() over(order by ${option}) line, goods.g_name, g_price, goods.g_num, gp_sysname, goods.g_option  -->
+<!-- 		from goods left outer join goodspic on goods.g_num = goodspic.g_num  -->
+<!-- 		where goods.e_num = #{e_num} ) where line between #{limit} and #{limit}+20 -->
+	
+	with shop1 as (
+			select *
+	        from (select  row_number() over (partition by g_name, g_num order by sales_count desc) as test1, goods.* from goods where 1 = 1 and e_num = #{e_num}) left outer join goodspic using(g_num) where test1 = 1  order by sales_count desc 
+	        ),
+			shop2 as(
+			select row_number() over(order by ${option}) line, shop1.* from shop1 )
+			select * from shop2 where line between #{limit} and #{limit}+9
   	</select>  	
   	
   	<select id="selectMemberData" resultType="Trillion.Palet.DTO.MemberDataDTO">

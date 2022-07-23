@@ -3,6 +3,8 @@ package Trillion.Palet.DTO;
 public class GoodsDTO {
 	private int line;
 	private int g_seq;
+	private int test1;
+	private int e_num1;
 	private int g_num;
 	private int e_num;
 	private String g_name;
@@ -21,6 +23,25 @@ public class GoodsDTO {
 	//goodspic 테이블
 	public GoodsDTO() {}
 
+	public GoodsDTO(int line, int g_num, int test1, int g_seq, int e_num, String g_name, int g_price, String g_option, String g_contents, int sales_count,
+			 int g_stock, int gp_seq, int e_num1, String gp_sysname) {
+		super();
+		this.line = line;
+		this.g_num = g_num;
+		this.test1 = test1;
+		this.g_seq = g_seq;
+		this.e_num = e_num;
+		this.g_name = g_name;
+		this.g_price = g_price;
+		this.g_option = g_option;
+		this.g_contents = g_contents;
+		this.sales_count = sales_count;
+		this.g_stock = g_stock;
+		this.gp_seq = gp_seq;
+		this.e_num1 = e_num1;
+		this.gp_sysname = gp_sysname;
+	}
+	
 	public GoodsDTO(int line, int g_seq, int g_num, int e_num, String g_name, int g_price, String g_option,
 			int sales_count, String g_contents, int g_stock, String pe_name, int gp_seq, String gp_sysname) {
 
