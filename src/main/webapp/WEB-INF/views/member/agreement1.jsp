@@ -297,5 +297,6 @@
 		window.close();
 	})
 </script>	
+
 </body>
 </html>
