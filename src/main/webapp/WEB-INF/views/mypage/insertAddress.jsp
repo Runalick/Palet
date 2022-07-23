@@ -106,8 +106,8 @@ background:#454F5B;
 						<input type="text"  class="body2 body2input buyer_name"  placeholder="수령인 이름을 입력해 주세요." value='${modi.receiver }' maxlength="10"  >
 					</div>
 					<div class="col-8 phone" style="text-align:left; width:26rem; height:6.5rem">
-						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text"  class="body2 body2input buyer_tel" placeholder="전화번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" value="${modi.phone }" maxlength="11">
+						<div class="body2" style="margin-bottom:0.5rem;">핸드폰 번호</div>
+						<input type="text"  class="body2 body2input buyer_tel" placeholder="핸드폰 번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" value="${modi.phone }" maxlength="11">
 						
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
@@ -195,7 +195,7 @@ $(".modibtn").on("click",function(){
 		let phoneRegex =  /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 		let phoneResult = phoneRegex.test(phone);
 		if(!phoneResult){
-			alert("전화번호의 입력형식이 올바르지 않습니다.");
+			alert("핸드폰 번호의 입력형식이 올바르지 않습니다.");
 			return false;
 		}
 // 		주소
@@ -302,7 +302,7 @@ $(".insert").on("click",function(){
 	let phoneRegex =  /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/;
 	let phoneResult = phoneRegex.test(phone);
 	if(!phoneResult){
-		alert("전화번호의 입력형식이 올바르지 않습니다.");
+		alert("핸드폰 번호의 입력형식이 올바르지 않습니다.");
 		return false;
 	}
 	
