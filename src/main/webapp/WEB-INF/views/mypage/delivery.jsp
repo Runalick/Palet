@@ -735,7 +735,7 @@ color:white;
 		}
 	//배송지 수정
 	$(".modi").on("click",function(){
-		window.open("/delivery/modi?deliveryaddress_seq="+$(this).val()+"&modi=true","", "top=100,left=200,width=620,height=530");
+		window.open("/delivery/modi?deliveryaddress_seq="+$(this).val()+"&modi=true","", "top=100,left=200,width=765,height=660");
 	})
 	//배송지 등록
 	$("#insert").on("click",function(){

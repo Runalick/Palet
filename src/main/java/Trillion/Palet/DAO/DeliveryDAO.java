@@ -33,7 +33,6 @@ public class DeliveryDAO {
 		}
 
 		public List<DeliveryDTO> selectAllAddress(String email) {
-			System.out.println("dao"+email);
 			return mybatis.selectList("Delivery.selectAllAddress",email);
 		}
 
@@ -72,6 +71,12 @@ public class DeliveryDAO {
 		public boolean checkdefaultAddress(String email) {
 			return mybatis.selectOne("Delivery.checkdefaultAddress",email);
 		}
+
+		public int checkaddresscnt(String email) {
+			return mybatis.selectOne("Delivery.checkaddresscnt",email);
+		}
+
+		
 
 	
 
