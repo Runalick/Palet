@@ -117,12 +117,33 @@ public class DeliveryController {
 		return dServ.delAddress(deliveryaddress_seq);
 	}
 	
+	//주소 수정 할 때 기본주소지 한개 무조건 있게 만들기
 	@ResponseBody
 	@RequestMapping("checkdefaultAddress")
 	public boolean checkdefaultAddress() {
 		String email = (String)session.getAttribute("loginEmail");
-		
-		return  dServ.checkdefaultAddress(email);
+		boolean result = dServ.checkdefaultAddress(email);
+		return  result;
+	}
+	//주소 등록
+	@ResponseBody
+	   @RequestMapping("newcheckdefaultAddress")
+	   public boolean newcheckdefaultAddress() {
+	      String email = (String)session.getAttribute("loginEmail");
+	      
+	      return  dServ.newcheckdefaultAddress(email);
+	   }
+	
+	@ResponseBody
+	@RequestMapping("checkcount")
+	public boolean checkcount() {
+		String email = (String)session.getAttribute("loginEmail");
+		int result = dServ.checkcount(email);
+		if(result<=4) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 }
