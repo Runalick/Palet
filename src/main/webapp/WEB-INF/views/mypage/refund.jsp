@@ -641,7 +641,7 @@ cursor:pointer;
 					<div class="row Glist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
-								<img src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
+								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
 						</div>
 						<div class="col-8 col-md-9" >
 							<div class="row">
@@ -680,7 +680,7 @@ cursor:pointer;
 							
 							<c:choose>
 							<c:when test="${i.num == 102 }">
-								<img src="${i.sysname }" style="width:100px; height:100px; border-radius:10px">
+								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px">
 							</c:when>
 							<c:otherwise>
 								<img src=""style="width:100px; height:100px;">
@@ -1027,5 +1027,47 @@ cursor:pointer;
         return true;
      });
 	</script>
+	<!-- Channel Plugin Scripts -->
+<script>
+    (function() {
+      var w = window;
+      if (w.ChannelIO) {
+        return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+      }
+      var ch = function() {
+        ch.c(arguments);
+      };
+      ch.q = [];
+      ch.c = function(args) {
+        ch.q.push(args);
+      };
+      w.ChannelIO = ch;
+      function l() {
+        if (w.ChannelIOInitialized) {
+          return;
+        }
+        w.ChannelIOInitialized = true;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+        s.charset = 'UTF-8';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (document.readyState === 'complete') {
+        l();
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', l);
+      } else {
+        window.addEventListener('DOMContentLoaded', l, false);
+        window.addEventListener('load', l, false);
+      }
+    })();
+    ChannelIO('boot', {
+      "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
+    });
+  </script>
+<!-- End Channel Plugin -->
 </body>
 </html>

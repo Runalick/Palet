@@ -230,14 +230,14 @@ width:100%;
 	
 	<script>
 	$(".choose").on("click",function(){
-		console.log($(this).parent().siblings()[0])
+		console.log($($(this).parent().siblings()[0]).children().children().text())
 		console.log($(this).parent().siblings()[5])
 		console.log($(this).parent().siblings()[2])
 		console.log($(this).parent().siblings()[3])
 		console.log($(this).parent().siblings()[4])
 		//수령인
-		window.opener.document.getElementById("buyer_name").value = $($(this).parent().siblings()[0]).text();
-		window.opener.document.getElementById("buyer_name2").value = $($(this).parent().siblings()[0]).text();
+		window.opener.document.getElementById("buyer_name").value = $($(this).parent().siblings()[0]).children().children().text();
+		window.opener.document.getElementById("buyer_name2").value = $($(this).parent().siblings()[0]).children().children().text();
  		//전화번호
 		window.opener.document.getElementById("buyer_tel1").value = $($(this).parent().siblings()[5]).text();
 		window.opener.document.getElementById("buyer_tel2").value = $($(this).parent().siblings()[5]).text();
@@ -259,5 +259,47 @@ width:100%;
 
 
 	</script>
+	<!-- Channel Plugin Scripts -->
+<script>
+    (function() {
+      var w = window;
+      if (w.ChannelIO) {
+        return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+      }
+      var ch = function() {
+        ch.c(arguments);
+      };
+      ch.q = [];
+      ch.c = function(args) {
+        ch.q.push(args);
+      };
+      w.ChannelIO = ch;
+      function l() {
+        if (w.ChannelIOInitialized) {
+          return;
+        }
+        w.ChannelIOInitialized = true;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+        s.charset = 'UTF-8';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (document.readyState === 'complete') {
+        l();
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', l);
+      } else {
+        window.addEventListener('DOMContentLoaded', l, false);
+        window.addEventListener('load', l, false);
+      }
+    })();
+    ChannelIO('boot', {
+      "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
+    });
+  </script>
+<!-- End Channel Plugin -->
 </body>
 </html>

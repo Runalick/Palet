@@ -893,21 +893,21 @@ input[type="number"]::-webkit-inner-spin-button {
 				<div class="row delivery-area" style="height:34.875rem; width:49.25rem;">
 					<div class="col-md-4 col-12" style="text-align:left; width:18.75rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." value="${dto.receiver }" >
+						<input type="text" class="body2input buyer_name1" id="buyer_name"  placeholder="수령인 이름을 입력해 주세요." value="${dto.receiver }" maxlength="10"oninput="this.value= this.value.replace(/[^ㄱ-힣a-zA-Z]/gi,'')" >
 					</div>
 					<div class="col-md-8 col-12 phone" style="text-align:left; width:26rem; height:7.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text" class="body2input buyer_tel1"  id="buyer_tel1" placeholder="전화번호를 입력해 주세요." value="${dto.phone }" >
+						<input type="text" class="body2input buyer_tel1"  id="buyer_tel1" placeholder="전화번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"  value="${dto.phone }"maxlength="11" >
 					</div>
 					<div class="col-12" style="text-align:left;">
 						<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-						<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" > 
+						<input type="text" class="body2 inputcode buyer_postcode1 " id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${dto.postcode }" readonly > 
 						<input type="text" class="body2 inputaddress buyer_addr1 address1" id="sample4_roadAddress"  placeholder="주소: 우편번호를 먼저 검색해 주세요." disabled value="${dto.address1 }">
-						<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress"  value="${dto.address2 }">
+						<input type="text" class="body2 inputaddress buyer_address21"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress"  value="${dto.address2 }"  maxlength="20">
 					</div>
 					<div class="col-12" style="text-align:left;">	
 						<div class="body2 delivery_text" style="text-align:left;margin-top:1.5rem; margin-bottom:0.5rem;">배송 메시지</div>
-						<input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF;" placeholder="배송메세지를 입력해주세요.">
+						<input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF;" placeholder="배송메세지를 입력해주세요." maxlength="200">
 						<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
 					</div>
 				</div>
@@ -1016,20 +1016,20 @@ input[type="number"]::-webkit-inner-spin-button {
 				<!-- 배송 주소 입력 부분 -->
 				<div class="row delivery-area" style="margin-left:0rem; width:100%">
 					<div class="col-12" >
-						<div class="col-12 body2" style="margin-bottom:0.5rem;">수령인</div>
-						<div class="col-12"><input type="text" class="body2input buyer_name" id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;" value="${dto.receiver }" ></div>
+						<div class="col-12 body2" style="margin-bottom:0.5rem;" >수령인</div>
+						<div class="col-12"><input type="text" class="body2input buyer_name"  maxlength="10"id="buyer_name2" placeholder="수령인 이름을 입력해 주세요." style="width:100%;" value="${dto.receiver }" oninput="this.value= this.value.replace(/[^ㄱ-힣a-zA-Z]/gi,'')"maxlength="10"></div>
 					</div>
 					<div class="col-12 phone" >
 						<div class="body2 col-12" style="margin-bottom:0.5rem;">전화 번호</div>
-						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." style="width:100%" value="${dto.phone }" ></div>
+						<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" id="buyer_tel2" class="body2input buyer_tel"  placeholder="전화번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');"  maxlength="11" style="width:100%" value="${dto.phone }" ></div>
 					</div>
 					<div class="body2 col-12" style="margin-bottom:0.5rem;">배송지</div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" value="${dto.postcode }" contenteditable=false></div> 
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputcode buyer_postcode zipcode" id="sample5_postcode" onclick="sample5_execDaumPostcode()" placeholder="우편번호 검색" style="margin-left:0rem; width:100%" value="${dto.postcode }" readonly></div> 
 					
 					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_addr address" id="sample5_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요."  style="width:17.5rem; margin-left:0rem; width:100%" value="${dto.address1 }" disabled></div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" value="${dto.address2 }"></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress buyer_address2" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요."  id="sample5_detailAddress" style="width:100%; margin-left:0rem;" value="${dto.address2 }"  maxlength="20"></div>
 					<div class="body2 delivery_text" style="margin-bottom:0.5rem;">배송 메시지</div>
-					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지를 입력해주세요."></div>
+					<div class="col-12" style="margin-bottom:0.5rem;"><input type="text" class="body2 inputaddress delivery_text" style="background: #FFFFFF; width:100%; margin-left:0rem;" placeholder="배송메세지를 입력해주세요." maxlength="200"></div>
 					<div id="deliveryinfo" class="col-12" style="margin-bottom:0.5rem;">*주문 시 변경하신 내용으로 개인 정보가 수정됩니다.</div>
 				</div>
 				
@@ -1080,19 +1080,19 @@ input[type="number"]::-webkit-inner-spin-button {
 										<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" style="width:100%;">
 									<div class="col-12">
 										<div><button id="paybtn" onclick="iamport()" style="width:100%">결제하기</button></div>
 									</div>
 								</div>
 								<div class="warpper" style="margin-top:6.75rem;">
 									<div class="H4" style="color:#637381; text-align:left;margin-bottom:0.5rem;">약관을 확인하였으며 결제에 동의합니다.</div>
-									<span class="span" id="payspan1_2" style="margin-left:4.5rem">이용약관 동의</span>
-									<span class="span1" id="payspan2_2" style="left:5.438rem; cursor:pointer; margin-left:5rem">보기</span><br>
-									<span class="span" id="payspan3_2" style="margin-left:4.5rem">개인정보 수집 및 이용 동의 </span>
-									<span class="span1" id="payspan4_2" style="left:10.063rem; cursor:pointer; margin-left:5rem">보기</span><br>
-									<span class="span" id="payspan5_2" style="margin-left:4.5rem">결제 대행 서비스 이용약관</span>
-									<span class="span1" id="payspan6_2" style="left:9.875rem; cursor:pointer; margin-left:5rem">(주)KG이니시스</span>
+										<span class="span" id="payspan1_2" style="margin-left:6.5rem">이용약관 동의</span>
+										<span class="span1" id="payspan2_2" style="left:7.438rem; cursor:pointer; margin-left:5rem">보기</span><br>
+										<span class="span" id="payspan3_2" style="margin-left:6.5rem">개인정보 수집 및 이용 동의 </span>
+										<span class="span1" id="payspan4_2" style="left:12.063rem; cursor:pointer; margin-left:5rem">보기</span><br>
+										<span class="span" id="payspan5_2" style="margin-left:6.5rem">결제 대행 서비스 이용약관</span>
+										<span class="span1" id="payspan6_2" style="left:11.875rem; cursor:pointer; margin-left:5rem">(주)KG이니시스</span>
 								</div>
 							</div>
 						</div>
@@ -1759,5 +1759,47 @@ input[type="number"]::-webkit-inner-spin-button {
 	
 	
 	</script>
+	<!-- Channel Plugin Scripts -->
+<script>
+    (function() {
+      var w = window;
+      if (w.ChannelIO) {
+        return (window.console.error || window.console.log || function(){})('ChannelIO script included twice.');
+      }
+      var ch = function() {
+        ch.c(arguments);
+      };
+      ch.q = [];
+      ch.c = function(args) {
+        ch.q.push(args);
+      };
+      w.ChannelIO = ch;
+      function l() {
+        if (w.ChannelIOInitialized) {
+          return;
+        }
+        w.ChannelIOInitialized = true;
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = 'https://cdn.channel.io/plugin/ch-plugin-web.js';
+        s.charset = 'UTF-8';
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+      }
+      if (document.readyState === 'complete') {
+        l();
+      } else if (window.attachEvent) {
+        window.attachEvent('onload', l);
+      } else {
+        window.addEventListener('DOMContentLoaded', l, false);
+        window.addEventListener('load', l, false);
+      }
+    })();
+    ChannelIO('boot', {
+      "pluginKey": "7303e411-f120-4c6c-812a-28e0867beb8a"
+    });
+  </script>
+<!-- End Channel Plugin -->
 </body>
 </html>
