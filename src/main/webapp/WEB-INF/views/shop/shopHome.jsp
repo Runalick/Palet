@@ -542,9 +542,9 @@
 					<ul class="col-md-3 col-12" style="text-align: center; margin-bottom:0rem;">
 						<li class="currentExhibition h3 exhibitionLink"
 							id="currentExhibition"
-							style="display: inline-block; margin-right: 3rem; margin-top:0.8rem;">현재전시</li>
+							style="display: inline-block; margin-right: 3rem; margin-top:0.8rem;">2022</li>
 						<li class="pastExhibition h3 exhibitionLink" id="pastExhibition"
-							style="display: inline-block; right: 23.75rem">지난전시</li>
+							style="display: inline-block; right: 23.75rem"> ~ 2021</li>
 					</ul>
 				</div>
 				<div class="row categoryRow">
@@ -644,13 +644,13 @@ $(".logout").on("click", function(){
 		if (!($(".currentExhibition").hasClass("h3_2"))) {
 			$(".currentExhibition").addClass("h3_2");
 			$(".category")
-					.append(
-							"<div class='button' id='1' style='display: inline-block;'>MMCA 이건희컬렉션 특별전: 한국 미술명작</div>");
+				.append(
+						"<div class='button ' id='1077' style='display: inline-block;'>MMCA 이건희컬렉션 특별전: 한국 미술명작</div>");
 		}
 
 		//   전시회 버튼 기본 CSS, append (현재전시)
-		if (!($("#1").hasClass("active"))) {
-			$("#1").addClass("active");
+		if (!($("#1077").hasClass("active"))) {
+			$("#1077").addClass("active");
 			$.ajax({
 				url:"/shop/selectGoods",
 				data:{"e_num" : $(".active").attr("id"),
@@ -676,7 +676,7 @@ $(".logout").on("click", function(){
 				},
 				});	
 			
-			let limit = 11;
+			let limit = 22;
 			
 			
 		  	$(document).scroll(function() {
@@ -705,7 +705,7 @@ $(".logout").on("click", function(){
 												+ "</div><div class='goodsPrice' >"
 												+ resp[i].g_price
 														.toLocaleString()
-												+ "원</div></div>");
+												+ "원</div></div>"); 
 						    	  console.log("resp.length : " + resp.length);
 							}
 							limit = limit + resp.length;
@@ -717,70 +717,6 @@ $(".logout").on("click", function(){
 
 		}
 	
-// 		인피니티스크롤
-// 		$.ajax({
-// 			url:"/shop/selectGoods",
-// 			data:{"e_num" : "1001",
-// 				"option" : "sales_count desc",
-// 				"limit" : "1"},
-// 			async: false,
-// 			dataType:"json", // == JSON.parse(resp);
-// 			success: function (resp) {
-// 				for(let i = 0 ; i < resp.length; i++) {
-// 					$(".list")
-// 					.append(
-// 							"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
-// 									+ resp[i].g_num
-// 									+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
-// 									+ resp[i].g_name
-// 									+ "</div><div class='goodsPrice' >"
-// 									+ resp[i].g_price
-// 											.toLocaleString()
-// 									+ "원</div></div>"); 
-			    	
-// 			    	  console.log("resp.length : " + resp.length);
-// 				}
-// 			},
-// 			});	
-		
-// 		let limit = 11;
-		
-		
-// 	  	$(document).scroll(function() {
-// 	    let maxHeight = $(document).height();
-// 	    let currentScroll = $(window).scrollTop() + $(window).height();
-// 		    /* let maxHeight = $(document).height();
-// 		    let currentScroll = $(window).scrollTop() + $(window).height(); */
-		   
-// 		    if (maxHeight <= currentScroll+100) {
-// 		    	console.log("origin limit : " + limit);
-// 		    	$.ajax({
-// 					url:"/shop/selectGoods",
-// 					data:{"e_num" : "1001",
-// 						"option" : "sales_count desc",
-// 						"limit" : limit},
-// 					async: false,
-// 					dataType:"json", // == JSON.parse(resp);
-// 					success: function (resp) {
-// 						for(let i = 0 ; i < resp.length; i++) {
-// 							$(".list")
-// 							.append(
-// 									"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
-// 											+ resp[i].g_num
-// 											+ "'><img class='con' src='/shop/shopHome/"+resp[i].gp_sysname+"'></a></div><div class='goodsName' >"
-// 											+ resp[i].g_name
-// 											+ "</div><div class='goodsPrice' >"
-// 											+ resp[i].g_price
-// 													.toLocaleString()
-// 											+ "원</div></div>");
-// 					    	  console.log("resp.length : " + resp.length);
-// 						}
-// 						limit = limit + resp.length;
-// 				    	console.log("change limit : " + limit);	
-// 					},
-// 					});
-// 		    	} 
-// 		      }) 
 	}
 	
 	//   현재전시 버튼 이벤트
@@ -793,8 +729,8 @@ $(".logout").on("click", function(){
 						$(".pastExhibition").removeClass("h3_2");
 						$(".button").remove();
 						$(".category")
-								.append(
-										"<div class='button active' id='1' style='display: inline-block;'>MMCA 이건희컬렉션 특별전: 한국 미술명작</div>");
+							.append(
+									"<div class='button active' id='1077' style='display: inline-block;'>MMCA 이건희컬렉션 특별전: 한국 미술명작</div>");
 						$.ajax({
 							url:"/shop/selectGoods",
 							data:{"e_num" : $(".active").attr("id"),
@@ -850,7 +786,7 @@ $(".logout").on("click", function(){
 															+ "</div><div class='goodsPrice' >"
 															+ resp[i].g_price
 																	.toLocaleString()
-															+ "원</div></div>");
+															+ "원</div></div>"); 
 									    	  console.log("resp.length : " + resp.length);
 										}
 										limit = limit + resp.length;
@@ -872,40 +808,40 @@ $(".logout").on("click", function(){
 						
 						$(".category")
 								.append(
-										"<div class='button active' id='2' style='display: inline-block;'>미술로, 세계로</div>");
+										"<div class='button active' id='1092' style='display: inline-block;'>미술로, 세계로</div>");
+// 						$(".category")
+// 								.append(
+// 										"<div class='button' id='3' style='display: inline-block;'>MMCA 과천 프로젝트</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='3' style='display: inline-block;'>MMCA 과천 프로젝트</div>");
+										"<div class='button' id='1079' style='display: inline-block;'>우리 집에서, 워치 앤 칠</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='4' style='display: inline-block;'>우리 집에서, 워치 앤 칠</div>");
+										"<div class='button' id='1091' style='display: inline-block;'>아이 웨이웨이: 인간미래</div>");
 						$(".category")
 								.append(
-										"<div class='button' id='5' style='display: inline-block;'>아이 웨이웨이: 인간미래</div>");
-						$(".category")
-								.append(
-										"<div class='button' id='6' style='display: inline-block;'>박수근: 봄을 기다리는 나목</div>");
+										"<div class='button' id='1087' style='display: inline-block;'>박수근: 봄을 기다리는 나목</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='7' style='display: inline-block;'>최욱경, 앨리스의 고양이</div>");
+									"<div class='button' id='1085' style='display: inline-block;'>최욱경, 앨리스의 고양이</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='8' style='display: inline-block;'>MMCA 현대차 시리즈 2021</div>");
+									"<div class='button' id='1080' style='display: inline-block;'>MMCA 현대차 시리즈 2021</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='9' style='display: inline-block;'>정상화</div>");
+									"<div class='button' id='1070' style='display: inline-block;'>정상화</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='11' style='display: inline-block;'>움직임을 만드는 움직임</div>");
+									"<div class='button' id='1071' style='display: inline-block;'>움직임을 만드는 움직임</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='12' style='display: inline-block;'>특별수장고 <<국립현대미술관 드로잉 소장품>></div>");
+									"<div class='button' id='1100' style='display: inline-block;'>특별수장고 <<국립현대미술관 드로잉 소장품>></div>");
 						$(".category")
 							.append(
-									"<div class='button' id='14' style='display: inline-block;'>권민호: 회색 숨</div>");
+									"<div class='button' id='1101' style='display: inline-block;'>권민호: 회색 숨</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='15' style='display: inline-block;'>개방수장고 개편</div>");
+									"<div class='button' id='1102' style='display: inline-block;'>개방수장고 개편</div>");
 						$(".category")
 							.append(
 									"<div class='button' id='16' style='display: inline-block;'>MMCA 소장품 하이라이트 2020+</div>");
@@ -923,15 +859,15 @@ $(".logout").on("click", function(){
 											$(".list").empty();
 											for (i = 0; i < resp.length; i++) {
 												$(".list")
-														.append(
-																"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-																		+ resp[i].g_num
-																		+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-																		+ resp[i].g_name
-																		+ "</div><div class='goodsPrice' style='text-align:left;'>"
-																		+ resp[i].g_price
-																				.toLocaleString()
-																		+ "원</div></div>");
+												.append(
+														"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+																+ resp[i].g_num
+																+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+																+ resp[i].g_name
+																+ "</div><div class='goodsPrice' >"
+																+ resp[i].g_price
+																		.toLocaleString()
+																+ "원</div></div>"); 
 											}
 										})
 					});
@@ -949,13 +885,16 @@ $(".logout").on("click", function(){
 					}).done(function(resp) {
 						$(".list").empty();
 						for (i = 0; i < resp.length; i++) {
-							$(".list").append("<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-												+ resp[i].g_num
-												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-												+ resp[i].g_name
-												+ "</div><div class='goodsPrice' style='text-align:left;'>"
-												+ resp[i].g_price.toLocaleString()
-												+ "원</div></div>");
+							$(".list")
+							.append(
+									"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+											+ resp[i].g_num
+											+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+											+ resp[i].g_name
+											+ "</div><div class='goodsPrice' >"
+											+ resp[i].g_price
+													.toLocaleString()
+											+ "원</div></div>"); 
 											}
 										})
 					});
@@ -978,15 +917,15 @@ $(".logout").on("click", function(){
 							$(".list").empty();
 							for (i = 0; i < resp.length; i++) {
 								$(".list")
-										.append(
-												"<div class='col-12 col-sm-4 col-md-3'><div class='t'><a href='/shop/goDetail?g_num="
-														+ resp[i].g_num
-														+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' style='text-align:left;'>"
-														+ resp[i].g_name
-														+ "</div><div class='goodsPrice' style='text-align:left;'>"
-														+ resp[i].g_price
-																.toLocaleString()
-														+ "원</div></div>");
+								.append(
+										"<div class='col-12 col-md-4 col-lg-3'><div class='t'><a href='/shop/goDetail?g_num="
+												+ resp[i].g_num
+												+ "'><img class='con' referrerpolicy='no-referrer' src="+resp[i].gp_sysname+"></a></div><div class='goodsName' >"
+												+ resp[i].g_name
+												+ "</div><div class='goodsPrice' >"
+												+ resp[i].g_price
+														.toLocaleString()
+												+ "원</div></div>"); 
 							}
 						})
 	}

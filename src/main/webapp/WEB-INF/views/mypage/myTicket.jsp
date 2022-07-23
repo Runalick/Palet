@@ -165,7 +165,10 @@
 	width: 4.438rem;
 	height: 1.5rem;
 }
-
+#row1>div{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 .H2 {
 	/* Headline/H2 */
 	font-family: 'Spoqa Han Sans Neo';
@@ -886,7 +889,7 @@ window.onload = function(){
 			console.log($(".booknumber")[i]);
 			console.log($(".booknumber")[i].value);
 			var qrcode = new QRCode($(".qr")[i], {
-	            text: "http://localhost/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
+	            text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
 	            width: 90,
 	            height: 90,
 	            colorDark : "#000000",

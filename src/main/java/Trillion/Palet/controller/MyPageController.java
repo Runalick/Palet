@@ -61,7 +61,8 @@ public class MyPageController {
 	
 //		String email = "i2376@naver.com";
 		
-		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
+//		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
+		String ip = "14.39.252.82";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
 
@@ -79,7 +80,7 @@ public class MyPageController {
 		//지난전시
 		model.addAttribute("cnt",cnt);
 		model.addAttribute("precnt",precnt);
-		model.addAttribute("url", url);
+		model.addAttribute("ip", ip	);
 		return "/mypage/myTicket";
 	}
 	@ResponseBody
@@ -113,9 +114,9 @@ public class MyPageController {
 		model.addAttribute("cdto",cdto);
 		}
 //		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
-		String url = "http://14.39.252.82/qr/useticket?et_booknumber="+dto.getEt_booknumber();
-		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
-		model.addAttribute("url",url);
+		String ip = "14.39.252.82";
+		// 큐알코드 생성 ip부분은 추후 서버 ip로 변경해야됨
+		model.addAttribute("ip",ip);
 		model.addAttribute("dto",dto);
 		
 		return "/mypage/myTicketDetailview";
