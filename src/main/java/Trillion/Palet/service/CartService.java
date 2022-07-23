@@ -66,6 +66,10 @@ public class CartService {
 	public int deleteSelectcart(String email) {
 		return cdao.deleteSelectcart(email);
 	}
+	
+	public int directSelect_cart(String email, int g_seq, int cartstock) {
+		return cdao.directSelect_cart(email, g_seq, cartstock);
+	}
 
 	
 }
