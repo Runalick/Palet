@@ -28,6 +28,12 @@ public class PreExhibitionService {
 
 	}
 	
+	public List<PreExhibitionDTO> chooseUp() {
+
+		return daoPe.chooseUp();
+
+	}
+	
 	public PreExhibitionDTO preDetail(String pe_img) {
 
 		return daoPe.preDetail(pe_img);
