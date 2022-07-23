@@ -18,6 +18,10 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css' rel='stylesheet' type='text/css'>
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" ></script> -->
+<!-- font awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
  <link rel="stylesheet" href="/css/admin/admin.css">
 
 <style>
@@ -173,8 +177,10 @@
                                        <img src="/images/sample.png" class="cardImage">
                                         <div class="text-right text-secondary">
                                             <div class="h3" style="text-align:right">BestExhibition</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.pe_name}</div>
-                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.pe_salescount}</div>
+                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
+                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.sales_count}</div>
+                                            <%-- <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.pe_name}</div>
+                                            <div class="h2" style="text-align:right">${ExhibitionBestSeller.pe_salescount}</div> --%>
                                         </div>
                                     </div>
                                 </div>

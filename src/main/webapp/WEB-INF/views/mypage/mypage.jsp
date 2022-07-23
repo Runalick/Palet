@@ -738,7 +738,7 @@ input {
 										<div class="modal-body">
 											<input type="text" id="phone" maxlength="11" name="phone"
 												placeholder="전화번호를 숫자만 작성해주세요"
-												oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" ><br>
+												oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" ><br>
 											<span style="display: none;" id="phoneck">핸드폰번호를
 												숫자만입력해주세요</span>
 										</div>

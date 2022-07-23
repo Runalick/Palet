@@ -204,6 +204,14 @@ public class AdminService {
 		return adao.getProgramPageNavi(cpage);
 	}
 	
+	public ProgramDTO getProgram(int p_num) {
+		return adao.getProgram(p_num);
+	}
+	
+	public void adminProgramUpdate(ProgramDTO pdto) {
+		adao.adminProgramUpdate(pdto);
+	}
+	
 	// Payment Category
 	
 	public List<TotalPaymentDTO> paymentSelectUIDByPage(int cpage, String uid){

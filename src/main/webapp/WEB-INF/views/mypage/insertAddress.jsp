@@ -73,6 +73,7 @@ accent-color: black;
 margin-right:0.5rem;
 }
 .btnbtn{
+transition: 0.3s;
 padding: 18px 24px;
 gap: 10px;
 width: 6.25rem;
@@ -87,13 +88,13 @@ cursor:pointer;
 background:black;
 }
 .close{
-background: #C4CDD5;
+background: #919EAB;
 }
 .insert:hover, .modibtn:hover{
 background:#454F5B;
 }
 .close:hover{
-background:#919EAB;
+background:#454F5B;
 }
 </style>
 <body>
@@ -102,17 +103,18 @@ background:#919EAB;
 		<div class="row" id="delivery-area" style="height:35.875rem; width:40.25rem;">
 					<div class="col-4 " style="text-align:left; width:18.75rem; height:6.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">수령인</div>
-						<input type="text"  class="body2 body2input buyer_name"  placeholder="수령인 이름을 입력해 주세요." value='${modi.receiver }'   >
+						<input type="text"  class="body2 body2input buyer_name"  placeholder="수령인 이름을 입력해 주세요." value='${modi.receiver }' maxlength="10"  >
 					</div>
 					<div class="col-8 phone" style="text-align:left; width:26rem; height:6.5rem">
 						<div class="body2" style="margin-bottom:0.5rem;">전화 번호</div>
-						<input type="text"  class="body2 body2input buyer_tel" placeholder="전화번호를 입력해 주세요." value=${modi.phone }>
+						<input type="text"  class="body2 body2input buyer_tel" placeholder="전화번호를 입력해 주세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" value="${modi.phone }" maxlength="11">
+						
 					</div>
 					<div class="body2" style="text-align:left;  padding-bottom:0.5rem;">배송지</div>
-					<input type="text"  class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value=${modi.postcode } > 
+					<input type="text"  class="body2 inputcode buyer_postcode" id="sample4_postcode" onclick="sample4_execDaumPostcode()" placeholder="우편번호 검색" value="${modi.postcode }"  readonly> 
 					
 					<input type="text"  class="body2 inputaddress buyer_addr"   id="sample4_roadAddress" placeholder="주소: 우편번호를 먼저 검색해 주세요." value="${modi.address1}" disabled>
-					<input type="text"  class="body2 inputaddress buyer_address2"  placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" value=${modi.address2 }>
+					<input type="text"  class="body2 inputaddress buyer_address2" maxlength="20" placeholder="상세 주소 : 우편번호를 먼저 검색해 주세요." id="sample4_detailAddress" value=${modi.address2 }>
 					<div id="deliveryinfo" style="text-align:left; margin-top:1rem ">
 					<input type="checkbox" class="check">기본 배송지로 등록
 					</div>
@@ -229,11 +231,30 @@ $(".modibtn").on("click",function(){
 
 //등록
 $(".insert").on("click",function(){
+	var rrtn = true;
+	$.ajax({
+		url:"/delivery/checkcount",
+		async:false,
+		dataType:"json"
+	}).done(function(resp){
+		console.log(resp)
+		if(resp == false){
+			alert("주소지는 최대 5개까지 등록 가능합니다.");
+			rrtn=false;
+		}
+	})
+	
+	if(rrtn==false){
+		return false;
+	}
+	
+	
+	
 	var rtn = true;
 	if(!$(".check").prop("checked")){
 		
 		$.ajax({
-			url:"/delivery/checkdefaultAddress",
+			url:"/delivery/newcheckdefaultAddress",
 			async:false,
 			dataType:"json"
 		}).done(function(resp){

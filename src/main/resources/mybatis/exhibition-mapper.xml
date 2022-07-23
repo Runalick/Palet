@@ -45,6 +45,11 @@
   		select * from preexhibition order by pe_seq desc
   	</select>
   	
+  	<select id="newExhibitionBestSeller" resultType="Trillion.Palet.DTO.ExhibitionDTO">
+  		select e_num, e.e_name, start_date, end_date, g.sales_count, e_price, e_period from 
+  		(select sum(et_count) as sales_count , e_num from exticket group by e_num ) g 
+  		full join exhibition e using (e_num) where rownum = 1
+  	</select>
   	
   	<select id="exhibitionBestSeller" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
   		select * from (select * from preexhibition order by pe_salescount desc) where rownum=1

@@ -60,6 +60,10 @@ public class ExhibitionService {
 		return edao.exhibitionBestSeller();
 	}
 	
+	public ExhibitionDTO NewExhibitionBestSeller() {
+		return edao.NewExhibitionBestSeller();
+	}
+	
 	public ExhibitionDTO getExhibition(int e_num) {
 		return edao.getExhibition(e_num);
 	}
