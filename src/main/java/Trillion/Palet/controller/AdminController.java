@@ -558,6 +558,7 @@ public class AdminController {
 	@RequestMapping("adminCoupon")
 	public String adminCoupon(Model model,int cpage) throws Exception {
 		
+		
 		List<CouponDTO> list = cServ.selectbypage(cpage);
 		String navi = cServ.getCouponPageNavi(cpage);
 		model.addAttribute("list", list);
