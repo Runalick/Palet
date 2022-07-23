@@ -61,7 +61,7 @@ public class MypageService {
 		return mdao.CancelList(email);
 	}
 		
-	public Object myShoppingProduct(String merchant_uid) {
+	public List<Object> myShoppingProduct(String merchant_uid) {
 		return mdao.myShoppingProduct(merchant_uid);
 	}
 

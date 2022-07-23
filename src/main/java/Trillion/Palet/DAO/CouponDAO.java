@@ -16,6 +16,14 @@ public class CouponDAO {
 	@Autowired
 	private SqlSession mybatis;
 	
+	public int updateCoupon(String et_cpserial,String et_email) throws Exception{
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("serial", et_cpserial);
+		param.put("email", et_email);
+		System.out.println(et_email);
+		return mybatis.update("coupon.updateCoupon",param);
+	}
+	
 	public int userupdate(String serial,String email) throws Exception{
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("serial", serial);

@@ -33,7 +33,8 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1000px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -41,6 +42,7 @@
 		font-size: 16px;
 	}
 }
+
 
 * {
 	box-sizing: border-box;
@@ -698,8 +700,7 @@ a {
 				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink">전시굿즈</a></li>
+				
 
 
 				</ul>
@@ -707,9 +708,7 @@ a {
 					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li
 						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
-					<li
-						style="width: 4.938rem; text-align: center; color: #919EAB; margin-left: 2.6rem;; margin-right: 2.6rem;"><a
-						class="exlink">전시굿즈</a></li>
+					
 
 				</ul>
 			</div>

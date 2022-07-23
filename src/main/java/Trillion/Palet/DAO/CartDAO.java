@@ -103,6 +103,13 @@ public class CartDAO {
 		return mybatis.delete("Cart.deleteSelectcart", email);
 	}
 
+	public int directSelect_cart(String email, int g_seq, int cartstock) {
+		Map<Object, Object> param = new HashMap<>();
+		param.put("email", email);
+		param.put("g_seq", g_seq);
+		param.put("cartstock", cartstock);
+		return mybatis.insert("Cart.directSelect_cart", param);
+	}
 	
 
 }

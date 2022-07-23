@@ -15,6 +15,11 @@
 		select * from preexhibition where pe_seq between #{limit}-20 and #{limit} order by pe_seq desc
 	</select>
 	
+	<select id="chooseUp"
+		resultType="Trillion.Palet.DTO.PreExhibitionDTO">
+		select * from preexhibition where pe_period = 'F'
+	</select>
+	
 		<select id="preDetail"
 		resultType="Trillion.Palet.DTO.PreExhibitionDTO">
 		select * from preexhibition where pe_img = #{pe_img}

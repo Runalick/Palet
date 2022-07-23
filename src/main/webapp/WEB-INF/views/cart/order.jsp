@@ -267,8 +267,8 @@ line-height: 1.125rem;
 #ordertitle{
 text-align: left;
 padding-bottom:2.5rem;
-width:20rem;
-padding-top:0.425rem;
+/* width:20rem; */
+padding-top:1.425rem;
 }
 #backbtn{
 	box-sizing: border-box;
@@ -829,10 +829,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	<div class="container-fluid d-none d-lg-block" id="mainparent" style="padding-top: 50px;">
 		<div class="container">
 			<div class="row" id="row1" style="padding-top: 2.5rem; text-align: center;">
-				<div class="col-1 margin1" id="cart">
+<!-- 				<div class="col-1 margin1" id="cart"> -->
 					
-				</div>
-				<div class="col-11 h2" id="ordertitle">Order / Payment</div> 
+<!-- 				</div> -->
+				<div class="col-12 h2" id="ordertitle" style="padding-left:2.5rem;">Order / Payment</div> 
 
 				<div class="col-12" style="margin-bottom:1.25rem;">
 					<div class="row" style="padding-left:2.5rem; margin-bottom:1.25rem;">
@@ -1385,8 +1385,8 @@ input[type="number"]::-webkit-inner-spin-button {
 						for(let i = 0; i < resp.length; i++){
 							$(".myPoint1").text(resp[i].point);
 							$(".myPoint2").text(resp[i].point);
-							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
-							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+"<input type='hidden' value="+resp[i].serial+"></li>")
+							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+" - "+resp[i].dc+"원 할인<input type='hidden' value="+resp[i].serial+"></li>")
+							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+" - "+resp[i].dc+"원 할인<input type='hidden' value="+resp[i].serial+"></li>")
 							grade = resp[i].grade;
 							myPoint = resp[0].point;
 // 							console.log("count : " + count);

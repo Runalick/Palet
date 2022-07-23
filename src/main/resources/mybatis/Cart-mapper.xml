@@ -49,9 +49,9 @@
   		delete from select_cart where email = #{value}
   	</delete>
   	<select id="select_cart" resultType="Trillion.Palet.DTO.goodsOrderDTO">
-		select select_cart.cart_seq, select_cart.email, select_cart.g_seq, select_cart.cartstock, g_name, goods.g_num, g_price, g_stock, gp_sysname, (g_price * select_cart.cartstock) totalprice, goods.g_option 
-		from select_cart left outer join cart on select_cart.cart_seq = cart.cart_seq 
-		left outer join goods on cart.g_seq = goods.g_seq 
+		select select_cart.cart_seq, select_cart.email, select_cart.g_seq, select_cart.cartstock, goods.g_name, goods.g_num, goods.g_price, goods.g_stock, gp_sysname, (goods.g_price * select_cart.cartstock) totalprice, goods.g_option 
+		from select_cart  
+		left outer join goods on select_cart.g_seq = goods.g_seq 
 		left outer join goodspic on goods.g_num = goodspic.g_num
 		where select_cart.email = #{value}
   	</select>
@@ -61,4 +61,7 @@
   	<delete id="deleteSelectcart">
   		delete from select_cart where email = #{value}
   	</delete>
+  	<insert id="directSelect_cart">
+  		insert into select_cart values(cart_seq.nextval, #{email}, #{g_seq}, #{cartstock})
+  	</insert>
   </mapper>

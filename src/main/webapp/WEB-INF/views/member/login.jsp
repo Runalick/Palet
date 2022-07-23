@@ -20,6 +20,23 @@
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
+<style>
+@media ( min-width : 375px) {
+	.container {
+		max-width: 1280px;
+	}html{
+		font-size: 12px;
+	}
+}
+@media ( min-width : 1280px) {
+	.container {
+		max-width: 1280px;
+	}
+	html {
+		font-size: 16px;
+	}
+}
+</style>
 </head>
 <body>
 
@@ -246,7 +263,7 @@
 	
 	    console.log(Kakao.isInitialized());
 	    
-	    //item을 localStorage에 저장하는 메소드
+	  //item을 localStorage에 저장하는 메소드
 	    function saveToDos(token) { 
     		typeof(Storage) !== 'undefined' && sessionStorage.setItem('AccessKEY', JSON.stringify(token)); 
 		};
@@ -277,9 +294,9 @@
 	        	}
 	          })
  	          console.log(authObj); //access 토큰 값
-			  //Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
-			  //var token = authObj.access_token;
-			  //saveToDos(token);
+	          Kakao.Auth.setAccessToken(authObj.access_token); //access 토큰 값 저장
+			  var token = authObj.access_token;
+			  saveToDos(token);
 	        },
 	        fail: function(err) {
 	          alert(JSON.stringify(err));

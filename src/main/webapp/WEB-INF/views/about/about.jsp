@@ -34,7 +34,7 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -111,7 +111,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+/* 	color: #919EAB; */
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
@@ -491,7 +491,7 @@ border-radius: 20px;
 					<div class="row info-row"  >
 						<div class="col-12 h3" style="padding-left:0.8rem;">palette? pallet? palet!!</div>
 						<div class="col-12 body2" style="padding-left:0.8rem;">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
-‘palete’는 대형 화물을 옮길 때 사용되는 받침대입니다.
+‘pallet’는 대형 화물을 옮길 때 사용되는 받침대입니다.
 이 두 단어를 합성하여 만들어진 ‘palet’라는 이름는 ‘여러가지 색을 가진 다양한 작품, 다채로운 즐거움을 전달하자’는 의미를 담고있습니다.</div>
 					
 					</div>
