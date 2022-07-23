@@ -810,7 +810,7 @@ margin-bottom:0.5rem;
       </div>
       <div class="modal-body" >
 								<div class="col-12 ticket">
-									<input type="hidden" value="${dto.et_booknumber }">
+									<input type="hidden" class="booknumber" value="${dto.et_booknumber }">
 									<div class="row" style="height: 100%">
 										<div class="col-3"
 											style="padding: 1rem; padding-left: 1.5rem;">
@@ -1122,14 +1122,18 @@ $("body").on("click", function(e){
 			click = false;
 		}
 	});
-    var qrcode = new QRCode(document.getElementById("qr"), {
-        text: "${url}",
-        width: 90,
-        height: 90,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
-    });
+	for(let i=0;i<$(".qr").length;i++){
+		console.log($(".booknumber")[i]);
+		console.log($(".booknumber")[i].value);
+		var qrcode = new QRCode($(".qr")[i], {
+            text: "http://localhost/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
+            width: 90,
+            height: 90,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+	}
     
     $(".logout").on("click", function(){
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
