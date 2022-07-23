@@ -716,7 +716,7 @@ color:white;
 			url:"/mypage/selectMyGoods"
 		}).done(function(resp){
 			console.log(resp);
-			for(let i = 0; i < resp.length; i++){
+			for(let i = 0; i < 5; i++){
 				$(".goods").append("<div>"+resp[i].g_name+"</div>");
 			}
 		})
