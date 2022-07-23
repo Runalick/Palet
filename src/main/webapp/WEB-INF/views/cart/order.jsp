@@ -1080,19 +1080,19 @@ input[type="number"]::-webkit-inner-spin-button {
 										<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
 									</div>
 								</div>
-								<div class="row">
+								<div class="row" style="width:100%;">
 									<div class="col-12">
 										<div><button id="paybtn" onclick="iamport()" style="width:100%">결제하기</button></div>
 									</div>
 								</div>
 								<div class="warpper" style="margin-top:6.75rem;">
 									<div class="H4" style="color:#637381; text-align:left;margin-bottom:0.5rem;">약관을 확인하였으며 결제에 동의합니다.</div>
-									<span class="span" id="payspan1_2" style="margin-left:4.5rem">이용약관 동의</span>
-									<span class="span1" id="payspan2_2" style="left:5.438rem; cursor:pointer; margin-left:5rem">보기</span><br>
-									<span class="span" id="payspan3_2" style="margin-left:4.5rem">개인정보 수집 및 이용 동의 </span>
-									<span class="span1" id="payspan4_2" style="left:10.063rem; cursor:pointer; margin-left:5rem">보기</span><br>
-									<span class="span" id="payspan5_2" style="margin-left:4.5rem">결제 대행 서비스 이용약관</span>
-									<span class="span1" id="payspan6_2" style="left:9.875rem; cursor:pointer; margin-left:5rem">(주)KG이니시스</span>
+										<span class="span" id="payspan1_2" style="margin-left:6.5rem">이용약관 동의</span>
+										<span class="span1" id="payspan2_2" style="left:7.438rem; cursor:pointer; margin-left:5rem">보기</span><br>
+										<span class="span" id="payspan3_2" style="margin-left:6.5rem">개인정보 수집 및 이용 동의 </span>
+										<span class="span1" id="payspan4_2" style="left:12.063rem; cursor:pointer; margin-left:5rem">보기</span><br>
+										<span class="span" id="payspan5_2" style="margin-left:6.5rem">결제 대행 서비스 이용약관</span>
+										<span class="span1" id="payspan6_2" style="left:11.875rem; cursor:pointer; margin-left:5rem">(주)KG이니시스</span>
 								</div>
 							</div>
 						</div>
