@@ -45,7 +45,7 @@
 	}
 }
 
-@media ( min-width : 1000px) {
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -1041,7 +1041,7 @@ border-radius: 20px !important;
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;">
+								style="width: 15rem; height: 3rem;"  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
 								사용</button>
@@ -1476,14 +1476,15 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 
 	function iamport() {
     	 console.log($(".username").val());
- 		let price = $("#finalprice2").text();
+    	 let price = $("#finalprice").text();
  		let price1 = price.replace(",", "");
  		let price2 = price1.replace("원", "");
-
+ 		let price3 = parseInt(price2);
+ 		
  		let count = $("#count").text();
  		let count1 = count.replace("매", "");
 
- 		let point = $("#point2").text();
+ 		let point = $("#point").text();
  		let point1 = point.replace("p", "");
  		let point2 = parseInt(point1);
  		
@@ -1506,7 +1507,11 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
  			alert('올바른 핸드폰번호를 입력해주세요.');
  			return false;
  		}
-    	 
+ 	   if($(".date").val()==''){
+ 			alert('날짜를 선택하여 주세요.');
+ 			return false;
+ 	   }
+ 		
     	 
     	 
 		//가맹점 식별코드
@@ -1560,7 +1565,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 						pro_paymethod : rsp.card_name,
 						pro_cardnumber : rsp.card_number,
 						pro_cardquota : rsp.card_quota,
-						pro_cost : price2,
+						pro_cost : price3,
 						pro_count : count1,
 						pro_point : point2,
 						pro_usedpoint : usedpoint3,

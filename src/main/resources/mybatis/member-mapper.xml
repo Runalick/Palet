@@ -101,4 +101,9 @@
      <update id="updatePoint">
   	update member set point = (point + #{et_point}) -#{et_usedpoint} where email = #{et_email}
   </update>
+  
+  
+     <update id="updateCoupon">
+  	update member set used = 'Y' where serial = #{et_cpserial} and email = #{et_email}
+  </update>
 </mapper>

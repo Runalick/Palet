@@ -48,4 +48,10 @@ public class CouponService {
 	public List<CouponDTO> selectbypage(int cpage) throws Exception{
 		return dao.selectbypage(cpage);
 	}
+	
+public int updateCoupon(String et_cpserial, String et_email) throws Exception {
+		
+		return dao.updateCoupon(et_cpserial, et_email);
+		
+	}
 }
