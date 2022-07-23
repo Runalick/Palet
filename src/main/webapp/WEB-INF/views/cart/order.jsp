@@ -1267,16 +1267,16 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".pointinput2").val(allPointUse);
 			totalDc = sumPrice;
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
-			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Math.floor(Number(sumPrice - totalDc + 3000)).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
 			let allPointUse = $(".myPoint1").text();
@@ -1284,16 +1284,16 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".pointinput2").val(allPointUse);
 			totalDc = Number($(".pointinput1").val());
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
-			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Math.floor(Number(sumPrice - totalDc + 3000)).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}
 	})
@@ -1305,16 +1305,16 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".pointinput2").val(allPointUse);
 			totalDc = sumPrice;
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
-			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Math.floor(Number(sumPrice - totalDc + 3000)).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
 			let allPointUse = $(".myPoint2").text();
@@ -1322,16 +1322,16 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".pointinput2").val(allPointUse);
 			totalDc = Number($(".pointinput2").val());
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
-			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+			$(".finalTotalPrice").text(Math.floor(Number(sumPrice - totalDc + 3000)).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}
 	})
@@ -1391,14 +1391,14 @@ input[type="number"]::-webkit-inner-spin-button {
 							myPoint = resp[0].point;
 // 							console.log("count : " + count);
 							if(grade == "White"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-								LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+								$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+								LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 							}else if(grade == "Gray"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-								LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+								$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+								LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 							}else if(grade == "Black"){
-								$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-								LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+								$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+								LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 							}
 						}
 						$(".pointinput1").attr("min",0);
@@ -1431,14 +1431,14 @@ input[type="number"]::-webkit-inner-spin-button {
 	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.01) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.05) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000)) * 0.1) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		});
 	});
@@ -1456,14 +1456,14 @@ input[type="number"]::-webkit-inner-spin-button {
 	    	$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 	    	$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		});
 	});
@@ -1483,14 +1483,14 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
 			totalDc = Number($(".pointinput1").val());
@@ -1498,14 +1498,14 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}
 	})
@@ -1519,14 +1519,14 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
 			totalDc = Number($(".pointinput2").val());
@@ -1534,14 +1534,14 @@ input[type="number"]::-webkit-inner-spin-button {
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
 			$(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
 			if(grade == "White"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.01) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.01)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 			}else if(grade == "Gray"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.05) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.05)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
 			}else if(grade == "Black"){
-				$(".totalPoint").text((Number(sumPrice - totalDc + 3000) * 0.1) + "p");
-				LetaddPoint = (Number(sumPrice - totalDc + 3000) * 0.1)
+				$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
+				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}
 	})
@@ -1704,8 +1704,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	       	 	$.ajax({
 	       			url:"/pay/point",
 	       			data:{email : arrUserEmail[0],
-	       				usedPoint : totalDc,
-	       				addPoint : LetaddPoint},
+	       				usedpoint : totalDc,
+	       				addpoint : LetaddPoint},
 	       				async:false
 	       		}).done(function(resp){
 	       			console.log("point 정산 성공");
