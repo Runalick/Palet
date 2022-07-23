@@ -448,7 +448,7 @@ $("#email").on("keyup",function() { // 아이디 입력 검증
 		$("#okbtn").css("display","none")
 		return false;
 	}
-	let emailRegex = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
+	let emailRegex = /^[a-z\d]([\da-z-_\.]?)*@([\da-z-_\.])*\.([a-z]{2,3})(\.[a-z]{2})?$/i;
 	let emailResult = emailRegex.test(email);
 	if (!emailResult) {
 		$("#email").css("border", "1px solid #FF4842");
