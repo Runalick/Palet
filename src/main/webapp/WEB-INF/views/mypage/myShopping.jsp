@@ -956,6 +956,7 @@ color:white;
 							+"<div class='col-12 col-md-2 px-3 ellipsis body4' id='del" + i + "'>"
 							+"<div id='state_text"+i+"'>" + resp[i].STATE +"</div>"
 							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].STATE + ">"
+							+ "<input type='hidden' id='merchant_uid" + i + "' value=" + resp[i].MERCHANT_UID + ">"
 							+"</div></div>";
 						
 						$("#contents_area").append(text_html);
@@ -999,7 +1000,7 @@ color:white;
 						console.log("배송중변경일 : " +enddate);
 						console.log("현재날짜 : " +today);
 						console.log("배송완료날짜 : " +delend);
-						console.log($("#merchant_uid"+i).text());
+						console.log($("#merchant_uid"+i).val());
 						console.log($("#state"+i).val()=='CU');
 						
 						// 주문완료 -> 배송 중 (1일뒤)
@@ -1007,7 +1008,7 @@ color:white;
 							if(enddate <= today){
 								$.ajax({
 									url:"/mypage/changeStateCU",
-									data: {"merchant_uid":$("#merchant_uid"+i).text()}
+									data: {"merchant_uid":$("#merchant_uid"+i).val()}
 								}).done(function(resp){
 									locaiton.reload();
 								})
@@ -1019,7 +1020,7 @@ color:white;
 							if(delend <= today){
 								$.ajax({
 									url:"/mypage/changeStateAU",
-									data: {"merchant_uid":$("#merchant_uid"+i).text()}
+									data: {"merchant_uid":$("#merchant_uid"+i).val()}
 								}).done(function(resp){
 									locaiton.reload();
 								})
@@ -1117,20 +1118,13 @@ color:white;
 								let del = new Date($("#paytime"+i).text());
 								let delend = new Date(del.setDate(del.getDate()+3));
 								
-								console.log("주문완료시각 : " + $("#paytime"+i).text());
-								console.log("배송중변경일 : " +enddate);
-								console.log("현재날짜 : " +today);
-								console.log("배송완료날짜 : " +delend);
-								console.log("111");
-								console.log($("#merchant_uid"+i).val());
-								console.log($("#state"+i).val()=='CU');
 								
 								// 주문완료 -> 배송 중 (1일뒤)
 								if($("#state"+i).val()=='BU'){
 									if(enddate <= today){
 										$.ajax({
 											url:"/mypage/changeStateCU",
-											data: {"merchant_uid":$("#merchant_uid"+i).text()}
+											data: {"merchant_uid":$("#merchant_uid"+i).val()}
 										}).done(function(resp){
 											location.reload();
 										})
@@ -1142,7 +1136,7 @@ color:white;
 									if(delend <= today){
 										$.ajax({
 											url:"/mypage/changeStateAU",
-											data: {"merchant_uid":$("#merchant_uid"+i).text()}
+											data: {"merchant_uid":$("#merchant_uid"+i).val()}
 										}).done(function(resp){
 											locaiton.reload();
 										})

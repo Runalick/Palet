@@ -467,7 +467,7 @@ a {
 
 .modal_content {
 	width: 300px;
-	height: 250px;
+	height: 220px;
 	background: #fff;
 	border-radius: 10px;
 	text-align: center;
@@ -560,7 +560,7 @@ a {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; position: fixed; z-index: 9;">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -873,7 +873,6 @@ a {
 					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
 						class="exlink">전시굿즈</a></li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;">SNS후기</li>
 
 				</ul>
 				<ul class="col-12 ul2_1 h3 offset d-block d-sm-none"
@@ -881,7 +880,6 @@ a {
 					<li style="width: 4.938rem; text-align: center;">전시소개</li>
 					<li style="width: 4.938rem; text-align: center; color: #919EAB;"><a
 						class="exlink">전시굿즈</a></li>
-					<li style="width: 4.938rem; color: #919EAB; text-align: center;">SNS후기</li>
 
 				</ul>
 			</div>

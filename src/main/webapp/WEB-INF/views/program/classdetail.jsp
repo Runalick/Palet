@@ -449,7 +449,7 @@ a {
 </head>
 <body>
 	<div class="container-fluid">
-			<div class="container-fluid" style="background-color: white;">
+			<div class="container-fluid" style="background-color: white; position:fixed; z-index:9;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -595,7 +595,7 @@ a {
 
 		<div class="container d-none d-sm-block"
 			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
-			<div class="row">
+			<div class="row" style="padding-top: 50px;">
 				<div class="col-lg-1 col-xs-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
 						style="margin-left: 0px;">

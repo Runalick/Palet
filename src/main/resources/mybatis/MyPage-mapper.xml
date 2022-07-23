@@ -116,14 +116,14 @@ select g_option as option1, g_num as num, email as email, g_name as title, addre
 
 	<select id="myShopping" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
 		
-		select * from (select row_number() over(order by p.merchant_uid) line,
+		select * from (select row_number() over(order by p.pay_time desc) line,
 		p.merchant_uid, p.totalprice, p.g_name,
 		TO_CHAR(pay_time, 'YYYY-MM-DD') AS pay_time,
 		mg.state
 		from payment p join mygoods mg on(p.merchant_uid = mg.merchant_uid)
 		where p.email=#{email}
 		group by p.merchant_uid, p.totalprice, p.g_name,
-		pay_time,mg.state) where line between #{limit} and #{limit}+9
+		pay_time,mg.state ) where line between #{limit} and #{limit}+9
 	</select>
 
 	

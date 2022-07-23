@@ -147,6 +147,7 @@ public class MemberController {
 	public String delmember()throws Exception{
 		String email = (String)session.getAttribute("loginEmail");
 		mServ.delmember(email);
+		session.invalidate();
 		return "redirect:/";
 	}
 	
