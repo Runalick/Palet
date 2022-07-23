@@ -204,7 +204,7 @@
 			            	</div>	
 			           		<div class="row" style="text-align:center">
 			           			<div class="col-12 d-none d-lg-block mt-3 body1 "><input type='text' name='p_name' value='${pdto.p_name }' class='edit' disabled style="width:50%; text-align:center" maxlength="30"></div>
-			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='p_name' value='${pdto.p_name }' class='editable' disabled style="width:70%; text-align:center" maxlength="30"></div>
+			           			<div class="col-12 d-lg-none mt-3 body1 "><input type='text' name='p_name' value='${pdto.p_name }' class='editable' disabled style="width:70%; text-align:center" maxlength="33"></div>
 			           			<input type="hidden" name="p_num" value="${pdto.p_num }">
 			           		</div>
 			            	<div class="row" > 

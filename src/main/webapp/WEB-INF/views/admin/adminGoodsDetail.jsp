@@ -381,6 +381,7 @@ $(".leftbutton").on("click", function() {
        }
     })
 
+    
 </script>
     
 

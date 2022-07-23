@@ -265,7 +265,7 @@ public class AdminController {
 			edto.setPe_name("Noname");
 		}
 		aServ.adminExhibitionUpdate(edto);
-		
+		// add ExhibitionUpdate
 		return "redirect:adminExhibitionDetail?pe_seq="+edto.getPe_seq();
 	}
 	
