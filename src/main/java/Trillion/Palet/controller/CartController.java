@@ -225,5 +225,19 @@ public class CartController {
 		return "/cart/order";
 	}
 	
+	@ResponseBody
+	@RequestMapping("directSelect_cart")
+	public int directSelect_cart(int g_seq, int cartstock) {
+		String email = (String)session.getAttribute("loginEmail");
+		return cServ.directSelect_cart(email, g_seq, cartstock);
+	}
+	
+	@RequestMapping("toOrder")
+	public String toOrder() {
+		return "/cart/order";
+	}
+		
+	
+	
 }
 

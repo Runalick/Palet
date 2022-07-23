@@ -1046,6 +1046,33 @@ $(".li").on("click", function () {
 			alert("옵션을 선택하세요")
 			return false;
 		}
+
+		var data = [];
+		var g_numArray =[];
+		var cartstockArray=[];
+		$(".choose").each(function(index,item){
+			g_num=$(item).find($(".hidden_g_seq"));
+			console.log(g_num.val());
+			cartstock = $(item).find($(".count"));
+			console.log(cartstock.text());
+			g_numArray.push(g_num.val());
+			cartstockArray.push(cartstock.text());
+		})
+		
+		
+		console.log(data);
+		
+		$.ajax({
+			url:"/cart/directSelect_cart",
+			data:{g_seq:g_numArray,
+				cartstock:cartstockArray},
+			dataType:"json",
+			 traditional: true,
+		}).done(function(resp){
+			console.log(resp);
+			location.href="/cart/toOrder";
+		})
+		
 	})
 	//장바구니버튼
 	$("#cartbtn").on("click",function(){
