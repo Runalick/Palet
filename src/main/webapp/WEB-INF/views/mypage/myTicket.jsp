@@ -165,7 +165,10 @@
 	width: 4.438rem;
 	height: 1.5rem;
 }
-
+#row1>div{
+	padding-left: 0px;
+	padding-right: 0px;
+}
 .H2 {
 	/* Headline/H2 */
 	font-family: 'Spoqa Han Sans Neo';

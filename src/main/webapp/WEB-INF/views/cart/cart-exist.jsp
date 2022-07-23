@@ -865,8 +865,10 @@ function open_chatroom(){
 
 
 //결제버튼
+
 $("#paybtn").on("click",function(){
-	
+	let paybtn = 0;
+	if(paybtn==0){
 	var cart_seq=[];
 	$("input:checkbox[class=checkbox2]:checked").each(function(e,item){
 
@@ -876,6 +878,8 @@ $("#paybtn").on("click",function(){
 	
 	console.log(cart_seq);
 
+
+	
 	$.ajax({
 		url:"/cart/order",
 		traditional : true,
@@ -884,6 +888,12 @@ $("#paybtn").on("click",function(){
 	}).done(function(resp){
 		location.href="/cart/Toorder";	
 	})
+	paybtn = 1;
+	
+	}else{
+		return false;
+	}
+	
 	
 })
 
