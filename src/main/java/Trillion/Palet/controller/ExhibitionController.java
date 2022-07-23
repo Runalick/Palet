@@ -115,8 +115,9 @@ public class ExhibitionController {
 	}
 	
 	@RequestMapping("toUpcommingExhibition")
-	public String toUpcommingExhibition() {
-	
+	public String toUpcommingExhibition (Model model) {
+		List<PreExhibitionDTO> list =  ServPe.chooseUp();
+		model.addAttribute("list", list);
 		
 		
 		return "/exhibition/upcommingexhibition";

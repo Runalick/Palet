@@ -31,6 +31,13 @@ public class PreExhibitionDAO {
 
 	}
 	
+	public List<PreExhibitionDTO> chooseUp() {
+
+		return mybatis.selectList("PreExhibition.chooseUp");
+
+	}
+	
+	
 	
 
 	public PreExhibitionDTO preDetail(String pe_img) {
