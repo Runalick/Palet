@@ -26,5 +26,7 @@
   	<select id="selectMemberPoint" resultType="Trillion.Palet.DTO.MemberDataDTO">
   			select member.email, member.grade, member.point from member where email = #{value}
   	</select>
-  	
+  	<select id="selectGrade" resultType="Trillion.Palet.DTO.MemberDataDTO">
+  		select * from  member where email = #{value}
+  	</select>
   </mapper>	

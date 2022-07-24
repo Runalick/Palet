@@ -32,5 +32,9 @@ public class ShopDAO {
 	public List<MemberDataDTO> selectMemberPoint(String email){
 		return mybatis.selectList("Shop.selectMemberPoint", email);
 	}
+
+	public MemberDataDTO selectGrade(String email) {
+		return mybatis.selectOne("Shop.selectGrade",email);
+	}
 	
 }
