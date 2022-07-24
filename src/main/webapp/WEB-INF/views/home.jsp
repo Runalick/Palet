@@ -248,7 +248,7 @@ border:0px;
                     </div> -->
 
 					<div class="col-12 h1 d-block d-sm-none"
-						style="text-align: center; margin-top: 8rem;">Romantic
+						style="text-align: center; margin-top: 10rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-block d-sm-none"
@@ -256,7 +256,7 @@ border:0px;
 
 
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 12.5rem; padding-left: 0.5rem;">Romantic
+						style="margin-top: 10rem; padding-left: 0.5rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-none d-sm-block"
@@ -275,7 +275,6 @@ border:0px;
 					<div class="col-12  d-none d-sm-block"
 						style="margin-bottom: 14.75rem; margin-top: 5rem; padding-left: 0.5rem;">
 						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'">자세히 보기</button>
-						<button class="btn2" onclick="location.href='/Exhibition/toBook'";>예매 하기</button>
 					</div>
 					<div class="col-12 d-block d-sm-none"
 						style="margin-bottom: 14.75rem; text-align: center; margin-top:3rem; ">
