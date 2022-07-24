@@ -32,11 +32,14 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -546,7 +549,7 @@ margin-bottom:0.5rem;
 
 		<div class="container-fluid">
 			<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
