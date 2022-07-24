@@ -591,19 +591,19 @@ input {
 			</c:if>
 	</div>
 	</div>
-	<div class="row" id="footer" style="margin-top: 2rem;">
-			<div class="container">
-				<div class="row" id="row1">
-					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-					<br>
-					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
-						1층 | contact@palet.com</div>
+<!-- 	<div class="row" id="footer" style="margin-top: 2rem;"> -->
+<!-- 			<div class="container"> -->
+<!-- 				<div class="row" id="row1"> -->
+<!-- 					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div> -->
+<!-- 					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 : -->
+<!-- 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div> -->
+<!-- 					<br> -->
+<!-- 					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하 -->
+<!-- 						1층 | contact@palet.com</div> -->
 
-				</div>
-			</div>
-		</div>
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
 <script type="text/javascript">
 $(".logout").on("click", function(){
     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
