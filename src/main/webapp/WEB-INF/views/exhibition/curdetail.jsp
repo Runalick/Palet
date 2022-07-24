@@ -653,7 +653,7 @@ a {
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"><a id="Logout"
+											<li class="nav-item"><a id="Logout" href="#"
 												class="nav-link logout"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 

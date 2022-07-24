@@ -742,8 +742,8 @@ border-radius: 20px !important;
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
+											<li class="nav-item"><a id="Logout" class="nav-link logout"
+												href="#" 
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
@@ -1107,6 +1107,26 @@ border-radius: 20px !important;
 
 </body>
 <script>
+
+
+
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
+
+
 
 
 //로딩시 데이터

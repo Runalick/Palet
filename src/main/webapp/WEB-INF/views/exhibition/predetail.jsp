@@ -799,6 +799,12 @@ a {
 
 </body>
 <script>
+
+
+
+
+
+
 	$(".bookbutton").on("click", function() {
 
 		$(this).next().val($($(this).siblings()[2]).text());
