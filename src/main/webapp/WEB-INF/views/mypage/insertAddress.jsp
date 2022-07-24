@@ -73,6 +73,7 @@ accent-color: black;
 margin-right:0.5rem;
 }
 .btnbtn{
+font-family: 'Spoqa Han Sans Neo';
 transition: 0.3s;
 padding: 18px 24px;
 gap: 10px;
@@ -88,13 +89,14 @@ cursor:pointer;
 background:black;
 }
 .close{
-background: #919EAB;
+color:black;
+background: white;
 }
 .insert:hover, .modibtn:hover{
 background:#454F5B;
 }
 .close:hover{
-background:#454F5B;
+background:#F4F6F8;
 }
 </style>
 <body>

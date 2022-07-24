@@ -174,10 +174,18 @@
 
         }  
         #paint:hover{
+        	background:#F4F6F8 !important;
+        	color:black !important;
+        }
+        #spaint:hover{
+        	background:#F4F6F8 !important;
+        	color:black !important;
+        }
+        #back:hover{
         	background:#F4F6F8;
         	color:black;
         }
-        #spaint:hover{
+        #sback:hover{
         	background:#F4F6F8;
         	color:black;
         }

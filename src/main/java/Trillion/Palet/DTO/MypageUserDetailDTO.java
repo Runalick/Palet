@@ -31,14 +31,13 @@ public class MypageUserDetailDTO {
 	}
 	
 	public MypageUserDetailDTO(int line, String et_title, String et_date, Timestamp et_buydate, int e_num,
-			String ep_sysname, String et_booknumber) {
+			String et_booknumber) {
 		super();
 		this.line = line;
 		this.et_title = et_title;
 		this.et_date = et_date;
 		this.et_buydate = et_buydate;
 		this.e_num = e_num;
-		this.ep_sysname = ep_sysname;
 		this.et_booknumber = et_booknumber;
 	}
 

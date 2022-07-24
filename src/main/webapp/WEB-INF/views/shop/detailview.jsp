@@ -205,14 +205,15 @@
 
 
 #img {
-	height: 36.375rem;
-	width: 36.375rem;
+	height: 100%;
+	width: 100%;
 	left: 27.75rem;
 	top: 7.5rem;
 	border-radius: 1.25rem;
 }
 
 .margin1 {
+
 	margin-top: 2.5rem;
 	padding: 0rem;
 	margin-right: 0px;
@@ -483,6 +484,11 @@ background:#454F5B;
 	text-align:center;
 }
 @media ( min-width : 870px) {
+#imgdiv {
+height:35rem;
+width:50rem;
+}
+
 	#goodscontainer {
 	width: 80rem;
 	padding-top:6.25rem;
@@ -500,7 +506,9 @@ padding-left:4rem;
 #margin2 {
 	margin-left: 6.26rem;
 }
-
+#margin2>div{
+padding:0px;
+}
 #title {
 	/* Headline/H3 */
 	font-family: 'Spoqa Han Sans Neo';
@@ -538,20 +546,32 @@ margin-bottom: 2.5rem;
 }
 
 @media ( max-width : 871px) {
+#margin2{
+padding-left:1.7rem !important;
+padding-right:0px;
+}
+#imgdiv {
+padding-right:1.6rem !important;
+height:35rem;
+width:100%;
+}
 		#goodscontainer {
 	width: 100%;
 }
 .g_contents{
-width:36.375rem;
+
 margin:auto;
 padding:0px;
 }
 #btndiv{
 padding-left:3rem;
 }
+.margin2{
 
+padding:0px !important;
+}
 .payment-area2{
-width:36.375rem;
+padding:0px !important;
 margin:auto;
 margin-bottom:5rem;
 }
@@ -631,6 +651,8 @@ font-family: 'Spoqa Han Sans Neo';
 	padding-left:7.2px;
 }
 .g_contents{
+padding-right:0.5rem !important;
+padding-left:1.6rem !important;
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 400;
@@ -644,12 +666,14 @@ font-family: 'Spoqa Han Sans Neo';
 #footer{
 			margin-top:6.25rem;
             background: #F4F6F8;
-            height: 13.25rem;
         }
 #footer .h3{
 padding-top:0px;
 padding-bottom:0px;
-}       
+}    
+#small{
+padding-right:0.5rem;
+}   
 </style>
 </head>
 <body style="overflow-x: hidden">
@@ -994,7 +1018,7 @@ $(".li").on("click", function () {
 						
 					<!-- 상품 상세 설명 -->
 						<div class="row" id="productdetail">
-							<div class="col-12 g_contents" >${dto.g_contents }</div>
+							<div class="col-12 g_contents"  >${dto.g_contents }</div>
 						</div>
 
 
