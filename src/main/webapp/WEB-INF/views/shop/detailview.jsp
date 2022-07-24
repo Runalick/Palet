@@ -504,7 +504,7 @@ width:50rem;
 padding-left:4rem;
 }
 #margin2 {
-	margin-left: 6.26rem;
+	margin-left: 1.26rem;
 }
 #margin2>div{
 padding:0px;
