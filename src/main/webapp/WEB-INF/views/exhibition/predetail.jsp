@@ -458,7 +458,7 @@ a {
 
 </head>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid" style="overflow-y:hidden;">
 		<div class="container-fluid"
 			style="background-color: white;">
 			<div class="container">

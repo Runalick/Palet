@@ -260,7 +260,7 @@ border:0px;
 
 
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 10rem; padding-left: 0.5rem;">Romantic
+						style="margin-top: 15rem; padding-left: 0.5rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-none d-sm-block"
