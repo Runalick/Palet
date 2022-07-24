@@ -258,7 +258,8 @@ text-align: center;
 	color: #FFFFFF;
 }
 .btn2:hover{
-background: #454F5B;
+background: #F4F6F8;
+color:black;
 }
 .btn3{
 	padding: 1.125rem 1.5rem;
