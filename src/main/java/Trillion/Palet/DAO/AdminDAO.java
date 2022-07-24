@@ -212,6 +212,10 @@ public class AdminDAO {
 		return mybatis.insert("Admin.newExhibitionInsert", dto);
 	}
 	
+	public int newExhibitionInsert2(NewExhibitionDTO dto) {
+		return mybatis.insert("Admin.newExhibitionInsert2", dto);
+	}
+	
 	public int exhibitionCheckDelete(int pe_seq) {
 		return mybatis.delete("Admin.exhibitionCheckDelete", pe_seq);
 	}

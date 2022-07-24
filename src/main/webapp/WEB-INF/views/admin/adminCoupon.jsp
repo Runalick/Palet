@@ -32,7 +32,8 @@
 	}
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden;">
+
 <!-- <div class="container "> -->
     <nav class="navbar navbar-expand-md  navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
@@ -91,7 +92,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                           <!--  <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -100,7 +101,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         
@@ -161,7 +162,7 @@
                 		<div class="col-12 body2 colortext_gray600 px-5" >  : 쿠폰을 등록 할 수 있는 페이지 입니다. </div>
                 	</div>    
 					<div class="row" style="margin-top: 1rem" id="roundboxParent">
-                		<div class="col " style="align-item :center" id="roundbox">
+                		<div class="col " style="align-item :right" id="roundbox">
                 			<div class="row pt-2 m-3 mb-4">
 								<div class="h3_2">Make Coupon</div>
 							</div>
@@ -205,7 +206,7 @@
 
 									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
-											<a href="/admin/adminCoupon">
+											<a href="/admin/adminCoupon?cpage=1">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
 												<input class="btn2_1" type="button" id="make" value="발행">
 										</div>

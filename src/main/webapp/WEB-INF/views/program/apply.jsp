@@ -743,8 +743,12 @@ border-radius: 20px !important;
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+							<li class="nav-item"><a id="Logout" class="nav-link logout"
+												href="#" 
+												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+										<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
 												href="/mypage/main"
@@ -1125,6 +1129,26 @@ $(".logout").on("click", function(){
 
 
 
+
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
+
+
+
+
 //로딩시 데이터
 window.onload = function() {
 	let point = '${price}';
@@ -1300,6 +1324,7 @@ console.log($(".form-select1 option:selected").text() );
 			let price = $("#finalprice").text();
 			let price1 = price.replace(",", "");
 			let price2 = price1.replace("원", "");
+	
 			
 		let ipusedpoint =	$(this).val();
 		let ipusedpoint1 =	parseInt(ipusedpoint);
@@ -1545,7 +1570,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : 100, //실제 결제되는 가격
+			amount : price3 //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),

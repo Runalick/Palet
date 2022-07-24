@@ -114,6 +114,19 @@ public class ExhibitionController {
 		return "/exhibition/predetail";
 	}
 	
+	@RequestMapping(value = "toUpcommingdetail", method = RequestMethod.GET)
+	public String toPredetail1(String pe_img, Model model) {
+		System.out.println(pe_img);
+		System.out.println("jo");
+		PreExhibitionDTO dto = ServPe.preDetail(pe_img);
+		System.out.println(dto.getPe_img() +"hi");
+		
+		model.addAttribute("dto",dto);
+		
+		return "/exhibition/upcommingdetail";
+	}
+	
+	
 	@RequestMapping("toUpcommingExhibition")
 	public String toUpcommingExhibition (Model model) {
 		List<PreExhibitionDTO> list =  ServPe.chooseUp();

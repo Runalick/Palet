@@ -3,18 +3,18 @@ package Trillion.Palet.DTO;
 public class ProgramPicDTO {
 	private int pp_seq;
 	private int p_num;
-	private String pp_orinmae;
+	private String pp_oriname;
 	private String pp_sysname;
 	
 	public ProgramPicDTO() {
 		
 	}
 
-	public ProgramPicDTO(int pp_seq, int p_num, String pp_orinmae, String pp_sysname) {
+	public ProgramPicDTO(int pp_seq, int p_num, String pp_oriname, String pp_sysname) {
 		super();
 		this.pp_seq = pp_seq;
 		this.p_num = p_num;
-		this.pp_orinmae = pp_orinmae;
+		this.pp_oriname = pp_oriname;
 		this.pp_sysname = pp_sysname;
 	}
 
@@ -34,12 +34,12 @@ public class ProgramPicDTO {
 		this.p_num = p_num;
 	}
 
-	public String getPp_orinmae() {
-		return pp_orinmae;
+	public String getPp_oriname() {
+		return pp_oriname;
 	}
 
-	public void setPp_orinmae(String pp_orinmae) {
-		this.pp_orinmae = pp_orinmae;
+	public void setPp_oriname(String pp_oriname) {
+		this.pp_oriname = pp_oriname;
 	}
 
 	public String getPp_sysname() {

@@ -47,7 +47,7 @@
 </style>
 
 </head>
-<body>
+<body style="overflow-x:hidden;">
 	<nav class="navbar navbar-expand-md navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
        			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -104,7 +104,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -113,7 +113,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         
@@ -305,22 +305,23 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 ">
-											<input class="upload_view" id="pe_img" value="" placeholder="Input Exhibition Images" readonly>
+											<!-- <input class="upload_view" id="pe_img" value="" placeholder="Input Exhibition Images" readonly>
 											<span>	
-												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>	
-												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
-											</span>
+												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label> -->	
+												<!-- <input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)> -->
+												<input type="text" name="pe_img" placeholder="get in link" id="file2" name="pe_img"  accept="image/*" onchange=isFileImg(this) >
+											<!-- </span> -->
 										</div>
 										
 									</div>  
-									<div class="row" style="text-align:center">
+								<!-- 	<div class="row" style="text-align:center">
 										<div class="col-12 p-0">
 											<img src="" id="img_section" value="N">
 											<input class="btn1_0 mrg_left1" type="button" id="cancel_Btn" onclick="img_cancel()" style="display: none" value="첨부 취소">
 										</div>
-									</div>
+									</div> -->
 									
-									
+									<!-- <input type="text" name="pe_img" placeholder="get in link" id="file" name="pe_img"  accept="image/*" onchange=isFileImg(this) > -->
 									<div class="row pt-4 pb-4" style="text-align:center">
 										<div class="col-12 p-0">
 											<a href="/admin/adminExhibitions">
@@ -446,7 +447,7 @@ let end_date;
  	 	
 	});
 	
- 	const reader = new FileReader();
+ 	/* const reader = new FileReader();
  	reader.onload = (readerEvent) =>{
  		document.querySelector("#img_section").setAttribute("src",readerEvent.target.result);
  		console.log(readerEvent.target.result);
@@ -476,7 +477,7 @@ let end_date;
     	$(".upload_view").val("");
     	$("#cancel_Btn").css("display","none");
     }
-    
+     */
  	
 	
 
@@ -668,6 +669,32 @@ let end_date;
 			
 		}
 	})
+	
+	$("#file2").on("keyup", ()=>{
+		let pe_img = $("#file2").val();
+		console.log(pe_img);
+		if(pe_img == ""){
+			isExhibitionPic = false;
+			
+		}else {
+			isExhibitionPic = true;
+			console.log("expicPass")
+		}
+		console.log(isExhibitionPic);
+		
+		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
+			
+			let start_date_value = $("#start_date_value").val();
+			let end_date_value = $("#end_date_value").val();
+			let pe_date = start_date_value + " ~ " + end_date_value;
+			$("#pe_date").val(pe_date);
+			console.log($("#pe_date").val());
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+			
+		}
+	})
+	
 	
 	$("#file").on("change",function(){
 		let pe_img = $("#pe_img").val();

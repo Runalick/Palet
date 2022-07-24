@@ -196,7 +196,7 @@
 
 	/* Exhibition input */
 	
-		#e_price, #e_name, #pe_contents, #pe_writer, #pe_artcount{
+		#e_price, #e_name, #pe_contents, #pe_writer, #pe_artcount, #file2{
 			padding:  1.125rem 1.5rem;
             gap: 0.625rem;
 

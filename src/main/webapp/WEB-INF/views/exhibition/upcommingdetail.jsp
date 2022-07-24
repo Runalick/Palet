@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -17,8 +18,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-<!-- 카카오 로그인 -->
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<!-- 카카오 공유하기 -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style>
 @charset "UTF-8";
 
@@ -328,8 +329,8 @@ align-items: center; */
 }
 
 .h2 {
-/* 	width: 10.375rem;
-	height: 2.688rem; */
+	/* width: 10.375rem;
+            height: 2.688rem; */
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 700;
@@ -399,14 +400,7 @@ align-items: center; */
 
 .ul2>li {
 	padding: 0px;
-
-	float: right;
-	
-}
-.ul2_1>li{
-display:inline-block;
-margin:2rem;
-
+	float: left;
 }
 
 .curimage {
@@ -424,46 +418,49 @@ a {
 	padding: 0px;
 }
 
-.navbar-nav>li {
-	text-align: right;
-	background: white;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
+.leftbutton {
+	width: 3.75rem;
+	height: 3.75rem;
+	padding: 0px;
+	margin-top: 0px;
 }
 
+.bookbutton {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 8.2rem;
+	height: 3.75rem;
+	color: #FFFFFF;
+	/* Gray/900 */
+	background: #161C24;
+	border-radius: 1.25rem;
+	/* Button/Button */
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	padding: 1.125rem 1.5rem;
+}
+
+#po {
+	position: relative;
+}
 .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 } 
 
-
 </style>
-<script>
-//사용할 앱의 JavaScript 키 설정
-$(".logout").on("click", function(){
-         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-         Kakao.isInitialized();
-         if (!Kakao.Auth.getAccessToken()) {
-            console.log('Not logged in.');
-            location.href="/member/logout";
-             return ;
-         }
-         
-          Kakao.Auth.logout(function() {
-               console.log(Kakao.Auth.getAccessToken());
-               location.href="/member/logout";
-             });
-          
-         return true;
-      });
 
-</script>
 
 </head>
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -542,7 +539,7 @@ $(".logout").on("click", function(){
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
@@ -607,100 +604,176 @@ $(".logout").on("click", function(){
 			</div>
 
 		</div>
-		
-		
-		
+
+
+		<div class="container d-none d-sm-block"
+			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			<div class="row">
+				<div class="col-lg-1 col-xs-6">
+					<img type=button class=leftbutton src="/images/leftbutton.png"
+						style="margin-left: 0px;">
+				</div>
+
+				<div class="col-lg-2 col-xs-6">
+
+					<img src="${dto.pe_img}"
+						style="width: 10.625rem; height: 14.125rem;">
+
+				</div>
+
+
+				<div class="col-lg-9 col-xs-12">
+
+					<div class="col h3">${dto.pe_name }</div>
+
+
+					<div class="col body1" style="color: #161C24;">${dto.pe_date }</div>
+
+					<form action="/Exhibition/toBook" method="post">
+
+
+
+						<div class="col h2" id=po
+							style="text-align: left; margin-top: 5.781rem;"></div>
+
+					</form>
+				</div>
+
+
+
+
+			</div>
+		</div>
+		<div class="row d-none d-sm-block"
+			style="border-top: 1px solid #DFE3E8;"></div>
+
+
+
+
+		<div class="container d-block d-sm-none"
+			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			<div class="row">
+				<!-- <div class="col-6">
+					<img type=button class=leftbutton src="/images/leftbutton.png"
+						style="margin-left: 0px;">
+				</div> -->
+
+				<div class="col-12" style="text-align: center;">
+
+					<img src="${dto.pe_img}"
+						style="width: 10.625rem; height: 14.125rem;">
+
+				</div>
+
+
+				<div class="col-12">
+
+					<div class="col h3" style="text-align: center; margin-top: 3rem;">${dto.pe_name }</div>
+
+
+					<div class="col body1" style="color: #161C24; text-align: center;">${dto.pe_date }</div>
+
+
+					<form action="/Exhibition/toBook" method="post">
+
+
+						<div class="col h2"
+							style="text-align: center; margin-top: 5.781rem;"></div>
+
+					</form>
+				</div>
+
+
+
+
+			</div>
+		</div>
+
+
+		<div class="row d-block d-sm-none"
+			style="border-top: 1px solid #DFE3E8;"></div>
+
+
+
+
 		<div class="container">
-			<div class="row " style="margin-top: 70px;">
-				<div class="col-4 h2 d-none d-sm-block"
-					style="margin-top: 4rem; text-align: left;">Exhibition</div>
-				<ul class="col-8 ul2 h3 d-none d-sm-block"
-					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 2.4rem; padding-left: 0px;">
+			<div class="row">
+				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.4rem; padding-left: 0px;'">
+					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
+				
+
+
+				</ul>
+				<ul class="col-12 ul2 h3 offset d-block d-sm-none"
+					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
+					<li
+						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
 					
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
-						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
-					
-						
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
-						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
-							<li style="width: 4.938rem; margin-left: 5.2rem;">현재 전시</li>
 
 				</ul>
 			</div>
-		
-			<div class="row ">
-				<div class="col-12 h2 d-block d-sm-none"
-					style="margin-top: 2.5rem; text-align: center;">Exhibition</div>
-				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
-					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
-					<li style="width: 4.938rem; text-align:center;">현재 전시</li>
-					<li style="width: 4.938rem;  text-align:center; color: #919EAB; "><a
-						class="exlink" href="/Exhibition/toPreExhibition">과거 전시</a></li>
-					<li style="width: 4.938rem;   text-align:center; color: #919EAB; "><a
-						class="exlink" href="/Exhibition/toUpcommingExhibition">예정 전시</a></li>
+			<div class="row mt-3" id=row1>
 
-				</ul>
+				<img  referrerpolicy="no-referrer" src="${dto.pe_img }"
+					style="padding: 0px; margin:auto;  text-align: center; width: 25.5rem; height: 32.5rem;">
 			</div>
 
+			<div class="row mt-5" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_contents }</div>
 
 
-			<div class="row" id="container1">
-				<div class="col-12 d-none d-sm-block" style="margin-top: 5.313rem;">
-					<a href="/Exhibition/toCurdetail"><img class="curimage"
-						src="/images/anywaylove.png"></a>
-				</div>
-				<div class="col-12 h3 d-none d-sm-block" style="margin-top: 2.5rem;">Romantic
-					Days 어쨌든, 사랑</div>
-				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
-					2022.03.16 ~ 2022.10.30</div>
-				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
-					<!-- 	<a href="/Exhibition/toBook">
-				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
-				</div>
-				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
-					<a href="/Exhibition/toCurdetail">
-						<button class="btn1_1"
-							style="background: #ffffff; color: #161C24;">자세히 보기</button>
-					</a>
-				</div>
 
 
-			</div>
-			
-			
-			
-			
-			
-			
-			<div class="row" id="container1">
-				<div class="col-12 d-block d-sm-none" style="margin-top: 5.313rem; text-align:center;">
-					<a href="/Exhibition/toCurdetail"><img class="curimage"
-						src="/images/anywaylove.png"></a>
-				</div>
-				<div class="col-12 h3 d-block d-sm-none" style="margin-top: 2.5rem; text-align:center;">Romantic
-					Days 어쨌든, 사랑</div>
-				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem; text-align:center;">
-					2022.03.16 ~ 2022.10.30</div>
-				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
-					<!-- 	<a href="/Exhibition/toBook">
-				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
-				</div>
-				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
-					<a href="/Exhibition/toCurdetail" style = "text-align:center;">
-						<button class="btn1_1"
-							style="background: #ffffff; margin:auto; color: #161C24;">자세히 보기</button>
-					</a>
-				</div>
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">기간</div>
 
 
-			</div>
-			
-			
-			
-			
-			
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_date }</div>
+
+
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">관람료</div>
+
+
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_price}</div>
+
+
+
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">작가</div>
+
+
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_writer }</div>
+
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">작품수</div>
+
+
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_artcount}</div>
+
+
 
 		</div>
+
+
+
 
 		<div class="row" id="footer" style="margin-top: 12.5rem;">
 			<div class="container">
@@ -710,53 +783,103 @@ $(".logout").on("click", function(){
 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
 					<br>
 					<div class="col-12 body2"
-						style="color: #637381; ">3호선 경복궁역 지하
+						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
 						1층 | contact@palet.com</div>
 
 				</div>
+
+
+
 			</div>
 		</div>
 
 	</div>
+
+
+
+</body>
 <script>
-$(".logout").on("click", function(){
-    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-    Kakao.isInitialized();
-    if (!Kakao.Auth.getAccessToken()) {
-       console.log('Not logged in.');
-       location.href="/member/logout";
-        return ;
-    }
-    
-     Kakao.Auth.logout(function() {
-          console.log(Kakao.Auth.getAccessToken());
-          location.href="/member/logout";
-        });
-    return true;
- });
 
+
+
+
+
+
+	$(".bookbutton").on("click", function() {
+
+		$(this).next().val($($(this).siblings()[2]).text());
+		$(this).next().next().val($($(this).siblings()[0]).text());
+
+		location.href = "/Exhibition/toBook";
+	})
+
+	$(".leftbutton").on("click", function() {
+
+		location.href = "/Exhibition/toCurExhibition";
+	})
+
+	$(".minusbutton").on("click", function() {
+
+		let result = $(this).next().text();
+		number = parseInt(result) - 1;
+		if (number == 0) {
+			return false;
+		}
+		$(".count").text(number);
+
+		let price = $($(this).siblings()[0]).text();
+		console.log(price);
+		let price1 = price.replace(",", "");
+		console.log(price1);
+		let price2 = price1.replace("원", "");
+		console.log(price2);
+		finalprice = parseInt(price2);
+		finalprice = finalprice - 9000;
+
+		$(".price").text(finalprice.toLocaleString() + "원");
+
+	})
+
+	$(".plusbutton").on("click", function() {
+
+		let result = $($(this).siblings()[2]).text();
+		number = parseInt(result) + 1;
+		if (number > 30) {
+			alert('30매 이상의 단체 예약은 manager@palet.com 으로 연락주세요');
+			return false;
+		}
+		console.log(number);
+		$(".count").text(number);
+
+		let price = $($(this).siblings()[0]).text();
+		let price1 = price.replace(",", "");
+		let price2 = price1.replace("원", "");
+
+		finalprice = parseInt(price2);
+		finalprice = finalprice + 9000;
+		$(".price").text(finalprice.toLocaleString() + "원");
+
+	})
+	
+	//카카오 초기화 및 토큰 받아오기
+	$(".logout").on("click", function(){
+         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+         Kakao.isInitialized();
+         if (!Kakao.Auth.getAccessToken()) {
+            console.log('Not logged in.');
+            location.href="/member/logout";
+             return ;
+         }
+         
+          Kakao.Auth.logout(function() {
+               console.log(Kakao.Auth.getAccessToken());
+               location.href="/member/logout";
+             });
+         return true;
+      });
 </script>
-
 <!-- Channel Plugin Scripts -->
 <script>
-
-$(".logout").on("click", function(){
-    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-    Kakao.isInitialized();
-    if (!Kakao.Auth.getAccessToken()) {
-       console.log('Not logged in.');
-       location.href="/member/logout";
-        return ;
-    }
-    
-     Kakao.Auth.logout(function() {
-          console.log(Kakao.Auth.getAccessToken());
-          location.href="/member/logout";
-        });
-    return true;
- });
-
-
     (function() {
       var w = window;
       if (w.ChannelIO) {
@@ -797,8 +920,5 @@ $(".logout").on("click", function(){
     });
   </script>
 <!-- End Channel Plugin -->
-</body>
-
-
-
 </html>
+
