@@ -566,7 +566,11 @@ font-size:1.325rem;
 margin:auto;
 }
 
-
+@media ( max-width : 540px) {
+.productInfo{
+width:13.625rem;
+}
+}
 </style>
 <body style="overflow-x: hidden">
 	<!-- 네비단 -->
