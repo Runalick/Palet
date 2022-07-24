@@ -49,9 +49,12 @@
 			<exclude-mapping path="/Exhibition/contents" />
 			<exclude-mapping path="/Exhibition/toCurdetail" />
 			<exclude-mapping path="/Exhibition/toPredetail" />
+			<exclude-mapping path="/program/toProgram" />
+			<exclude-mapping path="/program/toClassdetail" />
 			<exclude-mapping path="/shop/toShop" />
 			<exclude-mapping path="/shop/selectGoods" />
 			<exclude-mapping path="/shop/selectGoods" />
+			<exclude-mapping path="/event/eventPage" />
 			<exclude-mapping
 				path="/Exhibition/toUpcommingExhibition" />
 			<exclude-mapping path="/member/**" />
