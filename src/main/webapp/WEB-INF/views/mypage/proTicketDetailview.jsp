@@ -31,11 +31,14 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -355,7 +358,6 @@ padding: 0.3rem 1rem;
 font-family: 'Spoqa Han Sans Neo';
 font-size:1.625rem;
 padding-bottom:1rem;
-  margin-top:1rem;
 
 }
 .body5{
@@ -540,7 +542,7 @@ margin-bottom:0.5rem;
 
 		<div class="container-fluid">
 			<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -793,11 +795,12 @@ margin-bottom:0.5rem;
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 				
+				<div class="col-12">
 				<c:if test="${dto.pro_state == 'BU' }">
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
 				</c:if>
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
-				
+				</div>
 				</div>
 				</div>
 
