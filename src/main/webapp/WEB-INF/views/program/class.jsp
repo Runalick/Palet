@@ -520,7 +520,7 @@ padding:0px;
 					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
 								
 								</ul>
@@ -608,7 +608,7 @@ padding:0px;
 			</div>
 			
 			
-			<div class="row" id="container1">
+			<div class="row  d-none d-sm-block" id="container1">
 				<div class="col-12" style="margin-top: 5.313rem;">
 				<a href="/program/toClassdetail"><img class = "curimage" src="/images/kidclass.png" ></a>	
 				</div>
@@ -631,7 +631,7 @@ padding:0px;
 			</div>
 			
 			
-			<div class="row" id="container1">
+			<div class="row" id="container1" >
 				<div class="col-12 d-block d-sm-none" style="margin-top: 5.313rem; text-align:center;">
 					<a href="/program/toClassdetail"><img class="curimage"
 						src="/images/kidclass.png"></a>

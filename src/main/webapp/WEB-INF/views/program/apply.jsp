@@ -129,6 +129,7 @@
 
 
 
+
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
@@ -1406,10 +1407,15 @@ document.addEventListener('DOMContentLoaded', function() {
      			   
      		   
      		   }
-     		   else {
-     		          alert('지난 날짜이거나 프로그램 개최 기간이 아닙니다.');
+     		   else if(pickTime < todayTime){
+     		          alert('지난 날짜는 선택 할 수 없습니다.');
      		          return false;
      		     }
+     		   else{
+     			   
+     			   alert('프로그램 개최 기간(2022.03.16 ~ 2022.10.30)이 아닙니다.');
+     			  return false;
+     		   }
      		     
      		       
      		    

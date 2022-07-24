@@ -658,7 +658,7 @@ a {
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/member/mypage"
+												href="/mypage/main"
 												style="padding-left: 0px; padding-right: 0px;">Mypage</a></li>
 
 										</ul>
@@ -842,9 +842,13 @@ a {
 								type="button" class=plusbutton src="/images/plusbutton.png"
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
 
-							<button class=bookbutton
-								style="text-align: center; margin-top: 3rem; margin-left: 0.7rem;">예매하기</button>
-
+				
+							<ul style="float: right; list-style: none;">
+								<li style="float: left"><img src="/images/share.png"
+									class="modalbtn share">
+								<li style="float: right; margin-left: 15px;"><button
+										class=bookbutton>예매하기</button>
+							</ul>
 
 							<input type=hidden name=count class=count1> <input
 								type=hidden name=price class=price1>
