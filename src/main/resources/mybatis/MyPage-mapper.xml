@@ -94,7 +94,7 @@ with pay1 as (
 	with pay1 as (
     select p.email, p.merchant_uid as booknumber, p.g_name as title, p.pay_time as buydate, p.totalprice as cost,p.address1 as pickdate, p.address2 as datee,g.g_num as num, g.state, g.category, g.g_seq 
     from payment p left outer join mygoods g on(g.merchant_uid = p.merchant_uid) ),
-    pay2 as ( select gp_sysname as sysname, pay1.* from pay1 left outer join goodspic on (g_seq = gp_seq)),
+    pay2 as ( select gp_sysname as sysname, pay1.* from pay1 left outer join goodspic on (num = g_num)),
     pay3 as ( select g_seq, num, email, title, datee, booknumber, state, cost,category, buydate,pickdate,sysname from pay2 
     UNION ALL
     select et_point as g_seq,e_num as num, et_email as email, et_title as title, et_date as datee, et_booknumber as booknumber,
