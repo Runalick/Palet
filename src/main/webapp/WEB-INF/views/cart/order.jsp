@@ -383,6 +383,12 @@ text-align: center;
 
 color: #FFFFFF;
 margin-top:1.25rem;
+transition:0.3s;
+border:0px solid black;
+}
+#paybtn:hover{
+	background:#F4F6F8;
+	color:black;
 }
 #span1{
 width:5.063rem; 
@@ -627,6 +633,12 @@ background: #161C24;
 border-radius: 0.375rem;
 color:white;
 text-align:center;
+transition:0.3s;
+border:0px solid black;
+}
+.pointbtn:hover{
+	background:#F4F6F8;
+	color:black;
 }
 .pointinput2{
 	width:15.5rem;
@@ -638,7 +650,12 @@ background: #161C24;
 border-radius: 0.375rem;
 color:white;
 text-align:center;
-
+transition:0.3s;
+border:0px solid black;
+}
+.choosedeliverybtn:hover{
+	background:#F4F6F8;
+	color:black;
 }
 .choose-area{
 margin-bottom:1rem;
@@ -836,15 +853,15 @@ input[type="number"]::-webkit-inner-spin-button {
 <!-- 				<div class="col-1 margin1" id="cart"> -->
 					
 <!-- 				</div> -->
-				<div class="col-12 h2" id="ordertitle" style="padding-left:2.5rem;">Order / Payment</div> 
+				<div class="col-12 h2" id="ordertitle" style="padding-left:1.5rem;">Order / Payment</div> 
 
 				<div class="col-12" style="margin-bottom:1.25rem;">
 					<div class="row" style="padding-left:2.5rem; margin-bottom:1.25rem;">
-						<div class="col-md-3 col-12 H3 info">배송정보</div>
+						<div class="col-md-3 col-12 H3 info" style="padding-left:0rem;">배송정보</div>
 					</div>
 					<div class="row choose-area body2" style="padding-left:2.5rem;">
-						<div class="col-10" style="text-align:left;">
-						<button class="choosedeliverybtn">배송지 선택</button>
+						<div class="col-10" style="text-align:left; padding-left:0rem;">
+						<button class="choosedeliverybtn" >배송지 선택</button>
 					</div>
 				</div>
 				</div>
@@ -1002,7 +1019,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 				<div class="col-12" style="margin-bottom:1.25rem;">
 					<div class="row">
-						<div class="col-12 H3 info">배송정보</div>
+						<div class="col-12 H3 info" style="text-align:center">배송정보</div>
 					</div>
 				</div>
 				
@@ -1012,7 +1029,7 @@ input[type="number"]::-webkit-inner-spin-button {
 				<div id="product-area" style="width:100%">
 <!-- 				배송 주소 부분 -->
 				<div class="row choose-area body2">
-					<div class="col-10">
+					<div class="col-12" style="text-align:center">
 						<button class="choosedeliverybtn">배송지 선택</button>
 					</div>
 				</div>

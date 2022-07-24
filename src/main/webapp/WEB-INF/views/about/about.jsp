@@ -126,39 +126,46 @@
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Mypage {
 	width: 5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Logout {
 	width: 4.5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Program {
 	width: 5.5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 .H2 {
@@ -317,9 +324,11 @@ background: #161C24;
 border-radius: 20px;
 color:white;
 margin-top:2.5rem;
+transition: 0.3s;
 }
 .askbtn:hover{
-background-color : #454F5B;
+background-color : #F4F6F8;
+color:black;
 gap: 10px;
 border-radius: 20px;
 }

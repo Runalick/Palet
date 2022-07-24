@@ -260,6 +260,12 @@ font-family: 'Spoqa Han Sans Neo';
 
 background: #161C24;
 border-radius: 20px;
+transition:0.3s;
+}
+.btn1_1:hover{
+	background:#F4F6F8 !important;
+	color:black !important;
+	border:1px solid #F4F6F8 !important;
 }
 
 .btn2 {
@@ -420,6 +426,11 @@ height: 32.5rem;
 .exlink{
 text-decoration :none;
 color: #919EAB;
+transition:0.3s;
+}
+
+.exlink:hover{
+	color:black;
 }
 
 a{
@@ -624,7 +635,7 @@ padding:0px;
 				</div>
 			<div class="col-12 caption" style="margin-top: 2.5rem;">
 				<a href="/program/toClassdetail">
-				<button class = "btn1_1" style="background: #161C24;">신청하기</button></a>
+				<button class = "btn1_1" style="background: #161C24; border:0px solid black !important;">신청하기</button></a>
 				</div>
 				
 
@@ -646,7 +657,7 @@ padding:0px;
 				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
 					<a href="/program/toClassdetail" style = "text-align:center;">
 						<button class="btn1_1"
-							style="background: #ffffff; margin:auto; color: #161C24;">신청하기</button>
+							style="background: #161C24; margin:auto; color: white; border:0px solid black !important;">신청하기</button>
 					</a>
 				</div>
 

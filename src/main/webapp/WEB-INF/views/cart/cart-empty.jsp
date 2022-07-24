@@ -34,6 +34,12 @@
 
 		padding-left: 33px;
 }
+#btnstyle{
+	transition:0.3s;
+}
+#btnstyle:hover{
+	background:#F4F6F8;
+}
 
 </style>
 </head>
@@ -198,7 +204,7 @@
 				</div>
 			</div>
 			<div class="col-12">
-				<button class="btn2" style="width: 150px;">쇼핑하러 가기</button>
+				<button class="btn2" id="btnstyle" style="width: 150px;">쇼핑하러 가기</button>
 			</div>
 		</div>
 	</div>

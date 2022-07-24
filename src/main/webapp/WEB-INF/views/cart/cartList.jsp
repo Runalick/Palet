@@ -20,6 +20,9 @@
 	display: inline-block;
 }
 
+#paybtn{
+	transition:0.3s;
+}
 </style>
 <body>
 	장바구니

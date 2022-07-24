@@ -123,42 +123,44 @@
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
+	transition:0.3s;
 }
 #Mypage {
 	width: 5rem;
 	height: 1.5rem;
+	transition:0.3s;
 }
 #Logout {
 	width: 4.5rem;
 	height: 1.5rem;
+	transition:0.3s;
 }
 
 #Program {
 	width: 5.5rem;
 	height: 1.5rem;
+	transition:0.3s;
 }
 
 
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
+	transition:0.3s;
 }
 
 
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
+	transition:0.3s;
 }
 
 
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
-}
-
-#Signup {
-	width: 4.438rem;
-	height: 1.5rem;
+	transition:0.3s;
 }
 /* footer */
 #footer {
@@ -255,6 +257,12 @@ line-height: 1.125rem;
 	flex: none;
 	order: 0;
 	flex-grow: 0;
+	transition:0.3s;
+}
+
+.btn1:hover{
+	background:#F4F6F8;
+	color:black;
 }
 
 #cart {
@@ -387,6 +395,15 @@ text-align: center;
 
 color: #FFFFFF;
 margin-top:1.25rem;
+transition:0.3s;
+}
+#paybtn:hover{
+	background:#F4F6F8;
+	color:black;
+}
+.cntbtn:hover{
+	background:#F4F6F8;
+	color:black;
 }
 #span1{
 width:5.063rem; 
@@ -439,6 +456,7 @@ margin-top:1rem;
 	background: #FFFFFF;
 	box-sizing: border-box;
 	border-radius: 50%;
+	transition:0.3s;
 }
 .cntbtn:hover{
 background:#F4F6F8;
@@ -533,16 +551,12 @@ margin-right:1.325rem;
 }
 
 #paybtn{
-width:100%;
-height:4.5rem;
-margin-top:2.25rem;
+	width:100%;
+	height:4.5rem;
+	margin-top:2.25rem;
+	transition:0.3s;
 }
-#paybtn:hover{
-background:#454F5B;
-}
-.cntbtn:hover{
-background:#F4F6F8;
-}
+
 .Caption{
 font-size:1.325rem;
 }
@@ -552,9 +566,7 @@ font-size:1.325rem;
 margin:auto;
 }
 
-#paybtn:hover{
-background:#454F5B;
-}
+
 </style>
 <body style="overflow-x: hidden">
 	<!-- 네비단 -->
@@ -722,7 +734,7 @@ background:#454F5B;
 							</div>
 						</div>
 						<div class="col-12">
-							<button class="btn1">쇼핑하러 가기</button>
+							<button class="btn1" style="border:0px solid black;">쇼핑하러 가기</button>
 						</div>
 					</c:when>
 					<c:otherwise>
