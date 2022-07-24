@@ -309,19 +309,19 @@ padding-left:0.5rem;
 	padding:0rem;
 	}
 	.body3{
-	font-size:1.425rem;
+	font-size:1.1rem;
 	}
 	.body4, .main-info{
-	font-size:1.875rem;
+	font-size:1.3rem;
 	}
 	.main-area .body4{
 	font-family: 'Spoqa Han Sans Neo';
 	font-weight:550;
-	font-size:1.625rem;
+	font-size:1.3rem;
 }
 	.sm-btn{
 	margin-top:0.3rem;
-	width:10.375rem;
+	width:6.375rem;
 	height:2.875rem;
 	}
 	#insert{
@@ -433,6 +433,13 @@ transition: 0.3s;
 background:#F4F6F8;
 color:black;
 
+}
+
+.ellipsis {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* 말줄임 적용 */
 }
 </style>
 </head>
@@ -631,16 +638,16 @@ color:black;
 				<div class="content" style="margin-top:1rem;">
 					<div class="row" >
 						<div class="col-12 main-info ">배송지 목록</div>
-						<div class="col-8 body4 " >배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
-						<div class="col-4 body4">
-						<button class="btnbtn body3" id="insert">배송지 등록</button>
+						<div class="col-12 col-md-8 body4 " >배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
+						<div class="col-4 body4" style="padding-top:10px;">
+						<button class="btnbtn body3" id="insert" >배송지 등록</button>
 						</div>
 						<div class="col-12  " style="margin-top:2.5rem;">
 							<div class="row main-area" >
-								<div class="col-2  body4 px-3 " >배송지</div>
-								<div class="col-5 body4  px-3">주소</div>
-								<div class="col-3 col-md-2  px-3 body4">연락처</div>
-								<div class="col-2 col-md-3  px-3 body4" style="text-align:center">수정·삭제</div>
+								<div class="col-3 col-md-2  body4 px-3 " >배송지</div>
+								<div class="col-6 col-md-5 body4  px-3">주소</div>
+								<div class="col-3 col-md-2 d-none d-md-block px-3 body4">연락처</div>
+								<div class="col-3 col-md-2 d-none d-md-block  px-3 body4" style="text-align:center">수정·삭제</div>
 								
 							
 							</div>
@@ -648,19 +655,20 @@ color:black;
 							
 							<c:if test="${defaultAddress.receiver !=null}">
 					<div class="row list" id="row2" >
-                        <div class="col-2 body3">
+                        <div class="col-3 col-md-2 body3">
                         	<div class="row">
                         		
 					
-                        		<div class="col-12  p-0" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
+                        		<div class="col-12 d-none d-md-block p-0" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본 주소지</div>
+                        		<div class="col-12 d-display d-md-none p-0" style="font-weight:700;margin-top:0.25rem; background: #DFE3E8;">기본</div>
                         	<div class="col-12 p-0">${defaultAddress.receiver }</div>
                         	</div>
                       
                         
                         </div>
-                        <div class="col-5 body3 ">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
-                        <div class="col-3 col-md-2 body3">${defaultAddress.phone }</div>
-                        <div class="col-2 col-md-3 body3" style="text-align:center">
+                        <div class="col-6 col-md-5 body3 p-1">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
+                        <div class="col-md-2 d-none d-md-block body3">${defaultAddress.phone }</div>
+                        <div class="col-3 body3" style="text-align:center">
                         <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
                         <button class="btnbtn sm-btn body3 defaultdelete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
                         </div>
@@ -668,10 +676,10 @@ color:black;
 							</c:if>
 					<c:forEach var="i" items="${list }">
                      <div class="row list" id="row2">
-                        <div class="col-2 body3">${i.receiver }</div>
-                        <div class="col-5 body3">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
-                        <div class="col-3 col-md-2 body3">${i.phone }</div>
-                        <div class="col-2 col-md-3 body3" style="text-align:center">
+                        <div class="col-3 col-md-2 body3">${i.receiver }</div>
+                        <div class="col-6 col-md-5 body3 p-1">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
+                        <div class="col-md-2 d-none d-md-block body3">${i.phone }</div>
+                        <div class="col-3 body3" style="text-align:center">
                         <button class="btnbtn sm-btn body3 modi" style="line-height:0px;" value=${i.deliveryaddress_seq }>수정</button>
                         <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${i.deliveryaddress_seq }>삭제</button>
                         </div>
