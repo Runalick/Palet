@@ -673,14 +673,20 @@ border-radius:0.625rem;
 			     	<div class="col-12 ticket" style="margin:auto;">
 			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
-								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
+								<div class="col-3 d-none d-sm-block" style="padding: 1rem; padding-left:1.5rem;">
 									<img src="/images/anywayloveS.png" class="w-100 h-100">
 								</div>
-								<div class="col-9" style="position: relative">
+								<!-- <div class="col-3 d-block d-sm-none" style="padding: 1rem; padding-left:1.5rem;">
+									
+								</div> -->
+								<div class="col-9 " style="position: relative">
 									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
 										<div class="body3_2" style="color: white" >예매번호 : ${i.booknumber }</div>
 									<div class="body3_2" style="color: white;">${i.datee }</div>
-									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
+									<div class="qr d-none d-sm-block" id="qr" style="	border: 5px solid white;"></div>
+								</div>
+								<div class="col-3 d-block d-sm-none" style="padding: 1rem; padding-left:1.5rem;">
+								<div class="qr" id="qr" style="	border: 5px solid white;"></div>
 								</div>
 							</div>
 					</div>
@@ -709,7 +715,7 @@ border-radius:0.625rem;
 			<div class="col-12 H5">지난 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${precnt ==0 }">
-					<div class="col-12 H2" style="margin:auto ; padding-top:7rem; width:25rem;">예매 내역이 없습니다.</div>
+					<div class="col-12 H2" style="margin:auto ; padding-top:7rem; width:25rem; margin-bottom:12rem; ">예매 내역이 없습니다.</div>
 				</c:when>
 				<c:otherwise>
 			
