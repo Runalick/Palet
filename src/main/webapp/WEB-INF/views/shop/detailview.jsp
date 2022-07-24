@@ -37,7 +37,7 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -45,6 +45,7 @@
 		font-size: 16px;
 	}
 }
+
 
 * {
 	box-sizing: border-box;
@@ -83,8 +84,9 @@
 }
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 /*         오른쪽 여백 없애기
@@ -115,7 +117,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
