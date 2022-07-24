@@ -46,7 +46,7 @@ border:0px;
 }
 </style>
 </head>
-<body>
+<body style = "overflow-x:hidden;">
 
 	<div class="container-fluid">
 		<div class="container-fluid"
