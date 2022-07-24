@@ -38,6 +38,7 @@
 }
 .btn2{
 border:0px;
+transition: 0.3s;
 }
 .btn2:hover{
 background:#454F5B;
