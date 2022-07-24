@@ -90,7 +90,7 @@
 			<button id="jsSave" class="btn1">Save</button>
 		</div>
 		<div>
-			<button id="jsSubmit" class="btn1" id="submitimg">Submit</button> 
+			<button id="jsSubmit" class="btn1">Submit</button> 
 		</div>
     </div>  
     <div>
@@ -105,7 +105,7 @@
 		
 		
 	</script>
-<script src="/js/paint.js">  </script>
+<script src="/js/paint.js"></script>
 	
 </body>
 </html>

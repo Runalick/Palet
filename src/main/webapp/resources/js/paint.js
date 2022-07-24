@@ -136,7 +136,7 @@ function saveImage() {
 	}
 	
 	let imgDataUrl = canvas.toDataURL("image/png", 1.0);
-	console.log(imgDataUrl);
+//	console.log(imgDataUrl);
 	 
 	/*var blobBin = atob(imgDataUrl.split(',')[1]);	// base64 데이터 디코딩
     var array = [];
@@ -153,7 +153,7 @@ function saveImage() {
 	d_title = title.value;
 	painter = painter.value;
     
-    
+  
     $.ajax({
         type : 'post',
         url : '/event/send',
@@ -162,7 +162,8 @@ function saveImage() {
         success : function (data) {
             if(data == "true"){
 				alert("이벤트 참여가 완료되었습니다. 관리자의 승인 후 등록됩니다.");
-				return "123"
+				location.replace("/event/participation");
+				
 				
 			} else if (data == "123"){
 				alert("본 이벤트는 1계정당 1번만 참여가 가능합니다.");
