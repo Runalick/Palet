@@ -32,6 +32,7 @@ public class EventController {
 
 	@RequestMapping("participation")
 	public String participation(Model model) {
+		System.out.println("123");
 		String loginEmail = (String) session.getAttribute("loginEmail");
 		// String loginEmail = "admin@palet.com";
 		// model.addAttribute("loginEmail", loginEmail);
@@ -88,12 +89,12 @@ public class EventController {
 	public String send(DrawingDTO dto) throws Exception {
 		String email = (String) session.getAttribute("loginEmail");
 		System.out.println(email);
-		// int result = eServ.findEmail(email);
-		int result = 0;
-		System.out.println(result);
+		int result = eServ.findEmail(email);
+		//int result = 0;
+		//System.out.println(result);
 
 		if (result > 0) {
-			return "false";
+			return "123";
 		}
 
 		dto.setEmail(email);
