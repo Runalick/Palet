@@ -171,16 +171,20 @@ public class MyPageController {
 	public String myShopping(Model model) {
 		String email = (String)session.getAttribute("loginEmail");
 		model.addAttribute("email",email);
+		List<Object> list = mServ.myShopping(email);
+		model.addAttribute("list",list);
+		int listsize = list.size();
+		model.addAttribute("listsize",listsize);
 		return "/mypage/myShopping";
 	}
 	
-	@ResponseBody
-	@RequestMapping("ShoppingList")
-	public List<Object> ShopingList(int limit, String email) {
-		List<Object> list = mServ.myShopping(limit, email);
-		//System.out.println(list);
-		return list;
-	}
+	/*
+	 * @ResponseBody
+	 * 
+	 * @RequestMapping("ShoppingList") public List<Object> ShopingList(int limit,
+	 * String email) { List<Object> list = mServ.myShopping(limit, email);
+	 * //System.out.println(list); return list; }
+	 */
 	
 	@RequestMapping("myShoppingDetail")
 	public String myShoppingDetail(String merchant_uid, Model model) {
@@ -199,6 +203,7 @@ public class MyPageController {
 	@ResponseBody
 	@RequestMapping("changeStateCU")
 	public void changeStateCU(String merchant_uid) {
+		System.out.println(merchant_uid);
 		mServ.changeStateCU(merchant_uid);
 	}
 	
@@ -206,7 +211,6 @@ public class MyPageController {
 	@ResponseBody
 	@RequestMapping("changeStateAU")
 	public void changeStateAU(String merchant_uid) {
-		System.out.println(merchant_uid);
 		mServ.changeStateAU(merchant_uid);
 	}
 	

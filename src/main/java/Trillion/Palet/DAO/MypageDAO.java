@@ -72,11 +72,8 @@ public class MypageDAO {
 	
 	// Shopping
 	
-	public List<Object> myShopping(int limit, String email) {
-		Map<String, Object> param = new HashMap<String, Object>();
-		param.put("limit", limit);
-		param.put("email", email);
-		return mybatis.selectList("MyPage.myShopping", param);
+	public List<Object> myShopping(String email) {
+		return mybatis.selectList("MyPage.myShopping", email);
 	}
 
 	public PayDTO myShoppingDetailView(String merchant_uid) {
