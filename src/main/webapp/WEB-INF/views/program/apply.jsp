@@ -901,7 +901,7 @@ input::placeholder {
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12" style="margin-top: 0.5rem;">
 									<input type=text class="input1 email"
-										style="text-align: center;" value="${loginEmail}" readonly>
+										style="text-align: left;" value="${loginEmail}" readonly>
 								</div>
 
 								<div class=col-12 style="margin-top: 1.5rem;">날짜</div>
