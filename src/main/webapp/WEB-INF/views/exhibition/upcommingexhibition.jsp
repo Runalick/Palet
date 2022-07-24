@@ -429,6 +429,7 @@ a {
 .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 </style>
 <script>
@@ -623,7 +624,7 @@ $(".logout").on("click", function(){
 
 
 		<div class="container">
-			<div class="row " style="margin-top: 70px;">
+			<div class="row " style="margin-top: 70px; overflow-y:hidden;">
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Exhibition</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
@@ -699,7 +700,7 @@ $(".logout").on("click", function(){
 
 
 
-
+<!-- 
 			<div class="row" id="container1">
 				<div class="col-12 d-block d-sm-none"
 					style="margin-top: 5.313rem; text-align: center;">
@@ -714,8 +715,8 @@ $(".logout").on("click", function(){
 					2022.07.31~2023.10.01</div>
 				<div class="col-12 caption d-block d-sm-none"
 					style="margin-top: 2.5rem;">
-					<!-- 	<a href="/Exhibition/toBook">
-				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
+						<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a>
 				</div>
 				<div class="col-12 caption d-block d-sm-none"
 					style="margin-top: 2.5rem;">
@@ -727,7 +728,7 @@ $(".logout").on("click", function(){
 				</div>
 
 
-			</div>
+			</div> -->
 
 
 

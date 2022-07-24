@@ -608,7 +608,7 @@ padding:0px;
 			</div>
 			
 			
-			<div class="row" id="container1">
+			<div class="row  d-none d-sm-block" id="container1">
 				<div class="col-12" style="margin-top: 5.313rem;">
 				<a href="/program/toClassdetail"><img class = "curimage" src="/images/kidclass.png" ></a>	
 				</div>
@@ -631,7 +631,7 @@ padding:0px;
 			</div>
 			
 			
-			<div class="row" id="container1">
+			<div class="row" id="container1" >
 				<div class="col-12 d-block d-sm-none" style="margin-top: 5.313rem; text-align:center;">
 					<a href="/program/toClassdetail"><img class="curimage"
 						src="/images/kidclass.png"></a>
