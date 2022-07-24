@@ -315,7 +315,6 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-font-weight:700;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{
@@ -396,6 +395,11 @@ margin-bottom:0.5rem;
 }
 .Elist, .Glist,.Plist{
 cursor:pointer;
+
+}
+.content2{
+padding-left:0px;
+padding-right:0px;
 
 }
 </style>
@@ -547,7 +551,7 @@ cursor:pointer;
 		</div>
 		
 		<div class="container" >
-			<div class="row mypage-wrap"  id="row1" style="padding-left:1.5rem;padding-right:1.5rem;">
+			<div class="row mypage-wrap"  id="row1" style="padding-left:1.75rem;padding-right:1.75rem;">
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
 			<button id="select" >MY PAGE</button>
@@ -591,7 +595,7 @@ cursor:pointer;
 				
 				
 				
-				<div class="content" style="padding-top:1rem;">
+				<div class="content" style="margin-top:1rem;">
 					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
 						<div class="col-12" style="padding-bottom:2rem; border-bottom:1px solid black;">
@@ -600,7 +604,7 @@ cursor:pointer;
 							<button class="btnbtn" value="3month">3개월</button>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" id="row1">
 					<div class="col-12 content2"></div>
 					</div>
 <!-- 				전시회	반복 -->
@@ -810,7 +814,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+								"	<div class='row Elist' id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src='/images/anywayloveS.png' style='width:100px; height:100px;'></div>"
@@ -834,7 +838,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+									"	<div class='row Elist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src='/images/anywayloveS.png' style='width:100px; height:100px;'></div>"
@@ -863,7 +867,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Plist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+								"	<div class='row Plist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -888,7 +892,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Plist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+									"	<div class='row Plist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -917,7 +921,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Glist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+								"	<div class='row Glist' id='row1'style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -941,7 +945,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Glist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+									"	<div class='row Glist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"

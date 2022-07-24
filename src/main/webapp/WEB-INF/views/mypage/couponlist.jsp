@@ -34,7 +34,7 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1280px) {
+@media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -332,6 +332,7 @@ li div {
 }
 
 .navi-ul li ul li a {
+	line-height:2rem;
 	color: #919EAB;
 }
 
