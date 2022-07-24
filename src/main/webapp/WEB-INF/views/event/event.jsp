@@ -192,7 +192,7 @@
 
 		</div>
 		<div class="container">
-			<div class="row" style="padding-top: 70px; ">
+			<div class="row" style="padding-top: 70px; margin-bottom:3rem; ">
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Program</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
