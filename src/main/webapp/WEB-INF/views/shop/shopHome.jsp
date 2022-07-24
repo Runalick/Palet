@@ -847,10 +847,10 @@ $(".logout").on("click", function(){
 									"<div class='button' id='1102' style='display: inline-block;'>개방수장고 개편</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='1103' style='display: inline-block;'>MMCA 소장품 하이라이트 2020+</div>");
+									"<div class='button' id='1109' style='display: inline-block;'>MMCA 소장품 하이라이트 2020+</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='1104' style='display: inline-block;'>과거전시 상품</div>");	
+									"<div class='button' id='1110' style='display: inline-block;'>과거전시 상품</div>");	
 							$.ajax({
 									url : "/shop/selectGoods",
 									data : {

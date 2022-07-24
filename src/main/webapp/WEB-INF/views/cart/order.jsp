@@ -553,6 +553,10 @@ margin-bottom:12.5rem;
 	font-size: 1rem;
 	color: #666666;
 }
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}
 
 .select-ul1 {
 	width: 23.5rem;
@@ -1797,6 +1801,7 @@ input[type="number"]::-webkit-inner-spin-button {
     }
 	
 	
+
 	$(".logout").on("click", function(){
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
@@ -1815,6 +1820,34 @@ input[type="number"]::-webkit-inner-spin-button {
 	
 	
 	
+	$(document).ready(function(){
+		$(".delivery_text").on("keyup", function(){
+			
+			if($(this).val().length > 100){
+				$(this).val($(this).val().substring(0, 100));
+				alert("내용은 100자를 넘을 수 없습니다.");
+			}
+		})
+		
+		$("#buyer_name").on("keyup", function(){
+			if($(this).val().length > 4){
+				$(this).val($(this).val().substring(0, 4));
+				alert("이름 4자를 넘을 수 없습니다.");
+			}
+		})
+		
+		$("#email").on("change", function(){
+			let regExp = /^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/;
+			if($(this).val().match(regExp) != null){
+				
+			}else{
+				$("#buyer_tel1").focus();
+				$("#buyer_tel1").val("");
+				alert("전화번호를 확인해주세요.");
+			}
+		})
+	})
+
 	</script>
 	<!-- Channel Plugin Scripts -->
 <script>
