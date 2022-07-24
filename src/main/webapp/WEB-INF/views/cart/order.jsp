@@ -43,10 +43,30 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+	}
+	html{
 		font-size: 12px;
 	}
+	.title{
+		text-align:center;
+	}
+	.price{
+		text-align:center;
+	}
+	.count{
+		text-align:center;
+	}
+
 }
+
+@media ( max-width : 635px) {
+	.list{
+ 		justify-content:center; 
+	}
+
+
+}
+
 @media ( min-width : 1650px) {
 	.container {
 		max-width: 1280px;
@@ -54,6 +74,7 @@
 	html {
 		font-size: 16px;
 	}
+
 }
 
 * {
@@ -326,6 +347,7 @@ padding:0px;
 .title{
 margin-top:1.875rem;
 margin-bottom:0.5rem;
+overflow:hidden;
 }
 .price{
 margin-top:0.5rem;
@@ -1082,28 +1104,30 @@ input[type="number"]::-webkit-inner-spin-button {
 								<div class="H3" style="margin-top:3.75rem;margin-bottom:1.25rem;">결제 수단</div>
 								<input type="radio" style="margin-right:0.5rem;"><span class="body2">카드 결제</span>
 							</div>
-						<div class="row">
-							<div id="payment-area" style="width:100%; max-width:50rem;">
+						<div class="row" style="justify-content:center;">
+							<div id="payment-area" style="width:100%; ">
 								<div class="H3 payinfo">결제 상세</div>
-								<div class="row" id="total-area" style="width:100%; height:16rem;">
+								<div class="row" id="total-area" style="width:100%; height:auto;">
 									<div class="col-12" style="padding:1.75rem; width:100%">
-										<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span>
-										<span class="H4 totalprice" id="span4"> </span></div>
-										<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span>
-										<span class="H4 discount" id="span10">0원</span></div>
-										
-										
-										<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span>
-										<span class="H4 deliveryprice" id="span5">3,000원</span></div>
-										<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span>
-										<span class="H3 finalTotalPrice" id="span6" > </span></div>
-										<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span>
-										<span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
+										<div class="row">
+											<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span></div>
+											<div class="col-12" style="text-align:center;"><span class="H4 totalprice" id="span4"> </span></div>
+											<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span></div>
+											<div class="col-12" style="text-align:center;"><span class="H4 discount" id="span10">0원</span></div>
+											
+											
+											<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span></div>
+											<div class="col-12" style="text-align:center;"><span class="H4 deliveryprice" id="span5">3,000원</span></div>
+											<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span></div>
+											<div class="col-12" style="text-align:center;"><span class="H3 finalTotalPrice" id="span6" > </span></div>
+											<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span></div>
+											<div class="col-12" style="text-align:center;"><span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
+										</div>
 									</div>
 								</div>
-								<div class="row" style="width:100%;">
-									<div class="col-12">
-										<div><button id="paybtn" onclick="iamport()" style="width:100%">결제하기</button></div>
+								<div class="row" style="justify-content:center;">
+									<div class="col-12" style="padding:1rem;">
+										<div style="width:100%;"><button id="paybtn" onclick="iamport()" style="width:100%">결제하기</button></div>
 									</div>
 								</div>
 								<div class="warpper" style="margin-top:6.75rem;">
@@ -1384,7 +1408,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
 	            		
-	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%'><div class='col-3 p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' ><div class='body1 title col-12'>"+resp[i].g_name+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].g_price.toLocaleString()+"원</div><div class='body1 col-12' style='color: #919EAB; '>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
+	            		$(".select_list").append("<div class='row list' style='padding:0px; margin-bottom:1.25rem; margin-left:2.5rem; width:100%; '><div class='col-3  p-0 productimg' ><img class='con' src="+resp[i].gp_sysname+" style='border-radius: 1.25rem;'></div><div class='col-9 productInfo' style='overflow:hidden;  white-space:nowrap; text-overflow:ellipsis;'><div class='body1 title col-12' style='overflow:hidden; text-overflow:ellipsis;'>"+resp[i].g_name+"</div><div class='body1 title col-12' style='overflow:hidden; text-overflow:ellipsis;'>"+resp[i].g_option+"</div><div class='H3 price col-12' id='"+resp[i].g_num+"'>"+resp[i].g_price.toLocaleString()+"원</div><div class='body1 col-12 count' style='color: #919EAB; margin-bottom:1.406rem;'>"+resp[i].cartstock+"개</div><input class='hidden-cnt' type='hidden' value="+resp[i].cartstock+"><input class='hidden-g_num' type='hidden' value="+resp[i].g_num+"></div></div>");
 	            		sumPrice += Number(resp[i].g_price * resp[i].cartstock);
 	            		arrG_name.push(resp[i].g_name);
 	            		arrSales_count.push(resp[i].cartstock);
