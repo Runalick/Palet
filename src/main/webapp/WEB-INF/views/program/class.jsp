@@ -110,8 +110,9 @@
 
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 
@@ -585,7 +586,7 @@ padding:0px;
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Program</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
-					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 4rem; padding-left: 0px;">
+					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 2.4rem; padding-left: 0px;">
 					
 					<li style="width: 4.938rem; color: #919EAB; margin-left: 5.2rem;"><a
 						class="exlink" href="/event/eventPage">이벤트</a></li>
