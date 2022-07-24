@@ -1457,7 +1457,7 @@ document.addEventListener('DOMContentLoaded', function() {
      var calendar = new   FullCalendar.Calendar(calendarEl, {
     height:450,
        initialView: 'dayGridMonth',
- 
+
   
    
      	   dateClick: function(info) {
