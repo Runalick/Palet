@@ -354,7 +354,7 @@ text-align:left;
 display:block;
 padding: 0.3rem 1rem;
 }
-.info{
+{
 font-family: 'Spoqa Han Sans Neo';
 font-size:1.625rem;
 padding-bottom:1rem;
@@ -520,6 +520,12 @@ margin-bottom:1rem;
 #select-wrap .select-ul{
 top:4rem;
 }
+.info{
+font-family: 'Spoqa Han Sans Neo';
+font-size:1.625rem;
+padding-bottom:1rem;
+
+}
 .select-ul li {
 	padding: 0.625rem 0 0.625rem 1.125rem;
 	width: 100%;
@@ -534,6 +540,18 @@ border-radius:0.625rem;
 }
 .total-info{
 margin-bottom:0.5rem;
+}
+.vector{
+border: 1px solid #DFE3E8;
+width:2.5rem;
+height:2.5rem;
+border-radius:2.5rem;
+background: #FFFFFF;
+transition: 0.3s
+}
+.vector:hover{
+background:#F4F6F8;
+
 }
 </style>
 </head>
@@ -733,7 +751,12 @@ margin-bottom:0.5rem;
 				
 				<div class="content" style="padding-left:20px;">
 				<div class="row content-row" style="min-width:730px;">
-					<div class="col-12 info"  >
+					<div class="col-1" >
+						<button class="vector" >
+						<img src="/images/Vector.png">
+						</button>
+					</div>
+					<div class="col-11 info"  >
 					<strong>주문정보</strong>
 					</div>
 				
@@ -878,7 +901,7 @@ margin-bottom:0.5rem;
 							</div>
 
 						<div class="col-12 write-contents" style="display:none;">
-							<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." ></textarea>
+							<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength="80" ></textarea>
 						</div>
 					</div>
 						<div class="row payinfo" style="margin-bottom:1rem;">
@@ -1004,6 +1027,11 @@ margin-bottom:0.5rem;
 
 	</div>
 	<script>
+	$(".vector").on("click",function(){
+		location.href="/mypage/myTicket";
+	})
+	
+	
 	$(".ok").on("click",function(){
 		location.reload();
 	})

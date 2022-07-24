@@ -359,7 +359,6 @@ padding: 0.3rem 1rem;
 font-family: 'Spoqa Han Sans Neo';
 font-size:1.625rem;
 padding-bottom:1rem;
-  margin-top:1rem;
 
 }
 .body5{
@@ -542,6 +541,42 @@ top:4rem;
 .total-info{
 margin-bottom:0.5rem;
 }
+.modal-footer{
+display:block;
+}
+.vector{
+border: 1px solid #DFE3E8;
+width:2.5rem;
+height:2.5rem;
+border-radius:2.5rem;
+background: #FFFFFF;
+transition: 0.3s
+}
+.vector:hover,.btn2:hover{
+background:#F4F6F8;
+}
+button{
+transition: 0.3s;
+}
+
+.btn2{
+	display:inline-block;
+	width: 180px;
+	height: 50px;
+	background:white;
+	border-radius: 1.25rem;
+	color:black;
+	border:1px solid black;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.625rem;
+	line-height: 1.875rem;
+	margin-right:1rem;
+	border:1px solid black;
+	
+}
+
 </style>
 </head>
 <body>
@@ -740,7 +775,12 @@ margin-bottom:0.5rem;
 				
 				<div class="content" style="padding-left:20px;">
 				<div class="row content-row" style="min-width:730px;">
-					<div class="col-12 info"  >
+				<div class="col-1" >
+						<button class="vector" >
+						<img src="/images/Vector.png">
+						</button>
+					</div>
+					<div class="col-10 info"  >
 					<strong>주문정보</strong>
 					</div>
 				
@@ -794,12 +834,12 @@ margin-bottom:0.5rem;
 				price = ${dto.et_cost  };
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
-				
+				<div class="col-12">
 				<c:if test="${dto.et_state == 'BU' }">
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
 				</c:if>
-				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
-				
+				<button class="btn2" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
+				</div>
 				</div>
 				</div>
 
@@ -833,7 +873,7 @@ margin-bottom:0.5rem;
 
 								</div>
 							</div>
-      <div class="modal-footer">
+      <div class="modal-footer"  style="text-align:center;">
         <button type="button" class="btn btn-dark" data-bs-dismiss="modal">닫기</button>
         
       </div>
@@ -880,7 +920,7 @@ margin-bottom:0.5rem;
 							</div>
 
 						<div class="col-12 write-contents" style="display:none;">
-							<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." ></textarea>
+							<textarea class="cancel-div input" id="contents"maxlength="80" placeholder="취소 사유를 입력해 주세요." ></textarea>
 						</div>
 					</div>
 						<div class="row payinfo" style="margin-bottom:1rem;">
@@ -933,7 +973,7 @@ margin-bottom:0.5rem;
 						</div>
 			</div>
 	  </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="text-align:center;">
         <button type="button" class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
         <button type="button" class="btn btn-dark total" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">확인</button>
       </div>
@@ -953,7 +993,7 @@ margin-bottom:0.5rem;
       <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
         구매 취소 하시겠습니까?
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer"  style="text-align:center;">
         <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
         <button class="btn btn-dark total pay-cancel" value=${dto.et_booknumber } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
       </div>
@@ -973,7 +1013,7 @@ margin-bottom:0.5rem;
       <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
         구매가 취소되었습니다.
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer"  style="text-align:center;">
         <button class="btn btn-dark total ok" data-bs-dismiss="modal">확인</button>
       </div>
     </div>
@@ -1006,6 +1046,10 @@ margin-bottom:0.5rem;
 
 	</div>
 	<script>
+	$(".vector").on("click",function(){
+		location.href="/mypage/myTicket";
+	})
+	
 	$(".ok").on("click",function(){
 		location.reload();
 	})
