@@ -136,6 +136,11 @@ public class ExhibitionController {
 		return "/exhibition/upcommingexhibition";
 	}
 	
+	@RequestMapping("tobooksuccess")
+	public String tobooksuccess() {
+		return "/exhitibion/tobooksuccess";
+	}
+	
 	
 	
 

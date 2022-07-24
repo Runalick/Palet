@@ -1361,24 +1361,13 @@ console.log($(".form-select1 option:selected").text());
 					type : "post",
 					dataType : "json"
 				}).done(function(resp) {
-					alert(resp);
+					location.href="/exhibition/tobooksuccess";
 				});
-				var msg = '결제가 완료되었습니다.';
-				msg += '고유ID : ' + rsp.imp_uid;
-				console.log(msg);
-				msg += '상점 거래ID : ' + rsp.merchant_uid;
-				console.log(msg);
-				msg += '결제 금액 : ' + rsp.paid_amount;
-				console.log(msg);
-				msg += '카드 승인번호 : ' + rsp.apply_num;
-				
-				
-			console.log(msg);
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
 			}
-			alert(msg);
+			
 		});
 		
 	}
