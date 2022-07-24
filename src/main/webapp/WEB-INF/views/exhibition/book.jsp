@@ -247,6 +247,29 @@ margin-right:0.375rem;
 	background:#F4F6F8;
 	color:black;
 }
+
+.btn1_3 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 13.5rem;
+	height: 3.75rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #161C24;
+	/* Gray/900 */
+	background: white;
+	border-radius: 15px;
+	transition:0.3s;
+}
+.btn1_3:hover{
+	background:#F4F6F8;
+	color:black;
+}
 .usedbutton{
 	transition:0.3s;
 }
@@ -274,6 +297,7 @@ margin-right:0.375rem;
 
 	/* Inside auto layout */
 }
+
 
 .btn3 {
 	/* display: block; */
@@ -839,6 +863,9 @@ input::placeholder {
 								style="margin-top: 2.5rem; padding: 0px; text-align: center; height: 3.75rem;">
 								<button class="btn1_1" id=pay onclick="iamport()"
 									style="width: 100%; border:0px solid black;">결제하기</button>
+									<button class="btn1_3 mt-2" 
+									style="width: 100%; border:0px solid black;">다시선택</button>
+							</div>
 							</div>
 
 
@@ -1105,7 +1132,11 @@ console.log('여기1');
 
 	
 	
-	
+		$(".btn1_3").on("click", function() {
+
+		location.href = "/Exhibition/toCurdetail";
+	})
+
 	
 	
 	//모두사용 큰화
