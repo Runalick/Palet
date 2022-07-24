@@ -38,6 +38,10 @@
 		transition:0.3s;
 		border:0px solid black;
 	}
+	#background-area{
+	min-height:37.5rem !important; 
+	padding-bottom:43rem;
+	}
 </style>
 <body>
 	
