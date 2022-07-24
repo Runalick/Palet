@@ -556,7 +556,7 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-font-weight:700;
+font-weight:400;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{
