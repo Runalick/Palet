@@ -32,7 +32,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="overflow-x:hidden;">
 <!-- <div class="container "> -->
     <nav class="navbar navbar-expand-md  navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
@@ -91,7 +91,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -100,7 +100,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         
@@ -252,19 +252,20 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 filebox">
-											<input class="upload_view" id="g_img" value="" placeholder="Input Goods Images" readonly>
+											<!-- <input class="upload_view" id="g_img" value="" placeholder="Input Goods Images" readonly>
 											<span>
 												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>
 												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
-											</span>
+											</span> -->
+											<input type="text" name="file" id="file2" placeholder='get in link'>
 										</div>
 									</div>  
-									<div class="row" style="text-align:center">
+									<!-- <div class="row" style="text-align:center">
 										<div class="col-12 p-0">
 											<img src="" id="img_section" value="N">
 											<input class="btn1_0 mrg_left1" type="button" id="cancel_Btn" onclick="img_cancel()" style="display: none" value="첨부 취소">
 										</div>
-									</div>
+									</div> -->
 									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
 											<a href="/admin/adminGoods">
@@ -329,7 +330,7 @@ let isGoodsPic = false;
  	 	console.log("goodsPicPass!")
 	});
 	
- 	const reader = new FileReader();
+ 	/* const reader = new FileReader();
  	reader.onload = (readerEvent) =>{
  		document.querySelector("#img_section").setAttribute("src",readerEvent.target.result);
  		console.log(readerEvent.target.result);
@@ -358,7 +359,7 @@ let isGoodsPic = false;
     	$("#file").val("");
     	$(".upload_view").val("");
     	$("#cancel_Btn").css("display","none");
-    }
+    } */
 	
 /*     $("#e_num").on("keyup", ()=>{
     	let e_num = $("#e_num").val();
@@ -454,6 +455,25 @@ let isGoodsPic = false;
 			$("#upload").removeAttr("disabled");
 		}
     })
+    
+    $("#file2").on("keyup", ()=>{
+		let pe_img = $("#file2").val();
+		console.log(pe_img);
+		
+		if(pe_img == ""){
+			isGoodsPic = false;
+			
+		}else {
+			isGoodsPic = true;
+			console.log("expicPass")
+		}
+		
+		
+		if(isE_num && isG_name && isG_price && isG_contents && isG_stock && isGoodsPic){
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+		}
+	})
     
     
     let cnt =0;

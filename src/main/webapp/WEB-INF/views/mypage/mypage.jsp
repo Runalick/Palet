@@ -506,7 +506,7 @@ width: 28.125rem;
 }
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden;">
 
       <div class="container-fluid"
          style="background-color: white;">

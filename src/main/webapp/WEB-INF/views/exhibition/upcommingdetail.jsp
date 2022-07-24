@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=chrome">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<title>현재 전시</title>
+<title>Palet</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
 	rel="stylesheet">
@@ -18,16 +18,18 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-
+<!-- 카카오 공유하기 -->
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style>
+@charset "UTF-8";
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
 
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-
-	}
-	html {
+	}html{
 		font-size: 12px;
 	}
 }
@@ -41,6 +43,7 @@
 	}
 }
 
+
 * {
 	box-sizing: border-box;
 }
@@ -48,6 +51,13 @@
 .container-fluid {
 	padding: 0px;
 }
+
+.navbar-brand {
+	margin: 0px;
+	padding: 0px;
+	height: 1.875rem;
+}
+
 .navbar-nav>li {
 	text-align: right;
 	background: white;
@@ -55,10 +65,9 @@
 	padding-bottom: 1rem;
 }
 
-.navbar-brand {
-	margin: 0px;
+.navbar {
+	height: 5rem;
 	padding: 0px;
-	height: 1.875rem;
 }
 
 #navparent {
@@ -70,22 +79,24 @@
 	background-color: white;
 }
 
-.navbar {
-	height: 5rem;
-	padding: 0px;
-}
-
-.row>div {
-	padding-left: 2.5rem;
-	padding-right: 2.5rem;
-}
-
 .nav-item {
  margin: auto;
 
 		padding-left: 33px;
 }
 
+/*         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} */
+.row>div {
+	padding-left: 2.5rem;
+	padding-right: 2.5rem;
+}
 
 .nav-link {
 	padding: 0px;
@@ -432,28 +443,24 @@ a {
 	/* identical to box height */
 	text-align: center;
 	padding: 1.125rem 1.5rem;
-	transition:0.3s;
-}
-.bookbutton:hover{
-	background:#F4F6F8;
-	color:black;
 }
 
 #po {
 	position: relative;
 }
-
 .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-}
+} 
+
 </style>
 
 
 </head>
 <body>
 	<div class="container-fluid">
-			<div class="container-fluid" style="background-color: white; position:fixed; z-index:9;">
+		<div class="container-fluid"
+			style="background-color: white;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -532,7 +539,7 @@ a {
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
@@ -564,7 +571,7 @@ a {
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -590,16 +597,18 @@ a {
 				</div>
 				</c:otherwise>
 				
+				
+				
+				
 				</c:choose>
 			</div>
 
 		</div>
-		
-		
+
 
 		<div class="container d-none d-sm-block"
-			style="margin-top: 7.75rem;margin-bottom: 3.375rem;">
-			<div class="row" >
+			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			<div class="row">
 				<div class="col-lg-1 col-xs-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
 						style="margin-left: 0px;">
@@ -607,7 +616,7 @@ a {
 
 				<div class="col-lg-2 col-xs-6">
 
-					<img src="/images/kidclass.png"
+					<img src="${dto.pe_img}"
 						style="width: 10.625rem; height: 14.125rem;">
 
 				</div>
@@ -615,30 +624,17 @@ a {
 
 				<div class="col-lg-9 col-xs-12">
 
-					<div class="col h3">키즈워크룸 : 애니메이터 프로젝트</div>
+					<div class="col h3">${dto.pe_name }</div>
 
 
-					<div class="col body1" style="color: #161C24;">2022-04-01 ~
-						2022-10-30</div>
+					<div class="col body1" style="color: #161C24;">${dto.pe_date }</div>
 
-					<form action="/program/toApply" method="post">
+					<form action="/Exhibition/toBook" method="post">
 
 
 
 						<div class="col h2" id=po
-							style="text-align: left; margin-top: 5.781rem;">
-							<span class="h2 price">19,000원</span> <img
-								src="/images/minusbutton.png" type="button"
-								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
-								class="minusbutton"> <span class="body1 count"
-								style="color: #161C24; margin-left: 1rem;">1</span> <img
-								type="button" class=plusbutton src="/images/plusbutton.png"
-								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
-							<button class=bookbutton style="position: absolute; right: 0px; border:0px solid black;">신청하기</button>
-							<input type=hidden name=count class=count1> <input
-								type=hidden name=price class=price1>
-
-						</div>
+							style="text-align: left; margin-top: 5.781rem;"></div>
 
 					</form>
 				</div>
@@ -655,7 +651,7 @@ a {
 
 
 		<div class="container d-block d-sm-none"
-			style="margin-top: 8rem; margin-bottom: 3.375rem;'">'">
+			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
 			<div class="row">
 				<!-- <div class="col-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
@@ -664,7 +660,7 @@ a {
 
 				<div class="col-12" style="text-align: center;">
 
-					<img src="/images/kidclass.png"
+					<img src="${dto.pe_img}"
 						style="width: 10.625rem; height: 14.125rem;">
 
 				</div>
@@ -672,37 +668,17 @@ a {
 
 				<div class="col-12">
 
-					<div class="col h3" style="text-align: center; margin-top: 3rem;">키즈워크룸
-						: 애니메이터 프로젝트</div>
+					<div class="col h3" style="text-align: center; margin-top: 3rem;">${dto.pe_name }</div>
 
 
-					<div class="col body1" style="color: #161C24; text-align: center;">2022-04-01
-						~ 2022-10-30</div>
+					<div class="col body1" style="color: #161C24; text-align: center;">${dto.pe_date }</div>
 
 
-					<form action="/program/toApply" method="post">
+					<form action="/Exhibition/toBook" method="post">
 
 
 						<div class="col h2"
-							style="text-align: center; margin-top: 5.781rem;">
-
-							<span class="h2 price">19,000원</span> <img
-								src="/images/minusbutton.png" type="button"
-								style="margin-left: 1.5rem; width: 3.75rem; height: 3.75rem;"
-								class=minusbutton> <span class="body1 count"
-								style="color: #161C24; margin-left: 1rem;">1</span> <img
-								type="button" class=plusbutton src="/images/plusbutton.png"
-								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
-
-							<button class=bookbutton
-								style="text-align: center; margin-top: 3rem;">신청하기</button>
-
-
-							<input type=hidden name=count class=count1> <input
-								type=hidden name=price class=price1>
-
-
-						</div>
+							style="text-align: center; margin-top: 5.781rem;"></div>
 
 					</form>
 				</div>
@@ -713,89 +689,86 @@ a {
 			</div>
 		</div>
 
+
 		<div class="row d-block d-sm-none"
 			style="border-top: 1px solid #DFE3E8;"></div>
+
+
 
 
 		<div class="container">
 			<div class="row">
 				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
-					<li style="width: 7.188rem; margin-left: 3.1rem;">프로그램 소개</li>
-			
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.4rem; padding-left: 0px;'">
+					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
+				
 
 
 				</ul>
 				<ul class="col-12 ul2 h3 offset d-block d-sm-none"
 					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li
-						style="width: 7.188rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">프로그램
-						소개</li>
-				
+						style="width: 4.938rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">전시소개</li>
+					
 
 				</ul>
 			</div>
-			<div class="row" id=row1>
+			<div class="row mt-3" id=row1>
 
-				<img src="/images/eventbanner.png"
-					style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
+				<img  referrerpolicy="no-referrer" src="${dto.pe_img }"
+					style="padding: 0px; margin:auto;  text-align: center; width: 25.5rem; height: 32.5rem;">
 			</div>
 
-			<div class="row" id=row1>
-				<div class="col-12 h3 mt-5"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">교육 정보</div>
-				<div class="col-6 mt-3">
-					<img src="/images/class0.png"
-						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
-
-				</div>
-				<div class="col-6 mt-3">
-					<img src="/images/class1.png"
-						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
-				</div>
-				<div class="col-6 h4 mt-5"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 1.
-					동기유발: 전시관람</div>
-
-				<div class="col-6 h4 mt-5"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 2.
-					문제발견: 미션! 멈춰 있는 그림을 움직여라</div>
-				<div class="col-6 body2 mt-2"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">전시장에 있는
-					미디어 작품 속 그림이 움직이는 원리 알아보기</div>
-				<div class="col-6 body2 mt-2"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">전시 작품처럼,
-					주어진 재료로 그림을 움직일 수 있는 다양한 방법 탐색하기</div>
+			<div class="row mt-5" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_contents }</div>
 
 
 
 
 
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">기간</div>
 
 
-				<div class="col-6 mt-5">
-					<img src="/images/class2.png"
-						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
-				</div>
-				<div class="col-6 mt-5">
-					<img src="/images/class3.png"
-						style="margin: auto; padding-left: 2.5rem; padding-right: 2.5rem; text-align: center; width: 100%;">
-				</div>
-				
-				<div class="col-6 h4 mt-5"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 3. 제작하기: 스토리 구상 & 무빙 프로젝터 제작</div>
 
-				<div class="col-6 h4 mt-5"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">STEP 4. 소개하기: 애니메이터 상영회</div>
-				<div class="col-6 body2 mt-2"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">스토리를 구상(디지털 손그림)하고, 스크린에 상이 맺히는 광학적 원리를 활용하여 무빙 프로젝터 제작하기</div>
-				<div class="col-6 body2 mt-2"
-					style="padding-left: 2.5rem; padding-right: 2.5rem;">무빙 프로젝터를 통해 우리들의 애니메이션 작품 상영하기</div>
 
-				
-				
-				
-			</div>
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_date }</div>
+
+
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">관람료</div>
+
+
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_price}</div>
+
+
+
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">작가</div>
+
+
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_writer }</div>
+
+
+			<div class="row mt-5 h3" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">작품수</div>
+
+
+
+
+			<div class="row mt-2 body2" id=row1
+				style="margin-left: 2.6rem; margin-right: 2.6rem;">${dto.pe_artcount}</div>
+
+
 
 		</div>
 
@@ -810,10 +783,13 @@ a {
 						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
 					<br>
 					<div class="col-12 body2"
-						style="color: #637381;">3호선 경복궁역 지하
+						style="color: #637381; margin-bottom: 3.75rem;">3호선 경복궁역 지하
 						1층 | contact@palet.com</div>
 
 				</div>
+
+
+
 			</div>
 		</div>
 
@@ -825,33 +801,21 @@ a {
 <script>
 
 
-$(".logout").on("click", function(){
- Kakao.init('feb50c309d28b138aefe9ddc94d76870');
- Kakao.isInitialized();
- if (!Kakao.Auth.getAccessToken()) {
-    console.log('Not logged in.');
-    location.href="/member/logout";
-     return ;
- }
- 
-  Kakao.Auth.logout(function() {
-       console.log(Kakao.Auth.getAccessToken());
-       location.href="/member/logout";
-     });
- return true;
-});
+
+
+
 
 	$(".bookbutton").on("click", function() {
 
 		$(this).next().val($($(this).siblings()[2]).text());
 		$(this).next().next().val($($(this).siblings()[0]).text());
 
-		location.href = "/program/toApply";
+		location.href = "/Exhibition/toBook";
 	})
 
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/program/toProgram";
+		location.href = "/Exhibition/toCurExhibition";
 	})
 
 	$(".minusbutton").on("click", function() {
@@ -870,7 +834,7 @@ $(".logout").on("click", function(){
 		let price2 = price1.replace("원", "");
 		console.log(price2);
 		finalprice = parseInt(price2);
-		finalprice = finalprice - 19000;
+		finalprice = finalprice - 9000;
 
 		$(".price").text(finalprice.toLocaleString() + "원");
 
@@ -892,10 +856,27 @@ $(".logout").on("click", function(){
 		let price2 = price1.replace("원", "");
 
 		finalprice = parseInt(price2);
-		finalprice = finalprice + 19000;
+		finalprice = finalprice + 9000;
 		$(".price").text(finalprice.toLocaleString() + "원");
 
 	})
+	
+	//카카오 초기화 및 토큰 받아오기
+	$(".logout").on("click", function(){
+         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+         Kakao.isInitialized();
+         if (!Kakao.Auth.getAccessToken()) {
+            console.log('Not logged in.');
+            location.href="/member/logout";
+             return ;
+         }
+         
+          Kakao.Auth.logout(function() {
+               console.log(Kakao.Auth.getAccessToken());
+               location.href="/member/logout";
+             });
+         return true;
+      });
 </script>
 <!-- Channel Plugin Scripts -->
 <script>
@@ -940,3 +921,4 @@ $(".logout").on("click", function(){
   </script>
 <!-- End Channel Plugin -->
 </html>
+

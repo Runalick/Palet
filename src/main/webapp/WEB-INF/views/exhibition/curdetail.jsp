@@ -494,6 +494,8 @@ a {
 	margin-right: 15px;
 	padding-left: 10px;
 	padding-right: 10px;
+	border:none;
+	background:white;
 }
 
 .body2_1 {
@@ -507,17 +509,18 @@ a {
 }
 
 #copybtn {
-	gap: 0.625rem;
-	width: 8.813rem;
-	height: 2.75rem;
+border:1px;
+	width: 4.813rem;
+	height: 32px;
 	background: white;
-	border-radius: 1.25rem;
+	border-radius: 5px;
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 500;
-	font-size: 1.22rem;
-	line-height: 2rem;
+	font-size: 0.8rem;
+	line-height: 32px;
 	text-align: center;
+	vertival-align:middle;
 	color: black;
 }
 
@@ -660,6 +663,9 @@ a {
 											<li class="nav-item"><a id="Cart" class="nav-link"
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
+
+
+								
 
 											<li class="nav-item"><a id="Logout"
 												class="nav-link logout" href="#"

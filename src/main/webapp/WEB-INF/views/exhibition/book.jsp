@@ -669,6 +669,8 @@ input::placeholder {
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
+
+										
 											<li class="nav-item"><a id="Logout"
 												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
@@ -996,6 +998,21 @@ input::placeholder {
 <script>
 
 
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
 	
 	
 
@@ -1287,7 +1304,7 @@ console.log($(".form-select1 option:selected").text());
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : 100, //실제 결제되는 가격
+			amount : price3, //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),

@@ -19,10 +19,11 @@
 	crossorigin="anonymous"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-<!-- 지도api -->
-
+<!-- 카카오 지도 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a49db8611f17d5d89bcc19517d16e12b"></script>
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
 <style>
 @charset "UTF-8";
 
@@ -749,7 +750,30 @@ $(".logout").on("click", function(){
     });
   </script>
 <!-- End Channel Plugin -->
+<!-- <div id="map" style="width:100%;height:350px;"></div> -->
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.57581509927333, 126.9735385239753), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
 
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 마커가 표시될 위치입니다 
+var markerPosition  = new kakao.maps.LatLng(37.57581509927333, 126.9735385239753); 
+//클릭한 위치의 위도는 37.57581509927333 이고, 경도는 126.9735385239753 입니다
+// 마커를 생성합니다
+var marker = new kakao.maps.Marker({
+    position: markerPosition
+});
+
+// 마커가 지도 위에 표시되도록 설정합니다
+marker.setMap(map);
+
+// 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+// marker.setMap(null);    
+</script>
 </body>
 
 </html>
