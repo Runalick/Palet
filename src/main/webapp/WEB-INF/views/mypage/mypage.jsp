@@ -861,7 +861,7 @@ color:#f9e000;
 
       <div class="row" id="footer">
          <div class="container">
-            <div class="row" id="row1">
+            <div class="row" >
                <div class="col-12 H3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                <div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
                   123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>

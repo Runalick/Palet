@@ -267,6 +267,29 @@
 	color:black;
 }
 
+.btn1_3 {
+	padding: 1.125rem 1.5rem;
+	gap: 0.625rem;
+	width: 13.5rem;
+	height: 3.75rem;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: 1.5rem;
+	/* identical to box height */
+	text-align: center;
+	color: #161C24;
+	/* Gray/900 */
+	background: white;
+	border-radius: 15px;
+	transition:0.3s;
+}
+.btn1_3:hover{
+	background:#F4F6F8;
+	color:black;
+}
+
 .btn2 {
 	padding: 1.125rem 1.5rem;
 	gap: 0.625rem;
@@ -987,11 +1010,13 @@ input::placeholder {
 								style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
 								<button class="btn1_1" id=pay onclick="iamport()"
 									style="width: 100%; border:0px solid black;">결제하기</button>
+									<button class="btn1_3 mt-2" 
+									style="width: 100%; border:0px solid black;">다시선택</button>
 							</div>
 
 
 					<div class="col-12 h4 " 
-								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관을 확인하였으며 결제에 동의합니다.</div>
+								style="color: #637381; margin-top: 5rem; text-align: left;">약관을 확인하였으며 결제에 동의합니다.</div>
 							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
 								이용약관 동의<span class=policy id="payspan2" style="cursor:pointer;">보기</span>
@@ -1032,9 +1057,9 @@ input::placeholder {
 						 -->
 
 
-						<!-- 큰화면 쿠폰 마일리지 사용 -->
+						<!-- 큰화면 쿠폰 포인트 사용 -->
 						<div class="col-12 h3 "
-							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 3.75rem;">쿠폰/포인트</div>
 						<div class="col-12 body2 "
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">쿠폰</div>
 						<div class="col-12 h3 "
@@ -1055,7 +1080,7 @@ input::placeholder {
 
 						</div>
 						<div class="col-12 body2 "
-							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">마일리지</div>
+							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">포인트</div>
 
 						<div class="col-12 body2 "
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 1.125em;">
@@ -1068,28 +1093,10 @@ input::placeholder {
 						</div>
 						<div class="col-12 h5 "
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 2.188em;">
-							남은마일리지 <span class="h5_1 h5_1_1" >${mdto.point }</span>
+							남은포인트 <span class="h5_1 h5_1_1" >${mdto.point }</span>
 						</div>
 
 
-
-						<!--작은 면 쿠폰 마일리지 사용 -->
-					
-
-
-
-
-
-
-
-
-
-						<!-- 작은 화면 프로그램 -->
-					
-
-
-						
-					
 					</div>
 				</div>
 			</div>
@@ -1258,11 +1265,13 @@ else if (!phoneResult) {
 //큰화면 쿠폰 사용
 $(".form-select1").on('change',function(){
 	console.log($(".h5_1").text());
-	//나한테 있는 마일리지가 사용되었다면
+	//나한테 있는 포인트가 사용되었다면
  if(${mdto.point}!=$(".h5_1_1").text())
  
  {
-	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
+	 
+	 $(this).children().first().click();
+	 alert('포인트 사용시 쿠폰을 적용 할 수 없습니다.');
 	return false;
  }
 
@@ -1285,7 +1294,7 @@ $(".form-select1").on('change',function(){
 
 
 
-//작은화면 마일리지 사용
+//작은화면 포인트 사용
 
 
 
@@ -1298,6 +1307,12 @@ $(".form-select1").on('change',function(){
 
 		location.href = "/program/toClassdetail";
 	})
+	
+		$(".btn1_3").on("click", function() {
+			location.href = "/program/toClassdetail/";
+		
+	})
+
 
 	
 	
@@ -1316,13 +1331,13 @@ console.log($(".form-select1 option:selected").text() );
 		
 		if($(".h5_1_1").text()==0){
 			
-			alert('사용 가능한 마일리지가 없습니다.');
+			alert('사용 가능한 포인트가 없습니다.');
 		return false;	
 		}
 
 		if($(".h5_1_1").text()==0){
 				
-				alert('사용 가능한 마일리지가 없습니다.');
+				alert('사용 가능한 포인트가 없습니다.');
 			return false;	
 			}else if($(".h5_1_1").text()>5000){
 				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
@@ -1349,7 +1364,7 @@ console.log($(".form-select1 option:selected").text() );
 			$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
 			
 			}else{
-				alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+				alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 				return false;
 			}
 
@@ -1417,7 +1432,7 @@ console.log($(".form-select1 option:selected").text() );
 			}
 		}
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 
@@ -1435,7 +1450,7 @@ console.log($(".form-select1 option:selected").text() );
 	
 	
 	
-	//일부 마일리지 사용엔터
+	//일부 포인트 사용엔터
 	
 	
 	
@@ -1456,13 +1471,14 @@ document.addEventListener('DOMContentLoaded', function() {
      var dateString = year + '-' + month  + '-' + day;
      var calendar = new   FullCalendar.Calendar(calendarEl, {
     height:450,
+    selectable: true,
+    unselectAuto: true,
        initialView: 'dayGridMonth',
 
   
    
      	   dateClick: function(info) {
-     		    console.log(info.dateStr);
-     		    console.log(dateString);
+     		
      		    
      		    
      		   var todayTime = new Date(dateString); //시작기간 셋팅
@@ -1492,7 +1508,7 @@ document.addEventListener('DOMContentLoaded', function() {
      		     }
      		   else{
      			   
-     			   alert('프로그램 개최 기간(2022.03.16 ~ 2022.10.30)이 아닙니다.');
+     			   alert('프로그램 개최 기간[ 2022.03.16 ~ 2022.10.30 ]이 아닙니다.');
      			  return false;
      		   }
 
@@ -2543,7 +2559,7 @@ input::placeholder {
 								<div class="col-12"
 									style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
 									<button class="btn1_1" id=pay onclick="iamport()"
-										style="width: 100%;">결제하기</button>
+										style="width: 100%;"></button>
 								</div>
 
 
@@ -2657,7 +2673,7 @@ input::placeholder {
 					</ul>
 				</div>
 				<div class="col-12 h3"
-					style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+					style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/포인트</div>
 				<div class="col-12 body2"
 					style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
 				<div class="col-12 h3"
@@ -2675,7 +2691,7 @@ input::placeholder {
 
 				</div>
 				<div class="col-12 body2"
-					style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+					style="padding-left: 0rem; margin-top: 2.188em;">포인트</div>
 
 				<div class="col-12 body2"
 					style="padding-left: 0rem; margin-top: 1.125em;">
@@ -2688,7 +2704,7 @@ input::placeholder {
 				</div>
 				<div class="col-12 h5"
 					style="padding-left: 0rem; margin-top: 2.188em;">
-					남은마일리지 <span class=h5_1>${mdto.point }</span>
+					남은포인트 <span class=h5_1>${mdto.point }</span>
 				</div>
 
 			</div>
@@ -2733,7 +2749,7 @@ $(".form-select").on('change',function(){
  {
 	 
 	 
-	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
+	 alert('포인트 사용시 쿠폰을 적용 할 수 없습니다.');
 	return false;
  }
 
@@ -2786,7 +2802,7 @@ $(".form-select").on('change',function(){
 		
 		if($(".h5_1").text()==0){
 			
-			alert('사용 가능한 마일리지가 없습니다.');
+			alert('사용 가능한 포인트가 없습니다.');
 		return false;	
 		}
 
@@ -2799,7 +2815,7 @@ $(".form-select").on('change',function(){
 		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
 		
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 
@@ -2812,7 +2828,7 @@ $(".form-select").on('change',function(){
 	
 	
 	
-	//일부 마일리지 사용엔터
+	//일부 포인트 사용엔터
 	
 	
 	$(".usedpoint").keypress(function(e) {
@@ -2854,7 +2870,7 @@ $(".form-select").on('change',function(){
 			}
 		}
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 

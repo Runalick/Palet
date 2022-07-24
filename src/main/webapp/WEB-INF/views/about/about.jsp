@@ -245,6 +245,16 @@
 	padding-top: 8rem;
 	text-align: center;
 }
+
+.border1 {
+	box-sizing: border-box;
+	height: 22.5rem;
+	background: #F9FAFB;
+	border: 1px solid #DFE3E8;
+	border-radius: 1.25rem;
+	
+	text-align: center;
+}
 #row1>div {
 	padding-left: 0px;
 	padding-right: 0px;
@@ -485,7 +495,7 @@ border-radius: 20px;
 		</div>
 		<div class="container">
 		<div class="row">
-		<div class="col-12 H2" style="color: #161C24;margin-top:2.5rem; margin-bottom:2.5rem;">About</div>
+		<div class="col-12 H2" style="color: #161C24;margin-top:2.5rem; margin-bottom:2.5rem; ">About</div>
 		<div class="col-12" style="text-align: center">
 		<img class="w-100" src="/images/about_picture1.png">
 		</div>
@@ -498,12 +508,12 @@ border-radius: 20px;
 		팔레트는 3호선 경복궁역 지하1층에 위치해 있습니다. 지하철을 유동인구가 많은 장소입니다. 바꿔말하면, 많은 사람들의 일상에는 지하철이 있다는 것을 의미합니다. 팔레트는 역사 내 유휴공간을 미술관으로 바꾸어 일상과 예술을 연결하는 창구가 되고자 합니다.
 		</span>
 		</div>
-		<div class = "col h3" style = "margin-top:10rem; text-align:center; color : #ffa48d;">협력 미술관 &nbsp;&nbsp;: &nbsp;&nbsp;디뮤지엄, &nbsp;&nbsp;국립현대미술관</div>
+		<div class = "col h3" style = "margin-top:10rem; text-align:center; color : #ffa48d; font-size:25px;">협력 미술관 &nbsp;&nbsp;: &nbsp;&nbsp;디뮤지엄, &nbsp;&nbsp;국립현대미술관</div>
 		
 		<div class="col-12">
 			<div class="row"  id="row1" style="padding:0.8rem;margin-top:10rem; margin-bottom:10rem;">
-				<div class="col-12 col-lg-6 border">
-				<img src="/images/about_picture3.png" style="width:18.75rem">
+				<div class="col-12 col-lg-6 border1">
+				<img src="/images/aboutpalet.png" style="width:100%; height:100%; border-radius: 1.25rem;">
 				</div>
 				<div class="col-12  col-lg-6 border-text  ">
 					<div class="row info-row"  >
