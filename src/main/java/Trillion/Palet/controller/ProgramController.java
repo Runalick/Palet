@@ -75,6 +75,11 @@ public class ProgramController {
 		return "/exhibition/upcommingexhibition";
 	}
 	
+	@RequestMapping("applysuccess")
+	public String applysuccess() {
+		return "/program/applysuccess";
+	}
+	
 	
 	
 	

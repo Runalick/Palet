@@ -260,6 +260,11 @@
 	/* Gray/900 */
 	background: #161C24;
 	border-radius: 15px;
+	transition:0.3s;
+}
+.btn1_1:hover{
+	background:#F4F6F8;
+	color:black;
 }
 
 .btn2 {
@@ -967,7 +972,7 @@ border-radius: 20px !important;
 							<div class="col-12"
 								style="margin-top: 1rem; padding: 0px; text-align: center; height: 3.75rem;">
 								<button class="btn1_1" id=pay onclick="iamport()"
-									style="width: 100%;">결제하기</button>
+									style="width: 100%; border:0px solid black;">결제하기</button>
 							</div>
 
 
@@ -1606,24 +1611,14 @@ document.addEventListener('DOMContentLoaded', function() {
 					type : "post",
 					dataType : "json"
 				}).done(function(resp) {
-					alert(resp);
+					location.href="/program/applysuccess";
 				});
-				var msg = '결제가 완료되었습니다.';
-				msg += '고유ID : ' + rsp.imp_uid;
-				console.log(msg);
-				msg += '상점 거래ID : ' + rsp.merchant_uid;
-				console.log(msg);
-				msg += '결제 금액 : ' + rsp.paid_amount;
-				console.log(msg);
-				msg += '카드 승인번호 : ' + rsp.apply_num;
 				
 				
-			console.log(msg);
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
 			}
-			alert(msg);
 		});
 	}
 </script>

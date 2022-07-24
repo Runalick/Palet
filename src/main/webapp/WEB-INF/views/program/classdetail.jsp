@@ -634,7 +634,7 @@ a {
 								style="color: #161C24; margin-left: 1rem;">1</span> <img
 								type="button" class=plusbutton src="/images/plusbutton.png"
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
-							<button class=bookbutton style="position: absolute; right: 0px; border:0px solid black;">신청하기</button>
+							<button class=bookbutton style="position: absolute; right: 0px; border:0px solid black; border:0px solid black;">신청하기</button>
 							<input type=hidden name=count class=count1> <input
 								type=hidden name=price class=price1>
 
@@ -695,7 +695,7 @@ a {
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
 
 							<button class=bookbutton
-								style="text-align: center; margin-top: 3rem;">신청하기</button>
+								style="text-align: center; margin-top: 3rem; border:0px solid black;">신청하기</button>
 
 
 							<input type=hidden name=count class=count1> <input
