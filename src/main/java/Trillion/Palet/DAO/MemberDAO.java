@@ -1,6 +1,7 @@
 package Trillion.Palet.DAO;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -92,6 +93,42 @@ public class MemberDAO {
 				return mybatis.update("Member.updatePoint", param);
 				
 			}
+
+	public List<String> selectmygoods(String email) {
+		return mybatis.selectList("Member.selectmygoods", email);
+	}
+
+	public List<String> selectpayment(String email) {
+		return mybatis.selectList("Member.selectpayment", email);
+	}
+	
+	public List<String> selectproticket(String email) {
+		return mybatis.selectList("Member.selectproticket",email);
+	}
+
+	public List<String> selectexticket(String email) {
+		return mybatis.selectList("Member.selectexticket",email);
+	}
+
+	public int deleteCancel(String uid) {
+		return mybatis.delete("Member.deleteCancel",uid);
+	}
+
+	public int deleteMygoods(String email) {
+		return mybatis.delete("Member.deleteMygoods", email);
+	}
+	
+	public int deletePayment(String email) {
+		return mybatis.delete("Member.deletePayment", email);
+	}
+	
+	public int deleteProticket(String email) {
+		return mybatis.delete("Member.deleteProticket", email);
+	}
+	
+	public int deleteExticket(String email) {
+		return mybatis.delete("Member.deleteExticket", email);
+	}
 			
 	 
 	    public int updateCoupon(String et_cpserial, String et_email) {

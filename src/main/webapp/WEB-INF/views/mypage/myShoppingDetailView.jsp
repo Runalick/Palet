@@ -79,8 +79,9 @@
 }
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 /*         오른쪽 여백 없애기
