@@ -83,9 +83,12 @@
 }
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
+
+
 
 /*         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
