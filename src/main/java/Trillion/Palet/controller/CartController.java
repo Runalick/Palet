@@ -227,9 +227,14 @@ public class CartController {
 	
 	@ResponseBody
 	@RequestMapping("directSelect_cart")
-	public int directSelect_cart(int g_seq, int cartstock) {
+	public String directSelect_cart(int[] g_seq, int[] cartstock) {
 		String email = (String)session.getAttribute("loginEmail");
-		return cServ.directSelect_cart(email, g_seq, cartstock);
+		
+		for(int i = 0; i < g_seq.length; i++) {
+			cServ.directSelect_cart(email, g_seq[i], cartstock[i]);
+		}
+		
+		return "false";
 	}
 	
 	@RequestMapping("toOrder")

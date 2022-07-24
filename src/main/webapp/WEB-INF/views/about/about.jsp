@@ -656,14 +656,14 @@ $(document).ready(function(){
 		
 		if($(this).val().length > 5000){
 			$(this).val($(this).val().substring(0, 5000));
-			alert("내용은 5000자를 넘을 수 없습니다");
+			alert("내용은 5000자를 넘을 수 없습니다.");
 		}
 	})
 	
 	$("#title").on("keyup", function(){
 		if($(this).val().length > 100){
 			$(this).val($(this).val().substring(0, 100));
-			alert("제목은 100자를 넘을 수 없습니다");
+			alert("제목은 100자를 넘을 수 없습니다.");
 		}
 	})
 	
@@ -674,7 +674,7 @@ $(document).ready(function(){
 		}else{
 			$("#email").focus();
 			$("#email").val("");
-			alert("error");
+			alert("이메일을 확인해주세요.");
 		}
 	})
 })
