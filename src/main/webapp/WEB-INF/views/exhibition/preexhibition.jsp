@@ -699,7 +699,7 @@ window.onload = function(){
 			console.log(resp.length);
 			for(let i = 0 ; i < resp.length; i++) {
 				console.log('check1');
-		    	  $("#container2").append("<div class='col-4'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>"); 
+		    	  $("#container2").append("<div class='col-lg-4 col-md-6 col-12'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>"); 
 		    	
 		    	  console.log("resp.length : " + resp.length);
 			}
@@ -723,7 +723,7 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						  $("#container2").append("<div class='col-4'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>");
+						  $("#container2").append("<div class='col-lg-4 col-md-6 col-12'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>");
 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit - resp.length;

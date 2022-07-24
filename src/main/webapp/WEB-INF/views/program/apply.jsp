@@ -1548,7 +1548,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			pg : 'kcp',
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			name : '예매', //결제창에서 보여질 이름
+			name : '키즈 워크룸:애니메이터 프로젝트', //결제창에서 보여질 이름
 			amount : price3, //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
