@@ -57,6 +57,15 @@ background:#F4F6F8;
 color:#7A0C2E;
 transition: 0.3s;
 }
+
+         오른쪽 여백 없애기
+		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
+			overflow: hidden;
+		}
+		
+		.overflow-auto{
+			overflow: hidden;
+		} 
 </style>
 </head>
 <body style = "overflow-x:hidden;">

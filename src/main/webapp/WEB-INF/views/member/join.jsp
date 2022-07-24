@@ -168,7 +168,7 @@
 		</div>
 	
 		<div class="row" style="padding-top: 150px;">
-			<div class="container" style="max-width: 600px;">
+			<div class="container" style="max-width: 600px; padding-bottom: 80px;">
 				<div class="row" id="row1">
 					<div class="h2">Sign up</div>
 				</div>
@@ -283,6 +283,8 @@
 				</form>
 			</div>
 		</div>
+	</div>
+		
 		<div class="row" id="footer" style="margin-top: 80px;">
             <div class="container">
                 <div class="row">
@@ -293,7 +295,7 @@
                 </div>
             </div>
         </div>
-	</div>
+	
 </div>
 	
 </body>
