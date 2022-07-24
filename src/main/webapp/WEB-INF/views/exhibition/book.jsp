@@ -1361,7 +1361,7 @@ console.log($(".form-select1 option:selected").text());
 					type : "post",
 					dataType : "json"
 				}).done(function(resp) {
-					location.href="/exhibition/tobooksuccess";
+					location.href="/Exhibition/tobooksuccess";
 				});
 			} else {
 				var msg = '결제에 실패하였습니다.';
