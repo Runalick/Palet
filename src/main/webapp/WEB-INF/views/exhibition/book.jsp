@@ -21,7 +21,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
@@ -602,8 +603,8 @@ input::placeholder {
 												href="/shop/toShop"
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
+											<li class="nav-item"><a id="Logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
@@ -656,8 +657,10 @@ input::placeholder {
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
+
+										
+											<li class="nav-item"><a id="Logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
@@ -762,7 +765,7 @@ input::placeholder {
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
 										placeholder="신청자 이름을 입력해 주세요." style="text-align: center"
-										maxlength="4" required>
+										maxlength="3" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
@@ -909,9 +912,9 @@ input::placeholder {
 
 
 
-						<!-- 큰화면 쿠폰 마일리지 사용 -->
+						<!-- 큰화면 쿠폰 포인트 사용 -->
 						<div class="col-12 h3 "
-							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/포인트</div>
 						<div class="col-12 body2 "
 							style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
 							
@@ -934,7 +937,7 @@ input::placeholder {
 
 						</div>
 						<div class="col-12 body2"
-							style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+							style="padding-left: 0rem; margin-top: 2.188em;">포인트</div>
 
 						<div class="col-12 body2 "
 							style="padding-left: 0rem; margin-top: 1.125em;">
@@ -947,12 +950,12 @@ input::placeholder {
 						</div>
 						<div class="col-12 h5 "
 							style="padding-left: 0rem; margin-top: 2.188em;">
-							남은마일리지 <span class="h5_1 h5_1_1">${mdto.point }</span>
+							남은포인트 <span class="h5_1 h5_1_1">${mdto.point }</span>
 						</div>
 
 
 
-						<!--작은 면 쿠폰 마일리지 사용 -->
+						<!--작은 면 쿠폰 포인트 사용 -->
 					
 
 
@@ -983,6 +986,21 @@ input::placeholder {
 <script>
 
 
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
 	
 	
 
@@ -1026,11 +1044,11 @@ else if (!phoneResult) {
 $(".form-select1").on('change',function(){
 	console.log($(".h5_1").text());
 console.log('여기1');
-	//나한테 있는 마일리지가 사용되었다면
+	//나한테 있는 포인트가 사용되었다면
  if(${mdto.point}!=$(".h5_1_1").text())
  
  {
-	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
+	 alert('포인트 사용시 쿠폰을 적용 할 수 없습니다.');
 	return false;
  }
 
@@ -1082,14 +1100,14 @@ console.log($(".form-select1 option:selected").text());
 		
 		if($(".h5_1_1").text()==0){
 			
-			alert('사용 가능한 마일리지가 없습니다.');
+			alert('사용 가능한 포인트가 없습니다.');
 		return false;	
 		}
 		
 		
 	if($(".h5_1_1").text()==0){
 			
-			alert('사용 가능한 마일리지가 없습니다.');
+			alert('사용 가능한 포인트가 없습니다.');
 		return false;	
 		}else if($(".h5_1_1").text()>5000){
 			alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
@@ -1116,7 +1134,7 @@ console.log($(".form-select1 option:selected").text());
 		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
 		
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 
@@ -1125,7 +1143,7 @@ console.log($(".form-select1 option:selected").text());
 
 	
 	
-	// 큰 화면 일부 마일리지 사용엔터
+	// 큰 화면 일부 포인트 사용엔터
 	
 	
 	$(".usedpoint").keypress(function(e) {
@@ -1189,7 +1207,7 @@ console.log($(".form-select1 option:selected").text());
 			}
 		}
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 
@@ -1197,7 +1215,7 @@ console.log($(".form-select1 option:selected").text());
 	
 	
 	
-	//일부마일리지 작은화면
+	//일부포인트 작은화면
 	
 	
 	
@@ -1274,7 +1292,7 @@ console.log($(".form-select1 option:selected").text());
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : 100, //실제 결제되는 가격
+			amount : price3, //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),
@@ -1393,21 +1411,21 @@ console.log($(".form-select1 option:selected").text());
 	    }
 	  });
 	 }
-	  function logout() {
-			
-			if (!Kakao.Auth.getAccessToken()) {
-			      alert('Not logged in.')
-			      return
-			    }
-			    Kakao.Auth.logout(function() {
-			      alert('로그아웃 되었습니다.');
-			      location.href="/member/logout";
-			    })
-			
-
-			location.href = "/member/logout";
-			return true;
-		}
+		$(".logout").on("click", function(){
+	        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	        Kakao.isInitialized();
+	        if (!Kakao.Auth.getAccessToken()) {
+	           console.log('Not logged in.');
+	           location.href="/member/logout";
+	            return ;
+	        }
+	        
+	         Kakao.Auth.logout(function() {
+	              console.log(Kakao.Auth.getAccessToken());
+	              location.href="/member/logout";
+	            });
+	        return true;
+	     });
 	  
 	
 </script>

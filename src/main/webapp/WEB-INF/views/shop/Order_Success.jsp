@@ -75,14 +75,14 @@
 	padding-right: 20px;
 }
 
-/*         오른쪽 여백 없애기
+         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
 			overflow: hidden;
 		}
 		
 		.overflow-auto{
 			overflow: hidden;
-		} */
+		} 
 .row>div {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
@@ -376,7 +376,7 @@ background:#F4F6F8;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"

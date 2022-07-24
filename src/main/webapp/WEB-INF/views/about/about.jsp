@@ -21,6 +21,8 @@
 	rel='stylesheet' type='text/css'>
 <!-- 지도api -->
 
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
 @charset "UTF-8";
 
@@ -358,8 +360,8 @@ border-radius: 20px;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -404,8 +406,8 @@ border-radius: 20px;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -650,6 +652,51 @@ $(".askbtn").on("click",function(){
 	
 	
 })
+
+$(document).ready(function(){
+	$("#contents").on("keyup", function(){
+		
+		if($(this).val().length > 5000){
+			$(this).val($(this).val().substring(0, 5000));
+			alert("내용은 5000자를 넘을 수 없습니다.");
+		}
+	})
+	
+	$("#title").on("keyup", function(){
+		if($(this).val().length > 100){
+			$(this).val($(this).val().substring(0, 100));
+			alert("제목은 100자를 넘을 수 없습니다.");
+		}
+	})
+	
+	$("#email").on("change", function(){
+		let regExp = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
+		if($(this).val().match(regExp) != null){
+			
+		}else{
+			$("#email").focus();
+			$("#email").val("");
+			alert("이메일을 확인해주세요.");
+		}
+	})
+})
+
+$(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
+
 </script>
 <!-- Channel Plugin Scripts -->
 <script>

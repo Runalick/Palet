@@ -84,4 +84,12 @@ public class ShopController {
 		return list;
 	}
 	
+	@ResponseBody
+	@RequestMapping("selectMemberPoint")
+	public List<MemberDataDTO> selectMemberPoint(){
+		String email = (String)session.getAttribute("loginEmail");
+		List<MemberDataDTO> list = sServ.selectMemberPoint(email);
+		return list;
+	}
+	
 }

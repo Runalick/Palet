@@ -453,6 +453,7 @@ $(".logout").on("click", function(){
                console.log(Kakao.Auth.getAccessToken());
                location.href="/member/logout";
              });
+          
          return true;
       });
 
@@ -495,7 +496,7 @@ $(".logout").on("click", function(){
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
@@ -541,10 +542,10 @@ $(".logout").on("click", function(){
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
 								
 								</ul>
@@ -717,10 +718,45 @@ $(".logout").on("click", function(){
 		</div>
 
 	</div>
+<script>
+$(".logout").on("click", function(){
+    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+    Kakao.isInitialized();
+    if (!Kakao.Auth.getAccessToken()) {
+       console.log('Not logged in.');
+       location.href="/member/logout";
+        return ;
+    }
+    
+     Kakao.Auth.logout(function() {
+          console.log(Kakao.Auth.getAccessToken());
+          location.href="/member/logout";
+        });
+    return true;
+ });
 
+</script>
 
 <!-- Channel Plugin Scripts -->
 <script>
+
+$(".logout").on("click", function(){
+    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+    Kakao.isInitialized();
+    if (!Kakao.Auth.getAccessToken()) {
+       console.log('Not logged in.');
+       location.href="/member/logout";
+        return ;
+    }
+    
+     Kakao.Auth.logout(function() {
+          console.log(Kakao.Auth.getAccessToken());
+          location.href="/member/logout";
+        });
+    return true;
+ });
+
+
     (function() {
       var w = window;
       if (w.ChannelIO) {

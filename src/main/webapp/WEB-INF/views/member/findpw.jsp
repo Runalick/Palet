@@ -36,7 +36,7 @@ input {
 }
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden">
 	<header>
 		<div class="container-fluid"
 			style="background-color: white; position: fixed;">
@@ -77,7 +77,7 @@ input {
 												href="/shop/toShop"
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
-											<li class="nav-item"> <a id="Logout" class="nav-link logout"
+											<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
@@ -130,7 +130,7 @@ input {
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"> <a id="Logout" class="nav-link logout"
+											<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
@@ -260,6 +260,7 @@ input {
 		if(!emailResult){
 			$("#isemialok").css("display","inline");
 			$("#isemialok").css("color", "red");
+			$("#isemialok").text("사용할수 없는 이메일형식 입니다.");
 			$("send").attr("disabled","true");
 		}
 		if(emailResult){
@@ -270,8 +271,6 @@ input {
 		}
 		
 	})
-	
-	
 	
 	
 	$("#send").on("click",function(){
@@ -285,7 +284,6 @@ input {
 			$("#send").text("메일 재발송");
 			$("#send").removeAttr("disabled");
 			$("#mailok").css("display","inline");
-			console.log(resp);
 			$("#cord").val(resp);
 		})
 	})

@@ -32,11 +32,14 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -546,7 +549,7 @@ margin-bottom:0.5rem;
 
 		<div class="container-fluid">
 			<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -579,7 +582,7 @@ margin-bottom:0.5rem;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
@@ -625,7 +628,7 @@ margin-bottom:0.5rem;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"

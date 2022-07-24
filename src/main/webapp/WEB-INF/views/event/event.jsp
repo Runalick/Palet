@@ -59,7 +59,7 @@
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
@@ -105,7 +105,7 @@
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
@@ -208,6 +208,9 @@
                 	<div class="col-12" style="margin-top : 3.5rem;"><button class="btn2" id="enjoy">참여하기</button></div>
                 </div>
              </div>
+             		<div class="row" style="padding-top: 50px; padding-bottom: 50px;" id="container">
+			
+					</div>	
 		</div>
 
 		<div class="row" id="footer" style="margin-top: 12.5rem;">
@@ -249,6 +252,11 @@
              });
          return true;
       });
+	$("#container").on("click", ".imgopen", function(){
+	  	let imgurl = $(this).siblings().val();
+	  	let bigimg = window.open("",'Palet',"_blank");
+	  	bigimg.document.write("<img src='" + imgurl + "'>");
+	})
 </script>
 
 

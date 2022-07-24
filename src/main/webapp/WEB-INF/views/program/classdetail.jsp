@@ -481,7 +481,7 @@ a {
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
@@ -527,10 +527,10 @@ a {
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
 								
 								</ul>
@@ -593,8 +593,8 @@ a {
 		
 
 		<div class="container d-none d-sm-block"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;">
-			<div class="row" style="padding-top: 50px; padding-left: 2.5rem">
+			style="margin-top: 7.75rem;margin-bottom: 3.375rem;">
+			<div class="row" >
 				<div class="col-lg-1 col-xs-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
 						style="margin-left: 0px;">
@@ -648,8 +648,9 @@ a {
 
 
 
+
 		<div class="container d-block d-sm-none"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			style="margin-top: 8rem; margin-bottom: 3.375rem;'">'">
 			<div class="row">
 				<!-- <div class="col-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
@@ -674,7 +675,7 @@ a {
 						~ 2022-10-30</div>
 
 
-					<form action="/Exhibition/toBook" method="post">
+					<form action="/program/toApply" method="post">
 
 
 						<div class="col h2"
@@ -817,6 +818,24 @@ a {
 
 </body>
 <script>
+
+
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
+
 	$(".bookbutton").on("click", function() {
 
 		$(this).next().val($($(this).siblings()[2]).text());
@@ -827,7 +846,7 @@ a {
 
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/Exhibition/toCurExhibition";
+		location.href = "/program/toProgram";
 	})
 
 	$(".minusbutton").on("click", function() {

@@ -124,6 +124,12 @@
 	height: 1.5rem;
 }
 
+
+#Exhibition {
+	width: 5.938rem;
+	height: 1.5rem;
+}
+
 #Mypage {
 	width: 5rem;
 	height: 1.5rem;
@@ -139,20 +145,24 @@
 	height: 1.5rem;
 }
 
+
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
 
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
 }
 
+
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
 }
+
 
 .h1 {
 	padding: 0px;
@@ -429,6 +439,7 @@ a {
 .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
+	overflow-y: hidden;
 }
 </style>
 <script>
@@ -494,7 +505,7 @@ $(".logout").on("click", function(){
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
 											<li class="nav-item"><a id="Logout"
-												class="nav-link logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
@@ -547,12 +558,13 @@ $(".logout").on("click", function(){
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
+
 											<li class="nav-item"><a id="Logout"
-												class="nav-link logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/member/mypage"
+												href="/mypage/main"
 												style="padding-left: 0px; padding-right: 0px;">Mypage</a></li>
 
 										</ul>
@@ -622,8 +634,8 @@ $(".logout").on("click", function(){
 
 
 
-		<div class="container">
-			<div class="row " style="margin-top: 70px;">
+		<div class="container" style = "overflow-y:hidden;">
+			<div class="row " style="margin-top: 70px; ">
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Exhibition</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
@@ -680,12 +692,15 @@ $(".logout").on("click", function(){
 								style="background: #ffffff; color: #161C24;">자세히 보기</button>
 						</a>
 					</div>
+					
+					
+					<a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a>
 
 				</c:forEach> --%>
 				<c:forEach var="list" items="${list }">
 					<div class="col-4">
 						<div class="col-12" style="margin-top: 5.313rem;">
-						<a><img class="curimage" src="${list.pe_img} "></a>	
+						<a href ='/Exhibition/toUpcommingdetail?pe_img=${list.pe_img}'><img class="curimage" src="${list.pe_img} "></a>	
 						</div>
 						<div class="col-12 h3" style="margin-top: 2.5rem;">${list.pe_name}</div>
 						<div class="col-12 caption" style="margin-top: 2.5rem;">
@@ -694,12 +709,12 @@ $(".logout").on("click", function(){
 				
 				</c:forEach> 
 			</div>
+<!-- 
+<a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'>
+ -->
 
 
-
-
-
-
+<!-- 
 			<div class="row" id="container1">
 				<div class="col-12 d-block d-sm-none"
 					style="margin-top: 5.313rem; text-align: center;">
@@ -714,8 +729,8 @@ $(".logout").on("click", function(){
 					2022.07.31~2023.10.01</div>
 				<div class="col-12 caption d-block d-sm-none"
 					style="margin-top: 2.5rem;">
-					<!-- 	<a href="/Exhibition/toBook">
-				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
+						<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a>
 				</div>
 				<div class="col-12 caption d-block d-sm-none"
 					style="margin-top: 2.5rem;">
@@ -727,7 +742,7 @@ $(".logout").on("click", function(){
 				</div>
 
 
-			</div>
+			</div> -->
 
 
 
@@ -751,9 +766,47 @@ $(".logout").on("click", function(){
 		</div>
 
 	</div>
+	<script>
+	$(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
+	
+	</script>
 
 	<!-- Channel Plugin Scripts -->
 	<script>
+	
+	$(".logout").on("click", function(){
+     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+     Kakao.isInitialized();
+     if (!Kakao.Auth.getAccessToken()) {
+        console.log('Not logged in.');
+        location.href="/member/logout";
+         return ;
+     }
+     
+      Kakao.Auth.logout(function() {
+           console.log(Kakao.Auth.getAccessToken());
+           location.href="/member/logout";
+         });
+     return true;
+  });
+	
+	
+	
+	
     (function() {
       var w = window;
       if (w.ChannelIO) {

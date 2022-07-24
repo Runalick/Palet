@@ -30,6 +30,8 @@
 <script
 	src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
 <!--   <script src='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.0,npm/fullcalendar@5.11.0/main.min.js'></script> -->
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <style>
 @charset "UTF-8";
@@ -125,6 +127,7 @@
 
 		padding-left: 33px;
 }
+
 
 
 
@@ -687,9 +690,8 @@ border-radius: 20px !important;
 												href="/shop/toShop"
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
-												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+											<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
 												href="/admin/adminMain"
@@ -741,9 +743,12 @@ border-radius: 20px !important;
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
+							<li class="nav-item"><a id="Logout" class="nav-link logout"
+												href="#" 
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+										<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
 												href="/mypage/main"
@@ -843,7 +848,7 @@ border-radius: 20px !important;
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." maxlength="4" required style = "text-align:center" required>
+										placeholder="신청자 이름을 입력해 주세요." maxlength="3" required style = "text-align:center" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
@@ -1106,6 +1111,42 @@ border-radius: 20px !important;
 
 </body>
 <script>
+$(".logout").on("click", function(){
+    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+    Kakao.isInitialized();
+    if (!Kakao.Auth.getAccessToken()) {
+       console.log('Not logged in.');
+       location.href="/member/logout";
+        return ;
+    }
+    
+     Kakao.Auth.logout(function() {
+          console.log(Kakao.Auth.getAccessToken());
+          location.href="/member/logout";
+        });
+    return true;
+ });
+
+
+
+
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
+
+
 
 
 //로딩시 데이터
@@ -1215,7 +1256,7 @@ $(".form-select1").on('change',function(){
 //뒤로가기
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/Exhibition/toCurExhibition";
+		location.href = "/program/toClassdetail";
 	})
 
 	
@@ -1283,6 +1324,7 @@ console.log($(".form-select1 option:selected").text() );
 			let price = $("#finalprice").text();
 			let price1 = price.replace(",", "");
 			let price2 = price1.replace("원", "");
+	
 			
 		let ipusedpoint =	$(this).val();
 		let ipusedpoint1 =	parseInt(ipusedpoint);
@@ -1406,10 +1448,15 @@ document.addEventListener('DOMContentLoaded', function() {
      			   
      		   
      		   }
-     		   else {
-     		          alert('지난 날짜이거나 프로그램 개최 기간이 아닙니다.');
+     		   else if(pickTime < todayTime){
+     		          alert('지난 날짜는 선택 할 수 없습니다.');
      		          return false;
      		     }
+     		   else{
+     			   
+     			   alert('프로그램 개최 기간(2022.03.16 ~ 2022.10.30)이 아닙니다.');
+     			  return false;
+     		   }
      		     
      		       
      		    
@@ -1523,7 +1570,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : 100, //실제 결제되는 가격
+			amount : price3 //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),

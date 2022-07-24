@@ -30,10 +30,13 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
+
 @media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
@@ -332,6 +335,7 @@ li div {
 }
 
 .navi-ul li ul li a {
+	line-height:2rem;
 	color: #919EAB;
 }
 
@@ -410,7 +414,7 @@ button {
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
@@ -456,7 +460,7 @@ button {
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
@@ -561,8 +565,8 @@ button {
 				</div>
 				</div>
 				
-				<div class="content" style="margin-top:1rem;">
-					<div class="row">
+				<div class="content" >
+					<div class="row" id="row1" style="padding:1rem;">
 						<div class="col-12 H5" style="">
 							나의 쿠폰
 						</div>

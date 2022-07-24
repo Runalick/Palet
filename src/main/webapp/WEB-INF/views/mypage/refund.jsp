@@ -28,15 +28,17 @@
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -315,7 +317,6 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-font-weight:700;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{
@@ -398,6 +399,11 @@ margin-bottom:0.5rem;
 cursor:pointer;
 
 }
+.content2{
+padding-left:0px;
+padding-right:0px;
+
+}
 </style>
 </head>
 <body>
@@ -437,8 +443,8 @@ cursor:pointer;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -483,8 +489,8 @@ cursor:pointer;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -547,7 +553,7 @@ cursor:pointer;
 		</div>
 		
 		<div class="container" >
-			<div class="row mypage-wrap"  id="row1" style="padding-left:1.5rem;padding-right:1.5rem;">
+			<div class="row mypage-wrap"  id="row1" style="padding-left:1.75rem;padding-right:1.75rem;">
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
 			<button id="select" >MY PAGE</button>
@@ -591,7 +597,7 @@ cursor:pointer;
 				
 				
 				
-				<div class="content" style="padding-top:1rem;">
+				<div class="content" style="margin-top:1rem;">
 					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
 						<div class="col-12" style="padding-bottom:2rem; border-bottom:1px solid black;">
@@ -600,7 +606,7 @@ cursor:pointer;
 							<button class="btnbtn" value="3month">3개월</button>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row" id="row1">
 					<div class="col-12 content2"></div>
 					</div>
 <!-- 				전시회	반복 -->
@@ -810,7 +816,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+								"	<div class='row Elist' id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src='/images/anywayloveS.png' style='width:100px; height:100px;'></div>"
@@ -834,7 +840,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Elist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+									"	<div class='row Elist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src='/images/anywayloveS.png' style='width:100px; height:100px;'></div>"
@@ -863,7 +869,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Plist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+								"	<div class='row Plist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -888,7 +894,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Plist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+									"	<div class='row Plist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -917,7 +923,7 @@ cursor:pointer;
 						
 						if(resp[i].state=='BC'){
 						$(".content2").append(
-								"	<div class='row Glist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+								"	<div class='row Glist' id='row1'style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 								+"		<input type='hidden' value="+resp[i].booknumber+">"
 								+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 								+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
@@ -941,7 +947,7 @@ cursor:pointer;
 								
 					}else if(resp[i].state=='AC'){
 							$(".content2").append(
-									"	<div class='row Glist' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
+									"	<div class='row Glist'id='row1' style='padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;'>"
 									+"		<input type='hidden' value="+resp[i].booknumber+">"
 									+"		<div class='col-3 col-md-2' style='width:120px; padding-top:0.5rem;' >"
 									+"				<img src="+resp[i].sysname+" style='width:100px; height:100px; border-radius:10px;'></div>"
