@@ -655,6 +655,13 @@ border-radius: 20px !important;
   border-radius: 5rem !important;
   padding: 2px 4px;
 } */
+
+input::placeholder {
+ text-align:left !important; 
+
+
+
+}
 </style>
 
 
@@ -1054,7 +1061,7 @@ border-radius: 20px !important;
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;"  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
+								style="width: 15rem; height: 3rem;" placeholder="포인트를 입력후 엔터를 누르세요."  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
@@ -1450,7 +1457,7 @@ document.addEventListener('DOMContentLoaded', function() {
      var calendar = new   FullCalendar.Calendar(calendarEl, {
     height:450,
        initialView: 'dayGridMonth',
- 
+
   
    
      	   dateClick: function(info) {

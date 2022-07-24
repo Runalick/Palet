@@ -577,7 +577,7 @@ input::placeholder {
 }
 
 input::placeholder {
- text-align:center !important; 
+ text-align:left !important; 
 
 
 
@@ -785,7 +785,7 @@ input::placeholder {
 						<div class="col-lg-7 col-12 "
 							style="padding-left: 1.564rem; padding-right: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px;">예매 정보</div>
-							<div class="row rec1" style="margin-top: 2rem;">
+							<div class="row rec1" style="margin-top: 2rem; margin-bottom:2rem;">
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
@@ -815,7 +815,7 @@ input::placeholder {
 
 						<!-- 큰화면 결제 -->
 
-						<div class="col-lg-4 col-12"
+						<div class="col-lg-4 col-12 mb-5"
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin: auto; text-align: center;">
 							<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
 								상세</div>

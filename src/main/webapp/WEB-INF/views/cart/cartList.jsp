@@ -5,6 +5,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=chrome">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <!-- 카카오 로그인 -->

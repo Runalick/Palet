@@ -131,39 +131,46 @@
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Mypage {
 	width: 5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Logout {
 	width: 4.5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Program {
 	width: 5.5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 @media ( min-width : 375px) {
@@ -222,9 +229,9 @@
 }
 
 /*    가로 스크롤 방지 */
-.row {
+/* .row {
 	--bs-gutter-x: 0;
-}
+} */
 /* 정렬기준 버튼(select option) */
 .form-select {
 	border: 1px solid #CFD4D9;
@@ -371,7 +378,7 @@
 </style>
 </head>
 
-<body>
+<body style = "overflow-x:hidden;">
 	<!-- navi -->
 	<div class="container-fluid"
 			style="background-color: white; z-index:9; position:fixed;">
