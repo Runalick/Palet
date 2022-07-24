@@ -309,7 +309,11 @@ padding-left:0.5rem;
 	padding:0rem;
 	}
 	.body3{
-	font-size:1.1rem;
+	font-size: 1.625rem;
+	}
+	
+	.body3_1{
+	font-size: 1.1rem;
 	}
 	.body4, .main-info{
 	font-size:1.3rem;
@@ -655,7 +659,7 @@ color:black;
 							
 							<c:if test="${defaultAddress.receiver !=null}">
 					<div class="row list" id="row2" >
-                        <div class="col-3 col-md-2 body3">
+                        <div class="col-3 col-md-2 body3_1">
                         	<div class="row">
                         		
 					
@@ -666,22 +670,22 @@ color:black;
                       
                         
                         </div>
-                        <div class="col-6 col-md-5 body3 p-1">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
-                        <div class="col-md-2 d-none d-md-block body3">${defaultAddress.phone }</div>
+                        <div class="col-6 col-md-5 body3_1 p-1">${defaultAddress.postcode }<br>${defaultAddress.address1 } ${defaultAddress.address2 }</div>
+                        <div class="col-md-2 d-none d-md-block body3_1">${defaultAddress.phone }</div>
                         <div class="col-3 body3" style="text-align:center">
-                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
-                        <button class="btnbtn sm-btn body3 defaultdelete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
+                        <button class="btnbtn sm-btn body3_1 modi" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3_1 defaultdelete" style="line-height:0px;"value=${defaultAddress.deliveryaddress_seq }>삭제</button>
                         </div>
                      </div>
 							</c:if>
 					<c:forEach var="i" items="${list }">
                      <div class="row list" id="row2">
-                        <div class="col-3 col-md-2 body3">${i.receiver }</div>
-                        <div class="col-6 col-md-5 body3 p-1">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
-                        <div class="col-md-2 d-none d-md-block body3">${i.phone }</div>
+                        <div class="col-3 col-md-2 body3_1">${i.receiver }</div>
+                        <div class="col-6 col-md-5 body3_1 p-1">${i.postcode }<br>${i.address1 } ${i.address2 }</div>
+                        <div class="col-md-2 d-none d-md-block body3_1">${i.phone }</div>
                         <div class="col-3 body3" style="text-align:center">
-                        <button class="btnbtn sm-btn body3 modi" style="line-height:0px;" value=${i.deliveryaddress_seq }>수정</button>
-                        <button class="btnbtn sm-btn body3 delete" style="line-height:0px;"value=${i.deliveryaddress_seq }>삭제</button>
+                        <button class="btnbtn sm-btn body3_1 modi" style="line-height:0px;" value=${i.deliveryaddress_seq }>수정</button>
+                        <button class="btnbtn sm-btn body3_1 delete" style="line-height:0px;"value=${i.deliveryaddress_seq }>삭제</button>
                         </div>
                      </div>
                      </c:forEach>
