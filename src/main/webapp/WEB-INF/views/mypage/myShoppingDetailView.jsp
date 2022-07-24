@@ -115,7 +115,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+	
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
