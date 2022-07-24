@@ -438,7 +438,7 @@ li div {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">

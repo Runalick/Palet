@@ -284,7 +284,7 @@
 	.main {
 		display: none;
 	}
-	.navi-menu {
+	 {
 		display: none;
 	}
 	.content {
@@ -526,10 +526,10 @@ button {
 			</div>
 
 		</div>
-		<div class="container"  >
-			<div class="row mypage-wrap"  >
+		<div class="container">
+			<div class="row mypage-wrap">
 			<div class="row" id="row1">				
-			<div class="col-12 d-block d-lg-none H1 small-navi" >
+			<div class="col-12 d-block d-lg-none H1 small-navi">
 			<button id="select" style="padding:0px;" >MY PAGE</button>
 			</div>
 			
@@ -632,6 +632,38 @@ button {
 	</div>
 	
 	<script>
+
+	$(window).resize(function() { //창크기 변화 감지
+		open_chatroom();
+	});
+
+	function open_chatroom() {
+		var windowWidth = $(window).width();
+		if (windowWidth < 992) { //창 가로 크기가 500 미만일 경우  
+			$(".navi-menu").css({
+				"display" : "none"
+			});
+		} else { //창 가로 크기가 500보다 클 경우  
+			$(".navi-menu").css({
+				"display" : "block"
+			});
+		}
+	}
+	let click = true;
+	$("#select").on("click",function() {
+		if (click == false) {
+			$("#select").css({"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size" : "1.596rem"});
+			$(".navi-menu").toggle();		
+			click = true;
+		} else {$("#select").css({"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size" : "01.596rem"});
+			$(".navi-menu").toggle();
+			click = false;
+		}
+});
+	
+	
+	
+	
 		window.onload = function(){
 			if(!($(".notUsed").hasClass("active"))){
 				$(".notUsed").addClass("active");
@@ -647,6 +679,8 @@ button {
 				}
 			})
 		}
+		
+		
 	
 		$(".button").on("click",function(){
 			$(this).addClass("active");
@@ -662,9 +696,12 @@ button {
 						$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 					}
 				})
-
-		let click = true;
-		$("#select")
+			
+	
+				
+				
+			
+	/* 	$("#select")
 				.on(
 						"click",
 						function() {
@@ -675,7 +712,7 @@ button {
 													"background" : "url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ",
 													"background-size" : "1.596rem"
 												});
-								$(".navi-menu").css({
+								$("").css({
 									"display" : "none"
 								});
 
@@ -687,12 +724,12 @@ button {
 													"background" : "url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ",
 													"background-size" : "01.596rem"
 												});
-								$(".navi-menu").css({
+								$("").css({
 									"display" : "block"
 								});
 								click = false;
 							}
-						});
+						}); */
 		
 		$(".logout").on("click", function(){
 	         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
