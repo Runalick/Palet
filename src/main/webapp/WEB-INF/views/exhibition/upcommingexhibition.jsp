@@ -78,9 +78,11 @@
 }
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
+
 
 /*         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
@@ -625,7 +627,7 @@ $(".logout").on("click", function(){
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Exhibition</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
-					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 4rem; padding-left: 0px;">
+					style="text-align: right; margin-top: 60px; line-height: 2.688rem; padding-right: 2.4rem; padding-left: 0px;">
 
 					<li style="width: 4.938rem; margin-left: 5.2rem;">예정 전시</li>
 

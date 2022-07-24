@@ -943,14 +943,14 @@ input[type="number"]::-webkit-inner-spin-button {
 			
 					
 					
-				<div class="row H3" style="margin-bottom:2.188rem; padding-left:2.5rem; margin-top:3.75rem;">쿠폰 / 마일리지</div>
+				<div class="row H3" style="margin-bottom:2.188rem; padding-left:2.5rem; margin-top:3.75rem;">쿠폰 / 포인트</div>
+				<div class="col-12" style="margin-bottom:1.5rem; text-align:left; padding-left:1.875rem;">* 쿠폰과 포인트는 같이 사용하실 수 없습니다.</div>
 				<div class="warp-pay">
 				<div class="body2" style="margin-bottom:0.5rem;">쿠폰</div>
 						<div id="select-wrap1" style="position:relative">
 								<div id="select1" class="body2">쿠폰을 선택하세요</div>
 								<ul class="select-ul1">
-<!-- 									<li class="li body2" >오프라인 감사 쿠폰</li> -->
-<!-- 									<li class="li body2" >이벤트 참여 쿠폰</li> -->
+									
 								</ul>
 							</div>
 				<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
@@ -1041,14 +1041,14 @@ input[type="number"]::-webkit-inner-spin-button {
 						
 					</div>
 						<div>
-							<div class="row H3" style="margin-bottom:2.188rem; margin-top:3.75rem; margin-left:0rem;">쿠폰 / 마일리지</div>
+							<div class="row H3" style="margin-bottom:2.188rem; margin-top:3.75rem; margin-left:0rem;">쿠폰 / 포인트</div>
+							<div class="col-12" style="margin-bottom:1rem;">* 쿠폰과 포인트는 같이 사용하실 수 없습니다.</div>
 							<div class="warp-pay" style="margin-bottom:4.5rem; margin-left:0rem;">
 								<div class="body2" style="margin-bottom:0.5rem; ">쿠폰</div>
 								<div id="select-wrap2" style="position:relative">
 									<div id="select2" class="body2" style="width:100%">쿠폰을 선택하세요</div>
 									<ul class="select-ul2">
-<!-- 										<li class="li body2" >오프라인 감사 쿠폰</li> -->
-<!-- 										<li class="li body2" >이벤트 참여 쿠폰</li> -->
+										
 									</ul>
 								</div>
 								<div class="body2" style="margin-bottom:0.5rem;">포인트</div>
@@ -1262,6 +1262,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	
 	$(".allPointUse1").on("click",function(){
 		if(myPoint > sumPrice){
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			let allPointUse = sumPrice;	
 			$(".pointinput1").val(allPointUse);
 			$(".pointinput2").val(allPointUse);
@@ -1279,6 +1283,10 @@ input[type="number"]::-webkit-inner-spin-button {
 				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			let allPointUse = $(".myPoint1").text();
 			$(".pointinput1").val(allPointUse);
 			$(".pointinput2").val(allPointUse);
@@ -1300,6 +1308,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	
 	$(".allPointUse2").on("click",function(){
 		if(myPoint > sumPrice){
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			let allPointUse = sumPrice;	
 			$(".pointinput1").val(allPointUse);
 			$(".pointinput2").val(allPointUse);
@@ -1317,6 +1329,10 @@ input[type="number"]::-webkit-inner-spin-button {
 				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			let allPointUse = $(".myPoint2").text();
 			$(".pointinput1").val(allPointUse);
 			$(".pointinput2").val(allPointUse);
@@ -1423,7 +1439,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	});
 	
 	$(document).on("click", ".li1", function(){ // on 이벤트로 변경
-		
+				$(".pointinput1").val(0);
+				$(".pointinput2").val(0);
 				$(".select-ul1").toggle();
 				let text = $(this).text();
 				serial = $(this).children().val();
@@ -1448,7 +1465,8 @@ input[type="number"]::-webkit-inner-spin-button {
 		
       });
 	$(document).on("click", ".li2", function(){ // on 이벤트로 변경
-		
+			$(".pointinput1").val(0);
+			$(".pointinput2").val(0);
 			let text = $(this).text();
 			serial = $(this).children().val();
 	    	$("#select1").text(text);
@@ -1486,6 +1504,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	$(".pointinput1").on("change",function(){
 		if($(".pointinput1").val() > sumPrice){
 			alert("상품금액보다 높습니다");
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			totalDc = 0;
 			$(".pointinput1").val(0);
 			$(".pointinput2").val(0);
@@ -1502,6 +1524,10 @@ input[type="number"]::-webkit-inner-spin-button {
 				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			totalDc = Number($(".pointinput1").val());
 			$(".pointinput2").val() == $(".pointinput1").val();
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");
@@ -1522,6 +1548,10 @@ input[type="number"]::-webkit-inner-spin-button {
 	$(".pointinput2").on("change",function(){
 		if($(".pointinput2").val() > sumPrice){
 			alert("상품금액보다 높습니다");
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			totalDc = 0;
 			$(".pointinput1").val(0);
 			$(".pointinput2").val(0);
@@ -1538,6 +1568,10 @@ input[type="number"]::-webkit-inner-spin-button {
 				LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
 			}
 		}else{
+// 			$("#select1 option:eq(0)").attr("selected", "selected");
+// 			$("#select2 option:eq(0)").attr("selected", "selected");
+			$("#select1").text("쿠폰을 선택하세요");
+			$("#select2").text("쿠폰을 선택하세요");
 			totalDc = Number($(".pointinput2").val());
 			$(".pointinput1").val() == $(".pointinput2").val();
 			$(".discount").text("-" + (totalDc).toLocaleString()+"원");

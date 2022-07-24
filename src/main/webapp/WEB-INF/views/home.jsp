@@ -58,6 +58,13 @@ border:1px solid white;
 .img{
 cursor:pointer;
 }
+
+.nav-item {
+ margin: auto;
+
+		padding-left: 33px;
+}
+
 /* .explain{ */
 /* position: absolute; opacity: 0;  */
 /* color:black; */

@@ -408,7 +408,7 @@ cursor:pointer;
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
-				<div class="row" id="container1">
+				<div class="row" id="container1" >
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
 						<div class="container" id="navparent" style = "overflow:visible;">
 							<a class="navbar-brand" href="/" id="container"
@@ -547,7 +547,7 @@ cursor:pointer;
 		</div>
 		
 		<div class="container" >
-			<div class="row mypage-wrap"  id="row1" >
+			<div class="row mypage-wrap"  id="row1" style="padding-left:1.5rem;padding-right:1.5rem;">
 			
 			<div class="col-12 d-block d-lg-none H1 small-navi" >
 			<button id="select" >MY PAGE</button>
@@ -592,7 +592,7 @@ cursor:pointer;
 				
 				
 				<div class="content" style="padding-top:1rem;">
-					<div class="row">
+					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
 						<div class="col-12" style="padding-bottom:2rem; border-bottom:1px solid black;">
 							<button class="btnbtn" value="week">1주일</button>
@@ -607,7 +607,7 @@ cursor:pointer;
 <c:forEach var="i" items="${list }">
 	<c:if test="${i.category == 'E'}">
 	
-					<div class="row Elist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
+					<div class="row Elist"id="row1" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 						<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
 								<img src="/images/anywayloveS.png" style="width:100px; height:100px;">
@@ -638,7 +638,7 @@ cursor:pointer;
 <!-- 				여기까지 -->
 <!-- 				상품 반복 -->
 <c:if test="${i.category == 'G'}">
-					<div class="row Glist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
+					<div class="row Glist" id="row1" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
 								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
@@ -646,7 +646,6 @@ cursor:pointer;
 						<div class="col-8 col-md-9" >
 							<div class="row">
 								<div class="col-12 body5-title">[Shop]${i.title }</div>
-								<div class="col-12 body5-date">옵션:${i.option1 }<span></span></div>
 								<div class="col-12" >
 									<span class="body5-price">결제 금액 ${i.cost }
 									<input type="hidden" class="${i.num }">
@@ -674,7 +673,7 @@ cursor:pointer;
 <!-- 	여기까지	 -->
 <!-- 프로그램 반복 -->
 <c:if test="${i.category == 'P'}">
-					<div class="row Plist" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
+					<div class="row Plist" id="row1" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 						<input type="hidden" value="${i.booknumber }">
 						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
 							
@@ -690,7 +689,7 @@ cursor:pointer;
 						<div class="col-8 col-md-9" >
 							<div class="row">
 								<div class="col-12 body5-title">[Program]${i.title }</div>
-								<div class="col-12 body5-date">선택 날짜:${i.pickdate}<span></span></div>
+								<div class="col-12 body5-date">선택 날짜 : ${i.pickdate}<span></span></div>
 								<div class="col-12" >
 									<span class="body5-price"> 결제 금액 ${i.cost }
 									<input type="hidden" class="${i.num }">
@@ -871,6 +870,7 @@ cursor:pointer;
 								+"		<div class='col-8 col-md-9' >"
 								+"			<div class='row'>"
 								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
+								+" 	<div class='col-12 body5-date'>선택 날짜 : "+resp[i].pickdate+"<span></span></div>"
 								+"				<div class='col-12' >"
 								+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
 								+"					<input type='hidden' class="+resp[i].num+ ">	</span>"

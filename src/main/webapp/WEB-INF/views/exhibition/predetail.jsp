@@ -80,8 +80,9 @@
 }
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 /*         오른쪽 여백 없애기
@@ -698,7 +699,7 @@ a {
 		<div class="container">
 			<div class="row">
 				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
-					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
+					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.4rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
 				
 

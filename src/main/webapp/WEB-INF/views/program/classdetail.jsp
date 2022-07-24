@@ -80,10 +80,10 @@
 	padding-right: 2.5rem;
 }
 
-
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 
@@ -716,8 +716,7 @@ a {
 				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 7.188rem; margin-left: 3.1rem;">프로그램 소개</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink">연계 전시</a></li>
+			
 
 
 				</ul>
@@ -726,10 +725,7 @@ a {
 					<li
 						style="width: 7.188rem; text-align: center; margin-left: 2.6rem; margin-right: 2.6rem;">프로그램
 						소개</li>
-					<li
-						style="width: 4.938rem; text-align: center; color: #919EAB; margin-left: 2.6rem;; margin-right: 2.6rem;"><a
-						class="exlink">연계전시</a></li>
-
+				
 
 				</ul>
 			</div>

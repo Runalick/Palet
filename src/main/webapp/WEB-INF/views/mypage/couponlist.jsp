@@ -34,7 +34,7 @@
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -78,10 +78,13 @@
 	background-color: white;
 }
 
+
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
+
 
 /*         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{

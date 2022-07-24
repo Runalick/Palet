@@ -38,7 +38,7 @@
 	}
 }
 
-@media ( min-width : 1650px) {
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 		min-width: 390px;
@@ -77,9 +77,11 @@
 	padding: 0px;
 }
 
+
 .nav-item {
-	padding-left: 20px;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 .nav-link {
