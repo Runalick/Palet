@@ -32,7 +32,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="overflow-x:hidden;">
 <!-- <div class="container "> -->
     <nav class="navbar navbar-expand-md  navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
@@ -91,7 +91,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -100,7 +100,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         

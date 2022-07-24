@@ -40,7 +40,7 @@
   	</select>
   	
   	<select id="goodsJoinSelectByPage" resultType="Trillion.Palet.DTO.GoodsDTO">
-  		select * from (select row_number() over(order by e_num desc) line, e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join preexhibition e on(g.e_num = e.pe_seq)) where line between #{start} and #{end}
+  		select * from (select row_number() over(order by g_seq desc) line, e_num, g_seq, g_name, g_price, g_option, g.sales_count, g_stock, pe_name from goods g join preexhibition e on(g.e_num = e.pe_seq)) where line between #{start} and #{end}
   		<trim prefix="order by">
   			<if test="order == 'line'">line</if>
 	  		<if test="order == 'e_num'">e_num</if>
@@ -48,7 +48,7 @@
 	  		<if test="order == 'g_price'">g_price</if>
 	  		<if test="order == 'g_name'">g_name desc</if>
 	  		<if test="order == 'g_num'">g_num</if>
-	  		<if test="order == 'g_stock'">g_stock</if>
+	  		<if test="order == 'g_stock'">g_stock desc</if>
 	  		<if test="order == 'pe_name'">pe_name</if>
   		</trim>	
   	</select>

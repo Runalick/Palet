@@ -108,6 +108,12 @@ public class AdminService {
 		
 	}
 	
+	
+	public void newExhibitionInsert2 (NewExhibitionDTO edto) {
+		adao.newExhibitionInsert2(edto);
+		
+	}
+	
 	public int exhibitionCheckDelelte (int pe_seq) {
 		return adao.exhibitionCheckDelete(pe_seq);
 	}
@@ -169,6 +175,22 @@ public class AdminService {
 				adao.goodsPicInsert(new GoodsPicDTO(0, g_num, e_num, gp_sysname));
 			}
 		}
+		
+		gdto.setG_num(g_num);
+		adao.goodsInsertOption1(gdto);
+		System.out.println(gdto.getG_num());
+		adao.goodsInsertOption2(gdto);
+		
+	}
+	
+	
+	public void newGoodsInsert2(GoodsDTO gdto, String file) {
+
+		adao.goodsInsertInto(gdto);
+		int e_num = gdto.getE_num();
+		int g_num = gdto.getG_num();
+		adao.goodsPicInsert(new GoodsPicDTO(0, g_num, e_num, file));
+		
 		
 		gdto.setG_num(g_num);
 		adao.goodsInsertOption1(gdto);
