@@ -1186,6 +1186,8 @@ input[type="number"]::-webkit-inner-spin-button {
 	  	let arrCart_seq = [];
 	  	let arrUserEmail = [];
 	  	let myPoint;
+	  	let arrCartstock = [];
+	  	
 	  	
    	$( window ).resize(function() {   //창크기 변화 감지
 		open_chatroom();
@@ -1419,6 +1421,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	            		arrG_option.push(resp[i].g_option);
 	            		arrCart_seq.push(resp[i].cart_seq);
 	            		arrUserEmail.push(resp[i].email);
+	            		arrCartstock.push(resp[i].cartstock);
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
 	            		}else{
@@ -1473,6 +1476,17 @@ input[type="number"]::-webkit-inner-spin-button {
 						$(".pointinput2").attr("min",0);
 						$(".pointinput2").attr("max",myPoint);
 					})
+					
+					for(let i = 0; i < arrG_seq.length; i++){
+						$.ajax({
+							url:"/shop/updateCartstock",
+							data:{g_seq:arrG_seq[i],
+								cartstock:arrCartstock[i]}
+						}).done(function(resp){
+							console.log(resp);
+	
+						})
+					}
 	            });
 				
 

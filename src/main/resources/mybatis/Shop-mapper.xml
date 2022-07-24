@@ -29,4 +29,7 @@
   	<select id="selectGrade" resultType="Trillion.Palet.DTO.MemberDataDTO">
   		select * from  member where email = #{value}
   	</select>
+  	<update id="updateCartstock">
+  		update goods set g_stock = g_stock - #{cartstock} where g_seq = #{g_seq}
+  	</update>
   </mapper>	
