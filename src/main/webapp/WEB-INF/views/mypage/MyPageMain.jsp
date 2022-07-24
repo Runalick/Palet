@@ -35,7 +35,7 @@
 	.container {
 		max-width: 1280px;
 	}html{
-		font-size: 16px;
+		font-size: 12px;
 	}
 }
 @media ( min-width : 1280px) {
@@ -117,7 +117,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+
 	/* Inside auto layout */
 	flex: none;
 	order: 0;

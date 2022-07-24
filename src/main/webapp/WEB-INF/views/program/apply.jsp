@@ -1215,7 +1215,7 @@ $(".form-select1").on('change',function(){
 //뒤로가기
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/Exhibition/toCurExhibition";
+		location.href = "/program/toClassdetail";
 	})
 
 	
