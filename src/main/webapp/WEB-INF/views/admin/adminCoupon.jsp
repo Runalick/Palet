@@ -32,7 +32,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="overflow-x: hidden;">
 <!-- <div class="container "> -->
     <nav class="navbar navbar-expand-md  navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
@@ -205,7 +205,7 @@
 
 									<div class="row pt-5 pb-4" style="text-align:center">
 										<div class="col p-0">
-											<a href="/admin/adminCoupon">
+											<a href="/admin/adminCoupon?cpage=1">
 												<input class="btn1" type="button" id="return" value="초기화"></a> 
 												<input class="btn2_1" type="button" id="make" value="발행">
 										</div>
