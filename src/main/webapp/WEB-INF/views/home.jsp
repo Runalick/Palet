@@ -96,6 +96,17 @@ border:0px;
 	#mainphoto{
 	padding-bottom:43rem;
 	}
+	#mainphoto2{
+	
+	padding-bottom:41rem !important;
+	
+	}
+}
+#mainphoto2{
+min-height:37.5rem;
+}
+.overflow-auto{
+overflow-y:hidden !important;
 }
 </style>
 
@@ -379,7 +390,7 @@ border:0px;
 
 
 					<div class="col-12 h2_1 d-block d-sm-none"
-						style="text-align: center; margin-top: 8rem;">곧 시작합니다</div>
+						style="text-align: center; margin-top: 4rem;">곧 시작합니다</div>
 					<div class="col-12 h1 d-block d-sm-none"
 						style="text-align: center; margin-top: 2.5rem;">과천프로젝트 2022:</div>
 					<br>
