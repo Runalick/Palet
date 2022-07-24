@@ -1038,14 +1038,14 @@ border:1px;
 	// 트위터 공유하기
 	function shareTwitter() {
 		var sendText = "Palet"; // 전달할 텍스트
-		var sendUrl = "http://localhost/member/loginPage"; // 전달할 URL
+		var sendUrl = "http://3.34.123.180/Exhibition/toCurdetail"; // 전달할 URL
 		window.open("https://twitter.com/intent/tweet?text=" + sendText
 				+ "&url=" + sendUrl);
 	}
 
 	// 페이스북 공유하기
 	function shareFacebook() {
-		var sendUrl = "http://localhost/member/loginPage"; // 전달할 URL
+		var sendUrl = "http://3.34.123.180/Exhibition/toCurdetail"; // 전달할 URL
 		window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
 	}
 
@@ -1064,8 +1064,8 @@ border:1px;
 				description : "전시회 바로 예약하기", // 보여질 설명
 				imageUrl : 'http://localhost/images/anywayloveS.png', // 콘텐츠 URL
 				link : {
-					mobileWebUrl : "http://localhost/member/loginPage",
-					webUrl : "http://localhost/member/loginPage"
+					mobileWebUrl : "http://3.34.123.180/Exhibition/toCurdetail",
+					webUrl : "http://3.34.123.180/Exhibition/toCurdetail"
 				}
 			}
 		});
