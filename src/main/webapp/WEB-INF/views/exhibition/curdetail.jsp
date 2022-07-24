@@ -600,7 +600,7 @@ a {
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
 											<li class="nav-item"><a id="Logout"
-												class="nav-link logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
@@ -654,7 +654,7 @@ a {
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
 											<li class="nav-item"><a id="Logout"
-												class="nav-link logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
@@ -1056,21 +1056,21 @@ a {
 			}
 		});
 	}
-	function logout() {
-
-		if (!Kakao.Auth.getAccessToken()) {
-			alert('Not logged in.')
-			return
-
-		}
-		Kakao.Auth.logout(function() {
-			alert('로그아웃 되었습니다.');
-			location.href = "/member/logout";
-		})
-
-		location.href = "/member/logout";
-		return true;
-	}
+	$(".logout").on("click", function(){
+        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+        Kakao.isInitialized();
+        if (!Kakao.Auth.getAccessToken()) {
+           console.log('Not logged in.');
+           location.href="/member/logout";
+            return ;
+        }
+        
+         Kakao.Auth.logout(function() {
+              console.log(Kakao.Auth.getAccessToken());
+              location.href="/member/logout";
+            });
+        return true;
+     });
 </script>
 <!-- Channel Plugin Scripts -->
 <script>

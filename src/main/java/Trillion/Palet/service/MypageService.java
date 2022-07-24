@@ -49,8 +49,8 @@ public class MypageService {
 	
 	// Shopping
 
-	public List<Object> myShopping(int limit, String email) {
-		return mdao.myShopping(limit, email);
+	public List<Object> myShopping(String email) {
+		return mdao.myShopping(email);
 	}
 
 	public PayDTO myShoppingDetailView(String merchant_uid) {

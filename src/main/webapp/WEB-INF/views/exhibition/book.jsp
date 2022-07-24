@@ -21,7 +21,8 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
-
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
@@ -602,8 +603,8 @@ input::placeholder {
 												href="/shop/toShop"
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
+											<li class="nav-item"><a id="Logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
@@ -656,8 +657,8 @@ input::placeholder {
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
+											<li class="nav-item"><a id="Logout"
+												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
@@ -1393,21 +1394,21 @@ console.log($(".form-select1 option:selected").text());
 	    }
 	  });
 	 }
-	  function logout() {
-			
-			if (!Kakao.Auth.getAccessToken()) {
-			      alert('Not logged in.')
-			      return
-			    }
-			    Kakao.Auth.logout(function() {
-			      alert('로그아웃 되었습니다.');
-			      location.href="/member/logout";
-			    })
-			
-
-			location.href = "/member/logout";
-			return true;
-		}
+		$(".logout").on("click", function(){
+	        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	        Kakao.isInitialized();
+	        if (!Kakao.Auth.getAccessToken()) {
+	           console.log('Not logged in.');
+	           location.href="/member/logout";
+	            return ;
+	        }
+	        
+	         Kakao.Auth.logout(function() {
+	              console.log(Kakao.Auth.getAccessToken());
+	              location.href="/member/logout";
+	            });
+	        return true;
+	     });
 	  
 	
 </script>
