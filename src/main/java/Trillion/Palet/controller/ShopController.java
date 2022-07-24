@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import Trillion.Palet.DTO.GoodsDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
+import Trillion.Palet.DTO.updateCartstockDTO;
 import Trillion.Palet.service.CartService;
 import Trillion.Palet.service.GoodsService;
 import Trillion.Palet.service.ShopService;
@@ -98,6 +99,12 @@ public class ShopController {
 		String email = (String)session.getAttribute("loginEmail");
 		List<MemberDataDTO> list = sServ.selectMemberPoint(email);
 		return list;
+	}
+	
+	@ResponseBody
+	@RequestMapping("updateCartstock")
+	public List<updateCartstockDTO> updateCartstock(int g_seq, int cartstock){
+		return sServ.updateCartstock(g_seq, cartstock);
 	}
 	
 }
