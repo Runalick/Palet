@@ -19,6 +19,7 @@
 .stock {
 	display: inline-block;
 }
+
 </style>
 <body>
 	장바구니

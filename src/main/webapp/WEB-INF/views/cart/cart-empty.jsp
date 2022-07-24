@@ -28,6 +28,13 @@
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 }
+
+.nav-item {
+ margin: auto;
+
+		padding-left: 33px;
+}
+
 </style>
 </head>
 <body>
