@@ -432,7 +432,7 @@ color:white;
 .ticket {
 	width: 44.5rem;
 	height: 14.5rem;
-	background: black;
+	background: #637381;
 	border-radius:0.375rem;
 }
 
@@ -555,6 +555,26 @@ transition: 0.3s
 .vector:hover{
 background:#F4F6F8;
 
+}
+.btn2{
+display:inline-block;
+	width: 180px;
+	height: 50px;
+	background:white;
+	border-radius: 1.25rem;
+	color:black;
+	border:1px solid black;
+	font-family: 'Spoqa Han Sans Neo';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 1.625rem;
+	line-height: 1.875rem;
+	margin-right:1rem;
+	border:1px solid black;
+	 transition: 0.3s;
+}
+.btn2:hover{
+background:#F4F6F8;
 }
 </style>
 </head>
@@ -793,11 +813,8 @@ background:#F4F6F8;
 							<div class="col-12 body4 price" id="">${dto.pro_cost/ dto.pro_count  }원</div>
 						</div>
 					</div>
-				<script>
-				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };
-				$(".price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-				</script>
-				<div class="col-4 total total-info">상품 금액</div>
+				
+				<div class="col-4 total total-info ">상품 금액</div>
 				<div class="col-8 total price total-info"></div>
 				<div class="col-4 total total-info">총 수량</div>
 				<div class="col-8 total total-info" >${dto.pro_count }개</div>
@@ -812,7 +829,11 @@ background:#F4F6F8;
 				<div class="col-4 total "  style="margin-bottom:10rem">총 주문금액</div>
 				<div class="col-8 total-price" style="margin-bottom:10rem"></div>	
 								
-						
+					<script>
+				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };
+				$(".price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+				$(".price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
+				</script>	
 						
 				
 				
@@ -825,7 +846,7 @@ background:#F4F6F8;
 				<c:if test="${dto.pro_state == 'BU' }">
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
 				</c:if>
-				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
+				<button class=" btn2" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
 				</div>
 				</div>
 				</div>
