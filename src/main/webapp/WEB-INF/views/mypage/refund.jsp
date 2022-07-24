@@ -114,7 +114,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
@@ -561,7 +561,7 @@ padding-right:0px;
 			
 			
 				<div class="navi" >
-				<a href="#" style=" font-size:1.625rem;" class="main" >
+				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">

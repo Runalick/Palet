@@ -115,7 +115,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+	
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
@@ -780,13 +780,6 @@ top:4rem;
    }
 }
 
-@media ( min-width : 375px) {
-	.container {
-		max-width: 1280px;
-	}html{
-		font-size: 12px;
-	}
-}
 
 a{
 	text-decoration: none;
