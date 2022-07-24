@@ -607,6 +607,7 @@ padding:0px;
 				</ul>
 			</div>
 			
+			
 			<div class="row" id="container1">
 				<div class="col-12" style="margin-top: 5.313rem;">
 				<a href="/program/toClassdetail"><img class = "curimage" src="/images/kidclass.png" ></a>	
@@ -628,6 +629,31 @@ padding:0px;
 				
 
 			</div>
+			
+			
+			<div class="row" id="container1">
+				<div class="col-12 d-block d-sm-none" style="margin-top: 5.313rem; text-align:center;">
+					<a href="/program/toClassdetail"><img class="curimage"
+						src="/images/kidclass.png"></a>
+				</div>
+				<div class="col-12 h3 d-block d-sm-none" style="margin-top: 2.5rem; text-align:center;">키즈워크룸 : 애니메이터 프로젝트</div>
+				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem; text-align:center;">
+				2022.04.01 ~ 2022.10.30</div>
+				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
+					<!-- 	<a href="/Exhibition/toBook">
+				<button class = "btn1_1" style="background: #161C24;">예매하기</button></a> -->
+				</div>
+				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
+					<a href="/program/toClassdetail" style = "text-align:center;">
+						<button class="btn1_1"
+							style="background: #ffffff; margin:auto; color: #161C24;">신청하기</button>
+					</a>
+				</div>
+
+
+			</div>
+			
+			
 
 		</div>
 	

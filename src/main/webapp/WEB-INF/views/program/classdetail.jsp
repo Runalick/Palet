@@ -593,8 +593,8 @@ a {
 		
 
 		<div class="container d-none d-sm-block"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;">
-			<div class="row" style="padding-top: 50px; padding-left: 2.5rem">
+			style="margin-top: 7.75rem;margin-bottom: 3.375rem;">
+			<div class="row" >
 				<div class="col-lg-1 col-xs-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
 						style="margin-left: 0px;">
@@ -827,7 +827,7 @@ a {
 
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/Exhibition/toCurExhibition";
+		location.href = "/program/toProgram";
 	})
 
 	$(".minusbutton").on("click", function() {
