@@ -545,7 +545,11 @@
 		})
 	})
 	
-	
+		$("#container").on("click", ".imgopen", function(){
+	  	let imgurl = $(this).siblings().val();
+	  	let bigimg = window.open("",'Palet',"_blank");
+	  	bigimg.document.write("<img src='" + imgurl + "'>");
+	})
 	
 	
 	
