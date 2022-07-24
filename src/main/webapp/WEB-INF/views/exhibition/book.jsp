@@ -575,6 +575,13 @@ input::placeholder {
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 }
+
+input::placeholder {
+ text-align:center !important; 
+
+
+
+}
 </style>
 
 
@@ -957,7 +964,7 @@ input::placeholder {
 							style="padding-left: 0rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;   " oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
+								style="width: 15rem; height: 3rem;  " placeholder="포인트를 입력후 엔터를 누르세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
@@ -1154,12 +1161,6 @@ console.log($(".form-select1 option:selected").text());
 
 	})
 	
-
-	
-	
-	// 큰 화면 일부 포인트 사용엔터
-	
-	
 	$(".usedpoint").keypress(function(e) {
 		console.log('여기5');
 		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
@@ -1205,7 +1206,7 @@ console.log($(".form-select1 option:selected").text());
 		
 			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
 				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
-				$(this).val('');
+			
 				}else{
 					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
 				}
@@ -1226,6 +1227,77 @@ console.log($(".form-select1 option:selected").text());
 		}
 
 	})
+	
+	
+	// 큰 화면 일부 포인트 사용엔터
+	
+	
+/* 	$(".usedpoint").keypress(function(e) {
+		console.log('여기5');
+		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
+		if (e.keyCode == 13) {
+			let mypoint = parseInt($(".h5_1_1").text());
+			
+			let price = $("#finalprice").text();
+			let price1 = price.replace(",", "");
+			let price2 = price1.replace("원", "");
+			
+		let ipusedpoint =	$(this).val();
+		let ipusedpoint1 =	parseInt(ipusedpoint);
+		
+		let opusedpoint =	$("#usedpoint").text();
+		let opusedpoint1 = opusedpoint.replace('p','');
+		let opusedpoint2 = parseInt(opusedpoint1);
+		
+		let price3 = '${price}';
+		let price4 = price3.replace(",", "");
+		let price5 = price4.replace("원", "");
+		let price6 = parseInt(price5);
+		console.log(ipusedpoint);
+		console.log(opusedpoint2);
+		
+		
+
+		console.log(price5);
+
+		let check = /^[0-9]+$/; 
+	
+			
+			if (($(this).val() <= mypoint)&&($(this).val()<=5000)) {
+			
+			
+				
+				 if(parseInt($(".h5_1_1").text())<${mdto.point}-5000){
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+					$(this).val('');
+					return false;
+				}else  if(parseInt($(".h5_1_1").text())-$(this).val()>=${mdto.point}-5000){
+				$(".h5_1_1").text(mypoint - $(this).val());
+				console.log('ddddaa');
+		
+			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
+				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
+			
+				}else{
+					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
+				}
+			}else if(!check.test($(this).val())){
+				alert('숫자만 입력할 수 있습니다.');
+				$(this).val('');
+				return false;
+				
+			}
+			 else {
+				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
+				$(this).val('');
+			}
+		}
+		}else{
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
+			return false;
+		}
+
+	}) */
 	
 	
 	
@@ -1321,7 +1393,7 @@ console.log($(".form-select1 option:selected").text());
 			pg : 'kcp',
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
-			name : '예매', //결제창에서 보여질 이름
+			name : 'Romantic Days 어쨋든 사랑', //결제창에서 보여질 이름
 			amount : price3, //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),

@@ -365,16 +365,16 @@
 }
 
 /* 가로 스크롤바 제거 */
-.scroll_y::-webkit-scrollbar {
+ .scroll_y::-webkit-scrollbar {
 	display: none;
-}
+} 
 </style>
 </head>
 
 <body>
 	<!-- navi -->
 	<div class="container-fluid"
-			style="background-color: white; z-index:9; position:relative;">
+			style="background-color: white; z-index:9; position:fixed;">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">

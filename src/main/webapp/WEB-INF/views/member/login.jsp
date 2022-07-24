@@ -208,7 +208,7 @@ transition: 0.3s;
 
 		</div>
 		
-		<div class="row" style="padding-top: 150px;">
+		<div class="row" style="padding-top: 200px;">
 			<div class="container" style="max-width: 500px;">
 				<div class="row" id="row1">
 					<div class="h2" style="padding-bottom: 30px;">Login</div>
@@ -239,7 +239,7 @@ transition: 0.3s;
 			</div>
 		</div>
 		
-		<div class="row" id="footer">
+		<div class="row" id="footer" >
 			<div class="container">
 				<div class="row">
 					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
