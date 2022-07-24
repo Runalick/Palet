@@ -553,7 +553,7 @@ $(".logout").on("click", function(){
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
-												href="/member/mypage"
+												href="/mypage/main"
 												style="padding-left: 0px; padding-right: 0px;">Mypage</a></li>
 
 										</ul>

@@ -520,7 +520,7 @@ padding:0px;
 					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
 								
 								</ul>
