@@ -44,6 +44,19 @@ transition: 0.3s;
 background:#454F5B;
 border:0px;
 }
+.btn3{
+background:white;
+color:black;
+width:100%;
+}
+.btn3:hover{
+background:#F4F6F8;
+
+}
+#findpw:hover{
+color:#7A0C2E;
+transition: 0.3s;
+}
 </style>
 </head>
 <body style = "overflow-x:hidden;">
@@ -212,7 +225,7 @@ border:0px;
 							</div>
 							<div class="row">
 								<div class="col-12 p-0"><input type="submit" class="btn2" id="login" value="로그인"></div>
-								<div class="col-12 p-0"><input type="button" class="btn2" id="join" value="아직 회원이 아니신가요? 가입하기"></div>
+								<div class="col-12 p-0"><input type="button" class="btn2 btn3" id="join" value="아직 회원이 아니신가요? 가입하기"></div>
 							</div>
 							<div class="row" style="padding-top: 20px; margin-bottom: 50px;">
 								<div class="col-12 p-0 body2" align=center>소셜 계정으로 로그인</div>
