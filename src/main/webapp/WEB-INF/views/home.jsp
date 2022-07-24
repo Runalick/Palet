@@ -27,6 +27,7 @@
 .btn1:hover{
 background:white;
 color:#161C24;
+transition: 0.3s;
 }
 .btn2{
 border:0px;
@@ -35,6 +36,7 @@ border:0px;
 background:rgba(0,0,0,0);
 color:white;
 border:1px solid white;
+transition: 0.3s
 
 }
 .img{
@@ -75,10 +77,12 @@ border:0px;
  } 
  .preexhibition:hover{
  cursor:pointer;
+ transition: 0.3s
  }
  .prebtn:hover, .btn5:hover, .btngodds:hover{
  background: #454F5B;
  border:0px ;
+ transition: 0.3s
  }
  .prebtn, .btn5, .btngodds{
  border:0px;
@@ -365,7 +369,7 @@ border:0px;
 
 
 					<div class="col-12 h2_1 d-block d-sm-none"
-						style="text-align: center; margin-top: 10rem;">곧 시작합니다</div>
+						style="text-align: center; margin-top: 8rem;">곧 시작합니다</div>
 					<div class="col-12 h1 d-block d-sm-none"
 						style="text-align: center; margin-top: 2.5rem;">과천프로젝트 2022:</div>
 					<br>
@@ -374,7 +378,11 @@ border:0px;
 
 
 					<div class="col-12 h2_1 d-none d-sm-block"
-						style="margin-top: 10rem; padding-left: 0.5rem;">곧 시작합니다</div>
+
+						style="margin-top: 5rem; padding-left: 0.5rem;">곧 시작합니다</div>
+
+				
+
 					<div class="col-12 h1 d-none d-sm-block"
 						style="margin-top: 2.5rem; padding-left: 0.5rem;">과천프로젝트
 						2022:</div>
@@ -394,7 +402,7 @@ border:0px;
 
 
 					<div class="col-12  d-none d-sm-block"
-						style="margin-top: 5rem; padding-left: 0.5rem;">
+						style="margin-top: 3rem; padding-left: 0.5rem;">
 						<button class="btn1" onclick="location.href='/Exhibition/toUpcommingExhibition'">자세히 보기</button>
 					</div>
 

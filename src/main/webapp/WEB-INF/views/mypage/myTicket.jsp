@@ -702,7 +702,7 @@ border-radius:0.625rem;
 			  </div>
   			</c:when>
 				<c:otherwise>
-					<div class="H2" style="margin:auto; margin-top:7rem;">예매 내역이 없습니다.</div>
+					<div class="H2" style="margin:auto ; padding-top:7rem;padding-bottom:7rem; width:25rem;">예매 내역이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>	
 		</div>
@@ -762,8 +762,9 @@ window.onload = function(){
 		async: false,
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
+			
 			for(let i = 0 ; i < resp.length; i++) {
-				
+				console.log(resp[i].booknumber);	
 				if(resp[i].category =='E'){
 		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
 		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"

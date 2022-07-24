@@ -71,7 +71,10 @@
   
 <!--   	home -->
   	<select id="getlatest3" resultType="Trillion.Palet.DTO.PreExhibitionDTO">
-  		select * from (select row_number() over(order by pe_date desc) line,preexhibition.* from preexhibition) where  line between 2 and 4
+
+
+  		select * from (select row_number() over(order by pe_date desc) line,preexhibition.* from preexhibition where pe_period != 'F') where  line between 1 and 3 
+
   	</select>
   	
   </mapper>

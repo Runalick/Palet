@@ -32,7 +32,7 @@ public class MypageDAO {
 
 	
 	//지난전시, 쓴 티켓
-	public List<ExticketDTO> premyTicket(String email,int limit ) {
+	public List<ExProticketDTO> premyTicket(String email,int limit ) {
 		Map<String,Object> param = new HashMap<>();
 		param.put("email", email);
 		

@@ -7,11 +7,7 @@
 <mapper namespace="Event"> 
 
 	<insert id="add">
-		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N')	
-	</insert>
-	
-	<insert id="picadd">
-		insert into drawing_pic values(drawpic_seq.nextval, #{sys_Name}, #{draw_seq})	
+		insert into drawing values(draw_seq.nextval,#{d_title},#{painter},#{d_file},#{email},'N',sysdate)	
 	</insert>
 	
 	<select id="isEmailExist" resultType="boolean">
@@ -41,7 +37,7 @@
 	</select> -->
 	
 	<select id="selectAll" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-	   select * from(select row_number() over(order by draw_seq desc) as num, 
+	   select * from(select row_number() over(order by d_date desc) as num, 
 		draw_seq, d_title, painter, d_file, email, admin_ok from drawing order by admin_ok ASC, draw_seq) 
 		where num between #{limit} and #{limit}+11
 	</select>
@@ -63,7 +59,7 @@
 	</select> -->
 	
 	<select id="selectConfirm" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-	   select * from(select row_number() over(order by draw_seq desc) as num, 
+	   select * from(select row_number() over(order by d_date desc) as num, 
 		draw_seq, d_title, painter, d_file, email, admin_ok from drawing where admin_ok='Y') 
 		where num between #{limit} and #{limit}+10
 	</select>

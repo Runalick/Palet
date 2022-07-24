@@ -834,7 +834,7 @@ color:white;
 							<div class="row main-area">
 								<div class="col-2 d-none d-md-block px-3 body4" >주문일</div>
 								<div class="col-6 d-none d-md-block px-3 body4">주문정보</div>
-								<div class="col-2 d-none d-md-block px-3 body4">가격</div>
+								<div class="col-2 d-none d-md-block px-3 body4">결제가격</div>
 								<div class="col-2 d-none d-md-block px-3 body4">배송상태</div>
 							</div>
 						<c:forEach var="i" items="${list}">
@@ -865,7 +865,7 @@ color:white;
 											<div class="col-12 body5-state body5" style="color:#FF4842;">취소 처리중</div>
 										</c:if>
 										<c:if test="${i.STATE == 'AC' }">
-											<div class="col-12 body5-state body5" style="color:#FF4842;">취소완료</div>
+											<div class="col-12 body5-state body5" style="color:#7A0C2E;">취소완료</div>
 										</c:if>
 										
 										
@@ -918,7 +918,7 @@ window.onload= function(){
 		console.log("현재날짜 : " +today);
 		console.log("배송완료날짜 : " +delend);
 		console.log($($(".merchant_uid")[i]).val());
-		console.log($($(".state")[i]).val()=='BU');
+		console.log($($(".state")[i]).val());
 		
 		// 주문완료 -> 배송 중 (1일뒤)
 		if($($(".state")[i]).val()=='BU'){

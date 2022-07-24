@@ -524,7 +524,7 @@ margin-right:0.25rem;
 	font-weight: 600;
 
 	line-height: 1.875rem;
-	margin-bottom:1rem;
+	margin-top:0.3rem;
 }
 
 
@@ -796,6 +796,35 @@ a:hover{
 	padding-bottom : 10px;
 }
 
+
+.modal-footer {
+	display: block;
+}
+
+.vector{
+border: 1px solid #DFE3E8;
+width:2.5rem;
+height:2.5rem;
+border-radius:2.5rem;
+background: #FFFFFF;
+}
+
+.vector:hover {
+	background: #F4F6F8;
+	transition: 0.3s
+}
+
+.cantcancel{
+	padding-left: 2.5rem;
+    padding-top: 2.5rem;
+    font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.8rem;
+    line-height: 1.75rem;
+    margin-bottom: 0px;
+}
+
 </style>
 
 <body>
@@ -993,10 +1022,15 @@ a:hover{
 				
 				
 				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
-					<div class="row" id="row1">
-						<div class="col-12 px-4 main-info" >주문 상세</div>
+					<div class="row">
+						<div class="col-1" style="margin-left: 2rem">
+							<button class='vector'>
+							<img src="/images/Vector.png">
+							</button>
+						</div>
+						<div class="col-7 px-4 main-info" >주문 상세</div>
 						
-						<div class="col-12" style="margin-top:2.5rem;">
+						<div class="col-12">
 							<div class="row main-area">
 								<div class="col-12 h3">주문정보</div>
 								<div class="col-12 col-md-3 body2_1 pb">주문번호</div>
@@ -1036,7 +1070,7 @@ a:hover{
 								<c:forEach var="i" items="${product}"> 
 								<div class="row">
 									<div class="col-12 col-md-5 p-0">
-										<a href="/shop/goDetail?g_num=${i.G_NUM }"><img src="${i.gp_sysname }" class="w-100 h-100" style="max-width: 300px; min-width: 120px; padding: 10px;"></a>
+										<a href="/shop/goDetail?g_num=${i.G_NUM }"><img referrerpolicy="no-referrer" src="${i.gp_sysname }" class="w-100 h-100" style="max-width: 300px; min-width: 120px; padding: 10px;"></a>
 									</div>
 									<div class="col-12 col-md-7 p-0" style="padding-top: 20px;">
 										<div class="row">
@@ -1101,7 +1135,7 @@ a:hover{
 							<button class='ok btnbtn' id="cancel" style="margin: 2.5rem;" data-bs-toggle='modal' data-bs-target='#exampleModa2'>
 								주문취소
 							</button>
-						
+							<div class='cantcancel'></div>
 						</div>
 					</div>
 				
@@ -1122,7 +1156,7 @@ a:hover{
 							<div class="row">
 						
 							<div class="col-4 p-0" style="height:12.5rem;margin-bottom:3rem; width:9.5rem  ">
-								<img src="${product[0].gp_sysname }" class="h-100" style="margin-bottom:5.5rem; margin-left: 2.5rem;">
+								<img referrerpolicy="no-referrer" src="${product[0].gp_sysname }" class="h-100" style="margin-bottom:5.5rem; margin-left: 2.5rem;">
 								</div>
 									<div class="col-8" style="margin-bottom:3rem; margin-left: 3rem;">
 										<div class="row modal-ticket-row" >
@@ -1144,7 +1178,7 @@ a:hover{
 											</div>
 				
 										<div class="col-12 write-contents" style="display:none;">
-											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." ></textarea>
+											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40'></textarea>
 										</div>
 									</div>
 										<div class="row payinfo" style="margin-bottom:1rem;">
@@ -1203,7 +1237,7 @@ a:hover{
 										</div>
 							</div>
 					  </div>
-				      <div class="modal-footer">
+				      <div class="modal-footer" style="text-align: center;">
 				        <button type="button" class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
 				        <button type="button" class="btn btn-dark total" data-bs-target="#exampleModalToggle3" data-bs-toggle="modal">확인</button>
 				      </div>
@@ -1223,7 +1257,7 @@ a:hover{
 				      <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
 				        구매 취소 하시겠습니까?
 				      </div>
-				      <div class="modal-footer">
+				      <div class="modal-footer" style="text-align: center;">
 				        <button class="btn btn-secondary total" data-bs-dismiss="modal">취소</button>
 				        <button class="btn btn-dark total pay-cancel" value=${payment.merchant_uid } data-bs-target="#exampleModalToggle4" data-bs-toggle="modal">확인</button>
 				      </div>
@@ -1243,7 +1277,7 @@ a:hover{
 				      <div class="modal-body paymodal-title2 text-center" style="padding:3rem;">
 				        구매가 취소되었습니다.
 				      </div>
-				      <div class="modal-footer">
+				      <div class="modal-footer" style="text-align: center;">
 				        <button class="btn btn-dark total ok" data-bs-dismiss="modal">확인</button>
 				      </div>
 				    </div>
@@ -1269,6 +1303,10 @@ a:hover{
 	
 	
 <script>
+
+$(".vector").on("click", function(){
+	location.href="/mypage/myShopping";
+})
 
 
 //구매 취소 확인 버튼
@@ -1366,15 +1404,19 @@ if($(".select-ul").css("display") == "block"){
 		} else if (($("#state").html())=='CU'){
 			$("#state").text("배송 중");
 			$("#cancel").attr('style',"display:none;");
+			$(".cantcancel").text("배송 중인 상품은 주문 취소가 불가능합니다.");
 		} else if (($("#state").html())=='AU'){
 			$("#state").text("배송완료");
 			$("#cancel").attr('style',"display:none;");
+			$(".cantcancel").text("환불문의는 채팅봇으로 문의바랍니다.");
 		} else if (($("#state").html())=='BC'){
 			$("#state").text("취소 처리 중");
 			$("#cancel").attr('style',"display:none;");
+			$(".cantcancel").text("주문 취소 처리 중입니다.");
 		} else if (($("#state").html())=='AC'){
 			$("#state").text("취소완료");
 			$("#cancel").attr('style',"display:none;");
+			$(".cantcancel").text("취소가 완료되었습니다.");
 		} 
 		
 		
