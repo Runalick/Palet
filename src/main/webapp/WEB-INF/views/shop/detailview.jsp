@@ -317,11 +317,13 @@
 	background: #FFFFFF;
 	border-radius: 1.25rem;
 	border: 0px;
+	transition: 0.3s;
 }
 #cartbtn:hover, #backbtn:hover, .cntbtn:hover{
 background:#F4F6F8;
 }
 #purchasebtn:hover{
+transition: 0.3s;
 background:#454F5B;
 }
 #cartspan {
@@ -606,6 +608,7 @@ font-size:1.8rem;
 
 }
 #purchasebtn, #cartbtn{
+
  height:4.5rem; 
 }
 #productdetail{
@@ -815,7 +818,10 @@ padding-bottom:0px;
 							console.log(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
 							</script>
 							
-							<div class="col-12" id="point">${Math.round(dto.g_price*0.05) }p (5%) 적립</div>
+							<div class="col-12" id="point">${Math.round(dto.g_price*0.05) }p <span class="gradepoint"></span></div>
+
+
+
 
 							<!-- 옵션 리스트 -->
 							<div id="select-wrap" style="position:relative;">
@@ -938,10 +944,10 @@ $(".li").on("click", function () {
 							
 							
 							<button id="purchasebtn">
-								<span id="purchasespan">구매하기</span>
+								<div id="purchasespan">구매하기</div>
 							</button>
 							<button id="cartbtn">
-								<span id="cartspan">장바구니 담기</span>
+								<div id="cartspan">장바구니 담기</div>
 							</button>
 						</div>
 
@@ -1018,9 +1024,22 @@ $(".li").on("click", function () {
 		open_chatroom();
 	});
 	$(document).ready(function(){
+		
 		open_chatroom();
 	});
 	window.onload = function(){
+		console.log('${mdto.grade}');
+		if('${mdto.grade}'==null){
+			$(".gradepoint").text("");
+		}
+		else if('${mdto.grade}' == 'White'){
+			console.log()
+			$(".gradepoint").text("(1%) 적립");
+		}else if('${mdto.grade}' == 'Gray'){
+			$(".gradepoint").text("(5%) 적립");
+		}else if('${mdto.grade}' == 'Black'){
+			$(".gradepoint").text("(10%) 적립");
+		}
 		$.ajax({
 			url:"/cart/beforeunload"
 		})

@@ -27,6 +27,10 @@ public class ShopService {
 	public List<MemberDataDTO> selectMemberPoint(String email){
 		return dao.selectMemberPoint(email);
 	}
+
+	public MemberDataDTO selectGrade(String email) {
+		return dao.selectGrade(email);
+	}
 	
 	
 }
