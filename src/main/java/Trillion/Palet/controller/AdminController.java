@@ -182,11 +182,19 @@ public class AdminController {
 		return "redirect:adminExhibitions";
 	}
 	
+//	@RequestMapping(value="newExhibitionsInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
+//	public String newExhibitionsInsert(NewExhibitionDTO edto, MultipartFile[] file) {
+//		
+//		String realPath = session.getServletContext().getRealPath("ExhibitionPic");
+//		aServ.newExhibitionInsert(edto, realPath, file);
+//		return "redirect:adminExhibitions";
+//	}
+	
 	@RequestMapping(value="newExhibitionsInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
-	public String newExhibitionsInsert(NewExhibitionDTO edto, MultipartFile[] file) {
+	public String newExhibitionsInsert2(NewExhibitionDTO edto) {
 		
-		String realPath = session.getServletContext().getRealPath("ExhibitionPic");
-		aServ.newExhibitionInsert(edto, realPath, file);
+		
+		aServ.newExhibitionInsert2(edto);
 		return "redirect:adminExhibitions";
 	}
 	
@@ -287,18 +295,30 @@ public class AdminController {
 		return "redirect:adminGoods";
 	}
 	
+//	@RequestMapping(value="newGoodsInsert", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+//	public String newGoodsInsert(GoodsDTO gdto, MultipartFile[] file) {
+//		String realPath = session.getServletContext().getRealPath("GoodsPic");
+//		aServ.newGoodsInsert(gdto, realPath, file);
+//		return "redirect:adminGoods";
+//	}
+	
 	@RequestMapping(value="newGoodsInsert", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-	public String newGoodsInsert(GoodsDTO gdto, MultipartFile[] file) {
-		String realPath = session.getServletContext().getRealPath("GoodsPic");
-		aServ.newGoodsInsert(gdto, realPath, file);
+	public String newGoodsInsert(GoodsDTO gdto, String file) {
+//		String realPath = session.getServletContext().getRealPath("GoodsPic");
+//		aServ.newGoodsInsert(gdto, realPath, file);
+		aServ.newGoodsInsert2(gdto, file);
 		return "redirect:adminGoods";
 	}
+	
+	
 	
 	@RequestMapping("adminGoodsList")
 	public String adminGoodsList(Model model, int cpage, String value) {
 		String orderByWord;
 //		List<NewExhibitionDTO> edto = eServ.exhibitionSelectAll();
-		List<NewExhibitionDTO> edto = aServ.exhibitionSelectTop50(); 
+//		List<NewExhibitionDTO> edto = aServ.exhibitionSelectTop50(); 
+		List<NewExhibitionDTO> edto = aServ.exhibitionSelectFixed();
+		
 //		List<GoodsDTO> gdto = aServ.goodsSelectByPage(cpage);
 		System.out.println(value);
 		if (value != null) {
@@ -380,10 +400,11 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value="programInsert", method = RequestMethod.POST, produces="test/html;charset=utf8")
-	public String programInsert(ProgramDTO pdto, MultipartFile[] file) {
+	public String programInsert(ProgramDTO pdto, String file) {
 		
-		String realPath = session.getServletContext().getRealPath("ProgramPic");
-		pServ.programInsert(pdto, realPath, file);
+//		String realPath = session.getServletContext().getRealPath("ProgramPic");
+//		pServ.programInsert(pdto, realPath, file);
+		pServ.programInsert2(pdto,file);
 		return "redirect:adminProgram";
 	}
 	
