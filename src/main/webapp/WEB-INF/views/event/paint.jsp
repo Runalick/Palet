@@ -90,7 +90,7 @@
 			<button id="jsSave" class="btn1">Save</button>
 		</div>
 		<div>
-			<button id="jsSubmit" class="btn1">Submit</button> 
+			<button id="jsSubmit" class="btn1" id="submitimg">Submit</button> 
 		</div>
     </div>  
     <div>
@@ -102,6 +102,8 @@
 		$("#back").on("click", function(){
 			location.href = "/event/participation";
 		})
+		
+		
 	</script>
   
   <script src="/js/paint.js"> 

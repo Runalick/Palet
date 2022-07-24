@@ -454,7 +454,8 @@
 						"<div class='col-12 col-md-6 col-lg-3'>"
 						+ "<div class='row' align=center style='padding-top: 50px;'>"
 						+	"<div class='col-12 p-0' style='align-items: center;'>"
-						+		"<img src=" + resp[i].d_file + " style='width:200px; height:200px;'>"
+						+		"<img src=" + resp[i].d_file + " class='imgopen' style='width:200px; height:200px;'>"
+						+		"<input type='hidden' value="+ resp[i].d_file +">"
 						+	"</div>"
 						+	"<div class='col-12 ellipsis'>"
 						+		"제목 : " + resp[i].d_title 
@@ -493,7 +494,8 @@
 								"<div class='col-12 col-md-6 col-lg-3'>"
 								+ "<div class='row' align=center style='padding-top: 50px;'>"
 								+	"<div class='col-12 p-0' style='align-items: center;'>"
-								+		"<img src=" + resp[i].d_file + " style='width:200px; height:200px;'>"
+								+		"<img src=" + resp[i].d_file + " class='imgopen' style='width:200px; height:200px;'>"
+								+		"<input type='hidden' value="+ resp[i].d_file +">"
 								+	"</div>"
 								+	"<div class='col-12 ellipsis'>"
 								+		"제목 : " + resp[i].d_title 
@@ -557,6 +559,7 @@
 	
 		$("#container").on("click", ".imgopen", function(){
 	  	let imgurl = $(this).siblings().val();
+	  	console.log(imgurl);
 	  	let bigimg = window.open("",'Palet',"_blank");
 	  	bigimg.document.write("<img src='" + imgurl + "'>");
 	})
