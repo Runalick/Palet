@@ -208,6 +208,9 @@
                 	<div class="col-12" style="margin-top : 3.5rem;"><button class="btn2" id="enjoy">참여하기</button></div>
                 </div>
              </div>
+             		<div class="row" style="padding-top: 50px; padding-bottom: 50px;" id="container">
+			
+					</div>	
 		</div>
 
 		<div class="row" id="footer" style="margin-top: 12.5rem;">
@@ -249,6 +252,11 @@
              });
          return true;
       });
+	$("#container").on("click", ".imgopen", function(){
+	  	let imgurl = $(this).siblings().val();
+	  	let bigimg = window.open("",'Palet',"_blank");
+	  	bigimg.document.write("<img src='" + imgurl + "'>");
+	})
 </script>
 
 
