@@ -597,7 +597,7 @@ padding-right:0px;
 				
 				
 				
-				<div class="content" style="margin-top:1rem;">
+				<div class="content" style="margin-top:1rem; padding-left:0.4rem;">
 					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
 						<div class="col-12" style="padding-bottom:2rem; border-bottom:1px solid black;">
