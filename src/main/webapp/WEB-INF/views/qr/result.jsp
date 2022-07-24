@@ -566,7 +566,7 @@ input {
 			</div>
 	</header>
 	<div class="container" >
-		<div class="row" style="margin-top: 100px; text-align: center; margin-bottom: 500px;">
+		<div class="row" style="margin-top: 100px; text-align: center;">
 			<div class="col-12 H2" style="margin-bottom: 20px;">스캔 결과</div>
 			<c:if test="${result == 'bu'}">
 				<div class="col-12 H3">정상 사용되었습니다.</div>
