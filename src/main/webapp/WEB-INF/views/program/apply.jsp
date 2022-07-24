@@ -30,6 +30,8 @@
 <script
 	src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js'></script>
 <!--   <script src='https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.11.0,npm/fullcalendar@5.11.0/main.min.js'></script> -->
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <style>
 @charset "UTF-8";
@@ -687,9 +689,8 @@ border-radius: 20px !important;
 												href="/shop/toShop"
 												style="padding-left: 0px; padding-right: 0px;">Shop</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
-												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+											<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 
 											<li class="nav-item"><a id="Admin" class="nav-link"
 												href="/admin/adminMain"
@@ -741,9 +742,8 @@ border-radius: 20px !important;
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
-											<li class="nav-item"><a id="Logout" class="nav-link"
-												href="/member/loginPage" onclick="return logout();"
-												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
+											<li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 
 											<li class="nav-item"><a id="Mypage" class="nav-link"
 												href="/mypage/main"
@@ -1106,6 +1106,22 @@ border-radius: 20px !important;
 
 </body>
 <script>
+$(".logout").on("click", function(){
+    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+    Kakao.isInitialized();
+    if (!Kakao.Auth.getAccessToken()) {
+       console.log('Not logged in.');
+       location.href="/member/logout";
+        return ;
+    }
+    
+     Kakao.Auth.logout(function() {
+          console.log(Kakao.Auth.getAccessToken());
+          location.href="/member/logout";
+        });
+    return true;
+ });
+
 
 
 //로딩시 데이터

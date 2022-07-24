@@ -1058,30 +1058,6 @@ color:white;
 							limit = limit + resp.length;
 					    	console.log("change limit : " + limit);	
 						
-						
-							for(let i=0; i<resp.length;i++){
-								
-								$("#detailView"+i).on("click", function(){
-									location.href="/mypage/myShoppingDetail?merchant_uid=" + resp[i].MERCHANT_UID 
-								})
-								
-						    	if($("#state"+i).val()=='BU'){
-						    		$("#state_text" + i).text("주문완료");
-						    	} else if($("#state"+i).val()=='CU'){
-						    		$("#state_text" + i).text("배송 중");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} else if($("#state"+i).val()=='AU'){
-						    		$("#state_text" + i).text("배송완료");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} else if($("#state"+i).val()=='BC'){
-						    		$("#state_text" + i).text("취소 중");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} else if($("#state"+i).val()=='AC'){
-						    		$("#state_text" + i).text("취소완료");
-						    		$("#cancel" + i).attr('style',"display:none;");
-						    	} 
-						    	
-				    		}  
 							
 							for(let i=0; i<resp.length;i++){
 								$("#detailView"+i).on("click", function(){
@@ -1206,6 +1182,9 @@ color:white;
             });
         return true;
      });
+	
+	
+	
 	
 // 		$("#make").on("click",function(){
 // 			$.ajax({
