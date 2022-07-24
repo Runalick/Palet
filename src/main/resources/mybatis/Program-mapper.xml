@@ -6,6 +6,9 @@
   
    <mapper namespace="Program">
    
+   
+   
+   
    	
   	
  <update id="updateSalesCount">
