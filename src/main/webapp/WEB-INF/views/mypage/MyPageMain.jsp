@@ -700,7 +700,6 @@ color:white;
 		$.ajax({
 			url:"/mypage/selectMyCoupon"
 		}).done(function(resp){
-			console.log(resp);
 			for(let i = 0; i < resp.length; i++){
 				$(".coupon").append("<div>"+resp[i].category+"</div>");
 			}
@@ -709,17 +708,14 @@ color:white;
 		$.ajax({
 			url:"/mypage/selectMyexhibition"
 		}).done(function(resp){
-			console.log(resp);
 			for(let i = 0; i < resp.length; i++){
-				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid black; border-radius:1rem;  margin-left:0.1rem; margin-right:0.1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%;'>"+resp[i].et_title+"</div><div class='col-12' style='height:50%;'>"+resp[i].et_date+"</div></div></div></a>");
+				$(".ticket").append("<a href='/mypage/myTicketDetailview?et_booknumber="+resp[i].et_booknumber+"' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid black; border-radius:1rem;  margin-left:0.1rem; margin-right:0.1rem; margin-bottom:1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%;'>"+resp[i].et_title+"</div><div class='col-12' style='height:50%;'>"+resp[i].et_date+"</div></div></div></a>");
 			}
 		})
 		
 		$.ajax({
 			url:"/mypage/selectMyGoods"
 		}).done(function(resp){
-			console.log("selectMyGoods");
-			console.log(resp);
 			for(let i = 0; i < 5; i++){
 				$(".goods").append("<div>"+resp[i].g_name+"</div>");
 			}
