@@ -138,7 +138,7 @@ public class ExhibitionController {
 	
 	@RequestMapping("tobooksuccess")
 	public String tobooksuccess() {
-		return "/exhitibion/tobooksuccess";
+		return "/exhibition/tobooksuccess";
 	}
 	
 	
