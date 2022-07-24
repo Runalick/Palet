@@ -482,7 +482,7 @@ a:hover {
 	padding:0rem;
 	}
 	.body3{
-	font-size:1.425rem;
+	font-size: 1.625rem;
 	}
 	.body4, .main-info{
 	font-size:1.875rem;

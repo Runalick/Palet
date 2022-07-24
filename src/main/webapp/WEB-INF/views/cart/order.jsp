@@ -194,7 +194,6 @@
 /* footer */
 #footer {
 	background: #F4F6F8;
-	height: 13.25rem;
 }
 
 <!--
