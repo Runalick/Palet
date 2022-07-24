@@ -1070,7 +1070,7 @@ $(".li").on("click", function () {
 			 traditional: true,
 		}).done(function(resp){
 			console.log(resp);
-			location.href="/cart/toOrder";
+			location.href="/cart/Toorder";	
 		})
 		
 	})

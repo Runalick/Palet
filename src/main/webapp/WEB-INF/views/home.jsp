@@ -24,24 +24,6 @@
 <style>
 
 
-@media ( min-width : 375px) {
-	.container {
-		max-width: 1280px;
-
-	}
-	html {
-		font-size: 12px;
-	}
-}
-
-@media ( min-width : 1280px) {
-	.container {
-		max-width: 1280px;
-	}
-	html {
-		font-size: 16px;
-	}
-}
 .btn1:hover{
 background:white;
 color:#161C24;
@@ -59,11 +41,6 @@ border:1px solid white;
 cursor:pointer;
 }
 
-.nav-item {
- margin: auto;
-
-		padding-left: 33px;
-}
 
 /* .explain{ */
 /* position: absolute; opacity: 0;  */
@@ -271,7 +248,7 @@ border:0px;
                     </div> -->
 
 					<div class="col-12 h1 d-block d-sm-none"
-						style="text-align: center; margin-top: 12.5rem;">Romantic
+						style="text-align: center; margin-top: 10rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-block d-sm-none"
@@ -279,7 +256,7 @@ border:0px;
 
 
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 12.5rem; padding-left: 0.5rem;">Romantic
+						style="margin-top: 10rem; padding-left: 0.5rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-none d-sm-block"
@@ -298,16 +275,15 @@ border:0px;
 					<div class="col-12  d-none d-sm-block"
 						style="margin-bottom: 14.75rem; margin-top: 5rem; padding-left: 0.5rem;">
 						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'">자세히 보기</button>
-						<button class="btn2" onclick="location.href='/Exhibition/toBook'";>예매 하기</button>
 					</div>
 					<div class="col-12 d-block d-sm-none"
-						style="margin-bottom: 14.75rem; text-align: center; margin-top: 5rem;">
+						style="margin-bottom: 14.75rem; text-align: center; margin-top:3rem; ">
 
-						<button class="btn1" onclick="location.href='/Exhibition/toCurdetail'"
+						<button class="btn2" onclick="location.href='/Exhibition/toCurdetail'"
 							style="margin: auto; margin-bottom: 1rem; text-align: center;">자세히
 							보기</button>
-						<br>
-						<button class="btn2" onclick="location.href='/Exhibition/toBook'" style="text-align: center;">예매 하기</button>
+						
+						
 					</div>
 
 				</div>
