@@ -1357,8 +1357,7 @@ input[type="number"]::-webkit-inner-spin-button {
 		//	장바구니 쿠폰 포인트 가져오는 함수
 	    window.onload = function(){
 	    		$.ajax({
-	            	url:"/cart/select_cart",
-	            	async:false
+	            	url:"/cart/select_cart"
 	            }).done(function(resp){
 	            	console.log(resp);
 	            	count = resp.length;
