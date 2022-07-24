@@ -79,7 +79,6 @@ public class MemberService {
 		
 	}
 	
-	
 	// memberout시 삭제 로직
 	public List<String> selectmygoods(String email) {
 		return dao.selectmygoods(email);
@@ -115,6 +114,12 @@ public class MemberService {
 	
 	public int deleteExticket(String email) {
 		return dao.deleteExticket(email);
+	}
+	
+	public int updateCoupon(String et_cpserial, String et_email) {
+		
+		return dao.updateCoupon(et_cpserial, et_email);
+		
 	}
 	
 }

@@ -624,7 +624,7 @@ color:white;
  							</c:if>
 								님 안녕하세요
 						</div>
-						<div class="col-12 col-md-6" style="text-align:center; margin-bottom:1.5rem;">
+						<div class="col-12 col-md-6" style="text-align:center; margin-bottom:1.5rem; padding-top:3rem;">
 							<c:choose>
 								<c:when test="${dto.grade == 'White'}">
 									<img src="/images/003.png" style=" height:300px;">
@@ -640,7 +640,7 @@ color:white;
 						</div>
 						<div class="col-12 col-md-6">
 							<div class="row">
-								<div class="col-12" style="padding-bottom:5rem; margin-bottom:1.5rem;">
+								<div class="col-12" style="padding-bottom:5rem; margin-top:1.5rem;">
 									<div class="h3"><i class="fa-solid fa-coins"></i> 마일리지</div>
 									<div style="border-bottom:1px solid black; padding-bottom:1rem;">회원님께서 보유하신 포인트 잔액입니다.</div>
 		 							<div style="padding-top:1rem;">${dto.point } POINT</div>
@@ -716,7 +716,7 @@ color:white;
 			url:"/mypage/selectMyGoods"
 		}).done(function(resp){
 			console.log(resp);
-			for(let i = 0; i < resp.length; i++){
+			for(let i = 0; i < 5; i++){
 				$(".goods").append("<div>"+resp[i].g_name+"</div>");
 			}
 		})

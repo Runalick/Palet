@@ -130,6 +130,15 @@ public class MemberDAO {
 		return mybatis.delete("Member.deleteExticket", email);
 	}
 			
+	 
+	    public int updateCoupon(String et_cpserial, String et_email) {
+	    	Map<String, String> param = new HashMap<String, String>();
+	    	param.put("et_cpserial", et_cpserial);
+	    	param.put("et_email", et_email);
+		
+	    	return mybatis.update("Member.updateCoupon",param);
+	    
+	    }
 		
 
 }

@@ -102,7 +102,7 @@
   	update member set point = (point + #{et_point}) -#{et_usedpoint} where email = #{et_email}
   </update>
   
-  
+
   <!-- 탈퇴 시 정보 모두 삭제 -->
   <select id="selectmygoods" resultType="String">
 		select merchant_uid from payment where email=#{email}
@@ -140,5 +140,8 @@
 		delete from exticket where et_email=#{email}
 	</delete>
 	
-	
+
+     <update id="updateCoupon">
+  	update member set used = 'Y' where serial = #{et_cpserial} and email = #{et_email}
+  </update>
 </mapper>

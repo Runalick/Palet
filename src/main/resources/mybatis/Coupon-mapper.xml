@@ -10,7 +10,7 @@
   		select * from coupon where serial = #{value}
   	</select>
   	<select id="selectall" resultType="Trillion.Palet.DTO.CouponDTO">
-  		select * from coupon where email = #{email} 
+  		select * from coupon where email = #{email} and used = 'N'
   	</select>
   	<insert id="make">
   		insert into coupon (key,serial,dc,category) values(key_seq.nextval,#{serial},#{dc},#{category})
@@ -24,4 +24,7 @@
   	<select id="listcount" resultType="int">
   		select count(*) from coupon
   	</select>
+  	 <update id="updateCoupon">
+  	update coupon set used = 'Y' where serial = #{serial} and email = #{email}
+  </update>
   </mapper>
