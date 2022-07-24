@@ -30,7 +30,7 @@ public class MypageService {
 	}
 	
 
-	public List<ExticketDTO> premyTicket(String email,int limit ) {
+	public List<ExProticketDTO> premyTicket(String email,int limit ) {
 		return mdao.premyTicket(email,limit);
 	}
 	public int premyTicketcnt(String email) {

@@ -163,8 +163,6 @@ function saveImage() {
             if(data == "true"){
 				alert("이벤트 참여가 완료되었습니다. 관리자의 승인 후 등록됩니다.");
 				location.replace("/event/participation");
-				
-				
 			} else if (data == "123"){
 				alert("본 이벤트는 1계정당 1번만 참여가 가능합니다.");
 				location.replace("/event/participation");
