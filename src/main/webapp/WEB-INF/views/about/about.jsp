@@ -336,7 +336,7 @@ border-radius: 20px;
 }
 </style>
 </head>
-<body>
+<body style = "overflow-x:hidden;">
 		<div class="container-fluid" >
 			<div class="container-fluid"
 			style="background-color: white; position: fixed;">
