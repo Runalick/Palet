@@ -468,21 +468,26 @@ a {
 		font-size: 1.625rem;
 	}
 	.main-area .body4{
-font-weight:550;
-font-size:1.1rem;
-}
-.sm-btn{
-width: 6.375rem;
-height: 0.675rem;
-margin-right:0.25rem;
-}
-#insert{
-	width:13.375rem;
-	height:2.7rem;
-}
+	font-weight:550;
+	font-size:1.1rem;
+	}
+	.sm-btn{
+	width: 6.375rem;
+	height: 0.675rem;
+	margin-right:0.25rem;
+	}
+	#insert{
+		width:13.375rem;
+		height:2.7rem;
+	}
+	
 }
 
 @media ( max-width : 991px) {
+.content div{
+	padding-right: 0.5rem;
+	padding-left: 0.5rem;
+}
 	.main{
 	display:none;
 	}
@@ -506,7 +511,7 @@ margin-right:0.25rem;
 	font-family: 'Spoqa Han Sans Neo';
 	font-weight:550;
 	font-size:1.625rem;
-}
+	}
 	.sm-btn{
 	margin-top:0.3rem;
 	width:10.375rem;
@@ -515,9 +520,14 @@ margin-right:0.25rem;
 	#insert{
 	width:16.375rem;
 	height:3.3rem;
+	
+	.smwidth{
+		width: 300px;
+	}
 }
 	
 }
+
 .main-info{
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;

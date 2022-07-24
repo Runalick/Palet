@@ -32,7 +32,7 @@
 	}
 </style>
 </head>
-<body>
+<body style="overflow-x:hidden;">
 <!-- <div class="container "> -->
     <nav class="navbar navbar-expand-md  navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar"
@@ -170,15 +170,19 @@
                 		<div class="col-12" id="roundbox">  
                 	    	<div class="row pt-4 p-4" style="text-align:right">
  								<div id="checkbtns">
-                            		<button class="btn0_1 color_red2" onclick="checkboxCancel()">환불 처리</button>
+                            		<button class="btn0_1 color_red2 d-none d-lg-block" onclick="checkboxCancel()">환불 처리</button>
+                            		<button class="btn0_1 color_red2 d-lg-none" onclick="checkboxCancel2()">환불 처리</button>
  								</div>
  							</div>
                 	    	
                 	    	<div class="row pt-3 m-3 mb-4">	
-            					<div class="col-4  h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">UID  </div>
-			            		<div class="col-4  h3 " style="border-right : 0.125rem solid #DFE3E8">Comment</div>
+            					<div class="col-4 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">UID  </div>
+            					<div class="col-4 d-lg-none h3_4 " style="padding-right: 0px; border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll2">UID  </div>
+			            		<div class="col-4 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Comment</div>
+			            		<div class="col-4 d-lg-none p-0 h3_4 " style="border-right : 0.125rem solid #DFE3E8">Comment</div>
 			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Category</div>
-			            		<div class="col-4 col-xl-2 h3 " >Cancel_Date </div>
+			            		<div class="col-4 col-xl-2 d-none d-lg-block h3 " >Cancel_Date </div>
+			            		<div class="col-4 col-xl-2 d-lg-none p-0 h3_4 " >Cancel_Date </div>
 			            		
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
@@ -187,12 +191,15 @@
                             		<div class="">
 										<hr>
                             			<c:forEach var="i" items="${list}">
-                            			<div class="row">
-	                            			<div class="col-4 px-4 body2"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
+                            			<div class="row" id="row1">
+	                            			<div class="col-4 px-4 d-none d-lg-block body2 ellipsis"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
+	                            			<div class="col-4 d-lg-none body2_1 ellipsis"> <input type="checkbox" name="checkbox2" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
 	                            			<input type="hidden" value="${i.booknumber }">
-	                            			<div class="col-4 px-4 body2">${i.content } </div>
-				                        	<div class="col-2 d-none d-xl-block px-4 body2" >${i.category }</div>
-				                        	<div class="col-2 col-xl-2 px-4 body2" >${i.cancel_date} </div>
+	                            			<div class="col-4 px-4 d-none d-lg-block body2 ellipsis1">${i.content } </div>
+	                            			<div class="col-4 d-lg-none body2_1 body2 ellipsis1">${i.content } </div>
+				                        	<div class="col-2 d-none d-xl-block px-4 body2 ellipsis" >${i.category }</div>
+				                        	<div class="col-4 col-xl-2 d-none d-lg-block px-4 body2 ellipsis" >${i.cancel_date} </div>
+				                        	<div class="col-4 col-xl-2 d-lg-none body2_1 ellipsis" >${i.cancel_date} </div>
 			                            </div>
 		                            	<hr>
 	                            		</c:forEach>
@@ -245,6 +252,11 @@
     	$('input[name="checkbox"]').prop('checked', checked);
     });
     
+    $("#checkAll2").change(function (){
+    	let checked = $(this).prop('checked');
+    	$('input[name="checkbox2"]').prop('checked', checked);
+    });
+    
     $("#paymentList").on("click", ()=>{
  		location.href = "/admin/adminPayment?cpage=1";
  	})
@@ -261,9 +273,39 @@
 
     });	
     
+    $('input[name="checkbox2"]').change(function () {
+
+    	let selectAll = ($('input[name="checkbox2"]').length == $('input[name="checkbox2"]:checked').length);
+
+    	$("#checkAll2").prop('checked', selectAll);
+
+    });	
+    
     function checkboxCancel(){
     	let checkboxArr = [];
     	$('input[name="checkbox"]:checked').each(function() {
+    		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
+    		console.log(checkboxArr)
+    	})
+    	
+    	$.ajax({
+    		type : "POST",
+    		url : "/admin/cancelPaymentCheckDelete",
+    		data : {
+    			checkboxArr : checkboxArr
+    			
+    		},
+    		success : function (result){
+    			console.log(result);
+    			alert("delete ok!");
+    			location.reload();
+    		}
+    	});
+    }
+    
+    function checkboxCancel2(){
+    	let checkboxArr = [];
+    	$('input[name="checkbox2"]:checked').each(function() {
     		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
     		console.log(checkboxArr)
     	})
