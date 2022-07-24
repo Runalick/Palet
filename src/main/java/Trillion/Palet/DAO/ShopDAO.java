@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.GoodsDTO;
-import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
+import Trillion.Palet.DTO.updateCartstockDTO;
 
 @Repository
 public class ShopDAO {
@@ -37,4 +37,10 @@ public class ShopDAO {
 		return mybatis.selectOne("Shop.selectGrade",email);
 	}
 	
+	public List<updateCartstockDTO> updateCartstock(int g_seq, int cartstock){
+		Map<String, Object> param = new HashMap<>();
+		param.put("g_seq", g_seq);
+		param.put("cartstock", cartstock);
+		return mybatis.selectList("Shop.updateCartstock",param);
+	}
 }

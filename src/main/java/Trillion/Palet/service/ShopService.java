@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.ShopDAO;
 import Trillion.Palet.DTO.GoodsDTO;
-import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
+import Trillion.Palet.DTO.updateCartstockDTO;
 
 @Service
 public class ShopService {
@@ -32,5 +32,7 @@ public class ShopService {
 		return dao.selectGrade(email);
 	}
 	
-	
+	public List<updateCartstockDTO> updateCartstock(int g_seq, int cartstock){
+		return dao.updateCartstock(g_seq, cartstock);
+	}
 }
