@@ -655,7 +655,7 @@ a {
 
 
 		<div class="container d-block d-sm-none"
-			style="margin-top: 8rem; margin-bottom: 3.375rem;'">'">
+			style="margin-top: 8rem; margin-bottom: 3.375rem;'">
 			<div class="row">
 				<!-- <div class="col-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
