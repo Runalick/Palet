@@ -943,7 +943,7 @@ border:1px;
 				class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
 			<a id="btnKakao" class="link-icon kakao"
 				href="javascript:shareKakao();">카카오</a> <br> <input type="text"
-				id="text" value="http://localhost/member/loginPage" readonly
+				id="text" value="http://3.34.123.180/Exhibition/toCurdetail" readonly
 				style="margin-top: 10px;" /> <input type="button" id="copybtn"
 				onclick="fn_copy()" value="Copy" />
 		</div>
