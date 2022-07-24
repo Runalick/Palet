@@ -13,6 +13,23 @@ public class MemberDataDTO {
 		super();
 	}
 
+	public MemberDataDTO(String email, String category, String serial, String dc,
+			String used) {
+		super();
+		this.email = email;
+		this.category = category;
+		this.serial = serial;
+		this.dc = dc;
+		this.used = used;
+	}
+	
+	public MemberDataDTO(String email, String grade, int point) {
+		super();
+		this.email = email;
+		this.grade = grade;
+		this.point = point;
+	}
+	
 	public MemberDataDTO(String email, String grade, int point, String category, String serial, String dc,
 			String used) {
 		super();
