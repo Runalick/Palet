@@ -85,9 +85,12 @@ public class MyPageController {
 	}
 	@ResponseBody
 	@RequestMapping("mypreTicket")
-	public List<ExticketDTO> mypreTicket(int limit) {
+	public List<ExProticketDTO> mypreTicket(int limit) {
 		String email = (String)session.getAttribute("loginEmail");
-		List<ExticketDTO> prelist =mServ.premyTicket(email,limit);
+		List<ExProticketDTO> prelist =mServ.premyTicket(email,limit);
+		for(ExProticketDTO dto : prelist) {
+			System.out.println(dto.getBooknumber());
+		}
 		return prelist;
 	}
 	

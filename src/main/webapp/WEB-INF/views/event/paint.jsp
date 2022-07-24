@@ -102,10 +102,10 @@
 		$("#back").on("click", function(){
 			location.href = "/event/participation";
 		})
+		
+		
 	</script>
-  
-  <script src="/js/paint.js"> 
-  </script>
+<script src="/js/paint.js"></script>
 	
 </body>
 </html>

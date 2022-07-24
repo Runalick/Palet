@@ -62,6 +62,7 @@
 			<exclude-mapping path="/js/*.*" />
 			<exclude-mapping path="/css/**/*.*" />
 			<exclude-mapping path="/mail/**"/>
+			<exclude-mapping path="/event/participation"/>
 
 
 
