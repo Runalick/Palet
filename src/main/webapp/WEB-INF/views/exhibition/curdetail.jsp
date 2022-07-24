@@ -773,8 +773,8 @@ border:1px;
 
 
 							<ul style="float: right; list-style: none;">
-								<li style="float: left"><img src="/images/share.png"
-									class="modalbtn share">
+								<li style="float: left;"><img src="/images/share.png"
+									class="modalbtn share" style = "margin-top:10px;">
 								<li style="float: right; margin-left: 15px;"><button
 										class=bookbutton>예매하기</button>
 							</ul>

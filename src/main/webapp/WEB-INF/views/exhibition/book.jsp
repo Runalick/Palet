@@ -140,6 +140,12 @@
 	height: 1.5rem;
 }
 
+#payspan1{
+width:5.063rem; 
+margin-right:0.375rem;
+
+}
+
 .h1 {
 	padding: 0px;
 	color: #FFFFFF;
@@ -564,7 +570,7 @@ input::placeholder {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; z-index: 50;">
+			style="background-color: white; position: fixed;  z-index: 50;">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -817,25 +823,21 @@ input::placeholder {
 							</div>
 
 
-							<div class="col-12 h4 "
-								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
-								및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
+							<div class="col-12 h4 " 
+								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관을 확인하였으며 결제에 동의합니다.</div>
 							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
-								이용약관 동의<a class=policy>보기</a>
+								이용약관 동의<span class=policy id="payspan2" style="cursor:pointer;">보기</span>
 							</div>
-							<div class="col-12 caption "
+							<div class="col-12 caption " 
 								style="margin-top: 0.4rem; text-align: left;">
-								개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								개인정보 수집 및 이용 동의<span class=policy id="payspan4" style="cursor:pointer;">보기</span>
 							</div>
-							<div class="col-12 caption "
-								style="margin-top: 0.4rem; text-align: left;">
-								결제 대행 서비스 이용약관<a class=policy>보기</a>
+							<div class="col-12 caption " 
+								style="margin-top: 0.4rem; text-align: left;">결제 대행 서비스 이용약관
+							<span class=policy id="payspan6" style="cursor:pointer;">(주)KG이니시스</span>
 							</div>
-							<div class="col-12 caption "
-								style="margin-top: 0.4rem; text-align: left;">
-								취소 환불 규정<a class=policy>보기</a>
-							</div>
+						
 
 						</div>
 
@@ -1216,6 +1218,22 @@ console.log($(".form-select1 option:selected").text());
 	
 	
 	//일부포인트 작은화면
+	
+	
+	
+		$("#payspan2").on("click", function(){
+	window.open("/member/agreement1","이용약관", "width=700, height=500");
+	})
+
+	$("#payspan4").on("click", function(){
+		window.open("/member/agreement2","개인정보 수집 및 이용", "width=700, height=500");
+	})
+	
+	$("#payspan6").on("click", function(){
+		let link = 'https://www.inicis.com/terms';
+		window.open(link, "결제 대행 서비스 이용약관", "width=700, height=500");
+	
+	})
 	
 	
 	
