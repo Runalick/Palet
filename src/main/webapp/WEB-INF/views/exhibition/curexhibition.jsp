@@ -679,7 +679,7 @@ $(".logout").on("click", function(){
 				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
 					<a href="/Exhibition/toCurdetail">
 						<button class="btn1_1"
-							style="background: #161C24; color: white; border:1px solid black;">자세히 보기</button>
+							style="background: #161C24; color: white; border:0px solid black;">자세히 보기</button>
 					</a>
 				</div>
 
@@ -707,7 +707,7 @@ $(".logout").on("click", function(){
 				<div class="col-12 caption d-block d-sm-none" style="margin-top: 2.5rem;">
 					<a href="/Exhibition/toCurdetail" style = "text-align:center;">
 						<button class="btn1_1"
-							style="background: #ffffff; margin:auto; color: #161C24;">자세히 보기</button>
+							style="background: #161C24; margin:auto; color: white; border:0px solid black;">자세히 보기</button>
 					</a>
 				</div>
 
