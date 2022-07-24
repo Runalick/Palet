@@ -378,7 +378,11 @@ border:0px;
 
 
 					<div class="col-12 h2_1 d-none d-sm-block"
-						style="margin-top: 8rem; padding-left: 0.5rem;">곧 시작합니다</div>
+
+						style="margin-top: 5rem; padding-left: 0.5rem;">곧 시작합니다</div>
+
+				
+
 					<div class="col-12 h1 d-none d-sm-block"
 						style="margin-top: 2.5rem; padding-left: 0.5rem;">과천프로젝트
 						2022:</div>

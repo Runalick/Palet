@@ -582,7 +582,7 @@ input::placeholder {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed;  z-index: 50;">
+			style="background-color: white; position: fixed;  z-index: 50; top:0">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -750,7 +750,7 @@ input::placeholder {
 		</div>
 
 		<!-- Order / Payment -->
-		<div class="container mt-3">
+		<div class="container"  style = margin-top:120px;>
 			<div class="row mt-4">
 
 
