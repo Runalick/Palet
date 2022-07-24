@@ -281,7 +281,9 @@ overflow-y:hidden !important;
 
 
 					<div class="col-12 h1 d-none d-sm-block"
+
 						style="margin-top: 8rem; padding-left: 0.5rem;">Romantic
+
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-none d-sm-block"

@@ -703,7 +703,7 @@ $(".logout").on("click", function(){
 
 				</c:forEach> --%>
 				<c:forEach var="list" items="${list }">
-					<div class="col-4">
+					<div class="col-lg-4 col-md-6 col-sm-12">
 						<div class="col-12" style="margin-top: 5.313rem;">
 						<a href ='/Exhibition/toUpcommingdetail?pe_img=${list.pe_img}'><img class="curimage" src="${list.pe_img} "></a>	
 						</div>
