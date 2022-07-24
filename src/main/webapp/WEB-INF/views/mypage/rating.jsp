@@ -262,9 +262,15 @@
 		font-size: 1.25rem;
 		line-height: 1.875rem;
 	}
+	.main-title{
+font-size:1.625rem;
+}
 }
 
 @media ( max-width : 991px) {
+.main-title{
+font-size:1.875rem;
+}
 	.main {
 		display: none;
 	}
@@ -320,6 +326,7 @@ li div {
 }
 
 .navi-ul li ul li a {
+	line-height:2rem;
 	color: #919EAB;
 }
 
@@ -453,6 +460,13 @@ align-items: center; */
 }
 .ratingbox{
 	padding-top: 1rem;
+}
+.main-title{
+font-family: 'Spoqa Han Sans Neo';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.875rem;
+    margin-bottom: 1rem;
 }
 </style>
 </head>
@@ -643,7 +657,7 @@ align-items: center; */
 				<div class="content">
 					<div class="row" style="padding: 1rem;">
 						<div class="col-sm-12 h2" style="text-align: left; margin-left: auto; margin-bottom: 20px;">
-							<div>나의 회원등급</div>
+							<div class="main-title">나의 회원등급</div>
 						<div class="col-12 h3" style="margin-top:2rem; margin-bottom:2rem;"> 
 								<c:if test="${dto.grade == 'White'}">
 									<img src="/images/white.jpeg" class="mini">
