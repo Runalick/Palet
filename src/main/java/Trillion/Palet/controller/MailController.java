@@ -37,7 +37,6 @@ public class MailController {
 	@RequestMapping(value="sendmail",produces = "text/html;charset=utf8")
 	@ResponseBody
 	public String sendmail(String email) throws Exception{
-		
 		MailDTO dto = new MailDTO();
 		dto.setReceiver(email); // 메일주소 설정
 		mser.send(dto); // 서비스에 들려서 내용 받기

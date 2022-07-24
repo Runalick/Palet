@@ -530,7 +530,7 @@ a {
 					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
                                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/member/mypage"
+					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
 								
 								</ul>
@@ -593,8 +593,8 @@ a {
 		
 
 		<div class="container d-none d-sm-block"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;">
-			<div class="row" style="padding-top: 50px; padding-left: 2.5rem">
+			style="margin-top: 7.75rem;margin-bottom: 3.375rem;">
+			<div class="row" >
 				<div class="col-lg-1 col-xs-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
 						style="margin-left: 0px;">
@@ -648,8 +648,9 @@ a {
 
 
 
+
 		<div class="container d-block d-sm-none"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			style="margin-top: 8rem; margin-bottom: 3.375rem;'">'">
 			<div class="row">
 				<!-- <div class="col-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
@@ -674,7 +675,7 @@ a {
 						~ 2022-10-30</div>
 
 
-					<form action="/Exhibition/toBook" method="post">
+					<form action="/program/toApply" method="post">
 
 
 						<div class="col h2"
@@ -827,7 +828,7 @@ a {
 
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/Exhibition/toCurExhibition";
+		location.href = "/program/toProgram";
 	})
 
 	$(".minusbutton").on("click", function() {

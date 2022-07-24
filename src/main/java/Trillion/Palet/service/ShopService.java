@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import Trillion.Palet.DAO.ShopDAO;
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
 
 @Service
@@ -22,5 +23,10 @@ public class ShopService {
 	public List<MemberDataDTO> selectMemberData(String email){
 		return dao.selectMemberData(email);
 	}
+	
+	public List<MemberDataDTO> selectMemberPoint(String email){
+		return dao.selectMemberPoint(email);
+	}
+	
 	
 }

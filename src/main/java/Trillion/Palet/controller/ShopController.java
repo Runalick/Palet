@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
 import Trillion.Palet.service.CartService;
@@ -80,6 +81,14 @@ public class ShopController {
 	public List<MemberDataDTO> selectMemberData(){
 		String email = (String)session.getAttribute("loginEmail");
 		List<MemberDataDTO> list = sServ.selectMemberData(email);
+		return list;
+	}
+	
+	@ResponseBody
+	@RequestMapping("selectMemberPoint")
+	public List<MemberDataDTO> selectMemberPoint(){
+		String email = (String)session.getAttribute("loginEmail");
+		List<MemberDataDTO> list = sServ.selectMemberPoint(email);
 		return list;
 	}
 	

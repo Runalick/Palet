@@ -177,7 +177,8 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" name="number" id="cp_number" placeholder="input number max:99" maxlength="2">
+											<input type="text" name="number" id="cp_number" placeholder="발행매수 최대:99매" maxlength="2"
+											oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');" >
 										</div>
 									</div>
 									<div class="row">
@@ -188,7 +189,7 @@
 										<div class="col-12 d-sm-none p-0 body2 marg_left5">할인 금액</div>
 									</div>
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text"  placeholder="input cp number max:99999" name="dc" id="cp_dc" maxlength="5">
+											<input type="text"  placeholder="할인 금액 최대금액:9999" name="dc" id="cp_dc" maxlength="4">
 										</div>
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">종류</div>
@@ -198,7 +199,7 @@
 										<div class="col-12 d-sm-none p-0 body2 marg_left5">종류</div>
 									</div>
 										<div class="col-12 p-0" style="text-align:center">
-											<input type="text" placeholder="input category max:15" name="category" id="cp_category" maxlength="15">
+											<input type="text" placeholder="쿠폰종류 최대:15자" name="category" id="cp_category" maxlength="15">
 										</div>
 									</div>
 

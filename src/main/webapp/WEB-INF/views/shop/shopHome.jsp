@@ -833,9 +833,9 @@ $(".logout").on("click", function(){
 						$(".category")
 							.append(
 									"<div class='button' id='1070' style='display: inline-block;'>정상화</div>");
-						$(".category")
-							.append(
-									"<div class='button' id='1071' style='display: inline-block;'>움직임을 만드는 움직임</div>");
+// 						$(".category")
+// 							.append(
+// 									"<div class='button' id='1071' style='display: inline-block;'>움직임을 만드는 움직임</div>");
 						$(".category")
 							.append(
 									"<div class='button' id='1100' style='display: inline-block;'>특별수장고 <<국립현대미술관 드로잉 소장품>></div>");
@@ -847,9 +847,11 @@ $(".logout").on("click", function(){
 									"<div class='button' id='1102' style='display: inline-block;'>개방수장고 개편</div>");
 						$(".category")
 							.append(
-									"<div class='button' id='16' style='display: inline-block;'>MMCA 소장품 하이라이트 2020+</div>");
-						$
-								.ajax({
+									"<div class='button' id='1103' style='display: inline-block;'>MMCA 소장품 하이라이트 2020+</div>");
+						$(".category")
+							.append(
+									"<div class='button' id='1104' style='display: inline-block;'>과거전시 상품</div>");	
+							$.ajax({
 									url : "/shop/selectGoods",
 									data : {
 										"e_num" : $(".active").attr("id"),
@@ -936,13 +938,13 @@ $(".logout").on("click", function(){
 // 	우측버튼 클릭시 우측스크롤 기능
 	$("#pre").on("click",function(){
 		let category = $('.category').scrollLeft();
-		$(".category").animate({scrollLeft: category + 300}, 800)
+		$(".category").animate({scrollLeft: category + 300}, 600)
 	})
 	
 // 	좌측버튼 클릭시 좌측스크롤 기능
 	$("#before").on("click",function(){
 		let category = $('.category').scrollLeft();
-		$(".category").animate({scrollLeft: category - 300}, 800)
+		$(".category").animate({scrollLeft: category - 300}, 600)
 	})
 
 </script>

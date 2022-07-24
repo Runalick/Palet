@@ -248,7 +248,7 @@ border:0px;
                     </div> -->
 
 					<div class="col-12 h1 d-block d-sm-none"
-						style="text-align: center; margin-top: 10rem;">Romantic
+						style="text-align: center; margin-top: 15rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-block d-sm-none"

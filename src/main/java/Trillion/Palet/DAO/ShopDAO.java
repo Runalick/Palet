@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
 
 @Repository
@@ -27,4 +28,9 @@ public class ShopDAO {
 	public List<MemberDataDTO> selectMemberData(String email){
 		return mybatis.selectList("Shop.selectMemberData", email);
 	}
+	
+	public List<MemberDataDTO> selectMemberPoint(String email){
+		return mybatis.selectList("Shop.selectMemberPoint", email);
+	}
+	
 }

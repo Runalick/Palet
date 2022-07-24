@@ -762,7 +762,7 @@ input::placeholder {
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
 										placeholder="신청자 이름을 입력해 주세요." style="text-align: center"
-										maxlength="4" required>
+										maxlength="3" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
@@ -909,9 +909,9 @@ input::placeholder {
 
 
 
-						<!-- 큰화면 쿠폰 마일리지 사용 -->
+						<!-- 큰화면 쿠폰 포인트 사용 -->
 						<div class="col-12 h3 "
-							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/마일리지</div>
+							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/포인트</div>
 						<div class="col-12 body2 "
 							style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
 							
@@ -934,7 +934,7 @@ input::placeholder {
 
 						</div>
 						<div class="col-12 body2"
-							style="padding-left: 0rem; margin-top: 2.188em;">마일리지</div>
+							style="padding-left: 0rem; margin-top: 2.188em;">포인트</div>
 
 						<div class="col-12 body2 "
 							style="padding-left: 0rem; margin-top: 1.125em;">
@@ -947,12 +947,12 @@ input::placeholder {
 						</div>
 						<div class="col-12 h5 "
 							style="padding-left: 0rem; margin-top: 2.188em;">
-							남은마일리지 <span class="h5_1 h5_1_1">${mdto.point }</span>
+							남은포인트 <span class="h5_1 h5_1_1">${mdto.point }</span>
 						</div>
 
 
 
-						<!--작은 면 쿠폰 마일리지 사용 -->
+						<!--작은 면 쿠폰 포인트 사용 -->
 					
 
 
@@ -1026,11 +1026,11 @@ else if (!phoneResult) {
 $(".form-select1").on('change',function(){
 	console.log($(".h5_1").text());
 console.log('여기1');
-	//나한테 있는 마일리지가 사용되었다면
+	//나한테 있는 포인트가 사용되었다면
  if(${mdto.point}!=$(".h5_1_1").text())
  
  {
-	 alert('마일리지 사용시 쿠폰을 적용 할 수 없습니다.');
+	 alert('포인트 사용시 쿠폰을 적용 할 수 없습니다.');
 	return false;
  }
 
@@ -1082,14 +1082,14 @@ console.log($(".form-select1 option:selected").text());
 		
 		if($(".h5_1_1").text()==0){
 			
-			alert('사용 가능한 마일리지가 없습니다.');
+			alert('사용 가능한 포인트가 없습니다.');
 		return false;	
 		}
 		
 		
 	if($(".h5_1_1").text()==0){
 			
-			alert('사용 가능한 마일리지가 없습니다.');
+			alert('사용 가능한 포인트가 없습니다.');
 		return false;	
 		}else if($(".h5_1_1").text()>5000){
 			alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
@@ -1116,7 +1116,7 @@ console.log($(".form-select1 option:selected").text());
 		$("#finalprice").text((price2-${mdto.point}).toLocaleString()+"원");
 		
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 
@@ -1125,7 +1125,7 @@ console.log($(".form-select1 option:selected").text());
 
 	
 	
-	// 큰 화면 일부 마일리지 사용엔터
+	// 큰 화면 일부 포인트 사용엔터
 	
 	
 	$(".usedpoint").keypress(function(e) {
@@ -1189,7 +1189,7 @@ console.log($(".form-select1 option:selected").text());
 			}
 		}
 		}else{
-			alert('쿠폰 사용시 마일리지를 사용 할 수 없습니다.');
+			alert('쿠폰 사용시 포인트를 사용 할 수 없습니다.');
 			return false;
 		}
 
@@ -1197,7 +1197,7 @@ console.log($(".form-select1 option:selected").text());
 	
 	
 	
-	//일부마일리지 작은화면
+	//일부포인트 작은화면
 	
 	
 	

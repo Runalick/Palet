@@ -30,14 +30,16 @@
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
-		font-size: 16px;
+
+	}
+	html {
+		font-size: 12px;
 	}
 }
+
 @media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
@@ -117,7 +119,7 @@
 	/* identical to box height */
 	text-align: center;
 	/* Gray/500 */
-	color: #919EAB;
+
 	/* Inside auto layout */
 	flex: none;
 	order: 0;
@@ -369,7 +371,6 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-font-weight:700;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{

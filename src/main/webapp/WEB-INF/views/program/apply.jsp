@@ -131,6 +131,7 @@
 
 
 
+
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
@@ -843,7 +844,7 @@ border-radius: 20px !important;
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." maxlength="4" required style = "text-align:center" required>
+										placeholder="신청자 이름을 입력해 주세요." maxlength="3" required style = "text-align:center" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
@@ -1231,7 +1232,7 @@ $(".form-select1").on('change',function(){
 //뒤로가기
 	$(".leftbutton").on("click", function() {
 
-		location.href = "/Exhibition/toCurExhibition";
+		location.href = "/program/toClassdetail";
 	})
 
 	
@@ -1422,10 +1423,15 @@ document.addEventListener('DOMContentLoaded', function() {
      			   
      		   
      		   }
-     		   else {
-     		          alert('지난 날짜이거나 프로그램 개최 기간이 아닙니다.');
+     		   else if(pickTime < todayTime){
+     		          alert('지난 날짜는 선택 할 수 없습니다.');
      		          return false;
      		     }
+     		   else{
+     			   
+     			   alert('프로그램 개최 기간(2022.03.16 ~ 2022.10.30)이 아닙니다.');
+     			  return false;
+     		   }
      		     
      		       
      		    
