@@ -803,7 +803,7 @@ a {
 
 
 		<div class="container d-block d-sm-none"
-			style="margin-top: 2.5rem; margin-bottom: 3.375rem;'">
+			style="margin-top: 8rem; margin-bottom: 3.375rem;'">
 			<div class="row">
 				<!-- <div class="col-6">
 					<img type=button class=leftbutton src="/images/leftbutton.png"
@@ -843,10 +843,10 @@ a {
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
 
 				
-							<ul style="float: right; list-style: none;">
-								<li style="float: left"><img src="/images/share.png"
+							<ul style=" list-style: none;">
+								<li style="float:center; margin-top:1.5rem;" ><img src="/images/share.png"
 									class="modalbtn share">
-								<li style="float: right; margin-left: 15px;"><button
+								<li style="float:center; margin-top:1.5rem;" ><button
 										class=bookbutton>예매하기</button>
 							</ul>
 
@@ -876,15 +876,13 @@ a {
 				<ul class="col-md-4 col-sm-12 ul2 h3 offset d-none d-sm-block"
 					style="text-align: right; margin-top: 2.5rem; line-height: 2.688rem; padding-right: 2.5rem; padding-left: 0px;'">
 					<li style="width: 4.938rem; margin-left: 3.1rem;">전시소개</li>
-					<li style="width: 4.938rem; color: #919EAB; margin-left: 3.1rem;"><a
-						class="exlink">전시굿즈</a></li>
+					
 
 				</ul>
 				<ul class="col-12 ul2_1 h3 offset d-block d-sm-none"
 					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem;">
 					<li style="width: 4.938rem; text-align: center;">전시소개</li>
-					<li style="width: 4.938rem; text-align: center; color: #919EAB;"><a
-						class="exlink">전시굿즈</a></li>
+					
 
 				</ul>
 			</div>
