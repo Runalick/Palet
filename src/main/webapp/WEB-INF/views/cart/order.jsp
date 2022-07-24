@@ -553,6 +553,10 @@ margin-bottom:12.5rem;
 	font-size: 1rem;
 	color: #666666;
 }
+.container, .container-fluid, .container-lg, .container-md,
+	.container-sm, .container-xl, .container-xxl {
+	overflow-x: hidden;
+}
 
 .select-ul1 {
 	width: 23.5rem;
