@@ -1020,6 +1020,11 @@ $(".li").on("click", function () {
 	$(document).ready(function(){
 		open_chatroom();
 	});
+	window.onload = function(){
+		$.ajax({
+			url:"/cart/beforeunload"
+		})
+	}
 	
 	function open_chatroom(){ 
 		var windowWidth = $( window ).width();
@@ -1070,7 +1075,13 @@ $(".li").on("click", function () {
 			 traditional: true,
 		}).done(function(resp){
 			console.log(resp);
-			location.href="/cart/Toorder";	
+			if(resp==false){
+				if(confirm("바로 구매로 가시겠습니까?")){
+					location.href="/cart/Toorder"; 
+				}
+				
+			}
+				
 		})
 		
 	})
