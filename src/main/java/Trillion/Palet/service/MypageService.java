@@ -13,6 +13,7 @@ import Trillion.Palet.DTO.ExticketDTO;
 import Trillion.Palet.DTO.MypageUserDetailDTO;
 import Trillion.Palet.DTO.PayDTO;
 import Trillion.Palet.DTO.ProticketDTO;
+import Trillion.Palet.utiles.EncryptUtils;
 
 @Service
 public class MypageService {
@@ -109,5 +110,11 @@ public class MypageService {
 
 	public ProticketDTO proTicketDetailview(String pro_booknumber) {
 		return mdao.proTicketDetailview(pro_booknumber);
+	}
+
+	public boolean pwcheck(String pw,String email) {
+		pw = EncryptUtils.SHA512(pw);
+		return mdao.pwcheck(pw,email);
+		
 	}
 }
