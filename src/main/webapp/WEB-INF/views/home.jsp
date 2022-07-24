@@ -87,6 +87,16 @@ border:0px;
  .prebtn, .btn5, .btngodds{
  border:0px;
  }
+ #mainphoto{
+ margin-top:5rem !important;
+ max-height:40rem !important;
+ min-height:37.5rem !important;
+ }
+@media ( min-width : 1590px) {
+	#mainphoto{
+	padding-bottom:43rem;
+	}
+}
 </style>
 
 
@@ -252,7 +262,7 @@ border:0px;
                     </div> -->
 
 					<div class="col-12 h1 d-block d-sm-none"
-						style="text-align: center; margin-top: 15rem;">Romantic
+						style="text-align: center; margin-top: 7rem;">Romantic
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-block d-sm-none"
@@ -260,7 +270,9 @@ border:0px;
 
 
 					<div class="col-12 h1 d-none d-sm-block"
-						style="margin-top: 240px; padding-left: 0.5rem;">Romantic
+
+						style="margin-top: 8rem; padding-left: 0.5rem;">Romantic
+
 						Days</div>
 					<br>
 					<div class="col-12 h1 d-none d-sm-block"
