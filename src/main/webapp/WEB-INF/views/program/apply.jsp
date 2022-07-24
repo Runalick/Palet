@@ -630,6 +630,13 @@ height:33rem;
 	/* Gray/900 */
 	color: #161C24 !important;
 }
+.usedbutton{
+	transition:0.3s;
+}
+.usedbutton:hover{
+	background:#F4F6F8 !important;
+	color:black !important;
+}
 
 /* .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
@@ -1049,7 +1056,7 @@ border-radius: 20px !important;
 							<input type=text class="body2 usedpoint"
 								style="width: 15rem; height: 3rem;"  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
-								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
 						</div>
 						<div class="col-12 h5 "
