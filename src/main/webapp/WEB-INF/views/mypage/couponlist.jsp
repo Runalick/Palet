@@ -329,6 +329,7 @@ li div {
 }
 
 .navi-ul li ul li a {
+	line-height:2rem;
 	color: #919EAB;
 }
 
