@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import Trillion.Palet.DTO.GoodsDTO;
+import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
 
 @Repository
