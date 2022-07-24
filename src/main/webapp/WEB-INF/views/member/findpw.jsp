@@ -284,7 +284,6 @@ input {
 			$("#send").text("메일 재발송");
 			$("#send").removeAttr("disabled");
 			$("#mailok").css("display","inline");
-			console.log(resp);
 			$("#cord").val(resp);
 		})
 	})
