@@ -1304,6 +1304,7 @@ console.log($(".form-select1 option:selected").text() );
 			let price = $("#finalprice").text();
 			let price1 = price.replace(",", "");
 			let price2 = price1.replace("원", "");
+	
 			
 		let ipusedpoint =	$(this).val();
 		let ipusedpoint1 =	parseInt(ipusedpoint);
@@ -1549,7 +1550,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : 100, //실제 결제되는 가격
+			amount : price3 //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),

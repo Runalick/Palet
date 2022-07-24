@@ -691,12 +691,15 @@ $(".logout").on("click", function(){
 								style="background: #ffffff; color: #161C24;">자세히 보기</button>
 						</a>
 					</div>
+					
+					
+					<a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a>
 
 				</c:forEach> --%>
 				<c:forEach var="list" items="${list }">
 					<div class="col-4">
 						<div class="col-12" style="margin-top: 5.313rem;">
-						<a><img class="curimage" src="${list.pe_img} "></a>	
+						<a href ='/Exhibition/toUpcommingdetail?pe_img=${list.pe_img}'><img class="curimage" src="${list.pe_img} "></a>	
 						</div>
 						<div class="col-12 h3" style="margin-top: 2.5rem;">${list.pe_name}</div>
 						<div class="col-12 caption" style="margin-top: 2.5rem;">
@@ -705,9 +708,9 @@ $(".logout").on("click", function(){
 				
 				</c:forEach> 
 			</div>
-
-
-
+<!-- 
+<a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'>
+ -->
 
 
 <!-- 
