@@ -441,7 +441,7 @@ a:hover {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 1.25rem;
+	font-size: 1.1rem;
 	line-height: 1.875rem;
 	}
 	.main-info{
@@ -449,7 +449,7 @@ a:hover {
 	}
 	.main-area .body4{
 	font-weight:550;
-	font-size:1.1rem;
+	font-size:1.0rem;
 	}
 	.sm-btn{
 	width: 6.375rem;
@@ -484,14 +484,16 @@ a:hover {
 	.body3{
 	font-size: 1.625rem;
 	}
+	
 	.body4, .main-info{
 	font-size:1.875rem;
 	}
 	.main-area .body4{
 	font-family: 'Spoqa Han Sans Neo';
-	font-weight:550;
-	font-size:1.625rem;
+	font-weight:530;
+	font-size:1.4rem;
 	}
+	
 	.sm-btn{
 	margin-top:0.3rem;
 	width:10.375rem;
