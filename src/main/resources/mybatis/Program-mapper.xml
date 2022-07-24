@@ -17,7 +17,9 @@
   
   <!-- Admin  -->
     <select id="programBestSeller" resultType="Trillion.Palet.DTO.ProgramDTO">
-  		select * from (select * from program order by sales_count desc) where rownum=1
+  		 select p_num, p.p_name, start_date, end_date, g.sales_count, p_price, p_period from 
+  		(select sum(pro_count) as sales_count , p_num from proticket group by p_num ) g 
+  		full join program p using (p_num) where rownum = 1
   	</select>
   	
   	<insert id="programInsert">
