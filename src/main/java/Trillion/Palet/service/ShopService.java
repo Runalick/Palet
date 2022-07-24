@@ -24,4 +24,9 @@ public class ShopService {
 		return dao.selectMemberData(email);
 	}
 	
+	public List<MemberDataDTO> selectMemberPoint(String email){
+		return dao.selectMemberPoint(email);
+	}
+	
+	
 }

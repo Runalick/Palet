@@ -1374,8 +1374,6 @@ input[type="number"]::-webkit-inner-spin-button {
 	            		arrG_option.push(resp[i].g_option);
 	            		arrCart_seq.push(resp[i].cart_seq);
 	            		arrUserEmail.push(resp[i].email);
-	            		console.log("sumPrice");
-	            		console.log(sumPrice);
 	            		if(resp.length == 1){
 	            			title = resp[i].g_name;	
 	            		}else{
@@ -1383,39 +1381,48 @@ input[type="number"]::-webkit-inner-spin-button {
 	            		}
 	            	}
 	            	
-// 	            	if(count == 1){
-// 	            		return title;
-// 	            	}else{
-// 	            		return title =  title + "외" + count + "개";
-// 	            	}
-		            	
 	            	$(".totalprice").text(sumPrice.toLocaleString()+"원");
 		            $(".finalTotalPrice").text(Number(sumPrice - totalDc + 3000).toLocaleString()+"원");
+		            
+					$.ajax({
+						url:"/shop/selectMemberPoint"
+					}).done(function(resp){
+						console.log("포인트 조회 결과");
+						console.log(resp);
+						for(let i = 0; i < resp.length; i++){
+							
+							myPoint = resp[0].point;
+							grade = resp[0].grade;
+						}
+						$(".myPoint1").text(myPoint);
+						$(".myPoint2").text(myPoint);
+						
+						if(grade == "White"){
+							LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
+							$(".totalPoint").text(LetaddPoint + "p");
+						}else if(grade == "Gray"){
+							LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
+							$(".totalPoint").text(LetaddPoint + "p");
+						}else if(grade == "Black"){
+							LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
+							$(".totalPoint").text(LetaddPoint + "p");
+						}
+					})
 					
 					$.ajax({
 						url:"/shop/selectMemberData"
 					}).done(function(resp){
-						console.log("멤버정보");
+						console.log("쿠폰결과");
 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
-							$(".myPoint1").text(resp[i].point);
-							$(".myPoint2").text(resp[i].point);
+							
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+" - "+resp[i].dc+"원 할인<input type='hidden' value="+resp[i].serial+"></li>")
 							$(".select-ul2").append("<li class='li2 body2' id="+resp[i].dc+" value="+resp[i].serial+">"+resp[i].category+" - "+resp[i].dc+"원 할인<input type='hidden' value="+resp[i].serial+"></li>")
-							grade = resp[i].grade;
-							myPoint = resp[0].point;
-// 							console.log("count : " + count);
-							if(grade == "White"){
-								$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.01)) + "p");
-								LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
-							}else if(grade == "Gray"){
-								$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.05)) + "p");
-								LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.05))
-							}else if(grade == "Black"){
-								$(".totalPoint").text(Math.floor((Number(sumPrice - totalDc + 3000) * 0.1)) + "p");
-								LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.1))
-							}
+
+							
 						}
+						
+
 						$(".pointinput1").attr("min",0);
 						$(".pointinput1").attr("max",myPoint);
 						$(".pointinput2").attr("min",0);
