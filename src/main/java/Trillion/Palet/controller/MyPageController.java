@@ -248,5 +248,15 @@ public class MyPageController {
 		String email = (String)session.getAttribute("loginEmail");
 		return mServ.couponRegist(email, serial);
 	}
+	@ResponseBody
+	@RequestMapping("pwcheck")
+	public boolean pwcheck(String pw) {
+		String email = (String)session.getAttribute("loginEmail");
+		
+		
+		boolean result = mServ.pwcheck(pw,email);
+		
+		return result;
+	}
 	
 }

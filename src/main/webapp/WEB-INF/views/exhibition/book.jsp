@@ -241,6 +241,18 @@ margin-right:0.375rem;
 	/* Gray/900 */
 	background: #161C24;
 	border-radius: 20px;
+	transition:0.3s;
+}
+.btn1_1:hover{
+	background:#F4F6F8;
+	color:black;
+}
+.usedbutton{
+	transition:0.3s;
+}
+.usedbutton:hover{
+	background:#F4F6F8 !important;
+	color:black !important;
 }
 
 .btn2 {
@@ -819,7 +831,7 @@ input::placeholder {
 							<div class="col-12"
 								style="margin-top: 2.5rem; padding: 0px; text-align: center; height: 3.75rem;">
 								<button class="btn1_1" id=pay onclick="iamport()"
-									style="width: 100%;">결제하기</button>
+									style="width: 100%; border:0px solid black;">결제하기</button>
 							</div>
 
 
@@ -947,7 +959,7 @@ input::placeholder {
 							<input type=text class="body2 usedpoint"
 								style="width: 15rem; height: 3rem;   " oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
-								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
 						</div>
 						<div class="col-12 h5 "

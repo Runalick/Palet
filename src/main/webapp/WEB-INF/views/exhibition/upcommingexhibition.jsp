@@ -422,6 +422,11 @@ align-items: center; */
 .exlink {
 	text-decoration: none;
 	color: #919EAB;
+	transition: 0.3s;
+}
+
+.exlink:hover{
+	color:black;
 }
 
 a {

@@ -38,7 +38,7 @@
 
 </style>
 </head>
-<body>
+<body style="overflow-x:hidden;">
     <nav class="navbar navbar-expand-md navbar-light"> 
     	<div class="container" id="navparent" style = "overflow: visible;">
         	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar">        		
@@ -56,7 +56,7 @@
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="/member/mypage" class="text-black body1 py-2">ADMIN</a>
+                            <a href="#" class="text-black body1 py-2">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -95,7 +95,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -104,7 +104,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         
@@ -172,12 +172,12 @@
                         <div class="col-xl-3 col-sm-6 p-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between">
+                                    <div class=" justify-content-between">
                                        <!--   <i class="bi bi-gift-fill text-warning cardIcon" ></i>  -->
-                                       <img src="/images/sample.png" class="cardImage">
-                                        <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">BestExhibition</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.e_name}</div>
+                                       <!-- <img src="/images/sample.png" class="cardImage"> -->
+                                        <div class="text-right text-secondary " style="align:right; margin:0">
+                                            <div class="h3 colortext_blue5 ellipsis1" style="text-align:right">BestExhibition</div>
+                                            <div class="body1 ellipsis2" style="text-align:right; width:100%;">${ExhibitionBestSeller.e_name}</div>
                                             <div class="h2" style="text-align:right">${ExhibitionBestSeller.sales_count}</div>
                                             <%-- <div class="body1 ellipsis2" style="text-align:right">${ExhibitionBestSeller.pe_name}</div>
                                             <div class="h2" style="text-align:right">${ExhibitionBestSeller.pe_salescount}</div> --%>
@@ -194,12 +194,12 @@
                         <div class="col-xl-3 col-sm-6 p-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between">
+                                    <div class="justify-content-between">
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
-                                        <img src="/images/sample.png" class="cardImage">
+                                        <!-- <img src="/images/sample.png" class="cardImage"> -->
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">BestSeller</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${GoodsBestSeller.g_name}</div>
+                                            <div class="h3 colortext_green5 ellipsis1" style="text-align:right">BestSeller</div>
+                                            <div class="body1 ellipsis2" style="text-align:right; width:100%;">${GoodsBestSeller.g_name}</div>
                                             <div class="h2" style="text-align:right">${GoodsBestSeller.sales_count}</div>
                                         </div>
                                     </div>
@@ -214,12 +214,12 @@
                         <div class="col-xl-3 col-sm-6 p-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between">
+                                    <div class=" justify-content-between">
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
-                                        <img src="/images/sample.png" class="cardImage">
+                                        <!-- <img src="/images/sample.png" class="cardImage"> -->
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">BestProgram</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">${ProgramBestSeller.p_name }</div>
+                                            <div class="h3 ellipsis1 colortext_red5" style="text-align:right">BestProgram</div>
+                                            <div class="body1 ellipsis2" style="text-align:right; width:100%;">${ProgramBestSeller.p_name }</div>
                                             <div class="h2" style="text-align:right">${ProgramBestSeller.sales_count }</div>
                                         </div>
                                     </div>
@@ -234,12 +234,12 @@
                         <div class="col-xl-3 col-sm-6 p-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="d-flex justify-content-between">
+                                    <div class=" justify-content-between">
                                         <!-- <i class="bi bi-gift-fill text-warning cardIcon" ></i> -->
-                                        <img src="/images/sample.png" class="cardImage">
+                                       <!--  <img src="/images/sample.png" class="cardImage"> -->
                                         <div class="text-right text-secondary">
-                                            <div class="h3" style="text-align:right">Total</div>
-                                            <div class="body1 ellipsis2" style="text-align:right">Members</div>
+                                            <div class="h3 ellipsis1 colortext_yellow4" style="text-align:right">Total</div>
+                                            <div class="body1 ellipsis2" style="text-align:right; width:100%;">Members</div>
                                             <div class="h2" style="text-align:right">${totalMembers}</div>
                                         </div>
                                     </div>

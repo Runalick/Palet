@@ -266,10 +266,7 @@
 		line-height: 1.75rem;
 }
 @media ( min-width : 992px) {
-.ticket {
-	width: 44.5rem;
-	height: 14.5rem;
-	}
+
 	.content {
 		width: calc(100% - 13.625rem);
 	}
@@ -387,8 +384,6 @@ li div {
 	cursor:pointer;
 }
 .pticket{
-width: 44.5rem;
-	height: 14.5rem;
 	background: #637381;
 	margin-bottom: 3.75rem;
 	border-radius:0.375rem;
@@ -450,6 +445,10 @@ width: 44.5rem;
 .imgimg{
 border-radius:0.625rem;
 }
+.ticket,.pticket {
+	max-width: 44.5rem;
+	height: 14.5rem;
+	}
 </style>
 </head>
 <body>
