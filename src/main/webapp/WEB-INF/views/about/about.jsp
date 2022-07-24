@@ -650,6 +650,34 @@ $(".askbtn").on("click",function(){
 	
 	
 })
+
+$(document).ready(function(){
+	$("#contents").on("keyup", function(){
+		
+		if($(this).val().length > 5000){
+			$(this).val($(this).val().substring(0, 5000));
+			alert("내용은 5000자를 넘을 수 없습니다");
+		}
+	})
+	
+	$("#title").on("keyup", function(){
+		if($(this).val().length > 100){
+			$(this).val($(this).val().substring(0, 100));
+			alert("제목은 100자를 넘을 수 없습니다");
+		}
+	})
+	
+	$("#email").on("change", function(){
+		let regExp = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
+		if($(this).val().match(regExp) != null){
+			
+		}else{
+			$("#email").focus();
+			$("#email").val("");
+			alert("error");
+		}
+	})
+})
 </script>
 <!-- Channel Plugin Scripts -->
 <script>
