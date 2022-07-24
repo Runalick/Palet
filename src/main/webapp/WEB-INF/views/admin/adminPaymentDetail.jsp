@@ -34,7 +34,7 @@
 </style>
 
 </head>
-<body>
+<body style="overflow-x:hidden;">
 	<div class="navbar navbar-expand-md navbar-light"> 
         <button class="navbar-toggler"  data-bs-toggle="collapse" data-bs-target="#sidebar" >
             <span class="navbar-toggler-icon"></span>
@@ -51,7 +51,7 @@
                         <!-- admin 계정정보 나타내는 모습 -->
                         <div class="bottom-border pb-3 text-center"> <!-- 중앙정렬 시킴-->
                             <img src="/images/sample.png" alt="" width="50" class="rounded-circle mr-3" > <!-- 이미지 라운드효과-->
-                            <a href="/member/mypage" class="text-black body1 py-2">ADMIN</a>
+                            <a href="#" class="text-black body1 py-2">ADMIN</a>
                         </div>
                         <!-- 하위 메뉴 구성 -->
                         <ul class="navbar-nav flex-column mt-4">
@@ -90,7 +90,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -99,7 +99,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         
                         </ul>

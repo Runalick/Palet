@@ -28,25 +28,36 @@ public int updateSalesCount(String pro_title, int pro_count) {
 		return pdao.programBestSeller();
 	}
 	
-	@Transactional
-	public void programInsert (ProgramDTO pdto, String realPath, MultipartFile[] file) {
+//	@Transactional
+//	public void programInsert (ProgramDTO pdto, String realPath, MultipartFile[] file) {
+//		pdao.programInsert(pdto);
+//		int p_num = pdto.getP_num();
+//		if(file != null) {
+//			File realPathFile = new File(realPath);
+//			if(!realPathFile.exists())realPathFile.mkdir();
+//			
+//			for(MultipartFile mf : file) {
+//				String ep_oriname = mf.getOriginalFilename();
+//				String ep_sysname = UUID.randomUUID()+"_"+ep_oriname;
+//				try {
+//					mf.transferTo(new File(realPath+"/"+ep_sysname));
+//				}catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//				pdao.programPicinsert(new ProgramPicDTO(0, p_num, ep_oriname, ep_sysname));
+//			}
+//		}
+//		
+//		
+//	}
+	
+
+	public void programInsert2 (ProgramDTO pdto, String file) {
+//		pdao.programInsert(pdto);
 		pdao.programInsert(pdto);
 		int p_num = pdto.getP_num();
-		if(file != null) {
-			File realPathFile = new File(realPath);
-			if(!realPathFile.exists())realPathFile.mkdir();
-			
-			for(MultipartFile mf : file) {
-				String ep_oriname = mf.getOriginalFilename();
-				String ep_sysname = UUID.randomUUID()+"_"+ep_oriname;
-				try {
-					mf.transferTo(new File(realPath+"/"+ep_sysname));
-				}catch (Exception e) {
-					e.printStackTrace();
-				}
-				pdao.programPicinsert(new ProgramPicDTO(0, p_num, ep_oriname, ep_sysname));
-			}
-		}
+		
+		pdao.programPicinsert(new ProgramPicDTO(0, p_num, file, file));
 		
 		
 	}

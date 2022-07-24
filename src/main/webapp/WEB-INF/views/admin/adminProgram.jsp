@@ -47,7 +47,7 @@
 </style>
 
 </head>
-<body>
+<body style="overflow-x:hidden;">
 	<nav class="navbar navbar-expand-md navbar-light"> 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebar" 
        			aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,7 +90,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link text-black p-3 mb-2 current">
+                                <a href="/admin/adminProgram" class="nav-link text-black p-3 mb-2 current">
                                     <i class="bi bi-columns-gap text-black fa-lg mr-3"></i> Program
                                 </a>
                             </li>
@@ -104,7 +104,7 @@
                                     <i class="bi bi-ticket-perforated text-black fa-lg mr-3"></i> Coupons
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-folder text-black fa-lg mr-3"></i> FNQ(QNA)
                                 </a>
@@ -113,7 +113,7 @@
                                 <a href="#" class="nav-link text-black p-3 mb-2 sidebar-link">
                                     <i class="bi bi-wrench-adjustable text-black fa-lg mr-3"></i> Settings
                                 </a>
-                            </li>
+                            </li> -->
 
                         </ul>
                         
@@ -215,32 +215,32 @@
 											<input type="text" name="p_name" id="p_name" placeholder="Input Program Name" >
 										</div>
 									</div>
-<!-- 									<div class="row"> -->
-<!-- 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">클래스 시작일</div> -->
-<!-- 										<div class="col-12 d-sm-none p-0 body2 marg_left5">클래스 시작일</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="row" style="text-align:center;"> -->
-<!-- 										<div class="col-12 p-0"> -->
-<!-- 											<input type="text" name="start_date" id="start_date" placeholder="Input Start Day"> -->
-<!-- 											<input type="hidden" id="start_date_value"> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="row"> -->
-<!-- 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">클래스 마감일</div> -->
-<!-- 										<div class="col-12 d-sm-none p-0 body2 marg_left5">클래스 마감일</div> -->
-<!-- 									</div> -->
-<!-- 									<div class="row" style="text-align:center;"> -->
-<!-- 										<div class="col-12 p-0"> -->
-<!-- 											<input type="text" name="end_date" id="end_date" placeholder="Input End Day"> -->
-<!-- 											<input type="hidden" id="end_date_value"> -->
-<!-- 										</div> -->
-<!-- 									</div> -->
+									<div class="row"> 
+										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">프로그램 시작일</div>
+ 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">프로그램 시작일</div>
+										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">프로그램 시작일</div> 
+										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">프로그램 시작일</div> 
+										<div class="col-12 d-sm-none p-0 body2 marg_left5">프로그램 시작일</div> 
+ 									</div> 
+									<div class="row" style="text-align:center;"> 
+										<div class="col-12 p-0"> 
+ 											<input type="text" name="start_date" id="start_date" placeholder="Input Start Day"> 
+ 											<input type="hidden" id="start_date_value"> 
+ 										</div> 
+ 									</div> 
+ 									<div class="row"> 
+ 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">프로그램 마감일</div> 
+ 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">프로그램 마감일</div> 
+ 										<div class="col-12 d-none d-md-block d-lg-none p-0 body2 marg_left3">프로그램 마감일</div> 
+ 										<div class="col-12 d-none d-sm-block d-md-none p-0 body2 marg_left4">프로그램 마감일</div> 
+ 										<div class="col-12 d-sm-none p-0 body2 marg_left5">프로그램 마감일</div>
+ 									</div>
+ 									<div class="row" style="text-align:center;"> 
+ 										<div class="col-12 p-0"> 
+ 											<input type="text" name="end_date" id="end_date" placeholder="Input End Day">
+ 											<input type="hidden" id="end_date_value"> 
+ 										</div> 
+ 									</div> 
 									<div class="row">
 										<div class="col-12 d-none d-xl-block p-0 body2 marg_left0">프로그램 가격</div>
 										<div class="col-12 d-none d-lg-block d-xl-none p-0 body2 marg_left2">프로그램 가격</div>
@@ -264,19 +264,19 @@
 									</div>
 									<div class="row" style="text-align:center">
 										<div class="col-12 p-0 ">
-											<input class="upload_view" value="첨부파일" placeholder="Input Programs Images">
+											<!-- <input class="upload_view" value="첨부파일" placeholder="Input Programs Images">
 											<span>	
 												<label class="btn1_2 " for="file"> <i class="bi bi-upload"></i> </label>	
 												<input id="file" type="file" name="file" style="display:none" accept="image/*" onchange=isFileImg(this)>
-											</span>
-										</div>
-										
+											</span> -->
+											<input type="text" name="file" id="file2" placeholder ='input link'>
+										</div>										
 									</div>  
 									<div class="row" style="text-align:center">
-										<div class="col-12 p-0">
+										<!-- <div class="col-12 p-0">
 											<img src="" id="img_section" value="N">
 											<input class="btn1_0 mrg_left1" type="button" id="cancel_Btn" onclick="img_cancel()" style="display: none" value="첨부 취소">
-										</div>
+										</div> -->
 									</div>
 									
 									
@@ -318,6 +318,63 @@
 	<!-- footer close -->
 
 <script>
+let isP_name = false;
+let isStart_date = false;
+let isEnd_date = false;
+let isP_price = false;
+let isProgramPic = false;
+
+$(function (){           
+	$.datepicker.setDefaults($.datepicker.regional['ko']); 
+		         
+		$("#start_date").datepicker({                 
+			changeMonth: true,                  
+			changeYear: true,
+			showOn : "both",
+			buttonImage : "/images/calendar1.png",
+			buttonImageOnly : true,
+			nextText: '다음 달',                 
+			prevText: '이전 달',                  
+			dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+			dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+			monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+			dateFormat: "yymmdd",
+			maxDate: 60, // 선택할수있는 최소날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+			onClose: function( selectedDate ) {	//시작일(startDate) datepicker가 닫힐때, 종료일(endDate)의 선택할수있는 최소 날짜(minDate)를 선택한 시작일로 지정
+				$("#end_date").datepicker( "option", "minDate", selectedDate );
+				
+				let date =  $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
+				$('input[name="start_date"]').attr('value', date);
+				
+				$("#start_date_value").val(date);
+				start_date = this.date;
+			}
+		});
+	
+		$( "#end_date" ).datepicker({
+			changeMonth: true,
+		    changeYear: true,
+			showOn : "both",
+			buttonImage : "/images/calendar1.png",
+			buttonImageOnly : true,
+		    nextText: '다음 달',
+		    prevText: '이전 달',
+		    dayNames: ['일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일'],
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+		    dateFormat: "yymmdd",
+		    maxDate: 365, // 선택할수있는 최대날짜, ( 0 : 오늘 이후 날짜 선택 불가)
+		    onClose: function( selectedDate ) { // 종료일(endDate) datepicker가 닫힐때, 시작일(startDate)의 선택할수있는 최대 날짜(maxDate)를 선택한 시작일로 지정
+				$("#start_date").datepicker( "option", "maxDate", selectedDate );
+				let date =  $.datepicker.formatDate("yy-mm-dd", $(this).datepicker('getDate'));
+				$("#end_date_value").val(date);
+				end_date = this.date;
+			}
+		});
+		});	
+
 $("#return").on("click", ()=>{
 	location.reload();
 })
@@ -327,12 +384,12 @@ $("#upload").on("click", ()=>{
 	alert("Program Added Success");
 })
 
- $("#file").on('change',function(){
+/*  $("#file").on('change',function(){
 		let fileName = $("#file").val();
 	 	$(".upload_view").val(fileName);
-});
+}); */
 
-	const reader = new FileReader();
+/* 	const reader = new FileReader();
 	reader.onload = (readerEvent) =>{
 		document.querySelector("#img_section").setAttribute("src",readerEvent.target.result);
 		console.log(readerEvent.target.result);
@@ -361,7 +418,106 @@ function img_cancel(){
 	$("#file").val("");
 	$(".upload_view").val("");
 	$("#cancel_Btn").css("display","none");
-}
+} */
+
+
+	$("#p_name").on("keyup",function(){
+		let p_name = $("#p_name").val();
+		console.log(p_name);
+		if(p_name == ""){
+			isP_name = false;
+			
+		}else {
+			isP_name = true;
+			console.log("p_namePass")
+		}
+		
+		console.log(isP_name);
+		
+		if (isP_name && isP_price && isStart_date && isEnd_date && isProgramPic ){
+			console.log("&&을 패스 했습니까?")
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+		}
+	})
+
+	$("#start_date").on("focusout", function(){
+		let start_date_value = $("#start_date_value").val();
+		console.log(start_date_value);
+		if (start_date_value == null){
+			isStart_date = false;
+		}else {
+			isStart_date = true;
+			console.log("startdatePass")
+		}
+		
+		console.log(isStart_date);
+		
+		if (isP_name && isP_price && isStart_date && isEnd_date && isProgramPic ){
+			console.log("&&을 패스 했습니까?")
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+		}
+	})
+	
+	$("#end_date").on("focusout", function(){
+		let end_date_value = $("#end_date_value").val();
+		console.log(end_date_value);
+		if (end_date_value == null ){
+			isEnd_date = false;
+		}else {
+			isEnd_date = true;
+			console.log("enddatePass")
+		}
+		
+		console.log(isEnd_date);
+		
+		if (isP_name && isP_price && isStart_date && isEnd_date && isProgramPic ){
+			console.log("&&을 패스 했습니까?")
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+		}
+	})	
+	
+	$("#p_price").on("keyup",function(){
+		let p_price = $("#p_price").val();
+		console.log(p_price);
+		if(p_price == ""){
+			isP_price = false;
+			
+		}else {
+			isP_price = true;
+			console.log("p_pricePass")
+		}
+		
+		console.log(isP_price);
+		
+		if (isP_name && isP_price && isStart_date && isEnd_date && isProgramPic ){
+			console.log("&&을 패스 했습니까?")
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+		}
+	})
+	
+	$("#file2").on("keyup", ()=>{
+		let pe_img = $("#file2").val();
+		console.log(pe_img);
+		if(pe_img == ""){
+			isProgramPic = false;
+			
+		}else {
+			isProgramPic = true;
+			console.log("expicPass")
+		}
+		console.log(isProgramPic);
+		
+		if (isP_name && isP_price && isStart_date && isEnd_date && isProgramPic ){
+			console.log("&&을 패스 했습니까?")
+			$("#upload").css("color", "#FFC107");
+			$("#upload").removeAttr("disabled");
+		}
+	})
+	
 
 let cnt =0;
 $(".navbar-toggler").on("click",function(){

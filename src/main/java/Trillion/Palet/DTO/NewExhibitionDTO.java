@@ -34,10 +34,11 @@ public class NewExhibitionDTO {
 	
 	
 
-	public NewExhibitionDTO(int pe_seq, String pe_name, String pe_contents, String pe_date,
+	public NewExhibitionDTO(int pe_seq, String pe_img, String pe_name, String pe_contents, String pe_date,
 			String pe_price, String pe_writer, String pe_artcount, String pe_period) {
 		super();
 		this.pe_seq = pe_seq;
+		this.pe_img = pe_img;
 		this.pe_name = pe_name;
 		this.pe_contents = pe_contents;
 		

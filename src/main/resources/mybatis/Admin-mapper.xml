@@ -84,6 +84,10 @@
 		</selectKey>
   	</insert>
   	
+  	<insert id="newExhibitionInsert2">
+  		insert into preexhibition values(preexhibition_seq.nextval, #{pe_img}, #{pe_name}, #{pe_contents}, 'Palet', #{pe_date}, #{pe_price},#{pe_writer}, #{pe_artcount},#{pe_period},0)
+  	</insert>
+  	
   	<delete id="exhibitionCheckDelete">
   		delete from preexhibition where pe_seq = #{value}
   	</delete>
@@ -102,7 +106,7 @@
   	
   	<select id="exhibitionSelectFixed" resultType="Trillion.Palet.DTO.NewExhibitionDTO">
   		select * from preexhibition 
-		where pe_seq in (1070,1071,1077,1079,1080,1085,1087,1091,1092,1100,1101,1102,1103,1104,1105,1106)
+		where pe_seq in (1070,1071,1077,1079,1080,1085,1087,1091,1092,1100,1101,1102,1109,1110,1111,1112,1113,1114,1115,1116,1117,1118,1119,1120,1121,1122,1123,1124,1125,1126,1127,1128,1129,1130,1131)
   	</select>
   	
   	<!-- Goods -->
