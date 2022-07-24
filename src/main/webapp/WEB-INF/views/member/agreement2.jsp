@@ -188,5 +188,6 @@ oo는 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제
 		window.close();
 	})
 </script>
+
 </body>
 </html>
