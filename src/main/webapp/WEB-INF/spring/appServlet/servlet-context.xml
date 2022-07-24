@@ -61,7 +61,7 @@
 			<exclude-mapping path="/images/*.*" />
 			<exclude-mapping path="/js/*.*" />
 			<exclude-mapping path="/css/**/*.*" />
-
+			<exclude-mapping path="/mail/**"/>
 
 
 
