@@ -739,7 +739,7 @@ transition: 0.3s;
 			
 			
 				<div class="navi" >
-				<a href="#" style=" font-size:1.625rem;" class="main" >
+				<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
 				<strong class="menu-title">My Page</strong>
 				</a>
 				<div class="navi-menu">
