@@ -22,6 +22,23 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 </head>
+<style>
+	.exlink{
+		transition:0.3s;
+	}
+	.exlink:hover{
+		color:black;
+	}
+	
+	#enjoy:hover{
+		background:#161C24;
+		color:white;
+	}
+	#enjoy{
+		transition:0.3s;
+		border:0px solid black;
+	}
+</style>
 <body>
 	
 	<div class="container-fluid" >
@@ -48,22 +65,22 @@
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
-				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+				                        style="padding-left:0px; padding-right:0px; transition:0.3s;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
-					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Exhibition</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
-					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Program</a> </li> 
 					                    
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Shop</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
-                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+                                       style="padding-left:0px; padding-right:0px; transition:0.3s;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
-					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
+					                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Admin</a> </li>
 								
 								</ul>
 							</div>
@@ -91,25 +108,25 @@
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
-			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
+			                        style="padding-left:0px; padding-right:0px; transition:0.3s;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
-					                        style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Exhibition</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
-					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Program</a> </li> 
 					                    
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Shop</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
-						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
+						                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Cart</a> </li>
 						                        
 					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
-                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+                                       style="padding-left:0px; padding-right:0px; transition:0.3s;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
-					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
+					                        style="padding-left:0px; padding-right:0px; transition:0.3s;">Mypage</a> </li>
 								
 								</ul>
 							</div>
@@ -137,24 +154,24 @@
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px; transition:0.3s;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
 					                href="/Exhibition/toCurExhibition"
-					                    style="padding-left:0px; padding-right:0px;">Exhibition</a> </li>
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Exhibition</a> </li>
 					                    
 					                <li class="nav-item"> <a id="Program" class="nav-link" href="/program/toProgram"
-					                    style="padding-left:0px; padding-right:0px;">Program</a> </li> 
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Program</a> </li> 
 					                           
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
-					                    style="padding-left:0px; padding-right:0px;">Shop</a> </li>
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Shop</a> </li>
 					                    
 					                <li class="nav-item"> <a id="Login" class="nav-link" href="/member/loginPage"
-					                    style="padding-left:0px; padding-right:0px;">Login</a> </li>
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Login</a> </li>
 					                    
 					                <li class="nav-item"> <a id="Signup" class="nav-link" href="/member/join"
-					                    style="padding-left:0px; padding-right:0px;">Sign up</a> </li>
+					                    style="padding-left:0px; padding-right:0px; transition:0.3s;">Sign up</a> </li>
 								
 								</ul>
 							</div>

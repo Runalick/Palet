@@ -554,6 +554,14 @@ a {
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 }
+
+.bookbutton{
+	transition:0.3s;
+}
+.bookbutton:hover{
+	color:black;
+	background:#F4F6F8;
+}
 </style>
 
 
@@ -770,7 +778,7 @@ a {
 								<li style="float: left"><img src="/images/share.png"
 									class="modalbtn share">
 								<li style="float: right; margin-left: 15px;"><button
-										class=bookbutton>예매하기</button>
+										class=bookbutton style="border:0px solid black">예매하기</button>
 							</ul>
 
 
@@ -847,7 +855,7 @@ a {
 								<li style="float:center; margin-top:1.5rem;" ><img src="/images/share.png"
 									class="modalbtn share">
 								<li style="float:center; margin-top:1.5rem;" ><button
-										class=bookbutton>예매하기</button>
+										class=bookbutton style="border:0px solid black">예매하기</button>
 							</ul>
 
 							<input type=hidden name=count class=count1> <input

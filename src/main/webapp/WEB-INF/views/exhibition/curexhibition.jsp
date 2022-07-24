@@ -122,39 +122,46 @@
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Mypage {
 	width: 5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Logout {
 	width: 4.5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 #Program {
 	width: 5.5rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
+	transition: 0.3s;
 }
 
 .h1 {
@@ -256,7 +263,14 @@
 	/* Gray/900 */
 	background: #161C24;
 	border-radius: 20px;
+	transition:0.3s;
 }
+.btn1_1:hover{
+	background:#F4F6F8 !important;
+	color:black !important;
+	border:1px solid #F4F6F8 !important;
+}
+
 
 .btn2 {
 	padding: 1.125rem 1.5rem;
@@ -274,7 +288,7 @@
 	text-align: center;
 	/* Gray/900 */
 	color: #161C24;
-
+	
 	/* Inside auto layout */
 }
 
@@ -422,6 +436,7 @@ margin:2rem;
 a {
 	text-decoration: none;
 	padding: 0px;
+	color:black;
 }
 
 .navbar-nav>li {
@@ -435,8 +450,12 @@ a {
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
 } 
-
-
+.exlink{
+	transition: 0.3s;
+}
+.exlink:hover{
+	color:black;
+}
 </style>
 <script>
 //사용할 앱의 JavaScript 키 설정
@@ -659,7 +678,7 @@ $(".logout").on("click", function(){
 				<div class="col-12 caption d-none d-sm-block" style="margin-top: 2.5rem;">
 					<a href="/Exhibition/toCurdetail">
 						<button class="btn1_1"
-							style="background: #ffffff; color: #161C24;">자세히 보기</button>
+							style="background: #161C24; color: white; border:1px solid black;">자세히 보기</button>
 					</a>
 				</div>
 
