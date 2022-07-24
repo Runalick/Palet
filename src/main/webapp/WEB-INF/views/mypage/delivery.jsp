@@ -417,12 +417,22 @@ color:white;
 background: #161C24;
 border-radius: 0.75rem;
 margin-bottom:0.5rem;
+transition: 0.3s;
 }
 .btnbtn:hover{
 background: #454F5B;
 color:white;
 }
+.defaultdelete,.delete{
+background:white;
+color:black;
+transition: 0.3s;
+}
+.defaultdelete:hover,.delete:hover{
+background:#F4F6F8;
+color:black;
 
+}
 </style>
 </head>
 <body>

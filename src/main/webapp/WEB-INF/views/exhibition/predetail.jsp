@@ -391,7 +391,6 @@ align-items: center; */
 
 #footer {
 	background: #F4F6F8;
-	height: 13.25rem;
 }
 
 .ul2 {
