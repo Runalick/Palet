@@ -91,11 +91,12 @@
 	height: 5rem;
 	background-color: white;
 }
-
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
+
 
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
 			overflow-x: hidden;
@@ -257,7 +258,15 @@
 		font-style: normal;
 		font-weight: 400;
 	}
+.body3_2 {
+		font-family: 'Spoqa Han Sans Neo';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 1rem;;
+		line-height: 1.75rem;
+}
 @media ( min-width : 992px) {
+
 	.content {
 		width: calc(100% - 13.625rem);
 	}
@@ -369,16 +378,12 @@ li div {
 }
 
 .ticket {
-	width: 44.5rem;
-	height: 14.5rem;
 	background: black;
 	margin-bottom: 3.75rem;
 	border-radius:0.375rem;
 	cursor:pointer;
 }
 .pticket{
-width: 44.5rem;
-	height: 14.5rem;
 	background: #637381;
 	margin-bottom: 3.75rem;
 	border-radius:0.375rem;
@@ -395,8 +400,8 @@ width: 44.5rem;
 }
 
 .qr {
-	width: 100px;
-	height: 100px;
+	width: 90px;
+	height: 90px;
 	background: white;
 	position: absolute;
 	bottom: 1.5rem;
@@ -440,6 +445,10 @@ width: 44.5rem;
 .imgimg{
 border-radius:0.625rem;
 }
+.ticket,.pticket {
+	max-width: 44.5rem;
+	height: 14.5rem;
+	}
 </style>
 </head>
 <body>
@@ -451,7 +460,7 @@ border-radius:0.625rem;
 				<c:when test="${loginEmail =='admin@palet.com'}">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
-						<div class="container" id="navparent" style = "overflow:visible;">
+						<div class="container" id="navparent" style = "z-index:9; overflow:visible;">
 							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
@@ -494,7 +503,7 @@ border-radius:0.625rem;
 				<c:when test="${loginEmail != null}">
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
-						<div class="container" id="navparent" style = "overflow:visible;">
+						<div class="container" id="navparent" style = "z-index:9;overflow:visible;">
 							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
@@ -540,7 +549,7 @@ border-radius:0.625rem;
 				<c:otherwise>
 				<div class="row" id="container1">
 					<nav class="navbar navbar-expand-md bg-light navbar-light">
-						<div class="container" id="navparent" style = "overflow:visible;">
+						<div class="container" id="navparent" style = "z-index:9;overflow:visible;">
 							<a class="navbar-brand" href="/" id="container"
 								style="padding: 0px;"><img src="/images/Logo.svg" border=0></a>
 
@@ -627,11 +636,11 @@ border-radius:0.625rem;
 				</div>
 
 			<div class="content">
-				<div class="row" id="row1" style="padding: 1rem;">
+				<div class="row" id="row1" style="padding: 1rem; ">
 					<div class="col-12 H5">진행 중 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${cnt !=0}"> 
-					<div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px">
+					<div id="carouselExampleControlsNoTouching" class="carousel carousel-dark slide" data-bs-touch="false" data-bs-interval="false" style="padding:0px;padding-top:3rem; padding-bottom:3rem;">
   					<div class="carousel-inner">
   
 			<!--  반복 -->
@@ -645,7 +654,7 @@ border-radius:0.625rem;
 					
 					
 					<c:if test="${i.category =='P' }">
-			     	<div class="col-12 pticket">
+			     	<div class="col-12 pticket" style="margin:auto;">
 			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
@@ -653,15 +662,15 @@ border-radius:0.625rem;
 								</div>
 								<div class="col-9" style="position: relative">
 									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
-										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
-									<div class="body3" style="color: white;">${i.datee }</div>
+										<div class="body3_2" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3_2" style="color: white;">${i.datee }</div>
 									
 								</div>
 							</div>
 					</div>
 					</c:if>
 							<c:if test="${i.category =='E' }">
-			     	<div class="col-12 ticket">
+			     	<div class="col-12 ticket" style="margin:auto;">
 			     	<input type="hidden" class="booknumber" value="${i.booknumber }">
 							<div class="row" style="height: 100%">
 								<div class="col-3" style="padding: 1rem; padding-left:1.5rem;">
@@ -669,8 +678,8 @@ border-radius:0.625rem;
 								</div>
 								<div class="col-9" style="position: relative">
 									<div class="H5" style="color: white; padding: 1.25rem 0px;">${i.title }</div>
-										<div class="body3" style="color: white" >예매번호 : ${i.booknumber }</div>
-									<div class="body3" style="color: white;">${i.datee }</div>
+										<div class="body3_2" style="color: white" >예매번호 : ${i.booknumber }</div>
+									<div class="body3_2" style="color: white;">${i.datee }</div>
 									<div class="qr" id="qr" style="	border: 5px solid white;"></div>
 								</div>
 							</div>
@@ -693,14 +702,14 @@ border-radius:0.625rem;
 			  </div>
   			</c:when>
 				<c:otherwise>
-					<div class="H2" style="margin:10rem 25rem;">예매 내역이 없습니다.</div>
+					<div class="H2" style="margin:auto; margin-top:7rem;">예매 내역이 없습니다.</div>
 				</c:otherwise>
 			</c:choose>	
 		</div>
 			<div class="col-12 H5">지난 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${precnt ==0 }">
-					<div class="H2" style="margin:10rem 25rem; width:25rem;">예매 내역이 없습니다.</div>
+					<div class="col-12 H2" style="margin:auto ; padding-top:7rem; width:25rem;">예매 내역이 없습니다.</div>
 				</c:when>
 				<c:otherwise>
 			
@@ -893,8 +902,8 @@ window.onload = function(){
 			console.log($(".booknumber")[i].value);
 			var qrcode = new QRCode($(".qr")[i], {
 	            text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
-	            width: 90,
-	            height: 90,
+	            width: 80,
+	            height: 80,
 	            colorDark : "#000000",
 	            colorLight : "#ffffff",
 	            correctLevel : QRCode.CorrectLevel.H

@@ -169,11 +169,18 @@
 
             color: #161C24;
 			margin-top: 10px;
-
+			transition:0.3s;
             /* Inside auto layout */
 
         }  
-        
+        #paint:hover{
+        	background:#F4F6F8;
+        	color:black;
+        }
+        #spaint:hover{
+        	background:#F4F6F8;
+        	color:black;
+        }
         .btn1_1 {
             /* padding: 1.0rem 1.4rem; */
             gap: 0.625rem;
@@ -200,9 +207,12 @@
 			margin-top: 10px;
 
             /* Inside auto layout */
-
+			transition:0.3s;
         }  
-        
+        .btn1_1:hover{
+        	background:#F4F6F8;
+        	color:black;
+        }
        .btn3 {
             gap: 0.625rem;
             width: 6rem;
@@ -325,12 +335,12 @@
                 </a>
 			</div>
 			<div class="col-9 d-none d-sm-block">
-				<button id="back" class="btn1" style="float:right;">돌아가기</button>
-				<button id="paint" class="btn1" style="float:right;">참여하기</button>
+				<button id="back" class="btn1" style="float:right; border:0px solid black;">돌아가기</button>
+				<button id="paint" class="btn1" style="float:right; background:#161C24; color:white; border:0px solid black;">참여하기</button>
 			</div>
 			<div class="col-9 d-block d-sm-none">
-				<button id="sback" class="btn1_1" style="float:right;">돌아가기</button>
-				<button id="spaint" class="btn1_1" style="float:right;">참여하기</button>
+				<button id="sback" class="btn1_1" style="float:right; border:0px solid black;">돌아가기</button>
+				<button id="spaint" class="btn1_1" style="float:right; background:#161C24; color:white; border:0px solid black;">참여하기</button>
 			</div>
 		</div>
 	</div>

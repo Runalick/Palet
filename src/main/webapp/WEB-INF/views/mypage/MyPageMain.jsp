@@ -718,6 +718,7 @@ color:white;
 		$.ajax({
 			url:"/mypage/selectMyGoods"
 		}).done(function(resp){
+			console.log("selectMyGoods");
 			console.log(resp);
 			for(let i = 0; i < 5; i++){
 				$(".goods").append("<div>"+resp[i].g_name+"</div>");

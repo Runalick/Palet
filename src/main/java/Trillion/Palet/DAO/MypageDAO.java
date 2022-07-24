@@ -144,4 +144,11 @@ public class MypageDAO {
 	public ProticketDTO proTicketDetailview(String pro_booknumber) {
 		return mybatis.selectOne("MyPage.proTicketDetailview",pro_booknumber);
 	}
+
+	public boolean pwcheck(String pw,String email) {
+		Map<String,String> param = new HashMap<>();
+		param.put("email", email);
+		param.put("pw", pw);
+		return mybatis.selectOne("MyPage.pwcheck",param);
+	}
 }

@@ -140,6 +140,12 @@
 	height: 1.5rem;
 }
 
+#payspan1{
+width:5.063rem; 
+margin-right:0.375rem;
+
+}
+
 .h1 {
 	padding: 0px;
 	color: #FFFFFF;
@@ -235,6 +241,18 @@
 	/* Gray/900 */
 	background: #161C24;
 	border-radius: 20px;
+	transition:0.3s;
+}
+.btn1_1:hover{
+	background:#F4F6F8;
+	color:black;
+}
+.usedbutton{
+	transition:0.3s;
+}
+.usedbutton:hover{
+	background:#F4F6F8 !important;
+	color:black !important;
 }
 
 .btn2 {
@@ -564,7 +582,7 @@ input::placeholder {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; z-index: 50;">
+			style="background-color: white; position: fixed;  z-index: 50;">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -657,6 +675,8 @@ input::placeholder {
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
+
+										
 											<li class="nav-item"><a id="Logout"
 												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
@@ -811,29 +831,25 @@ input::placeholder {
 							<div class="col-12"
 								style="margin-top: 2.5rem; padding: 0px; text-align: center; height: 3.75rem;">
 								<button class="btn1_1" id=pay onclick="iamport()"
-									style="width: 100%;">결제하기</button>
+									style="width: 100%; border:0px solid black;">결제하기</button>
 							</div>
 
 
-							<div class="col-12 h4 "
-								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
-								및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
+							<div class="col-12 h4 " 
+								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관을 확인하였으며 결제에 동의합니다.</div>
 							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
-								이용약관 동의<a class=policy>보기</a>
+								이용약관 동의<span class=policy id="payspan2" style="cursor:pointer;">보기</span>
 							</div>
-							<div class="col-12 caption "
+							<div class="col-12 caption " 
 								style="margin-top: 0.4rem; text-align: left;">
-								개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								개인정보 수집 및 이용 동의<span class=policy id="payspan4" style="cursor:pointer;">보기</span>
 							</div>
-							<div class="col-12 caption "
-								style="margin-top: 0.4rem; text-align: left;">
-								결제 대행 서비스 이용약관<a class=policy>보기</a>
+							<div class="col-12 caption " 
+								style="margin-top: 0.4rem; text-align: left;">결제 대행 서비스 이용약관
+							<span class=policy id="payspan6" style="cursor:pointer;">(주)KG이니시스</span>
 							</div>
-							<div class="col-12 caption "
-								style="margin-top: 0.4rem; text-align: left;">
-								취소 환불 규정<a class=policy>보기</a>
-							</div>
+						
 
 						</div>
 
@@ -943,7 +959,7 @@ input::placeholder {
 							<input type=text class="body2 usedpoint"
 								style="width: 15rem; height: 3rem;   " oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
-								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px;">모두
+								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
 						</div>
 						<div class="col-12 h5 "
@@ -984,6 +1000,21 @@ input::placeholder {
 <script>
 
 
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
 	
 	
 
@@ -1202,6 +1233,22 @@ console.log($(".form-select1 option:selected").text());
 	
 	
 	
+		$("#payspan2").on("click", function(){
+	window.open("/member/agreement1","이용약관", "width=700, height=500");
+	})
+
+	$("#payspan4").on("click", function(){
+		window.open("/member/agreement2","개인정보 수집 및 이용", "width=700, height=500");
+	})
+	
+	$("#payspan6").on("click", function(){
+		let link = 'https://www.inicis.com/terms';
+		window.open(link, "결제 대행 서비스 이용약관", "width=700, height=500");
+	
+	})
+	
+	
+	
 	
 	
 		
@@ -1275,7 +1322,7 @@ console.log($(".form-select1 option:selected").text());
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : 100, //실제 결제되는 가격
+			amount : price3, //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),
@@ -1314,24 +1361,13 @@ console.log($(".form-select1 option:selected").text());
 					type : "post",
 					dataType : "json"
 				}).done(function(resp) {
-					alert(resp);
+					location.href="/exhibition/tobooksuccess";
 				});
-				var msg = '결제가 완료되었습니다.';
-				msg += '고유ID : ' + rsp.imp_uid;
-				console.log(msg);
-				msg += '상점 거래ID : ' + rsp.merchant_uid;
-				console.log(msg);
-				msg += '결제 금액 : ' + rsp.paid_amount;
-				console.log(msg);
-				msg += '카드 승인번호 : ' + rsp.apply_num;
-				
-				
-			console.log(msg);
 			} else {
 				var msg = '결제에 실패하였습니다.';
 				msg += '에러내용 : ' + rsp.error_msg;
 			}
-			alert(msg);
+			
 		});
 		
 	}

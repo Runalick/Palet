@@ -494,6 +494,8 @@ a {
 	margin-right: 15px;
 	padding-left: 10px;
 	padding-right: 10px;
+	border:none;
+	background:white;
 }
 
 .body2_1 {
@@ -507,17 +509,18 @@ a {
 }
 
 #copybtn {
-	gap: 0.625rem;
-	width: 8.813rem;
-	height: 2.75rem;
+border:1px;
+	width: 4.813rem;
+	height: 32px;
 	background: white;
-	border-radius: 1.25rem;
+	border-radius: 5px;
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 500;
-	font-size: 1.22rem;
-	line-height: 2rem;
+	font-size: 0.8rem;
+	line-height: 32px;
 	text-align: center;
+	vertival-align:middle;
 	color: black;
 }
 
@@ -553,6 +556,14 @@ a {
 .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
+}
+
+.bookbutton{
+	transition:0.3s;
+}
+.bookbutton:hover{
+	color:black;
+	background:#F4F6F8;
 }
 </style>
 
@@ -652,6 +663,9 @@ a {
 											<li class="nav-item"><a id="Cart" class="nav-link"
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
+
+
+								
 
 											<li class="nav-item"><a id="Logout"
 												class="nav-link logout" href="#"
@@ -767,10 +781,10 @@ a {
 
 
 							<ul style="float: right; list-style: none;">
-								<li style="float: left"><img src="/images/share.png"
-									class="modalbtn share">
+								<li style="float: left;"><img src="/images/share.png"
+									class="modalbtn share" style = "margin-top:10px;">
 								<li style="float: right; margin-left: 15px;"><button
-										class=bookbutton>예매하기</button>
+										class=bookbutton style="border:0px solid black">예매하기</button>
 							</ul>
 
 
@@ -847,7 +861,7 @@ a {
 								<li style="float:center; margin-top:1.5rem;" ><img src="/images/share.png"
 									class="modalbtn share">
 								<li style="float:center; margin-top:1.5rem;" ><button
-										class=bookbutton>예매하기</button>
+										class=bookbutton style="border:0px solid black">예매하기</button>
 							</ul>
 
 							<input type=hidden name=count class=count1> <input

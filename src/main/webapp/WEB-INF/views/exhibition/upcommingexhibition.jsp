@@ -124,6 +124,12 @@
 	height: 1.5rem;
 }
 
+
+#Exhibition {
+	width: 5.938rem;
+	height: 1.5rem;
+}
+
 #Mypage {
 	width: 5rem;
 	height: 1.5rem;
@@ -139,20 +145,24 @@
 	height: 1.5rem;
 }
 
+
 #Shop, #Login {
 	width: 3.313rem;
 	height: 1.5rem;
 }
+
 
 #Cart {
 	width: 3rem;
 	height: 1.5rem;
 }
 
+
 #Signup {
 	width: 4.438rem;
 	height: 1.5rem;
 }
+
 
 .h1 {
 	padding: 0px;
@@ -412,6 +422,11 @@ align-items: center; */
 .exlink {
 	text-decoration: none;
 	color: #919EAB;
+	transition: 0.3s;
+}
+
+.exlink:hover{
+	color:black;
 }
 
 a {
@@ -548,6 +563,7 @@ $(".logout").on("click", function(){
 												href="/cart/cartlist"
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
+
 											<li class="nav-item"><a id="Logout"
 												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
@@ -623,8 +639,8 @@ $(".logout").on("click", function(){
 
 
 
-		<div class="container">
-			<div class="row " style="margin-top: 70px; overflow-y:hidden;">
+		<div class="container" style = "overflow-y:hidden;">
+			<div class="row " style="margin-top: 70px; ">
 				<div class="col-4 h2 d-none d-sm-block"
 					style="margin-top: 4rem; text-align: left;">Exhibition</div>
 				<ul class="col-8 ul2 h3 d-none d-sm-block"
@@ -681,12 +697,15 @@ $(".logout").on("click", function(){
 								style="background: #ffffff; color: #161C24;">자세히 보기</button>
 						</a>
 					</div>
+					
+					
+					<a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a>
 
 				</c:forEach> --%>
 				<c:forEach var="list" items="${list }">
 					<div class="col-4">
 						<div class="col-12" style="margin-top: 5.313rem;">
-						<a><img class="curimage" src="${list.pe_img} "></a>	
+						<a href ='/Exhibition/toUpcommingdetail?pe_img=${list.pe_img}'><img class="curimage" src="${list.pe_img} "></a>	
 						</div>
 						<div class="col-12 h3" style="margin-top: 2.5rem;">${list.pe_name}</div>
 						<div class="col-12 caption" style="margin-top: 2.5rem;">
@@ -695,9 +714,9 @@ $(".logout").on("click", function(){
 				
 				</c:forEach> 
 			</div>
-
-
-
+<!-- 
+<a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'>
+ -->
 
 
 <!-- 
@@ -773,6 +792,26 @@ $(".logout").on("click", function(){
 
 	<!-- Channel Plugin Scripts -->
 	<script>
+	
+	$(".logout").on("click", function(){
+     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+     Kakao.isInitialized();
+     if (!Kakao.Auth.getAccessToken()) {
+        console.log('Not logged in.');
+        location.href="/member/logout";
+         return ;
+     }
+     
+      Kakao.Auth.logout(function() {
+           console.log(Kakao.Auth.getAccessToken());
+           location.href="/member/logout";
+         });
+     return true;
+  });
+	
+	
+	
+	
     (function() {
       var w = window;
       if (w.ChannelIO) {

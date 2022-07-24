@@ -432,6 +432,11 @@ a {
 	/* identical to box height */
 	text-align: center;
 	padding: 1.125rem 1.5rem;
+	transition:0.3s;
+}
+.bookbutton:hover{
+	background:#F4F6F8;
+	color:black;
 }
 
 #po {
@@ -629,7 +634,7 @@ a {
 								style="color: #161C24; margin-left: 1rem;">1</span> <img
 								type="button" class=plusbutton src="/images/plusbutton.png"
 								style="margin-left: 1rem; width: 3.75rem; height: 3.75rem;">
-							<button class=bookbutton style="position: absolute; right: 0px;">신청하기</button>
+							<button class=bookbutton style="position: absolute; right: 0px; border:0px solid black;">신청하기</button>
 							<input type=hidden name=count class=count1> <input
 								type=hidden name=price class=price1>
 
@@ -818,6 +823,24 @@ a {
 
 </body>
 <script>
+
+
+$(".logout").on("click", function(){
+ Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+ Kakao.isInitialized();
+ if (!Kakao.Auth.getAccessToken()) {
+    console.log('Not logged in.');
+    location.href="/member/logout";
+     return ;
+ }
+ 
+  Kakao.Auth.logout(function() {
+       console.log(Kakao.Auth.getAccessToken());
+       location.href="/member/logout";
+     });
+ return true;
+});
+
 	$(".bookbutton").on("click", function() {
 
 		$(this).next().val($($(this).siblings()[2]).text());
