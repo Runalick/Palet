@@ -30,19 +30,35 @@
 
 
 @media ( min-width : 375px) {
-	.container {
-		max-width: 1280px;
-	}html{
-		font-size: 12px;
-	}
+
+.container {
+
+max-width: 1280px;
+
 }
-@media ( min-width : 1650px) {
-	.container {
-		max-width: 1280px;
-	}
-	html {
-		font-size: 16px;
-	}
+
+html {
+
+font-size: 12px;
+
+}
+
+}
+
+@media ( min-width : 1280px) {
+
+.container {
+
+max-width: 1280px;
+
+}
+
+html {
+
+font-size: 16px;
+
+}
+
 }
 
 * {

@@ -30,11 +30,14 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -42,6 +45,7 @@
 		font-size: 16px;
 	}
 }
+
 
 * {
 	box-sizing: border-box;
@@ -78,18 +82,22 @@
 	background-color: white;
 }
 
+
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
+
+/*         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
-			overflow-x: hidden;
+			overflow: hidden;
 		}
 		
-/* 		.overflow-auto{ */
-/* 			overflow: hidden; */
-/* 		}  */
+		.overflow-auto{
+			overflow: hidden;
+		} */
 .row>div {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
@@ -116,7 +124,10 @@
 	order: 0;
 	flex-grow: 0;
 }
-
+#row1>div {
+	padding-left: 0px;
+	padding-right: 0px;
+}
 #Exhibition {
 	width: 5.938rem;
 	height: 1.5rem;
@@ -655,7 +666,7 @@ font-family: 'Spoqa Han Sans Neo';
 				</div>
 
 				<div class="content">
-					<div class="row" style="padding: 1rem;">
+					<div class="row" id="row1" style="padding: 1rem;">
 						<div class="col-sm-12 h2" style="text-align: left; margin-left: auto; margin-bottom: 20px;">
 							<div class="main-title">나의 회원등급</div>
 						<div class="col-12 h3" style="margin-top:2rem; margin-bottom:2rem;"> 

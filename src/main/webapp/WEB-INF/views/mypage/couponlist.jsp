@@ -30,11 +30,14 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -562,8 +565,8 @@ button {
 				</div>
 				</div>
 				
-				<div class="content" style="margin-top:1rem;">
-					<div class="row">
+				<div class="content" >
+					<div class="row" id="row1" style="padding:1rem;">
 						<div class="col-12 H5" style="">
 							나의 쿠폰
 						</div>

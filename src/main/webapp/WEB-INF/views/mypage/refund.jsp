@@ -28,15 +28,17 @@
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
-
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
