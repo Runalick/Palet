@@ -504,6 +504,12 @@ min-width: 28.125rem;
 .password{
 width: 28.125rem;
 }
+.kakaopw{
+color:#febd1a;
+}
+.kakaopw:hover{
+color:#f9e000;
+}
 </style>
 </head>
 <body style="overflow-x: hidden;">
@@ -701,17 +707,10 @@ width: 28.125rem;
                      개인정보 변경/탈퇴
                   </div>
                </div>
-<!--                비밀번호 확인 -->
-               <div class="row info" id="row1" style="padding:1rem;">
-                  <div class="col-12 h3_2" style="margin-bottom:1.25rem;">
-                   비밀번호 확인 후 개인정보를 제공합니다.
-                  </div>
-                  <input type="password" class="password h3_2" style="font-size:1rem;" placeholder="비밀번호를 입력해 주세요.">
-                  <button class="btn2" id="pwcheck" style="width:6rem; margin-left:1.5rem;height:2.7rem;">확인</button>
-               </div>
+
 
 <!--                개인정보 수정 -->
-               <div class="row check" id="row1" style="padding:1rem; padding-top:0px; display:none;">
+               <div class="row check" id="row1" style="padding:1rem; padding-top:0px;">
                <div class="col-2 h3_2" style="padding-top: 10px;">이메일  </div>
                <div class="col-9 h3_2"  style="padding-top: 10px;">  ${dto.email } </div>
                  
@@ -738,7 +737,7 @@ width: 28.125rem;
                               </div>
                               <div class="modal-body">
                                  <input type="text" id="name" maxlength="5" name="name"
-                                    placeholder="이름을 작성해주세요"><br> <div style="text-align:left;padding-left:0.75rem;padding-top:0.25rem;">이름은
+                                    placeholder="이름을 작성해주세요"><br> <div style="text-align:left;text-align:center;padding-left:0.75rem;padding-top:0.25rem;">이름은
                                     최대 5글자까지 입니다.</div>
                               </div>
                               <div class="modal-footer">
@@ -783,8 +782,9 @@ width: 28.125rem;
                                        placeholder="비밀번호를 입력해주세요" ><br>
                                     <span id="pwck" style="display: none">비밀번호 확인중</span><br>
                                     <input type="password" id="newpwck" maxlength="12"
-                                       placeholder="비밀번호를 다시 입력해주세요"><br> <span
-                                       id="pwck2" style="display: none">비밀번호 확인중</span><br>
+                                       placeholder="비밀번호를 다시 입력해주세요"><br>
+                                        <span id="pwck2" style="display: none">비밀번호 확인중</span><br>
+                                     <a class="kakaopw" href="https://accounts.kakao.com/weblogin/account/security/change_password">카카오 로그인시 비밀번호 변경은 여기를 눌러주세요</a>
                                  </div>
                                  <div class="modal-footer">
                                     <button type="submit" class="btn2" id="pwbtn"
@@ -798,7 +798,7 @@ width: 28.125rem;
                   </div>
                      </div>
 <!--                회원 탈퇴 -->
-               <div class="row check" id="row1" style="padding:1rem; display:none;">
+               <div class="row check" id="row1" style="padding:1rem;">
                   <div class="col-12 main-info" style="margin-top:3.8rem;">
                         회원 탈퇴 주의사항
                   </div>
@@ -874,10 +874,7 @@ width: 28.125rem;
 
 
    <script>
-   $("#pwcheck").on("click",function(){
-	   $(".info").css("display","none");
-	   $(".check").css("display","block");
-   })
+ 
    
    
    

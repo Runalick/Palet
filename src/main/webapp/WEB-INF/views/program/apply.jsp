@@ -21,8 +21,6 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 
-
-
 <link
 	href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.css'
 	rel='stylesheet' />
@@ -947,7 +945,7 @@ border-radius: 20px !important;
 						<!-- 큰 화면 결제-->
 						<div class="col-lg-1 col-12 mb-5"></div>
 						<div class="col-lg-4 col-12"
-							style="margin: auto; text-align: center; padding-left: 1.564rem; padding-right: 1.564rem;">
+							style=" text-align: center; padding-left: 1.564rem; padding-right: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px; text-align: left;">결제
 								상세</div>
 							<div class="row  rec1" id=row2
@@ -973,25 +971,21 @@ border-radius: 20px !important;
 							</div>
 
 
-							<div class="col-12 h4 "
-								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관
-								및 취소 환불 규정을 확인하였으며 결제에 동의합니다.</div>
-							<div class="col-12 caption"
-								style="margin-top: 0.4rem; text-align: left;">
-								이용약관 동의<a class=policy>보기</a>
-							</div>
+					<div class="col-12 h4 " 
+								style="color: #637381; margin-top: 1.75rem; text-align: left;">약관을 확인하였으며 결제에 동의합니다.</div>
 							<div class="col-12 caption "
 								style="margin-top: 0.4rem; text-align: left;">
-								개인정보 수집 및 이용 동의<a class=policy>보기</a>
+								이용약관 동의<span class=policy id="payspan2" style="cursor:pointer;">보기</span>
 							</div>
-							<div class="col-12 caption "
+							<div class="col-12 caption " 
 								style="margin-top: 0.4rem; text-align: left;">
-								결제 대행 서비스 이용약관<a class=policy>보기</a>
+								개인정보 수집 및 이용 동의<span class=policy id="payspan4" style="cursor:pointer;">보기</span>
 							</div>
-							<div class="col-12 caption "
-								style="margin-top: 0.4rem; text-align: left;">
-								취소 환불 규정<a class=policy>보기</a>
+							<div class="col-12 caption " 
+								style="margin-top: 0.4rem; text-align: left;">결제 대행 서비스 이용약관
+							<span class=policy id="payspan6" style="cursor:pointer;">(주)KG이니시스</span>
 							</div>
+						
 
 
 						</div>
@@ -1111,6 +1105,33 @@ border-radius: 20px !important;
 
 </body>
 <script>
+
+$("#payspan2").on("click", function(){
+window.open("/member/agreement1","이용약관", "width=700, height=500");
+})
+
+$("#payspan4").on("click", function(){
+window.open("/member/agreement2","개인정보 수집 및 이용", "width=700, height=500");
+})
+
+$("#payspan6").on("click", function(){
+let link = 'https://www.inicis.com/terms';
+window.open(link, "결제 대행 서비스 이용약관", "width=700, height=500");
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
 $(".logout").on("click", function(){
     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
     Kakao.isInitialized();
@@ -1419,9 +1440,7 @@ document.addEventListener('DOMContentLoaded', function() {
        initialView: 'dayGridMonth',
  
   
-     
-       
- 
+   
      	   dateClick: function(info) {
      		    console.log(info.dateStr);
      		    console.log(dateString);
@@ -1457,29 +1476,19 @@ document.addEventListener('DOMContentLoaded', function() {
      			   alert('프로그램 개최 기간(2022.03.16 ~ 2022.10.30)이 아닙니다.');
      			  return false;
      		   }
-     		     
-     		       
-     		    
-     		    
-     		    
+
     
     	let result = confirm('해당 날짜 ('+info.dateStr+')로 예약 하시겠습니까?');
-     //  	    alert('Date: ' + info.dayEl);
+  
    		if(result){
    			$(".date").val(info.dateStr);
    		
-   		//	selectable: true;
-   			console.log('hi');
-   		}else{
-return false;
-
-
-   		}
-      
-       	  } 
-      
-     
    
+   			console.log('hi');
+   		}
+
+       	  } 
+
      });
      
     
@@ -1490,37 +1499,7 @@ return false;
   
     	}); 
     	
- 
-/*      
-var calendar = new FullCalendar.Calendar(calendarEl, {
-	 alert('ddfdf');
-	});
-  */
-	
-	
-	/* $('.fc-daygrid-day-frame').on('click',function(){
-		
-		$(this).css('background-color','red');
-		alert('hi');
-		
-		
-	})
-		$('.fc-daygrid-day').on('click',function(){
-		
-		$(this).css('background-color','red');
-		alert('hi');
-		
-		
-	})
-	 */
-/* 	dayClick: function(date, allDay, jsEvent, view) {
-   var yy=date.format("YYYY");
-   var mm=date.format("MM");
-   var dd=date.format("DD");
-   var ss=date.format("dd");
-   onchangeDay(yy,mm,dd,ss);
-     }, 
-	 */
+
 
 
 	function iamport() {
@@ -1570,7 +1549,7 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
 			pay_method : 'card',
 			merchant_uid : 'merchant_' + new Date().getTime(),
 			name : '예매', //결제창에서 보여질 이름
-			amount : price3 //실제 결제되는 가격
+			amount : price3, //실제 결제되는 가격
 			buyer_email : $(".email").val(),
 			buyer_name : $(".username").val(),
 			buyer_tel : $(".phone").val(),

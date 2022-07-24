@@ -209,8 +209,10 @@ with pay1 as (
 	
 	
 
-	
-
+<!-- 	개인정보수정/ 비번 확인 -->
+	<select id="pwcheck" resultType="boolean">
+		select * from member where pw = #{pw} and email = #{email}
+	</select>
 
 	
 <!-- 	프로그램 -->

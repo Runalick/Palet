@@ -29,7 +29,7 @@ public class MypageUserDetailDTO {
 		this.dc = dc;
 		this.used = used;
 	}
-
+	
 	public MypageUserDetailDTO(int line, String et_title, String et_date, Timestamp et_buydate, int e_num,
 			String ep_sysname, String et_booknumber) {
 		super();
