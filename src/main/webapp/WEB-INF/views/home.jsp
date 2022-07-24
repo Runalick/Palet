@@ -58,6 +58,13 @@ border:1px solid white;
 .img{
 cursor:pointer;
 }
+
+.nav-item {
+ margin: auto;
+
+		padding-left: 33px;
+}
+
 /* .explain{ */
 /* position: absolute; opacity: 0;  */
 /* color:black; */
@@ -143,7 +150,7 @@ border:0px;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout"
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
 					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
@@ -189,7 +196,7 @@ border:0px;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link logout" 
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
 					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"

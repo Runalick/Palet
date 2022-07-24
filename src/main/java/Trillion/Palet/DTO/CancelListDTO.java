@@ -14,11 +14,12 @@ public class CancelListDTO {
 	private String category;
 	private int num;
 	private String option1;
+	private int g_seq;
 	
 	public CancelListDTO() {}
 
 	public CancelListDTO(String email, String title, String datee, String booknumber, String state, int cost,
-			String buydate, String pickdate, String sysname, String category, int num, String option1) {
+			String buydate, String pickdate, String sysname, String category, int num, String option1, int g_seq) {
 		super();
 		this.email = email;
 		this.title = title;
@@ -32,6 +33,7 @@ public class CancelListDTO {
 		this.category = category;
 		this.num = num;
 		this.option1 = option1;
+		this.g_seq = g_seq;
 	}
 
 	public String getEmail() {
@@ -130,6 +132,13 @@ public class CancelListDTO {
 		this.option1 = option1;
 	}
 
-	
+	public int getG_seq() {
+		return g_seq;
+	}
+
+	public void setG_seq(int g_seq) {
+		this.g_seq = g_seq;
+	}
+
 	
 }

@@ -79,8 +79,9 @@
 }
 
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 /*         오른쪽 여백 없애기
@@ -917,33 +918,6 @@ color:white;
 			success: function (resp) {
 				for(let i = 0 ; i < resp.length; i++) {
 					let text_html=
-							//"<a href='/mypage/myShoppingDetail?merchant_uid=" + resp[i].merchant_uid + "'>"
-							/* "<div class='row main-area' id='detailView" + i +"'>"
-							+"<div class='col-12 col-md-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
-							+"<div class='col-12 col-md-5 px-3 ellipsis body4'>"
-							+	"<div class='row'>"
-							+		"<div class='col-5 d-none d-md-block px-3'>"
-							+			"<img class='con' src='"+ resp[i].gp_sysname + "' style='width: 120px;'>"
-							+		"</div>"
-							+		"<div class='col-12 col-md-7 p-0'>"
-							+			"<div class='col-12 ellipsis px-3' id='merchant_uid"+ i +"'>" + resp[i].merchant_uid + "</div>"
-							+			"<div class='col-12 d-md-none ellipsis py-3'>"
-							+			"<img class='con' src='"+ resp[i].gp_sysname + "' style='width: 250px;'>"
-							+			"</div>"
-							+			"<div class='col-12 ellipsis px-3'>" + resp[i].G_NAME + "</div>"
-							+			"<div class='col-12 ellipsis px-3'>" + resp[i].pe_name + "</div>"
-							+			"<div class='col-12 ellipsis px-3'>" + resp[i].G_OPTION + "</div>"
-							+		"</div>"	
-							+	"</div>"
-							+"</div>"
-							+ "<div class='col-1 d-none d-md-block px-3 ellipsis body4'>" + resp[i].g_count + "</div>"
-							+"<div class='col-2 px-3 ellipsis body4'>" + resp[i].totalprice + "</div>"
-							+"<div class='col-2 ellipsis px-3 body4' id='del" + i + "'>"
-							+"<div id='state_text"+i+"'></div>"
-							+ "<input type='hidden' id='state" + i + "' value=" + resp[i].state + ">"
-							+ "<input type='hidden' id='uid" + i + "' value=" + resp[i].merchant_uid + ">"
-							+"</div></div>"; */
-							
 							
 							"<div class='row main-area' id='detailView" + i +"'>"
 							+"<div class='col-12 col-md-2 px-3 ellipsis body4' id='paytime" + i + "'>" + resp[i].pay_time +"</div>"
@@ -1110,6 +1084,31 @@ color:white;
 				    		}  
 							
 							for(let i=0; i<resp.length;i++){
+								$("#detailView"+i).on("click", function(){
+									location.href="/mypage/myShoppingDetail?merchant_uid=" + resp[i].MERCHANT_UID 
+								})
+								
+								
+						    	if($("#state"+i).val()=='BU'){
+						    		$("#state_text" + i).text("주문완료");
+						    	} else if($("#state"+i).val()=='CU'){
+						    		$("#state_text" + i).text("배송 중");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} else if($("#state"+i).val()=='AU'){
+						    		$("#state_text" + i).text("배송완료");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} else if($("#state"+i).val()=='BC'){
+						    		$("#state_text" + i).text("취소 처리 중");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} else if($("#state"+i).val()=='AC'){
+						    		$("#state_text" + i).text("취소완료");
+						    		$("#cancel" + i).attr('style',"display:none;");
+						    	} 
+						    	
+				    		}  
+							
+							
+							for(let i=0; i<resp.length;i++){
 								let date = new Date($("#paytime"+i).text());
 								let enddate = new Date(date.setDate(date.getDate()+1));
 								
@@ -1118,6 +1117,12 @@ color:white;
 								let del = new Date($("#paytime"+i).text());
 								let delend = new Date(del.setDate(del.getDate()+3));
 								
+								console.log("주문완료시각 : " + $("#paytime"+i).text());
+								console.log("배송중변경일 : " +enddate);
+								console.log("현재날짜 : " +today);
+								console.log("배송완료날짜 : " +delend);
+								console.log($("#merchant_uid"+i).val());
+								console.log($("#state"+i).val()=='CU');
 								
 								// 주문완료 -> 배송 중 (1일뒤)
 								if($("#state"+i).val()=='BU'){
@@ -1126,7 +1131,7 @@ color:white;
 											url:"/mypage/changeStateCU",
 											data: {"merchant_uid":$("#merchant_uid"+i).val()}
 										}).done(function(resp){
-											location.reload();
+											locaiton.reload();
 										})
 									}
 								}
@@ -1142,7 +1147,9 @@ color:white;
 										})
 									}
 								}	
-							}	
+								
+								
+							}  
 					},
 				}); // ajax
 		    } // if

@@ -1,5 +1,7 @@
 package Trillion.Palet.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.MemberDTO;
+import Trillion.Palet.DTO.MyGoodsDTO;
 import Trillion.Palet.service.MemberService;
 
 
@@ -107,6 +110,7 @@ public class MemberController {
 	@RequestMapping("mypage")
 	public String myapge(Model model) throws Exception{
 		MemberDTO dto = mServ.getmember((String)session.getAttribute("loginEmail"));
+		
 		model.addAttribute("dto",dto);
 		return "/mypage/mypage"; 
 	}
@@ -146,6 +150,35 @@ public class MemberController {
 	@RequestMapping("delmember")
 	public String delmember()throws Exception{
 		String email = (String)session.getAttribute("loginEmail");
+		
+		List<String> mygoods = mServ.selectmygoods(email);
+		System.out.println(mygoods);
+		for(String uid:mygoods) {
+			mServ.deletecancel(uid);
+		}
+		
+		List<String> payment = mServ.selectpayment(email);
+		System.out.println(payment);
+		for(String uid:payment) {
+			mServ.deletecancel(uid);
+		}
+		List<String> proticket = mServ.selectproticket(email);
+		System.out.println(proticket);
+		for(String uid:proticket) {
+			mServ.deletecancel(uid);
+		}
+		List<String> exticket = mServ.selectexticket(email);
+		System.out.println(exticket);
+		for(String uid:exticket) {
+			mServ.deletecancel(uid);
+		}
+		
+		mServ.deleteMygoods(email);
+		mServ.deletePayment(email);
+		mServ.deleteProticket(email);
+		mServ.deleteExticket(email);
+		
+		
 		mServ.delmember(email);
 		session.invalidate();
 		return "redirect:/";
