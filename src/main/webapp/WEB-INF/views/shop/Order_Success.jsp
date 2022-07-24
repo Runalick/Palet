@@ -75,14 +75,14 @@
 	padding-right: 20px;
 }
 
-/*         오른쪽 여백 없애기
+         오른쪽 여백 없애기
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
 			overflow: hidden;
 		}
 		
 		.overflow-auto{
 			overflow: hidden;
-		} */
+		} 
 .row>div {
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
