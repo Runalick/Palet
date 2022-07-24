@@ -91,11 +91,12 @@
 	height: 5rem;
 	background-color: white;
 }
-
 .nav-item {
-	margin: auoto;
-	padding-right: 20px;
+ margin: auto;
+
+		padding-left: 33px;
 }
+
 
 		.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl{
 			overflow-x: hidden;
