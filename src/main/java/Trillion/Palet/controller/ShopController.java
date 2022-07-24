@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import Trillion.Palet.DTO.GoodsDTO;
-import Trillion.Palet.DTO.MemberDTO;
 import Trillion.Palet.DTO.MemberDataDTO;
 import Trillion.Palet.DTO.TotalCartDTO;
 import Trillion.Palet.service.CartService;
@@ -32,6 +31,10 @@ public class ShopController {
 	@Autowired
 	private CartService cServ;
 	
+	@Autowired
+	private ShopService shopServ;
+	
+	
 	@RequestMapping("toShop")
 	public String toShop() {
 		
@@ -46,6 +49,11 @@ public class ShopController {
 		//굿즈 관련 정보 
 		List<GoodsDTO> list = gServ.getoption(dto.getG_num());
 		
+		if(email != null) {
+		MemberDataDTO mdto = shopServ.selectGrade(email);
+		
+		model.addAttribute("mdto",mdto);
+		}
 		//장바구니 담긴 갯수
 		if(email !=null) {
 			TotalCartDTO totalDto=cServ.total(email);

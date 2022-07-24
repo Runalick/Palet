@@ -121,5 +121,7 @@ public class MemberService {
 		return dao.updateCoupon(et_cpserial, et_email);
 		
 	}
+
+	
 	
 }
