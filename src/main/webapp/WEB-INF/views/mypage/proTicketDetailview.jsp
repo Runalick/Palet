@@ -20,7 +20,8 @@
 <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css'
 	rel='stylesheet' type='text/css'>
 <script src="/js/qrmaker.js"></script>
-
+<!-- 카카오 로그인 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style>
 @charset "UTF-8";
 
@@ -30,11 +31,14 @@
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
-	}html{
+
+	}
+	html {
 		font-size: 12px;
 	}
 }
-@media ( min-width : 1650px) {
+
+@media ( min-width : 1280px) {
 	.container {
 		max-width: 1280px;
 	}
@@ -354,7 +358,6 @@ padding: 0.3rem 1rem;
 font-family: 'Spoqa Han Sans Neo';
 font-size:1.625rem;
 padding-bottom:1rem;
-  margin-top:1rem;
 
 }
 .body5{
@@ -539,7 +542,7 @@ margin-bottom:0.5rem;
 
 		<div class="container-fluid">
 			<div class="container-fluid"
-			style="background-color: white; position: fixed;">
+			style="background-color: white; ">
 			<div class="container">
 				<c:choose>
 				<c:when test="${loginEmail =='admin@palet.com'}">
@@ -572,8 +575,8 @@ margin-bottom:0.5rem;
 					                <li class="nav-item"> <a id="Shop" class="nav-link" href="/shop/toShop"
 					                        style="padding-left:0px; padding-right:0px;">Shop</a> </li>
 					                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Admin" class="nav-link" href="/admin/adminMain"
 					                        style="padding-left:0px; padding-right:0px;">Admin</a> </li>
@@ -618,8 +621,8 @@ margin-bottom:0.5rem;
 					                <li class="nav-item"> <a id="Cart" class="nav-link" href="/cart/cartlist"
 						                        style="padding-left:0px; padding-right:0px;">Cart</a> </li>
 						                        
-					                <li class="nav-item"> <a id="Logout" class="nav-link" href="/member/loginPage" onclick="return logout();"
-					                        style="padding-left:0px; padding-right:0px;">Logout</a> </li>
+					                <li class="nav-item"> <a id="Logout" class="nav-link logout" href="#"
+                                       style="padding-left:0px; padding-right:0px;">Logout</a> </li>
 					                        
 					                <li class="nav-item"> <a id="Mypage" class="nav-link" href="/mypage/main"
 					                        style="padding-left:0px; padding-right:0px;">Mypage</a> </li>
@@ -792,11 +795,12 @@ margin-bottom:0.5rem;
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
 				
+				<div class="col-12">
 				<c:if test="${dto.pro_state == 'BU' }">
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModa2">구매 취소</button>
 				</c:if>
 				<button class="btnbtn" data-bs-toggle="modal" data-bs-target="#exampleModal">티켓 확인하기</button>
-				
+				</div>
 				</div>
 				</div>
 
@@ -1120,6 +1124,23 @@ $("body").on("click", function(e){
 		}
 	});
     
+	
+	 $(".logout").on("click", function(){
+	        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	        Kakao.isInitialized();
+	        if (!Kakao.Auth.getAccessToken()) {
+	           console.log('Not logged in.');
+	           location.href="/member/logout";
+	            return ;
+	        }
+	        
+	         Kakao.Auth.logout(function() {
+	              console.log(Kakao.Auth.getAccessToken());
+	              location.href="/member/logout";
+	            });
+	        return true;
+	     });
+	
 	</script>
 	<!-- Channel Plugin Scripts -->
 <script>

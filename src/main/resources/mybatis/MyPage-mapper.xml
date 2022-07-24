@@ -122,7 +122,6 @@ with pay1 as (
 <!-- 	굿즈 -->
 <!-- TO_CHAR(pay_time, 'YYYY-MM-DD HH24:MI:SS') AS pay_time jdbcType="TIMESTAMP"  javaType="java.util.Date -->
 	<resultMap type="HashMap" id="selectMap">
-		<result property="line" column="line"/>
 		<result property="merchant_uid" column="p.merchant_uid"/>
 		<result property="totalprice" column="p.totalprice"/>
 		<result property="g_name" column="p.g_name"/>
@@ -131,15 +130,12 @@ with pay1 as (
 	</resultMap>
 
 	<select id="myShopping" parameterType="HashMap" resultType="HashMap" resultMap="selectMap">
-		
-		select * from (select row_number() over(order by p.pay_time desc) line,
-		p.merchant_uid, p.totalprice, p.g_name,
-		TO_CHAR(pay_time, 'YYYY-MM-DD') AS pay_time,
-		mg.state
+		select p.merchant_uid, p.totalprice, p.g_name,
+		TO_CHAR(pay_time, 'YYYY-MM-DD') AS pay_time, mg.state
 		from payment p join mygoods mg on(p.merchant_uid = mg.merchant_uid)
 		where p.email=#{email}
 		group by p.merchant_uid, p.totalprice, p.g_name,
-		pay_time,mg.state ) where line between #{limit} and #{limit}+9
+		pay_time,mg.state order by pay_time desc
 	</select>
 
 	
