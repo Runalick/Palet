@@ -806,8 +806,8 @@ height: 3.625rem;
 					</div>
 				
 				
-					<div class="col-12 col-sm-3 body4" style="margin-top:1.25rem;">주문번호</div>
-					<div class="col-12 col-sm-9 body4" style="margin-top:1.25rem;">${dto.et_booknumber }</div>
+					<div class="col-12 col-sm-3 body4" >주문번호</div>
+					<div class="col-12 col-sm-9 body4" >${dto.et_booknumber }</div>
 					<div class="col-12 col-sm-3 body4">주문일자</div>
 					<div class="col-9 col-sm-9 body4">${dto.et_buydate }</div>
 					<div class="col-3 col-sm-3 body4">주문자</div>
