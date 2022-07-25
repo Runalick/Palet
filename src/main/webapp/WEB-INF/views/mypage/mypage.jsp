@@ -58,6 +58,7 @@ max-width: 1280px;
 
 html {
 
+
 font-size: 16px;
 
 }
@@ -312,6 +313,7 @@ font-size: 16px;
    .body4 {
       font-size: 1.875rem;
    }
+ 
 }
 
 /* 네비 */
@@ -513,10 +515,10 @@ color:#f9e000;
 }
 </style>
 </head>
-<body style="overflow-x: hidden;">
+<body style="overflow-x: hidden;  ">
 
       <div class="container-fluid"
-         style="background-color: white;">
+         style="background-color: white; ">
          <div class="container">
             <c:choose>
             <c:when test="${loginEmail =='admin@palet.com'}">
