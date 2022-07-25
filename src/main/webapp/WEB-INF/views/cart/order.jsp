@@ -1410,7 +1410,7 @@ margin-bottom:0.5rem;
 	    		$.ajax({
 	            	url:"/cart/select_cart"
 	            }).done(function(resp){
-	            	console.log(resp);
+// 	            	console.log(resp);
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
 	            		
@@ -1439,8 +1439,8 @@ margin-bottom:0.5rem;
 					$.ajax({
 						url:"/shop/selectMemberPoint"
 					}).done(function(resp){
-						console.log("포인트 조회 결과");
-						console.log(resp);
+// 						console.log("포인트 조회 결과");
+// 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
 							
 							myPoint = resp[0].point;
@@ -1464,8 +1464,8 @@ margin-bottom:0.5rem;
 					$.ajax({
 						url:"/shop/selectMemberData"
 					}).done(function(resp){
-						console.log("쿠폰결과");
-						console.log(resp);
+// 						console.log("쿠폰결과");
+// 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
 							
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+" - "+resp[i].dc+"원 할인<input type='hidden' value="+resp[i].serial+"></li>")
@@ -1487,7 +1487,7 @@ margin-bottom:0.5rem;
 							data:{g_seq:arrG_seq[i],
 								cartstock:arrCartstock[i]}
 						}).done(function(resp){
-							console.log(resp);
+// 							console.log(resp);
 	
 						})
 					}
@@ -1513,7 +1513,7 @@ margin-bottom:0.5rem;
 				$(".select-ul1").toggle();
 				let text = $(this).text();
 				serial = $(this).children().val();
-				console.log(serial);
+// 				console.log(serial);
 		    	$("#select1").text(text);
 		    	$("#select2").text(text);
 		    	
@@ -1778,7 +1778,7 @@ margin-bottom:0.5rem;
 	    buyer_postcode : buyer_postcode,
 	    delivery_text : $(".delivery_text").val()
 	}, function(rsp) {
-		console.log(rsp);
+// 		console.log(rsp);
 	    if ( rsp.success ) {
             $.ajax({
                 url:"/pay/insert",
@@ -1801,7 +1801,7 @@ margin-bottom:0.5rem;
                 type:"post",
                 dataType:"json"
             }).done(function(resp){
-               console.log(resp)
+//                console.log(resp)
                for(let i = 0; i < arrG_name.length; i++){
                    $.ajax({
                		url:"/pay/myGoods",
@@ -1830,7 +1830,7 @@ margin-bottom:0.5rem;
                		},
                		async : false
                	}).done(function(resp){
-					console.log($(".pointinput1").val())
+// 					console.log($(".pointinput1").val())
                	})
  
                };
@@ -1841,7 +1841,7 @@ margin-bottom:0.5rem;
 	       				addpoint : LetaddPoint},
 	       				async:false
 	       		}).done(function(resp){
-	       			console.log("point 정산 성공");
+// 	       			console.log("point 정산 성공");
 	       				
 	       		});
 
@@ -1852,7 +1852,7 @@ margin-bottom:0.5rem;
 							"serial" : serial},
 							async : false
 		       		}).done(function(resp){
-		       			console.log("coupon 정산 성공");
+// 		       			console.log("coupon 정산 성공");
 		       				
 		       		});
 	       	 	}
@@ -1863,7 +1863,7 @@ margin-bottom:0.5rem;
        				data:{cart_seq : arrCart_seq[i]},
        				async : false
        			}).done(function(resp){
-       				console.log("cart 삭제성공");
+//        				console.log("cart 삭제성공");
        			})
                }
                
@@ -1886,13 +1886,13 @@ margin-bottom:0.5rem;
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
+//               console.log(Kakao.Auth.getAccessToken());
               location.href="/member/logout";
             });
         return true;
