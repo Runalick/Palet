@@ -1181,7 +1181,7 @@ background: #FFFFFF;
 											</div>
 				
 										<div class="col-12 write-contents" style="display:none;">
-											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40'></textarea>
+											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40' ></textarea>
 										</div>
 									</div>
 										<div class="row payinfo" style="margin-bottom:1rem;">
