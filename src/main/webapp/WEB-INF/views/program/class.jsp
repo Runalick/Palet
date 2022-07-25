@@ -611,9 +611,9 @@ padding:0px;
 					style="margin-top: 2.5rem; text-align: center;">Program</div>
 				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
 					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
+					<li style="width: 4.938rem;">어린이</li>
 					<li style="width: 4.938rem; color: #919EAB;"><a
 						class="exlink" href="/event/eventPage">이벤트</a></li>
-					<li style="width: 4.938rem;">어린이</li>
 
 				</ul>
 			</div>
