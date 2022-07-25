@@ -1003,8 +1003,8 @@ function setTotalInfo() {
 		</div>
 	</div>
 	<!-- 푸터단 -->
-
-<div class="row" id="footer" style = "margin-top:12.5rem;">
+	<div class="container-fluid">
+		<div class="row" id="footer" style = "margin-top:12.5rem;">
             <div class="container" style="margin-left:2.5rem;">
                 <div class="row">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
@@ -1014,6 +1014,7 @@ function setTotalInfo() {
                 </div>
             </div>
         </div>
+    </div>
 	<script>
 	window.onload = function(){
 		$.ajax({
