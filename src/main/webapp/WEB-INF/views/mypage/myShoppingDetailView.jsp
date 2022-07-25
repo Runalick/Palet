@@ -1026,7 +1026,7 @@ background: #FFFFFF;
 				
 				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
 					<div class="row">
-						<div class="col-1" style="padding-left:2rem;">
+						<div class="col-1" >
 							<button class='vector'>
 							<img src="/images/Vector.png">
 							</button>
@@ -1323,19 +1323,30 @@ $(".pay-cancel").on("click",function(){
 		location.reload();
 	})
 })
-
+$( window ).resize(function() {   //창크기 변화 감지
+		open_chatroom();
+	});
+	
+	function open_chatroom(){ 
+		var windowWidth = $( window ).width();
+		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
+			$(".navi-menu").css({"display":"none"});
+		} else {      //창 가로 크기가 500보다 클 경우  
+			$(".navi-menu").css({"display":"block"});
+		}
+		}
 
 //선택박스 화살표 방향 이미지
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
-			$("#select").css({"background":"url('/images/updownarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").toggle();
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$(".navi-menu").css({"display":"none"});
 			
 			click = true;
 		}else{
 			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").toggle();
+			$(".navi-menu").css({"display":"block"});
 			click = false;
 		}
 	});
