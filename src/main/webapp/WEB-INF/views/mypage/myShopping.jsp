@@ -915,12 +915,12 @@ window.onload= function(){
 		let del = new Date($($(".paytime")[i]).text());
 		let delend = new Date(del.setDate(del.getDate()+3));
 		
-		console.log("주문완료시각 : " + ($($(".paytime")[i]).text()));
-		console.log("배송중변경일 : " +enddate);
-		console.log("현재날짜 : " +today);
-		console.log("배송완료날짜 : " +delend);
-		console.log($($(".merchant_uid")[i]).val());
-		console.log($($(".state")[i]).val());
+// 		console.log("주문완료시각 : " + ($($(".paytime")[i]).text()));
+// 		console.log("배송중변경일 : " +enddate);
+// 		console.log("현재날짜 : " +today);
+// 		console.log("배송완료날짜 : " +delend);
+// 		console.log($($(".merchant_uid")[i]).val());
+// 		console.log($($(".state")[i]).val());
 		
 		// 주문완료 -> 배송 중 (1일뒤)
 		if($($(".state")[i]).val()=='BU'){
@@ -985,13 +985,13 @@ window.onload= function(){
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getccessToken());
+//               console.log(Kakao.Auth.getccessToken());
               location.href="/member/logout";
             });
         return true;

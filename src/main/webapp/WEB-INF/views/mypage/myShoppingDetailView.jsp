@@ -1121,7 +1121,7 @@ background: #FFFFFF;
 									coupon = ${product[0].cp_discount };
 								}
 								price = ${payment.totalprice} + usedpoint + coupon - 3000;
-								console.log(price);
+// 								console.log(price);
 								
 								
 								$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -1218,7 +1218,7 @@ background: #FFFFFF;
 													$("#serical").text("${product[0].serial }");
 												}
 												price = ${payment.totalprice} + usedpoint + coupon - 3000;
-												console.log(price);
+// 												console.log(price);
 												
 												
 												$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -1314,12 +1314,12 @@ $(".vector").on("click", function(){
 
 //구매 취소 확인 버튼
 $(".pay-cancel").on("click",function(){
-	console.log($(".input").val());
+// 	console.log($(".input").val());
 	$.ajax({
 		url:"/mypage/payCancel",
 		data:{content:$(".input").val(), booknumber:$(this).val(),category:'G'}
 	}).done(function(resp){
-		console.log("성공");
+// 		console.log("성공");
 		location.reload();
 	})
 })
@@ -1431,13 +1431,13 @@ $(".logout").on("click", function(){
     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
     Kakao.isInitialized();
     if (!Kakao.Auth.getAccessToken()) {
-       console.log('Not logged in.');
+//        console.log('Not logged in.');
        location.href="/member/logout";
         return ;
     }
     
      Kakao.Auth.logout(function() {
-          console.log(Kakao.Auth.getAccessToken());
+//           console.log(Kakao.Auth.getAccessToken());
           location.href="/member/logout";
         });
     return true;

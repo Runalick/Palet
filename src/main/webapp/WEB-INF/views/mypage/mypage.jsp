@@ -537,7 +537,7 @@ color:#f9e000;
                      <div class="collapse navbar-collapse justify-content-end"
                         id="collapsibleNavbar">
                         <ul class="navbar-nav" style="background: white;">
-                           <li class="nav-item"> <a id="About" class="nav-link" href="about"
+                           <li class="nav-item"> <a id="About" class="nav-link" href="/about"
                                     style="padding-left:0px; padding-right:0px;">About</a> </li>
                                     
                                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -943,14 +943,14 @@ color:#f9e000;
              Kakao.API.request({
                    url: '/v1/user/unlink',
                    success: function(response) {
-                       console.log(response);
+//                        console.log(response);
                        //callback(); //연결끊기(탈퇴)성공시 서버에서 처리할 함수
                        Kakao.Auth.logout();
                        location.href = "/member/delmember";
                    },
                    fail: function(error) {
-                       console.log('탈퇴 미완료')
-                       console.log(error);
+//                        console.log('탈퇴 미완료')
+//                        console.log(error);
                    }
                })
              
@@ -1126,13 +1126,13 @@ color:#f9e000;
    $(".logout").on("click", function(){
          
          if (!Kakao.Auth.getAccessToken()) {
-            console.log('Not logged in.');
+//             console.log('Not logged in.');
             location.href="/member/logout";
              return ;
          }
          
           Kakao.Auth.logout(function() {
-               console.log(Kakao.Auth.getAccessToken());
+//                console.log(Kakao.Auth.getAccessToken());
                location.href="/member/logout";
              });
          return true;

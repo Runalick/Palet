@@ -1076,12 +1076,12 @@ height: 3.625rem;
 	})
 	//구매 취소 확인 버튼
 	$(".pay-cancel").on("click",function(){
-		console.log($(".input").val());
+// 		console.log($(".input").val());
 		$.ajax({
 			url:"/mypage/payCancel",
 			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
 		}).done(function(resp){
-			console.log("성공");
+// 			console.log("성공");
 			location.reload();
 		})
 	})
@@ -1137,11 +1137,11 @@ $("body").on("click", function(e){
 	});
 	function state(){
 		if(${dto.et_state =='BU'}){
-			console.log("hi")
+// 			console.log("hi")
 			$("#state").text("구매완료");
 			$("#state").css("font-weight","700");
 		}else if(${dto.et_state =='AU'}){
-			console.log("bte")
+// 			console.log("bte")
 			$("#state").text("사용완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
@@ -1191,8 +1191,8 @@ $("body").on("click", function(e){
 		}
 	});
 	for(let i=0;i<$(".qr").length;i++){
-		console.log($(".booknumber")[i]);
-		console.log($(".booknumber")[i].value);
+// 		console.log($(".booknumber")[i]);
+// 		console.log($(".booknumber")[i].value);
 		var qrcode = new QRCode($(".qr")[i], {
             text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
             width: 90,
@@ -1207,13 +1207,13 @@ $("body").on("click", function(e){
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
+//               console.log(Kakao.Auth.getAccessToken());
               location.href="/member/logout";
             });
         return true;
