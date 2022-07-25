@@ -210,7 +210,7 @@
 /* footer */
 #footer {
 	background: #F4F6F8;
-	height: 13.25rem;
+	/* height: 13.25rem; */
 }
 
 <!--
@@ -228,7 +228,7 @@
 }
 
 .content1 {
-	display: inline-block;
+	/* display: inline-block; */
 	width: 36.375rem;
 }
 
@@ -279,6 +279,12 @@
 	}
 	.info-row{
 	padding-left:2rem;
+	padding-right: 2rem;
+	margin-left:2rem;
+	}
+	
+	h3{
+	
 	}
 	
 }
@@ -288,6 +294,7 @@
 }
 .askinfo-row{
 padding-left:2rem;
+padding-right:2rem;
 }
 	
 }
@@ -312,7 +319,7 @@ margin-bottom:2.25rem;
 .input{
 margin-top:0.5rem;
 width:100%;
-display: flex;
+display: flex;s
 flex-direction: row;
 align-items: center;
 padding: 10px 12px;
@@ -517,8 +524,8 @@ border-radius: 20px;
 				</div>
 				<div class="col-12  col-lg-6 border-text  ">
 					<div class="row info-row"  >
-						<div class="col-12 h3" style="padding-left:0.8rem;">palette? pallet? palet!!</div>
-						<div class="col-12 body2" style="padding-left:0.8rem;">그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
+						<div class="col-12 h3" >palette? pallet? palet!!</div>
+						<div class="col-12 body2" >그림을 그릴 때 사용하는 ‘palette’는 다양한 색을 가진 미술도구입니다.
 ‘pallet’는 대형 화물을 옮길 때 사용되는 받침대입니다.
 이 두 단어를 합성하여 만들어진 ‘palet’라는 이름는 ‘여러가지 색을 가진 다양한 작품, 다채로운 즐거움을 전달하자’는 의미를 담고있습니다.</div>
 					
@@ -556,17 +563,17 @@ border-radius: 20px;
 		<div class="row" id="row1" style="margin-top:5rem; margin-bottom:5rem;">
 				<div class="col-12 col-lg-6 askdiv">
 				<div class="row" >
-				<div class="col-4 col-lg-6 " id="odd1">
+				<div class="col-4 col-lg-6 p-2" id="odd1">
 					<img src="/images/ask1.png"  ></div>
-				<div class="col-4 col-lg-6 " id="even1">
+				<div class="col-4 col-lg-6 p-2" id="even1">
 					<img src="/images/ask2.png" ></div>
-				<div class="col-4 col-lg-6 " id="odd2">
+				<div class="col-4 col-lg-6 p-2" id="odd2">
 				<img src="/images/ask3.png " ></div>
-				<div class="col-4 col-lg-6 " id="even2">
+				<div class="col-4 col-lg-6 p-2" id="even2">
 				<img src="/images/ask4.png " ></div>
-				<div class="col-4 col-lg-6 "id="odd3">
+				<div class="col-4 col-lg-6 p-2"id="odd3">
 					<img src="/images/ask5.png" ></div>
-				<div class="col-4 col-lg-6 " id="even3">
+				<div class="col-4 col-lg-6 p-2" id="even3">
 					<img src="/images/ask6.png" ></div>
 			
 			
@@ -623,10 +630,10 @@ border-radius: 20px;
 
 		<div class="row" id="footer">
             <div class="container">
-                <div class="row" id="row1">
+                <div class="row">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
-                    <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
+                    <div class="col-12 body2" style = "color: #637381; margin-bottom: 50px;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
                 </div>
             </div>
