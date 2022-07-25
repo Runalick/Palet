@@ -794,13 +794,13 @@ font-family: 'Spoqa Han Sans Neo';
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
+//               console.log(Kakao.Auth.getAccessToken());
               location.href="/member/logout";
             });
         return true;

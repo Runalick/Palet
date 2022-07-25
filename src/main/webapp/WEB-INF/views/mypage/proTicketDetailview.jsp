@@ -651,7 +651,7 @@ background:#F4F6F8;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 			                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 			                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -698,7 +698,7 @@ background:#F4F6F8;
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
 									<li class="nav-item"><a id="About" class="nav-link"
-										href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+										href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 									</li>
 								
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" 
@@ -1065,12 +1065,12 @@ background:#F4F6F8;
 	})
 	//구매 취소 확인 버튼
 	$(".pay-cancel").on("click",function(){
-		console.log($(".input").val());
+// 		console.log($(".input").val());
 		$.ajax({
 			url:"/mypage/payCancel",
 			data:{content:$(".input").val(),booknumber:$(this).val(),category:'P'}
 		}).done(function(resp){
-			console.log("성공");
+// 			console.log("성공");
 			location.reload();
 		})
 	})
@@ -1126,11 +1126,11 @@ $("body").on("click", function(e){
 	});
 	function state(){
 		if(${dto.pro_state =='BU'}){
-			console.log("hi")
+// 			console.log("hi")
 			$("#state").text("구매완료");
 			$("#state").css("font-weight","700");
 		}else if(${dto.pro_state =='AU'}){
-			console.log("bte")
+// 			console.log("bte")
 			$("#state").text("사용완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
@@ -1185,13 +1185,13 @@ $("body").on("click", function(e){
 	        Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 	        Kakao.isInitialized();
 	        if (!Kakao.Auth.getAccessToken()) {
-	           console.log('Not logged in.');
+// 	           console.log('Not logged in.');
 	           location.href="/member/logout";
 	            return ;
 	        }
 	        
 	         Kakao.Auth.logout(function() {
-	              console.log(Kakao.Auth.getAccessToken());
+// 	              console.log(Kakao.Auth.getAccessToken());
 	              location.href="/member/logout";
 	            });
 	        return true;
