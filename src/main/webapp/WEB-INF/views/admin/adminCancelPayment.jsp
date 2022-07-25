@@ -285,7 +285,7 @@
     	let checkboxArr = [];
     	$('input[name="checkbox"]:checked').each(function() {
     		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
-    		console.log(checkboxArr)
+//     		console.log(checkboxArr)
     	})
     	
     	$.ajax({
@@ -307,7 +307,7 @@
     	let checkboxArr = [];
     	$('input[name="checkbox2"]:checked').each(function() {
     		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
-    		console.log(checkboxArr)
+//     		console.log(checkboxArr)
     	})
     	
     	$.ajax({
@@ -318,7 +318,7 @@
     			
     		},
     		success : function (result){
-    			console.log(result);
+//     			console.log(result);
     			alert("delete ok!");
     			location.reload();
     		}
