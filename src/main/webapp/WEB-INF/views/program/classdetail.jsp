@@ -829,13 +829,13 @@ $(".logout").on("click", function(){
  Kakao.init('feb50c309d28b138aefe9ddc94d76870');
  Kakao.isInitialized();
  if (!Kakao.Auth.getAccessToken()) {
-    console.log('Not logged in.');
+//     console.log('Not logged in.');
     location.href="/member/logout";
      return ;
  }
  
   Kakao.Auth.logout(function() {
-       console.log(Kakao.Auth.getAccessToken());
+//        console.log(Kakao.Auth.getAccessToken());
        location.href="/member/logout";
      });
  return true;
@@ -864,11 +864,11 @@ $(".logout").on("click", function(){
 		$(".count").text(number);
 
 		let price = $($(this).siblings()[0]).text();
-		console.log(price);
+// 		console.log(price);
 		let price1 = price.replace(",", "");
-		console.log(price1);
+// 		console.log(price1);
 		let price2 = price1.replace("원", "");
-		console.log(price2);
+// 		console.log(price2);
 		finalprice = parseInt(price2);
 		finalprice = finalprice - 19000;
 
@@ -884,7 +884,7 @@ $(".logout").on("click", function(){
 			alert('30매 이상의 단체 예약은 manager@palet.com 으로 연락주세요');
 			return false;
 		}
-		console.log(number);
+// 		console.log(number);
 		$(".count").text(number);
 
 		let price = $($(this).siblings()[0]).text();

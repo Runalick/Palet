@@ -841,7 +841,7 @@ padding-right:0.5rem;
 							<script>
 							price=$("#price").text();
 							$("#price").text(price.replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
-							console.log(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
+// 							console.log(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","))
 							</script>
 							
 							<div class="col-12" id="point">${Math.round(dto.g_price*0.05) }p <span class="gradepoint"></span></div>
@@ -1054,12 +1054,11 @@ $(".li").on("click", function () {
 		open_chatroom();
 	});
 	window.onload = function(){
-		console.log('${mdto.grade}');
 		if('${mdto.grade}'==null){
 			$(".gradepoint").text("");
 		}
 		else if('${mdto.grade}' == 'White'){
-			console.log()
+// 			console.log()
 			$(".gradepoint").text("(1%) 적립");
 		}else if('${mdto.grade}' == 'Gray'){
 			$(".gradepoint").text("(5%) 적립");
@@ -1104,13 +1103,13 @@ $(".li").on("click", function () {
 			g_num=$(item).find($(".hidden_g_seq"));
 			console.log(g_num.val());
 			cartstock = $(item).find($(".count"));
-			console.log(cartstock.text());
+// 			console.log(cartstock.text());
 			g_numArray.push(g_num.val());
 			cartstockArray.push(cartstock.text());
 		})
 		
 		
-		console.log(data);
+// 		console.log(data);
 		
 		$.ajax({
 			url:"/cart/directSelect_cart",
@@ -1119,7 +1118,7 @@ $(".li").on("click", function () {
 			dataType:"json",
 			 traditional: true,
 		}).done(function(resp){
-			console.log(resp);
+// 			console.log(resp);
 			if(resp==false){
 				if(confirm("바로 구매로 가시겠습니까?")){
 					location.href="/cart/Toorder"; 
@@ -1147,15 +1146,15 @@ $(".li").on("click", function () {
 		var cartstockArray=[];
 		$(".choose").each(function(index,item){
 			g_num=$(item).find($(".hidden_g_seq"));
-			console.log(g_num.val());
+// 			console.log(g_num.val());
 			cartstock = $(item).find($(".count"));
-			console.log(cartstock.text());
+// 			console.log(cartstock.text());
 			g_numArray.push(g_num.val());
 			cartstockArray.push(cartstock.text());
 		})
 		
 		
-		console.log(data);
+// 		console.log(data);
 		
 		$.ajax({
 			url:"/cart/isGoodsExist",
@@ -1163,7 +1162,7 @@ $(".li").on("click", function () {
 			dataType:"json",
 			 traditional: true,
 		}).done(function(resp){
-			console.log(resp);
+// 			console.log(resp);
 			if(resp==false){
 				if(confirm("장바구니에 담았습니다. 장바구니로 가시겠습니까?")){
 					location.href="/cart/cartlist"; 
@@ -1208,7 +1207,7 @@ $("body").on("click", function(e){
 //옵션 선택 삭제/ 옵션 선택 없을 때 totaldiv 삭제 
 $(document).on("click", ".delete", function(){
 	$(this).parent().remove();
-	console.log($(".choose").length);
+// 	console.log($(".choose").length);
 	
 	
 	
@@ -1247,7 +1246,7 @@ $(document).on("click", ".delete", function(){
 			let currentprice = $($(this).parent().siblings()[4]).text();
 			totalprice =  parseInt(currentprice) *  parseInt(price);
 			$($(this).parent().siblings()[7]).val(totalprice);
-			console.log($(this).parent().siblings()[7]);
+// 			console.log($(this).parent().siblings()[7]);
 			
 			setTotalPrice()
 	
@@ -1261,7 +1260,7 @@ $(document).on("click", ".delete", function(){
 			if (number == 0) {
 				return false;
 			}
-			console.log(number);
+// 			console.log(number);
 			$($(this).parent().siblings()[3]).text(number);
 			
 			//가격변화
@@ -1271,7 +1270,7 @@ $(document).on("click", ".delete", function(){
 			let currentprice = $($(this).parent().siblings()[3]).text();
 			totalprice =  parseInt(currentprice) *  parseInt(price);
 			$($(this).parent().siblings()[7]).val(totalprice);
-			console.log($(this).parent().siblings()[7]);
+// 			console.log($(this).parent().siblings()[7]);
 			
 			
 			setTotalPrice()
@@ -1293,12 +1292,12 @@ $(document).on("click", ".delete", function(){
 			
 					
 					
-					console.log("총금액"+realtotalprice )
+// 					console.log("총금액"+realtotalprice )
 					total = $(element).find(".hidden-totalprice").val();
-					console.log("total:"+total);
+// 					console.log("total:"+total);
 					
 					realtotalprice  += parseInt(total) ;	
-					console.log("total이랑 더한 값"+realtotalprice );
+// 					console.log("total이랑 더한 값"+realtotalprice );
 					
 					price=realtotalprice.toLocaleString();
 					$("#totalmoney").text(price +"원");
@@ -1315,13 +1314,13 @@ $(document).on("click", ".delete", function(){
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
+//               console.log(Kakao.Auth.getAccessToken());
               location.href="/member/logout";
             });
         return true;
