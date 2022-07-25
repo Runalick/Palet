@@ -463,7 +463,7 @@ overflow-y:hidden !important;
             <div class="row overflow-auto" style="margin-top: 3.75rem;">
             
             <c:forEach var="i" items="${edto }">
-               <div class="col-xl-4 col-sm-6 preexhibition" style="text-align: center;">
+               <div class="col-xl-4 col-sm-6 preexhibition" style="text-align: center; padding-bottom: 20px;">
                   <input type="hidden" value="${i.pe_img }">
                   <img src="${i.pe_img }"  class="w-100 "
                      style="text-align: center;">
