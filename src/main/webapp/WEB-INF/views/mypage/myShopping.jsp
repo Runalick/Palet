@@ -441,7 +441,7 @@ a:hover {
 	font-family: 'Spoqa Han Sans Neo';
 	font-style: normal;
 	font-weight: 400;
-	font-size: 1.1rem;
+	font-size: 1.25rem;
 	line-height: 1.875rem;
 	}
 	.main-info{

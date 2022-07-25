@@ -768,7 +768,7 @@ border-radius:0.625rem;
 		
 
          <div class="row" id="footer">
-            <div class="container">
+            <div class="container" style="margin-left:1rem;">
                 <div class="row" id="row1">
                     <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
@@ -793,13 +793,13 @@ window.onload = function(){
 				if(resp[i].category =='E'){
 		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
 		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-						+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+						+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			} if(resp[i].category == 'P'){
 				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
 		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
-						+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+						+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			}
@@ -830,13 +830,13 @@ window.onload = function(){
 						if(resp[i].category =='E'){
 						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
 				    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-								+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381; padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+								+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381; padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
 						} if(resp[i].category == 'P'){
 							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
 					    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
-									+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+									+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 								+"</div></div></div></a>"); 
 						}

@@ -576,7 +576,7 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-font-weight:700;
+font-weight:400;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{
@@ -1026,14 +1026,14 @@ background: #FFFFFF;
 				
 				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
 					<div class="row">
-						<div class="col-1" style="margin-left: 2rem">
+						<div class="col-1" style="padding-left:2rem;">
 							<button class='vector'>
 							<img src="/images/Vector.png">
 							</button>
 						</div>
 						<div class="col-7 px-4 main-info" >주문 상세</div>
 						
-						<div class="col-12">
+						<div class="col-12" style="padding-left:0px;">
 							<div class="row main-area">
 								<div class="col-12 h3">주문정보</div>
 								<div class="col-12 col-md-3 body2_1 pb">주문번호</div>
@@ -1181,7 +1181,7 @@ background: #FFFFFF;
 											</div>
 				
 										<div class="col-12 write-contents" style="display:none;">
-											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40'></textarea>
+											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40' ></textarea>
 										</div>
 									</div>
 										<div class="row payinfo" style="margin-bottom:1rem;">

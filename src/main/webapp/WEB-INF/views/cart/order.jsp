@@ -719,6 +719,9 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+.total-info-div>div{
+margin-bottom:0.5rem;
+}
 </style>
 <body>
 	<!-- 네비단 -->
@@ -1032,7 +1035,7 @@ input[type="number"]::-webkit-inner-spin-button {
 		<!-- 반응형 본문단 -->
 	<div class="container-fluid d-block d-lg-none" id="mainparent" style="margin-bottom:4.5rem">
 		<div class="container">
-			<div class="row" style="padding-top: 50px; width:100%">
+			<div class="row" id="row1" style="padding-top: 50px; width:100%">
 <!-- 				<div class="col-1 margin1" id="cart" style="width:100%"> -->
 <!-- 					<button id="backbtn"> -->
 <!-- 						<img src="/images/Vector.png"> -->
@@ -1110,19 +1113,19 @@ input[type="number"]::-webkit-inner-spin-button {
 								<div class="H3 payinfo">결제 상세</div>
 								<div class="row" id="total-area" style="width:100%; height:auto;">
 									<div class="col-12" style="padding:1.75rem; width:100%">
-										<div class="row">
-											<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 totalprice" id="span4"> </span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 discount" id="span10">0원</span></div>
+										<div class="row total-info-div">
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB;">총 상품 금액</div>
+											<div class="col-12 col-sm-6 H4 totalprice" style="text-align:center;"></div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB;">할인</div>
+											<div class="col-12 col-sm-6 H4 discount" style="text-align:center;">0원</div>
 											
 											
-											<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 deliveryprice" id="span5">3,000원</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H3 finalTotalPrice" id="span6" > </span></div>
-											<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span></div>
-											<div class="col-12" style="text-align:center;"><span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB">배송비</div>
+											<div class="col-12 col-sm-6 H4 deliveryprice" style="text-align:center;">3,000원</div>
+											<div class="col-12 col-sm-6 H3" style="text-align:center; margin-bottom:0.7rem;">총 결제 금액</div>
+											<div class="col-12 col-sm-6 H3 finalTotalPrice" style="text-align:center; margin-bottom:0.7rem;"></div>
+											<div class="col-12 col-sm-6 Caption" style="text-align:center; color: #919EAB;">적립예정 포인트</div>
+											<div class="col-12 col-sm-6 Caption totalPoint" style="text-align:center; color: #919EAB;"></div>
 										</div>
 									</div>
 								</div>
@@ -1723,7 +1726,28 @@ input[type="number"]::-webkit-inner-spin-button {
 	    }
 	
 	function iamport(){
-
+		if($(".buyer_name").val()==""){
+			alert("이름을 입력하세요");
+			return false;
+			
+		}
+		if($(".buyer_tel").val()==""){
+			alert("전화번호를 입력하세요");
+			return false;
+			
+		}
+		if($(".buyer_addr").val()==""){
+			alert("우편번호를 입력하세요");
+			return false;
+			
+			
+		}
+		if($(".buyer_address2").val()==""){
+			alert("상세주소를 입력하세요");
+			return false;
+			
+			
+		}
 		var windowWidth = $( window ).width();
 	      let buyer_postcode = $(".buyer_postcode").val();
 	      if(buyer_postcode == ''){
