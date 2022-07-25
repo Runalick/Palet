@@ -529,13 +529,13 @@
 	<script>
       //   굿즈 디테일 연결
        $(".detailview").on("click",function(){
-          console.log($(".detailview").val());
+//           console.log($(".detailview").val());
           location.href="/shop/goDetail?g_num="+$(".detailview").val();
        })
        
       //   구매완료 페이지 연결
        $(".success").on("click",function(){
-          console.log("d")
+//           console.log("d")
           location.href="/shop/success";
        })
     </script>
@@ -607,13 +607,13 @@ $(".logout").on("click", function(){
     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
     Kakao.isInitialized();
     if (!Kakao.Auth.getAccessToken()) {
-       console.log('Not logged in.');
+//        console.log('Not logged in.');
        location.href="/member/logout";
         return ;
     }
     
      Kakao.Auth.logout(function() {
-          console.log(Kakao.Auth.getAccessToken());
+//           console.log(Kakao.Auth.getAccessToken());
           location.href="/member/logout";
         });
     return true;
@@ -681,7 +681,7 @@ $(".logout").on("click", function(){
 												.toLocaleString()
 										+ "원</div></div>"); 
 				    	
-				    	  console.log("resp.length : " + resp.length);
+// 				    	  console.log("resp.length : " + resp.length);
 					}
 				},
 				});	
@@ -696,7 +696,7 @@ $(".logout").on("click", function(){
 			    let currentScroll = $(window).scrollTop() + $(window).height(); */
 			   
 			    if (maxHeight <= currentScroll+100) {
-			    	console.log("origin limit : " + limit);
+// 			    	console.log("origin limit : " + limit);
 			    	$.ajax({
 						url:"/shop/selectGoods",
 						data:{"e_num" : $(".active").attr("id"),
@@ -716,10 +716,10 @@ $(".logout").on("click", function(){
 												+ resp[i].g_price
 														.toLocaleString()
 												+ "원</div></div>"); 
-						    	  console.log("resp.length : " + resp.length);
+// 						    	  console.log("resp.length : " + resp.length);
 							}
 							limit = limit + resp.length;
-					    	console.log("change limit : " + limit);	
+// 					    	console.log("change limit : " + limit);	
 						},
 						});
 			    	} 
@@ -734,7 +734,7 @@ $(".logout").on("click", function(){
 			.on(
 					"click",
 					function() {
-						console.log($("#select_value").val());
+// 						console.log($("#select_value").val());
 						$(".currentExhibition").addClass("h3_2");
 						$(".pastExhibition").removeClass("h3_2");
 						$(".button").remove();
@@ -762,7 +762,7 @@ $(".logout").on("click", function(){
 															.toLocaleString()
 													+ "원</div></div>");  
 							    	
-							    	  console.log("resp.length : " + resp.length);
+// 							    	  console.log("resp.length : " + resp.length);
 								}
 							},
 							});	
@@ -777,7 +777,7 @@ $(".logout").on("click", function(){
 						    let currentScroll = $(window).scrollTop() + $(window).height(); */
 						   
 						    if (maxHeight <= currentScroll+100) {
-						    	console.log("origin limit : " + limit);
+// 						    	console.log("origin limit : " + limit);
 						    	$.ajax({
 									url:"/shop/selectGoods",
 									data:{"e_num" : $(".active").attr("id"),
@@ -797,10 +797,10 @@ $(".logout").on("click", function(){
 															+ resp[i].g_price
 																	.toLocaleString()
 															+ "원</div></div>");  
-									    	  console.log("resp.length : " + resp.length);
+// 									    	  console.log("resp.length : " + resp.length);
 										}
 										limit = limit + resp.length;
-								    	console.log("change limit : " + limit);	
+// 								    	console.log("change limit : " + limit);	
 									},
 									});
 						    	} 
@@ -886,7 +886,7 @@ $(".logout").on("click", function(){
 
 	//   전시회 카테고리 변경 이벤트
 	$(document).on("click", ".button",function() {
-		console.log($("#select_value").val());
+// 		console.log($("#select_value").val());
 		$(this).addClass("active");
 		$(".button").not(this).removeClass("active");
 		$.ajax({url : "/shop/selectGoods",
@@ -914,7 +914,7 @@ $(".logout").on("click", function(){
 	//   정렬순서 변경시 이벤트
 	function select_value(value) {
 		let select_option = $(value).val();
-		console.log(select_option);
+// 		console.log(select_option);
 		$
 				.ajax({
 					url : "/shop/selectGoods",
@@ -1048,7 +1048,7 @@ $(".logout").on("click", function(){
        buyer_addr : '서울 강남구 도곡동',
        buyer_postcode : '123-456'
    }, function(rsp) {
-      console.log(rsp);
+//       console.log(rsp);
        if ( rsp.success ) {
           
             $.ajax({
