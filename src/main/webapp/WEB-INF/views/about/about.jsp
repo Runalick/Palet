@@ -508,7 +508,7 @@ border-radius: 20px;
 		팔레트는 3호선 경복궁역 지하1층에 위치해 있습니다. 지하철을 유동인구가 많은 장소입니다. 바꿔말하면, 많은 사람들의 일상에는 지하철이 있다는 것을 의미합니다. 팔레트는 역사 내 유휴공간을 미술관으로 바꾸어 일상과 예술을 연결하는 창구가 되고자 합니다.
 		</span>
 		</div>
-		<div class = "col h3" style = "margin-top:10rem; text-align:center; color : #ffa48d; font-size:25px;">협력 미술관 &nbsp;&nbsp;: &nbsp;&nbsp;디뮤지엄, &nbsp;&nbsp;국립현대미술관</div>
+		<div class = "col h3" style = "margin-top:10rem; text-align:center; color : #ffa48d; font-size:25px; line-height:3rem;">협력 미술관 &nbsp;&nbsp;: &nbsp;&nbsp;디뮤지엄, &nbsp;&nbsp;국립현대미술관</div>
 		
 		<div class="col-12">
 			<div class="row"  id="row1" style="padding:0.8rem;margin-top:10rem; margin-bottom:10rem;">
