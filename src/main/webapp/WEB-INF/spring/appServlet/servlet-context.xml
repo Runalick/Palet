@@ -49,7 +49,7 @@
 			<exclude-mapping path="/Exhibition/contents" />
 			<exclude-mapping path="/Exhibition/toCurdetail" />
 			<exclude-mapping path="/Exhibition/toPredetail" />
-			<exclude-mapping path="/Exhibition/toUpcommingExhibitionl" />
+			<exclude-mapping path="/Exhibition/toUpcommingExhibition" />
 			<exclude-mapping path="/Exhibition/toUpcommingdetail" />
 			<exclude-mapping path="/program/toProgram" />
 			<exclude-mapping path="/program/toClassdetail" />

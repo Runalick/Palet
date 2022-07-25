@@ -891,7 +891,8 @@ color:white;
 
 		<!-- 푸터단 -->
 
-		<div class="row" id="footer">
+		<div class="row" id="footer" style="margin-top: 12.5rem;">
+		
             <div class="container">
                 <div class="row" id="row1">
                     <div class="col-12 h3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
