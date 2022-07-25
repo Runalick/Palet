@@ -720,7 +720,7 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0;
 }
 .total-info-div>div{
-margin-bottom:0.25rem;
+margin-bottom:0.5rem;
 }
 </style>
 <body>
@@ -1035,7 +1035,7 @@ margin-bottom:0.25rem;
 		<!-- 반응형 본문단 -->
 	<div class="container-fluid d-block d-lg-none" id="mainparent" style="margin-bottom:4.5rem">
 		<div class="container">
-			<div class="row" style="padding-top: 50px; width:100%">
+			<div class="row" id="row1" style="padding-top: 50px; width:100%">
 <!-- 				<div class="col-1 margin1" id="cart" style="width:100%"> -->
 <!-- 					<button id="backbtn"> -->
 <!-- 						<img src="/images/Vector.png"> -->
@@ -1114,18 +1114,18 @@ margin-bottom:0.25rem;
 								<div class="row" id="total-area" style="width:100%; height:auto;">
 									<div class="col-12" style="padding:1.75rem; width:100%">
 										<div class="row total-info-div">
-											<div class="col-6 H4" style="text-align:center; color:#919EAB;">총 상품 금액</div>
-											<div class="col-6 H4 totalprice" style="text-align:center;"></div>
-											<div class="col-6 H4" style="text-align:center; color:#919EAB;">할인</div>
-											<div class="col-6 H4 discount" style="text-align:center;">0원</div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB;">총 상품 금액</div>
+											<div class="col-12 col-sm-6 H4 totalprice" style="text-align:center;"></div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB;">할인</div>
+											<div class="col-12 col-sm-6 H4 discount" style="text-align:center;">0원</div>
 											
 											
-											<div class="col-6 H4" style="text-align:center; color:#919EAB">배송비</div>
-											<div class="col-6 H4 deliveryprice" style="text-align:center;">3,000원</div>
-											<div class="col-6 H3" style="text-align:center; margin-bottom:0.7rem;">총 결제 금액</div>
-											<div class="col-6 H3 finalTotalPrice" style="text-align:center; margin-bottom:0.7rem;"></div>
-											<div class="col-6 Caption" style="text-align:center; color: #919EAB;">적립예정 포인트</div>
-											<div class="col-6 Caption totalPoint" style="text-align:center; color: #919EAB;"></div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB">배송비</div>
+											<div class="col-12 col-sm-6 H4 deliveryprice" style="text-align:center;">3,000원</div>
+											<div class="col-12 col-sm-6 H3" style="text-align:center; margin-bottom:0.7rem;">총 결제 금액</div>
+											<div class="col-12 col-sm-6 H3 finalTotalPrice" style="text-align:center; margin-bottom:0.7rem;"></div>
+											<div class="col-12 col-sm-6 Caption" style="text-align:center; color: #919EAB;">적립예정 포인트</div>
+											<div class="col-12 col-sm-6 Caption totalPoint" style="text-align:center; color: #919EAB;"></div>
 										</div>
 									</div>
 								</div>
