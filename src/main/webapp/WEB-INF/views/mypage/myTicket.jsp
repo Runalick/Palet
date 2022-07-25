@@ -292,6 +292,18 @@
 }
 
 @media ( max-width : 992px) {
+.pre-ticket, .a {
+	background: #DFE3E8;
+	border-radius:0.375rem;
+	cursor:pointer;
+	width:44.5rem !important;
+height:14.5rem !important;
+margin:auto;
+margin-bottom:2rem !important;
+}
+.pre-title{
+font-size:1.625rem !important;
+}
 	.main {
 		display: none;
 	}
@@ -389,15 +401,7 @@ li div {
 	border-radius:0.375rem;
 	cursor:pointer;
 }
-.pre-ticket, .a {
-	width: 24.5rem;
-	height: 10.5rem;
-	background: #DFE3E8;
-	margin-right:2.5rem;
-	margin-bottom:1.5rem;
-	border-radius:0.375rem;
-	cursor:pointer;
-}
+
 
 .qr {
 	width: 90px;
@@ -438,9 +442,6 @@ li div {
 	line-height:1.875rem;
 	padding-bottom:1.25rem;
 	}
-	.body6{
-	font-size:1.625rem;
-	}
 }
 .imgimg{
 border-radius:0.625rem;
@@ -449,6 +450,24 @@ border-radius:0.625rem;
 	max-width: 44.5rem;
 	height: 14.5rem;
 	}
+	@media ( max-width : 640px) {
+	.pre-ticket, .a{
+	width:100% !important;
+	}
+	.pre-div{
+	padding-left:2.5rem;
+	padding-right:2.5rem;
+	}
+	}
+	.pre-ticket, .a {
+    background: #DFE3E8;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    width: 26.5rem;
+    height: 10rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
 </style>
 </head>
 <body>
@@ -770,17 +789,17 @@ window.onload = function(){
 		success: function (resp) {
 			
 			for(let i = 0 ; i < resp.length; i++) {
-				console.log(resp[i].booknumber);	
+				console.log(resp[i].category);	
 				if(resp[i].category =='E'){
-		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
-		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
+		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
+						+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			} if(resp[i].category == 'P'){
-				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
-		    			  +"<div class='col-3' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
-						+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
+		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+						+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			}
@@ -807,16 +826,17 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
+						console.log("두번째"+resp[i].category);	
 						if(resp[i].category =='E'){
-						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
-				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-								+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
+				    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
+								+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381; padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
 						} if(resp[i].category == 'P'){
-							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' style='height: 100%'>"
-					    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100 imgimg'>"
-									+"</div><div class='col-9' style='position: relative'><div class='pre-title' style='color: #637381;'>"+resp[i].title+"</div>"
+							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
+					    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+									+"</div><div class='col-9 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 								+"</div></div></div></a>"); 
 						}
@@ -906,7 +926,6 @@ window.onload = function(){
 
 		for(let i=0;i<$(".qr").length;i++){
 			console.log($(".booknumber")[i]);
-			console.log($(".booknumber")[i].value);
 			var qrcode = new QRCode($(".qr")[i], {
 	            text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
 	            width: 80,
