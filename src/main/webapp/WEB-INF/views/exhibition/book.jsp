@@ -57,12 +57,7 @@
 	padding: 0px;
 	height: 1.875rem;
 }
-.navbar-nav>li {
-	text-align: right;
-	background: white;
-	padding-top: 1rem;
-	padding-bottom: 1rem;
-}
+
 #navparent {
 	position: fixed;
 	font-size: 0;
@@ -83,8 +78,9 @@
 }
 
 .nav-item {
-	margin: auto;
-	padding-left: 33px;
+ margin: auto;
+
+		padding-left: 33px;
 }
 
 .nav-link {
@@ -144,9 +140,10 @@
 	height: 1.5rem;
 }
 
-#payspan1 {
-	width: 5.063rem;
-	margin-right: 0.375rem;
+#payspan1{
+width:5.063rem; 
+margin-right:0.375rem;
+
 }
 
 .h1 {
@@ -244,13 +241,20 @@
 	/* Gray/900 */
 	background: #161C24;
 	border-radius: 20px;
-	transition: 0.3s;
+	transition:0.3s;
+}
+.btn1_1:hover{
+	background:#F4F6F8;
+	color:black;
+}
+.usedbutton{
+	transition:0.3s;
+}
+.usedbutton:hover{
+	background:#F4F6F8 !important;
+	color:black !important;
 }
 
-.btn1_1:hover {
-	background: #F4F6F8;
-	color: black;
-}
 
 .btn1_3 {
 	padding: 1.125rem 1.5rem;
@@ -275,16 +279,6 @@
 	background: #F4F6F8;
 	color: black;
 }
-
-.usedbutton {
-	transition: 0.3s;
-}
-
-.usedbutton:hover {
-	background: #F4F6F8 !important;
-	color: black !important;
-}
-
 .btn2 {
 	padding: 1.125rem 1.5rem;
 	gap: 0.625rem;
@@ -607,7 +601,10 @@ input::placeholder {
 }
 
 input::placeholder {
-	text-align: left !important;
+ text-align:left !important; 
+
+
+
 }
 </style>
 
@@ -616,7 +613,7 @@ input::placeholder {
 <body>
 	<div class="container-fluid">
 		<div class="container-fluid"
-			style="background-color: white; position: fixed; z-index: 50; top: 0">
+			style="background-color: white; position: fixed;  z-index: 50; top:0">
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginEmail =='admin@palet.com'}">
@@ -639,7 +636,7 @@ input::placeholder {
 										id="collapsibleNavbar">
 										<ul class="navbar-nav" style="background: white;">
 											<li class="nav-item"><a id="About" class="nav-link"
-												href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
 											</li>
 
 											<li class="nav-item"><a id="Exhibition" class="nav-link"
@@ -689,7 +686,7 @@ input::placeholder {
 										id="collapsibleNavbar">
 										<ul class="navbar-nav" style="background: white;">
 											<li class="nav-item"><a id="About" class="nav-link"
-												href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
 											</li>
 
 											<li class="nav-item"><a id="Exhibition" class="nav-link"
@@ -710,7 +707,7 @@ input::placeholder {
 												style="padding-left: 0px; padding-right: 0px;">Cart</a></li>
 
 
-
+										
 											<li class="nav-item"><a id="Logout"
 												class="nav-link logout" href="#"
 												style="padding-left: 0px; padding-right: 0px;">Logout</a></li>
@@ -745,7 +742,7 @@ input::placeholder {
 										id="collapsibleNavbar">
 										<ul class="navbar-nav" style="background: white;">
 											<li class="nav-item"><a id="About" class="nav-link"
-												href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
+												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
 											</li>
 
 											<li class="nav-item"><a id="Exhibition" class="nav-link"
@@ -784,7 +781,7 @@ input::placeholder {
 		</div>
 
 		<!-- Order / Payment -->
-		<div class="container" style="margin-top: 120px;">
+		<div class="container"  style = margin-top:120px;>
 			<div class="row mt-4">
 
 
@@ -812,8 +809,7 @@ input::placeholder {
 						<div class="col-lg-7 col-12 "
 							style="padding-left: 1.564rem; padding-right: 1.564rem;">
 							<div class="col h3 mt-2" style="padding: 0px;">예매 정보</div>
-							<div class="row rec1"
-								style="margin-top: 2rem; margin-bottom: 2rem;">
+							<div class="row rec1" style="margin-top: 2rem; margin-bottom:2rem;">
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
@@ -826,8 +822,7 @@ input::placeholder {
 										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
 										placeholder="전화번호를 입력해 주세요." style="text-align: center"
 										required><br> <span
-										style="display: none; text-align: center;" class="phoneck">전화번호를
-										숫자만 입력 해주세요</span>
+										style="display: none; text-align: center;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
@@ -867,177 +862,173 @@ input::placeholder {
 							<div class="col-12"
 								style="margin-top: 2.5rem; padding: 0px; text-align: center; height: 3.75rem;">
 								<button class="btn1_1" id=pay onclick="iamport()"
-									style="width: 100%; border: 0px solid black;">결제하기</button>
-								<button class="btn1_3 mt-2"
+									style="width: 100%; border:0px solid black;">결제하기</button>
+									<button class="btn1_3 mt-2"
 									style="width: 100%; border: 0px solid black;">다시선택</button>
 							</div>
 
 
-						<div class="col-12 h4 " style="color: #637381; text-align: left; margin-top:5rem;">약관을
-							확인하였으며 결제에 동의합니다.</div>
-						<div class="col-12 caption "
-							style="margin-top: 0.4rem; text-align: left;">
-							이용약관 동의<span class=policy id="payspan2" style="cursor: pointer;">보기</span>
+							<div class="col-12 h4 " 
+								style="color: #637381; margin-top:5rem; text-align: left;">약관을 확인하였으며 결제에 동의합니다.</div>
+							<div class="col-12 caption "
+								style="margin-top: 0.4rem; text-align: left;">
+								이용약관 동의<span class=policy id="payspan2" style="cursor:pointer;">보기</span>
+							</div>
+							<div class="col-12 caption " 
+								style="margin-top: 0.4rem; text-align: left;">
+								개인정보 수집 및 이용 동의<span class=policy id="payspan4" style="cursor:pointer;">보기</span>
+							</div>
+							<div class="col-12 caption " 
+								style="margin-top: 0.4rem; text-align: left;">결제 대행 서비스 이용약관
+							<span class=policy id="payspan6" style="cursor:pointer;">(주)KG이니시스</span>
+							</div>
+						
+
 						</div>
-						<div class="col-12 caption "
-							style="margin-top: 0.4rem; text-align: left;">
-							개인정보 수집 및 이용 동의<span class=policy id="payspan4"
-								style="cursor: pointer;">보기</span>
-						</div>
-						<div class="col-12 caption "
-							style="margin-top: 0.4rem; text-align: left;">
-							결제 대행 서비스 이용약관 <span class=policy id="payspan6"
-								style="cursor: pointer;">(주)KG이니시스</span>
-						</div>
+
+
+						<!--작은 화면 결제 -->
+						
+
+						<!-- 작은화 결제 -->
+
 
 
 					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 큰화면 전시정보 -->
+		<div class="container" >
+			<div class=row>
+				<div class="col-12">
+					<div class=row>
+						<div class="col-lg-7 col-12 "
+							style="padding-left: 1.564rem; padding-right: 1.564rem;">
+							<div class="col h3 mt-2" style="padding: 0px;">전시 정보</div>
 
 
-					<!--작은 화면 결제 -->
+							<div class="row rec1"
+								style="margin-top: 2rem; height: 12rem; position: relative;">
 
 
-					<!-- 작은화 결제 -->
+								<div class="col-lg-3 col-5">
+									<img src="/images/anywayloveSM.png"
+										style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
+								</div>
+
+								<div class="col-lg-12 body1 col-6"
+									style="color: #161C24; margin-top: 2.325rem; position: absolute; left: 10.5rem;">
+									Romantic Days 어쨌든, 사랑
+									<div class=h3
+										style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
+										id=totalprice>${price}</div>
+									<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
+										id=count>${count}매</div>
+
+								</div>
+							</div>
+							<div class="col-12" style="padding-left: 0rem;">
+
+								<ul class="info body2"
+									style="color: #637381; padding-left: 0rem;">
+									<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
+									<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
+									<li style="list-style-type: none;">*오후 6시 *매월 첫째 주 월요일 휴관
+										*(대체)공휴일 정상 운영</li>
+									<li>관람 가능 연령 : 전체 관람가</li>
+									<li style="list-style-type: none;">*영유아는 보호자 동반 하에만 입장 및
+										관람이 가능합니다.</li>
+									<li>매월 첫째 주 월요일은 휴관입니다.</li>
+									<li>(대체)공휴일 정상 운영합니다.</li>
 
 
+
+
+								</ul>
+
+							</div>
+
+
+
+						</div>
+
+
+
+
+
+
+						<!-- 큰화면 쿠폰 포인트 사용 -->
+						<div class="col-12 h3 "
+							style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/포인트</div>
+						<div class="col-12 body2 "
+							style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
+							
+						<div class="col-12 h3 "
+							style="padding-left: 0rem; margin-top: 1.125rem;">
+
+							<select id="selectbox1"
+								class="form-select  form-select1"
+								aria-label="Default select example"
+								style="width: 23.5rem; height: 3rem;">
+
+								<option value='0' value1="inavailableCP" selected>쿠폰을 선택해 주세요.</option>
+								<c:forEach var="clist" items="${clist }">
+									<option id=option1 class="option1" value="${clist.dc}"
+										value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										-${clist.dc}원</option>
+
+								</c:forEach>
+							</select>
+
+						</div>
+						<div class="col-12 body2"
+							style="padding-left: 0rem; margin-top: 2.188em;">포인트</div>
+
+						<div class="col-12 body2 "
+							style="padding-left: 0rem; margin-top: 1.125em;">
+
+							<input type=text class="body2 usedpoint"
+								style="width: 15rem; height: 3rem;  " placeholder="포인트를 입력후 엔터를 누르세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
+							<button class="h4 usedbutton"
+								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
+								사용</button>
+						</div>
+						<div class="col-12 h5 "
+							style="padding-left: 0rem; margin-top: 2.188em;">
+							남은포인트 <span class="h5_1 h5_1_1">${mdto.point }</span>
+						</div>
+
+
+
+						<!--작은 면 쿠폰 포인트 사용 -->
+					
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row " id="footer"
+			style="margin-top: 12.5rem; padding: 0px; margin-left: 0px; margin-right: 0px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
+					<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
+						123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
+					<br>
+					<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
+						1층 | contact@palet.com</div>
 
 				</div>
 			</div>
 		</div>
+
 	</div>
-
-	<!-- 큰화면 전시정보 -->
-	<div class="container">
-		<div class=row>
-			<div class="col-12">
-				<div class=row>
-					<div class="col-lg-7 col-12 "
-						style="padding-left: 1.564rem; padding-right: 1.564rem;">
-						<div class="col h3 mt-1" style="padding: 0px;">전시 정보</div>
-
-
-						<div class="row rec1"
-							style="margin-top: 2rem; height: 12rem; position: relative;">
-
-
-							<div class="col-lg-3 col-5">
-								<img src="/images/anywayloveSM.png"
-									style="width: 10rem; height: 12rem; position: absolute; left: 0px;">
-							</div>
-
-							<div class="col-lg-12 body1 col-6"
-								style="color: #161C24; margin-top: 2.325rem; position: absolute; left: 10.5rem;">
-								Romantic Days 어쨌든, 사랑
-								<div class=h3
-									style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
-									id=totalprice>${price}</div>
-								<div class=body1 style="margin-top: 0.5rem; color: #919EAB;"
-									id=count>${count}매</div>
-
-							</div>
-						</div>
-						<div class="col-12" style="padding-left: 0rem;">
-
-							<ul class="info body2"
-								style="color: #637381; padding-left: 0rem;">
-								<li>전시 기간 : 2022.03.16(토) ~ 2022.10.30(일)</li>
-								<li>관람 가능 시간 : 오전 10:00~오후 7:00</li>
-								<li style="list-style-type: none;">*오후 6시 *매월 첫째 주 월요일 휴관
-									*(대체)공휴일 정상 운영</li>
-								<li>관람 가능 연령 : 전체 관람가</li>
-								<li style="list-style-type: none;">*영유아는 보호자 동반 하에만 입장 및
-									관람이 가능합니다.</li>
-								<li>매월 첫째 주 월요일은 휴관입니다.</li>
-								<li>(대체)공휴일 정상 운영합니다.</li>
-
-
-
-
-							</ul>
-
-						</div>
-
-
-
-					</div>
-
-
-
-
-
-
-					<!-- 큰화면 쿠폰 포인트 사용 -->
-					<div class="col-12 h3 "
-						style="padding-left: 0rem; margin-top: 3.75rem;">쿠폰/포인트</div>
-					<div class="col-12 body2 "
-						style="padding-left: 0rem; margin-top: 2.188em;">쿠폰</div>
-
-					<div class="col-12 h3 "
-						style="padding-left: 0rem; margin-top: 1.125rem;">
-
-						<select id="selectbox1" class="form-select  form-select1"
-							aria-label="Default select example"
-							style="width: 23.5rem; height: 3rem;">
-
-							<option value='0' value1="inavailableCP" selected>쿠폰을
-								선택해 주세요.</option>
-							<c:forEach var="clist" items="${clist }">
-								<option id=option1 class="option1" value="${clist.dc}"
-									value1="${clist.serial}">${clist.category}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									-${clist.dc}원</option>
-
-							</c:forEach>
-						</select>
-
-					</div>
-					<div class="col-12 body2"
-						style="padding-left: 0rem; margin-top: 2.188em;">포인트</div>
-
-					<div class="col-12 body2 "
-						style="padding-left: 0rem; margin-top: 1.125em;">
-
-						<input type=text class="body2 usedpoint"
-							style="width: 15rem; height: 3rem;"
-							placeholder="포인트를 입력후 엔터를 누르세요."
-							oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
-						<button class="h4 usedbutton"
-							style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border: 0px solid black;">모두
-							사용</button>
-					</div>
-					<div class="col-12 h5 "
-						style="padding-left: 0rem; margin-top: 2.188em;">
-						남은포인트 <span class="h5_1 h5_1_1">${mdto.point }</span>
-					</div>
-
-
-
-					<!--작은 면 쿠폰 포인트 사용 -->
-
-
-
-
-
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="row " id="footer"
-		style="margin-top: 12.5rem; padding: 0px; margin-left: 0px; margin-right: 0px;">
-		<div class="container">
-			<div class="row">
-				<div class="col-12 h3" style="color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-				<div class="col-12 body2" style="color: #637381;">사업자 등록번호 :
-					123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div>
-				<br>
-				<div class="col-12 body2" style="color: #637381;">3호선 경복궁역 지하
-					1층 | contact@palet.com</div>
-
-			</div>
-		</div>
-	</div>
-
-</div>
 </body>
 <script>
 
@@ -1137,14 +1128,15 @@ console.log('여기1');
 
 		location.href = "/Exhibition/toCurExhibition";
 	})
-
-	
-	
 		$(".btn1_3").on("click", function() {
 
 		location.href = "/Exhibition/toCurdetail";
 	})
 
+	
+	
+	
+	
 	
 	
 	//모두사용 큰화
