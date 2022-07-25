@@ -587,9 +587,9 @@ border-radius: 20px;
 						<div class="col-12">
 						<input type="text" class="body2 input" id="title" placeholder="제목을 입력해 주세요.">
 						</div>
-						<div class="col-12 body2" style="margin-top:1.5rem;">문의 내용</div>
+						<div class="col-12 body2" style="margin-top:1.5rem;" >문의 내용</div>
 						<div class="col-12">
-						<textarea class="body2 input" id="contents" placeholder="자세한 내용을 입력해 주세요." style="height:14.25rem; resize:none;"></textarea>
+						<textarea class="body2 input" id="contents" placeholder="자세한 내용을 입력해 주세요." oninput="this.value = this.value.replace(/[a-zA-Z0-9 .-/|]*$/g, '').replace(/(\..*)\./g, '$1');" style="height:14.25rem; resize:none;"></textarea>
 						</div>
 						<div class="col-12">
 						<button class="askbtn">문의하기</button>
@@ -703,6 +703,17 @@ $(document).ready(function(){
 			alert("이메일을 확인해주세요.");
 		}
 	})
+	
+	function XSSCheck(str, level) {
+	    if (level == undefined || level == 0) {
+	        str = str.replace(/\<|\>|\"|\'|\%|\;|\(|\)|\&|\+|\-/g,"");
+	    } else if (level != undefined && level == 1) {
+	        str = str.replace(/\</g, "&lt;");
+	        str = str.replace(/\>/g, "&gt;");
+	    }
+	    return str;
+	}
+
 })
 
 $(".logout").on("click", function(){
