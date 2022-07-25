@@ -486,7 +486,7 @@ float:right;
 width:34rem;
 }
 .container2{
-width:80rem;
+width:85rem;
 
 }
 }
@@ -561,9 +561,7 @@ font-size:1.325rem;
 }
 
 }
-.container{
-margin:auto;
-}
+
 
 @media ( max-width : 540px) {
 .productInfo{
