@@ -410,8 +410,8 @@ font-family: 'Spoqa Han Sans Neo';
 }
 .btnbtn{
 display:inline-block;
-width: 180px;
-height: 50px;
+width: 11.25rem;
+height: 3.625rem;
 background: #161C24;
 border-radius: 1.25rem;
 color:white;
@@ -562,8 +562,8 @@ background:#F4F6F8;
 }
 .btn2{
 display:inline-block;
-	width: 180px;
-	height: 50px;
+	width: 11.25rem;
+height: 3.625rem;
 	background:white;
 	border-radius: 1.25rem;
 	color:black;
