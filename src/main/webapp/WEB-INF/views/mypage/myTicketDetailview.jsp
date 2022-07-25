@@ -263,10 +263,29 @@ line-height: 3.75rem;
 	
 	
 }
+@media ( max-width : 576px) {
+.ticket{
+	width:100% !important;
+	height:100% !important;
+	text-align:center;
+	
+	}
+	.qr{
+	position:relative !important;
+	margin:auto;
+	bottom:0rem !important;
+	right:0rem !important;
+	margin-top:1.5rem;
+	margin-bottom:1.5rem;
+	
+	}
+}
+
 @media ( max-width : 500px) {
 	.select-ul{
 	 width:390px;
 	}
+	
 }
 @media ( min-width : 500px) {
 	.select-ul{
@@ -406,8 +425,8 @@ font-family: 'Spoqa Han Sans Neo';
 }
 .btnbtn{
 display:inline-block;
-width: 180px;
-height: 50px;
+width: 11.25rem;
+height: 3.625rem;
 background: #161C24;
 border-radius: 1.25rem;
 color:white;
@@ -563,8 +582,8 @@ transition: 0.3s;
 
 .btn2{
 	display:inline-block;
-	width: 180px;
-	height: 50px;
+width: 11.25rem;
+height: 3.625rem;
 	background:white;
 	border-radius: 1.25rem;
 	color:black;
@@ -857,13 +876,13 @@ transition: 0.3s;
 								<div class="col-12 ticket">
 									<input type="hidden" class="booknumber" value="${dto.et_booknumber }">
 									<div class="row" style="height: 100%">
-										<div class="col-sm-3 d-none col-sm-block"
+										<div class="col-sm-3 d-none d-sm-block"
 											style="padding: 1rem; padding-left: 1.5rem;">
 											<img src="/images/anywayloveS.png" class="w-100 h-100">
 										</div>
 										<div class="col-sm-9 col-12" style="position: relative">
 											<div class="H5" style="color: white; padding: 1.25rem 0px;">${dto.et_title }</div>
-											<div class="body3" style="color: white">예매번호 :
+											<div class="body3" style="color: white">예매번호 
 												${dto.et_booknumber }</div>
 											<div class="body3" style="color: white;">${dto.et_date }</div>
 											<c:if test="${dto.et_state =='BU' }">
