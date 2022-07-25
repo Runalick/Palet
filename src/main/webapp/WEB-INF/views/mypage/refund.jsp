@@ -282,6 +282,10 @@ line-height: 3.75rem;
 	.body4{
 	font-size:1.875rem;
 	}
+	
+	.row{
+		margin-right: calc(-4 * var(--bs-gutter-x));
+	}
 }
 
 /* 네비 */
@@ -601,7 +605,7 @@ padding-right:0px;
 				<div class="content" style="margin-top:1rem; padding-left:0.4rem;">
 					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
-						<div class="col-12" style="padding-bottom:2rem; border-bottom:1px solid black;">
+						<div class="col-12" style="padding-bottom:2rem;">
 							<button class="btnbtn" value="week">1주일</button>
 							<button class="btnbtn" value="month">1개월</button>
 							<button class="btnbtn" value="3month">3개월</button>
@@ -623,10 +627,10 @@ padding-right:0px;
 							<div class="row">
 								<div class="col-12 body5-title">[Exhibition]${i.title }</div>
 								<div class="col-12" >
-									<span class="body5-price"> 결제 금액 ${i.cost }
+									<div class="body5-price"> 결제 금액 ${i.cost }
 									<input type="hidden" class="${i.num }">
-									</span>
-									<span class="body5-date">${i.buydate }</span>
+									</div>
+									<div class="body5-date">${i.buydate }</div>
 								</div>
 								<c:if test="${i.state == 'BC' }">
 								<div class="col-12 body5-state body5" >취소 처리중</div>
@@ -647,7 +651,7 @@ padding-right:0px;
 <c:if test="${i.category == 'G'}">
 					<div class="row Glist" id="row1" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
-						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
+						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem; margin-left: 20px; margin-bottom: 20px;" >
 								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
 						</div>
 						<div class="col-8 col-md-9" >
@@ -698,10 +702,10 @@ padding-right:0px;
 								<div class="col-12 body5-title">[Program]${i.title }</div>
 								<div class="col-12 body5-date">선택 날짜 : ${i.pickdate}<span></span></div>
 								<div class="col-12" >
-									<span class="body5-price"> 결제 금액 ${i.cost }
+									<div class="body5-price"> 결제 금액 ${i.cost }
 									<input type="hidden" class="${i.num }">
-									</span>
-									<span class="body5-date">${i.buydate }</span>
+									</div><br>
+									<div class="body5-date">${i.buydate }</div>
 								</div>
 								<c:if test="${i.state == 'BC' }">
 								<div class="col-12 body5-state body5" >취소 처리중</div>
@@ -752,9 +756,9 @@ padding-right:0px;
 		
          <div class="row" id="footer">
             <div class="container">
-                <div class="row" id="row1">
+                <div class="row">
                     <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
-                    <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
+                    <div class="col-12 body2" style = "color: #637381; width: 80%;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
                     <div class="col-12 body2" style = "color: #637381;">3호선 경복궁역 지하 1층 | contact@palet.com</div>
 
                 </div>
@@ -825,10 +829,10 @@ padding-right:0px;
 								+"			<div class='row'>"
 								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
 								+"				<div class='col-12' >"
-								+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
-								+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+								+"					<div class='body5-price'> 결제 금액 "+resp[i].cost 
+								+"					<input type='hidden' class="+resp[i].num+ ">	</div>"
 											
-								+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+								+"					<div class='body5-date'>"+resp[i].buydate+ "</div>	</div>"
 											
 											
 								+"				<div class='col-12 body5-state body5' >취소 처리중</div>"
@@ -849,10 +853,10 @@ padding-right:0px;
 									+"			<div class='row'>"
 									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
 									+"				<div class='col-12' >"
-									+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
-									+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+									+"					<div class='body5-price'> 결제 금액 "+resp[i].cost 
+									+"					<input type='hidden' class="+resp[i].num+ ">	</div>"
 												
-									+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+									+"					<div class='body5-date'>"+resp[i].buydate+ "</div>	</div>"
 												
 												
 								
@@ -879,10 +883,10 @@ padding-right:0px;
 								+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
 								+" 	<div class='col-12 body5-date'>선택 날짜 : "+resp[i].pickdate+"<span></span></div>"
 								+"				<div class='col-12' >"
-								+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
-								+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+								+"					<div class='body5-price'> 결제 금액 "+resp[i].cost 
+								+"					<input type='hidden' class="+resp[i].num+ ">	</div>"
 											
-								+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+								+"					<div class='body5-date'>"+resp[i].buydate+ "</div>	</div>"
 											
 											
 								+"				<div class='col-12 body5-state body5' >취소 처리중</div>"
@@ -903,10 +907,10 @@ padding-right:0px;
 									+"			<div class='row'>"
 									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
 									+"				<div class='col-12' >"
-									+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
-									+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+									+"					<div class='body5-price'> 결제 금액 "+resp[i].cost 
+									+"					<input type='hidden' class="+resp[i].num+ ">	</div><br>"
 												
-									+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+									+"					<div class='body5-date'>"+resp[i].buydate+ "</div>	</div>"
 												
 												
 								
@@ -956,10 +960,10 @@ padding-right:0px;
 									+"			<div class='row'>"
 									+"				<div class='col-12 body5-title'>[Exhibition]"+resp[i].title+" </div>"
 									+"				<div class='col-12' >"
-									+"					<span class='body5-price'> 결제 금액 "+resp[i].cost 
-									+"					<input type='hidden' class="+resp[i].num+ ">	</span>"
+									+"					<div class='body5-price'> 결제 금액 "+resp[i].cost 
+									+"					<input type='hidden' class="+resp[i].num+ ">	</div>"
 												
-									+"					<span class='body5-date'>"+resp[i].buydate+ "</span>	</div>"
+									+"					<div class='body5-date'>"+resp[i].buydate+ "</div>	</div>"
 												
 												
 								
