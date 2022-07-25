@@ -696,12 +696,12 @@ window.onload = function(){
 		async: false,
 		dataType:"json", // == JSON.parse(resp);
 		success: function (resp) {
-			console.log(resp.length);
+// 			console.log(resp.length);
 			for(let i = 0 ; i < resp.length; i++) {
-				console.log('check1');
+// 				console.log('check1');
 		    	  $("#container2").append("<div class='col-lg-4 col-md-6 col-12'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>"); 
 		    	
-		    	  console.log("resp.length : " + resp.length);
+// 		    	  console.log("resp.length : " + resp.length);
 			}
 		},
 		});	
@@ -715,7 +715,7 @@ window.onload = function(){
 	    let currentScroll = $(window).scrollTop() + $(window).height(); */
 	   
 	    if (maxHeight <= currentScroll+100) {
-	    	console.log("origin limit : " + limit);
+// 	    	console.log("origin limit : " + limit);
 	    	$.ajax({
 				url:"/Exhibition/contents",
 				data:{limit : limit},
@@ -724,10 +724,10 @@ window.onload = function(){
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
 						  $("#container2").append("<div class='col-lg-4 col-md-6 col-12'><div class='col-12' style='margin-top: 5.313rem;'><a href='/Exhibition/toPredetail?pe_img="+resp[i].pe_img+"'><img class='curimage' src="+resp[i].pe_img+"></a></div><div class='col-12 h3' style='margin-top: 2.5rem;''>"+resp[i].pe_name+"</div><div class='col-12 caption' style='margin-top: 2.5rem;'>"+resp[i].pe_date+"</div></div>");
-				    	  console.log("resp.length : " + resp.length);
+// 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit - resp.length;
-			    	console.log("change limit : " + limit);	
+// 			    	console.log("change limit : " + limit);	
 				},
 				});
 	    	} 
@@ -742,13 +742,13 @@ $(".logout").on("click", function(){
          Kakao.init('feb50c309d28b138aefe9ddc94d76870');
          Kakao.isInitialized();
          if (!Kakao.Auth.getAccessToken()) {
-            console.log('Not logged in.');
+//             console.log('Not logged in.');
             location.href="/member/logout";
              return ;
          }
          
           Kakao.Auth.logout(function() {
-               console.log(Kakao.Auth.getAccessToken());
+//                console.log(Kakao.Auth.getAccessToken());
                location.href="/member/logout";
              });
          return true;

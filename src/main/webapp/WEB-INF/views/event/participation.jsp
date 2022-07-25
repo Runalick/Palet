@@ -475,9 +475,9 @@
 						+"</div>"
 						+"</div>";
 					
-					console.log(text_html);
+// 					console.log(text_html);
 			    	$("#container").append(text_html); 
-			    	console.log("resp.length : " + resp.length);
+// 			    	console.log("resp.length : " + resp.length);
 				}
 			},
 		});	
@@ -491,7 +491,7 @@
 		   
 		   
 		    if (maxHeight <= currentScroll+100) {
-		    	console.log("origin limit : " + limit);
+// 		    	console.log("origin limit : " + limit);
 		    	$.ajax({
 					url:"/event/contents",
 					data:{limit : limit},
@@ -517,10 +517,10 @@
 							
 							//console.log(text_html);
 					    	$("#container").append(text_html); 
-					    	console.log(text_html);
+// 					    	console.log(text_html);
 						}
 						limit = limit + resp.length;
-				    	console.log("change limit : " + limit);	
+// 				    	console.log("change limit : " + limit);	
 					},
 					});
 		    	} 
@@ -545,7 +545,7 @@
 	})
 	
 	$(".ok").on("click", function(){
-		console.log($(this).siblings().eq(1).val());
+// 		console.log($(this).siblings().eq(1).val());
 		$.ajax({
 			url:"/event/confirmation",
 			data: {draw_seq:$(this).siblings().eq(1).val()}
@@ -556,7 +556,7 @@
 	})
 	
 	$(".delete").on("click", function(){
-		console.log($(this).siblings("input").val())
+// 		console.log($(this).siblings("input").val())
 		$.ajax({
 			url:"/event/deleteDraw",
 			data: {draw_seq:$(this).siblings("input").val()}
@@ -568,7 +568,7 @@
 	
 		$("#container").on("click", ".imgopen", function(){
 	  	let imgurl = $(this).siblings().val();
-	  	console.log(imgurl);
+// 	  	console.log(imgurl);
 	  	let bigimg = window.open("",'Palet',"_blank");
 	  	bigimg.document.write("<img src='" + imgurl + "'>");
 	})

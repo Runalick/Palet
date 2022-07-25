@@ -601,7 +601,7 @@ padding-right:0px;
 				<div class="content" style="margin-top:1rem; padding-left:0.4rem;">
 					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
-						<div class="col-12" style="padding-bottom:2rem; border-bottom:1px solid black;">
+						<div class="col-12" style="padding-bottom:2rem;">
 							<button class="btnbtn" value="week">1주일</button>
 							<button class="btnbtn" value="month">1개월</button>
 							<button class="btnbtn" value="3month">3개월</button>
@@ -647,7 +647,7 @@ padding-right:0px;
 <c:if test="${i.category == 'G'}">
 					<div class="row Glist" id="row1" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
-						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem;" >
+						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem; margin-left: 20px; margin-bottom: 20px;" >
 								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
 						</div>
 						<div class="col-8 col-md-9" >
