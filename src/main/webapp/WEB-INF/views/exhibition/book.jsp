@@ -57,7 +57,12 @@
 	padding: 0px;
 	height: 1.875rem;
 }
-
+.navbar-nav>li {
+	text-align: right;
+	background: white;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
 #navparent {
 	position: fixed;
 	font-size: 0;
