@@ -205,7 +205,7 @@ $(".modibtn").on("click",function(){
 		
 		
 		
-		console.log($(".modi").val())
+// 		console.log($(".modi").val())
 		deliveryaddress_seq=$(this).val();
 		$.ajax({
 			url:"/delivery/insertModiNewAddress",
@@ -239,7 +239,7 @@ $(".insert").on("click",function(){
 		async:false,
 		dataType:"json"
 	}).done(function(resp){
-		console.log(resp)
+// 		console.log(resp)
 		if(resp == false){
 			alert("주소지는 최대 5개까지 등록 가능합니다.");
 			rrtn=false;
@@ -260,7 +260,7 @@ $(".insert").on("click",function(){
 			async:false,
 			dataType:"json"
 		}).done(function(resp){
-			console.log(resp);
+// 			console.log(resp);
 			if(resp == false){
 				alert("기본주소지 한 개 필수입니다.");
 				rtn=false;

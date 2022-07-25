@@ -789,7 +789,7 @@ window.onload = function(){
 		success: function (resp) {
 			
 			for(let i = 0 ; i < resp.length; i++) {
-				console.log(resp[i].category);	
+// 				console.log(resp[i].category);	
 				if(resp[i].category =='E'){
 		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
 		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
@@ -803,7 +803,7 @@ window.onload = function(){
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			}
-		    	  console.log("resp.length : " + resp.length);
+// 		    	  console.log("resp.length : " + resp.length);
 			}
 		},
 		});	
@@ -818,7 +818,7 @@ window.onload = function(){
 	    let currentScroll = $(window).scrollTop() + $(window).height(); */
 	   
 	    if (maxHeight <= currentScroll+100) {
-	    	console.log("origin limit : " + limit);
+// 	    	console.log("origin limit : " + limit);
 	    	$.ajax({
 				url:"/mypage/mypreTicket",
 				data:{limit : limit},
@@ -826,7 +826,7 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						console.log("두번째"+resp[i].category);	
+// 						console.log("두번째"+resp[i].category);	
 						if(resp[i].category =='E'){
 						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
 				    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
@@ -840,10 +840,10 @@ window.onload = function(){
 									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 								+"</div></div></div></a>"); 
 						}
-				    	  console.log("resp.length : " + resp.length);
+// 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit + resp.length;
-			    	console.log("change limit : " + limit);	
+// 			    	console.log("change limit : " + limit);	
 				},
 				});
 	    	} 
@@ -912,20 +912,20 @@ window.onload = function(){
             Kakao.init('feb50c309d28b138aefe9ddc94d76870');
             Kakao.isInitialized();
             if (!Kakao.Auth.getAccessToken()) {
-               console.log('Not logged in.');
+//                console.log('Not logged in.');
                location.href="/member/logout";
                 return ;
             }
             
              Kakao.Auth.logout(function() {
-                  console.log(Kakao.Auth.getAccessToken());
+//                   console.log(Kakao.Auth.getAccessToken());
                   location.href="/member/logout";
                 });
             return true;
          });
 
 		for(let i=0;i<$(".qr").length;i++){
-			console.log($(".booknumber")[i]);
+// 			console.log($(".booknumber")[i]);
 			var qrcode = new QRCode($(".qr")[i], {
 	            text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
 	            width: 80,
