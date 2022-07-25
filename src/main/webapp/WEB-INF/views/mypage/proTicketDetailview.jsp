@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Palet</title>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- bootstrap -->
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
@@ -276,6 +277,9 @@ line-height: 3.75rem;
 
 
 @media ( max-width : 991px) {
+.ticket{
+width:100% !important;
+}
 	.main{
 	display:none;
 	}
@@ -604,7 +608,7 @@ background:#F4F6F8;
 							<div class="collapse navbar-collapse justify-content-end"
 								id="collapsibleNavbar">
 								<ul class="navbar-nav" style="background: white;">
-									<li class="nav-item"> <a id="About" class="nav-link" href="about"
+									<li class="nav-item"> <a id="About" class="nav-link" href="/about"
 				                        style="padding-left:0px; padding-right:0px;">About</a> </li>
 				                        
 					                <li class="nav-item"> <a id="Exhibition" class="nav-link" href="/Exhibition/toCurExhibition"
@@ -772,7 +776,7 @@ background:#F4F6F8;
 				
 				
 				
-				<div class="content" style="padding-left:20px;">
+				<div class="content" >
 				<div class="row content-row" style="min-width:730px;">
 					<div class="col-1" >
 						<button class="vector" >
@@ -784,29 +788,29 @@ background:#F4F6F8;
 					</div>
 				
 				
-					<div class="col-3 col-md-3 body4" style="margin-top:1.25rem;">주문번호</div>
-					<div class="col-9 col-md-9 body4" style="margin-top:1.25rem;">${dto.pro_booknumber }</div>
-					<div class="col-3 col-md-3 body4">주문일자</div>
-					<div class="col-9 col-md-9 body4">${dto.pro_buydate }</div>
-					<div class="col-3 col-md-3 body4">주문자</div>
-					<div class="col-9 col-md-9 body4">${dto.pro_username }</div>
-					<div class="col-3 col-md-3 body4">주문처리상태</div>
-					<div class="col-9 col-md-9 body4" id="state"></div>
-					<div class="col-3 col-md-3 body4" style="margin-bottom:2rem;">결제수단</div>
-					<div class="col-9 col-md-9 body4" style="margin-bottom:2rem;">${dto.pro_paymethod }</div>
+					<div class="col-12 col-sm-3 body4" >주문번호</div>
+					<div class="col-12 col-sm-9 body4" >${dto.pro_booknumber }</div>
+					<div class="col-12 col-sm-3 body4">주문일자</div>
+					<div class="col-12 col-sm-9 body4">${dto.pro_buydate }</div>
+					<div class="col-3 col-sm-3 body4">주문자</div>
+					<div class="col-9 col-sm-9 body4">${dto.pro_username }</div>
+					<div class="col-3 col-sm-3 body4">주문처리상태</div>
+					<div class="col-9 col-sm-9 body4" id="state"></div>
+					<div class="col-3 col-sm-3 body4" style="margin-bottom:2rem;">결제수단</div>
+					<div class="col-9 col-sm-9 body4" style="margin-bottom:2rem;">${dto.pro_paymethod }</div>
 				
 				<div class="col-12 info"><strong>예매자 정보</strong></div>
-				<div class="col-3 col-md-3 body5" style="margin-top:1.25rem;">이름</div>
-					<div class="col-9 col-md-9 body5" style="margin-top:1.25rem;">${dto.pro_username }</div>
-					<div class="col-3 col-md-3 body5">전화번호</div>
-					<div class="col-9 col-md-9 body5">${dto.pro_phone }</div>
-					<div class="col-3 col-md-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
-					<div class="col-9 col-md-9 body5" style="margin-bottom:3rem;">${dto.pro_email }</div>
+				<div class="col-2 col-md-3 body5" style="margin-top:1.25rem;">이름</div>
+					<div class="col-10 col-md-9 body5" style="margin-top:1.25rem;">${dto.pro_username }</div>
+					<div class="col-2 col-md-3 body5">전화번호</div>
+					<div class="col-10 col-md-9 body5">${dto.pro_phone }</div>
+					<div class="col-2 col-md-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
+					<div class="col-10 col-md-9 body5" style="margin-bottom:3rem;">${dto.pro_email }</div>
 				
-				<div class="col-2" style="height:12.5rem;margin-bottom:5.5rem;  ">
+				<div class="col-sm-2 d-none d-sm-block" style="height:12.5rem;margin-bottom:5.5rem;  ">
 				<img src="${dto.pp_sysname }" class="h-100 imgimg" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
-					<div class="col-9" style="margin-bottom:5.5rem;">
+					<div class="col-12 col-sm-9 " style="margin-bottom:5.5rem;">
 						<div class="row ticket-row" >
 							<div class="col-12 body4" style="padding-top:1rem;">${dto.pro_title }</div>
 							<div class="col-12 body4">${dto.pro_booknumber }</div>
@@ -814,20 +818,20 @@ background:#F4F6F8;
 						</div>
 					</div>
 				
-				<div class="col-4 total total-info ">상품 금액</div>
-				<div class="col-8 total price total-info"></div>
-				<div class="col-4 total total-info">총 수량</div>
-				<div class="col-8 total total-info" >${dto.pro_count }개</div>
-				<div class="col-4 total total-info">적립 포인트</div>
-				<div class="col-8 total getpoint total-info"></div>
-				<div class="col-4 total total-info">쿠폰할인</div>
-				<div class="col-8 total coupon total-info"></div>
-				<div class="col-4 total total-info">배송비</div>
-				<div class="col-8 total total-info">3000</div>
-				<div class="col-4 total "  style="margin-bottom:1.25rem">포인트 사용</div>
-				<div class="col-8 total usedpoint " style="margin-bottom:1.25rem"></div>
-				<div class="col-4 total "  style="margin-bottom:10rem">총 주문금액</div>
-				<div class="col-8 total-price" style="margin-bottom:10rem"></div>	
+				<div class="col-3 total total-info ">상품 금액</div>
+				<div class="col-9 total price total-info"></div>
+				<div class="col-3 total total-info">총 수량</div>
+				<div class="col-9 total total-info" >${dto.pro_count }개</div>
+				<div class="col-3 total total-info">적립 포인트</div>
+				<div class="col-9 total getpoint total-info"></div>
+				<div class="col-3 total total-info">쿠폰할인</div>
+				<div class="col-9 total coupon total-info"></div>
+				<div class="col-3 total total-info">배송비</div>
+				<div class="col-9 total total-info">3000</div>
+				<div class="col-3 total "  style="margin-bottom:1.25rem">포인트 사용</div>
+				<div class="col-9 total usedpoint " style="margin-bottom:1.25rem"></div>
+				<div class="col-3 total "  style="margin-bottom:10rem">총 주문금액</div>
+				<div class="col-9 total-price" style="margin-bottom:10rem"></div>	
 								
 					<script>
 				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };
@@ -863,13 +867,13 @@ background:#F4F6F8;
 								<div class="col-12 ticket">
 									<input type="hidden" value="${dto.pro_booknumber }">
 									<div class="row" style="height: 100%">
-										<div class="col-3"
+										<div class="col-sm-3 d-none d-sm-block"
 											style="padding: 1rem; padding-left: 1.5rem;">
 											<img src="${dto.pp_sysname }" class="w-100 h-100 imgimg">
 										</div>
-										<div class="col-9" style="position: relative">
+										<div class="col-12 col-sm-9" style="position: relative">
 											<div class="H5" style="color: white; padding: 1.25rem 0px;">${dto.pro_title }</div>
-											<div class="body3" style="color: white">예매번호 :
+											<div class="body3" style="color: white">예매번호 
 												${dto.pro_booknumber }</div>
 											<div class="body3" style="color: white;">${dto.pro_date }</div>
 										</div>
