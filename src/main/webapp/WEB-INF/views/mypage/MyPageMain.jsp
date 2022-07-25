@@ -767,7 +767,7 @@ li div {
 											.append(
 													"<a href='/mypage/myTicketDetailview?et_booknumber="
 															+ resp[i].et_booknumber
-															+ "' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid black; border-radius:1rem;  margin-left:0.1rem; margin-right:0.1rem; margin-bottom:1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%; padding-top:1rem;'>"
+															+ "' style='text-decoration:none; color:black;'><div class='row' style='border: 1px solid #F4F6F8; border-radius:16px;  margin-left:0.1rem; margin-right:0.1rem; margin-bottom:1rem;'><div class='col-4' style='padding-left:0rem; padding-right:0rem;'><img class='con' referrerpolicy='no-referrer' src='/images/anywayloveS.png' border-radius:16px; style='width:100%; height:100%; object-fit:cover;'></div><div class='col-8' style='text-align:center;'><div class='col-12' style='font-weight:bold; height:50%; padding-top:1rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;'>"
 															+ resp[i].et_title
 															+ "</div><div class='col-12' style='height:50%;'>"
 															+ resp[i].et_date
@@ -845,13 +845,13 @@ li div {
 			Kakao.init('feb50c309d28b138aefe9ddc94d76870');
 			Kakao.isInitialized();
 			if (!Kakao.Auth.getAccessToken()) {
-				console.log('Not logged in.');
+// 				console.log('Not logged in.');
 				location.href = "/member/logout";
 				return;
 			}
 
 			Kakao.Auth.logout(function() {
-				console.log(Kakao.Auth.getAccessToken());
+// 				console.log(Kakao.Auth.getAccessToken());
 				location.href = "/member/logout";
 			});
 			return true;

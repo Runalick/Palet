@@ -719,6 +719,9 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+.total-info-div>div{
+margin-bottom:0.5rem;
+}
 </style>
 <body>
 	<!-- 네비단 -->
@@ -1032,7 +1035,7 @@ input[type="number"]::-webkit-inner-spin-button {
 		<!-- 반응형 본문단 -->
 	<div class="container-fluid d-block d-lg-none" id="mainparent" style="margin-bottom:4.5rem">
 		<div class="container">
-			<div class="row" style="padding-top: 50px; width:100%">
+			<div class="row" id="row1" style="padding-top: 50px; width:100%">
 <!-- 				<div class="col-1 margin1" id="cart" style="width:100%"> -->
 <!-- 					<button id="backbtn"> -->
 <!-- 						<img src="/images/Vector.png"> -->
@@ -1110,19 +1113,19 @@ input[type="number"]::-webkit-inner-spin-button {
 								<div class="H3 payinfo">결제 상세</div>
 								<div class="row" id="total-area" style="width:100%; height:auto;">
 									<div class="col-12" style="padding:1.75rem; width:100%">
-										<div class="row">
-											<div class="col-12" style="text-align:center;"><span class="H4" id="span1" style="color:#919EAB">총 상품 금액</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 totalprice" id="span4"> </span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 " id="span9" style="color:#919EAB">할인</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 discount" id="span10">0원</span></div>
+										<div class="row total-info-div">
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB;">총 상품 금액</div>
+											<div class="col-12 col-sm-6 H4 totalprice" style="text-align:center;"></div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB;">할인</div>
+											<div class="col-12 col-sm-6 H4 discount" style="text-align:center;">0원</div>
 											
 											
-											<div class="col-12" style="text-align:center;"><span class="H4" id="span2" style="color:#919EAB">배송비</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H4 deliveryprice" id="span5">3,000원</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H3" id="span3" >총 결제 금액</span></div>
-											<div class="col-12" style="text-align:center;"><span class="H3 finalTotalPrice" id="span6" > </span></div>
-											<div class="col-12" style="text-align:center;"><span class="Caption" id="span7" style="color: #919EAB;">적립예정 포인트</span></div>
-											<div class="col-12" style="text-align:center;"><span class="Caption totalPoint" id="span8" style="color: #919EAB;"> </span></div>
+											<div class="col-12 col-sm-6 H4" style="text-align:center; color:#919EAB">배송비</div>
+											<div class="col-12 col-sm-6 H4 deliveryprice" style="text-align:center;">3,000원</div>
+											<div class="col-12 col-sm-6 H3" style="text-align:center; margin-bottom:0.7rem;">총 결제 금액</div>
+											<div class="col-12 col-sm-6 H3 finalTotalPrice" style="text-align:center; margin-bottom:0.7rem;"></div>
+											<div class="col-12 col-sm-6 Caption" style="text-align:center; color: #919EAB;">적립예정 포인트</div>
+											<div class="col-12 col-sm-6 Caption totalPoint" style="text-align:center; color: #919EAB;"></div>
 										</div>
 									</div>
 								</div>
@@ -1407,7 +1410,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	    		$.ajax({
 	            	url:"/cart/select_cart"
 	            }).done(function(resp){
-	            	console.log(resp);
+// 	            	console.log(resp);
 	            	count = resp.length;
 	            	for(i=0; i < resp.length; i++){
 	            		
@@ -1436,8 +1439,8 @@ input[type="number"]::-webkit-inner-spin-button {
 					$.ajax({
 						url:"/shop/selectMemberPoint"
 					}).done(function(resp){
-						console.log("포인트 조회 결과");
-						console.log(resp);
+// 						console.log("포인트 조회 결과");
+// 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
 							
 							myPoint = resp[0].point;
@@ -1461,8 +1464,8 @@ input[type="number"]::-webkit-inner-spin-button {
 					$.ajax({
 						url:"/shop/selectMemberData"
 					}).done(function(resp){
-						console.log("쿠폰결과");
-						console.log(resp);
+// 						console.log("쿠폰결과");
+// 						console.log(resp);
 						for(let i = 0; i < resp.length; i++){
 							
 							$(".select-ul1").append("<li class='li1 body2' id="+resp[i].dc+" value="+resp[i].serial+" style='width:100%;'>"+resp[i].category+" - "+resp[i].dc+"원 할인<input type='hidden' value="+resp[i].serial+"></li>")
@@ -1484,7 +1487,7 @@ input[type="number"]::-webkit-inner-spin-button {
 							data:{g_seq:arrG_seq[i],
 								cartstock:arrCartstock[i]}
 						}).done(function(resp){
-							console.log(resp);
+// 							console.log(resp);
 	
 						})
 					}
@@ -1510,7 +1513,7 @@ input[type="number"]::-webkit-inner-spin-button {
 				$(".select-ul1").toggle();
 				let text = $(this).text();
 				serial = $(this).children().val();
-				console.log(serial);
+// 				console.log(serial);
 		    	$("#select1").text(text);
 		    	$("#select2").text(text);
 		    	
@@ -1723,7 +1726,28 @@ input[type="number"]::-webkit-inner-spin-button {
 	    }
 	
 	function iamport(){
-
+		if($(".buyer_name").val()==""){
+			alert("이름을 입력하세요");
+			return false;
+			
+		}
+		if($(".buyer_tel").val()==""){
+			alert("전화번호를 입력하세요");
+			return false;
+			
+		}
+		if($(".buyer_addr").val()==""){
+			alert("우편번호를 입력하세요");
+			return false;
+			
+			
+		}
+		if($(".buyer_address2").val()==""){
+			alert("상세주소를 입력하세요");
+			return false;
+			
+			
+		}
 		var windowWidth = $( window ).width();
 	      let buyer_postcode = $(".buyer_postcode").val();
 	      if(buyer_postcode == ''){
@@ -1754,7 +1778,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	    buyer_postcode : buyer_postcode,
 	    delivery_text : $(".delivery_text").val()
 	}, function(rsp) {
-		console.log(rsp);
+// 		console.log(rsp);
 	    if ( rsp.success ) {
             $.ajax({
                 url:"/pay/insert",
@@ -1777,7 +1801,7 @@ input[type="number"]::-webkit-inner-spin-button {
                 type:"post",
                 dataType:"json"
             }).done(function(resp){
-               console.log(resp)
+//                console.log(resp)
                for(let i = 0; i < arrG_name.length; i++){
                    $.ajax({
                		url:"/pay/myGoods",
@@ -1806,7 +1830,7 @@ input[type="number"]::-webkit-inner-spin-button {
                		},
                		async : false
                	}).done(function(resp){
-					console.log($(".pointinput1").val())
+// 					console.log($(".pointinput1").val())
                	})
  
                };
@@ -1817,7 +1841,7 @@ input[type="number"]::-webkit-inner-spin-button {
 	       				addpoint : LetaddPoint},
 	       				async:false
 	       		}).done(function(resp){
-	       			console.log("point 정산 성공");
+// 	       			console.log("point 정산 성공");
 	       				
 	       		});
 
@@ -1828,7 +1852,7 @@ input[type="number"]::-webkit-inner-spin-button {
 							"serial" : serial},
 							async : false
 		       		}).done(function(resp){
-		       			console.log("coupon 정산 성공");
+// 		       			console.log("coupon 정산 성공");
 		       				
 		       		});
 	       	 	}
@@ -1839,7 +1863,7 @@ input[type="number"]::-webkit-inner-spin-button {
        				data:{cart_seq : arrCart_seq[i]},
        				async : false
        			}).done(function(resp){
-       				console.log("cart 삭제성공");
+//        				console.log("cart 삭제성공");
        			})
                }
                
@@ -1862,13 +1886,13 @@ input[type="number"]::-webkit-inner-spin-button {
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
+//               console.log(Kakao.Auth.getAccessToken());
               location.href="/member/logout";
             });
         return true;

@@ -22,6 +22,7 @@
 <script src="/js/qrmaker.js"></script>
 <!-- 카카오 로그인 -->
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 @charset "UTF-8";
@@ -262,10 +263,29 @@ line-height: 3.75rem;
 	
 	
 }
+@media ( max-width : 576px) {
+.ticket{
+	width:100% !important;
+	height:100% !important;
+	text-align:center;
+	
+	}
+	.qr{
+	position:relative !important;
+	margin:auto;
+	bottom:0rem !important;
+	right:0rem !important;
+	margin-top:1.5rem;
+	margin-bottom:1.5rem;
+	
+	}
+}
+
 @media ( max-width : 500px) {
 	.select-ul{
 	 width:390px;
 	}
+	
 }
 @media ( min-width : 500px) {
 	.select-ul{
@@ -405,8 +425,8 @@ font-family: 'Spoqa Han Sans Neo';
 }
 .btnbtn{
 display:inline-block;
-width: 180px;
-height: 50px;
+width: 11.25rem;
+height: 3.625rem;
 background: #161C24;
 border-radius: 1.25rem;
 color:white;
@@ -562,8 +582,8 @@ transition: 0.3s;
 
 .btn2{
 	display:inline-block;
-	width: 180px;
-	height: 50px;
+width: 11.25rem;
+height: 3.625rem;
 	background:white;
 	border-radius: 1.25rem;
 	color:black;
@@ -774,7 +794,7 @@ transition: 0.3s;
 				
 				
 				
-				<div class="content" style="padding-left:20px;">
+				<div class="content" >
 				<div class="row content-row" style="min-width:730px;">
 				<div class="col-1" >
 						<button class="vector" >
@@ -786,29 +806,29 @@ transition: 0.3s;
 					</div>
 				
 				
-					<div class="col-3 col-md-3 body4" style="margin-top:1.25rem;">주문번호</div>
-					<div class="col-9 col-md-9 body4" style="margin-top:1.25rem;">${dto.et_booknumber }</div>
-					<div class="col-3 col-md-3 body4">주문일자</div>
-					<div class="col-9 col-md-9 body4">${dto.et_buydate }</div>
-					<div class="col-3 col-md-3 body4">주문자</div>
-					<div class="col-9 col-md-9 body4">${dto.et_username }</div>
-					<div class="col-3 col-md-3 body4">주문처리상태</div>
-					<div class="col-9 col-md-9 body4" id="state"></div>
-					<div class="col-3 col-md-3 body4" style="margin-bottom:2rem;">결제수단</div>
-					<div class="col-9 col-md-9 body4" style="margin-bottom:2rem;">${dto.et_paymethod }</div>
+					<div class="col-12 col-sm-3 body4" >주문번호</div>
+					<div class="col-12 col-sm-9 body4" >${dto.et_booknumber }</div>
+					<div class="col-12 col-sm-3 body4">주문일자</div>
+					<div class="col-9 col-sm-9 body4">${dto.et_buydate }</div>
+					<div class="col-3 col-sm-3 body4">주문자</div>
+					<div class="col-9 col-sm-9 body4">${dto.et_username }</div>
+					<div class="col-3 col-sm-3 body4">주문처리상태</div>
+					<div class="col-9 col-sm-9 body4" id="state"></div>
+					<div class="col-3 col-sm-3 body4" style="margin-bottom:2rem;">결제수단</div>
+					<div class="col-9 col-sm-9 body4" style="margin-bottom:2rem;">${dto.et_paymethod }</div>
 				
 				<div class="col-12 info"><strong>예매자 정보</strong></div>
-				<div class="col-3 col-md-3 body5" style="margin-top:1.25rem;">이름</div>
-					<div class="col-9 col-md-9 body5" style="margin-top:1.25rem;">${dto.et_username }</div>
-					<div class="col-3 col-md-3 body5">전화번호</div>
-					<div class="col-9 col-md-9 body5">${dto.et_phone }</div>
-					<div class="col-3 col-md-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
-					<div class="col-9 col-md-9 body5" style="margin-bottom:3rem;">${dto.et_email }</div>
+				<div class="col-2 col-md-3 body5" style="margin-top:1.25rem;">이름</div>
+					<div class="col-10 col-md-9 body5" style="margin-top:1.25rem;">${dto.et_username }</div>
+					<div class="col-2 col-md-3 body5">전화번호</div>
+					<div class="col-10 col-md-9 body5">${dto.et_phone }</div>
+					<div class="col-2 col-md-3 body5" style="margin-bottom:3rem;">이메일 주소</div>
+					<div class="col-10 col-md-9 body5" style="margin-bottom:3rem;">${dto.et_email }</div>
 				
-				<div class="col-2" style="height:12.5rem;margin-bottom:5.5rem;  ">
+				<div class="col-sm-2 d-none d-sm-block" style="height:12.5rem;margin-bottom:5.5rem;  ">
 				<img src="/images/anywayloveS.png" class="h-100" style="width:8.525rem; margin-bottom:5.5rem;">
 				</div>
-					<div class="col-9" style="margin-bottom:5.5rem;">
+					<div class="col-12 col-sm-9" style="margin-bottom:5.5rem;">
 						<div class="row ticket-row" >
 							<div class="col-12 body4" style="padding-top:1rem;">${dto.et_title }</div>
 							<div class="col-12 body4">${dto.et_booknumber }</div>
@@ -819,18 +839,18 @@ transition: 0.3s;
 				price = ${(dto.et_cost+dto.et_usedpoint+dto.et_cpdiscount)/dto.et_count  };
 				$("#price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
 				</script>
-				<div class="col-4 total total-info">총 수량</div>
-				<div class="col-8 total total-info" >${dto.et_count }개</div>
-				<div class="col-4 total total-info">적립 포인트</div>
-				<div class="col-8 total getpoint total-info"></div>
-				<div class="col-4 total total-info">쿠폰할인</div>
-				<div class="col-8 total coupon total-info"></div>
-				<div class="col-4 total total-info">배송비</div>
-				<div class="col-8 total total-info">3000</div>
-				<div class="col-4 total "  style="margin-bottom:1.25rem">포인트 사용</div>
-				<div class="col-8 total usedpoint " style="margin-bottom:1.25rem"></div>
-				<div class="col-4 total "  style="margin-bottom:10rem">총 주문금액</div>
-				<div class="col-8 total-price" style="margin-bottom:10rem"></div>	
+				<div class="col-3 total total-info">총 수량</div>
+				<div class="col-9 total total-info" >${dto.et_count }개</div>
+				<div class="col-3 total total-info">적립 포인트</div>
+				<div class="col-9 total getpoint total-info"></div>
+				<div class="col-3 total total-info">쿠폰할인</div>
+				<div class="col-9 total coupon total-info"></div>
+				<div class="col-3 total total-info">배송비</div>
+				<div class="col-9 total total-info">3000</div>
+				<div class="col-3 total "  style="margin-bottom:1.25rem">포인트 사용</div>
+				<div class="col-9 total usedpoint " style="margin-bottom:1.25rem"></div>
+				<div class="col-3 total "  style="margin-bottom:10rem">총 주문금액</div>
+				<div class="col-9 total-price" style="margin-bottom:10rem"></div>	
 				<script>
 				price = ${dto.et_cost  };
 				$(".total-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -856,13 +876,13 @@ transition: 0.3s;
 								<div class="col-12 ticket">
 									<input type="hidden" class="booknumber" value="${dto.et_booknumber }">
 									<div class="row" style="height: 100%">
-										<div class="col-3"
+										<div class="col-sm-3 d-none d-sm-block"
 											style="padding: 1rem; padding-left: 1.5rem;">
 											<img src="/images/anywayloveS.png" class="w-100 h-100">
 										</div>
-										<div class="col-9" style="position: relative">
+										<div class="col-sm-9 col-12" style="position: relative">
 											<div class="H5" style="color: white; padding: 1.25rem 0px;">${dto.et_title }</div>
-											<div class="body3" style="color: white">예매번호 :
+											<div class="body3" style="color: white">예매번호 
 												${dto.et_booknumber }</div>
 											<div class="body3" style="color: white;">${dto.et_date }</div>
 											<c:if test="${dto.et_state =='BU' }">
@@ -1056,12 +1076,12 @@ transition: 0.3s;
 	})
 	//구매 취소 확인 버튼
 	$(".pay-cancel").on("click",function(){
-		console.log($(".input").val());
+// 		console.log($(".input").val());
 		$.ajax({
 			url:"/mypage/payCancel",
 			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
 		}).done(function(resp){
-			console.log("성공");
+// 			console.log("성공");
 			location.reload();
 		})
 	})
@@ -1117,11 +1137,11 @@ $("body").on("click", function(e){
 	});
 	function state(){
 		if(${dto.et_state =='BU'}){
-			console.log("hi")
+// 			console.log("hi")
 			$("#state").text("구매완료");
 			$("#state").css("font-weight","700");
 		}else if(${dto.et_state =='AU'}){
-			console.log("bte")
+// 			console.log("bte")
 			$("#state").text("사용완료");
 			$("#state").css("font-weight","700");
 			$("#state").css("color","red");
@@ -1171,8 +1191,8 @@ $("body").on("click", function(e){
 		}
 	});
 	for(let i=0;i<$(".qr").length;i++){
-		console.log($(".booknumber")[i]);
-		console.log($(".booknumber")[i].value);
+// 		console.log($(".booknumber")[i]);
+// 		console.log($(".booknumber")[i].value);
 		var qrcode = new QRCode($(".qr")[i], {
             text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
             width: 90,
@@ -1187,13 +1207,13 @@ $("body").on("click", function(e){
         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
         Kakao.isInitialized();
         if (!Kakao.Auth.getAccessToken()) {
-           console.log('Not logged in.');
+//            console.log('Not logged in.');
            location.href="/member/logout";
             return ;
         }
         
          Kakao.Auth.logout(function() {
-              console.log(Kakao.Auth.getAccessToken());
+//               console.log(Kakao.Auth.getAccessToken());
               location.href="/member/logout";
             });
         return true;

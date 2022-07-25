@@ -65,7 +65,7 @@
 				url: "/coupon/Registration",
 				data:{serial:$("#serial").val()}
 			}).done(function(resp){
-				console.log(resp)
+// 				console.log(resp)
 				if(resp=="false"){
 					alert("쿠폰번호를 확인해주세요")
 					return false;

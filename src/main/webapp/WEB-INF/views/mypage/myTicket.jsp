@@ -299,7 +299,7 @@
 	width:44.5rem !important;
 height:14.5rem !important;
 margin:auto;
-margin-bottom:2.5rem;
+margin-bottom:2rem !important;
 }
 .pre-title{
 font-size:1.625rem !important;
@@ -450,6 +450,24 @@ border-radius:0.625rem;
 	max-width: 44.5rem;
 	height: 14.5rem;
 	}
+	@media ( max-width : 640px) {
+	.pre-ticket, .a{
+	width:100% !important;
+	}
+	.pre-div{
+	padding-left:2.5rem;
+	padding-right:2.5rem;
+	}
+	}
+	.pre-ticket, .a {
+    background: #DFE3E8;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    width: 26.5rem;
+    height: 10rem;
+    margin: auto;
+    margin-bottom: 1rem;
+}
 </style>
 </head>
 <body>
@@ -750,7 +768,7 @@ border-radius:0.625rem;
 		
 
          <div class="row" id="footer">
-            <div class="container">
+            <div class="container" style="margin-left:1rem;">
                 <div class="row" id="row1">
                     <div class="col-12 H3" style = "color: #637381; margin-top: 3.75rem;">(주)팔레트</div>
                     <div class="col-12 body2" style = "color: #637381;">사업자 등록번호 : 123-45-012345 | 대표 : 홍길동 | 통신판매업 신고번호 : 2022-서울강남-012345</div><br>
@@ -771,21 +789,21 @@ window.onload = function(){
 		success: function (resp) {
 			
 			for(let i = 0 ; i < resp.length; i++) {
-				console.log(resp[i].category);	
+// 				console.log(resp[i].category);	
 				if(resp[i].category =='E'){
 		    	  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
-		    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-						+"</div><div class='col-9' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
+						+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			} if(resp[i].category == 'P'){
 				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
-		    			  +"<div class='col-3' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
-						+"</div><div class='col-9' style='position: relative padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+						+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
 			}
-		    	  console.log("resp.length : " + resp.length);
+// 		    	  console.log("resp.length : " + resp.length);
 			}
 		},
 		});	
@@ -800,7 +818,7 @@ window.onload = function(){
 	    let currentScroll = $(window).scrollTop() + $(window).height(); */
 	   
 	    if (maxHeight <= currentScroll+100) {
-	    	console.log("origin limit : " + limit);
+// 	    	console.log("origin limit : " + limit);
 	    	$.ajax({
 				url:"/mypage/mypreTicket",
 				data:{limit : limit},
@@ -808,24 +826,24 @@ window.onload = function(){
 				dataType:"json", // == JSON.parse(resp);
 				success: function (resp) {
 					for(let i = 0 ; i < resp.length; i++) {
-						console.log("두번째"+resp[i].category);	
+// 						console.log("두번째"+resp[i].category);	
 						if(resp[i].category =='E'){
 						  $(".pre-ticket-row").append("<a class='a' href='/mypage/myTicketDetailview?et_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
-				    			  +"<div class='col-3' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
-								+"</div><div class='col-9' style='position: relative padding-left:2.5rem;'><div class='pre-title' style='color: #637381; padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+				    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src='/images/anywayloveS.png' class='w-100 h-100'>"
+								+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381; padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 								+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 							+"</div></div></div></a>"); 
 						} if(resp[i].category == 'P'){
 							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
-					    			  +"<div class='col-3' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
-									+"</div><div class='col-9' style='position: relative padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
+					    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+									+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 								+"</div></div></div></a>"); 
 						}
-				    	  console.log("resp.length : " + resp.length);
+// 				    	  console.log("resp.length : " + resp.length);
 					}
 					limit = limit + resp.length;
-			    	console.log("change limit : " + limit);	
+// 			    	console.log("change limit : " + limit);	
 				},
 				});
 	    	} 
@@ -894,20 +912,20 @@ window.onload = function(){
             Kakao.init('feb50c309d28b138aefe9ddc94d76870');
             Kakao.isInitialized();
             if (!Kakao.Auth.getAccessToken()) {
-               console.log('Not logged in.');
+//                console.log('Not logged in.');
                location.href="/member/logout";
                 return ;
             }
             
              Kakao.Auth.logout(function() {
-                  console.log(Kakao.Auth.getAccessToken());
+//                   console.log(Kakao.Auth.getAccessToken());
                   location.href="/member/logout";
                 });
             return true;
          });
 
 		for(let i=0;i<$(".qr").length;i++){
-			console.log($(".booknumber")[i]);
+// 			console.log($(".booknumber")[i]);
 			var qrcode = new QRCode($(".qr")[i], {
 	            text: "http://${ip}/qr/useticket?et_booknumber="+$(".booknumber")[i].value,
 	            width: 80,

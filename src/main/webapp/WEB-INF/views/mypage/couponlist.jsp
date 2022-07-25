@@ -674,12 +674,28 @@ button {
 				url:"/mypage/selectMyCouponStatus",
 				data:{"used":$(".active").attr("id")}
 			}).done(function(resp){
-				console.log(resp);
+// 				console.log(resp);
 				for(let i = 0; i < resp.length; i++){
 					$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 				}
 			})
 		}
+		
+		$(".logout").on("click", function(){
+	         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
+	         Kakao.isInitialized();
+	         if (!Kakao.Auth.getAccessToken()) {
+// 	            console.log('Not logged in.');
+	            location.href="/member/logout";
+	             return ;
+	         }
+	         
+	          Kakao.Auth.logout(function() {
+// 	               console.log(Kakao.Auth.getAccessToken());
+	               location.href="/member/logout";
+	             });
+	         return true;
+	      });
 		
 		
 	
@@ -692,28 +708,12 @@ button {
 					url:"/mypage/selectMyCouponStatus",
 					data:{"used":$(".active").attr("id")}
 				}).done(function(resp){
-					console.log(resp);
+// 					console.log(resp);
 					for(let i = 0; i < resp.length; i++){
 						$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 					}
 				})
 
-		
-		$(".logout").on("click", function(){
-	         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-	         Kakao.isInitialized();
-	         if (!Kakao.Auth.getAccessToken()) {
-	            console.log('Not logged in.');
-	            location.href="/member/logout";
-	             return ;
-	         }
-	         
-	          Kakao.Auth.logout(function() {
-	               console.log(Kakao.Auth.getAccessToken());
-	               location.href="/member/logout";
-	             });
-	         return true;
-	      });
 
 			}
 			if($(".active").attr("id") == "Y"){
@@ -721,7 +721,7 @@ button {
 					url:"/mypage/selectMyCouponStatus",
 					data:{"used":$(".active").attr("id")}
 				}).done(function(resp){
-					console.log(resp);
+// 					console.log(resp);
 					for(let i = 0; i < resp.length; i++){
 						$(".list").append("<div class='col-6 category' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].category+"</div><div class='col-6 dc' style='font-size:2rem; font-weight:bold; border-bottom:1px solid #DFE3E8; margin-top:0.5rem; padding-bottom:0.5rem;'>"+resp[i].dc+"원</div>")
 					}
@@ -747,7 +747,7 @@ button {
 					url:"/coupon/Registration",
 					data:{"serial":$(".serialInput").val()}
 				}).done(function(resp){
-					console.log(resp);
+// 					console.log(resp);
 					if(resp=="false"){
 						alert("쿠폰번호를 다시 확인해주세요")
 						$(".serialInput").val("");

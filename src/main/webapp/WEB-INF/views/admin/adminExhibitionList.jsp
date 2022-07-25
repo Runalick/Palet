@@ -273,7 +273,7 @@
     	let checkboxArr = [];
     	$('input[name="checkbox"]:checked').each(function() {
     		checkboxArr.push($(this).val()); //Array에 push로 체크된 것들만 넣기
-    		console.log(checkboxArr)
+//     		console.log(checkboxArr)
     	})
     	
     	$.ajax({
@@ -283,7 +283,7 @@
     			checkboxArr : checkboxArr
     		},
     		success : function (result){
-    			console.log(result);
+//     			console.log(result);
     			alert("delete ok!");
     			location.reload();
     		}
@@ -295,7 +295,7 @@
     	let pe_period = $("#pe_period").val();
     	$('input[name="checkbox"]:checked').each(function() {
     		checkboxArr2.push($(this).val()); //Array에 push로 체크된 것들만 넣기
-    		console.log(checkboxArr2)
+//     		console.log(checkboxArr2)
     	})
     	
     	$.ajax({
@@ -306,7 +306,7 @@
     			pe_period : pe_period
     		},
     		success : function (result){
-    			console.log(result);
+//     			console.log(result);
     			alert("update ok!");
     			location.reload();
     		}

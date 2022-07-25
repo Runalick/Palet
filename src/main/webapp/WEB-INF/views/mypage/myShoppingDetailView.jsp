@@ -576,7 +576,7 @@ padding: 0.125rem 1rem;
 
 .navi-ul li ul li a{
 color:#919EAB;
-font-weight:700;
+font-weight:400;
 line-height:2rem;
 }
 .navi-ul li ul li a:hover{
@@ -1026,14 +1026,14 @@ background: #FFFFFF;
 				
 				<div class="content" style="margin-top:1rem; padding-left: 20px;" >
 					<div class="row">
-						<div class="col-1" style="margin-left: 2rem">
+						<div class="col-1" >
 							<button class='vector'>
 							<img src="/images/Vector.png">
 							</button>
 						</div>
 						<div class="col-7 px-4 main-info" >주문 상세</div>
 						
-						<div class="col-12">
+						<div class="col-12" style="padding-left:0px;">
 							<div class="row main-area">
 								<div class="col-12 h3">주문정보</div>
 								<div class="col-12 col-md-3 body2_1 pb">주문번호</div>
@@ -1121,7 +1121,7 @@ background: #FFFFFF;
 									coupon = ${product[0].cp_discount };
 								}
 								price = ${payment.totalprice} + usedpoint + coupon - 3000;
-								console.log(price);
+// 								console.log(price);
 								
 								
 								$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -1181,7 +1181,7 @@ background: #FFFFFF;
 											</div>
 				
 										<div class="col-12 write-contents" style="display:none;">
-											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40'></textarea>
+											<textarea class="cancel-div input" id="contents" placeholder="취소 사유를 입력해 주세요." maxlength='40' ></textarea>
 										</div>
 									</div>
 										<div class="row payinfo" style="margin-bottom:1rem;">
@@ -1218,7 +1218,7 @@ background: #FFFFFF;
 													$("#serical").text("${product[0].serial }");
 												}
 												price = ${payment.totalprice} + usedpoint + coupon - 3000;
-												console.log(price);
+// 												console.log(price);
 												
 												
 												$(".real-price").text(price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")+"원");
@@ -1314,28 +1314,39 @@ $(".vector").on("click", function(){
 
 //구매 취소 확인 버튼
 $(".pay-cancel").on("click",function(){
-	console.log($(".input").val());
+// 	console.log($(".input").val());
 	$.ajax({
 		url:"/mypage/payCancel",
 		data:{content:$(".input").val(), booknumber:$(this).val(),category:'G'}
 	}).done(function(resp){
-		console.log("성공");
+// 		console.log("성공");
 		location.reload();
 	})
 })
-
+$( window ).resize(function() {   //창크기 변화 감지
+		open_chatroom();
+	});
+	
+	function open_chatroom(){ 
+		var windowWidth = $( window ).width();
+		if(windowWidth < 992) {      //창 가로 크기가 500 미만일 경우  
+			$(".navi-menu").css({"display":"none"});
+		} else {      //창 가로 크기가 500보다 클 경우  
+			$(".navi-menu").css({"display":"block"});
+		}
+		}
 
 //선택박스 화살표 방향 이미지
 	let click = true;
 	$("#select").on("click",function(){
 		if(click==false){
-			$("#select").css({"background":"url('/images/updownarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
-			$(".navi-menu").toggle();
+			$("#select").css({"background":"url('/images/uparrow.png')  no-repeat 97% 50%/15px auto ","background-size": "1.596rem"});
+			$(".navi-menu").css({"display":"none"});
 			
 			click = true;
 		}else{
 			$("#select").css({"background":"url('/images/downarrow.png')  no-repeat 97% 50%/15px auto ","background-size": "01.596rem"});
-			$(".navi-menu").toggle();
+			$(".navi-menu").css({"display":"block"});
 			click = false;
 		}
 	});
@@ -1431,13 +1442,13 @@ $(".logout").on("click", function(){
     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
     Kakao.isInitialized();
     if (!Kakao.Auth.getAccessToken()) {
-       console.log('Not logged in.');
+//        console.log('Not logged in.');
        location.href="/member/logout";
         return ;
     }
     
      Kakao.Auth.logout(function() {
-          console.log(Kakao.Auth.getAccessToken());
+//           console.log(Kakao.Auth.getAccessToken());
           location.href="/member/logout";
         });
     return true;

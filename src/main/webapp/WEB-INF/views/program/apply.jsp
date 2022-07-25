@@ -1162,13 +1162,13 @@ $(".logout").on("click", function(){
     Kakao.init('feb50c309d28b138aefe9ddc94d76870');
     Kakao.isInitialized();
     if (!Kakao.Auth.getAccessToken()) {
-       console.log('Not logged in.');
+//        console.log('Not logged in.');
        location.href="/member/logout";
         return ;
     }
     
      Kakao.Auth.logout(function() {
-          console.log(Kakao.Auth.getAccessToken());
+//           console.log(Kakao.Auth.getAccessToken());
           location.href="/member/logout";
         });
     return true;
@@ -1181,13 +1181,13 @@ $(".logout").on("click", function(){
  Kakao.init('feb50c309d28b138aefe9ddc94d76870');
  Kakao.isInitialized();
  if (!Kakao.Auth.getAccessToken()) {
-    console.log('Not logged in.');
+//     console.log('Not logged in.');
     location.href="/member/logout";
      return ;
  }
  
   Kakao.Auth.logout(function() {
-       console.log(Kakao.Auth.getAccessToken());
+//        console.log(Kakao.Auth.getAccessToken());
        location.href="/member/logout";
      });
  return true;
@@ -1264,7 +1264,7 @@ else if (!phoneResult) {
 
 //큰화면 쿠폰 사용
 $(".form-select1").on('change',function(){
-	console.log($(".h5_1").text());
+// 	console.log($(".h5_1").text());
 	//나한테 있는 포인트가 사용되었다면
  if(${mdto.point}!=$(".h5_1_1").text())
  
@@ -1322,9 +1322,9 @@ $(".form-select1").on('change',function(){
 	//모두사용 큰화
 	
 	$(".usedbutton").on("click", function() {
-console.log($(".form-select1 option:selected").text() );
+// console.log($(".form-select1 option:selected").text() );
 		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
-			console.log('hihddi');
+// 			console.log('hihddi');
 			
 
 		
@@ -1371,7 +1371,7 @@ console.log($(".form-select1 option:selected").text() );
 	})
 	
 	$(".usedpoint").keypress(function(e) {
-		console.log('여기5');
+// 		console.log('여기5');
 		if($(".form-select1 option:selected").text() == '쿠폰을 선택해 주세요.'){
 		if (e.keyCode == 13) {
 			let mypoint = parseInt($(".h5_1_1").text());
@@ -1392,12 +1392,12 @@ console.log($(".form-select1 option:selected").text() );
 		let price4 = price3.replace(",", "");
 		let price5 = price4.replace("원", "");
 		let price6 = parseInt(price5);
-		console.log(ipusedpoint);
-		console.log(opusedpoint2);
+// 		console.log(ipusedpoint);
+// 		console.log(opusedpoint2);
 		
 		
 
-		console.log(price5);
+// 		console.log(price5);
 
 		let check = /^[0-9]+$/; 
 	
@@ -1412,7 +1412,7 @@ console.log($(".form-select1 option:selected").text() );
 					return false;
 				}else  if(parseInt($(".h5_1_1").text())-$(this).val()>=${mdto.point}-5000){
 				$(".h5_1_1").text(mypoint - $(this).val());
-				console.log('ddddaa');
+// 				console.log('ddddaa');
 		
 			$("#usedpoint").text('-'+(${mdto.point}-(mypoint - $(this).val())+'p'));
 				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
@@ -1491,7 +1491,7 @@ document.addEventListener('DOMContentLoaded', function() {
      		   			$(".date").val(info.dateStr);
      		      		
      		      		//	selectable: true;
-     		      			console.log('hi');
+//      		      			console.log('hi');
      		      		}else{
      		   return false;
 
@@ -1519,7 +1519,7 @@ document.addEventListener('DOMContentLoaded', function() {
    			$(".date").val(info.dateStr);
    		
    
-   			console.log('hi');
+//    			console.log('hi');
    		}
 
        	  } 
@@ -1538,7 +1538,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 	function iamport() {
-    	 console.log($(".username").val());
+//     	 console.log($(".username").val());
     	 let price = $("#finalprice").text();
  		let price1 = price.replace(",", "");
  		let price2 = price1.replace("원", "");
@@ -1592,7 +1592,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			buyer_postcode : '123-456'
 
 		}, function(rsp) {
-			console.log(rsp);
+// 			console.log(rsp);
 			if (rsp.success) {
 				let price = $("#finalprice").text();
 				let price1 = price.replace(",", "");
