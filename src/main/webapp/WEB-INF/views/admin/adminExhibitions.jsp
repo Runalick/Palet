@@ -483,7 +483,7 @@ let end_date;
 
 	$("#e_name").on("keyup",function(){
 		let e_name = $("#e_name").val();
-		console.log(e_name);
+// 		console.log(e_name);
 		if(e_name == ""){
 			isE_name = false;
 			
@@ -492,15 +492,15 @@ let end_date;
 			console.log("e_namePass")
 		}
 		
-		console.log(isE_name);
+// 		console.log(isE_name);
 		
 		if (isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic ){
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 		}
@@ -516,23 +516,23 @@ let end_date;
 // 	console.log($("#end_date_value").val());
 	$("#start_date").on("focusout", function(){
 		let start_date_value = $("#start_date_value").val();
-		console.log(start_date_value);
+// 		console.log(start_date_value);
 		if (start_date_value == null){
 			isStart_date = false;
 		}else {
 			isStart_date = true;
-			console.log("startdatePass")
+// 			console.log("startdatePass")
 		}
 		
-		console.log(isStart_date);
+// 		console.log(isStart_date);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -541,23 +541,23 @@ let end_date;
 	
 	$("#end_date").on("focusout", function(){
 		let end_date_value = $("#end_date_value").val();
-		console.log(end_date_value);
+// 		console.log(end_date_value);
 		if (end_date_value == null ){
 			isEnd_date = false;
 		}else {
 			isEnd_date = true;
-			console.log("enddatePass")
+// 			console.log("enddatePass")
 		}
 		
-		console.log(isEnd_date);
+// 		console.log(isEnd_date);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -566,24 +566,24 @@ let end_date;
 
 	$("#e_price").on("keyup",function(){
 		let e_price = $("#e_price").val();
-		console.log(e_price);
+// 		console.log(e_price);
 		if(e_price == ""){
 			isE_price = false;
 			
 		}else {
 			isE_price = true;
-			console.log("e_pricePass")
+// 			console.log("e_pricePass")
 		}
 		
-		console.log(isE_price);
+// 		console.log(isE_price);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -592,24 +592,24 @@ let end_date;
 	
 	$("#pe_contents").on("keyup",function(){
 		let pe_contents = $("#pe_contents").val();
-		console.log(pe_contents);
+// 		console.log(pe_contents);
 		if(pe_contents == ""){
 			isContents = false;
 			
 		}else {
 			isContents = true;
-			console.log("ContentsPass")
+// 			console.log("ContentsPass")
 		}
 		
-		console.log(isContents);
+// 		console.log(isContents);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -618,24 +618,24 @@ let end_date;
 	
 	$("#pe_writer").on("keyup",function(){
 		let pe_writer = $("#pe_writer").val();
-		console.log(pe_writer);
+// 		console.log(pe_writer);
 		if(pe_writer == ""){
 			isWriter = false;
 			
 		}else {
 			isWriter = true;
-			console.log("writerPass")
+// 			console.log("writerPass")
 		}
 		
-		console.log(isWriter);
+// 		console.log(isWriter);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -645,25 +645,25 @@ let end_date;
 	$("#pe_artcount").on("keyup",function(){
 		
 		let pe_artcount = $("#pe_artcount").val();
-		console.log(pe_artcount);
+// 		console.log(pe_artcount);
 		if(pe_artcount == ""){
 			isArtcount = false;
 			
 		}else {
 			isArtcount = true;
-			console.log("artcountPass")
+// 			console.log("artcountPass")
 		}
 		
-		console.log(isArtcount);
+// 		console.log(isArtcount);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			
-			console.log("&&을 패스 했습니까?")
+// 			console.log("&&을 패스 했습니까?")
 			let start_date_value = $("#start_date_value").val();
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -672,7 +672,7 @@ let end_date;
 	
 	$("#file2").on("keyup", ()=>{
 		let pe_img = $("#file2").val();
-		console.log(pe_img);
+// 		console.log(pe_img);
 		if(pe_img == ""){
 			isExhibitionPic = false;
 			
@@ -680,7 +680,7 @@ let end_date;
 			isExhibitionPic = true;
 			console.log("expicPass")
 		}
-		console.log(isExhibitionPic);
+// 		console.log(isExhibitionPic);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			
@@ -688,7 +688,7 @@ let end_date;
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
@@ -698,15 +698,15 @@ let end_date;
 	
 	$("#file").on("change",function(){
 		let pe_img = $("#pe_img").val();
-		console.log(pe_img);
+// 		console.log(pe_img);
 		if(pe_img == ""){
 			isExhibitionPic = false;
 			
 		}else {
 			isExhibitionPic = true;
-			console.log("expicPass")
+// 			console.log("expicPass")
 		}
-		console.log(isExhibitionPic);
+// 		console.log(isExhibitionPic);
 		
 		if(isE_name && isE_price && isStart_date && isEnd_date && isContents && isWriter && isArtcount && isExhibitionPic){
 			
@@ -714,7 +714,7 @@ let end_date;
 			let end_date_value = $("#end_date_value").val();
 			let pe_date = start_date_value + " ~ " + end_date_value;
 			$("#pe_date").val(pe_date);
-			console.log($("#pe_date").val());
+// 			console.log($("#pe_date").val());
 			$("#upload").css("color", "#FFC107");
 			$("#upload").removeAttr("disabled");
 			
