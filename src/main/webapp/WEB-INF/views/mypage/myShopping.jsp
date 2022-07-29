@@ -95,7 +95,7 @@
 		} */
 .row>div {
 	padding-left: 2.5rem;
-	padding-right: 2.5rem;
+/* 	padding-right: 2.5rem; */
 }
 
 .nav-link {
@@ -829,7 +829,7 @@ color:white;
 				
 				
 				<div class="content" style="margin-top:1rem;" >
-					<div class="row" >
+					<div class="row" style = "padding-left:50px;" >
 						<div class="col-12 main-info" >주문 내역</div>
 						
 						<div class="col-12" style="margin-top:2.5rem;">

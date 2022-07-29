@@ -30,6 +30,6 @@
   		select * from  member where email = #{value}
   	</select>
   	<update id="updateCartstock">
-  		update goods set g_stock = g_stock - #{cartstock} where g_seq = #{g_seq}
+  		update goods set g_stock = g_stock - #{cartstock}, sales_count = sales_count - #{cartstock} where g_seq = #{g_seq}
   	</update>
   </mapper>	

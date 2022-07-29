@@ -28,6 +28,9 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 
+html {
+	overflow-x: hidden;
+}
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
@@ -372,10 +375,11 @@ button {
 	border:1px solid #DFE3E8;
 }
 
-.container, .container-fluid, .container-lg, .container-md,
+/* .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-}
+} */
+
 
 </style>
 </head>
@@ -566,8 +570,8 @@ button {
 				</div>
 				</div>
 				
-				<div class="content" >
-					<div class="row" id="row1" style="padding:1rem; padding-top:1rem;">
+				<div class="content" style="padding-left:50px; ">
+					<div class="row" id="row1" style="padding-top:1rem;">
 						<div class="col-12 H5" style="">
 							나의 쿠폰
 						</div>

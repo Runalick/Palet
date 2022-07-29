@@ -29,6 +29,9 @@
 
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
+html {
+	overflow-x: hidden;
+}
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
@@ -639,14 +642,14 @@ color:black;
 				
 				
 				
-				<div class="content" style="margin-top:1rem;">
+				<div class="content" style="margin-top:1rem; padding-left: 50px;">
 					<div class="row" >
 						<div class="col-12 main-info ">배송지 목록</div>
 						<div class="col-12 col-md-8 body4 " >배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
 						<div class="col-4 body4" style="padding-top:10px;">
 						<button class="btnbtn body3" id="insert" >배송지 등록</button>
 						</div>
-						<div class="col-12  " style="margin-top:2.5rem;">
+						<div class="col-12  " style="margin-top:2.5rem; padding-right: 0px;">
 							<div class="row main-area" >
 								<div class="col-3 col-md-2  body4 px-3 " >배송지</div>
 								<div class="col-6 col-md-5 body4  px-3">주소</div>

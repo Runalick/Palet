@@ -665,8 +665,8 @@ font-family: 'Spoqa Han Sans Neo';
 					</div>
 				</div>
 
-				<div class="content">
-					<div class="row" id="row1" style="padding: 1rem;">
+				<div class="content" style="padding-left: 50px;">
+					<div class="row" id="row1">
 						<div class="col-sm-12 h2" style="text-align: left; margin-left: auto; margin-bottom: 20px;">
 							<div class="main-title">나의 회원등급</div>
 						<div class="col-12 h3" style="margin-top:2rem; margin-bottom:2rem;"> 
