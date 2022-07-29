@@ -636,7 +636,7 @@ input::placeholder {
 										id="collapsibleNavbar">
 										<ul class="navbar-nav" style="background: white;">
 											<li class="nav-item"><a id="About" class="nav-link"
-												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+												href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 											</li>
 
 											<li class="nav-item"><a id="Exhibition" class="nav-link"
@@ -686,7 +686,7 @@ input::placeholder {
 										id="collapsibleNavbar">
 										<ul class="navbar-nav" style="background: white;">
 											<li class="nav-item"><a id="About" class="nav-link"
-												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+												href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 											</li>
 
 											<li class="nav-item"><a id="Exhibition" class="nav-link"
@@ -742,7 +742,7 @@ input::placeholder {
 										id="collapsibleNavbar">
 										<ul class="navbar-nav" style="background: white;">
 											<li class="nav-item"><a id="About" class="nav-link"
-												href="about" style="padding-left: 0px; padding-right: 0px;">About</a>
+												href="/about" style="padding-left: 0px; padding-right: 0px;">About</a>
 											</li>
 
 											<li class="nav-item"><a id="Exhibition" class="nav-link"
