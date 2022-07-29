@@ -177,12 +177,12 @@
                 	    	
                 	    	<div class="row pt-3 m-3 mb-4">	
             					<div class="col-4 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll">UID  </div>
-            					<div class="col-4 d-lg-none h3_4 " style="padding-right: 0px; border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll2">UID  </div>
+            					<div class="col-8 d-lg-none h3_4 p-0" style="padding-right: 0px; border-right : 0.125rem solid #DFE3E8"> <input type="checkbox" id="checkAll2">UID  </div>
 			            		<div class="col-4 d-none d-lg-block h3 " style="border-right : 0.125rem solid #DFE3E8">Comment</div>
-			            		<div class="col-4 d-lg-none p-0 h3_4 " style="border-right : 0.125rem solid #DFE3E8">Comment</div>
+			            		<!-- <div class="col-4 d-lg-none p-0 h3_4 " style="border-right : 0.125rem solid #DFE3E8">Comment</div> -->
 			            		<div class="col-2 d-none d-xl-block h3 " style="border-right : 0.125rem solid #DFE3E8">Category</div>
 			            		<div class="col-4 col-xl-2 d-none d-lg-block h3 " >Cancel_Date </div>
-			            		<div class="col-4 col-xl-2 d-lg-none p-0 h3_4 " >Cancel_Date </div>
+			            		<div class="col-4 col-xl-2 d-lg-none h3_4" >Date </div>
 			            		
 			            		<div class="col-12 px-3">
 			            			<div class="card2"></div>
@@ -193,10 +193,10 @@
                             			<c:forEach var="i" items="${list}">
                             			<div class="row" id="row1">
 	                            			<div class="col-4 px-4 d-none d-lg-block body2 ellipsis"> <input type="checkbox" name="checkbox" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
-	                            			<div class="col-4 d-lg-none body2_1 ellipsis"> <input type="checkbox" name="checkbox2" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
+	                            			<div class="col-8 d-lg-none body2_1 ellipsis"> <input type="checkbox" name="checkbox2" value="${i.booknumber}"> <a href="/admin/adminPaymentDetail?category=${i.category }&merchant_uid=${i.booknumber}" class="colortext_gray900"> <b>${i.booknumber}</b> </a></div>
 	                            			<input type="hidden" value="${i.booknumber }">
 	                            			<div class="col-4 px-4 d-none d-lg-block body2 ellipsis1">${i.content } </div>
-	                            			<div class="col-4 d-lg-none body2_1 body2 ellipsis1">${i.content } </div>
+	                            			<%-- <div class="col-4 d-lg-none body2_1 body2 ellipsis1">${i.content } </div> --%>
 				                        	<div class="col-2 d-none d-xl-block px-4 body2 ellipsis" >${i.category }</div>
 				                        	<div class="col-4 col-xl-2 d-none d-lg-block px-4 body2 ellipsis" >${i.cancel_date} </div>
 				                        	<div class="col-4 col-xl-2 d-lg-none body2_1 ellipsis" >${i.cancel_date} </div>
