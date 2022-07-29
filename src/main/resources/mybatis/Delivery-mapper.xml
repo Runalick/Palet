@@ -17,7 +17,7 @@
 		  and email = #{email} 
   	</update>
   	<select id="selectAllAddress" resultType="Trillion.Palet.DTO.DeliveryDTO">
-  		select * from deliveryaddress where email = #{email} and defaultaddress = 'N' 
+  		select * from deliveryaddress where email = #{email} 
   	</select>
   	<select id="selectAddress" resultType="Trillion.Palet.DTO.DeliveryDTO">
   		select * from deliveryaddress where email = #{email} and deliveryaddress_seq = #{deliveryaddress_seq}

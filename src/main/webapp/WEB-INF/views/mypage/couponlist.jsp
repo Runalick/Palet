@@ -28,6 +28,9 @@
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
 
 
+html {
+	overflow-x: hidden;
+}
 @media ( min-width : 375px) {
 	.container {
 		max-width: 1280px;
@@ -372,10 +375,11 @@ button {
 	border:1px solid #DFE3E8;
 }
 
-.container, .container-fluid, .container-lg, .container-md,
+/* .container, .container-fluid, .container-lg, .container-md,
 	.container-sm, .container-xl, .container-xxl {
 	overflow-x: hidden;
-}
+} */
+
 
 </style>
 </head>

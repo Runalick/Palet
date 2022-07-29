@@ -422,12 +422,18 @@ li div {
     align-items: center;
     border: 0px;
     border-radius: 0.75rem;
+    transition: 0.3s;
 }
 
 .btn2:disabled {
    color: #FFFFFF;
    background: #C4CDD5;
    cursor: default;
+}
+
+.btn2:hover{
+	background: #454F5B;
+	color:white;
 }
 
 .btn3 {

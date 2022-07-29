@@ -331,4 +331,6 @@
   		where email = (select pro_email from proticket where pro_booknumber = #{value})
   	</update>
   	
+  	
+  	<!--  End -->
   </mapper>
