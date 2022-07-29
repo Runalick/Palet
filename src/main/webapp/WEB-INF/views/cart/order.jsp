@@ -1239,6 +1239,8 @@ margin-bottom:0.5rem;
    	
    	  	//배송지 선택
    	$(".choosedeliverybtn").on("click",function(){
+   		
+   	 
    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
 
    	})
@@ -1735,31 +1737,12 @@ margin-bottom:0.5rem;
 	            }
 	        }).open();
 	    }
+	 var windowWidth = $( window ).width();
 	
-	function iamport(){
-		if($(".buyer_name").val()==""){
-			alert("이름을 입력하세요");
-			return false;
-			
-		}
-		if($(".buyer_tel").val()==""){
-			alert("전화번호를 입력하세요");
-			return false;
-			
-		}
-// 		if($(".buyer_addr").val()==""){
-// 			alert("우편번호를 입력하세요");
-// 			return false;
-			
-			
-// 		}
-		if($(".buyer_address2").val()==""){
-			alert("상세주소를 입력하세요");
-			return false;
-			
-			
-		}
-		var windowWidth = $( window ).width();
+	 
+	 function iamport(){
+		
+		
 	      let buyer_postcode = $(".buyer_postcode").val();
 	      if(buyer_postcode === ''){
 	         buyer_postcode = $(".buyer_postcode1").val();
@@ -1768,12 +1751,39 @@ margin-bottom:0.5rem;
 	      }
 	      
 	      let buyer_addr = $(".buyer_addr").val();
-	      if(buyer_addr === ''){
-	         buyer_addr = $(".buyer_addr1").val();
-	      }else if(windowWidth > 992){
-	         buyer_addr = $(".buyer_addr1").val();
-	      }
+	      if(buyer_addr == ''){
+	    	  buyer_addr = $(".buyer_addr1").val();
 
+	      }else if(windowWidth > 992){
+	    	  buyer_addr = $(".buyer_addr1").val();
+	      }
+	      
+	     console.log( $(".buyer_addr").val()+"dd");
+	     console.log(buyer_addr+"ccc");
+	     console.log('ㅠㅠ');
+	      
+	      if($(".buyer_name").val()==""){
+				alert("이름을 입력하세요");
+				return false;
+				
+			}
+			if($(".buyer_tel").val()==""){
+				alert("전화번호를 입력하세요");
+				return false;
+				
+			}
+			if(buyer_addr==""){
+				alert("우편번호를 입력하세요");
+				return false;
+				
+				
+			}
+			if($(".buyer_address2").val()==""){
+				alert("상세주소를 입력하세요");
+				return false;
+				
+				
+			}
         //가맹점 식별코드
         IMP.init('imp48062056');
 	IMP.request_pay({
