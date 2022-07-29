@@ -1086,7 +1086,7 @@ input::placeholder {
 							style="padding-left: 1.564rem; padding-right: 1.564rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;" placeholder="포인트를 입력후 엔터를 누르세요."  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
+								style="width: 15rem; height: 3rem; text-align:left; padding-left:0.7rem; "  placeholder="포인트를 입력후 엔터를 누르세요."  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
@@ -1427,7 +1427,7 @@ $(".form-select1").on('change',function(){
 				
 			}
 			 else {
-				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
+				 alert('사용 할 수 있는 총 포인트롤 초과했습니다.');
 				$(this).val('');
 			}
 		}
