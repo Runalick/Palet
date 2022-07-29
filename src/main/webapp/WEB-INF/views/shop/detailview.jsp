@@ -416,7 +416,7 @@ background:#454F5B;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	color: #919EAB;
-	width:8.125rem;
+	width:11rem;
 }
 
 .price {
@@ -548,6 +548,13 @@ margin-bottom: 2.5rem;
 }
 
 @media ( max-width : 871px) {
+.name {
+	overflow: hidden; 
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: #919EAB;
+	width:20rem;
+}
 #margin2{
 padding-left:1.7rem !important;
 padding-right:0px;
