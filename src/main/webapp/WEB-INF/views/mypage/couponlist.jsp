@@ -330,7 +330,7 @@ body a {
 .menu-title {
 	display: block;
 	color: black;
-	border-bottom: 1px solid black;
+
 	padding: 1rem;
 }
 
@@ -548,13 +548,13 @@ button {
 				<div class="navi-menu">
 					<ul class="navi-ul">
 					<li>
-						<div class="body4">My Tickets</div>
+						<div class="body4" style = "border-radius:7px;">My Tickets</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
-						<div class="body4">My Shopping</div>
+						<div class="body4" style = "border-radius:7px;">My Shopping</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
@@ -562,7 +562,7 @@ button {
 						</ul>
 					</li>
 					<li>
-						<div class="body4">My Info</div>
+						<div class="body4" style = "border-radius:7px;">My Info</div>
 						<ul>
 							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
 							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>
@@ -581,7 +581,7 @@ button {
 						<div class="col-12" style="border-bottom:1px solid black; margin-top:1.5rem; padding-bottom:1.5rem;">
 							<div class="col-12 body1" style="padding-bottom:1rem;">쿠폰코드를 입력해 주세요.</div>
 							<div class="col-12" style="margin-bottom:0.5rem;">
-								<input class="serialInput" type="text" maxlength="10" placeholder="쿠폰 번호는 최대 10자리입니다." style="width:25rem; height:3em; border:1px solid #DFE3E8;">
+								<input class="serialInput" type="text"  maxlength="10" placeholder="쿠폰 번호는 최대 10자리입니다." style="width:25rem; padding-left:0.7rem; height:3em; border:1px solid #DFE3E8;">
 								<button id="regist" style="width:5rem; height:3rem;">등록</button>
 							</div>
 							<div class="col-12 body2" style="color:gray">* 티켓 또는 상품 구매에 사용 가능한 쿠폰이 있으신가요? 쿠폰 사용을 위해 쿠폰 코드를 입력해 주세요.</div>
@@ -589,10 +589,10 @@ button {
 						<div class="col-12" style="border-bottom:2px solid black; margin-top:1.5rem; padding-bottom:1.5rem;">
 							<div class="row">
 								<div class="col-6" style="padding-left:1rem; padding-right:0rem;">
-									<button class="notUsed button" id="N" style="width:100%; height:4rem;">사용 가능 쿠폰</button>
+									<button class="notUsed button" id="N" style="width:100%; height:4rem; border-radius:7px;">사용 가능 쿠폰</button>
 								</div>
 								<div class="col-6" style="padding-left:0rem; padding-right:1rem;">
-									<button class="used button" id="Y" style="width:100%; height:4rem;">사용완료 쿠폰</button>
+									<button class="used button" id="Y" style="width:100%; height:4rem; border-radius:7px;">사용완료 쿠폰</button>
 								</div>
 							</div>
 						</div>

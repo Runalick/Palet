@@ -65,6 +65,7 @@ width:1.563rem;
 background:black;
 color:White;
 border-radius:30px;
+border:1px;
 position:absolute;
 top:4rem;
 left:4rem;
