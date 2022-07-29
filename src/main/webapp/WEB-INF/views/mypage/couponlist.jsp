@@ -361,6 +361,7 @@ li div {
 }
 
 .body3 a {
+    font-family: 'Spoqa Han Sans Neo';
 	display: block;
 	padding: 0.3rem 1rem;
 }
@@ -571,7 +572,7 @@ button {
 				</div>
 				
 				<div class="content" style="padding-left:50px; ">
-					<div class="row" id="row1" style="padding-top:1rem;">
+					<div class="row" id="row1" style="padding-top:1.25rem;">
 						<div class="col-12 H5" style="">
 							나의 쿠폰
 						</div>

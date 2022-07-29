@@ -362,6 +362,7 @@ li div {
 }
 
 .body3 a {
+    font-family: 'Spoqa Han Sans Neo';
 	display: block;
 	padding: 0.3rem 1rem;
 }
@@ -665,7 +666,7 @@ font-family: 'Spoqa Han Sans Neo';
 					</div>
 				</div>
 
-				<div class="content" style="padding-left: 50px;">
+				<div class="content" style="padding-left: 50px; padding-top:1.25rem;">
 					<div class="row" id="row1">
 						<div class="col-sm-12 h2" style="text-align: left; margin-left: auto; margin-bottom: 20px;">
 							<div class="main-title">나의 회원등급</div>

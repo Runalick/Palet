@@ -323,7 +323,7 @@ line-height: 3.75rem;
 
 /* 네비 */
 .content{
-margin-top:1rem;
+margin-top:1.25rem;
 
 }
 

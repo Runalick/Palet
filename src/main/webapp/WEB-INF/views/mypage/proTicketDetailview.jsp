@@ -308,7 +308,7 @@ width:100% !important;
 
 /* 네비 */
 .content{
-margin-top:1rem;
+margin-top:1.25rem;
 
 }
 

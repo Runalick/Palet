@@ -288,7 +288,7 @@ overflow-y:hidden !important;
                   Days</div>
                <br>
                <div class="col-12 h1 d-none d-sm-block"
-                  style="padding-left: 0.5rem;">어쩄든 사랑</div>
+                  style="padding-left: 0.5rem;">어쨌든 사랑</div>
                <div class=col-12>
                   <div class="col-12 body1 d-block d-sm-none"
                      style="text-align: center; margin-top: 2.5rem;">2022.03.16

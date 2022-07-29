@@ -596,6 +596,7 @@ background-size: 01.596rem;
 text-align:left;
 }
 .body3 a{
+    font-family: 'Spoqa Han Sans Neo';
 display:block;
 padding: 0.3rem 1rem;
 }
@@ -1024,7 +1025,7 @@ background: #FFFFFF;
 				
 				
 				
-				<div class="content" style="margin-top:1rem; padding-left: 50px;" >
+				<div class="content" style="margin-top:1.25rem; padding-left: 50px;" >
 					<div class="row">
 						<div class="col-1" >
 							<button class='vector'>

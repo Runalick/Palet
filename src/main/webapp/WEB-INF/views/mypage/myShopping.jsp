@@ -577,6 +577,7 @@ background-size: 01.596rem;
 text-align:left;
 }
 .body3 a{
+    font-family: 'Spoqa Han Sans Neo';
 display:block;
 padding: 0.3rem 1rem;
 }
@@ -828,7 +829,7 @@ color:white;
 				
 				
 				
-				<div class="content" style="margin-top:1rem;" >
+				<div class="content" style="margin-top:1.25rem;" >
 					<div class="row" style = "padding-left:50px;" >
 						<div class="col-12 main-info" >주문 내역</div>
 						

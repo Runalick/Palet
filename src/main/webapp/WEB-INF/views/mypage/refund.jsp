@@ -336,6 +336,7 @@ background-size: 01.596rem;
 text-align:left;
 }
 .body3 a{
+    font-family: 'Spoqa Han Sans Neo';
 display:block;
 padding: 0.3rem 1rem;
 }
@@ -598,7 +599,7 @@ padding-right:0px;
 				
 				
 				
-				<div class="content" style="margin-top:1rem; padding-left:50px;">
+				<div class="content" style="margin-top:1.25rem; padding-left:50px;">
 					<div class="row" id="row1">
 						<div class="col-12 main-info">취소/반품 내역</div>
 						<div class="col-12" style="padding-bottom:2rem;">
