@@ -813,7 +813,7 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." style="text-align: left;"
+										placeholder="예매자 이름을 입력해 주세요." style="text-align: left;"
 										maxlength="3" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
