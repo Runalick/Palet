@@ -1761,14 +1761,14 @@ margin-bottom:0.5rem;
 		}
 		var windowWidth = $( window ).width();
 	      let buyer_postcode = $(".buyer_postcode").val();
-	      if(buyer_postcode == ''){
+	      if(buyer_postcode === ''){
 	         buyer_postcode = $(".buyer_postcode1").val();
 	      }else if(windowWidth > 992){
 	         buyer_postcode = $(".buyer_postcode1").val();
 	      }
 	      
 	      let buyer_addr = $(".buyer_addr").val();
-	      if(buyer_addr == ''){
+	      if(buyer_addr === ''){
 	         buyer_addr = $(".buyer_addr1").val();
 	      }else if(windowWidth > 992){
 	         buyer_addr = $(".buyer_addr1").val();
