@@ -366,7 +366,7 @@ text-decoration:none;
 .menu-title{
 display:block;
 color:black;
-border-bottom:1px solid black;
+
 padding:1rem;
 }
 
@@ -612,13 +612,13 @@ color:black;
 				<div class="navi-menu">
 					<ul class="navi-ul">
 					<li>
-						<div class="body4">My Tickets</div>
+						<div class="body4"> style = "border-radius:7px;"My Tickets</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
 					</li>
 					<li>
-						<div class="body4">My Shopping</div>
+						<div class="body4" style = "border-radius:7px;">My Shopping</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 							<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
@@ -626,7 +626,7 @@ color:black;
 						</ul>
 					</li>
 					<li>
-						<div class="body4">My Info</div>
+						<div class="body4" style = "border-radius:7px;">My Info</div>
 						<ul>
 							<li class="body3"><a href="/member/rating">나의 회원등급</a></li>
 							<li class="body3"><a href="/coupon/couponlist">나의 쿠폰</a></li>

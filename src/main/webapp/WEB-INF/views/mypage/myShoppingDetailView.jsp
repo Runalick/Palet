@@ -564,7 +564,7 @@ text-decoration:none;
 .menu-title{
 display:block;
 color:black;
-border-bottom:1px solid black;
+
 padding:1rem;
 }
 
@@ -989,18 +989,18 @@ background: #FFFFFF;
 				
 					<div class="navi" >
 					<a href="/mypage/main" style=" font-size:1.625rem;" class="main" >
-					<strong class="menu-title">My Page</strong>
+					<strong class="menu-title" style = "border-radius:7px;">My Page</strong>
 					</a>
 					<div class="navi-menu">
 						<ul class="navi-ul">
 						<li>
-							<div class="body4">My Tickets</div>
+							<div class="body4" style = "border-radius:7px;">My Tickets</div>
 							<ul>
 								<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 							</ul>
 						</li>
 						<li>
-							<div class="body4">My Shopping</div>
+							<div class="body4" style = "border-radius:7px;">My Shopping</div>
 							<ul>
 								<li class="body3"><a href="/mypage/myShopping">주문내역</a></li>
 								<li class="body3"><a href="/mypage/refund">취소/반품 내역</a></li>
