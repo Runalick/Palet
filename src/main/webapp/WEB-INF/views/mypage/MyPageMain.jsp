@@ -659,15 +659,15 @@ li div {
 								<c:choose>
 									<c:when test="${dto.grade == 'White'}">
 										<img src="/images/003.png"
-											style="height: 300px; width: 18.75rem;">
+											style="height: 300px; width: 18.75rem; object-fit:cover;">
 									</c:when>
 									<c:when test="${dto.grade == 'Black'}">
 										<img src="/images/002.png"
-											style="height: 300px; width: 18.75rem;">
+											style="height: 300px; width: 18.75rem; object-fit:cover;">
 									</c:when>
 									<c:when test="${dto.grade == 'Gray'}">
 										<img src="/images/001.png"
-											style="height: 300px; width: 18.75rem;">
+											style="height: 300px; width: 18.75rem; object-fit:cover;">
 									</c:when>
 								</c:choose>
 
