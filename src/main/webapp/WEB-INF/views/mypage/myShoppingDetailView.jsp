@@ -1359,10 +1359,10 @@ $(".li").on("click",function(){
 	$("#selectcancel").text($(this).text());
 	if($(this).attr("class")=='li write'){
 		$(".write-contents").css("display","block");
-		$(".input").text("");
+		$(".input").val("");
 	}else{
 		$(".write-contents").css("display","none");
-		$(".input").text($(this).text());
+		$(".input").val($(this).text());
 	}
 	$(".select-ul").toggle();
 })
