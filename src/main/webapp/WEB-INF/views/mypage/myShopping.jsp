@@ -829,7 +829,7 @@ color:white;
 				
 				
 				
-				<div class="content" style="margin-top:1rem;" >
+				<div class="content" style="margin-top:1.25rem;" >
 					<div class="row" style = "padding-left:50px;" >
 						<div class="col-12 main-info" >주문 내역</div>
 						

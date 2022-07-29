@@ -1025,7 +1025,7 @@ background: #FFFFFF;
 				
 				
 				
-				<div class="content" style="margin-top:1rem; padding-left: 50px;" >
+				<div class="content" style="margin-top:1.25rem; padding-left: 50px;" >
 					<div class="row">
 						<div class="col-1" >
 							<button class='vector'>
