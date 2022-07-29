@@ -613,7 +613,7 @@ color:black;
 				<div class="navi-menu">
 					<ul class="navi-ul">
 					<li>
-						<div class="body4"> style = "border-radius:7px;"My Tickets</div>
+						<div class="body4"  style = "border-radius:7px;">My Tickets</div>
 						<ul>
 							<li class="body3"><a href="/mypage/myTicket">티켓예매 목록</a></li>
 						</ul>
