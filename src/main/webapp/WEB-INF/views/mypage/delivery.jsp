@@ -643,7 +643,7 @@ color:black;
 				
 				
 				
-				<div class="content" style="margin-top:1rem; padding-left: 50px;">
+				<div class="content" style="margin-top:1.25rem; padding-left: 50px;">
 					<div class="row" >
 						<div class="col-12 main-info ">배송지 목록</div>
 						<div class="col-12 col-md-8 body4 " >배송지를 최대 5개까지 관리하실 수 있습니다.<br>자주 쓰는 배송지를 편리하게 관리하세요!</div>
