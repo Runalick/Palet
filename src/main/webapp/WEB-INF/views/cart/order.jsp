@@ -1448,7 +1448,10 @@ margin-bottom:0.5rem;
 						}
 						$(".myPoint1").text(myPoint);
 						$(".myPoint2").text(myPoint);
-						
+						$(".pointinput1").attr("min",0);
+						$(".pointinput1").attr("max",myPoint);
+						$(".pointinput2").attr("min",0);
+						$(".pointinput2").attr("max",myPoint);
 						if(grade == "White"){
 							LetaddPoint = Math.floor((Number(sumPrice - totalDc + 3000) * 0.01))
 							$(".totalPoint").text(LetaddPoint + "p");
@@ -1475,10 +1478,10 @@ margin-bottom:0.5rem;
 						}
 						
 
-						$(".pointinput1").attr("min",0);
-						$(".pointinput1").attr("max",myPoint);
-						$(".pointinput2").attr("min",0);
-						$(".pointinput2").attr("max",myPoint);
+// 						$(".pointinput1").attr("min",0);
+// 						$(".pointinput1").attr("max",myPoint);
+// 						$(".pointinput2").attr("min",0);
+// 						$(".pointinput2").attr("max",myPoint);
 					})
 					
 					for(let i = 0; i < arrG_seq.length; i++){
@@ -1571,6 +1574,10 @@ margin-bottom:0.5rem;
 	
 	
 	$(".pointinput1").on("change",function(){
+		if($(".pointinput1").val() > myPoint){
+			alert("보유포인트보다 높습니다.");
+			$(".pointinput1").val("");
+		}
 		if($(".pointinput1").val() > sumPrice){
 			alert("상품금액보다 높습니다");
 // 			$("#select1 option:eq(0)").attr("selected", "selected");
@@ -1615,6 +1622,10 @@ margin-bottom:0.5rem;
 	})
 	
 	$(".pointinput2").on("change",function(){
+		if($(".pointinput2").val() > myPoint){
+			alert("보유포인트보다 높습니다.");
+			$(".pointinput2").val("");
+		}
 		if($(".pointinput2").val() > sumPrice){
 			alert("상품금액보다 높습니다");
 // 			$("#select1 option:eq(0)").attr("selected", "selected");
