@@ -301,6 +301,7 @@ $("#make").on("click",function(){
 		category:$("#cp_category").val()}
 	}).done(function(resp){
 		alert("쿠폰 "+resp+"매가 발행되었습니다.");
+		location.reload();
 	})
 })
 </script>	
