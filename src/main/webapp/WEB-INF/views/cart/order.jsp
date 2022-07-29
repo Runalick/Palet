@@ -1736,12 +1736,12 @@ margin-bottom:0.5rem;
 			return false;
 			
 		}
-		if($(".buyer_addr").val()==""){
-			alert("우편번호를 입력하세요");
-			return false;
+// 		if($(".buyer_addr").val()==""){
+// 			alert("우편번호를 입력하세요");
+// 			return false;
 			
 			
-		}
+// 		}
 		if($(".buyer_address2").val()==""){
 			alert("상세주소를 입력하세요");
 			return false;

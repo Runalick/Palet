@@ -592,7 +592,7 @@ border-radius: 20px;
 						</div>
 						<div class="col-12 body2" style="margin-top:1.5rem;">문의 제목</div>
 						<div class="col-12">
-						<input type="text" class="body2 input" id="title" oninput="this.value = this.value.replace(/[a-zA-Z0-9 .-/|]*$/g, '').replace(/(\..*)\./g, '$1');" placeholder="제목을 입력해 주세요.">
+						<input type="text" class="body2 input" id="title" placeholder="제목을 입력해 주세요.">
 						</div>
 						<div class="col-12 body2" style="margin-top:1.5rem;" >문의 내용</div>
 						<div class="col-12">
