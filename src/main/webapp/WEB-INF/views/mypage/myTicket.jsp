@@ -310,9 +310,11 @@ font-size:1.625rem !important;
 	.navi-menu {
 		display: none;
 	}
-	.content {
-		width: calc(100% - 1.625rem);
-	}
+	 .content {
+      width: calc(100% - 1.625rem);
+      padding:0rem !important;
+      margin-left:1.25rem !important;
+   }
 	.navi {
 		padding: 0rem;
 	}
@@ -654,8 +656,8 @@ border-radius:0.625rem;
 					</div>
 				</div>
 
-			<div class="content">
-				<div class="row" id="row1"  style = "padding-left:50px; padding-top:1.25rem; " >
+			<div class="content" style="padding-left:50px;">
+				<div class="row" id="row1"  style = " padding-top:1.25rem; " >
 					<div class="col-12 H5">진행 중 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${cnt !=0}"> 
@@ -731,7 +733,7 @@ border-radius:0.625rem;
 				</c:otherwise>
 			</c:choose>	
 		</div>
-			<div class="col-12 H5"  style = "padding-left:50px;">지난 전시/클래스 티켓</div>
+			<div class="col-12 H5" >지난 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${precnt ==0 }">
 					<div class="col-12 H2" style="margin:auto ; padding-top:7rem; width:25rem; margin-bottom:12rem; ">예매 내역이 없습니다.</div>

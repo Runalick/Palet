@@ -303,6 +303,8 @@ font-size: 16px;
    }
    .content {
       width: calc(100% - 1.625rem);
+      padding:0rem !important;
+      margin-left:0.5rem !important;
    }
    .navi {
       padding: 0rem;
