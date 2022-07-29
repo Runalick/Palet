@@ -396,6 +396,7 @@ background-size: 01.596rem;
 text-align:left;
 }
 .body3 a{
+    font-family: 'Spoqa Han Sans Neo';
 display:block;
 padding: 0.3rem 1rem;
 }
