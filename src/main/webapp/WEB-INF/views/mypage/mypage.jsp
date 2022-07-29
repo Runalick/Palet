@@ -704,7 +704,7 @@ color:#f9e000;
 
 
 
-            <div class="content">
+            <div class="content" style="padding-left: 50px;">
                <div class="row" id="row1" style="padding:1rem; padding-bottom:0px;">
                   <div class="col-sm-12 main-info">
                      개인정보 변경/탈퇴
