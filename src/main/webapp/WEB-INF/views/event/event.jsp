@@ -41,6 +41,7 @@
 	#background-area{
 	min-height:37.5rem !important; 
 	padding-bottom:43rem;
+	margin-top: 50px;
 	}
 </style>
 <body>
@@ -207,7 +208,7 @@
 		
 			<div class="row ">
 				<div class="col-12 h2 d-block d-sm-none"
-					style="margin-top: 2.5rem; text-align: center;">Program</div>
+					style="text-align: center;">Program</div>
 				<ul class="col-12 ul2_1 h3 d-block d-sm-none "
 					style="text-align: center; margin-top: 2.5rem; line-height: 2.688rem; margin:auto;'">
 					
