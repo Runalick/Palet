@@ -1074,17 +1074,7 @@ height: 3.625rem;
 	$(".ok").on("click",function(){
 		location.reload();
 	})
-	//구매 취소 확인 버튼
-	$(".pay-cancel").on("click",function(){
-// 		console.log($(".input").val());
-		$.ajax({
-			url:"/mypage/payCancel",
-			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
-		}).done(function(resp){
-// 			console.log("성공");
-			location.reload();
-		})
-	})
+
 	
 	
 	
@@ -1095,10 +1085,10 @@ height: 3.625rem;
 		$("#selectcancel").text($(this).text());
 		if($(this).attr("class")=='li write'){
 			$(".write-contents").css("display","block");
-			$(".input").text("");
+			$(".input").val("");
 		}else{
 			$(".write-contents").css("display","none");
-			$(".input").text($(this).text());
+			$(".input").val($(this).text());
 		}
 		$(".select-ul").toggle();
 	})
@@ -1130,7 +1120,17 @@ $("body").on("click", function(e){
     }
 
 })
-	
+		//구매 취소 확인 버튼
+	$(".pay-cancel").on("click",function(){
+// 		console.log($(".input").val());
+		$.ajax({
+			url:"/mypage/payCancel",
+			data:{content:$(".input").val(),booknumber:$(this).val(),category:'E'}
+		}).done(function(resp){
+// 			console.log("성공");
+			location.reload();
+		})
+	})
 	
 	$(document).ready(function(){
 		state();
