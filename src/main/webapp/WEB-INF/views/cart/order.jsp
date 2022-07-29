@@ -1238,20 +1238,10 @@ margin-bottom:0.5rem;
 // 	});
    	
    	  	//배송지 선택
-   	  	var windowWidth = $( window ).width();
    	$(".choosedeliverybtn").on("click",function(){
    		
-   	 let buyer_addr = $(".buyer_addr").val();
-     if(buyer_addr == ''){
-   	  $(".buyer_addr").val($(".buyer_addr1").val());
-     }else if(windowWidth > 992){
-   	  $(".buyer_addr").val($(".buyer_addr1").val())
-     }
-     
-     
-     
-     console.log($(".buyer_addr").val());
-//    		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
+   	 
+   		window.open("/cart/choosedeliverybtn","", "top=100,left=200,width=870,height=530");
 
    	})
 
