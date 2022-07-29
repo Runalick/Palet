@@ -107,7 +107,7 @@
 /* 		}  */
 .row>div {
 	padding-left: 2.5rem;
-	padding-right: 2.5rem;
+
 }
 
 .nav-link {
@@ -655,7 +655,7 @@ border-radius:0.625rem;
 				</div>
 
 			<div class="content">
-				<div class="row" id="row1" style="padding: 1rem; ">
+				<div class="row" id="row1"  style = "padding-left:50px;"">
 					<div class="col-12 H5">진행 중 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${cnt !=0}"> 
@@ -731,7 +731,7 @@ border-radius:0.625rem;
 				</c:otherwise>
 			</c:choose>	
 		</div>
-			<div class="col-12 H5">지난 전시/클래스 티켓</div>
+			<div class="col-12 H5"  style = "padding-left:50px;">지난 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${precnt ==0 }">
 					<div class="col-12 H2" style="margin:auto ; padding-top:7rem; width:25rem; margin-bottom:12rem; ">예매 내역이 없습니다.</div>
@@ -798,7 +798,7 @@ window.onload = function(){
 					+"</div></div></div></a>"); 
 			} if(resp[i].category == 'P'){
 				$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
-		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+		    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem; padding-left:0rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
 						+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 						+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 					+"</div></div></div></a>"); 
@@ -835,7 +835,7 @@ window.onload = function(){
 							+"</div></div></div></a>"); 
 						} if(resp[i].category == 'P'){
 							$(".pre-ticket-row").append("<a class='a' href='/mypage/proTicketDetailview?pro_booknumber="+resp[i].booknumber+"' ><div class='col-6 pre-ticket'><input type='hidden' value="+resp[i].booknumber+"><div class='row' id='row1' style='height: 100%'>"
-					    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
+					    			  +"<div class='col-3 d-none d-sm-block' style='padding: 1rem; padding-right:0rem;'><img src="+resp[i].sysname+" class='w-100 h-100 imgimg'>"
 									+"</div><div class='col-sm-9 col-12 pre-div' style='position: relative; padding-left:2.5rem;'><div class='pre-title' style='color: #637381;padding-top:1.25rem; padding-bottom:1.25rem;'>"+resp[i].title+"</div>"
 									+"	<div class='body6' style='color: #637381;'>"+resp[i].datee+"</div>"
 								+"</div></div></div></a>"); 
