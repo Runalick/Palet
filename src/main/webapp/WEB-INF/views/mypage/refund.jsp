@@ -647,10 +647,10 @@ padding-right:0px;
 <c:if test="${i.category == 'G'}">
 					<div class="row Glist" id="row1" style="padding:1rem; border-bottom:1px solid #dddddd; padding:2rem 1rem 2rem 1rem;">
 							<input type="hidden" value="${i.booknumber }">
-						<div class="col-3 col-md-2" style="width:120px; padding-top:0.5rem; margin-left: 20px; margin-bottom: 20px;" >
+						<div class="col-3 col-md-2 mb-5" style="width:120px; padding-top:0.5rem; " >
 								<img referrerpolicy="no-referrer" src="${i.sysname }" style="width:100px; height:100px; border-radius:10px;">
 						</div>
-						<div class="col-8 col-md-9" >
+						<div class="col-8 col-md-9 mb-5" >
 							<div class="row">
 								<div class="col-12 body5-title">[Shop]${i.title }</div>
 								<div class="col-12" >

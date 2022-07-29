@@ -813,16 +813,16 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." style="text-align: center"
+										placeholder="신청자 이름을 입력해 주세요." style="text-align: left;"
 										maxlength="3" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 phone" maxlength="11"
 										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
-										placeholder="전화번호를 입력해 주세요." style="text-align: center"
+										placeholder="전화번호를 입력해 주세요." style="text-align: left;"
 										required><br> <span
-										style="display: none; text-align: center;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
+										style="display: none; text-align: left;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12 mb-4" style="margin-top: 0.5rem;">
@@ -990,7 +990,7 @@ input::placeholder {
 							style="padding-left: 0rem; margin-top: 1.125em;">
 
 							<input type=text class="body2 usedpoint"
-								style="width: 15rem; height: 3rem;  " placeholder="포인트를 입력후 엔터를 누르세요." oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
+								style="width: 15rem; height: 3rem; text-align:left; padding-left:0.7rem; "  placeholder="포인트를 입력후 엔터를 누르세요."  oninput="this.value = this.value.replace(/[^\d]/g, '').replace(/(\..*)\./g, '$1');">
 							<button class="h4 usedbutton"
 								style="background: #161C24; width: 8rem; height: 3rem; margin-left: 4px; color: white; border-radius: 6px; border:0px solid black;">모두
 								사용</button>
@@ -1003,9 +1003,6 @@ input::placeholder {
 
 
 						<!--작은 면 쿠폰 포인트 사용 -->
-					
-
-
 
 
 					</div>
@@ -1239,6 +1236,7 @@ console.log($(".form-select1 option:selected").text());
 				$("#finalprice").text((price2-$(this).val()).toLocaleString()+"원");
 			
 				}else{
+					console.log('11');
 					alert('한번에 사용 가능한 최대 포인트는 5000원 입니다..');
 				}
 			}else if(!check.test($(this).val())){
@@ -1248,7 +1246,8 @@ console.log($(".form-select1 option:selected").text());
 				
 			}
 			 else {
-				alert('한번에 사용가능 한 최대 포인트는 5000원 입니다.');
+					console.log('22');
+				alert('사용 할 수 있는 총 포인트롤 초과했습니다.');
 				$(this).val('');
 			}
 		}

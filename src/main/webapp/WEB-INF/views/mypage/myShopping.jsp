@@ -843,14 +843,14 @@ color:white;
 							<a href='/mypage/myShoppingDetail?merchant_uid=${i.MERCHANT_UID }'>
 							<div id="contents_area">
 								<div class='row main-area' id="detailView">
-									<div class='col-12 col-md-2 px-3 ellipsis body4 paytime'> ${i.pay_time}</div>
+									<div class='col-12 col-md-2 px-3 ellipsis body4 paytime' style ='font-weight: 400;'> ${i.pay_time}</div>
 									<div class='col-12 col-md-6 px-3 ellipsis body4'>
 										<div class='row'>
-											<div class='col-12 p-0'>주문번호: ${i.MERCHANT_UID }</div>
-											<div class='col-12 p-0'>${i.G_NAME}</div>
+											<div class='col-12 p-0' style ='font-weight: 400;'>주문번호: ${i.MERCHANT_UID }</div>
+											<div class='col-12 p-0' style ='font-weight: 400;'>${i.G_NAME}</div>
 										</div>
 									</div>
-									<div class='col-12 col-md-2 px-3 ellipsis body4'>${i.TOTALPRICE}</div>
+									<div class='col-12 col-md-2 px-3 ellipsis body4' style ='font-weight: 400;'>${i.TOTALPRICE}</div>
 									<div class='col-12 col-md-2 px-3 ellipsis body4 del'>
 										
 										
