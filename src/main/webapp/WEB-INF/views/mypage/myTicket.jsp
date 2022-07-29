@@ -655,7 +655,7 @@ border-radius:0.625rem;
 				</div>
 
 			<div class="content">
-				<div class="row" id="row1"  style = "padding-left:50px;"">
+				<div class="row" id="row1"  style = "padding-left:50px; padding-top:1.25rem; " >
 					<div class="col-12 H5">진행 중 전시/클래스 티켓</div>
 			<c:choose>
 				<c:when test="${cnt !=0}"> 

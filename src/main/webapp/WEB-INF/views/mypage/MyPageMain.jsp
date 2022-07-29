@@ -642,7 +642,7 @@ li div {
 						</div>
 					</div>
 
-					<div class="content" style="margin-top: 1rem;">
+					<div class="content" style="margin-top: 1.25rem;     font-family: 'Spoqa Han Sans Neo';">
 						<div class="row">
 							<div class="col-12 h2 title d-none d-md-block"
 								style="margin-left: 3.5rem; margin-bottom: 1.5rem;">
@@ -652,7 +652,7 @@ li div {
 								<c:if test="${dto.name!=null }"> 
 								${dto.name }
  							</c:if>
-								님 안녕하세요
+								<span style="font-size:1.5rem;">님 안녕하세요</span>
 							</div>
 							<div class="col-12 col-md-6"
 								style="text-align: center; margin-bottom: 1.5rem; padding-top: 3rem;">
