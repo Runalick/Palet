@@ -888,15 +888,15 @@ input::placeholder {
 								<div class="col-12 mt-3">이름</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 username"
-										placeholder="신청자 이름을 입력해 주세요." maxlength="3" required style = "text-align:center" required>
+										placeholder="신청자 이름을 입력해 주세요." maxlength="3" required style = "text-align:left;" required>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">전화 번호</div>
 								<div class=col-12 style="margin-top: 0.5rem;">
 									<input type=text class="input1 phone" maxlength="11"
 										pattern="^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
-										placeholder="전화번호를 입력해 주세요." style="text-align: center"
+										placeholder="전화번호를 입력해 주세요." style="text-align:left;"
 										required><br> <span
-										style="display: none; text-align: center;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
+										style="display: none; text-align: left;" class="phoneck">전화번호를 숫자만 입력 해주세요</span>
 								</div>
 								<div class=col-12 style="margin-top: 1.5rem;">이메일</div>
 								<div class="col-12" style="margin-top: 0.5rem;">
