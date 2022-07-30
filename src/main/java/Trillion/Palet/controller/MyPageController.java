@@ -62,7 +62,7 @@ public class MyPageController {
 //		String email = "i2376@naver.com";
 		
 //		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
-		String ip = "3.34.123.180";
+		String ip = "43.200.44.172";
 		// 큐알코드 생성 url ip부분은 추후 서버 ip로 변경해야됨
 		int cnt = mServ.myTicketcnt(email);
 
@@ -117,7 +117,7 @@ public class MyPageController {
 		model.addAttribute("cdto",cdto);
 		}
 //		String url = "http://14.39.252.82/Exhibition/toPreExhibition";
-		String ip = "3.34.123.180";
+		String ip = "43.200.44.172";
 		// 큐알코드 생성 ip부분은 추후 서버 ip로 변경해야됨
 		model.addAttribute("ip",ip);
 		model.addAttribute("dto",dto);

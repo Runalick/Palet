@@ -943,7 +943,7 @@ border:1px;
 				class="link-icon facebook" href="javascript:shareFacebook();">페이스북</a>
 			<a id="btnKakao" class="link-icon kakao"
 				href="javascript:shareKakao();">카카오</a> <br> <input type="text"
-				id="text" value="http://3.34.123.180/Exhibition/toCurdetail" readonly
+				id="text" value="http://43.200.44.172/Exhibition/toCurdetail" readonly
 				style="margin-top: 10px;" /> <input type="button" id="copybtn"
 				onclick="fn_copy()" value="Copy" />
 		</div>
@@ -1057,14 +1057,14 @@ $(".logout").on("click", function(){
 	// 트위터 공유하기
 	function shareTwitter() {
 		var sendText = "Palet"; // 전달할 텍스트
-		var sendUrl = "http://3.34.123.180/Exhibition/toCurdetail"; // 전달할 URL
+		var sendUrl = "http://43.200.44.172/Exhibition/toCurdetail"; // 전달할 URL
 		window.open("https://twitter.com/intent/tweet?text=" + sendText
 				+ "&url=" + sendUrl);
 	}
 
 	// 페이스북 공유하기
 	function shareFacebook() {
-		var sendUrl = "http://3.34.123.180/Exhibition/toCurdetail"; // 전달할 URL
+		var sendUrl = "http://43.200.44.172/Exhibition/toCurdetail"; // 전달할 URL
 		window.open("http://www.facebook.com/sharer/sharer.php?u=" + sendUrl);
 	}
 
@@ -1083,8 +1083,8 @@ $(".logout").on("click", function(){
 				description : "전시회 바로 예약하기", // 보여질 설명
 				imageUrl : 'http://localhost/images/anywayloveS.png', // 콘텐츠 URL
 				link : {
-					mobileWebUrl : "http://3.34.123.180/Exhibition/toCurdetail",
-					webUrl : "http://3.34.123.180/Exhibition/toCurdetail"
+					mobileWebUrl : "http://43.200.44.172/Exhibition/toCurdetail",
+					webUrl : "http://43.200.44.172/Exhibition/toCurdetail"
 				}
 			}
 		});
