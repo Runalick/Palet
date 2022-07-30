@@ -918,7 +918,7 @@ input::placeholder {
 								</div>
 
 								<div class="col-lg-12 body1 col-6"
-									style="color: #161C24; margin-top: 2.325rem; position: absolute; left: 10.5rem;">
+									style="color: #161C24; margin-top: 1rem; position: absolute; left: 10.5rem;">
 									Romantic Days 어쨌든, 사랑
 									<div class=h3
 										style="color: #161C24; margin-top: 0.5rem; margin-bottom: 0px;"
