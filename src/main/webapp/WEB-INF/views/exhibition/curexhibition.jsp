@@ -457,26 +457,7 @@ a {
 	color:black;
 }
 </style>
-<script>
-//사용할 앱의 JavaScript 키 설정
-$(".logout").on("click", function(){
-         Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-         Kakao.isInitialized();
-         if (!Kakao.Auth.getAccessToken()) {
-//             console.log('Not logged in.');
-            location.href="/member/logout";
-             return ;
-         }
-         
-          Kakao.Auth.logout(function() {
-//                console.log(Kakao.Auth.getAccessToken());
-               location.href="/member/logout";
-             });
-          
-         return true;
-      });
 
-</script>
 
 </head>
 <body>
@@ -737,24 +718,6 @@ $(".logout").on("click", function(){
 		</div>
 
 	</div>
-<script>
-$(".logout").on("click", function(){
-    Kakao.init('feb50c309d28b138aefe9ddc94d76870');
-    Kakao.isInitialized();
-    if (!Kakao.Auth.getAccessToken()) {
-//        console.log('Not logged in.');
-       location.href="/member/logout";
-        return ;
-    }
-    
-     Kakao.Auth.logout(function() {
-//           console.log(Kakao.Auth.getAccessToken());
-          location.href="/member/logout";
-        });
-    return true;
- });
-
-</script>
 
 <!-- Channel Plugin Scripts -->
 <script>

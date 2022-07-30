@@ -955,6 +955,25 @@ border:1px;
 
 </body>
 <script>
+
+
+$(".logout").on("click", function(){
+ 
+    if (!Kakao.Auth.getAccessToken()) {
+//        console.log('Not logged in.');
+       location.href="/member/logout";
+        return ;
+    }
+    
+     Kakao.Auth.logout(function() {
+//           console.log(Kakao.Auth.getAccessToken());
+          location.href="/member/logout";
+        });
+    return true;
+ });
+
+	
+
 	$(".bookbutton").on("click", function() {
 // 		console.log('hi11');
 		
