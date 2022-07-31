@@ -562,7 +562,8 @@ padding-right:0px;
 #imgdiv {
 padding-right:1.6rem !important;
 height:35rem;
-width:100%;
+width:45.375rem;
+margin: 4.5rem auto;
 }
 		#goodscontainer {
 	width: 100%;
