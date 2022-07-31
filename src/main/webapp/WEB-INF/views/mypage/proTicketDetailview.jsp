@@ -792,6 +792,8 @@ background:#F4F6F8;
 					<div class="col-12 col-sm-9 body4" >${dto.pro_booknumber }</div>
 					<div class="col-12 col-sm-3 body4">주문일자</div>
 					<div class="col-12 col-sm-9 body4">${dto.pro_buydate }</div>
+					<div class="col-12 col-sm-3 body4">선택일자</div>
+					<div class="col-12 col-sm-9 body4"><b>${dto.pro_pickdate }</b></div>
 					<div class="col-3 col-sm-3 body4">주문자</div>
 					<div class="col-9 col-sm-9 body4">${dto.pro_username }</div>
 					<div class="col-3 col-sm-3 body4">주문처리상태</div>
@@ -908,6 +910,8 @@ background:#F4F6F8;
 						<div class="row modal-ticket-row" >
 							<div class="col-12 paymodal-title2" style="padding-top:1rem;">${dto.pro_title }</div>
 							<div class="col-12 paymodal-title2">${dto.pro_booknumber }</div>
+							<div class="col-12 paymodal-title2">${dto.pro_pickdate }</div>
+							
 							<div class="col-12 paymodal-title2" id="modal-price">${dto.pro_cost/ dto.pro_count  }원</div>
 						<script>
 				price = ${(dto.pro_cost+dto.pro_usedpoint+dto.pro_cpdiscount)/dto.pro_count  };

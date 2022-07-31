@@ -287,14 +287,19 @@ line-height: 3.75rem;
 	}
 	
 }
-@media ( min-width : 500px) {
-	.select-ul{
-	 width:406px;
+@media ( max-width : 1280px) {
+.select-ul{
+	 width:33.875rem;
+	}
+}
+@media ( min-width : 1280px) {
+.select-ul{
+	 width:32.375rem;
 	}
 }
 
-
 @media ( max-width : 991px) {
+
 	.main{
 	display:none;
 	}
